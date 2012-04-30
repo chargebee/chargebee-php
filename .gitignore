@@ -1,0 +1,7 @@
+.DS_Store
+
+#Ignore the loca test file
+/lib/test.php
+
+# Ignore the SimpleTest library
+/test/simpletest/
