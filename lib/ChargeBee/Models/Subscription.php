@@ -36,9 +36,9 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/cancel", $params, $env);
   }
 
-  public static function reactivate($id, $env = null)
+  public static function reactivate($id, $params = array(), $env = null)
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/reactivate", array(), $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/reactivate", $params, $env);
   }
 
  }
