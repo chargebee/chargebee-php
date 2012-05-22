@@ -3,8 +3,8 @@
 class ChargeBee_Invoice extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'subscriptionId', 'status', 'startDate', 'endDate', 'amount', 'paidOn',
-'nextRetry', 'subTotal', 'lineItems', 'discounts');
+  protected $allowed = array('id', 'subscriptionId', 'recurring', 'status', 'startDate', 'endDate', 'amount',
+'paidOn', 'nextRetry', 'subTotal', 'lineItems', 'discounts');
 
 
 
@@ -24,6 +24,16 @@ class ChargeBee_Invoice extends ChargeBee_Model
   public static function invoicesForSubscription($id, $params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/subscriptions/$id/invoices", $params, $env);
+  }
+
+  public static function charge($params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/charge", $params, $env);
+  }
+
+  public static function chargeAddon($params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/charge_addon", $params, $env);
   }
 
  }
