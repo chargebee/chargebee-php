@@ -28,6 +28,11 @@ class ChargeBee_Result
 		return $this->_get('card', 'ChargeBee_Card');
 	}
 
+	function address()
+	{
+		return $this->_get('address', 'ChargeBee_Address');
+	}
+
 	function invoice()
 	{
 		return $this->_get('invoice', 'ChargeBee_Invoice', array('line_items' => 'ChargeBee_InvoiceLineItem', 
