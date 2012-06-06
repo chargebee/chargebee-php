@@ -11,6 +11,17 @@ class ChargeBee_Event extends ChargeBee_Model
       return new ChargeBee_Content($this->_values['content']);
   }
 
+  public static function deserialize($json)
+  {
+      $webhookData = json_decode($json, true);
+      if($webhookData != null)
+      {
+        return new ChargeBee_Event($webhookData, null);
+      }
+      return null;
+  }
+
+
   # OPERATIONS
   #-----------
 
