@@ -54,6 +54,20 @@ class ChargeBee_Result
 		return $this->_get('hosted_page', 'ChargeBee_HostedPage');
 	}
 
+	function plan()
+	{
+		return $this->_get('plan', 'ChargeBee_Plan');
+	}
+	
+	function addon()
+	{
+		return $this->_get('addon', 'ChargeBee_Addon');
+	}
+	
+	function coupon()
+	{
+		return $this->_get('coupon', 'ChargeBee_Coupon');
+	}
 	private function _get($type, $class, $subTypes = array())
 	{
 		if(!array_key_exists($type, $this->_response))
