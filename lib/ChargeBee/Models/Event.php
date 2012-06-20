@@ -16,7 +16,7 @@ class ChargeBee_Event extends ChargeBee_Model
       $webhookData = json_decode($json, true);
       if($webhookData != null)
       {
-        return new ChargeBee_Event($webhookData, null);
+        return new ChargeBee_Event($webhookData);
       }
       return null;
   }
