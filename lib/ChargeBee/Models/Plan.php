@@ -3,7 +3,7 @@
 class ChargeBee_Plan extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'name', 'invoiceName', 'price', 'periodUnit', 'trialPeriod', 'trialPeriodUnit',
+  protected $allowed = array('id', 'name', 'invoiceName', 'price', 'period', 'periodUnit', 'trialPeriod', 'trialPeriodUnit',
 'setupCost', 'status', 'archivedAt');
 
 
