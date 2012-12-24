@@ -11,9 +11,24 @@ class ChargeBee_Invoice extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
+  public static function addCharge($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/add_charge", $params, $env);
+  }
+
+  public static function addAddonCharge($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/add_addon_charge", $params, $env);
+  }
+
   public static function all($params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/invoices", $params, $env);
+  }
+
+  public static function invoicesForSubscription($id, $params = array(), $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::GET, "/subscriptions/$id/invoices", $params, $env);
   }
 
   public static function retrieve($id, $env = null)
@@ -21,9 +36,9 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/invoices/$id", array(), $env);
   }
 
-  public static function invoicesForSubscription($id, $params = array(), $env = null)
+  public static function collect($id, $env = null)
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, "/subscriptions/$id/invoices", $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/collect", array(), $env);
   }
 
   public static function charge($params, $env = null)
