@@ -5,13 +5,16 @@ class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
 
 	private $response;
 
+  private $nextOffset;
+
 	protected $_items;
 	
 	private $_index;
 	
-  function __construct($response)
+  function __construct($response, $nextOffset)
   {
 		$this->response = $response;
+		$this->nextOffset = $nextOffset;
     $this->_items = array();
     $this->_initItems();
   }
@@ -23,6 +26,11 @@ class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
 			array_push($this->_items, new ChargeBee_Result($r));
 		}
 	}  
+	
+	public function nextOffset()
+	{
+	  return $this->nextOffset;
+	}
 	
 	public function count()
 	{
