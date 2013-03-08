@@ -3,7 +3,7 @@
 class ChargeBee_Customer extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'firstName', 'lastName', 'email', 'company', 'createdAt', 'cardStatus'
+  protected $allowed = array('id', 'firstName', 'lastName', 'email', 'company', 'vatNumber', 'createdAt', 'cardStatus'
 );
 
 
