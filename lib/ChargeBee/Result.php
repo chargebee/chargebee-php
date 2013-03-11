@@ -36,7 +36,13 @@ class ChargeBee_Result
 	function invoice()
 	{
 		return $this->_get('invoice', 'ChargeBee_Invoice', array('line_items' => 'ChargeBee_InvoiceLineItem', 
-		'discounts' => 'ChargeBee_InvoiceDiscount'));
+		'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax'));
+	}
+
+	function estimate()
+	{
+		return $this->_get('estimate', 'ChargeBee_Estimate', array('line_items' => 'ChargeBee_EstimateLineItem', 
+		'discounts' => 'ChargeBee_EstimateDiscount', 'taxes' => 'ChargeBee_EstimateTax'));
 	}
 
 	function transaction() 
