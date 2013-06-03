@@ -18,6 +18,18 @@ class ChargeBee_Model
 		$this->_load();
 	}
 	
+	public function param($k)
+	{
+	  if(in_array($k, $this->_values))
+	  {
+	    return $this->_values[$k];
+	  }
+	  else
+	  {
+	    throw new Exception("Unknown param $k in " . get_class($this));
+	  }
+	}
+	
 	public function __set($k, $v)
 	{
 		$this->_data[$k] = $v;
