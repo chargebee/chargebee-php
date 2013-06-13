@@ -31,6 +31,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id", $params, $env);
   }
 
+  public static function changeTermEnd($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/change_term_end", $params, $env);
+  }
+
   public static function cancel($id, $params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/cancel", $params, $env);

@@ -4,7 +4,7 @@ class ChargeBee_Transaction extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'subscriptionId', 'paymentMethod', 'gateway', 'description', 'type', 'date',
-'amount', 'idAtGateway', 'errorCode', 'errorText', 'voidedAt', 'status', 'maskedCardNumber','refundedTxnId');
+'amount', 'idAtGateway', 'status', 'errorCode', 'errorText', 'voidedAt', 'maskedCardNumber','refundedTxnId');
 
 
 
