@@ -2,7 +2,7 @@
     "name": "chargebee/chargebee-php",
     "type": "library",
     "description": "ChargeBee API client implementation for PHP",
-    "keywords": ["php"],
+    "keywords": ["chargebee", "payments", "subscription billing", "recurring billing"],
     "license": "MIT",
     "homepage": "https://github.com/chargebee/chargebee-php"
 }
