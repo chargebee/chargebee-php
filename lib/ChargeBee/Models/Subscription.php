@@ -16,6 +16,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions", $params, $env);
   }
 
+  public static function createForCustomer($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/customers/$id/subscriptions", $params, $env);
+  }
+
   public static function all($params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/subscriptions", $params, $env);
