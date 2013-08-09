@@ -11,14 +11,14 @@ class ChargeBee_Address extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
-  public static function update($params, $env = null)
-  {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, "/addresses", $params, $env);
-  }
-
   public static function retrieve($params, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/addresses", $params, $env);
+  }
+
+  public static function update($params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/addresses", $params, $env);
   }
 
  }
