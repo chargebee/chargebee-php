@@ -45,9 +45,10 @@ class ChargeBee_Curl
 		$opts[CURLOPT_RETURNTRANSFER] = true;
 		$opts[CURLOPT_CONNECTTIMEOUT] = 50;
 		$opts[CURLOPT_TIMEOUT] = 100;
+		$userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
 		$headers = array(
       'Accept: application/json',
-			"User-Agent: Chargebee-PHP-Client");
+			"User-Agent: " . $userAgent);
     $opts[CURLOPT_HTTPHEADER] = $headers;
 		$opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
     if (ChargeBee::getVerifyCaCerts()) 
