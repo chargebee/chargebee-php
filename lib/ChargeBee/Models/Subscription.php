@@ -51,6 +51,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/reactivate", $params, $env);
   }
 
+  public static function addCredit($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/subscriptions/$id/add_credit", $params, $env);
+  }
+
  }
 
 ?>
