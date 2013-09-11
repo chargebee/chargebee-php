@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'company', 'vatNumber', 'autoCollection',
-'createdAt', 'cardStatus');
+'createdAt', 'cardStatus', 'billingAddress');
 
 
 
@@ -24,6 +24,11 @@ class ChargeBee_Customer extends ChargeBee_Model
   public static function update($id, $params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/customers/$id", $params, $env);
+  }
+
+  public static function updateBillingInfo($id, $params = array(), $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/customers/$id/update_billing_info", $params, $env);
   }
 
  }
