@@ -45,7 +45,9 @@ require(dirname(__FILE__) . '/ChargeBee/Model.php');
 
 require(dirname(__FILE__) . '/ChargeBee/Models/Subscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionCoupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Customer.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Card.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Address.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Invoice.php');
