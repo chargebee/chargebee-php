@@ -15,12 +15,12 @@ class ChargeBee_Result
 	
 	function subscription()
 	{
-		return $this->_get('subscription', 'ChargeBee_Subscription', array('addons' => 'ChargeBee_SubscriptionAddon'));
+		return $this->_get('subscription', 'ChargeBee_Subscription', array('addons' => 'ChargeBee_SubscriptionAddon','coupons' => 'ChargeBee_SubscriptionCoupon'));
 	}
 
 	function customer()
 	{
-		return $this->_get('customer', 'ChargeBee_Customer');
+		return $this->_get('customer', 'ChargeBee_Customer', array('billing_address' => 'ChargeBee_CustomerBillingAddress'));
 	}
 
 	function card()
