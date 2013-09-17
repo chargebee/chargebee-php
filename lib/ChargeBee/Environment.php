@@ -10,8 +10,10 @@ class ChargeBee_Environment
 	
 	private static $default_env;
 	
+	public static $scheme = "https";
+
 	public static $chargebeeDomain;
-	
+		
 	function __construct($site, $apiKey) {
 		$this->site = $site;
 		$this->apiKey = $apiKey;
@@ -21,7 +23,7 @@ class ChargeBee_Environment
 		} 
 		else 
 		{
-      $this->apiEndPoint = "http://$site.".ChargeBee_Environment::$chargebeeDomain.":8080/api/v1";
+      $this->apiEndPoint = ChargeBee_Environment::$scheme."://$site.".ChargeBee_Environment::$chargebeeDomain."/api/v1";
 		}		
 	}
 	
