@@ -77,9 +77,9 @@ class ChargeBee_Model
 		foreach($this->_values as $k => $v) 
 		{
 			$setVal = null;
-			if($this->isHash($v) && in_array($k, $this->allowed))
+			if($this->isHash($v) && array_key_exists($k, $this->_subTypes))
 			{
-				$setVal = array_key_exists($k, $this->_subTypes) ? $v: new $this->_subTypes[$k]($v);
+				$setVal = new $this->_subTypes[$k]($v);
 			}
 			else if(is_array($v) && array_key_exists($k, $this->_subTypes))
 			{
