@@ -21,6 +21,11 @@ class ChargeBee_Card extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/customers/$id/credit_card", $params, $env);
   }
 
+  public static function deleteCardForCustomer($id, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/customers/$id/delete_card", array(), $env);
+  }
+
  }
 
 ?>
