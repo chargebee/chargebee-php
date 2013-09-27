@@ -74,6 +74,13 @@ class ChargeBee_Result
 	{
 		return $this->_get('coupon', 'ChargeBee_Coupon');
 	}
+  
+	function couponCode()
+	{
+		return $this->_get('coupon_code', 'ChargeBee_CouponCode');
+	}
+  
+	
 	private function _get($type, $class, $subTypes = array())
 	{
 		if(!array_key_exists($type, $this->_response))
