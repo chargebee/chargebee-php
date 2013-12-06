@@ -8,11 +8,11 @@ class ChargeBee_HostedPage extends ChargeBee_Model
 
   public function content()
   {
-    if($this->_values['content'] == null)
+    if(isset($this->_values['content']))
     {
-        return null;
+        return new ChargeBee_Content($this->_values['content']);
     }
-    return new ChargeBee_Content($this->_values['content']);
+    return null;
   }
 
   # OPERATIONS
