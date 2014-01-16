@@ -66,3 +66,4 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Plan.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Addon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Coupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CouponCode.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Comment.php');
