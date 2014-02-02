@@ -1,3 +1,7 @@
+### v1.3.2  (2014-02-02) 
+* * *    
+Support for refund invoice and transaction.
+
 ### v1.3.1  (2014-01-26) 
 * * *    
 Support for creating plans & addons on the fly via API.

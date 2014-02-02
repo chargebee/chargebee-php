@@ -31,6 +31,11 @@ class ChargeBee_Transaction extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/transactions/$id", array(), $env);
   }
 
+  public static function refund($id, $params = array(), $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/transactions/$id/refund", $params, $env);
+  }
+
  }
 
 ?>
