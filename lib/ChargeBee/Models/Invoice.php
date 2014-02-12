@@ -46,6 +46,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/add_addon_charge", $params, $env);
   }
 
+  public static function pdf($id, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/pdf", array(), $env);
+  }
+
   public static function collect($id, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/collect", array(), $env);

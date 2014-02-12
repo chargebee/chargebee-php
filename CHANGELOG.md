@@ -1,3 +1,13 @@
+### v1.3.3  (2014-02-12)
+* * *
+* New resource Download added to expose the URLs from which you can download resources like invoice PDFs.
+
+* Update card hosted page now support pass_thru_parameter like the checkout pages. 
+
+* Support for downloading invoice as PDF.
+
+* Transaction resource now exposes the void description for transactions that are voided.
+
 ### v1.3.2  (2014-02-02) 
 * * *    
 Support for refund invoice and transaction.

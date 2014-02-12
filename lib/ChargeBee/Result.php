@@ -86,6 +86,11 @@ class ChargeBee_Result
         return $this->_get('comment', 'ChargeBee_Comment');
     }
 
+    function download() 
+    {
+        return $this->_get('download', 'ChargeBee_Download');
+    }
+
 
     private function _get($type, $class, $subTypes = array())
     {
