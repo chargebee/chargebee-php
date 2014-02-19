@@ -3,8 +3,8 @@
 class ChargeBee_Address extends ChargeBee_Model
 {
 
-  protected $allowed = array('label', 'firstName', 'lastName', 'company', 'addr', 'extendedAddr', 'extendedAddr2',
-'city', 'state', 'country', 'zip', 'subscriptionId');
+  protected $allowed = array('label', 'firstName', 'lastName', 'email', 'company', 'phone', 'addr', 'extendedAddr',
+'extendedAddr2', 'city', 'state', 'country', 'zip', 'subscriptionId');
 
 
 
