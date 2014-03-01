@@ -66,7 +66,7 @@ class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
 
   public function key()
   {
-      return $_index;
+      return $this->_index;
   }
 
   public function next()
