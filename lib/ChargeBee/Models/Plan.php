@@ -16,6 +16,11 @@ class ChargeBee_Plan extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/plans", $params, $env);
   }
 
+  public static function update($id, $params = array(), $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/plans/$id", $params, $env);
+  }
+
   public static function all($params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/plans", $params, $env);

@@ -16,6 +16,11 @@ class ChargeBee_Addon extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/addons", $params, $env);
   }
 
+  public static function update($id, $params = array(), $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/addons/$id", $params, $env);
+  }
+
   public static function all($params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/addons", $params, $env);
