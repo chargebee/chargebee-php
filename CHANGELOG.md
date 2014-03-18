@@ -1,3 +1,7 @@
+### v1.3.6  (2014-03-18)
+* * *
+Support for deleting the plans & addons. See our API documentation on [Delete a plan](https://apidocs.chargebee.com/docs/api/plans#delete_a_plan "Delete a plan") & [Delete an addon](https://apidocs.chargebee.com/docs/api/addons#delete_an_addon "Delete an addon").
+
 ### v1.3.5  (2014-03-10)
 * * *
 * Support for creating coupons on the fly via API

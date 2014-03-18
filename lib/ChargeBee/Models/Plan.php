@@ -31,6 +31,11 @@ class ChargeBee_Plan extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/plans/$id", array(), $env);
   }
 
+  public static function delete($id, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/plans/$id/delete", array(), $env);
+  }
+
  }
 
 ?>

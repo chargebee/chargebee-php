@@ -4,7 +4,7 @@ class ChargeBee_HostedPage extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'type', 'url', 'state', 'failureReason', 'passThruContent', 'embed', 'createdAt',
-'expiresAt', 'iframeMessaging');
+'expiresAt');
 
   public function content()
   {
