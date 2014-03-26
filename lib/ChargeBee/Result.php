@@ -32,12 +32,13 @@ class ChargeBee_Result
     function invoice() 
     {
         return $this->_get('invoice', 'ChargeBee_Invoice', 
-        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax'));
+        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'invoice_transactions' => 'ChargeBee_InvoiceLinkedTransaction'));
     }
 
     function transaction() 
     {
-        return $this->_get('transaction', 'ChargeBee_Transaction');
+        return $this->_get('transaction', 'ChargeBee_Transaction', 
+        array('invoice_transactions' => 'ChargeBee_TransactionLinkedInvoice'));
     }
 
     function hostedPage() 

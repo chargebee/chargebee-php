@@ -3,8 +3,8 @@
 class ChargeBee_Transaction extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'subscriptionId', 'paymentMethod', 'gateway', 'description', 'type', 'date',
-'amount', 'idAtGateway', 'status', 'errorCode', 'errorText', 'voidedAt', 'voidDescription','maskedCardNumber', 'refundedTxnId');
+  protected $allowed = array('id', 'subscriptionId', 'paymentMethod', 'referenceNumber', 'gateway', 'description',
+'type', 'date', 'amount', 'idAtGateway', 'status', 'errorCode', 'errorText', 'voidedAt', 'voidDescription','maskedCardNumber', 'refundedTxnId', 'linkedInvoices');
 
 
 
@@ -29,6 +29,11 @@ class ChargeBee_Transaction extends ChargeBee_Model
   public static function retrieve($id, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/transactions/$id", array(), $env);
+  }
+
+  public static function recordPayment($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/record_payment", $params, $env);
   }
 
   public static function refund($id, $params = array(), $env = null)

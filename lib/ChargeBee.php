@@ -13,7 +13,7 @@ checkExtentions();
 
 abstract class ChargeBee
 {
-	
+
   public static $verifyCaCerts = true;
 
   public static function getVerifyCaCerts() {
@@ -54,11 +54,13 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Invoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLinkedTransaction.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Estimate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EstimateLineItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EstimateDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EstimateTax.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Transaction.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedInvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Content.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Event.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/HostedPage.php');

@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'subscriptionId', 'recurring', 'status', 'vatNumber', 'startDate', 'endDate',
-'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes');
+'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes', 'linkedTransactions');
 
 
 
@@ -36,6 +36,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::GET, "/invoices/$id", array(), $env);
   }
 
+  public static function pdf($id, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/pdf", array(), $env);
+  }
+
   public static function addCharge($id, $params, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/add_charge", $params, $env);
@@ -44,11 +49,6 @@ class ChargeBee_Invoice extends ChargeBee_Model
   public static function addAddonCharge($id, $params, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/add_addon_charge", $params, $env);
-  }
-
-  public static function pdf($id, $env = null)
-  {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, "/invoices/$id/pdf", array(), $env);
   }
 
   public static function collect($id, $env = null)
