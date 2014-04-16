@@ -55,7 +55,7 @@ class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
 
   public function offsetGet($k)
   {
-    return isset($this->$list[$k]) ? $this->list[$k] : null;
+    return isset($this->list[$k]) ? $this->list[$k] : null;
   }
 
   //Implementation for Iterator functions
