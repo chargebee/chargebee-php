@@ -1,3 +1,7 @@
+### v1.3.9  (2014-04-22)
+* * *
+Support for returning shipping address as part of create/update subscription API.
+
 ### v1.3.8  (2014-04-17)
 * * *
 Issue fixes.
