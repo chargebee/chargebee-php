@@ -1,3 +1,13 @@
+### v1.4.0 (2014-05-23)
+* * *
+* New API to create customer without subscription. See https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+* New API to fetch invoices for a customer. This helps you fetch the invoices created due to multiple subscriptions present for any customer. See https://apidocs.chargebee.com/docs/api/invoices#list_invoices_for_a_customer
+
+* PORTAL as event source added to indicate any changes initiated via Customer Portal. 
+
+* Customer id reference is added to the invoice attributes.
+
 ### v1.3.9  (2014-04-22)
 * * *
 Support for returning shipping address as part of create/update subscription API.

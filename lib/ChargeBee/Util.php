@@ -55,6 +55,13 @@ class ChargeBee_Util
             return (string)$value;
         }
     }
+    
+    static function encodeURIPath()
+    {
+        $uriPaths = array_map(function($v){return urlencode($v);}, func_get_args());
+        return "/" . implode("/", $uriPaths);
+    }
+	
 
 }
 

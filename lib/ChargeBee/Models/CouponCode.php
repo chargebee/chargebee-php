@@ -13,12 +13,12 @@ class ChargeBee_CouponCode extends ChargeBee_Model
 
   public static function create($params, $env = null)
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, "/coupon_codes", $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupon_codes"), $params, $env);
   }
 
   public static function retrieve($id, $env = null)
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, "/coupon_codes/$id", array(), $env);
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("coupon_codes",$id), array(), $env);
   }
 
  }
