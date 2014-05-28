@@ -92,6 +92,11 @@ class ChargeBee_Result
         return $this->_get('download', 'ChargeBee_Download');
     }
 
+    function portalSession() 
+    {
+        return $this->_get('portal_session', 'ChargeBee_PortalSession');
+    }
+
 
     private function _get($type, $class, $subTypes = array())
     {

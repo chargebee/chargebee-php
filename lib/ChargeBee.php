@@ -70,4 +70,5 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Addon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Coupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CouponCode.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Comment.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PortalSession.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Download.php');
