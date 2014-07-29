@@ -3,8 +3,8 @@
 class ChargeBee_Addon extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'name', 'invoiceName', 'type', 'chargeType', 'price', 'period', 'periodUnit',
-'unit', 'status', 'archivedAt');
+  protected $allowed = array('id', 'name', 'invoiceName', 'description', 'type', 'chargeType', 'price', 'period',
+'periodUnit', 'unit', 'status', 'archivedAt');
 
 
 

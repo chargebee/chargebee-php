@@ -1,3 +1,14 @@
+### v1.4.3 (2014-07-29)
+* * *
+APIs added:
+* Add a one time charged to the subscription which will be added to the invoice generated at the end of the current term. See https://apidocs.chargebee.com/docs/api/subscriptions#add_charge_at_term_end.
+* Add a "non-recurring addon" charge to a subscription which will be added to the invoice generated at the end of the current term. See https://apidocs.chargebee.com/docs/api/subscriptions#charge_addon_at_term_end.
+*Return an estimate of the amount that will be charged when the subscription renews. See https://apidocs.chargebee.com/docs/api/estimates#subscription_renewal_estimate
+
+APIs updated:
+* Now plans supports charge model to specify how the subscription plan charges should be calculated. See https://apidocs.chargebee.com/docs/api/plans#plan_attributes
+* Include delayed charges while calculating the Estimate.
+
 ### v1.4.2 (2014-06-19)
 * * *
 APIs added:
