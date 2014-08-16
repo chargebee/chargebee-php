@@ -41,11 +41,6 @@ class ChargeBee_Transaction extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"record_payment"), $params, $env);
   }
 
-  public static function refund($id, $params = array(), $env = null)
-  {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("transactions",$id,"refund"), $params, $env);
-  }
-
  }
 
 ?>

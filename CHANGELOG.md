@@ -1,3 +1,18 @@
+### v1.4.4 (2014-08-13)
+* * *
+Added properties:
+* Property has_scheduled_changes added to the Subscription resource to indicate whether there are any pending change scheduled for this Subscription
+
+APIs added:
+* Retrieve a subscription with scheduled changes applied. See https://apidocs.chargebee.com/docs/api/subscriptions#retrieve_with_scheduled_changes.
+* Remove schedule changes for a subscription. See https://apidocs.chargebee.com/docs/api/subscriptions#remove_scheduled_changes.
+
+APIs updated:
+* Ability to pass description for Plans & Addons while Creating & Updating. 
+
+APIs Removed:
+* Refund a Transaction - In ChargeBee, the 'refunds' are tracked against the invoice for which they are issued. A payment transaction can be associated with only one invoice now. So Transaction.refund() API is indeed a shortcut for Transaction.associatedInvoice().refund(). 
+
 ### v1.4.3 (2014-07-29)
 * * *
 APIs added:

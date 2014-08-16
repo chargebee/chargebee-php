@@ -55,6 +55,10 @@ class ChargeBee_Model
 		{
 			return null;
 		}
+        else if(substr($k, 0, 2) == "cf") //All the custom fields start with prefix cf. 
+        { 
+               return null;
+        } 
 		else
 		{
 			throw new Exception("Unknown property $k in " . get_class($this));
