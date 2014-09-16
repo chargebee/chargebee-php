@@ -11,10 +11,8 @@ require_once(dirname(__FILE__) . '/../lib/ChargeBee.php');
 
 require_once(dirname(__FILE__) . '/ChargeBee/SampleData.php');
 require_once(dirname(__FILE__). '/ChargeBee/UtilTest.php');
-require_once(dirname(__FILE__). '/ChargeBee/VersionTest.php');
 require_once(dirname(__FILE__). '/ChargeBee/EnvironmentTest.php');
 require_once(dirname(__FILE__). '/ChargeBee/ResultTest.php');
 require_once(dirname(__FILE__). '/ChargeBee/ListResultTest.php');
-require_once(dirname(__FILE__). '/ChargeBee/APIErrorTest.php');
 require_once(dirname(__FILE__). '/ChargeBee/WebhookDeserializeTest.php');
 ?>

@@ -1,3 +1,23 @@
+### v1.4.7 (2014-09-16)
+* * *
+
+**Error Model**:
+
+New simpler model for error handling has been implemented. Please see below api document for more details
+
+https://apidocs.chargebee.com/docs/api?lang=php#error_handling 
+
+The following methods in APIError have been deprecated.
+* getHttpCode()  (Use getHttpStatusCode() instead).
+* getErrorNo() (Now all IO exceptions are thrown as ChargeBee_IOException).
+
+The changes are backward compatible. Ensure that  your error handling code is tested after you upgrade to this version.
+
+**APIs Updated**:
+
+Shipping Address support added to *create subscription for a customer* api call.
+
+
 ### v1.4.6 (2014-08-28)
 * * *
 * Customer id can be passed to the checkout new subscription operation.

@@ -14,6 +14,9 @@ class ChargeBee_Event extends ChargeBee_Model
   public static function deserialize($json)
   {
       $webhookData = json_decode($json, true);
+      if(json_last_error() != JSON_ERROR_NONE){
+          throw new Exception("Response not in JSON format. Might not be a ChargeBee webhook call." ,json_last_error());
+      }      
       if($webhookData != null)
       {
         return new ChargeBee_Event($webhookData);

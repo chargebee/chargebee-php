@@ -1,98 +1,96 @@
 <?php
 
-class ChargeBee_Curl
-{
+class ChargeBee_Curl {
 
-  public static function utf8($value)
-  {
-    if (is_string($value))
-      return utf8_encode($value);
-    else
-      return $value;
-  }
-
-	public static function doRequest($meth, $url, $env, $params = array())
-	{
-		list($response, $httpCode) = self::request($meth, $url, $env, $params);
-		$respJson = self::processResponse($response, $httpCode);
-		return $respJson;
-	}
-
-	public static function request($meth, $url, $env, $params)
-	{
-		$curl = curl_init();
-		$opts = array();
-		if ($meth == ChargeBee_Request::GET) 
-		{
-			$opts[CURLOPT_HTTPGET] = 1;
-			if (count($params) > 0) 
-			{
-				$encoded = http_build_query($params, null, '&');
-				$url = "$url?$encoded";
-			}
-		} 
-		else if ($meth == ChargeBee_Request::POST) 
-		{
-			$opts[CURLOPT_POST] = 1;
-			$opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
-		} 
-		else 
-		{
-			throw new ChargeBee_APIError("Invalid http method $meth");
-		}
-		$url = self::utf8($env->apiUrl($url));
-		$opts[CURLOPT_URL] = $url;
-		$opts[CURLOPT_RETURNTRANSFER] = true;
-		$opts[CURLOPT_CONNECTTIMEOUT] = 50;
-		$opts[CURLOPT_TIMEOUT] = 100;
-		$userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
-		$headers = array(
-      'Accept: application/json',
-			"User-Agent: " . $userAgent);
-    $opts[CURLOPT_HTTPHEADER] = $headers;
-		$opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
-    if (ChargeBee::getVerifyCaCerts()) 
-		{
-        $opts[CURLOPT_SSL_VERIFYPEER] = true;
-        $opts[CURLOPT_SSL_VERIFYHOST] = 2;
-				$opts[CURLOPT_CAINFO] = ChargeBee::getCaCertPath();
+    public static function utf8($value) {
+        if (is_string($value))
+            return utf8_encode($value);
+        else
+            return $value;
     }
-		curl_setopt_array($curl, $opts);
 
-		$response = curl_exec($curl);
-		
-		if ($response === false) 
-		{
-			$errno = curl_errno($curl);
-			$message = curl_error($curl);
-			curl_close($curl);
-			throw new ChargeBee_APIError($message, 0, $errno);
-		}
-		
-		$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		curl_close($curl);
-		return array($response, $httpCode);
-	}
+    public static function doRequest($meth, $url, $env, $params = array()) {
+        list($response, $httpCode) = self::request($meth, $url, $env, $params);
+        $respJson = self::processResponse($response, $httpCode);
+        return $respJson;
+    }
 
-	public static function processResponse($response, $httpCode)
-	{
-		$respJson = json_decode($response, true);
-		if($httpCode < 200 || $httpCode > 299) 
-		{
-			self::handleAPIRespError($httpCode, $respJson);
-		}
-		return $respJson;
-	}
+    public static function request($meth, $url, $env, $params) {
+        $curl = curl_init();
+        $opts = array();
+        if ($meth == ChargeBee_Request::GET) {
+            $opts[CURLOPT_HTTPGET] = 1;
+            if (count($params) > 0) {
+                $encoded = http_build_query($params, null, '&');
+                $url = "$url?$encoded";
+            }
+        } else if ($meth == ChargeBee_Request::POST) {
+            $opts[CURLOPT_POST] = 1;
+            $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
+        } else {
+            throw new Exception("Invalid http method $meth");
+        }
+        $url = self::utf8($env->apiUrl($url));
+        $opts[CURLOPT_URL] = $url;
+        $opts[CURLOPT_RETURNTRANSFER] = true;
+        $opts[CURLOPT_CONNECTTIMEOUT] = ChargeBee_Environment::$connectTimeout;
+        $opts[CURLOPT_TIMEOUT] = ChargeBee_Environment::$timeout;
+        $userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
+        $headers = array(
+            'Accept: application/json',
+            "User-Agent: " . $userAgent);
+        $opts[CURLOPT_HTTPHEADER] = $headers;
+        $opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
+        if (ChargeBee::getVerifyCaCerts()) {
+            $opts[CURLOPT_SSL_VERIFYPEER] = true;
+            $opts[CURLOPT_SSL_VERIFYHOST] = 2;
+            $opts[CURLOPT_CAINFO] = ChargeBee::getCaCertPath();
+        }
+        curl_setopt_array($curl, $opts);
 
-  public static function handleAPIRespError($httpCode, $respJson)
-  {
-		$message = null;
-		if(array_key_exists('error_param', $respJson))
-		{
-			$message = "param ".$respJson['error_param']." ";
-		}
-		$message .= $respJson['error_msg'];
-		throw new ChargeBee_APIError($message, $httpCode, 0, $respJson);
-  }
+        $response = curl_exec($curl);
+
+        if ($response === false) {
+            $errno = curl_errno($curl);
+            $curlMsg = curl_error($curl);
+            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $curlMsg;
+            curl_close($curl);
+            throw new ChargeBee_IOException($message, $errno);
+        }
+
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+        return array($response, $httpCode);
+    }
+
+    public static function processResponse($response, $httpCode) {
+        $respJson = json_decode($response, true);
+        if(json_last_error() != JSON_ERROR_NONE){
+            throw new Exception("Response not in JSON format. Might not be a ChargeBee Response." ,json_last_error());
+        }
+        if ($httpCode < 200 || $httpCode > 299) {
+            self::handleAPIRespError($httpCode, $respJson,$response);
+        }
+        return $respJson;
+    }
+
+    public static function handleAPIRespError($httpCode, $respJson,$response) {
+        if(!isset($respJson['api_error_code'])){
+            throw new Exception("No api_error_code attribute in content. Probably not a ChargeBee's error response. The content is \n " . $response);
+        }
+        $type="unknown";
+        if(isset($respJson['type'])){
+            $type = $respJson['type'];
+        }
+        if ($type == "payment") {
+            throw new ChargeBee_PaymentException($httpCode, $respJson);
+        } elseif ($type == "operation_failed") {
+            throw new ChargeBee_OperationFailedException($httpCode, $respJson);
+        } elseif ($type == "invalid_request") {
+            throw new ChargeBee_InvalidRequestException($httpCode, $respJson);
+        } else {
+            throw new ChargeBee_APIError($httpCode, $respJson);
+        }
+    }
 
 }

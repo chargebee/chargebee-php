@@ -33,7 +33,12 @@ abstract class ChargeBee
 require(dirname(__FILE__) . '/ChargeBee/Version.php');
 require(dirname(__FILE__) . '/ChargeBee/Environment.php');
 require(dirname(__FILE__) . '/ChargeBee/Util.php');
-require(dirname(__FILE__) . '/ChargeBee/APIError.php');
+
+require(dirname(__FILE__) . '/ChargeBee/Exceptions/IOException.php');
+require(dirname(__FILE__) . '/ChargeBee/Exceptions/APIError.php');
+require(dirname(__FILE__) . '/ChargeBee/Exceptions/PaymentException.php');
+require(dirname(__FILE__) . '/ChargeBee/Exceptions/OperationFailedException.php');
+require(dirname(__FILE__) . '/ChargeBee/Exceptions/InvalidRequestException.php');
 
 require(dirname(__FILE__) . '/ChargeBee/Request.php');
 require(dirname(__FILE__) . '/ChargeBee/Curl.php');
