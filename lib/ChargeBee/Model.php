@@ -20,7 +20,7 @@ class ChargeBee_Model
 	
 	public function param($k)
 	{
-	  if(in_array($k, $this->_values))
+	  if(array_key_exists($k, $this->_values))
 	  {
 	    return $this->_values[$k];
 	  }
