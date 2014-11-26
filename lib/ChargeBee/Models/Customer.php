@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'createdAt', 'cardStatus', 'billingAddress');
+'createdAt', 'cardStatus', 'billingAddress', 'paymentMethod');
 
 
 

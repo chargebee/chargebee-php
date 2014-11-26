@@ -65,8 +65,8 @@ class ChargeBee_Curl {
 
     public static function processResponse($response, $httpCode) {
         $respJson = json_decode($response, true);
-        if(json_last_error() != JSON_ERROR_NONE){
-            throw new Exception("Response not in JSON format. Might not be a ChargeBee Response." ,json_last_error());
+        if(!$respJson){
+            throw new Exception("Response not in JSON format. Might not be a ChargeBee Response.");
         }
         if ($httpCode < 200 || $httpCode > 299) {
             self::handleAPIRespError($httpCode, $respJson,$response);

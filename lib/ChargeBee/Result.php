@@ -21,7 +21,7 @@ class ChargeBee_Result
     function customer() 
     {
         return $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress'));
+        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'payment_method' => 'ChargeBee_CustomerPaymentMethod'));
     }
 
     function card() 
