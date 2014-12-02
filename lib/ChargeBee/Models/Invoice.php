@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber', 'startDate',
-'endDate', 'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes','linkedTransactions');
+'endDate', 'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes','linkedTransactions', 'linkedOrders');
 
 
 
