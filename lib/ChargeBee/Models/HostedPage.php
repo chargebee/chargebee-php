@@ -33,6 +33,11 @@ class ChargeBee_HostedPage extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_card"), $params, $env);
   }
 
+  public static function updatePaymentMethod($params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_payment_method"), $params, $env);
+  }
+
   public static function checkoutOnetimeCharge($params, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_onetime_charge"), $params, $env);

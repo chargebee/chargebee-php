@@ -1,3 +1,17 @@
+### v1.5.1 (2015-01-07)
+* * *
+
+Support for PayPal & Amazon payment added.
+
+** APIs added**:
+A new API called Update payment method(HostedPage) added to support allowing customers to update their payment method with PayPal and Amazon payments.
+
+** APIs deprecated**:
+Update card(HostedPage) API is deprecated as an alternate API is added.
+
+** APIs updated**:
+Create a customer API now accepts the end user IP. 
+
 ### v1.5.0 (2014-12-02)
 * * *
 
