@@ -4,12 +4,17 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber', 'startDate',
-'endDate', 'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes','linkedTransactions', 'linkedOrders');
+'endDate', 'amount', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems', 'discounts', 'taxes','linkedTransactions', 'linkedOrders', 'shippingAddress', 'billingAddress');
 
 
 
   # OPERATIONS
   #-----------
+
+  public static function create($params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices"), $params, $env);
+  }
 
   public static function charge($params, $env = null)
   {

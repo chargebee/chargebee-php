@@ -1,3 +1,18 @@
+### v1.5.3 (2015-02-27)
+* * *
+
+** APIs added**:
+
+A new API "Create an Invoice" added to create one-off invoices with multiple 'Non Recurring' addon & ad-hoc charges for a customer. See https://apidocs.chargebee.com/docs/api/invoices#create_an_invoice.
+
+A new API called Activate a portal session method(Portal session) added to support building your authentication for your website on top of ChargeBee. See https://apidocs.chargebee.com/docs/api/portal_sessions#activate_a_portal_session. Read about "Using ChargeBee authentication to allow access to your website" at https://apidocs.chargebee.com/docs/api/portal_sessions.
+
+** APIs updated**:
+
+Shipping and Billing Address are returned as part of Invoice resource attributes. This returns the shiping & billing address that was present at the time of invoice generation.
+
+Linked Customers as part of Portal session resource attributes.
+
 ### v1.5.2 (2015-02-18)
 * * *
 

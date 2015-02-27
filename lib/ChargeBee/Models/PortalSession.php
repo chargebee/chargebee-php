@@ -3,8 +3,8 @@
 class ChargeBee_PortalSession extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'accessUrl', 'redirectUrl', 'status', 'createdAt', 'expiresAt', 'customerId',
-'loginAt', 'logoutAt', 'loginIpaddress', 'logoutIpaddress');
+  protected $allowed = array('id', 'token', 'accessUrl', 'redirectUrl', 'status', 'createdAt', 'expiresAt',
+'customerId', 'loginAt', 'logoutAt', 'loginIpaddress', 'logoutIpaddress', 'linkedCustomers');
 
 
 
@@ -24,6 +24,11 @@ class ChargeBee_PortalSession extends ChargeBee_Model
   public static function logout($id, $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("portal_sessions",$id,"logout"), array(), $env);
+  }
+
+  public static function activate($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("portal_sessions",$id,"activate"), $params, $env);
   }
 
  }
