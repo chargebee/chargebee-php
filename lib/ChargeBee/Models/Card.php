@@ -4,7 +4,7 @@ class ChargeBee_Card extends ChargeBee_Model
 {
 
   protected $allowed = array('customerId', 'status', 'gateway', 'firstName', 'lastName', 'iin', 'last4', 'cardType',
-'expiryMonth', 'expiryYear', 'billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode','billingState', 'billingCountry', 'billingZip', 'maskedNumber');
+'expiryMonth', 'expiryYear', 'billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode','billingState', 'billingCountry', 'billingZip', 'ipAddress', 'maskedNumber');
 
 
 

@@ -1,3 +1,18 @@
+### v1.5.4 (2015-03-30)
+* * *
+
+** APIs added**:
+
+A new API "Delete an Invoice" added to delete un-paid invoices. This feature was supported through admin console earlier, now it is available via API too.
+See https://apidocs.chargebee.com/docs/api/invoices#delete_an_invoice.
+
+** APIs updated**:
+
+Create subscription/customer, update subscription/payment method APIs now accepts the IP Address of customer for card resource.
+
+Now, event "invoice_deleted" can be fetched via API. 
+See https://apidocs.chargebee.com/docs/api/events#event_types.
+
 ### v1.5.3 (2015-02-27)
 * * *
 
