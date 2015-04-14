@@ -61,6 +61,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Invoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceNote.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLinkedTransaction.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceShippingAddress.php');

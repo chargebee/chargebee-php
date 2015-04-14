@@ -4,7 +4,7 @@ class ChargeBee_Subscription extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'planId', 'planQuantity', 'status', 'startDate', 'trialStart', 'trialEnd',
-'currentTermStart', 'currentTermEnd', 'remainingBillingCycles', 'createdAt', 'startedAt', 'activatedAt','cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp', 'dueInvoicesCount', 'dueSince','totalDues', 'addons', 'coupon', 'coupons', 'shippingAddress', 'hasScheduledChanges');
+'currentTermStart', 'currentTermEnd', 'remainingBillingCycles', 'poNumber', 'createdAt', 'startedAt','activatedAt', 'cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp', 'dueInvoicesCount','dueSince', 'totalDues', 'addons', 'coupon', 'coupons', 'shippingAddress', 'hasScheduledChanges','invoiceNotes');
 
 
 

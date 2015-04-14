@@ -1,3 +1,26 @@
+### v1.5.5 (2015-04-14)
+* * *
+
+** APIs updated**:
+
+Support for Purchase Order(po) number. Create & update subscription, create an invoice, create invoice for charge/addon method APIs now accept "po_number" for the subscription/invoice resource. Read more about purchase order : https://www.chargebee.com/docs/po-number.html
+
+The resource attribute for "po_number" is returned as part of Subscription and Invoice resources.
+
+Create and Update methods of plan, addon, coupon, customer and subscripiton APIs now accept "invoice_notes" that is added to the invoice raised for a customer. Read more about invoice notes : https://www.chargebee.com/docs/invoice_notes.html
+
+A new sub-resource "notes" is returned as part of the Invoice resource attributes.
+See https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+A new attribute "amount_due" is returned as part of Invoice resource.
+
+Checkout new, checkout existing, update payment method method APIs now accept "redirect_url" & "cancel_url" to which your customer should be redirected.
+See https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+
+Now, event "subscription_renewal_reminder" can be fetched via API. 
+See https://apidocs.chargebee.com/docs/api/events#event_types.
+
+
 ### v1.5.4 (2015-03-30)
 * * *
 
