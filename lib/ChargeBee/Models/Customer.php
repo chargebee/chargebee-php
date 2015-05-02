@@ -31,6 +31,11 @@ class ChargeBee_Customer extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id), $params, $env);
   }
 
+  public static function updatePaymentMethod($id, $params, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"update_payment_method"), $params, $env);
+  }
+
   public static function updateBillingInfo($id, $params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"update_billing_info"), $params, $env);

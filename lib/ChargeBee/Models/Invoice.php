@@ -66,6 +66,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"collect"), array(), $env);
   }
 
+  public static function collectPayment($id, $env = null)
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"collect_payment"), array(), $env);
+  }
+
   public static function refund($id, $params = array(), $env = null)
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"refund"), $params, $env);
