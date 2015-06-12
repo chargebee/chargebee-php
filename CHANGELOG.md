@@ -1,3 +1,30 @@
+### v1.5.7 (2015-06-12)
+* * *
+
+** APIs added**:
+
+New api endpoints to Add, Deduct & Set the account credit for a customer is added. See the APIs below - https://apidocs.chargebee.com/docs/api/customers#add_account_credits_to_a_customer
+https://apidocs.chargebee.com/docs/api/customers#deduct_account_credits_for_a_customer
+https://apidocs.chargebee.com/docs/api/customers#set_account_credits_for_a_customer
+
+** APIs updated**:
+
+Now, event "invoice_updated" can be fetched via API. See : https://apidocs.chargebee.com/docs/api/events#event_types.
+
+A new webkook status "skipped" is returned as part of "webhook_status" attribute of event resource. See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
+The resource attribute for "account_credits" is returned as part of Customer resource. See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+A new discount type "account_credits" is returned as part of "discounts" sub-resource of Invoice resource. See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
+** APIs deprecated**:
+
+Support for "offer_quantity" in "discount_type" attribute deprecated for Create method of Coupon API.
+
+Support for "specified_items_total" & "each_unit_of_specified_items" in "apply_on" attribute deprecated for Create method of Coupon API.
+
+The attribute "discount_quantity" deprecated for Create method of Coupon API.
+
 ### v1.5.6 (2015-05-02)
 * * *
 

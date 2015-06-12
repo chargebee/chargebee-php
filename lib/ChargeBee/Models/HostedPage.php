@@ -18,39 +18,39 @@ class ChargeBee_HostedPage extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
-  public static function checkoutNew($params, $env = null)
+  public static function checkoutNew($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new"), $params, $env, $headers);
   }
 
-  public static function checkoutExisting($params, $env = null)
+  public static function checkoutExisting($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_existing"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_existing"), $params, $env, $headers);
   }
 
-  public static function updateCard($params, $env = null)
+  public static function updateCard($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_card"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_card"), $params, $env, $headers);
   }
 
-  public static function updatePaymentMethod($params, $env = null)
+  public static function updatePaymentMethod($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_payment_method"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","update_payment_method"), $params, $env, $headers);
   }
 
-  public static function checkoutOnetimeCharge($params, $env = null)
+  public static function checkoutOnetimeCharge($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_onetime_charge"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_onetime_charge"), $params, $env, $headers);
   }
 
-  public static function checkoutOnetimeAddons($params, $env = null)
+  public static function checkoutOnetimeAddons($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_onetime_addons"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_onetime_addons"), $params, $env, $headers);
   }
 
-  public static function retrieve($id, $env = null)
+  public static function retrieve($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("hosted_pages",$id), array(), $env);
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("hosted_pages",$id), array(), $env, $headers);
   }
 
  }

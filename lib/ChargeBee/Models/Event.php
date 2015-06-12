@@ -28,14 +28,14 @@ class ChargeBee_Event extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
-  public static function all($params = array(), $env = null)
+  public static function all($params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("events"), $params, $env);
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("events"), $params, $env, $headers);
   }
 
-  public static function retrieve($id, $env = null)
+  public static function retrieve($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("events",$id), array(), $env);
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("events",$id), array(), $env, $headers);
   }
 
  }

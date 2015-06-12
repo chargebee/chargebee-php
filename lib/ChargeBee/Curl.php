@@ -9,13 +9,13 @@ class ChargeBee_Curl {
             return $value;
     }
 
-    public static function doRequest($meth, $url, $env, $params = array()) {
-        list($response, $httpCode) = self::request($meth, $url, $env, $params);
+    public static function doRequest($meth, $url, $env, $params = array(), $headers = array()) {
+        list($response, $httpCode) = self::request($meth, $url, $env, $params, $headers);
         $respJson = self::processResponse($response, $httpCode);
         return $respJson;
     }
 
-    public static function request($meth, $url, $env, $params) {
+    public static function request($meth, $url, $env, $params, $headers) {
         $curl = curl_init();
         $opts = array();
         if ($meth == ChargeBee_Request::GET) {
@@ -36,10 +36,11 @@ class ChargeBee_Curl {
         $opts[CURLOPT_CONNECTTIMEOUT] = ChargeBee_Environment::$connectTimeout;
         $opts[CURLOPT_TIMEOUT] = ChargeBee_Environment::$timeout;
         $userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
-        $headers = array(
-            'Accept: application/json',
-            "User-Agent: " . $userAgent);
-        $opts[CURLOPT_HTTPHEADER] = $headers;
+		
+		$httpHeaders = self::addCustomHeaders($headers);
+		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array
+		
+        $opts[CURLOPT_HTTPHEADER] = $httpHeaders;
         $opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
         if (ChargeBee::getVerifyCaCerts()) {
             $opts[CURLOPT_SSL_VERIFYPEER] = true;
@@ -62,7 +63,15 @@ class ChargeBee_Curl {
         curl_close($curl);
         return array($response, $httpCode);
     }
-
+	
+	public static function addCustomHeaders($headers) {
+		$httpHeaders = array();
+		foreach ($headers as $key => $val) {
+			array_push($httpHeaders, $key.": ".$val);
+		}
+		return $httpHeaders;
+	}
+	
     public static function processResponse($response, $httpCode) {
         $respJson = json_decode($response, true);
         if(!$respJson){
