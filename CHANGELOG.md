@@ -1,3 +1,18 @@
+### v1.5.8 (2015-06-18)
+* * *
+
+** APIs added**:
+
+New api endpoint to Void an invoice is added. See : https://apidocs.chargebee.com/docs/api/invoices#void_an_invoice
+
+** APIs updated**:
+
+A new invoice status "voided" is returned as part of "status" attribute in invoice resource. See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+** APIs deprecated**:
+
+Update card for hosted page method API has been deprecated. Use "Update payment method" API to update card details. Read more about upadate payment method : https://apidocs.chargebee.com/docs/api/hosted_pages#update_payment_method
+
 ### v1.5.7 (2015-06-12)
 * * *
 
