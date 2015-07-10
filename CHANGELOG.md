@@ -1,3 +1,24 @@
+### v1.5.9 (2015-07-09)
+* * *
+
+** APIs added**:
+
+New api endpoint to Record Offline Refund for an invoice is added. See : https://apidocs.chargebee.com/docs/api/invoices#record_refund_for_an_invoice
+
+** APIs updated**:
+
+Support to update payment method stored in gateway vault. Now, update payment method for a customer, create customer, create & update subscription method APIs accept the "gateway" parameter for Payment Method resource along with reference_id. See "Card Payments" section here : https://apidocs.chargebee.com/docs/api/customers#update_payment_method_for_a_customer
+
+The attribute for "gateway" name is returned as part of Payment Method sub-resource for a customer resource. See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+A new source type "migration" is returned as part of "source" attribute of event resource. See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
+A new discount type "account_credits" is added as part of "type" attribute of discounts sub-resource for estimate resource.
+
+** APIs deprecated**:
+
+Attributes "description" & "void_description" of transaction resource has been deprecated.
+
 ### v1.5.8 (2015-06-18)
 * * *
 
