@@ -1,3 +1,15 @@
+### v1.6.0 (2015-07-20)
+* * *
+
+** APIs added**:
+
+New api endpoint to Stop Dunning for "Payment Due" invoices is added. See : https://apidocs.chargebee.com/docs/api/invoices#stop_dunning_for_invoice
+
+** APIs updated**:
+
+The attribute for "dunning_status" is returned as part of Invoice resource. 
+See : https://apidocs.chargebee.com/docs/api/invoices#stop_dunning_for_invoice
+
 ### v1.5.9 (2015-07-09)
 * * *
 

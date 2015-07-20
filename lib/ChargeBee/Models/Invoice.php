@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'startDate', 'endDate', 'amount', 'amountDue', 'paidOn', 'nextRetry', 'subTotal', 'tax', 'lineItems','discounts', 'taxes', 'linkedTransactions', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress');
+'startDate', 'endDate', 'amount', 'amountDue', 'paidOn', 'dunningStatus', 'nextRetry', 'subTotal','tax', 'lineItems', 'discounts', 'taxes', 'linkedTransactions', 'linkedOrders', 'notes', 'shippingAddress','billingAddress');
 
 
 
@@ -24,6 +24,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
   public static function chargeAddon($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","charge_addon"), $params, $env, $headers);
+  }
+
+  public static function stopDunning($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"stop_dunning"), array(), $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
