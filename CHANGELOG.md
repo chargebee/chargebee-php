@@ -1,3 +1,17 @@
+### v1.6.1 (2015-08-25)
+* * *
+
+** APIs updated**:
+
+The attribute for "first_invoice" & "currency_code" is returned as part of Invoice resource. 
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The attribute for "currency_code" is returned as part of Transaction resource. 
+See : https://apidocs.chargebee.com/docs/api/transactions#transaction_attributes
+
+A new source type "bulk_operation" is returned as part of "source" attribute of event resource. 
+See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
 ### v1.6.0 (2015-07-20)
 * * *
 
