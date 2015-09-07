@@ -3,8 +3,8 @@
 class ChargeBee_Event extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'occurredAt', 'source', 'webhookStatus', 'webhookFailureReason', 'eventType'
-);
+  protected $allowed = array('id', 'occurredAt', 'source', 'user', 'webhookStatus', 'webhookFailureReason',
+'webhooks', 'eventType');
 
     public function content()
     {

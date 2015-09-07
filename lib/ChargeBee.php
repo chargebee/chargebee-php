@@ -75,6 +75,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Transaction.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedInvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Content.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Event.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/EventWebhook.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/HostedPage.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Plan.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Addon.php');

@@ -1,3 +1,18 @@
+### v1.6.2 (2015-09-07)
+* * *
+
+** APIs updated**:
+
+The attribute for "user" is returned as part of Event resource. 
+See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
+Support for multiple webhooks. The attribute "webhooks" contains list of Webhook subresource is returned as part of Event API.
+See : https://apidocs.chargebee.com/docs/api/events#event_attributes
+
+** APIs deprecated**:
+
+Attributes "webhook_status" & "webhook_failure_reason" of event resource has been deprecated.
+
 ### v1.6.1 (2015-08-25)
 * * *
 
