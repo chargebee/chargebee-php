@@ -1,3 +1,26 @@
+### v1.6.3 (2015-09-18)
+* * *
+
+** APIs updated**:
+
+Support to specify customer's tax liability. Now, create & update customer, create & update subscription, create & update subscription estimate, checkout new hosted page APIs accept the "taxability" parameter for Customer resource. See create customer API here : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+Support to specify taxability for a plan & addon. Create & update methods of Plan & Addon APIs accept "taxable" parameter. See create plan API here : https://apidocs.chargebee.com/docs/api/plans#create_a_plan
+
+The attribute "taxablility" is returned as part of Customer resource. 
+https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The attribute "taxable" is returned as part of Plan resource. 
+See : https://apidocs.chargebee.com/docs/api/plans#plan_attributes
+
+The attribute "taxable" is returned as part of Addon resource. 
+See : https://apidocs.chargebee.com/docs/api/addons#addon_attributes
+
+
+The attribute "is_taxed" returned as part of "line_items" subresource of Estimate & Invoice resorces. 
+See attribute of line_items in Estimate here :
+https://apidocs.chargebee.com/docs/api/estimates#estimate_attributes
+
 ### v1.6.2 (2015-09-07)
 * * *
 
