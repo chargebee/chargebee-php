@@ -1,3 +1,19 @@
+### v1.6.4 (2015-10-26)
+* * *
+
+** APIs updated**:
+
+Support to specify if a customer can pay via direct debit. Now, create & update customer, create subscription APIs accept the "allow_direct_debit" parameter for Customer resource. See create customer API here : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+New attribute "allow_direct_debit" is returned as part of Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+New "price_type" attribute is returned as part of Estimate & Invoice Resource. 
+See : https://apidocs.chargebee.com/docs/api/estimates#estimate_attributes
+
+Support for address parameters in estimate APIs that is used to calculate tax. Now, create & update subscription estimate APIs accept billing state code, billing zip, shipping country, shipping state code & shipping zip.
+See : https://apidocs.chargebee.com/docs/api/estimates#create_subscription_estimate
+
 ### v1.6.3 (2015-09-18)
 * * *
 
