@@ -1,3 +1,24 @@
+### v1.6.5 (2015-11-09)
+* * *
+
+** APIs updated**:
+
+Support for access payments. See : https://www.chargebee.com/docs/customers.html#excess-payments
+
+New attribute "excess_payments" is returned as part of Customer resource.
+See: https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+New attribute "applied_at" is returned as part of Linked Transaction subresource of Invoice resource.
+See: https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+New transaction type "PAYMENT_REVERSAL" is returned as part of Transaction resource.
+See: https://apidocs.chargebee.com/docs/api/transactions#transaction_attributes
+
+New attributes "amount_unused", "reference_transaction_id", "reversal_transaction_id" & "linked_refunds" subresource are returned as part of Transaction resource.
+
+New attribute "applied_at" is returmed as part of Linked Invoice subresource of Transaction resource.
+See: https://apidocs.chargebee.com/docs/api/transactions#transaction_attributes
+
 ### v1.6.4 (2015-10-26)
 * * *
 

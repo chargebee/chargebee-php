@@ -43,7 +43,7 @@ class ChargeBee_Result
     function transaction() 
     {
         return $this->_get('transaction', 'ChargeBee_Transaction', 
-        array('invoice_transactions' => 'ChargeBee_TransactionLinkedInvoice'));
+        array('invoice_transactions' => 'ChargeBee_TransactionLinkedInvoice', 'txn_refunds_and_reversals' => 'ChargeBee_TransactionLinkedRefund'));
     }
 
     function hostedPage() 
