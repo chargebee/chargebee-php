@@ -1,3 +1,13 @@
+### v1.6.6 (2015-11-24)
+* * *
+
+** APIs updated**:
+
+Support to specify accessbility in customer portal for a plan & addon. Create & update methods of Plan & Addon APIs accept "enabled_in_portal" parameter. See create plan API here : https://apidocs.chargebee.com/docs/api/plans#create_a_plan
+
+New attribute "enabled_in_portal" is returned as part of Plan/Addon resource.
+See plan attributes here: https://apidocs.chargebee.com/docs/api/plans#plan_attributes
+
 ### v1.6.5 (2015-11-09)
 * * *
 
