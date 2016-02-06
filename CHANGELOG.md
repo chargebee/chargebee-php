@@ -20,7 +20,7 @@ See plan attributes here: https://apidocs.chargebee.com/docs/api/plans#plan_attr
 
 ** APIs updated**:
 
-Support for access payments. See : https://www.chargebee.com/docs/customers.html#excess-payments
+Support for Excess Payments. See : https://www.chargebee.com/docs/customers.html#excess-payments
 
 New attribute "excess_payments" is returned as part of Customer resource.
 See: https://apidocs.chargebee.com/docs/api/customers#customer_attributes
