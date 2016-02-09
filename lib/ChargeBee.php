@@ -53,6 +53,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionCoupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Customer.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerContact.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerPaymentMethod.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Card.php');

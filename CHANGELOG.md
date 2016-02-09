@@ -1,3 +1,26 @@
+### v1.6.8 (2016-02-08)
+* * *
+
+** APIs added**:
+
+Support to add additional contact for a customer. See: https://www.chargebee.com/docs/customers.html#add-contact
+New api endpoints to add, update and delete 'Contact' are added to Customer resource. See add contact API here: https://apidocs.chargebee.com/docs/api/customers#add_contacts_to_a_customer
+
+** APIs updated**:
+
+New attribute 'contacts' with list of contacts is returned as part of Customer resource. See: https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+Support for partial payment. Collect payment for an invoice API now accepts 'amount' paramater. See: https://apidocs.chargebee.com/docs/api/invoices#collect_payment_for_an_invoice
+
+New attribute 'refundable_credits' is returned as part of Customer resource.
+
+New attributes 'amount_paid', 'amount_adjusted' & 'credits_applied' are returned as part of Invoice resource. See: https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+New attributes 'credits_applied' & 'amount_due' are returned as part of Estimate resource. See: https://apidocs.chargebee.com/docs/api/estimates#estimate_attributes
+
+New entity type 'credit_note' is added as part of 'entity_type' attribute of Comment resource. 
+See: https://apidocs.chargebee.com/docs/api/comments#comment_attributes
+
 ### v1.6.7 (2015-12-15)
 * * *
 
@@ -20,7 +43,7 @@ See plan attributes here: https://apidocs.chargebee.com/docs/api/plans#plan_attr
 
 ** APIs updated**:
 
-Support for Excess Payments. See : https://www.chargebee.com/docs/customers.html#excess-payments
+Support for excess payments. See : https://www.chargebee.com/docs/customers.html#excess-payments
 
 New attribute "excess_payments" is returned as part of Customer resource.
 See: https://apidocs.chargebee.com/docs/api/customers#customer_attributes

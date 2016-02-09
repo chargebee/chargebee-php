@@ -4,7 +4,7 @@ class ChargeBee_Estimate extends ChargeBee_Model
 {
 
   protected $allowed = array('createdAt', 'recurring', 'subscriptionId', 'subscriptionStatus', 'termEndsAt',
-'collectNow', 'amount', 'priceType', 'subTotal', 'lineItems', 'discounts', 'taxes');
+'collectNow', 'priceType', 'amount', 'creditsApplied', 'amountDue', 'subTotal', 'lineItems','discounts', 'taxes');
 
 
 
