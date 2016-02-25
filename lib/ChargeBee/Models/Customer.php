@@ -71,6 +71,11 @@ class ChargeBee_Customer extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"set_account_credits"), $params, $env, $headers);
   }
 
+  public static function delete($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"delete"), array(), $env, $headers);
+  }
+
  }
 
 ?>
