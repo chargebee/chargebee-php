@@ -1,5 +1,5 @@
 <?php
-namespace Chargebee\Chargebee\Exceptions;
+namespace ChargeBee\ChargeBee\Exceptions;
 
 class PaymentException extends APIError
 {

@@ -2,11 +2,11 @@
 require 'vendor/autoload.php';
 
 //Code from apidocs
-$chargebee = new \Chargebee\Chargebee("rrcb-test",
+$chargebee = new \ChargeBee\ChargeBee("rrcb-test",
   "jaGdadHeCQxfmFQG2sEgSrzHdyt23cwcd");
 
-function testParams(\Chargebee\Chargebee $chargebee) {
- $result = \Chargebee\Chargebee\Models\Subscription::retrieve('1rifg4iOsZUL4mBhF');
+function testParams(\ChargeBee\ChargeBee $chargebee) {
+ $result = \ChargeBee\ChargeBee\Models\Subscription::retrieve('1rifg4iOsZUL4mBhF');
  // print_r($result);
  //print_r($result->subscription()->currentTermEnasdd);
  //print_r($result->customer());

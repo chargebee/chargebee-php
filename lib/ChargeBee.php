@@ -1,9 +1,9 @@
 <?php
-namespace Chargebee;
+namespace ChargeBee;
 
-use Chargebee\Chargebee\Environment;
+use ChargeBee\ChargeBee\Environment;
 
-class Chargebee {
+class ChargeBee {
     public static $verifyCaCerts = true;
 
     public static function getVerifyCaCerts()

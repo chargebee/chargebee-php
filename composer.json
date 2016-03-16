@@ -7,7 +7,7 @@
     "homepage": "https://github.com/chargebee/chargebee-php",
     "autoload": {
         "psr-4": {
-            "Chargebee\\": "lib/"
+            "ChargeBee\\": "lib/"
         }
     }
 }

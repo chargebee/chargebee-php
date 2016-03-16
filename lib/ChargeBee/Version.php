@@ -1,5 +1,5 @@
 <?php
-namespace Chargebee\Chargebee;
+namespace ChargeBee\ChargeBee;
 
 final class Version
 {

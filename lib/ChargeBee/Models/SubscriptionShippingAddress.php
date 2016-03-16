@@ -1,6 +1,6 @@
 <?php
 
-namespace Chargebee\Chargebee\Models;
+namespace ChargeBee\ChargeBee\Models;
 
 class SubscriptionShippingAddress extends Model
 {

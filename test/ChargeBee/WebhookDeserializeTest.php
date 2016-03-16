@@ -5,7 +5,7 @@ class ChargeBee_WebhookDeserializeTest extends UnitTestCase
 
   function testWebhookSerializing()
 	{
-		$event = \Chargebee\Chargebee\Models\Event::deserialize(ChargeBee_SampleData::webhookData());
+		$event = \ChargeBee\ChargeBee\Models\Event::deserialize(ChargeBee_SampleData::webhookData());
 		$content = $event->content();
 		$this->assertNotEqual($content->customer(), null);
 		$this->assertNotEqual($content->subscription(), null);

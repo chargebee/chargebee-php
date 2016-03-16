@@ -31,21 +31,21 @@ class UtilTest extends UnitTestCase
 	      "card[expiry_month]"=>"1",
 	      "card[expiry_year]"=>"2024",
 	      "card[cvv]"=>"007");
-          $this->assertEqual($after, \Chargebee\Chargebee\Util::serialize($before));
+          $this->assertEqual($after, \ChargeBee\ChargeBee\Util::serialize($before));
 	  }
 
 	function testToCamelCaseFromUnderscore()
 	{
 		$before = "test_string";
 		$after = "testString";
-		$this->assertEqual($after, \Chargebee\Chargebee\Util::toCamelCaseFromUnderscore($before));
+		$this->assertEqual($after, \ChargeBee\ChargeBee\Util::toCamelCaseFromUnderscore($before));
 	}
 
 	function testToUnderscoreFromCamelCase()
 	{
 		$before = "testString";
 		$after = "test_string";
-		$this->assertEqual($after, \Chargebee\Chargebee\Util::toUnderscoreFromCamelCase($before));
+		$this->assertEqual($after, \ChargeBee\ChargeBee\Util::toUnderscoreFromCamelCase($before));
 	}
 
 }

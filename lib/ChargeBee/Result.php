@@ -1,6 +1,6 @@
 <?php
 
-namespace Chargebee\Chargebee;
+namespace ChargeBee\ChargeBee;
 
 class Result
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Chargebee\Chargebee;
+namespace ChargeBee\ChargeBee;
 
-use Chargebee\Chargebee\Exceptions\APIError;
-use Chargebee\Chargebee\Exceptions\InvalidRequestException;
-use Chargebee\Chargebee\Exceptions\IOException;
-use Chargebee\Chargebee\Exceptions\OperationFailedException;
-use Chargebee\Chargebee\Exceptions\PaymentException;
-use Chargebee\Chargebee;
+use ChargeBee\ChargeBee\Exceptions\APIError;
+use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
+use ChargeBee\ChargeBee\Exceptions\IOException;
+use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
+use ChargeBee\ChargeBee\Exceptions\PaymentException;
+use ChargeBee\ChargeBee;
 
 class Curl {
 
@@ -46,7 +46,7 @@ class Curl {
         $opts[CURLOPT_RETURNTRANSFER] = true;
         $opts[CURLOPT_CONNECTTIMEOUT] = Environment::$connectTimeout;
         $opts[CURLOPT_TIMEOUT] = Environment::$timeout;
-        $userAgent = "Chargebee-PHP-Client" . " v" . Version::VERSION;
+        $userAgent = "ChargeBee-PHP-Client" . " v" . Version::VERSION;
 		
 		$httpHeaders = self::addCustomHeaders($headers);
 		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array

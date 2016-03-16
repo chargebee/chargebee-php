@@ -1,9 +1,9 @@
 <?php
 
-namespace Chargebee\Chargebee\Models;
+namespace ChargeBee\ChargeBee\Models;
 
-use Chargebee\Chargebee\Request;
-use Chargebee\Chargebee\Util;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
 
 class PortalSession extends Model
 {

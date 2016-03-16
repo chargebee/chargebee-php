@@ -1,5 +1,5 @@
 <?php
-namespace Chargebee\Chargebee;
+namespace ChargeBee\ChargeBee;
 
 abstract class Util {
 
