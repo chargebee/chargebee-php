@@ -1,6 +1,6 @@
 <?php
 
-class ChargeBee_UtilTest extends UnitTestCase
+class UtilTest extends UnitTestCase
 {
 
 	function testSerialize() {
@@ -31,21 +31,21 @@ class ChargeBee_UtilTest extends UnitTestCase
 	      "card[expiry_month]"=>"1",
 	      "card[expiry_year]"=>"2024",
 	      "card[cvv]"=>"007");
-          $this->assertEqual($after, ChargeBee_Util::serialize($before));
+          $this->assertEqual($after, \Chargebee\Chargebee\Util::serialize($before));
 	  }
 
 	function testToCamelCaseFromUnderscore()
 	{
 		$before = "test_string";
 		$after = "testString";
-		$this->assertEqual($after, ChargeBee_Util::toCamelCaseFromUnderscore($before));
+		$this->assertEqual($after, \Chargebee\Chargebee\Util::toCamelCaseFromUnderscore($before));
 	}
 
 	function testToUnderscoreFromCamelCase()
 	{
 		$before = "testString";
 		$after = "test_string";
-		$this->assertEqual($after, ChargeBee_Util::toUnderscoreFromCamelCase($before));
+		$this->assertEqual($after, \Chargebee\Chargebee\Util::toUnderscoreFromCamelCase($before));
 	}
 
 }

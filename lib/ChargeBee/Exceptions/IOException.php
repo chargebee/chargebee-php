@@ -1,18 +1,20 @@
 <?php
+namespace Chargebee\Chargebee\Exceptions;
 
-class ChargeBee_IOException extends Exception {
+use Exception;
 
+class IOException extends Exception
+{
     private $errorNo;
 
-    function __construct($message, $errorNo) {
+    function __construct($message, $errorNo)
+    {
         parent::__construct($message);
         $this->errorNo = $errorNo;
     }
 
-    public function getCurlErrorCode() {
+    public function getCurlErrorCode()
+    {
         return $this->errorNo;
     }
-
 }
-
-?>

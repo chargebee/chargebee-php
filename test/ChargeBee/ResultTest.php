@@ -5,7 +5,7 @@ class ChargeBee_ResultTest extends UnitTestCase
 	
 	function testSimpleResponseToObjectConversion()
 	{
-		$result = new ChargeBee_Result(ChargeBee_SampleData::simpleSubscription());
+		$result = new \Chargebee\Chargebee\Result(ChargeBee_SampleData::simpleSubscription());
 		$s = $result->subscription();
 		$c = $result->customer();
 		$this->assertEqual($s->id, "simple_subscription");
@@ -16,7 +16,7 @@ class ChargeBee_ResultTest extends UnitTestCase
 	
 	function testNestedResponseToObjectConversion()
 	{
-		$result = new ChargeBee_Result(ChargeBee_SampleData::nestedSubscription());
+		$result = new \Chargebee\Chargebee\Result(ChargeBee_SampleData::nestedSubscription());
 		$s = $result->subscription();
 		$this->assertEqual($s->id, "nested_subscription");
 		$addons = $s->addons;
@@ -29,7 +29,7 @@ class ChargeBee_ResultTest extends UnitTestCase
 	
 	function testEventResponseToObjectConversion()
 	{
-		$result = new ChargeBee_Result(ChargeBee_SampleData::sampleEvent());
+		$result = new \Chargebee\Chargebee\Result(ChargeBee_SampleData::sampleEvent());
 		$event = $result->event();
 		$content = $event->content();
 		$s = $content->subscription();

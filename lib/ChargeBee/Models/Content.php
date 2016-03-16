@@ -1,6 +1,9 @@
 <?php
-class ChargeBee_Content extends ChargeBee_Result
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Result;
+
+class Content extends Result
 {
 	
 }
-?>

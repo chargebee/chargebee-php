@@ -1,9 +1,9 @@
 <?php
 
-class ChargeBee_InvoiceDiscount extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+class InvoiceDiscount extends Model
 {
   protected $allowed = array('amount', 'description', 'type', 'entity_id');
 
 }
-
-?>

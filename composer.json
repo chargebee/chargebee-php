@@ -6,6 +6,8 @@
     "license": "MIT",
     "homepage": "https://github.com/chargebee/chargebee-php",
     "autoload": {
-        "files": ["lib/ChargeBee.php"]
+        "psr-4": {
+            "Chargebee\\": "lib/"
+        }
     }
 }

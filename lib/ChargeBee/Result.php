@@ -1,9 +1,10 @@
 <?php
 
-class ChargeBee_Result
+namespace Chargebee\Chargebee;
+
+class Result
 {
     private $_response;
-	
     private $_responseObj;
 
     function __construct($_response)
@@ -12,96 +13,134 @@ class ChargeBee_Result
             $this->_responseObj = array();
     }
 
+    /**
+     * @return Models\Subscription
+     */
     function subscription() 
     {
-        return $this->_get('subscription', 'ChargeBee_Subscription', 
-        array('addons' => 'ChargeBee_SubscriptionAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress'));
+        return $this->_get(
+            'subscription', Models\Subscription::class,
+            array(
+                'addons' => Models\SubscriptionAddon::class,
+                'coupons' => Models\SubscriptionCoupon::class,
+                'shipping_address' => Models\SubscriptionShippingAddress::class
+            )
+        );
     }
 
     function customer() 
     {
-        return $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod'));
+        return $this->_get(
+            'customer', Models\Customer::class,
+            array(
+                'billing_address' => Models\CustomerBillingAddress::class,
+                'contacts' => Models\CustomerContact::class,
+                'payment_method' => Models\CustomerPaymentMethod::class
+            )
+        );
     }
 
     function card() 
     {
-        return $this->_get('card', 'ChargeBee_Card');
+        return $this->_get('card', Models\Card::class);
     }
 
     function invoice() 
     {
-        return $this->_get('invoice', 'ChargeBee_Invoice', 
-        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'invoice_transactions' => 'ChargeBee_InvoiceLinkedTransaction', 'orders' => 'ChargeBee_InvoiceLinkedOrder', 'invoice_notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
+        return $this->_get(
+            'invoice', Models\Invoice::class,
+            array(
+                'line_items' => Models\InvoiceLineItem::class,
+                'discounts' => Models\InvoiceDiscount::class,
+                'taxes' => Models\InvoiceTax::class,
+                'invoice_transactions' => Models\InvoiceLinkedTransaction::class,
+                'orders' => Models\InvoiceLinkedOrder::class,
+                'invoice_notes' => Models\InvoiceNote::class,
+                'shipping_address' => Models\InvoiceShippingAddress::class,
+                'billing_address' => Models\InvoiceBillingAddress::class
+            )
+        );
     }
 
     function order() 
     {
-        return $this->_get('order', 'ChargeBee_Order');
+        return $this->_get('order', Models\Order::class);
     }
 
     function transaction() 
     {
-        return $this->_get('transaction', 'ChargeBee_Transaction', 
-        array('invoice_transactions' => 'ChargeBee_TransactionLinkedInvoice', 'txn_refunds_and_reversals' => 'ChargeBee_TransactionLinkedRefund'));
+        return $this->_get(
+            'transaction', Models\Transaction::class,
+            array(
+                'invoice_transactions' => Models\TransactionLinkedInvoice::class,
+                'txn_refunds_and_reversals' => Models\TransactionLinkedRefund::class
+            )
+        );
     }
 
     function hostedPage() 
     {
-        return $this->_get('hosted_page', 'ChargeBee_HostedPage');
+        return $this->_get('hosted_page', Models\HostedPage::class);
     }
 
     function estimate() 
     {
-        return $this->_get('estimate', 'ChargeBee_Estimate', 
-        array('line_items' => 'ChargeBee_EstimateLineItem', 'discounts' => 'ChargeBee_EstimateDiscount', 'taxes' => 'ChargeBee_EstimateTax'));
+        return $this->_get(
+            'estimate', Models\Estimate::class,
+            array(
+                'line_items' => Models\EstimateLineItem::class,
+                'discounts' => Models\EstimateDiscount::class,
+                'taxes' => Models\EstimateTax::class
+            )
+        );
     }
 
     function plan() 
     {
-        return $this->_get('plan', 'ChargeBee_Plan');
+        return $this->_get('plan', Models\Plan::class);
     }
 
     function addon() 
     {
-        return $this->_get('addon', 'ChargeBee_Addon');
+        return $this->_get('addon', Models\Addon::class);
     }
 
     function coupon() 
     {
-        return $this->_get('coupon', 'ChargeBee_Coupon');
+        return $this->_get('coupon', Models\Coupon::class);
     }
 
     function couponCode() 
     {
-        return $this->_get('coupon_code', 'ChargeBee_CouponCode');
+        return $this->_get('coupon_code', Models\CouponCode::class);
     }
 
     function address() 
     {
-        return $this->_get('address', 'ChargeBee_Address');
+        return $this->_get('address', Models\Address::class);
     }
 
     function event() 
     {
-        return $this->_get('event', 'ChargeBee_Event', 
-        array('webhooks' => 'ChargeBee_EventWebhook'));
+        return $this->_get('event', Models\Event::class,
+            array('webhooks' => Models\EventWebhook::class)
+        );
     }
 
     function comment() 
     {
-        return $this->_get('comment', 'ChargeBee_Comment');
+        return $this->_get('comment', Models\Comment::class);
     }
 
     function download() 
     {
-        return $this->_get('download', 'ChargeBee_Download');
+        return $this->_get('download', Models\Download::class);
     }
 
     function portalSession() 
     {
-        return $this->_get('portal_session', 'ChargeBee_PortalSession', 
-        array('linked_customers' => 'ChargeBee_PortalSessionLinkedCustomer'));
+        return $this->_get('portal_session', Models\PortalSession::class,
+        array('linked_customers' => Models\PortalSessionLinkedCustomer::class));
     }
 
 
@@ -119,5 +158,3 @@ class ChargeBee_Result
     }
 
 }
-
-?>

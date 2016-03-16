@@ -1,9 +1,9 @@
 <?php
 
-class ChargeBee_InvoiceLinkedTransaction extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+class InvoiceLinkedTransaction extends Model
 {
   protected $allowed = array('txn_id', 'applied_amount', 'applied_at', 'txn_type', 'txn_status', 'txn_date', 'txn_amount');
 
 }
-
-?>
