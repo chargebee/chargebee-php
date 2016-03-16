@@ -1,9 +1,9 @@
 <?php
 
-class ChargeBee_CustomerPaymentMethod extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+class CustomerPaymentMethod extends Model
 {
   protected $allowed = array('type', 'gateway', 'status', 'reference_id');
 
 }
-
-?>

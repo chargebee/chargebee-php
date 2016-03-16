@@ -5,3 +5,8 @@
 
 # Ignore the SimpleTest library
 /test/simpletest/
+/simpletest/
+
+# Ignore vendor
+/vendor/
+

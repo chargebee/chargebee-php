@@ -1,6 +1,10 @@
 <?php
+namespace ChargeBee\ChargeBee\Models;
 
-class ChargeBee_Order extends ChargeBee_Model
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class Order extends Model
 {
 
   protected $allowed = array('id', 'invoiceId', 'status', 'referenceId', 'fulfillmentStatus', 'note', 'trackingId',
@@ -13,29 +17,27 @@ class ChargeBee_Order extends ChargeBee_Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders"), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("orders"), $params, $env, $headers);
   }
 
   public static function update($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders",$id), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("orders",$id), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("orders",$id), array(), $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("orders",$id), array(), $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("orders"), $params, $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("orders"), $params, $env, $headers);
   }
 
   public static function ordersForInvoice($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("invoices",$id,"orders"), $params, $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"orders"), $params, $env, $headers);
   }
 
  }
-
-?>

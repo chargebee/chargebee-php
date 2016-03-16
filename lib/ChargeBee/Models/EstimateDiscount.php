@@ -1,9 +1,9 @@
 <?php
 
-class ChargeBee_EstimateDiscount extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+class EstimateDiscount extends Model
 {
   protected $allowed = array('amount', 'description', 'type', 'entity_id');
 
 }
-
-?>
