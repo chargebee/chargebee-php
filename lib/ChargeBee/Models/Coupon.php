@@ -4,7 +4,7 @@ class ChargeBee_Coupon extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'discountType', 'discountPercentage', 'discountAmount',
-'discountQuantity', 'durationType', 'durationMonth', 'validTill', 'maxRedemptions', 'status','applyDiscountOn', 'applyOn', 'planConstraint', 'addonConstraint', 'createdAt', 'archivedAt','planIds', 'addonIds', 'redemptions', 'invoiceNotes');
+'discountQuantity', 'durationType', 'durationMonth', 'validTill', 'maxRedemptions', 'status','applyDiscountOn', 'applyOn', 'planConstraint', 'addonConstraint', 'createdAt', 'archivedAt','planIds', 'addonIds', 'redemptions', 'invoiceNotes', 'metaData');
 
 
 

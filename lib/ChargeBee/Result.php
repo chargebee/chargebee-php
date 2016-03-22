@@ -32,7 +32,7 @@ class ChargeBee_Result
     function invoice() 
     {
         return $this->_get('invoice', 'ChargeBee_Invoice', 
-        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'invoice_transactions' => 'ChargeBee_InvoiceLinkedTransaction', 'orders' => 'ChargeBee_InvoiceLinkedOrder', 'invoice_notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
+        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'linked_transactions' => 'ChargeBee_InvoiceLinkedTransaction', 'linked_orders' => 'ChargeBee_InvoiceLinkedOrder', 'notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
     }
 
     function order() 
@@ -43,7 +43,7 @@ class ChargeBee_Result
     function transaction() 
     {
         return $this->_get('transaction', 'ChargeBee_Transaction', 
-        array('invoice_transactions' => 'ChargeBee_TransactionLinkedInvoice', 'txn_refunds_and_reversals' => 'ChargeBee_TransactionLinkedRefund'));
+        array('linked_invoices' => 'ChargeBee_TransactionLinkedInvoice', 'linked_refunds' => 'ChargeBee_TransactionLinkedRefund'));
     }
 
     function hostedPage() 
@@ -105,6 +105,7 @@ class ChargeBee_Result
     }
 
 
+    
     private function _get($type, $class, $subTypes = array())
     {
         if(!array_key_exists($type, $this->_response))

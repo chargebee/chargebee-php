@@ -4,7 +4,7 @@ class ChargeBee_Plan extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'description', 'price', 'period', 'periodUnit', 'trialPeriod',
-'trialPeriodUnit', 'chargeModel', 'freeQuantity', 'setupCost', 'downgradePenalty', 'status','archivedAt', 'billingCycles', 'redirectUrl', 'enabledInHostedPages', 'enabledInPortal', 'invoiceNotes','taxable');
+'trialPeriodUnit', 'chargeModel', 'freeQuantity', 'setupCost', 'downgradePenalty', 'status','archivedAt', 'billingCycles', 'redirectUrl', 'enabledInHostedPages', 'enabledInPortal', 'invoiceNotes','taxable', 'metaData');
 
 
 
