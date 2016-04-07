@@ -118,6 +118,12 @@ class ChargeBee_Result
         }
         return $this->_responseObj[$type];
     }
+    
+    public function getResponse()
+    {
+        return $this->_response;
+    }
+
 
 }
 

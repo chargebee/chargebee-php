@@ -101,6 +101,11 @@ class ChargeBee_Model
 		}
 	}
 
+    public function getValues()
+    {
+        return $this->_values;
+    }
+    
 }
 
 ?>
