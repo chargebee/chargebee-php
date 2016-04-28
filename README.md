@@ -1,10 +1,13 @@
 # Chargebee PHP Client Library - API V2
 
-The php library for integrating with Chargebee Recurring Billing and Subscription Management solution.
+[![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
+[![Packagist](https://img.shields.io/packagist/dt/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
+[![Packagist](https://img.shields.io/packagist/dm/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
+[![Packagist](https://img.shields.io/packagist/l/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
 
-Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/docs/api/v1) and [V2](https://apidocs.chargebee.com/docs/api), of which V2 is the latest release and all future developments will happen in V2. 
+This is the PHP Library for integrating with Chargebee. Sign up for a Chargebee account [here](https://www.chargebee.com).
 
-This library is for our <b>API version V2</b>. The library for V1 can be found in [chargebee-v1 branch](https://github.com/chargebee/chargebee-php/tree/chargebee-v1). 
+Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/docs/api/v1) and [V2](https://apidocs.chargebee.com/docs/api), of which V2 is the latest release and all future developments will happen in V2. This library is for <b>API version V2</b>. If you’re looking for V1, head to [chargebee-v1 branch](https://github.com/chargebee/chargebee-php/tree/chargebee-v1).
 
 ## Installation
 
