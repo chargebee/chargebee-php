@@ -4,7 +4,7 @@ class ChargeBee_Addon extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'description', 'type', 'chargeType', 'price', 'period',
-'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal', 'invoiceNotes', 'taxable','metaData');
+'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal', 'taxCode', 'invoiceNotes','taxable', 'metaData');
 
 
 
