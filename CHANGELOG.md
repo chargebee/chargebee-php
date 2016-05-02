@@ -1,3 +1,13 @@
+### v2.0.2 (2016-05-02)
+* * *
+** APIs added**:
+
+Support to archive a coupon code. See archive Coupon code API here: https://apidocs.chargebee.com/docs/api/coupon_codes#archive_a_coupon_code
+
+** APIs updated**:
+
+The attribute "status" is returned as part of Coupon Code resource. See : https://apidocs.chargebee.com/docs/api/coupon_codes#coupon_code_attributes
+
 ### v2.0.1 (2016-04-29)
 * * *
 
