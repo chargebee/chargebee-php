@@ -4,7 +4,7 @@ class ChargeBee_CreditNote extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'referenceInvoiceId', 'type', 'reasonCode',
-'status', 'vatNumber', 'date', 'priceType', 'total', 'amountAllocated', 'amountRefunded', 'amountAvailable','refundedAt', 'subTotal', 'lineItems', 'discounts', 'taxes', 'linkedRefunds', 'allocations');
+'status', 'vatNumber', 'date', 'priceType', 'total', 'amountAllocated', 'amountRefunded', 'amountAvailable','refundedAt', 'subTotal', 'lineItems', 'discounts', 'taxes', 'lineItemTaxes', 'linkedRefunds','allocations');
 
 
 
@@ -18,7 +18,7 @@ class ChargeBee_CreditNote extends ChargeBee_Model
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("credit_notes"), $params, $env, $headers);
+    return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("credit_notes"), $params, $env, $headers);
   }
 
   public static function creditNotesForCustomer($id, $params = array(), $env = null, $headers = array())

@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'priceType', 'date', 'total', 'amountPaid', 'amountAdjusted', 'writeOffAmount', 'creditsApplied','amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'subTotal', 'tax', 'firstInvoice', 'currencyCode','lineItems', 'discounts', 'taxes', 'linkedPayments', 'appliedCredits', 'adjustmentCreditNotes','issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress');
+'priceType', 'date', 'total', 'amountPaid', 'amountAdjusted', 'writeOffAmount', 'creditsApplied','amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'subTotal', 'tax', 'firstInvoice', 'currencyCode','lineItems', 'discounts', 'taxes', 'lineItemTaxes', 'linkedPayments', 'appliedCredits', 'adjustmentCreditNotes','issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress');
 
 
 
@@ -33,7 +33,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);
+    return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);
   }
 
   public static function invoicesForCustomer($id, $params = array(), $env = null, $headers = array())
