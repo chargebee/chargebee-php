@@ -1,3 +1,14 @@
+### v2.0.4 (2016-05-24)
+* * *
+
+#** APIs updated**:
+
+New attribute "currency_code" is returned as part of Credit Note resource.
+See: https://apidocs.chargebee.com/docs/api/credit_notes#credit_note_attributes
+
+The new Gateway type "wepay" for card resource is added. See subscription attributes
+See : https://apidocs.chargebee.com/docs/api/cards#card_attributes
+
 ### v2.0.3 (2016-05-20)
 * * *
 
