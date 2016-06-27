@@ -1,3 +1,10 @@
+### v2.0.6 (2016-06-27)
+* * *
+
+** APIs updated**:
+New resource "third_party_payment_method" is returned on performing copy card for a customer API.
+See : https://apidocs.chargebee.com/docs/api/cards#copy_card
+
 ### v2.0.5 (2016-06-16)
 * * *
 
