@@ -32,6 +32,12 @@ class ChargeBee_Result
         return $card;
     }
 
+    function thirdPartyPaymentMethod() 
+    {
+        $third_party_payment_method = $this->_get('third_party_payment_method', 'ChargeBee_ThirdPartyPaymentMethod');
+        return $third_party_payment_method;
+    }
+
     function invoice() 
     {
         $invoice = $this->_get('invoice', 'ChargeBee_Invoice', 
