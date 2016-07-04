@@ -1,3 +1,12 @@
+###v2.0.7 (2016-07-04)
+* * * 
+** APIs updated**:
+The attribute "currency_code" is added as part of Plans, Addons, Coupons, Subscription, Transaction and Estimate resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The API's Set promotional credits for a customer, Add promotional credits to a customer and  Deduct promotional credits for a customer takes in "currency_code" as input.
+See : https://apidocs.chargebee.com/docs/api/customers#set_promotional_credits_for_a_customer
+
 ### v2.0.6 (2016-06-27)
 * * *
 
