@@ -2,7 +2,7 @@
 
 final class ChargeBee_Version
 {
-	  const VERSION = '2.0.7';
+	  const VERSION = '2.0.8';
 }
 
 ?>
