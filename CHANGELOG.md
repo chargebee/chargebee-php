@@ -1,3 +1,9 @@
+###v2.0.9 (2016-07-18)
+* * * 
+** APIs added**:
+A new endpoint to remove coupons associated with the subscription is added. See : https://apidocs.chargebee.com/docs/api/subscriptions#remove_coupons
+A new endpoint to record excess payments for a customer is added. See : https://apidocs.chargebee.com/docs/api/customers#record_an_excess_payment_for_a_customer
+
 ###v2.0.8 (2016-07-06)
 * * * 
 ** APIs added**:
