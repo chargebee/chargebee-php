@@ -10,6 +10,11 @@ class ChargeBee_IOException extends Exception {
     }
 
     public function getCurlErrorCode() {
+        trigger_error('Use ' . ChargeBee_IOException::class . '::getErrorCode() instead', E_USER_DEPRECATED);
+        return $this->getErrorCode();
+    }
+
+    public function getErrorCode() {
         return $this->errorNo;
     }
 

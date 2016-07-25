@@ -1,6 +1,6 @@
 <?php
 
-class ChargeBee_Curl {
+class ChargeBee_Guzzle {
 
     public static function utf8($value) {
         if (is_string($value))
@@ -16,62 +16,46 @@ class ChargeBee_Curl {
     }
 
     public static function request($meth, $url, $env, $params, $headers) {
-        $curl = curl_init();
-        $opts = array();
+        $client = new \GuzzleHttp\Client();
+
+        $opts = array(
+            'connect_timeout' => ChargeBee_Environment::$connectTimeout,
+            'timeout' => ChargeBee_Environment::$timeout,
+            'allow_redirects' => true,
+            'http_errors' => false
+        );
         if ($meth == ChargeBee_Request::GET) {
-            $opts[CURLOPT_HTTPGET] = 1;
             if (count($params) > 0) {
-                $encoded = http_build_query($params, null, '&');
-                $url = "$url?$encoded";
+                $opts['query'] = $params;
             }
         } else if ($meth == ChargeBee_Request::POST) {
-            $opts[CURLOPT_POST] = 1;
-            $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
+            $opts['form_params'] = $params;
         } else {
             throw new Exception("Invalid http method $meth");
         }
         $url = self::utf8($env->apiUrl($url));
-        $opts[CURLOPT_URL] = $url;
-        $opts[CURLOPT_RETURNTRANSFER] = true;
-        $opts[CURLOPT_CONNECTTIMEOUT] = ChargeBee_Environment::$connectTimeout;
-        $opts[CURLOPT_TIMEOUT] = ChargeBee_Environment::$timeout;
+
         $userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
-		
-		$httpHeaders = self::addCustomHeaders($headers);
-		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array
-		
-        $opts[CURLOPT_HTTPHEADER] = $httpHeaders;
-        $opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
-        if (ChargeBee::getVerifyCaCerts()) {
-            $opts[CURLOPT_SSL_VERIFYPEER] = true;
-            $opts[CURLOPT_SSL_VERIFYHOST] = 2;
-            $opts[CURLOPT_CAINFO] = ChargeBee::getCaCertPath();
-        }
-        curl_setopt_array($curl, $opts);
+        $httpHeaders = array_merge($headers, ['Accept' => 'application/json', 'User-Agent' => $userAgent]);
 
-        $response = curl_exec($curl);
+        $opts['headers'] = $httpHeaders;
+        $opts['auth'] = [$env->getApiKey(), ''];
+        $opts['verify'] = ChargeBee::getVerifyCaCerts() ? ChargeBee::getCaCertPath() : false;
 
-        if ($response === false) {
-            $errno = curl_errno($curl);
-            $curlMsg = curl_error($curl);
-            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $curlMsg;
-            curl_close($curl);
+        $response = null;
+        try {
+            $response = $client->request($meth, $url, $opts);
+        } catch (RequestException $e) {
+            $errno = $e->getCode();
+            $guzzleMsg = $e->getMessage();
+            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $guzzleMsg;
             throw new ChargeBee_IOException($message, $errno);
         }
 
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        curl_close($curl);
-        return array($response, $httpCode);
+        $httpCode = $response->getStatusCode();
+        return array((string)$response->getBody(), $httpCode);
     }
-	
-	public static function addCustomHeaders($headers) {
-		$httpHeaders = array();
-		foreach ($headers as $key => $val) {
-			array_push($httpHeaders, $key.": ".$val);
-		}
-		return $httpHeaders;
-	}
-	
+
     public static function processResponse($response, $httpCode) {
         $respJson = json_decode($response, true);
         if(!$respJson){

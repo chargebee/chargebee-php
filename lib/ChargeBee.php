@@ -1,7 +1,7 @@
 <?php
 
 function checkExtentions() {
-    $extensions = array('curl', 'json');
+    $extensions = array('json');
     foreach ($extensions AS $e) {
         if (!extension_loaded($e)) {
             throw new Exception('ChargeBee requires the ' . $e . ' extension.');
@@ -41,7 +41,7 @@ require(dirname(__FILE__) . '/ChargeBee/Exceptions/OperationFailedException.php'
 require(dirname(__FILE__) . '/ChargeBee/Exceptions/InvalidRequestException.php');
 
 require(dirname(__FILE__) . '/ChargeBee/Request.php');
-require(dirname(__FILE__) . '/ChargeBee/Curl.php');
+require(dirname(__FILE__) . '/ChargeBee/Guzzle.php');
 
 require(dirname(__FILE__) . '/ChargeBee/Result.php');
 require(dirname(__FILE__) . '/ChargeBee/ListResult.php');
