@@ -40,7 +40,11 @@ class ChargeBee_Guzzle {
 
         $opts['headers'] = $httpHeaders;
         $opts['auth'] = [$env->getApiKey(), ''];
-        $opts['verify'] = ChargeBee::getVerifyCaCerts() ? ChargeBee::getCaCertPath() : false;
+
+        // Specifying a CA bundle results in the following error when running in Google App Engine:
+        // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
+        // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
+        $opts['verify'] = ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false;
 
         $response = null;
         try {
@@ -54,6 +58,16 @@ class ChargeBee_Guzzle {
 
         $httpCode = $response->getStatusCode();
         return array((string)$response->getBody(), $httpCode);
+    }
+
+    /**
+     * Recommended way to check if script is running in Google App Engine:
+     * https://github.com/google/google-api-php-client/blob/master/src/Google/Client.php#L799
+     *
+     * @return bool Returns true if running in Google App Engine
+     */
+    private static function isAppEngine() {
+        return (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
     }
 
     public static function processResponse($response, $httpCode) {
