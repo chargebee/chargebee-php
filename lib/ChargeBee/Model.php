@@ -159,6 +159,11 @@ class ChargeBee_Model
 		return $this;
 	}	
 			
+	public function __toString()
+	{
+		return $this->__toJSON();
+	}
+	
 	public function __toJSON()
 	{
 		return json_encode($this->__toArray());
