@@ -166,7 +166,11 @@ class ChargeBee_Model
 	
 	public function __toJSON()
 	{
-		return json_encode($this->__toArray());
+		if (defined('JSON_PRETTY_PRINT')) {
+			return json_encode($this->__toArray(), JSON_PRETTY_PRINT);
+		} else {
+			return json_encode($this->__toArray());
+		}
 	}
 	
 	public function __toArray()
