@@ -1,3 +1,16 @@
+###v2.1.0 (2016-08-02)
+* * * 
+** APIs added**:
+A new endpoint to retrieve Credit Note as PDF. See : https://apidocs.chargebee.com/docs/api/credit_notes#retrieve_credit_note_as_pdf
+
+** APIs updated**:
+The attribute "invoice notes" is added to subscription in Hosted Pages Checkout New and Checkout Existing API's.
+See : https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+
+The filter parameter "paid_at" is added to list invoices and "paid_on_after" is deprecated. See : https://apidocs.chargebee.com/docs/api/invoices#list_invoices
+
+The filter parameter "occurred_at", "webhook_status", "event_type" is added to list events and parameter "start_time", "end_time", "webhook_status", "event_type" is deprecated. See : https://apidocs.chargebee.com/docs/api/events#list_events
+
 ###v2.0.9 (2016-07-18)
 * * * 
 ** APIs added**:
