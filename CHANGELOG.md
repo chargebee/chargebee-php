@@ -1,3 +1,32 @@
+###v2.1.1 (2016-08-25)
+* * * 
+
+** APIs updated**:
+The attribute "validation_status" is added to address.
+See : https://apidocs.chargebee.com/docs/api/addresses#address_attributes
+
+The attribute "validation_status" is added to Customer billing address and the attribute "fraud_flag" is now returned Customer in case of any fraudulent transactions. The API's Create Customer, Update Billing Info for a Customer now take in "validation_status" for address objects.  
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The attribute "validation_status" is added to Subscription shipping address. The API's Create Subscription, Create Subscription for Customer, Update Subscription now take in "validation_status" for address objects.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The attribute "validation_status" is returned as part of Invoice billing and shipping address.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The sub resource "shipping_address" is now returned as part of Subscription Estimate in Estimate APIs.
+See : https://apidocs.chargebee.com/docs/api/estimates#estimate_attributes
+
+The attribute "created_from_ip", "card_ip_address" is deprecated from Customer and Subscription resource.
+See: https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The attribute "tmp_token" is added to Payment Method subresource that can be used in Create and Update Payment Method for a Customer API for direct_debit type through Stripe gateway.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+The status "pending_verification" added to Payment Method status.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+
 ###v2.1.0 (2016-08-02)
 * * * 
 ** APIs added**:
