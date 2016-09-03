@@ -1,3 +1,14 @@
+###v2.1.2 (2016-09-03)
+* * * 
+** APIs added**:
+A new endpoint to create Credit Note is added. See : https://apidocs.chargebee.com/docs/api/credit_notes#create_credit_note
+
+A new endpoint to write off Invoice is added. See : https://apidocs.chargebee.com/docs/api/invoices#write_off_an_invoice
+
+** APIs updated**:
+The attribute "forward_url" is given as input for Create a Portal Session API.
+See : https://apidocs.chargebee.com/docs/api/portal_sessions#create_a_portal_session
+
 ###v2.1.1 (2016-08-25)
 * * * 
 
