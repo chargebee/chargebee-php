@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'priceType', 'date', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted', 'writeOffAmount','creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'subTotal', 'tax','firstInvoice', 'lineItems', 'discounts', 'taxes', 'lineItemTaxes', 'linkedPayments', 'appliedCredits','adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress');
+'priceType', 'date', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted', 'writeOffAmount','creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'resourceVersion','updatedAt', 'subTotal', 'tax', 'firstInvoice', 'lineItems', 'discounts', 'taxes', 'lineItemTaxes','linkedPayments', 'appliedCredits', 'adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders','notes', 'shippingAddress', 'billingAddress', 'deleted');
 
 
 
