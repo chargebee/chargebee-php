@@ -1,3 +1,16 @@
+###v2.1.3 (2016-09-30)
+* * * 
+
+** APIs updated**:
+The new attributes "updated_at", "resource_version" and "deleted" is returned as part of Customer, Subscription, Invoice, Credit Note and Transaction resources.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The new parameter "include_deleted" is added to Customer, Subscription, Invoice, Credit Note and Transaction List API.
+See : https://apidocs.chargebee.com/docs/api/customers#list_customers
+
+The new parameter "date" is added to Create Credit Note API.
+See : https://apidocs.chargebee.com/docs/api/credit_notes#create_credit_note
+
 ###v2.1.2 (2016-09-03)
 * * * 
 ** APIs added**:
