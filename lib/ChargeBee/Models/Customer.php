@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'cardStatus', 'fraudFlag', 'billingAddress', 'contacts', 'paymentMethod','invoiceNotes', 'promotionalCredits', 'refundableCredits', 'excessPayments', 'metaData', 'deleted');
+'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'cardStatus', 'fraudFlag', 'billingAddress', 'contacts', 'paymentMethod','invoiceNotes', 'preferredCurrencyCode', 'promotionalCredits', 'refundableCredits', 'excessPayments','metaData', 'deleted');
 
 
 
