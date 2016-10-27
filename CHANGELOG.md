@@ -1,3 +1,11 @@
+###v2.1.4 (2016-10-27)
+* * * 
+
+** APIs updated**:
+
+The attribute "preferred_currency_code" is added to Customer and a new input parameter "preferred_currency_code" is added  Create Customer and Update Customer API.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
 ###v2.1.3 (2016-09-30)
 * * * 
 
