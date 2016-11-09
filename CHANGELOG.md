@@ -17,6 +17,9 @@ Following [Event types](https://apidocs.chargebee.com/docs/api/events#event_type
 * *coupon_deleted*
 * *netd_payment_due_reminder*
 
+The new Invoice status "posted" is added. 
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
 The attribute "net_term_days" is added to Customer resource and new input parameter "net_term_days" is added to Create Customer and Update Customer API. See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
 
 The input parameter "net_term_days" is added to Create a Subscription API. See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
