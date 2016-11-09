@@ -1,3 +1,32 @@
+###v2.1.5 (2016-11-09)
+* * * 
+
+** APIs updated**:
+The attributes "updated_at" and "resource_version" is added to Plan, Addon and Coupon resource.
+See : https://apidocs.chargebee.com/docs/api/plans#plan_attributes
+
+Following [Event types](https://apidocs.chargebee.com/docs/api/events#event_types) are added
+* *plan_created*
+* *plan_updated* 
+* *plan_deleted* 
+* *addon_created* 
+* *addon_updated* 
+* *addon_deleted* 
+* *coupon_created* 
+* *coupon_updated* 
+* *coupon_deleted*
+* *netd_payment_due_reminder*
+
+The new Invoice status "posted" is added. 
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The attribute "net_term_days" is added to Customer resource and new input parameter "net_term_days" is added to Create Customer and Update Customer API. See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The input parameter "net_term_days" is added to Create a Subscription API. See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
+
+The attributes "net_term_days" and "due_date" is added to the Invoice resource. See : https://apidocs.chargebee.com/docs/api/invoices
+
+
 ###v2.1.4 (2016-10-27)
 * * * 
 
