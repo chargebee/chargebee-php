@@ -86,6 +86,16 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"charge_addon_at_term_end"), $params, $env, $headers);
   }
 
+  public static function importSubscription($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions","import_subscription"), $params, $env, $headers);
+  }
+
+  public static function importForCustomer($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"import_subscription"), $params, $env, $headers);
+  }
+
   public static function delete($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"delete"), array(), $env, $headers);

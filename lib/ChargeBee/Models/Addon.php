@@ -36,6 +36,11 @@ class ChargeBee_Addon extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("addons",$id,"delete"), array(), $env, $headers);
   }
 
+  public static function copy($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("addons","copy"), $params, $env, $headers);
+  }
+
  }
 
 ?>
