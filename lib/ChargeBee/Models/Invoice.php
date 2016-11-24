@@ -31,6 +31,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"stop_dunning"), array(), $env, $headers);
   }
 
+  public static function importInvoice($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","import_invoice"), $params, $env, $headers);
+  }
+
   public static function all($params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);

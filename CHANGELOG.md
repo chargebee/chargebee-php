@@ -1,3 +1,34 @@
+###v2.1.7 (2016-11-24)
+* * * 
+
+** APIs updated**:
+A new attribute, 'funding_type' has been added to Card resource.
+See : https://apidocs.chargebee.com/docs/api/cards#card_attributes
+
+** APIs added**:
+A new endpoint, List coupon codes API has been added to Coupon Code resource.
+See : https://apidocs.chargebee.com/docs/api/coupon_codes#list_coupon_codes
+
+A new endpoint, Copy a plan API has been added to Plan resource.
+See : https://apidocs.chargebee.com/docs/api/plans#copy_a_plan
+
+A new endpoint, Copy an addon API has been added to Addon resource.
+See : https://apidocs.chargebee.com/docs/api/addons#copy_an_addon
+
+A new endpoint, Copy a coupon API has been added to Coupon resource.
+See : https://apidocs.chargebee.com/docs/api/coupons#copy_a_coupon
+
+A new endpoint, Import a subscription API has been added to Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#import_a_subscription
+
+A new endpoint, Import Subscription for customer API has been added to Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#import_subscription_for_customer
+
+A new endpoint, Import invoice API has been added to Invoice resource.
+See : https://apidocs.chargebee.com/docs/api/invoices#import_invoice
+
+
+
 ###v2.1.6 (2016-11-18)
 * * * 
 

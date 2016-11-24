@@ -36,6 +36,11 @@ class ChargeBee_Plan extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("plans",$id,"delete"), array(), $env, $headers);
   }
 
+  public static function copy($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("plans","copy"), $params, $env, $headers);
+  }
+
  }
 
 ?>

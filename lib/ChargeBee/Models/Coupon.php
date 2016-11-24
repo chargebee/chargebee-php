@@ -31,6 +31,11 @@ class ChargeBee_Coupon extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupons",$id,"delete"), array(), $env, $headers);
   }
 
+  public static function copy($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupons","copy"), $params, $env, $headers);
+  }
+
  }
 
 ?>
