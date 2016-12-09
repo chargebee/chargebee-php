@@ -1,3 +1,31 @@
+###v2.1.8 (2016-12-09)
+* * * 
+
+** APIs updated**:
+A new attribute, 'locale' has been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+A new parameter, 'locale' has been to Create a customer, Update a customer, Checkout new hosted page, Create a subscription and Import a subscription APIs.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+The attributes 'mrr', 'exchange_rate' and 'base_currency_code' have been added to the Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+A new filter parameter 'cancelled_at' has been added to List Subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions
+
+The attribute 'voided_at' has been added to the Invoice and the Credit Note resource and 'voided_at' filter has been added to List invoices and List credit notes APIs.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The attributes 'sku', 'accounting_code', 'accounting_category1' and 'accounting_category2' have been added to the Plan and the Addon resource.
+See : https://apidocs.chargebee.com/docs/api/plans#plan_attributes
+
+The input parameters 'sku', 'accounting_code', 'accounting_category1' and 'accounting_category2' have been added to Create a plan, Update a plan, Create an addon and Update an addon APIs.
+See : https://apidocs.chargebee.com/docs/api/plans#create_a_plan
+
+The input parameters 'transaction_id_at_gateway', 'transaction_status', 'transaction_error_code' and 'transaction_error_text' have been added to Record payment for an invoice API.
+See : https://apidocs.chargebee.com/docs/api/invoices#record_an_invoice_payment
+
 ###v2.1.7 (2016-11-24)
 * * * 
 
