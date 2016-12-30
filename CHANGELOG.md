@@ -1,3 +1,20 @@
+###v2.1.9 (2016-12-30)
+* * * 
+
+** APIs updated**:
+
+The attributes 'plan_unit_price', 'setup_fee', 'billing_period', 'billing_period_unit' and 'plan_free_quantity' has been added to the Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The input parameters 'plan_unit_price', 'setup_fee' and Addon 'unit_price' has been added to Create a subscription, Create subscription for customer, Update a subscription, Create a subscription estimate, Update a subscription estimate, Checkout a new subscription and Checkout existing subscription, Import a subscription and Import subscription for customer APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
+
+An input parameter Addon 'unit_price' has been added to Charge addon at term end, Create an Invoice, Create invoice for addon and Add addon item to pending invoice APIs.
+See : https://apidocs.chargebee.com/docs/api/invoices#create_an_invoice
+
+An attribute 'tax_exempt_reason' has been added to line items sub resource in Invoice, Credit Note and Estimate resources.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
 ###v2.1.8 (2016-12-09)
 * * * 
 

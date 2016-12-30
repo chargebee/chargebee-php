@@ -3,8 +3,8 @@
 class ChargeBee_Subscription extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'status', 'startDate',
-'trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'remainingBillingCycles', 'poNumber','createdAt', 'startedAt', 'activatedAt', 'cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp','resourceVersion', 'updatedAt', 'hasScheduledChanges', 'dueInvoicesCount', 'dueSince', 'totalDues','mrr', 'exchangeRate', 'baseCurrencyCode', 'addons', 'coupon', 'coupons', 'shippingAddress','invoiceNotes', 'metaData', 'deleted');
+  protected $allowed = array('id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice',
+'setupFee', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status', 'startDate','trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'remainingBillingCycles', 'poNumber','createdAt', 'startedAt', 'activatedAt', 'cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp','resourceVersion', 'updatedAt', 'hasScheduledChanges', 'dueInvoicesCount', 'dueSince', 'totalDues','mrr', 'exchangeRate', 'baseCurrencyCode', 'addons', 'coupon', 'coupons', 'shippingAddress','invoiceNotes', 'metaData', 'deleted');
 
 
 
