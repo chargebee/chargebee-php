@@ -41,6 +41,11 @@ class ChargeBee_Plan extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("plans","copy"), $params, $env, $headers);
   }
 
+  public static function unarchive($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("plans",$id,"unarchive"), array(), $env, $headers);
+  }
+
  }
 
 ?>
