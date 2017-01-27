@@ -1,3 +1,30 @@
+###v2.2.1 (2017-01-27)
+* * * 
+
+** APIs updated**:
+A new attribute 'gateway_account_id' has been added to Card resource. A input param 'gateway' has been deprecated and a new input param 'gateway_account_id' has been added from Update card for customer, Switch gateway and Copy card APIs.
+See: https://apidocs.chargebee.com/docs/api/cards
+
+ A input param 'gateway' has been deprecated and  a new input param 'gateway_account_id'  has been added to Card and Payment method sub resource in Create customer, Create subscription, Update Subscription and Import subscription API.
+ See: https://apidocs.chargebee.com/docs/api/customers 
+
+A input param 'fraud_flag' has been added to Update customer API.
+See: https://apidocs.chargebee.com/docs/api/customers#update_a_customer
+
+A input param 'gateway' has been deprecated and  a new input param 'gateway_account_id'  has been added to Payment method sub resource in Update card for a customer API.
+See: https://apidocs.chargebee.com/docs/api/cards#update_card_for_a_customer
+
+A input param 'gateway' has been deprecated and  a new input param 'gateway_account_id'  has been added to the Card resource in Checkout new, Checkout existing and Update card and Update Payment method APIs.
+See: https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+
+A new input params 'billing_address' and 'shipping_address' has been added to Checkout new hosted page API.
+See: https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+
+** APIs added**:
+A new endpoint Create subscription for a customer estimate has been added to the Estimate resource.
+See: https://apidocs.chargebee.com/docs/api/estimates#create_subscription_for_a_customer_estimate
+
+
 ###v2.2.0 (2017-01-12)
 * * * 
 
