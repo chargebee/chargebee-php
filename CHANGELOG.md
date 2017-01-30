@@ -1,3 +1,26 @@
+###v2.2.2 (2017-01-30)
+* * * 
+
+** APIs updated**:
+A new reason code 'Subscription cancellation' has been added to the Credit note resource.
+See : https://apidocs.chargebee.com/docs/api/credit_notes#credit_note_attributes
+
+A attribute 'has_advance_charges' has been added to the Invoice resource and the input filter parameter 'has_advance_charges' has been added to List Invoice API.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+A new attribute 'next_billing_at' has been added to the Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The input parameters 'terms_to_charge', 'reactivate', 'reactivate_from' have been added to Update a Subscription, Update a subscription estimate and Checkout existing hosted page APIs. 
+See : https://apidocs.chargebee.com/docs/api/subscriptions#update_a_subscription
+
+The input parameter 'reactivate_from' has been added to Reactivate a subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#reactivate_a_subscription
+
+** APIs added**:
+A new endpoint 'Charge Future Renewals' has been added to the Subscription API.
+https://apidocs.chargebee.com/docs/api/subscriptions#charge_future_renewals
+
 ###v2.2.1 (2017-01-27)
 * * * 
 
