@@ -142,6 +142,18 @@ class ChargeBee_Result
         return $portal_session;
     }
 
+    function siteMigrationDetail() 
+    {
+        $site_migration_detail = $this->_get('site_migration_detail', 'ChargeBee_SiteMigrationDetail');
+        return $site_migration_detail;
+    }
+
+    function resourceMigration() 
+    {
+        $resource_migration = $this->_get('resource_migration', 'ChargeBee_ResourceMigration');
+        return $resource_migration;
+    }
+
 
     function creditNotes() 
     {

@@ -81,6 +81,11 @@ class ChargeBee_Customer extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"delete"), $params, $env, $headers);
   }
 
+  public static function move($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers","move"), $params, $env, $headers);
+  }
+
  }
 
 ?>

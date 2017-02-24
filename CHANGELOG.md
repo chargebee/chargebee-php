@@ -1,3 +1,24 @@
+###v2.2.3 (2017-02-24)
+* * * 
+
+** APIs added**:
+New resources 'Site Migration Details' and 'Resource Migrations' have been added.
+See : https://apidocs.chargebee.com/docs/api/site_migration_details
+
+A new endpoint 'Move a customer' has been added.
+See : https://apidocs.chargebee.com/docs/api/customers#move_a_customer
+
+** APIs updated**:
+The attributes 'id' and 'for_site_merging' have been added to Copy an addon, Copy a coupon and Copy a plan API.
+See : https://apidocs.chargebee.com/docs/api/plans#copy_a_plan
+
+The event types 'customer_moved_out' and 'customer_moved_in' have been added.
+See : https://apidocs.chargebee.com/docs/api/events#event_types
+
+The input parameters 'ignore_scheduled_cancellation' and 'ignore_scheduled_changes' have been added to the Subscription renewal estimate API.
+See : https://apidocs.chargebee.com/docs/api/estimates#subscription_renewal_estimate
+
+
 ###v2.2.2 (2017-01-30)
 * * * 
 
