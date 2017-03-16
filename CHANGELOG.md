@@ -1,3 +1,22 @@
+###v2.2.4 (2017-03-16)
+* * * 
+
+** APIs updated**:
+The input parameter 'id' have been removed in Update a Plan and Update an addon resources.
+See: https://apidocs.chargebee.com/docs/api/plans#update_a_plan
+
+The input parameter 'terms_to_charge' have been added in Create a subscription,Create subscription for a customer, Create subscription estimate, create subscription for customer estimate, Reactivate a subscription and Checkout new hosted pages APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_subscription_for_customer
+
+The filter input parameter 'next_billing_at' have been added in List Subscriptions API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions
+
+The input parameter 'force_term_reset' have been added to Checkout existing hosted pages API.
+See : https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_existing_subscription
+
+A new attribute 'has_advance_charges' have been added to the Invoice resource.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
 ###v2.2.3 (2017-02-24)
 * * * 
 
