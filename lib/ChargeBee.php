@@ -112,5 +112,9 @@ require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimateShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ResourceMigration.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SiteMigrationDetail.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteEstimateLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceEstimateLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItemDiscount.php');
 
 

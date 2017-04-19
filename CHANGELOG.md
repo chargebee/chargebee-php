@@ -1,3 +1,29 @@
+###v2.2.5 (2017-04-19)
+* * * 
+
+** APIs added**:
+The endpoints 'List' and 'Acknowledge' APIs have been added to the Hosted page resource. 
+See : https://apidocs.chargebee.com/docs/api/hosted_pages
+
+** APIs updated**:
+A new subresource 'line_item_discounts' has been added to the Invoice, Credit note, Invoice estimates and Credit note estimates resources.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The Card statuses 'pending_verification' and 'invalid' have been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The Payment Method types 'generic', 'alipay' and 'unionpay' have been added to the Payment Method type in the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The state 'failed' and the attribute 'failure_reason' have been deprecated in the Hosted Page resource.
+
+The attribues 'updated_at', 'resource_version' and 'checkout_info' have been added.
+See : https://apidocs.chargebee.com/docs/api/hosted_pages#hosted_page_attributes
+
+A new gateway 'adyen' has been added.
+See : https://apidocs.chargebee.com/docs/api/cards#card_attributes
+
+
 ###v2.2.4 (2017-03-16)
 * * * 
 
