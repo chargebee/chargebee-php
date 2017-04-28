@@ -168,6 +168,25 @@ class ChargeBee_Model
 		return $this;
 	}	
 			
+	public function __toString()
+	{
+		return $this->__toJSON();
+	}
+	
+	public function __toJSON()
+	{
+		if (defined('JSON_PRETTY_PRINT')) {
+			return json_encode($this->__toArray(), JSON_PRETTY_PRINT);
+		} else {
+			return json_encode($this->__toArray());
+		}
+	}
+	
+	public function __toArray()
+	{
+		return $this->_values;
+	}
+	
 }
 
 ?>
