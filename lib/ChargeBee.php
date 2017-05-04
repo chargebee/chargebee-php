@@ -116,5 +116,13 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteEstimateLineItemDiscoun
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceEstimateLineItemDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSource.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceAmazonPayment.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceBankAccount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceCard.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourcePaypal.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionReferralInfo.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledCharge.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerReferralUrl.php');
 
 

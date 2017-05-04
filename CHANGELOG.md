@@ -1,3 +1,60 @@
+###v2.2.6 (2017-05-04)
+* * * 
+
+** APIs added**:
+The new resources Payment Source has been added.
+See: https://apidocs.chargebee.com/docs/api/payment_sources
+
+The new resources Unbilled Charge has been added.
+See : https://apidocs.chargebee.com/docs/api/unbilled_charges
+
+The endpoint Assign payment role has been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#assign_payment_role
+
+The endpoint Override Billing Profile has been added to the Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#override_billing_profile
+
+
+** APIs updated**: 
+The attribute payment_source_id has been added to the Card resource.
+See : https://apidocs.chargebee.com/docs/api/cards#card_attributes
+
+The attribute subscription_id has been added to the lineitems subresource in Invoice , Credit Note , Invoice estimate , Next invoice estimate and Credit Note estimate .
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The attributes consolidated_invoicing, primary_payment_source_id, backup_payment_source_id and the subresource list referral_urls have been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The attributes payment_source_id and auto_collection have been added to the Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The subresource unbilled_charge_estimates has been added to the Estimate resource.
+See : https://apidocs.chargebee.com/docs/api/estimates#unbilled_charge_estimate_attributes
+
+The param consolidated_invoicing has been added to Create a customer and Update a customer APIs.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+The input params auto_collection, invoice_immediately and consolidated_invoicing have been added to Create subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
+
+The input params auto_collection, payment_source_id and invoice_immediately have been added to Create subscription for customer API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_subscription_for_customer
+
+The input params credit_type and reference have been added to Add promotional credits for a customer , Deduct promotional credits for a customer and Set promotional credits for a customer APIs.
+See : https://apidocs.chargebee.com/docs/api/customers#add_promotional_credits_to_a_customer
+
+The input param invoice_immediately has been added to the Update a subscription , Reactivate subscription , Create subscription estimate , Create subscription for customer estimate and Update subscription estimate APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#update_a_subscription
+
+The input param auto_collection has been added to the Subscription subresource and consolidated_invoicing have been added to the Customer subresource in Checkout new subscription API.
+See : https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+
+The input param payment_source_id has been added to Import a subscription , Create an invoice , Create invoice for charge , Create invoice for addon and Collect payment for an invoice APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#import_a_subscription
+
+The event types payment_source_added, payment_source_updated and payment_source_deleted have been added.
+See : https://apidocs.chargebee.com/docs/api/events#event_types
+
 ###v2.2.5 (2017-04-19)
 * * * 
 

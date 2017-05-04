@@ -4,7 +4,7 @@ class ChargeBee_Estimate extends ChargeBee_Model
 {
 
   protected $allowed = array('createdAt', 'subscriptionEstimate', 'invoiceEstimate', 'nextInvoiceEstimate',
-'creditNoteEstimates');
+'creditNoteEstimates', 'unbilledChargeEstimates');
 
 
 

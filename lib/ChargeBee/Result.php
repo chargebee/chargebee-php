@@ -15,27 +15,34 @@ class ChargeBee_Result
     function subscription() 
     {
         $subscription = $this->_get('subscription', 'ChargeBee_Subscription', 
-        array('addons' => 'ChargeBee_SubscriptionAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress'));
+        array('addons' => 'ChargeBee_SubscriptionAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo'));
         return $subscription;
     }
 
     function customer() 
     {
         $customer = $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod'));
+        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod'));
         return $customer;
     }
 
-    function card() 
+    function paymentSource() 
     {
-        $card = $this->_get('card', 'ChargeBee_Card');
-        return $card;
+        $payment_source = $this->_get('payment_source', 'ChargeBee_PaymentSource', 
+        array('card' => 'ChargeBee_PaymentSourceCard', 'bank_account' => 'ChargeBee_PaymentSourceBankAccount', 'amazon_payment' => 'ChargeBee_PaymentSourceAmazonPayment', 'paypal' => 'ChargeBee_PaymentSourcePaypal'));
+        return $payment_source;
     }
 
     function thirdPartyPaymentMethod() 
     {
         $third_party_payment_method = $this->_get('third_party_payment_method', 'ChargeBee_ThirdPartyPaymentMethod');
         return $third_party_payment_method;
+    }
+
+    function card() 
+    {
+        $card = $this->_get('card', 'ChargeBee_Card');
+        return $card;
     }
 
     function invoice() 
@@ -50,6 +57,12 @@ class ChargeBee_Result
         $credit_note = $this->_get('credit_note', 'ChargeBee_CreditNote', 
         array('line_items' => 'ChargeBee_CreditNoteLineItem', 'discounts' => 'ChargeBee_CreditNoteDiscount', 'line_item_discounts' => 'ChargeBee_CreditNoteLineItemDiscount', 'taxes' => 'ChargeBee_CreditNoteTax', 'line_item_taxes' => 'ChargeBee_CreditNoteLineItemTax', 'linked_refunds' => 'ChargeBee_CreditNoteLinkedRefund', 'allocations' => 'ChargeBee_CreditNoteAllocation'));
         return $credit_note;
+    }
+
+    function unbilledCharge() 
+    {
+        $unbilled_charge = $this->_get('unbilled_charge', 'ChargeBee_UnbilledCharge');
+        return $unbilled_charge;
     }
 
     function order() 
@@ -74,7 +87,7 @@ class ChargeBee_Result
     function estimate() 
     {
         $estimate = $this->_get('estimate', 'ChargeBee_Estimate', array(),
-        array('subscription_estimate' => 'ChargeBee_SubscriptionEstimate', 'invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'next_invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'credit_note_estimates' => 'ChargeBee_CreditNoteEstimate'));
+        array('subscription_estimate' => 'ChargeBee_SubscriptionEstimate', 'invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'next_invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'credit_note_estimates' => 'ChargeBee_CreditNoteEstimate', 'unbilled_charge_estimates' => 'ChargeBee_UnbilledCharge'));
         $estimate->_initDependant($this->_response['estimate'], 'subscription_estimate', 
         array('shipping_address' => 'ChargeBee_SubscriptionEstimateShippingAddress'));
         $estimate->_initDependant($this->_response['estimate'], 'invoice_estimate', 
@@ -83,6 +96,8 @@ class ChargeBee_Result
         array('line_items' => 'ChargeBee_InvoiceEstimateLineItem', 'discounts' => 'ChargeBee_InvoiceEstimateDiscount', 'taxes' => 'ChargeBee_InvoiceEstimateTax', 'line_item_taxes' => 'ChargeBee_InvoiceEstimateLineItemTax', 'line_item_discounts' => 'ChargeBee_InvoiceEstimateLineItemDiscount'));
         $estimate->_initDependantList($this->_response['estimate'], 'credit_note_estimates', 
         array('line_items' => 'ChargeBee_CreditNoteEstimateLineItem', 'discounts' => 'ChargeBee_CreditNoteEstimateDiscount', 'taxes' => 'ChargeBee_CreditNoteEstimateTax', 'line_item_taxes' => 'ChargeBee_CreditNoteEstimateLineItemTax', 'line_item_discounts' => 'ChargeBee_CreditNoteEstimateLineItemDiscount'));
+        $estimate->_initDependantList($this->_response['estimate'], 'unbilled_charge_estimates', 
+        array());
         return $estimate;
     }
 
@@ -155,11 +170,25 @@ class ChargeBee_Result
     }
 
 
+    function unbilledCharges() 
+    {
+        $unbilled_charges = $this->_getList('unbilled_charges', 'ChargeBee_UnbilledCharge',
+        array());
+        return $unbilled_charges;
+    }
+    
     function creditNotes() 
     {
         $credit_notes = $this->_getList('credit_notes', 'ChargeBee_CreditNote',
         array('line_items' => 'ChargeBee_CreditNoteLineItem', 'discounts' => 'ChargeBee_CreditNoteDiscount', 'line_item_discounts' => 'ChargeBee_CreditNoteLineItemDiscount', 'taxes' => 'ChargeBee_CreditNoteTax', 'line_item_taxes' => 'ChargeBee_CreditNoteLineItemTax', 'linked_refunds' => 'ChargeBee_CreditNoteLinkedRefund', 'allocations' => 'ChargeBee_CreditNoteAllocation'));
         return $credit_notes;
+    }
+    
+    function invoices() 
+    {
+        $invoices = $this->_getList('invoices', 'ChargeBee_Invoice',
+        array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'line_item_discounts' => 'ChargeBee_InvoiceLineItemDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'line_item_taxes' => 'ChargeBee_InvoiceLineItemTax', 'linked_payments' => 'ChargeBee_InvoiceLinkedPayment', 'applied_credits' => 'ChargeBee_InvoiceAppliedCredit', 'adjustment_credit_notes' => 'ChargeBee_InvoiceAdjustmentCreditNote', 'issued_credit_notes' => 'ChargeBee_InvoiceIssuedCreditNote', 'linked_orders' => 'ChargeBee_InvoiceLinkedOrder', 'notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
+        return $invoices;
     }
     
     
