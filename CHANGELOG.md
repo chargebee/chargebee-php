@@ -1,3 +1,27 @@
+### v2.2.8 (2017-07-06)
+* * * 
+
+** APIs updated**: 
+
+The parameter "status" has been added to the Create a plan, Create an addon and Create a coupon APIs.
+See : https://apidocs.chargebee.com/docs/api/plans#create_a_plan
+
+The attribute "issuing_country" has been added to the Card and Payment source resource.
+See : https://apidocs.chargebee.com/docs/api/payment_sources#payment_source_attributes
+
+The reason code "fraudulent" has been added to the Credit note resource.
+See : https://apidocs.chargebee.com/docs/api/credit_notes#credit_note_reason_code
+
+The attribute "bank_name" is made optional in Bank Account subresource.
+See : https://apidocs.chargebee.com/docs/api/payment_sources#payment_source_bank_account_bank_name
+
+The parameter "redirect_url" has been made optional in Create a portal session API.
+See : https://apidocs.chargebee.com/docs/api/portal_sessions#create_a_portal_session
+
+The attributes "fraud_flag" and "fraud_reason" have been added to the Transaction resource.
+See : https://apidocs.chargebee.com/docs/api/transactions#transaction_attributes
+
+
 ### v2.2.7 (2017-06-01)
 * * * 
 
