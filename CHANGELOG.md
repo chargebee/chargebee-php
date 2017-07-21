@@ -1,3 +1,31 @@
+### v2.2.9 (2017-07-21)
+* * * 
+
+** APIs added**: 
+
+The new endpoint 'Change Billing Date' has been added to Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#change_billing_date
+
+The new endpoints 'Upcoming invoices estimate' and  'Subscription change term end estimate' have been added to Estimate API.
+See : https://apidocs.chargebee.com/docs/api/estimates#upcoming_invoices_estimate
+
+** APIs updated**: 
+
+The attributes 'billing_date', 'billing_date_mode', 'billing_day_of_week', 'billing_day_of_week_mode', 'unbilled_charges' have been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The event types 'unbilled_charges_created', 'unbilled_charges_voided', 'unbilled_charges_deleted' and 'unbilled_charges_invoiced' have been added.
+See : https://apidocs.chargebee.com/docs/api/events#event_types
+
+The parameter 'billing_alignment_mode' has been added to Create a subscription, Create a subscription for customer, Update a customer, Reactivate a subscription, Create subscription estimate, Create subscription for customer estimate, Update a subscription estimate, Checkout new subscription and Checkout existing subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
+
+The parameters 'line_item_date_from' and 'line_item_date_to' have been added to Add Charge API.
+See : https://apidocs.chargebee.com/docs/api/invoices#add_charge_item_to_pending_invoice
+
+The parameters 'prorate' and 'invoice_immediately' have been added Change term end API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#change_term_end
+
 ### v2.2.8 (2017-07-06)
 * * * 
 
