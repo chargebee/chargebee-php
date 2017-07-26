@@ -171,6 +171,12 @@ class ChargeBee_Result
         return $resource_migration;
     }
 
+    function timeMachine() 
+    {
+        $time_machine = $this->_get('time_machine', 'ChargeBee_TimeMachine');
+        return $time_machine;
+    }
+
 
     function unbilledCharges() 
     {

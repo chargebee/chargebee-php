@@ -12,6 +12,7 @@ class ChargeBee_Environment {
 
     public static  $connectTimeout= 50;
     public static  $timeout=100;
+    public static  $timeMachineWaitInSecs = 3; 
     const API_VERSION = "v2";
     
     function __construct($site, $apiKey) {
