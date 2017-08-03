@@ -1,3 +1,14 @@
+### v2.3.1 (2017-08-03)
+* * * 
+
+** APIs updated**: 
+
+The attribute trial_end has been added to Subscriptions Addon subresource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_addons_trial_end
+
+The parameter trial_end would be added to Addon subresource in Create a subscription,Create subcription for customer, Update a subcription, Create subscription estimate, Create subscription for customer estimate and Update subscription estimate APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription_addons_trial_end
+
 ### v2.3.0 (2017-07-26)
 * * * 
 
