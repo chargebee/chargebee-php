@@ -1,3 +1,11 @@
+### v2.3.2 (2017-08-16)
+* * * 
+
+** APIs added**: 
+
+A new endpoint 'Update a card payment source' would be added to the Payment source resource.
+See : https://apidocs.chargebee.com/docs/api/payment_sources#update_a_card_payment_source
+
 ### v2.3.1 (2017-08-03)
 * * * 
 
