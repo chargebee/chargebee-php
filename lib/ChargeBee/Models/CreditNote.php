@@ -26,6 +26,11 @@ class ChargeBee_CreditNote extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"pdf"), array(), $env, $headers);
   }
 
+  public static function voidCreditNote($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"void"), $params, $env, $headers);
+  }
+
   public static function all($params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("credit_notes"), $params, $env, $headers);
@@ -34,6 +39,11 @@ class ChargeBee_CreditNote extends ChargeBee_Model
   public static function creditNotesForCustomer($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"credit_notes"), $params, $env, $headers);
+  }
+
+  public static function delete($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"delete"), $params, $env, $headers);
   }
 
  }
