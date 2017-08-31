@@ -1,3 +1,21 @@
+### v2.3.4 (2017-08-31)
+* * * 
+
+** APIs added**: 
+
+The parameters credit_option_for_current_term_charges, unbilled_charges_option,refundable_credits_handling and account_receivables_handling would be added inCancel subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#cancel_a_subscription
+
+A new endpoint Cancel subscription estimate would be added to the Estimate resource.
+See : https://apidocs.chargebee.com/docs/api/estimates#cancel_subscription_estimate
+
+The attribute deleted would be added to the Unbilled charge resource.
+See : https://apidocs.chargebee.com/docs/api/unbilled_charges#unbilled_charge_attributes
+
+The parameter include_deleted would be added in List Unbilled Charges API.
+See : https://apidocs.chargebee.com/docs/api/unbilled_charges#list_unbilled_charges
+
+
 ### v2.3.3 (2017-08-28)
 * * * 
 

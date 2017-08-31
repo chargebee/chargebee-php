@@ -4,7 +4,7 @@ class ChargeBee_UnbilledCharge extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'dateFrom', 'dateTo', 'unitAmount', 'quantity',
-'amount', 'currencyCode', 'discountAmount', 'description', 'entityType', 'entityId', 'isVoided','voidedAt');
+'amount', 'currencyCode', 'discountAmount', 'description', 'entityType', 'entityId', 'isVoided','voidedAt', 'deleted');
 
 
 

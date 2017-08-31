@@ -41,6 +41,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"change_term_end_estimate"), $params, $env, $headers);
   }
 
+  public static function cancelSubscription($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"cancel_subscription_estimate"), $params, $env, $headers);
+  }
+
  }
 
 ?>
