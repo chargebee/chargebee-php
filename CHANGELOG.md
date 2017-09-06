@@ -1,3 +1,22 @@
+### v2.3.5 (2017-09-06)
+* * * 
+
+** APIs added**: 
+
+The new endpoint Record refund for a credit note has been added to Credit note resource.
+See : https://apidocs.chargebee.com/docs/api/credit_notes#record_refund_for_a_credit_note
+
+** APIs updated**: 
+
+The parameter tmp_token has been deprecated in card subresource in Create a customer , Create a subscription , Update a subscription and Import subscription APIs.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
+The parameter tmp_token has been added to payment method subresource in Create a subscription API.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#create_a_subscription
+
+The type apple_pay has been added to payment method types.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer_payment_method_type
+
 ### v2.3.4 (2017-08-31)
 * * * 
 
@@ -963,7 +982,7 @@ A new API called Activate a portal session method(Portal session) added to suppo
 
 ** APIs updated**:
 
-Shipping and Billing Address are returned as part of Invoice resource attributes. This returns the shiping & billing address that was present at the time of invoice generation.
+Shipping and Billing Address are returned as part of Invoice resource attributes. This returns the shipping & billing address that was present at the time of invoice generation.
 
 Linked Customers as part of Portal session resource attributes.
 
