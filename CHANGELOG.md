@@ -1,3 +1,14 @@
+### v2.3.6 (2017-09-14)
+* * * 
+
+** APIs updated**: 
+
+The attribute registered_for_gst has been added to the Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The parameter registered_for_gst has been added in Create a customer , Update billing info for a customer , Create subscription estimate , Update subscription estimate , Create a subscription and Update a subscription APIs.
+See : https://apidocs.chargebee.com/docs/api/customers#create_a_customer
+
 ### v2.3.5 (2017-09-06)
 * * * 
 
