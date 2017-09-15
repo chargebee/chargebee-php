@@ -1,3 +1,17 @@
+### v2.3.7 (2017-09-15)
+* * * 
+
+** APIs updated**: 
+
+The attribute payment_source_id would be added to the transaction resource.
+See : https://apidocs.chargebee.com/docs/api/transactions#transaction_payment_source_id
+
+The filter parameter payment_source_id would be added in List transactions API.
+See : https://apidocs.chargebee.com/docs/api/transactions#list_transactions
+
+The gateway types amazon_payments and paypal_express_checkout would be added.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_payment_method_gateway
+
 ### v2.3.6 (2017-09-14)
 * * * 
 
