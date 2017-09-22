@@ -1,3 +1,15 @@
+### v2.3.8 (2017-09-22)
+* * * 
+
+** APIs added**: 
+
+New endpoint 'Collect payment for a customer' has been added as a restricted and deprecated API.
+
+** APIs updated**: 
+
+The attribute 'amount_to_collect' would be added to Invoice resource.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
 ### v2.3.7 (2017-09-15)
 * * * 
 
