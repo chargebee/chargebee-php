@@ -121,6 +121,12 @@ class ChargeBee_Result
         return $coupon;
     }
 
+    function couponSet() 
+    {
+        $coupon_set = $this->_get('coupon_set', 'ChargeBee_CouponSet');
+        return $coupon_set;
+    }
+
     function couponCode() 
     {
         $coupon_code = $this->_get('coupon_code', 'ChargeBee_CouponCode');

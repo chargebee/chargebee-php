@@ -1,3 +1,25 @@
+### v2.3.9 (2017-11-13)
+* * * 
+
+** API changes**: 
+* The new resource [Coupon Set](https://apidocs.chargebee.com/docs/api/coupon_sets) has been added
+
+* The API end point create a coupon code for a coupon has been deprecated in coupon code resource
+
+* The attribute [coupon_set_id](https://apidocs.chargebee.com/docs/api/coupon_codes#coupon_code_coupon_set_id) has been added to Coupon Code resource
+
+* The deprecation has been removed for [Collect payment for customer](https://apidocs.chargebee.com/docs/api/customers#collect_payment_for_customer) in customer resource
+
+* New end point Manage payment source and Collect now has been added as deprecated API to hosted page. Please mail us at support@chargebee.com to enable
+
+** Attributes added**:
+* New attribute [remaining_billing_cycles](https://apidocs.chargebee.com/docs/api/subscriptions#subscription_addons_remaining_billing_cycles) has been added in addons under subscription resource.
+
+
+** Events added**:
+* New event type coupon_set_created, coupon_set_updated, coupon_set_deleted, coupon_codes_added, coupon_codes_updated, coupon_codes_deleted
+
+
 ### v2.3.8 (2017-09-22)
 * * * 
 
