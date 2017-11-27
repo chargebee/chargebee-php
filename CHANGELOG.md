@@ -1,3 +1,16 @@
+### v2.4.0 (2017-11-27)
+* * * 
+
+** API changes **:  
+* The new resource [Promotional Credits](http://apidocs.chargebee.com/docs/api/promotional_credits) has been added
+
+* The new sub resource [balances](https://apidocs.chargebee.com/docs/api/customers#customer_balances) has been added
+
+* The API end point add_promotional_credits, deduct_promotional_credits and set_promotional_credits has been deprecated in customer resource
+
+** Events added**:
+* New Event Type promotional_credits_added and promotional_credits_deducted has been added
+
 ### v2.3.9 (2017-11-13)
 * * * 
 

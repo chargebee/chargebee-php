@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'netTermDays', 'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate','billingDateMode', 'billingDayOfWeek', 'billingDayOfWeekMode', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','metaData', 'deleted', 'registeredForGst');
+'netTermDays', 'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate','billingDateMode', 'billingDayOfWeek', 'billingDayOfWeekMode', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst');
 
 
 

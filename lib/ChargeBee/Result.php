@@ -22,7 +22,7 @@ class ChargeBee_Result
     function customer() 
     {
         $customer = $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod'));
+        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod', 'balances' => 'ChargeBee_CustomerBalance'));
         return $customer;
     }
 
@@ -43,6 +43,12 @@ class ChargeBee_Result
     {
         $card = $this->_get('card', 'ChargeBee_Card');
         return $card;
+    }
+
+    function promotionalCredit() 
+    {
+        $promotional_credit = $this->_get('promotional_credit', 'ChargeBee_PromotionalCredit');
+        return $promotional_credit;
     }
 
     function invoice() 
