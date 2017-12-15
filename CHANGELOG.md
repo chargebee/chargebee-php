@@ -1,3 +1,13 @@
+### v2.4.1 (2017-12-15)
+
+* New Gateway Type orbital has been released
+* toJson() method in Result and List Result Object
+
+** Events added**:
+
+New Event Type subscription_changes_scheduled, subscription_scheduled_changes_removed and pending_invoice_updated has been released
+
+
 ### v2.4.0 (2017-11-27)
 * * * 
 
