@@ -1,3 +1,6 @@
+### v2.4.2 (2018-01-12)
+New endpoint "Update invoice details" has been added to Invoice resource.
+
 ### v2.4.1 (2017-12-15)
 
 * New Gateway Type orbital has been released
