@@ -1,3 +1,18 @@
+### v2.4.4 (2018-03-02)
+* * * 
+
+The attribute 'balance_currency_code' has been deprecated and attribute 'currency_code' has been added to Balances sub-resource in Customer resource.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The attribute done_by has been added to Promotional credits resource.
+See : https://apidocs.chargebee.com/docs/api/promotional_credits
+
+New payment method wechat_pay has been added.
+See : https://apidocs.chargebee.com/docs/api/customers#customer_attributes
+
+The endpoint Manage Payment Sources has been undeprecated in Hosted pages resource.
+See : https://apidocs.chargebee.com/docs/api/hosted_pages
+
 ### v2.4.3 (2018-02-01)
 * * * 
 
