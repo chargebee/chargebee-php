@@ -1,3 +1,9 @@
+### v2.4.5 (2018-03-08)
+* * * 
+
+The input parameter disposition_type has been added to 'Retrieve Invoice as PDF' and 'Retrieve Credit Note as PDF' APIs.
+See : https://apidocs.chargebee.com/docs/api/invoices#retrieve_invoice_as_pdf
+
 ### v2.4.4 (2018-03-02)
 * * * 
 
