@@ -4,7 +4,7 @@ class ChargeBee_PaymentSource extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'type', 'referenceId', 'status', 'gateway', 'gatewayAccountId',
-'ipAddress', 'issuingCountry', 'card', 'bankAccount', 'amazonPayment', 'paypal');
+'ipAddress', 'issuingCountry', 'card', 'bankAccount', 'amazonPayment', 'paypal', 'deleted');
 
 
 
