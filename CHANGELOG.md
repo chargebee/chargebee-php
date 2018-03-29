@@ -1,3 +1,30 @@
+### v2.4.7 (2018-03-29)
+* * * 
+
+New status 'Pause' has been added to subscription.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_status
+
+The attribues 'pause_date' and 'resume_date' have been added to subscription and estimate resources.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#subscription_attributes
+
+The input params 'create_current_term_invoice', transaction amount, payment method, reference number and date have been added to Import a subscription and Import subscription for customer APIs.
+See : https://apidocs.chargebee.com/docs/api/subscriptions#import_a_subscription
+
+The attribute 'expected_payment_date' has been added to Invoice attributes.
+See : https://apidocs.chargebee.com/docs/api/invoices#invoice_attributes
+
+The reason code 'subscription_pause' has been added to Credit note attributes.
+See : https://apidocs.chargebee.com/docs/api/credit_notes#credit_note_reason_code
+
+New event types subscription_paused, subscription_pause_scheduled, subscription_scheduled_pause_removed, subscription_resumed, subscription_resumption_scheduled and subscription_scheduled_resumption_removed have been added.
+See : https://apidocs.chargebee.com/docs/api/events#event_types
+
+New endpoints 'Pause a subscription', 'Resume a subscription', 'Remove scheduled pause' and 'Remove scheduled resumption' have been added to Subscription resource.
+See : https://apidocs.chargebee.com/docs/api/subscriptions
+
+New endpoints 'Pause subscription estimate' and 'Resume subscription estimate' have been added to Estimate resource.
+See : https://apidocs.chargebee.com/docs/api/estimates
+
 ### v2.4.6 (2018-03-20)
 * * * 
 
