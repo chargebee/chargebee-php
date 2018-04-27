@@ -39,6 +39,12 @@ class ChargeBee_Result
         return $third_party_payment_method;
     }
 
+    function virtualBankAccount() 
+    {
+        $virtual_bank_account = $this->_get('virtual_bank_account', 'ChargeBee_VirtualBankAccount');
+        return $virtual_bank_account;
+    }
+
     function card() 
     {
         $card = $this->_get('card', 'ChargeBee_Card');

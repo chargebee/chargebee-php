@@ -128,5 +128,6 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CustomerReferralUrl.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TimeMachine.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PromotionalCredit.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBalance.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/VirtualBankAccount.php');
 
 

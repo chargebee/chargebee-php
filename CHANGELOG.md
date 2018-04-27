@@ -1,3 +1,15 @@
+### v2.4.8 (2018-04-27)
+* * * 
+
+New resource 'Virtual Bank Account' has been added.
+See : https://apidocs.chargebee.com/docs/api/virtual_bank_accounts
+
+New event types virtual_bank_account_added, virtual_bank_account_updated and virtual_bank_account_deleted has been added.
+See : https://apidocs.chargebee.com/docs/api/events#event_types
+
+The payment method ach_credit has been added.
+See : https://apidocs.chargebee.com/docs/api/transactions#transaction_attributes
+
 ### v2.4.7 (2018-03-29)
 * * * 
 
