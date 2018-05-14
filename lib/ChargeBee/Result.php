@@ -26,6 +26,12 @@ class ChargeBee_Result
         return $customer;
     }
 
+    function contact() 
+    {
+        $contact = $this->_get('contact', 'ChargeBee_Contact');
+        return $contact;
+    }
+
     function paymentSource() 
     {
         $payment_source = $this->_get('payment_source', 'ChargeBee_PaymentSource', 
