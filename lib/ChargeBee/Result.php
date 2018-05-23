@@ -201,6 +201,13 @@ class ChargeBee_Result
         return $time_machine;
     }
 
+    function export() 
+    {
+        $export = $this->_get('export', 'ChargeBee_Export', 
+        array('download' => 'ChargeBee_ExportDownload'));
+        return $export;
+    }
+
 
     function unbilledCharges() 
     {
