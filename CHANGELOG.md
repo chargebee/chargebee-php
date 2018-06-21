@@ -1,3 +1,15 @@
+### v2.5.2 (2018-06-21)
+* * *
+
+* New attribute round_off_amount is added in Credit Note Estimate, Invoice Estimate Object
+* Sort List Invoice API results based on invoice updated_at attribute.
+* Create Customer and Create Subscription additionally take bank account details as input parameter.
+* New API end point in Hosted Page resource to retrieve direct debit agreement payment PDF
+* New Enum AccountHolderType, AccountType, Echeck Type has been added in  Payment Source
+* New attribute echeck, account_holder_type, last4 has been added
+* New API end points create bank account payment source and verify bank account payment source has been added
+
+
 ### v2.5.1 (2018-05-23)
 * * *
 

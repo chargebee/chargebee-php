@@ -9,7 +9,7 @@ class ChargeBee_Export extends ChargeBee_Model
 public function waitForExportCompletion($env = null, $headers = array()) {
   $count = 0;
   while($this->status == "in_process") {
-     if( $count++ > 30) {
+     if( $count++ > 50) {
         throw new RuntimeException("Export is taking too long");
      }
      sleep(ChargeBee_Environment::$exportWaitInSecs);
