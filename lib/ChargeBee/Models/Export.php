@@ -3,7 +3,7 @@
 class ChargeBee_Export extends ChargeBee_Model
 {
 
-  protected $allowed = array('operationType', 'mimeType', 'status', 'createdAt', 'id', 'download'
+  protected $allowed = array('id', 'operationType', 'mimeType', 'status', 'createdAt', 'download'
 );
 
 public function waitForExportCompletion($env = null, $headers = array()) {

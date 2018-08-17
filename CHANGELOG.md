@@ -1,3 +1,13 @@
+### v2.5.3 (2018-08-17)
+* * *
+
+* New endpoint 'Clear Personal Data of a customer' has been added to Customer resource.
+* New endpoint 'Merge customers' has been added to Customer resource.
+* New endpoint 'Extend subscription' has been added to Hosted page resource.
+* The input parameter 'charges_handling' has been added to Resume a subscription and Resume a subscription estimate APIs.
+* The input parameters 'pause_date' and 'resume_date' has been added to Import subscription and Import subscription for customer APIs.
+* New tax_exempt_reason 'high_value_physical_goods' has been added.
+
 ### v2.5.2 (2018-06-21)
 * * *
 

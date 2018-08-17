@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'netTermDays', 'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate','billingDateMode', 'billingDayOfWeek', 'billingDayOfWeekMode', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst');
+'netTermDays', 'allowDirectDebit', 'createdAt', 'createdFromIp', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate','billingDateMode', 'billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag','primaryPaymentSourceId', 'backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts','paymentMethod', 'invoiceNotes', 'preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges','refundableCredits', 'excessPayments', 'balances', 'metaData', 'deleted', 'registeredForGst');
 
 
 
@@ -104,6 +104,16 @@ class ChargeBee_Customer extends ChargeBee_Model
   public static function changeBillingDate($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"change_billing_date"), $params, $env, $headers);
+  }
+
+  public static function merge($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers","merge"), $params, $env, $headers);
+  }
+
+  public static function clearPersonalData($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"clear_personal_data"), array(), $env, $headers);
   }
 
  }
