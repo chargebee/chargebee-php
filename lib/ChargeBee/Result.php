@@ -15,7 +15,7 @@ class ChargeBee_Result
     function subscription() 
     {
         $subscription = $this->_get('subscription', 'ChargeBee_Subscription', 
-        array('addons' => 'ChargeBee_SubscriptionAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo'));
+        array('addons' => 'ChargeBee_SubscriptionAddon', 'event_based_addons' => 'ChargeBee_SubscriptionEventBasedAddon', 'charged_event_based_addons' => 'ChargeBee_SubscriptionChargedEventBasedAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo'));
         return $subscription;
     }
 
@@ -123,7 +123,8 @@ class ChargeBee_Result
 
     function plan() 
     {
-        $plan = $this->_get('plan', 'ChargeBee_Plan');
+        $plan = $this->_get('plan', 'ChargeBee_Plan', 
+        array('applicable_addons' => 'ChargeBee_PlanApplicableAddon', 'attached_addons' => 'ChargeBee_PlanAttachedAddon', 'event_based_addons' => 'ChargeBee_PlanEventBasedAddon'));
         return $plan;
     }
 
@@ -229,10 +230,7 @@ class ChargeBee_Result
         array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'line_item_discounts' => 'ChargeBee_InvoiceLineItemDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'line_item_taxes' => 'ChargeBee_InvoiceLineItemTax', 'linked_payments' => 'ChargeBee_InvoiceLinkedPayment', 'applied_credits' => 'ChargeBee_InvoiceAppliedCredit', 'adjustment_credit_notes' => 'ChargeBee_InvoiceAdjustmentCreditNote', 'issued_credit_notes' => 'ChargeBee_InvoiceIssuedCreditNote', 'linked_orders' => 'ChargeBee_InvoiceLinkedOrder', 'notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
         return $invoices;
     }
-   
-     public function toJson() {
-           return json_encode($this->_response);
-     } 
+    
     
     private function _getList($type, $class, $subTypes = array(), $dependantTypes = array(),  $dependantSubTypes = array())
     {

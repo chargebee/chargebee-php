@@ -4,7 +4,7 @@ class ChargeBee_Subscription extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice',
-'setupFee', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status', 'startDate','trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'nextBillingAt', 'remainingBillingCycles','poNumber', 'createdAt', 'startedAt', 'activatedAt', 'pauseDate', 'resumeDate', 'cancelledAt','cancelReason', 'affiliateToken', 'createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledChanges','paymentSourceId', 'autoCollection', 'dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate','baseCurrencyCode', 'addons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo', 'invoiceNotes','metaData', 'deleted');
+'setupFee', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status', 'startDate','trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'nextBillingAt', 'remainingBillingCycles','poNumber', 'createdAt', 'startedAt', 'activatedAt', 'pauseDate', 'resumeDate', 'cancelledAt','cancelReason', 'affiliateToken', 'createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledChanges','paymentSourceId', 'autoCollection', 'dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate','baseCurrencyCode', 'addons', 'eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons','shippingAddress', 'referralInfo', 'invoiceNotes', 'metaData', 'deleted');
 
 
 

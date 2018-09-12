@@ -131,6 +131,11 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBalance.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/VirtualBankAccount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Export.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ExportDownload.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PlanApplicableAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PlanAttachedAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PlanEventBasedAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionChargedEventBasedAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEventBasedAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Contact.php');
 
 

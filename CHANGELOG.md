@@ -1,3 +1,11 @@
+### v2.5.4 (2018-09-12)
+* * *
+
+* The attributes addon_applicability, applicable_addons, attached_addons and event_based_addons has been added to Plan resource.
+* The input parameters addon_applicability, applicable_addons, attached_addons and event_based_addons has been added in Create and Update plan APIs.
+* The attributes event_based_addons and charged_event_based_addons has been added to Subscription resource.
+* The input parameters mandatory_addons_to_remove, event_based_addons and charged_event_based_addons has been added in Create subscription, Create subscription for customer, Update subscription, Create subscription estimate, create subscription for customer estimate, update subscription estimate, checkout new subscription and checkout existing subscription APIs.
+
 ### v2.5.3 (2018-08-17)
 * * *
 
