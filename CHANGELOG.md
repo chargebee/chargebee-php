@@ -1,3 +1,19 @@
+### v2.5.5 (2018-10-03)
+* * *
+
+* The attributes `is_shippable`, `shipping_frequency_period` and`shipping_frequency_period_unit` has been added in Plan and Addon resource.
+* The input parameters `is_shippable`, `shipping_frequency_period` and`shipping_frequency_period_unit` has been added in Create plan , Update plan , Create addonand Update addon APIs.
+* The attributes `vat_number_validated_time`, `vat_number_status` and `is_location_valid`has been added in Customer resource.
+* The event types `order_created`, `order_updated`, `order_cancelled`, `order_delivered`and `order_returned` has been added.
+* New order status `queued`, `awaiting_shipment`, `on_hold`, `delivered`, `shipped`,`partially_delivered` and `returned` has been added.
+* New endpoints Export plans , Export addons , Export coupons , Export customers , Export subscriptions , Export invoices , Export creditnotes and Export transactions has been added to Exportst API.
+* The input parameter `subscription_affiliate_token` has been added to Checkout New Hosted Pages API.
+* The attributes `document_number` and `order_type` has been added to Invoice resource.
+* The attributes `document_number`, `customer_id`, `subscription_id`,`cancellation_reason`, `payment_status`, `order_type`, `price_type`, `order_date`,`shipping_date`, `shipment_carrier`, `invoice_round_off_amount`, `tax`, `amount_paid`,`amount_adjusted`, `refundable_credits_issued`, `refundable_credits`,`rounding_adjustement`, `paid_on`, `shipping_cut_off_date`, `delivered_at`,`shipped_at`, `resource_verison`, `updated_at`, `cancelled_at`, `order_line_items`,`shipping_address`, `billing_address`, `discount`, `sub_total`, `total`,`line_item_taxes`, `line_item_discounts`, `linked_credit_notes`, `deleted` and`currency_code` has been added in Order resource.
+* The input parameters `shipping_date`, `order_date`, `cancelled_at`,`cancellation_reason`, `shipped_at`, `delivered_at`, `shipment_carrier`,`shipping_address`, `order_line_item` has been added in Update order API.
+* The filters `include_deleted`, `shipping_date`, `order_date`, `paid_on` and `updated_at` has been added in List Orders API.
+* New endpoints Assign order number , Cancel an order , Create a refundable credit note and Reopen a cancelled order has been added to Orders API.
+
 ### v2.5.4 (2018-09-12)
 * * *
 

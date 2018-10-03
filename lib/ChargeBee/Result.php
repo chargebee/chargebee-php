@@ -85,7 +85,8 @@ class ChargeBee_Result
 
     function order() 
     {
-        $order = $this->_get('order', 'ChargeBee_Order');
+        $order = $this->_get('order', 'ChargeBee_Order', 
+        array('order_line_items' => 'ChargeBee_OrderOrderLineItem', 'shipping_address' => 'ChargeBee_OrderShippingAddress', 'billing_address' => 'ChargeBee_OrderBillingAddress', 'line_item_taxes' => 'ChargeBee_OrderLineItemTax', 'line_item_discounts' => 'ChargeBee_OrderLineItemDiscount', 'linked_credit_notes' => 'ChargeBee_OrderLinkedCreditNote'));
         return $order;
     }
 
@@ -230,7 +231,10 @@ class ChargeBee_Result
         array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'line_item_discounts' => 'ChargeBee_InvoiceLineItemDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'line_item_taxes' => 'ChargeBee_InvoiceLineItemTax', 'linked_payments' => 'ChargeBee_InvoiceLinkedPayment', 'applied_credits' => 'ChargeBee_InvoiceAppliedCredit', 'adjustment_credit_notes' => 'ChargeBee_InvoiceAdjustmentCreditNote', 'issued_credit_notes' => 'ChargeBee_InvoiceIssuedCreditNote', 'linked_orders' => 'ChargeBee_InvoiceLinkedOrder', 'notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
         return $invoices;
     }
-    
+   
+     public function toJson() {
+           return json_encode($this->_response);
+     } 
     
     private function _getList($type, $class, $subTypes = array(), $dependantTypes = array(),  $dependantSubTypes = array())
     {

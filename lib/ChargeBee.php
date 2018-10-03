@@ -136,6 +136,12 @@ require(dirname(__FILE__) . '/ChargeBee/Models/PlanAttachedAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PlanEventBasedAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionChargedEventBasedAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEventBasedAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderBillingAddress.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderLineItemTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderLinkedCreditNote.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderOrderLineItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Contact.php');
 
 
