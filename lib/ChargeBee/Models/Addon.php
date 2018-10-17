@@ -3,8 +3,8 @@
 class ChargeBee_Addon extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'name', 'invoiceName', 'description', 'type', 'chargeType', 'price', 'currencyCode',
-'period', 'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal', 'taxCode', 'sku','accountingCode', 'accountingCategory1', 'accountingCategory2', 'isShippable', 'shippingFrequencyPeriod','shippingFrequencyPeriodUnit', 'resourceVersion', 'updatedAt', 'invoiceNotes', 'taxable', 'taxProfileId','metaData');
+  protected $allowed = array('id', 'name', 'invoiceName', 'description', 'pricingModel', 'type', 'chargeType',
+'price', 'currencyCode', 'period', 'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal','taxCode', 'sku', 'accountingCode', 'accountingCategory1', 'accountingCategory2', 'isShippable','shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit', 'resourceVersion', 'updatedAt', 'invoiceNotes','taxable', 'taxProfileId', 'metaData', 'tiers');
 
 
 

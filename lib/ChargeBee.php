@@ -143,5 +143,10 @@ require(dirname(__FILE__) . '/ChargeBee/Models/OrderLinkedCreditNote.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderOrderLineItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Contact.php');
-
-
+require(dirname(__FILE__) . '/ChargeBee/Models/AddonTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteEstimateLineItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceEstimateLineItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PlanTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledChargeTier.php');

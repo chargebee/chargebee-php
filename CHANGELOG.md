@@ -1,3 +1,25 @@
+### v2.5.6 (2018-10-17)
+* * *
+
+* The attributes pricing_model and tiers has been added in Addon , Plan and UnbilledCharge resources.
+* The attribute price is made optional in Plan and Addon resource.
+* The input parameters pricing_model, tier_starting_unit, tier_ending_unit and tier_price have been added in Create addon , Update addon , Create Plan and Update Plan APIs.
+* The attributes line_item_tiers would be added in creditNote , Invoice , InvoiceEstimate and CreditNoteEstimate resources.
+* The attribute pricing_model have been added to line_tem sub-resource of CreditNote , Invoice , InvoiceEstimate and CreditNoteEstimate resources.
+* The input parameter line_item_amount has been added in Create credit note API.
+* The input parameters line_item_unit_amount and line_item_quantity have been changed to optional parameters in Create Credit Note API.
+* The input parameter line_item_id, line_item_tier_line_item_id, line_item_tier_starting_unit, line_item_tier_ending_unit, line_item_tier_quantity_used, line_item_tier_unit_amount have been added in Import invoice API.
+* The attribute amount has been added to Addon subResource attributes of Subscription API.
+* The attribute plan_amount has been added to Subscription API.
+* The type pricing_model with values flat_fee, per_unit, tiered, volume and stairstep have been added.
+* The values tiered, volume and stairstep  have been added the attribute type of Addon resource.
+* The values tiered, volume and stairstep have been added to the attribute charge_model of Plan resource.
+* The input parameter type has been deprecated in Create Addon and Update Addon APIs.
+* The input parameter charge_model has been deprecated in Create Plan and Update Plan APIs.
+* The filter parameter type has been deprecated in List Addon API.
+* The filter parameter charge_model has been deprecated in List Plan API.
+* The filter parameter pricing_model has been added to List Plan and List Addon APIs.
+
 ### v2.5.5 (2018-10-03)
 * * *
 
