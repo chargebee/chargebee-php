@@ -94,7 +94,7 @@ class ChargeBee_Result
     function transaction() 
     {
         $transaction = $this->_get('transaction', 'ChargeBee_Transaction', 
-        array('linked_invoices' => 'ChargeBee_TransactionLinkedInvoice', 'linked_credit_notes' => 'ChargeBee_TransactionLinkedCreditNote', 'linked_refunds' => 'ChargeBee_TransactionLinkedRefund'));
+        array('linked_invoices' => 'ChargeBee_TransactionLinkedInvoice', 'linked_credit_notes' => 'ChargeBee_TransactionLinkedCreditNote', 'linked_refunds' => 'ChargeBee_TransactionLinkedRefund', 'linked_payments' => 'ChargeBee_TransactionLinkedPayment'));
         return $transaction;
     }
 

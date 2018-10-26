@@ -150,3 +150,4 @@ require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceEstimateLineItemTier.php')
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PlanTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledChargeTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedPayment.php');

@@ -1,3 +1,15 @@
+### v2.5.7 (2018-10-26)
+* * *
+
+* The attributes authorization_reason, reference_authorization_id, amount_capturable and linked_payments have been added in Transaction resource.
+* The input parameter transaction amount_capturable has been added in export transaction API.
+* The input parameters authorization_transaction_id and auto_collection have been added in create invoice API.
+* The input parameter authorization_transaction_id has been added in Collect payment for invoice API.
+* Type authorization_reason with values blocking_funds and verification has been added in Transaction resource.
+* New endpoints "Create an authorization payment " and "Void an authorization transaction" have been in added in Transaction API.
+* The input filter parameter amount_capturable has been added in list transactions API.
+* The Event types authorization_succeeded, authorization_voided, order_ready_to_process, order_ready_to_ship have been added.
+
 ### v2.5.6 (2018-10-17)
 * * *
 
