@@ -91,6 +91,13 @@ class ChargeBee_Result
         return $order;
     }
 
+    function gift() 
+    {
+        $gift = $this->_get('gift', 'ChargeBee_Gift', 
+        array('gifter' => 'ChargeBee_GiftGifter', 'gift_receiver' => 'ChargeBee_GiftGiftReceiver', 'gift_timelines' => 'ChargeBee_GiftGiftTimeline'));
+        return $gift;
+    }
+
     function transaction() 
     {
         $transaction = $this->_get('transaction', 'ChargeBee_Transaction', 

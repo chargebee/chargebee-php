@@ -1,3 +1,21 @@
+### v2.5.8 (2018-11-02)
+* * *
+
+* New resource 'Gift' with endpoints 'Create a gift', 'Retrieve a gift', 'Claim a gift',  'Cancel a gift' and  'List gifts' has been added.
+* New event types gift_scheduled, gift_unclaimed, gift_claimed, gift_expired and gift_cancelled have been added.
+* New endpoints 'Checkout gift' and 'Claim gift' have been added to Hosted page resource.
+* Input param 'redirect_url' has been added in 'Manage payment sources' and 'Collect now' APIs.
+* Hosted page types 'checkout_gift' and 'claim_gift' have been added.
+* The attributes 'term_finalized' and 'is_gifted' have been added in Invoice attributes.
+* The attributes 'is_gifted', 'gift_note' and 'gift_id' have been added in Orders attributes.
+* The attribute 'sku' has been added in Gift attributes.
+* The input parameter 'sku' has been added in Update orders API.
+* The order status 'cancelled' has been added.
+* The attributes 'giftable' and 'claim_url' have been added in Plan resource.
+* The input parameters 'giftable' and 'claim_url' have been added in Create a plan API.
+* List filter parameter 'giftable' has been added in List Plans API.
+* The attribute 'gift_id' has been added to Subscription resource.
+
 ### v2.5.7 (2018-10-26)
 * * *
 

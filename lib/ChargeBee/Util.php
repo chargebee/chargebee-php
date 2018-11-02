@@ -70,7 +70,7 @@ class ChargeBee_Util
             if( $arg == null || strlen($arg) < 1 ) {
                  throw new Exception("Id cannot be null or empty");
             }
-            $uriPaths .= "/" . rawurlencode($arg);
+            $uriPaths .= "/" . implode('/', array_map('rawurlencode', explode('/', $arg)));
       }
       return $uriPaths;
     }

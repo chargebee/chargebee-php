@@ -151,3 +151,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceLineItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PlanTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledChargeTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedPayment.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Gift.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftReceiver.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/GiftGifter.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftTimeline.php');

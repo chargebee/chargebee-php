@@ -53,6 +53,16 @@ class ChargeBee_HostedPage extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","extend_subscription"), $params, $env, $headers);
   }
 
+  public static function checkoutGift($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_gift"), $params, $env, $headers);
+  }
+
+  public static function claimGift($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","claim_gift"), $params, $env, $headers);
+  }
+
   public static function retrieveAgreementPdf($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","retrieve_agreement_pdf"), $params, $env, $headers);
