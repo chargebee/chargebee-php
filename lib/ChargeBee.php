@@ -155,3 +155,14 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Gift.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftReceiver.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/GiftGifter.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftTimeline.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Quote.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteBillingAddress.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItemTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteShippingAddress.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteTax.php');
+
+
+

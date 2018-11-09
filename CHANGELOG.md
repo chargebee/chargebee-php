@@ -1,3 +1,11 @@
+### v2.5.9 (2018-11-09)
+* * *
+
+* New resource 'Quote' with endpoints 'Retrieve a quote', 'Create a quote for one-time charges', 'Convert a quote', 'Update quote status', 'Retrieve quote as PDF' has been added. See : https://apidocs.chargebee.com/docs/api/quotes
+* Entity type 'quote' has been added.
+* Event types 'quote_created' and 'quote_updated' have been added.
+
+
 ### v2.5.8 (2018-11-02)
 * * *
 

@@ -130,6 +130,13 @@ class ChargeBee_Result
         return $estimate;
     }
 
+    function quote() 
+    {
+        $quote = $this->_get('quote', 'ChargeBee_Quote', 
+        array('line_items' => 'ChargeBee_QuoteLineItem', 'discounts' => 'ChargeBee_QuoteDiscount', 'line_item_discounts' => 'ChargeBee_QuoteLineItemDiscount', 'taxes' => 'ChargeBee_QuoteTax', 'line_item_taxes' => 'ChargeBee_QuoteLineItemTax', 'shipping_address' => 'ChargeBee_QuoteShippingAddress', 'billing_address' => 'ChargeBee_QuoteBillingAddress'));
+        return $quote;
+    }
+
     function plan() 
     {
         $plan = $this->_get('plan', 'ChargeBee_Plan', 
