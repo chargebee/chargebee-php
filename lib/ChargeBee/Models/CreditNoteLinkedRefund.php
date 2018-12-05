@@ -1,9 +1,17 @@
 <?php
 
-class ChargeBee_CreditNoteLinkedRefund extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class CreditNoteLinkedRefund extends Model
 {
-  protected $allowed = array('txn_id', 'applied_amount', 'applied_at', 'txn_status', 'txn_date', 'txn_amount');
-
+    protected $allowed = [
+      'txn_id',
+      'applied_amount',
+      'applied_at',
+      'txn_status',
+      'txn_date',
+      'txn_amount',
+    ];
 }
-
-?>

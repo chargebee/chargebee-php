@@ -1,21 +1,28 @@
 <?php
 
-class ChargeBee_ResourceMigration extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class ResourceMigration extends Model
 {
+    protected $allowed = [
+      'fromSite',
+      'entityType',
+      'entityId',
+      'status',
+      'errors',
+      'createdAt',
+      'updatedAt',
+    ];
 
-  protected $allowed = array('fromSite', 'entityType', 'entityId', 'status', 'errors', 'createdAt', 'updatedAt'
-);
+    # OPERATIONS
+    #-----------
 
-
-
-  # OPERATIONS
-  #-----------
-
-  public static function retrieveLatest($params, $env = null, $headers = array())
-  {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("resource_migrations","retrieve_latest"), $params, $env, $headers);
-  }
-
- }
-
-?>
+    public static function retrieveLatest($params, $env = null, $headers = [])
+    {
+        return Request::send(Request::GET, Util::encodeURIPath("resource_migrations", "retrieve_latest"), $params, $env, $headers);
+    }
+}

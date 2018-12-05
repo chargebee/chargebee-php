@@ -17,11 +17,11 @@ Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/doc
 	composer require chargebee/chargebee-php:'>=2, &lt;3'
 </code></pre>
 
-or 
+or
 Download the php library version 2.x.x from https://github.com/chargebee/chargebee-php/tags. Extract the library into the
 php include path.
 
-Then, require the library as 
+Then, require the library as
 <pre><code>
  require_once(dirname(__FILE__) . 'path_to ChargeBee.php');
 </code></pre>
@@ -35,14 +35,18 @@ Then, require the library as
 To create a new subscription:
 
 <pre><code>
-require 'ChargeBee.php';
-ChargeBee_Environment::configure("your_site", "{your_site_api_key}");
-$result = ChargeBee_Subscription::create(array(
-  "id" => "__dev__KyVqH3NW3f42fD", 
-  "planId" => "starter", 
+use ChargeBee\ChargeBee\Environment;
+use ChargeBee\ChargeBee\Subscription;
+
+...
+
+Environment::configure("your_site", "{your_site_api_key}");
+$result = Subscription::create(array(
+  "id" => "__dev__KyVqH3NW3f42fD",
+  "planId" => "starter",
   "customer" => array(
-    "email" => "john@user.com", 
-    "firstName" => "John", 
+    "email" => "john@user.com",
+    "firstName" => "John",
     "lastName" => "Wayne"
   )
 ));
@@ -54,4 +58,3 @@ $card = $result->card();
 ## License
 
 See the LICENSE file.
-

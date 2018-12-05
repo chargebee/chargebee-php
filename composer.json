@@ -5,7 +5,19 @@
     "keywords": ["chargebee", "payments", "subscription billing", "recurring billing"],
     "license": "MIT",
     "homepage": "https://github.com/chargebee/chargebee-php",
+    "require" : {
+      "php": ">=5.4",
+      "ext-curl": "*"
+    },
+    "scripts": {
+      "test": "php -S localhost:8080 -t test/"
+    },
     "autoload": {
-        "files": ["lib/ChargeBee.php"]
+        "psr-4": {
+          "ChargeBee\\": "lib/"
+        }
+    },
+    "require-dev": {
+        "simpletest/simpletest": "^1.1"
     }
 }
