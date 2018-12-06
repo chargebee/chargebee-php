@@ -2,6 +2,7 @@
 
 namespace ChargeBee\ChargeBee;
 
+use ChargeBee\ChargeBee;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Environment;
 use ChargeBee\ChargeBee\Version;
