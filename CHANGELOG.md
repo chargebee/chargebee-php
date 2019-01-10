@@ -1,3 +1,11 @@
+### v2.6.0 (2019-01-10)
+* * *
+
+* New event type 'quote_deleted' has been added
+* New gateway type 'cybersource' has been added.
+* New filter parameters 'subscription_id' and 'order_type' have been added in List Order API.
+* New endpoints Create subscription for customer quote, Update subscription quote and Delete have been added to Quote resource.
+
 ### v2.5.9 (2018-11-09)
 * * *
 
