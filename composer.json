@@ -7,5 +7,8 @@
     "homepage": "https://github.com/chargebee/chargebee-php",
     "autoload": {
         "files": ["lib/ChargeBee.php"]
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
     }
 }

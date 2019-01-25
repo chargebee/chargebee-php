@@ -5,3 +5,10 @@
 
 # Ignore the SimpleTest library
 /test/simpletest/
+
+# Ignore IntelliJ project files
+/.idea/
+
+# Ignore Composer artifacts
+/composer.phar
+/vendor/
