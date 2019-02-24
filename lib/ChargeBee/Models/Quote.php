@@ -34,12 +34,21 @@ class Quote extends Model
       'billingAddress',
     ];
 
-    # OPERATIONS
-    #-----------
+    // OPERATIONS
+    // -----------
 
     public static function retrieve($id, $env = null, $headers = [])
     {
         return Request::send(Request::GET, Util::encodeURIPath("quotes", $id), [], $env, $headers);
+    }
+
+    public static function createSubForCustomerQuote($id, $params, $env = null, $headers = [])
+    {
+        return Request::send(Request::POST, Util::encodeURIPath("customers", $id, "create_subscription_quote"), $params, $env, $headers);
+    }
+    public static function updateSubscriptionQuote($params, $env = null, $headers = [])
+    {
+        return Request::send(Request::POST, Util::encodeURIPath("quotes", "update_subscription_quote"), $params, $env, $headers);
     }
 
     public static function createForOnetimeCharges($params, $env = null, $headers = [])
@@ -55,6 +64,11 @@ class Quote extends Model
     public static function updateStatus($id, $params, $env = null, $headers = [])
     {
         return Request::send(Request::POST, Util::encodeURIPath("quotes", $id, "update_status"), $params, $env, $headers);
+    }
+
+    public static function delete($id, $params = [], $env = null, $headers = [])
+    {
+        return Request::send(Request::POST, Util::encodeURIPath("quotes", $id, "delete"), $params, $env, $headers);
     }
 
     public static function pdf($id, $params = [], $env = null, $headers = [])
