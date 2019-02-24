@@ -1,9 +1,17 @@
 <?php
 
-class ChargeBee_SubscriptionAddon extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class SubscriptionAddon extends Model
 {
-  protected $allowed = array('id', 'quantity', 'unit_price', 'amount', 'trial_end', 'remaining_billing_cycles');
-
+    protected $allowed = [
+      'id',
+      'quantity',
+      'unit_price',
+      'amount',
+      'trial_end',
+      'remaining_billing_cycles',
+    ];
 }
-
-?>

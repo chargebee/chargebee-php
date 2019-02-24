@@ -1,9 +1,13 @@
 <?php
 
-class ChargeBee_PaymentSourcePaypal extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class PaymentSourcePaypal extends Model
 {
-  protected $allowed = array('email', 'agreement_id');
-
+    protected $allowed = [
+      'email',
+      'agreement_id',
+    ];
 }
-
-?>

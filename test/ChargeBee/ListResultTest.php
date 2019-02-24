@@ -1,15 +1,13 @@
 <?php
-class ChargeBee_ListResultTest extends UnitTestCase
+
+class ListResultTest extends UnitTestCase
 {
-	function testResponseToListConversion()
-	{
-		$list = new ChargeBee_ListResult(ChargeBee_SampleData::listSubscriptions(), NULL);
-		$this->assertEqual($list->count(), 2);
-		foreach($list as $l)
-		{
-			$this->assertEqual($l->subscription()->id, "sample_subscription");
-		}
-	}
-	
+    public function testResponseToListConversion()
+    {
+        $list = new \ChargeBee\ChargeBee\ListResult(ChargeBee_SampleData::listSubscriptions(), null);
+        $this->assertEqual($list->count(), 2);
+        foreach ($list as $l) {
+            $this->assertEqual($l->subscription()->id, "sample_subscription");
+        }
+    }
 }
-?>
