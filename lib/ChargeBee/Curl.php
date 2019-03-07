@@ -38,7 +38,7 @@ class ChargeBee_Curl {
         $userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
 		
 		$httpHeaders = self::addCustomHeaders($headers);
-		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array
+		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent , "Lang-Version: " . phpversion() , "OS-Version: " . php_uname(s). " " . php_uname(m) . " " . php_uname(r)); // Adding headers to array
 		
         $opts[CURLOPT_HTTPHEADER] = $httpHeaders;
         $opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';

@@ -4,7 +4,7 @@ class ChargeBee_VirtualBankAccount extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'email', 'bankName', 'accountNumber', 'routingNumber', 'swiftCode',
-'gateway', 'gatewayAccountId', 'referenceId', 'deleted');
+'gateway', 'gatewayAccountId', 'resourceVersion', 'updatedAt', 'createdAt', 'referenceId', 'deleted');
 
 
 
