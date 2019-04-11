@@ -66,6 +66,11 @@ class ChargeBee_PaymentSource extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("payment_sources",$id,"delete"), array(), $env, $headers);
   }
 
+  public static function deleteLocal($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("payment_sources",$id,"delete_local"), array(), $env, $headers);
+  }
+
  }
 
 ?>

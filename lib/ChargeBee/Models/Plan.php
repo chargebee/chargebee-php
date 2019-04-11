@@ -4,7 +4,7 @@ class ChargeBee_Plan extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'description', 'price', 'currencyCode', 'period',
-'periodUnit', 'trialPeriod', 'trialPeriodUnit', 'pricingModel', 'chargeModel', 'freeQuantity','setupCost', 'downgradePenalty', 'status', 'archivedAt', 'billingCycles', 'redirectUrl', 'enabledInHostedPages','enabledInPortal', 'addonApplicability', 'taxCode', 'sku', 'accountingCode', 'accountingCategory1','accountingCategory2', 'isShippable', 'shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit','resourceVersion', 'updatedAt', 'giftable', 'claimUrl', 'invoiceNotes', 'taxable', 'taxProfileId','metaData', 'tiers', 'applicableAddons', 'attachedAddons', 'eventBasedAddons');
+'periodUnit', 'trialPeriod', 'trialPeriodUnit', 'pricingModel', 'chargeModel', 'freeQuantity','setupCost', 'downgradePenalty', 'status', 'archivedAt', 'billingCycles', 'redirectUrl', 'enabledInHostedPages','enabledInPortal', 'addonApplicability', 'taxCode', 'avalaraSaleType', 'avalaraTransactionType','avalaraServiceType', 'sku', 'accountingCode', 'accountingCategory1', 'accountingCategory2','isShippable', 'shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit', 'resourceVersion','updatedAt', 'giftable', 'claimUrl', 'invoiceNotes', 'taxable', 'taxProfileId', 'metaData','tiers', 'applicableAddons', 'attachedAddons', 'eventBasedAddons');
 
 
 
