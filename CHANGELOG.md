@@ -1,3 +1,26 @@
+### v2.6.4 (2019-07-08)
+* * *
+
+* The resources hierarchy and token are added.
+* Value ‘day’ is added in period_unit and shipping_frequency_period_unit .
+* The parameters fractional_correction, comment, date_from and date_to are added in Create credit note API.
+* The attribute customer_id is added to line_item sub resource of Credit note, Credit note estimate, Invoice, Invoice estimate and Quote.
+* Endpoints Link a customer, Delink a customer, Get hierarchy, CreateUsingToken are added.
+* The attributes business_customer_without_vat_number and relationship are added to customer resource.
+* The filter parameters parent_id, payment_owner_id, invoice_owner_id are added in List customers, Export revenue recognition reports, Export Deferred Revenue Reports and Export customers APIs.
+* The parameter token_id is added in Collect payment API.
+* Event types hierarchy_created, hierarchy_deleted, token_created, token_consumed and token_expired are added.
+* The parameter service_period_in_days is added in Create subscription estimate, Create subscription for customer estimate, Update subscription estimate, Checkout new, Checkout existing, Create subscription for customer quote, Update subscription quote, Create subscription, Create subscription for customer, Update subscription, Import subscription and Import subscription for customer.
+* The filter parameter payment_owner is added in Export revenue recognition reports,Export Deferred Revenue Reports, Export Invoice and List Invoice APIs.
+* The attribute payment_owner is added to invoice.
+* The attributes date_from and date_to are added to Create an invoice, create a invoice for add-on and create a invoice for charge,Create a quote for one-time charges, Add charge at term end and Add add-on at term end.
+* The parameter comment is added to Stop dunning, Apply payments, Apply credits, Add charge, Add add-on charge, Update details and Close Invoice APIs.
+* The parameter ‘claim_credits’ is added to delete invoice API.
+* The attribute override_relationship is added to subscription resource.
+* The parameter token_id is added to Create subscription API.
+* The parameter override_relationship is added to Create subscription for customer and Update subscription APIs.
+* The attribute service_period_in_days is added to event add ons sub resource.
+
 ### v2.6.3 (2019-04-11)
 * * *
 

@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted','writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt','resourceVersion', 'updatedAt', 'subTotal', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized','isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'appliedCredits','adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress','deleted');
+'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted','writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt','resourceVersion', 'updatedAt', 'subTotal', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized','isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'appliedCredits','adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress','paymentOwner', 'deleted');
 
 
 
@@ -26,9 +26,9 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","charge_addon"), $params, $env, $headers);
   }
 
-  public static function stopDunning($id, $env = null, $headers = array())
+  public static function stopDunning($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"stop_dunning"), array(), $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"stop_dunning"), $params, $env, $headers);
   }
 
   public static function importInvoice($params, $env = null, $headers = array())
@@ -81,9 +81,9 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"add_addon_charge"), $params, $env, $headers);
   }
 
-  public static function close($id, $env = null, $headers = array())
+  public static function close($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"close"), array(), $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"close"), $params, $env, $headers);
   }
 
   public static function collectPayment($id, $params = array(), $env = null, $headers = array())

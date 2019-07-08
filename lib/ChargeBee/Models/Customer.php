@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit', 'isLocationValid','createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst', 'customerType');
+'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit', 'isLocationValid','createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst', 'businessCustomerWithoutVatNumber', 'customerType','relationship');
 
 
 
@@ -114,6 +114,21 @@ class ChargeBee_Customer extends ChargeBee_Model
   public static function clearPersonalData($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"clear_personal_data"), array(), $env, $headers);
+  }
+
+  public static function relationships($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"relationships"), $params, $env, $headers);
+  }
+
+  public static function deleteRelationship($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"delete_relationship"), array(), $env, $headers);
+  }
+
+  public static function hierarchy($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"hierarchy"), $params, $env, $headers);
   }
 
  }

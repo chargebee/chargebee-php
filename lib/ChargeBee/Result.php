@@ -22,14 +22,26 @@ class ChargeBee_Result
     function customer() 
     {
         $customer = $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod', 'balances' => 'ChargeBee_CustomerBalance'));
+        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod', 'balances' => 'ChargeBee_CustomerBalance', 'relationship' => 'ChargeBee_CustomerRelationship'));
         return $customer;
+    }
+
+    function hierarchy() 
+    {
+        $hierarchy = $this->_get('hierarchy', 'ChargeBee_Hierarchy');
+        return $hierarchy;
     }
 
     function contact() 
     {
         $contact = $this->_get('contact', 'ChargeBee_Contact');
         return $contact;
+    }
+
+    function token() 
+    {
+        $token = $this->_get('token', 'ChargeBee_Token');
+        return $token;
     }
 
     function paymentSource() 
@@ -239,6 +251,13 @@ class ChargeBee_Result
         $credit_notes = $this->_getList('credit_notes', 'ChargeBee_CreditNote',
         array('line_items' => 'ChargeBee_CreditNoteLineItem', 'discounts' => 'ChargeBee_CreditNoteDiscount', 'line_item_discounts' => 'ChargeBee_CreditNoteLineItemDiscount', 'line_item_tiers' => 'ChargeBee_CreditNoteLineItemTier', 'taxes' => 'ChargeBee_CreditNoteTax', 'line_item_taxes' => 'ChargeBee_CreditNoteLineItemTax', 'linked_refunds' => 'ChargeBee_CreditNoteLinkedRefund', 'allocations' => 'ChargeBee_CreditNoteAllocation'));
         return $credit_notes;
+    }
+    
+    function hierarchies() 
+    {
+        $hierarchies = $this->_getList('hierarchies', 'ChargeBee_Hierarchy',
+        array());
+        return $hierarchies;
     }
     
     function invoices() 
