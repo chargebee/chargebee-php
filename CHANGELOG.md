@@ -1,3 +1,13 @@
+### v1.7.3 (2019-07-22)
+* * *
+
+* New enpoint Update card for customer using payment intent has been added.
+* The attirbute reference_id has been added in card resource.
+* The input parameters payment_intent with gateway_account_id and gw_token have been added in create a customer, create subscription, create subscription for customer and update subscription API.
+* The attributes initiator_type and three_d_secure have been added in transaction resource.
+* New enpoint Update card for customer using payment intent has been added in card resource.
+* New attribute reference_id has been added in card resource.
+
 ### v1.7.2 (2016-04-06)
 * * *
 

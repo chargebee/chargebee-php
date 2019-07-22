@@ -3,8 +3,8 @@
 class ChargeBee_Card extends ChargeBee_Model
 {
 
-  protected $allowed = array('customerId', 'status', 'gateway', 'firstName', 'lastName', 'iin', 'last4', 'cardType',
-'expiryMonth', 'expiryYear', 'billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode','billingState', 'billingCountry', 'billingZip', 'ipAddress', 'maskedNumber');
+  protected $allowed = array('status', 'gateway', 'referenceId', 'firstName', 'lastName', 'iin', 'last4', 'cardType',
+'expiryMonth', 'expiryYear', 'billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode','billingState', 'billingCountry', 'billingZip', 'ipAddress', 'customerId', 'maskedNumber');
 
 
 
@@ -19,6 +19,11 @@ class ChargeBee_Card extends ChargeBee_Model
   public static function updateCardForCustomer($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"credit_card"), $params, $env, $headers);
+  }
+
+  public static function updateCardForCustomerUsingPaymentIntent($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"credit_card_using_payment_intent"), $params, $env, $headers);
   }
 
   public static function switchGatewayForCustomer($id, $params, $env = null, $headers = array())
