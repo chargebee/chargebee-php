@@ -1,3 +1,20 @@
+### v2.6.5 (2019-07-22)
+* * *
+
+* The attribute ref_tx_id has been added in card resource.
+* The attribute custmer_id has been added in credit_note_estimate and invoice_estimate resource.
+* The input parameters payment_intent with gateway_account_id and gw_token have been added in create a customer, collect payment for customer, create subscription and create subscription for customer API.
+* New enum dunning_type has been added.
+* New value vantiv has been added in the gateway enum.
+* New value sepa_credit has been added in payment method enum. 
+* The attribute dunning_attempts has been added in invoice resource.
+* New enpoint create_using_payment_intent has been added in payment_source resouce.
+* The input parameter reference_transaction has been added in update card payment source API.
+* New endpoint list quote has been added in qoutes resource.
+* The attributes initiator_type and three_d_secure have been added in transaction resource.
+* New attribute scheme has been added in virtual_bank_account resource.
+* New input parameter scheme has been added in create a virtual bank account using permanent token and create a virtual bank account API.
+
 ### v2.6.4 (2019-07-08)
 * * *
 

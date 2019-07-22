@@ -3,8 +3,8 @@
 class ChargeBee_Card extends ChargeBee_Model
 {
 
-  protected $allowed = array('paymentSourceId', 'status', 'gateway', 'gatewayAccountId', 'firstName', 'lastName',
-'iin', 'last4', 'cardType', 'fundingType', 'expiryMonth', 'expiryYear', 'issuingCountry', 'billingAddr1','billingAddr2', 'billingCity', 'billingStateCode', 'billingState', 'billingCountry', 'billingZip','createdAt', 'resourceVersion', 'updatedAt', 'ipAddress', 'customerId', 'maskedNumber');
+  protected $allowed = array('paymentSourceId', 'status', 'gateway', 'gatewayAccountId', 'refTxId', 'firstName',
+'lastName', 'iin', 'last4', 'cardType', 'fundingType', 'expiryMonth', 'expiryYear', 'issuingCountry','billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode', 'billingState', 'billingCountry','billingZip', 'createdAt', 'resourceVersion', 'updatedAt', 'ipAddress', 'customerId', 'maskedNumber');
 
 
 

@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted','writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt','resourceVersion', 'updatedAt', 'subTotal', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized','isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'appliedCredits','adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress','paymentOwner', 'deleted');
+'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted','writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt','resourceVersion', 'updatedAt', 'subTotal', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized','isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'dunningAttempts','appliedCredits', 'adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress','billingAddress', 'paymentOwner', 'deleted');
 
 
 

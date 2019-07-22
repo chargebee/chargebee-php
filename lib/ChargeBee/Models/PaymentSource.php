@@ -26,6 +26,11 @@ class ChargeBee_PaymentSource extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("payment_sources","create_using_token"), $params, $env, $headers);
   }
 
+  public static function createUsingPaymentIntent($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("payment_sources","create_using_payment_intent"), $params, $env, $headers);
+  }
+
   public static function createCard($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("payment_sources","create_card"), $params, $env, $headers);
