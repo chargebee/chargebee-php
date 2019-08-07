@@ -3,8 +3,8 @@
 class ChargeBee_Quote extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'status', 'operationType', 'vatNumber',
-'priceType', 'validTill', 'date', 'subTotal', 'total', 'creditsApplied', 'amountPaid', 'amountDue','resourceVersion', 'updatedAt', 'currencyCode', 'lineItems', 'discounts', 'lineItemDiscounts','taxes', 'lineItemTaxes', 'shippingAddress', 'billingAddress');
+  protected $allowed = array('id', 'name', 'poNumber', 'customerId', 'subscriptionId', 'invoiceId', 'status',
+'operationType', 'vatNumber', 'priceType', 'validTill', 'date', 'subTotal', 'total', 'creditsApplied','amountPaid', 'amountDue', 'resourceVersion', 'updatedAt', 'currencyCode', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'notes', 'shippingAddress', 'billingAddress');
 
 
 
@@ -36,9 +36,9 @@ class ChargeBee_Quote extends ChargeBee_Model
     return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("quotes"), $params, $env, $headers);
   }
 
-  public static function convert($id, $env = null, $headers = array())
+  public static function convert($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"convert"), array(), $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"convert"), $params, $env, $headers);
   }
 
   public static function updateStatus($id, $params, $env = null, $headers = array())

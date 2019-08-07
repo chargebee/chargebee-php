@@ -1,3 +1,13 @@
+### v2.6.6 (2019-08-07)
+* * *
+
+* New attributes tax_amount_in_local_currency and local_currency_code have been added in line_item_tax sub-resource of credit_note, credit_note_estimate, invoice, invoice_estimate, order and quote resources.
+* New attributes sub_total_in_local_currency, total_in_local_currency and local_currency_code have been added in credit_note and invoice resources.
+* New input parameter gw_payment_method_id has been added in create_a_customer, collect_payment_for_customer, create_using_payment_intent, create_a_subscription, create_subscription_for_customer and update_a_subscription api.
+* New attributes name, invoice_id and notes have been added in quote resource.
+* New input parameters name, notes and expires_at have been added in create_a_quote_for_a_new_subscription, create_a_quote_for_update_subscription and create_a_quote_for_one-time_charges api.
+* New input parameters id, auto_collection and po_number have been added in convert_a_quote api.
+
 ### v2.6.5 (2019-07-22)
 * * *
 
