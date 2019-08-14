@@ -104,6 +104,12 @@ class ChargeBee_Result
         array('linked_customers' => 'ChargeBee_PortalSessionLinkedCustomer'));
     }
 
+    function paymentIntent() 
+    {
+        return $this->_get('payment_intent', 'ChargeBee_PaymentIntent', 
+        array('payment_attempt' => 'ChargeBee_PaymentIntentPaymentAttempt'));
+    }
+
 
     
     private function _get($type, $class, $subTypes = array())

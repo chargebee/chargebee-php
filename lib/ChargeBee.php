@@ -87,3 +87,5 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Comment.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PortalSession.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PortalSessionLinkedCustomer.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Download.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntent.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php');

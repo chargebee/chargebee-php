@@ -1,3 +1,10 @@
+### v1.7.4(2019-08-14)
+* * *
+
+* New resource payment_intent has been added.
+* New input parameter 'id' in payment_intent sub-param has been added in update_card_for_customer_using_payment_intent, create_a_customer, create_a_subscription, create_subscription_for_customer, update_a_subscription.
+* New endpoints create_a_payment_intent, update_a_payment_intent and retrieve_a_payment_intent have been added.
+
 ### v1.7.3 (2019-07-22)
 * * *
 

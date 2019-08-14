@@ -21,7 +21,7 @@ class ChargeBee_Card extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"credit_card"), $params, $env, $headers);
   }
 
-  public static function updateCardForCustomerUsingPaymentIntent($id, $params, $env = null, $headers = array())
+  public static function updateCardForCustomerUsingPaymentIntent($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"credit_card_using_payment_intent"), $params, $env, $headers);
   }
