@@ -238,6 +238,13 @@ class ChargeBee_Result
         return $export;
     }
 
+    function paymentIntent() 
+    {
+        $payment_intent = $this->_get('payment_intent', 'ChargeBee_PaymentIntent', 
+        array('payment_attempt' => 'ChargeBee_PaymentIntentPaymentAttempt'));
+        return $payment_intent;
+    }
+
 
     function unbilledCharges() 
     {
