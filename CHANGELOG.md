@@ -1,3 +1,10 @@
+### v1.7.5(2019-08-27)
+* * *
+
+* New input parameter replace_primary_payment_source has been added in create_an_invoice api.
+* New input parameter payment_intent has been added in create_an_invoice and reactivate_a_subscription api.
+* New attribute currency_code has been added in payment_intent resource.
+
 ### v1.7.4(2019-08-14)
 * * *
 
