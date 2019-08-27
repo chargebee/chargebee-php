@@ -1,3 +1,12 @@
+### v2.6.8 (2019-08-27)
+* * * 
+
+* New attribute client_profile_id has been added in customer resource.
+* New input parameter client_profile_id has been added in create_a_customer, update_a_customer, create_subscription_estimate, create_a_subscription and import_a_subscription api.
+* New input parameter payment_intent has been added in create_a_gift, create_an_invoice, reactivate_a_subscription and resume_a_subscription api.
+* New input parameter replace_primary_payment_source has been added in create_an_invoice api.
+* New attribute currency_code has been added in payment_intent resource.
+
 ### v2.6.7 (2019-08-14)
 * * *
 

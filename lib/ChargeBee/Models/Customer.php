@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit', 'isLocationValid','createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst', 'businessCustomerWithoutVatNumber', 'customerType','relationship');
+'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit', 'isLocationValid','createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode', 'exemptNumber','resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst', 'businessCustomerWithoutVatNumber', 'customerType','clientProfileId', 'relationship');
 
 
 

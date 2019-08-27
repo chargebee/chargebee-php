@@ -3,8 +3,8 @@
 class ChargeBee_PaymentIntent extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'status', 'amount', 'gatewayAccountId', 'expiresAt', 'referenceId', 'createdAt',
-'modifiedAt', 'customerId', 'gateway', 'activePaymentAttempt');
+  protected $allowed = array('id', 'status', 'currencyCode', 'amount', 'gatewayAccountId', 'expiresAt', 'referenceId',
+'createdAt', 'modifiedAt', 'customerId', 'gateway', 'activePaymentAttempt');
 
 
 
