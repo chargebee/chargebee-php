@@ -56,6 +56,16 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"resume_subscription_estimate"), $params, $env, $headers);
   }
 
+  public static function giftSubscription($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","gift_subscription"), $params, $env, $headers);
+  }
+
+  public static function createInvoice($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","create_invoice"), $params, $env, $headers);
+  }
+
  }
 
 ?>

@@ -1,3 +1,10 @@
+### v2.6.9 (2019-09-13)
+* * *
+
+* New endpoints gift_subscription_estimate and create_invoice_estimate have been added in estimate resource.
+* New input parameter reference_id in payment_intent has been added in create_a_gift, create_an_invoice, create_using_payment_intent, create_a_subscription, create_subscription_for_customer, update_a_subscription, reactivate_a_subscription, resume_a_subscription, create_a_customer and collect_payment_for_customer api.
+* New endpoint record_refund_for_a_payment has been added in transaction resource.
+
 ### v2.6.8 (2019-08-27)
 * * * 
 
