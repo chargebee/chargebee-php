@@ -1,3 +1,8 @@
+### v2.7.0(2019-10-25)
+* * * 
+
+* Fix - Added CustomerRelationship to chargebee.php
+
 ### v2.6.9 (2019-09-13)
 * * *
 

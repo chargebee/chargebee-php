@@ -165,8 +165,10 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuoteShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuoteTax.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceDunningAttempt.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Hierarchy.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerRelationship.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntent.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php');
+
 
 
 
