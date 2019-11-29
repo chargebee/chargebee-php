@@ -11,6 +11,7 @@ use ChargeBee\ChargeBee\Exceptions\PaymentException;
 use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
 use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
 use ChargeBee\ChargeBee\Exceptions\APIError;
+use Exception;
 
 class Curl
 {
