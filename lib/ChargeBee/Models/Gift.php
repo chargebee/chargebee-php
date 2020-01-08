@@ -3,7 +3,7 @@
 class ChargeBee_Gift extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'status', 'scheduledAt', 'autoClaim', 'claimExpiryDate', 'resourceVersion',
+  protected $allowed = array('id', 'status', 'scheduledAt', 'autoClaim', 'noExpiry', 'claimExpiryDate', 'resourceVersion',
 'updatedAt', 'gifter', 'giftReceiver', 'giftTimelines');
 
 
@@ -34,6 +34,11 @@ class ChargeBee_Gift extends ChargeBee_Model
   public static function cancel($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("gifts",$id,"cancel"), array(), $env, $headers);
+  }
+
+  public static function updateGift($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("gifts",$id,"update_gift"), $params, $env, $headers);
   }
 
  }

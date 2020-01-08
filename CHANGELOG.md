@@ -1,3 +1,17 @@
+### v2.7.1(2020-01-08)
+* * * 
+
+* New attribute taxjar_product_code has been added in Addon and Plan resource.
+* New input parameter taxjar_product_code has been added in create_an_addon, update_an_addon, create_a_plan and update_a_plan api
+* New input parameter taxjar_exemption_category has been added in create_a_customer, update_a_customer , create_a_subscription and import_a_subscription api
+* New input parameter no_expiry has been added in gift_subscription_estimate and create_a_gift api
+* New attribute no_expiry has been added in Gift resource
+* New endpoint update_gift has been added in Gift resource
+* New value BUSINESS_CHECKING has been added in AccountType enum
+* New value CCD has been added in EcheckType enum
+* New event type GIFT_UPDATED has been added
+* New enum taxjar_exemption_category has been added
+
 ### v2.7.0(2019-10-25)
 * * * 
 
