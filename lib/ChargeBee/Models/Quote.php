@@ -4,7 +4,7 @@ class ChargeBee_Quote extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'poNumber', 'customerId', 'subscriptionId', 'invoiceId', 'status',
-'operationType', 'vatNumber', 'priceType', 'validTill', 'date', 'subTotal', 'total', 'creditsApplied','amountPaid', 'amountDue', 'resourceVersion', 'updatedAt', 'currencyCode', 'lineItems', 'discounts','lineItemDiscounts', 'taxes', 'lineItemTaxes', 'notes', 'shippingAddress', 'billingAddress');
+'operationType', 'vatNumber', 'priceType', 'validTill', 'date', 'subTotal', 'total', 'creditsApplied','amountPaid', 'amountDue', 'totalPayable', 'chargeOnAcceptance', 'resourceVersion', 'updatedAt','currencyCode', 'lineItems', 'discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes', 'notes','shippingAddress', 'billingAddress');
 
 
 
