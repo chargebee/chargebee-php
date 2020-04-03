@@ -1,3 +1,23 @@
+### v2.7.3 (2020-04-03)
+* * *
+
+* A subresource contract_term has been added in Subscription resource
+* New endpoint refund_a_credit_note has been added in Credit notes resource
+* New endpoint list_quote_line_groups has been added in Quotes resource
+* New endpoint list_contract_terms_for_a_subscription has been added in Subscriptions resource
+* New input parameter contract_term_billing_cycle_on_renewal, contract_term[action_at_term_end], contract_term[cancellation_cutoff_period] has been added in create_a_subscription, create_subscription_for_customer, update_a_subscription and reactivate_a_subscription apis
+* New input parameter contract_term_cancel_option has been added in cancel_a_subscription api
+* New input parameter contract_term[action_at_term_end], contract_term[cancellation_cutoff_period], subscription[contract_term_billing_cycle_on_renewal] has been added in create_subscription_estimate, create_subscription_for_a_customer_estimate, checkout_new_subscription, checkout_existing_subscription apis
+* New input parameter business_customer_without_vat_number has been added in create_a_customer and update_billing_info_for_a_customer apis
+* New input parameter addons[service_period] replaces the parameter addons[date_from] and addons[date_to] in create_a_quote_for_one-time_charges api
+* New input parameter charges[service_period] replaces the parameter charges[date_from] and charges[date_to] in create_a_quote_for_one-time_charges api
+* New input parameter consolidated_view has been added in retrieve_quote_as_pdf api
+* New input parameter customer[business_customer_without_vat_number] has been added in create_a_subscription, update_a_subscription apis
+* New value CHECKOUT_COM has been added in gateway enum
+* New value CONTRACT_TERMINATION has been added to eventBasedAddons onEvent enum
+* New values IDEAL, GOOGLE_PAY has been added to payment types enum
+* New event types CONTRACT_TERM_CREATED, CONTRACT_TERM_RENEWED, CONTRACT_TERM_TERMINATED, CONTRACT_TERM_COMPLETED, CONTRACT_TERM_CANCELLED have been added
+
 ### v2.7.2(2020-02-06)
 * * *
 

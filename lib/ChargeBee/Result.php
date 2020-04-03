@@ -15,8 +15,14 @@ class ChargeBee_Result
     function subscription() 
     {
         $subscription = $this->_get('subscription', 'ChargeBee_Subscription', 
-        array('addons' => 'ChargeBee_SubscriptionAddon', 'event_based_addons' => 'ChargeBee_SubscriptionEventBasedAddon', 'charged_event_based_addons' => 'ChargeBee_SubscriptionChargedEventBasedAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo'));
+        array('addons' => 'ChargeBee_SubscriptionAddon', 'event_based_addons' => 'ChargeBee_SubscriptionEventBasedAddon', 'charged_event_based_addons' => 'ChargeBee_SubscriptionChargedEventBasedAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo', 'contract_term' => 'ChargeBee_SubscriptionContractTerm'));
         return $subscription;
+    }
+
+    function contractTerm() 
+    {
+        $contract_term = $this->_get('contract_term', 'ChargeBee_ContractTerm');
+        return $contract_term;
     }
 
     function customer() 
@@ -128,7 +134,7 @@ class ChargeBee_Result
         $estimate = $this->_get('estimate', 'ChargeBee_Estimate', array(),
         array('subscription_estimate' => 'ChargeBee_SubscriptionEstimate', 'invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'invoice_estimates' => 'ChargeBee_InvoiceEstimate', 'next_invoice_estimate' => 'ChargeBee_InvoiceEstimate', 'credit_note_estimates' => 'ChargeBee_CreditNoteEstimate', 'unbilled_charge_estimates' => 'ChargeBee_UnbilledCharge'));
         $estimate->_initDependant($this->_response['estimate'], 'subscription_estimate', 
-        array('shipping_address' => 'ChargeBee_SubscriptionEstimateShippingAddress'));
+        array('shipping_address' => 'ChargeBee_SubscriptionEstimateShippingAddress', 'contract_term' => 'ChargeBee_SubscriptionEstimateContractTerm'));
         $estimate->_initDependant($this->_response['estimate'], 'invoice_estimate', 
         array('line_items' => 'ChargeBee_InvoiceEstimateLineItem', 'discounts' => 'ChargeBee_InvoiceEstimateDiscount', 'taxes' => 'ChargeBee_InvoiceEstimateTax', 'line_item_taxes' => 'ChargeBee_InvoiceEstimateLineItemTax', 'line_item_tiers' => 'ChargeBee_InvoiceEstimateLineItemTier', 'line_item_discounts' => 'ChargeBee_InvoiceEstimateLineItemDiscount'));
         $estimate->_initDependant($this->_response['estimate'], 'next_invoice_estimate', 
@@ -147,6 +153,13 @@ class ChargeBee_Result
         $quote = $this->_get('quote', 'ChargeBee_Quote', 
         array('line_items' => 'ChargeBee_QuoteLineItem', 'discounts' => 'ChargeBee_QuoteDiscount', 'line_item_discounts' => 'ChargeBee_QuoteLineItemDiscount', 'taxes' => 'ChargeBee_QuoteTax', 'line_item_taxes' => 'ChargeBee_QuoteLineItemTax', 'shipping_address' => 'ChargeBee_QuoteShippingAddress', 'billing_address' => 'ChargeBee_QuoteBillingAddress'));
         return $quote;
+    }
+
+    function quoteLineGroup() 
+    {
+        $quote_line_group = $this->_get('quote_line_group', 'ChargeBee_QuoteLineGroup', 
+        array('line_items' => 'ChargeBee_QuoteLineGroupLineItem', 'discounts' => 'ChargeBee_QuoteLineGroupDiscount', 'line_item_discounts' => 'ChargeBee_QuoteLineGroupLineItemDiscount', 'taxes' => 'ChargeBee_QuoteLineGroupTax', 'line_item_taxes' => 'ChargeBee_QuoteLineGroupLineItemTax'));
+        return $quote_line_group;
     }
 
     function plan() 

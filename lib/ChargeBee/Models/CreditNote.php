@@ -26,6 +26,11 @@ class ChargeBee_CreditNote extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"pdf"), $params, $env, $headers);
   }
 
+  public static function refund($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"refund"), $params, $env, $headers);
+  }
+
   public static function recordRefund($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("credit_notes",$id,"record_refund"), $params, $env, $headers);

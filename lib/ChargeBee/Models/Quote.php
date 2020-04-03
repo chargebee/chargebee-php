@@ -36,6 +36,11 @@ class ChargeBee_Quote extends ChargeBee_Model
     return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("quotes"), $params, $env, $headers);
   }
 
+  public static function quoteLineGroupsForQuote($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("quotes",$id,"quote_line_groups"), $params, $env, $headers);
+  }
+
   public static function convert($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"convert"), $params, $env, $headers);

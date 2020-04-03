@@ -4,7 +4,7 @@ class ChargeBee_Subscription extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice',
-'setupFee', 'planAmount', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status','startDate', 'trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'nextBillingAt','remainingBillingCycles', 'poNumber', 'createdAt', 'startedAt', 'activatedAt', 'giftId', 'overrideRelationship','pauseDate', 'resumeDate', 'cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp','resourceVersion', 'updatedAt', 'hasScheduledChanges', 'paymentSourceId', 'autoCollection','dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate', 'baseCurrencyCode', 'addons','eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo','invoiceNotes', 'metaData', 'deleted');
+'setupFee', 'planAmount', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status','startDate', 'trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'nextBillingAt','remainingBillingCycles', 'poNumber', 'createdAt', 'startedAt', 'activatedAt', 'giftId', 'contractTermBillingCycleOnRenewal','overrideRelationship', 'pauseDate', 'resumeDate', 'cancelledAt', 'cancelReason', 'affiliateToken','createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledChanges', 'paymentSourceId', 'autoCollection','dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate', 'baseCurrencyCode', 'addons','eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo','invoiceNotes', 'metaData', 'deleted', 'contractTerm');
 
 
 
@@ -29,6 +29,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
   public static function subscriptionsForCustomer($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"subscriptions"), $params, $env, $headers);
+  }
+
+  public static function contractTermsForSubscription($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("subscriptions",$id,"contract_terms"), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
