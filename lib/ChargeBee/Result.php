@@ -28,7 +28,7 @@ class ChargeBee_Result
     function customer() 
     {
         $customer = $this->_get('customer', 'ChargeBee_Customer', 
-        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod', 'balances' => 'ChargeBee_CustomerBalance', 'relationship' => 'ChargeBee_CustomerRelationship'));
+        array('billing_address' => 'ChargeBee_CustomerBillingAddress', 'referral_urls' => 'ChargeBee_CustomerReferralUrl', 'contacts' => 'ChargeBee_CustomerContact', 'payment_method' => 'ChargeBee_CustomerPaymentMethod', 'balances' => 'ChargeBee_CustomerBalance', 'relationship' => 'ChargeBee_CustomerRelationship', 'parent_account_access' => 'ChargeBee_CustomerParentAccountAccess', 'child_account_access' => 'ChargeBee_CustomerChildAccountAccess'));
         return $customer;
     }
 
@@ -259,7 +259,7 @@ class ChargeBee_Result
     }
 
 
-    function unbilledCharges() 
+    function unbilledCharges()
     {
         $unbilled_charges = $this->_getList('unbilled_charges', 'ChargeBee_UnbilledCharge',
         array('tiers' => 'ChargeBee_UnbilledChargeTier'));

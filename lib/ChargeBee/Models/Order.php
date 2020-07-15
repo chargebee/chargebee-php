@@ -21,6 +21,11 @@ class ChargeBee_Order extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders",$id), $params, $env, $headers);
   }
 
+  public static function importOrder($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders","import_order"), $params, $env, $headers);
+  }
+
   public static function assignOrderNumber($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders",$id,"assign_order_number"), array(), $env, $headers);
@@ -44,6 +49,11 @@ class ChargeBee_Order extends ChargeBee_Model
   public static function retrieve($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("orders",$id), array(), $env, $headers);
+  }
+
+  public static function delete($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders",$id,"delete"), array(), $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
