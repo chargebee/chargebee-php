@@ -31,6 +31,11 @@ class ChargeBee_VirtualBankAccount extends ChargeBee_Model
     return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("virtual_bank_accounts"), $params, $env, $headers);
   }
 
+  public static function delete($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("virtual_bank_accounts",$id,"delete"), array(), $env, $headers);
+  }
+
   public static function deleteLocal($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("virtual_bank_accounts",$id,"delete_local"), array(), $env, $headers);

@@ -11,7 +11,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
-  public static function create($params, $env = null, $headers = array())
+  public static function create($params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);
   }

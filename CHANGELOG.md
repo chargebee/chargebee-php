@@ -1,3 +1,31 @@
+### v2.7.5 (2020-09-09)
+* * *
+
+* New input parameter currency_code is added in list_addons, list_coupons, list_plans, export_plans, export_addons, export_coupons apis
+* New attributes powered_by has been added in card resource
+* New input parameters subscription[free_period], subscription[free_period_unit] have been added in create_subscription_estimate, create_subscription_for_a_customer_estimate, update_subscription_estimate apis
+* Input parameter invoice[customer_id] is made optional in create_invoice_estimate api
+* Input parameter customer_id is made optional in create_an_invoice
+* Attribute created_at in dunning_attempts is made optional in the invoice resource
+* New attributes free_period and free_period_unit have been added in the Subscription resource
+* New enum type free_period_unit has been added with the values:
+	DAY,
+	WEEK,
+	MONTH,
+	YEAR
+* New enum type powered_by has been added in card resource with the values: 
+	IDEAL,
+    SOFORT,
+    BANCONTACT,
+    GIROPAY,
+    NOT_APPLICABLE
+* New endpoint import_contract_term has been added to the subscription resource
+* Attributes status, amount and date inside the linked_payment are made optional in the transaction resource
+* New endpoint delete has been added to the virtual_bank_account resource
+* New values GIROPAY and DOTPAY have been added to the payment_method_types enum
+* New values PAYMENT_SOURCE_EXPIRING and PAYMENT_SOURCE_EXPIRED have been added to the event_type enums
+* New value PAYPAL has been added to the gateway enum
+
 ### v2.7.4 (2020-07-15)
 * * *
 
