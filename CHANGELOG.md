@@ -1,3 +1,15 @@
+### v2.7.6 (2020-09-29)
+* * *
+
+* New attribute included_in_mrr has been added in addon and coupon resource
+* New attribute offline_payment_method has been added in subscription and customer resource
+* New input parameter included_in_mrr has been added in create_an_addon, update_an_addon, create_a_coupon and update_a_coupon apis.
+* New input parameter offline_payment_method has been added in create_a_customer, list_customers, update_a_customer, create_a_subscription, create_subscription_for_customer and list_subscriptions apis
+* New input parameter auto_collection has been added in update_a_subscription
+* New input parameter subscription[offline_payment_method] has been added in create_subscription_estimate, create_subscription_for_a_customer_estimate, update_subscription_estimate, export_revenue_recognition_reports, export_deferred_revenue_reports, export_subscriptions, checkout_new_subscription and checkout_existing_subscription apis
+* New input parameter subscription[auto_collection] has been added in checkout_existing_subscription and update_subscription_estimate apis
+* New input parameter customer[offline_payment_method] has been added in export_revenue_recognition_reports, export_deferred_revenue_reports, export_customers and create_a_subscription
+
 ### v2.7.5 (2020-09-09)
 * * *
 
