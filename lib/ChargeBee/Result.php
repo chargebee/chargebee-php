@@ -25,6 +25,13 @@ class ChargeBee_Result
         return $contract_term;
     }
 
+    function advanceInvoiceSchedule() 
+    {
+        $advance_invoice_schedule = $this->_get('advance_invoice_schedule', 'ChargeBee_AdvanceInvoiceSchedule', 
+        array('fixed_interval_schedule' => 'ChargeBee_AdvanceInvoiceScheduleFixedIntervalSchedule', 'specific_dates_schedule' => 'ChargeBee_AdvanceInvoiceScheduleSpecificDatesSchedule'));
+        return $advance_invoice_schedule;
+    }
+
     function customer() 
     {
         $customer = $this->_get('customer', 'ChargeBee_Customer', 
@@ -155,6 +162,13 @@ class ChargeBee_Result
         return $quote;
     }
 
+    function quotedSubscription() 
+    {
+        $quoted_subscription = $this->_get('quoted_subscription', 'ChargeBee_QuotedSubscription', 
+        array('addons' => 'ChargeBee_QuotedSubscriptionAddon', 'event_based_addons' => 'ChargeBee_QuotedSubscriptionEventBasedAddon', 'coupons' => 'ChargeBee_QuotedSubscriptionCoupon'));
+        return $quoted_subscription;
+    }
+
     function quoteLineGroup() 
     {
         $quote_line_group = $this->_get('quote_line_group', 'ChargeBee_QuoteLineGroup', 
@@ -259,7 +273,7 @@ class ChargeBee_Result
     }
 
 
-    function unbilledCharges()
+    function unbilledCharges() 
     {
         $unbilled_charges = $this->_getList('unbilled_charges', 'ChargeBee_UnbilledCharge',
         array('tiers' => 'ChargeBee_UnbilledChargeTier'));
@@ -271,6 +285,13 @@ class ChargeBee_Result
         $credit_notes = $this->_getList('credit_notes', 'ChargeBee_CreditNote',
         array('line_items' => 'ChargeBee_CreditNoteLineItem', 'discounts' => 'ChargeBee_CreditNoteDiscount', 'line_item_discounts' => 'ChargeBee_CreditNoteLineItemDiscount', 'line_item_tiers' => 'ChargeBee_CreditNoteLineItemTier', 'taxes' => 'ChargeBee_CreditNoteTax', 'line_item_taxes' => 'ChargeBee_CreditNoteLineItemTax', 'linked_refunds' => 'ChargeBee_CreditNoteLinkedRefund', 'allocations' => 'ChargeBee_CreditNoteAllocation'));
         return $credit_notes;
+    }
+    
+    function advanceInvoiceSchedules() 
+    {
+        $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', 'ChargeBee_AdvanceInvoiceSchedule',
+        array('fixed_interval_schedule' => 'ChargeBee_AdvanceInvoiceScheduleFixedIntervalSchedule', 'specific_dates_schedule' => 'ChargeBee_AdvanceInvoiceScheduleSpecificDatesSchedule'));
+        return $advance_invoice_schedules;
     }
     
     function hierarchies() 
@@ -286,11 +307,12 @@ class ChargeBee_Result
         array('line_items' => 'ChargeBee_InvoiceLineItem', 'discounts' => 'ChargeBee_InvoiceDiscount', 'line_item_discounts' => 'ChargeBee_InvoiceLineItemDiscount', 'taxes' => 'ChargeBee_InvoiceTax', 'line_item_taxes' => 'ChargeBee_InvoiceLineItemTax', 'line_item_tiers' => 'ChargeBee_InvoiceLineItemTier', 'linked_payments' => 'ChargeBee_InvoiceLinkedPayment', 'dunning_attempts' => 'ChargeBee_InvoiceDunningAttempt', 'applied_credits' => 'ChargeBee_InvoiceAppliedCredit', 'adjustment_credit_notes' => 'ChargeBee_InvoiceAdjustmentCreditNote', 'issued_credit_notes' => 'ChargeBee_InvoiceIssuedCreditNote', 'linked_orders' => 'ChargeBee_InvoiceLinkedOrder', 'notes' => 'ChargeBee_InvoiceNote', 'shipping_address' => 'ChargeBee_InvoiceShippingAddress', 'billing_address' => 'ChargeBee_InvoiceBillingAddress'));
         return $invoices;
     }
-   
-     public function toJson() {
-           return json_encode($this->_response);
-     } 
     
+
+    public function toJson() {
+        return json_encode($this->_response);
+    }
+
     private function _getList($type, $class, $subTypes = array(), $dependantTypes = array(),  $dependantSubTypes = array())
     {
         if(!array_key_exists($type, $this->_response))
