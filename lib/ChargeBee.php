@@ -168,9 +168,22 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Hierarchy.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerRelationship.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntent.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php');
-
-
-
-
-
-
+require(dirname(__FILE__) . '/ChargeBee/Models/AdvanceInvoiceSchedule.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/AdvanceInvoiceScheduleFixedIntervalSchedule.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/AdvanceInvoiceScheduleSpecificDatesSchedule.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/ContractTerm.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerChildAccountAccess.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerParentAccountAccess.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroup.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroupDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroupLineItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroupLineItemDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroupLineItemTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineGroupTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscription.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionCoupon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionEventBasedAddon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionContractTerm.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimateContractTerm.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Token.php');
