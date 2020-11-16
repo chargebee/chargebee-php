@@ -3,8 +3,8 @@
 class ChargeBee_PromotionalCredit extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'customerId', 'type', 'amount', 'currencyCode', 'description', 'creditType',
-'reference', 'closingBalance', 'doneBy', 'createdAt');
+  protected $allowed = array('id', 'customerId', 'type', 'amountInDecimal', 'amount', 'currencyCode', 'description',
+'creditType', 'reference', 'closingBalance', 'doneBy', 'createdAt');
 
 
 
