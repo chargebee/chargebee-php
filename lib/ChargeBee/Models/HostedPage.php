@@ -23,9 +23,19 @@ class ChargeBee_HostedPage extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new"), $params, $env, $headers);
   }
 
+  public static function checkoutNewForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new_for_items"), $params, $env, $headers);
+  }
+
   public static function checkoutExisting($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_existing"), $params, $env, $headers);
+  }
+
+  public static function checkoutExistingForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_existing_for_items"), $params, $env, $headers);
   }
 
   public static function updateCard($params, $env = null, $headers = array())

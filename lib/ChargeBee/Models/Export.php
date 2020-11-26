@@ -84,6 +84,31 @@ public function waitForExportCompletion($env = null, $headers = array()) {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","orders"), $params, $env, $headers);
   }
 
+  public static function itemFamilies($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","item_families"), $params, $env, $headers);
+  }
+
+  public static function items($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","items"), $params, $env, $headers);
+  }
+
+  public static function itemPrices($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","item_prices"), $params, $env, $headers);
+  }
+
+  public static function attachedItems($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","attached_items"), $params, $env, $headers);
+  }
+
+  public static function differentialPrices($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports","differential_prices"), $params, $env, $headers);
+  }
+
  }
 
 ?>

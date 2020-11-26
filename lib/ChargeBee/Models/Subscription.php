@@ -4,7 +4,7 @@ class ChargeBee_Subscription extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice', 'setupFee', 'billingPeriod',
-'billingPeriodUnit', 'startDate', 'trialEnd', 'remainingBillingCycles', 'poNumber', 'autoCollection','customerId', 'planAmount', 'planFreeQuantity', 'status', 'trialStart', 'currentTermStart','currentTermEnd', 'nextBillingAt', 'createdAt', 'startedAt', 'activatedAt', 'giftId', 'contractTermBillingCycleOnRenewal','overrideRelationship', 'pauseDate', 'resumeDate', 'cancelledAt', 'cancelReason', 'affiliateToken','createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledChanges', 'paymentSourceId', 'planFreeQuantityInDecimal','planQuantityInDecimal', 'planUnitPriceInDecimal', 'planAmountInDecimal', 'offlinePaymentMethod','dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate', 'baseCurrencyCode', 'addons','eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo','invoiceNotes', 'metaData', 'deleted', 'contractTerm', 'cancelReasonCode', 'freePeriod', 'freePeriodUnit');
+'billingPeriodUnit', 'startDate', 'trialEnd', 'remainingBillingCycles', 'poNumber', 'autoCollection','customerId', 'planAmount', 'planFreeQuantity', 'status', 'trialStart', 'currentTermStart','currentTermEnd', 'nextBillingAt', 'createdAt', 'startedAt', 'activatedAt', 'giftId', 'contractTermBillingCycleOnRenewal','overrideRelationship', 'pauseDate', 'resumeDate', 'cancelledAt', 'cancelReason', 'affiliateToken','createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledAdvanceInvoices', 'hasScheduledChanges','paymentSourceId', 'planFreeQuantityInDecimal', 'planQuantityInDecimal', 'planUnitPriceInDecimal','planAmountInDecimal', 'offlinePaymentMethod', 'subscriptionItems', 'itemTiers', 'chargedItems','dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate', 'baseCurrencyCode', 'addons','eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo','invoiceNotes', 'metaData', 'metadata', 'deleted', 'contractTerm', 'cancelReasonCode', 'freePeriod','freePeriodUnit');
 
 
 
@@ -19,6 +19,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
   public static function createForCustomer($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"subscriptions"), $params, $env, $headers);
+  }
+
+  public static function createWithItems($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"subscription_for_items"), $params, $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
@@ -66,6 +71,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id), $params, $env, $headers);
   }
 
+  public static function updateForItems($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"update_for_items"), $params, $env, $headers);
+  }
+
   public static function changeTermEnd($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"change_term_end"), $params, $env, $headers);
@@ -91,6 +101,21 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"charge_future_renewals"), $params, $env, $headers);
   }
 
+  public static function editAdvanceInvoiceSchedule($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"edit_advance_invoice_schedule"), $params, $env, $headers);
+  }
+
+  public static function retrieveAdvanceInvoiceSchedule($id, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("subscriptions",$id,"retrieve_advance_invoice_schedule"), array(), $env, $headers);
+  }
+
+  public static function removeAdvanceInvoiceSchedule($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"remove_advance_invoice_schedule"), $params, $env, $headers);
+  }
+
   public static function importSubscription($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions","import_subscription"), $params, $env, $headers);
@@ -104,6 +129,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
   public static function importContractTerm($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"import_contract_term"), $params, $env, $headers);
+  }
+
+  public static function importForItems($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"import_for_items"), $params, $env, $headers);
   }
 
   public static function overrideBillingProfile($id, $params = array(), $env = null, $headers = array())
@@ -124,6 +154,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
   public static function cancel($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"cancel"), $params, $env, $headers);
+  }
+
+  public static function cancelForItems($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"cancel_for_items"), $params, $env, $headers);
   }
 
   public static function resume($id, $params = array(), $env = null, $headers = array())

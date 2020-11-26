@@ -11,6 +11,11 @@ class ChargeBee_UnbilledCharge extends ChargeBee_Model
   # OPERATIONS
   #-----------
 
+  public static function create($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("unbilled_charges"), $params, $env, $headers);
+  }
+
   public static function invoiceUnbilledCharges($params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("unbilled_charges","invoice_unbilled_charges"), $params, $env, $headers);

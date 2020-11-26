@@ -16,6 +16,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);
   }
 
+  public static function createForChargeItemsAndCharges($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","create_for_charge_items_and_charges"), $params, $env, $headers);
+  }
+
   public static function charge($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","charge"), $params, $env, $headers);
@@ -24,6 +29,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
   public static function chargeAddon($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","charge_addon"), $params, $env, $headers);
+  }
+
+  public static function createForChargeItem($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","create_for_charge_item"), $params, $env, $headers);
   }
 
   public static function stopDunning($id, $params = array(), $env = null, $headers = array())
@@ -79,6 +89,11 @@ class ChargeBee_Invoice extends ChargeBee_Model
   public static function addAddonCharge($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"add_addon_charge"), $params, $env, $headers);
+  }
+
+  public static function addChargeItem($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices",$id,"add_charge_item"), $params, $env, $headers);
   }
 
   public static function close($id, $params = array(), $env = null, $headers = array())

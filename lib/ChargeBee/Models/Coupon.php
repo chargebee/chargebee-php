@@ -4,7 +4,7 @@ class ChargeBee_Coupon extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'discountType', 'discountPercentage', 'discountAmount',
-'discountQuantity', 'currencyCode', 'durationType', 'durationMonth', 'validTill', 'maxRedemptions','status', 'applyDiscountOn', 'applyOn', 'planConstraint', 'addonConstraint', 'createdAt', 'archivedAt','resourceVersion', 'updatedAt', 'includedInMrr', 'planIds', 'addonIds', 'redemptions', 'invoiceNotes','metaData');
+'discountQuantity', 'currencyCode', 'durationType', 'durationMonth', 'validTill', 'maxRedemptions','status', 'applyDiscountOn', 'applyOn', 'planConstraint', 'addonConstraint', 'createdAt', 'archivedAt','resourceVersion', 'updatedAt', 'includedInMrr', 'planIds', 'addonIds', 'itemConstraints', 'itemConstraintCriteria','redemptions', 'invoiceNotes', 'metaData');
 
 
 
@@ -14,6 +14,16 @@ class ChargeBee_Coupon extends ChargeBee_Model
   public static function create($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupons"), $params, $env, $headers);
+  }
+
+  public static function createForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupons","create_for_items"), $params, $env, $headers);
+  }
+
+  public static function updateForItems($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("coupons",$id,"update_for_items"), $params, $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())

@@ -15,7 +15,7 @@ class ChargeBee_Result
     function subscription() 
     {
         $subscription = $this->_get('subscription', 'ChargeBee_Subscription', 
-        array('addons' => 'ChargeBee_SubscriptionAddon', 'event_based_addons' => 'ChargeBee_SubscriptionEventBasedAddon', 'charged_event_based_addons' => 'ChargeBee_SubscriptionChargedEventBasedAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo', 'contract_term' => 'ChargeBee_SubscriptionContractTerm'));
+        array('subscription_items' => 'ChargeBee_SubscriptionSubscriptionItem', 'item_tiers' => 'ChargeBee_SubscriptionItemTier', 'charged_items' => 'ChargeBee_SubscriptionChargedItem', 'addons' => 'ChargeBee_SubscriptionAddon', 'event_based_addons' => 'ChargeBee_SubscriptionEventBasedAddon', 'charged_event_based_addons' => 'ChargeBee_SubscriptionChargedEventBasedAddon', 'coupons' => 'ChargeBee_SubscriptionCoupon', 'shipping_address' => 'ChargeBee_SubscriptionShippingAddress', 'referral_info' => 'ChargeBee_SubscriptionReferralInfo', 'contract_term' => 'ChargeBee_SubscriptionContractTerm'));
         return $subscription;
     }
 
@@ -165,7 +165,7 @@ class ChargeBee_Result
     function quotedSubscription() 
     {
         $quoted_subscription = $this->_get('quoted_subscription', 'ChargeBee_QuotedSubscription', 
-        array('addons' => 'ChargeBee_QuotedSubscriptionAddon', 'event_based_addons' => 'ChargeBee_QuotedSubscriptionEventBasedAddon', 'coupons' => 'ChargeBee_QuotedSubscriptionCoupon'));
+        array('addons' => 'ChargeBee_QuotedSubscriptionAddon', 'event_based_addons' => 'ChargeBee_QuotedSubscriptionEventBasedAddon', 'coupons' => 'ChargeBee_QuotedSubscriptionCoupon', 'subscription_items' => 'ChargeBee_QuotedSubscriptionSubscriptionItem', 'item_tiers' => 'ChargeBee_QuotedSubscriptionItemTier'));
         return $quoted_subscription;
     }
 
@@ -192,7 +192,8 @@ class ChargeBee_Result
 
     function coupon() 
     {
-        $coupon = $this->_get('coupon', 'ChargeBee_Coupon');
+        $coupon = $this->_get('coupon', 'ChargeBee_Coupon', 
+        array('item_constraints' => 'ChargeBee_CouponItemConstraint', 'item_constraint_criteria' => 'ChargeBee_CouponItemConstraintCriteria'));
         return $coupon;
     }
 
@@ -272,6 +273,39 @@ class ChargeBee_Result
         return $payment_intent;
     }
 
+    function itemFamily()
+    {
+        $item_family = $this->_get('item_family', 'ChargeBee_ItemFamily');
+        return $item_family;
+    }
+
+    function item() 
+    {
+        $item = $this->_get('item', 'ChargeBee_Item', 
+        array('applicable_items' => 'ChargeBee_ItemApplicableItem'));
+        return $item;
+    }
+
+    function itemPrice() 
+    {
+        $item_price = $this->_get('item_price', 'ChargeBee_ItemPrice', 
+        array('tiers' => 'ChargeBee_ItemPriceTier', 'tax_detail' => 'ChargeBee_ItemPriceTaxDetail', 'accounting_detail' => 'ChargeBee_ItemPriceAccountingDetail'));
+        return $item_price;
+    }
+
+    function attachedItem()
+    {
+        $attached_item = $this->_get('attached_item', 'ChargeBee_AttachedItem');
+        return $attached_item;
+    }
+
+    function differentialPrice() 
+    {
+        $differential_price = $this->_get('differential_price', 'ChargeBee_DifferentialPrice', 
+        array('tiers' => 'ChargeBee_DifferentialPriceTier', 'parent_periods' => 'ChargeBee_DifferentialPriceParentPeriod'));
+        return $differential_price;
+    }
+
 
     function unbilledCharges() 
     {
@@ -308,6 +342,12 @@ class ChargeBee_Result
         return $invoices;
     }
     
+    function differentialPrices()
+    {
+        $differential_prices = $this->_getList('differential_prices', 'ChargeBee_DifferentialPrice',
+        array('tiers' => 'ChargeBee_DifferentialPriceTier', 'parent_periods' => 'ChargeBee_DifferentialPriceParentPeriod'));
+        return $differential_prices;
+    }
 
     public function toJson() {
         return json_encode($this->_response);

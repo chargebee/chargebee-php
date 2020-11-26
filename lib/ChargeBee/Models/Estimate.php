@@ -21,14 +21,29 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"create_subscription_estimate"), $params, $env, $headers);
   }
 
+  public static function createSubItemForCustomerEstimate($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"create_subscription_for_items_estimate"), $params, $env, $headers);
+  }
+
   public static function updateSubscription($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","update_subscription"), $params, $env, $headers);
   }
 
+  public static function updateSubscriptionForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","update_subscription_for_items"), $params, $env, $headers);
+  }
+
   public static function renewalEstimate($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("subscriptions",$id,"renewal_estimate"), $params, $env, $headers);
+  }
+
+  public static function advanceInvoiceEstimate($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"advance_invoice_estimate"), $params, $env, $headers);
   }
 
   public static function upcomingInvoicesEstimate($id, $env = null, $headers = array())
@@ -64,6 +79,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
   public static function createInvoice($params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","create_invoice"), $params, $env, $headers);
+  }
+
+  public static function createInvoiceForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","create_invoice_for_items"), $params, $env, $headers);
   }
 
  }
