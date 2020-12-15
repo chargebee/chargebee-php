@@ -16,6 +16,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","create_subscription"), $params, $env, $headers);
   }
 
+  public static function createSubItemEstimate($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","create_subscription_for_items"), $params, $env, $headers);
+  }
+
   public static function createSubForCustomerEstimate($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"create_subscription_estimate"), $params, $env, $headers);
@@ -46,6 +51,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"advance_invoice_estimate"), $params, $env, $headers);
   }
 
+  public static function regenerateInvoiceEstimate($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"regenerate_invoice_estimate"), $params, $env, $headers);
+  }
+
   public static function upcomingInvoicesEstimate($id, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("customers",$id,"upcoming_invoices_estimate"), array(), $env, $headers);
@@ -61,6 +71,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"cancel_subscription_estimate"), $params, $env, $headers);
   }
 
+  public static function cancelSubscriptionForItems($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"cancel_subscription_for_items_estimate"), $params, $env, $headers);
+  }
+
   public static function pauseSubscription($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"pause_subscription_estimate"), $params, $env, $headers);
@@ -74,6 +89,11 @@ class ChargeBee_Estimate extends ChargeBee_Model
   public static function giftSubscription($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","gift_subscription"), $params, $env, $headers);
+  }
+
+  public static function giftSubscriptionForItems($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("estimates","gift_subscription_for_items"), $params, $env, $headers);
   }
 
   public static function createInvoice($params = array(), $env = null, $headers = array())

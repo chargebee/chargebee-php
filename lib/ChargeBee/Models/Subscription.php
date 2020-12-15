@@ -116,6 +116,11 @@ class ChargeBee_Subscription extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"remove_advance_invoice_schedule"), $params, $env, $headers);
   }
 
+  public static function regenerateInvoice($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions",$id,"regenerate_invoice"), $params, $env, $headers);
+  }
+
   public static function importSubscription($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("subscriptions","import_subscription"), $params, $env, $headers);
