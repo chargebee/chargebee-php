@@ -23,6 +23,11 @@ class ChargeBee_HostedPage extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new"), $params, $env, $headers);
   }
 
+  public static function checkoutOneTime($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_one_time"), $params, $env, $headers);
+  }
+
   public static function checkoutNewForItems($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new_for_items"), $params, $env, $headers);

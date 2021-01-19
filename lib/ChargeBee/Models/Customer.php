@@ -4,7 +4,7 @@ class ChargeBee_Customer extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
-'offlinePaymentMethod', 'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit','isLocationValid', 'createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId','backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes','preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments','balances', 'metaData', 'deleted', 'registeredForGst', 'consolidatedInvoicing', 'customerType','businessCustomerWithoutVatNumber', 'clientProfileId', 'relationship', 'useDefaultHierarchySettings','parentAccountAccess', 'childAccountAccess');
+'offlinePaymentMethod', 'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit','isLocationValid', 'createdAt', 'createdFromIp', 'exemptionDetails', 'taxability', 'entityCode','exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'billingDate', 'billingDateMode','billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'autoCloseInvoices', 'cardStatus','fraudFlag', 'primaryPaymentSourceId', 'backupPaymentSourceId', 'billingAddress', 'referralUrls','contacts', 'paymentMethod', 'invoiceNotes', 'preferredCurrencyCode', 'promotionalCredits','unbilledCharges', 'refundableCredits', 'excessPayments', 'balances', 'metaData', 'deleted','registeredForGst', 'consolidatedInvoicing', 'customerType', 'businessCustomerWithoutVatNumber','clientProfileId', 'relationship', 'useDefaultHierarchySettings', 'parentAccountAccess', 'childAccountAccess');
 
 
 
@@ -86,7 +86,7 @@ class ChargeBee_Customer extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"record_excess_payment"), $params, $env, $headers);
   }
 
-  public static function collectPayment($id, $params = array(), $env = null, $headers = array())
+  public static function collectPayment($id, $params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"collect_payment"), $params, $env, $headers);
   }

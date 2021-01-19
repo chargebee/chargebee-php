@@ -187,3 +187,4 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionEventBasedAddon
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionContractTerm.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimateContractTerm.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Token.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Usage.php');

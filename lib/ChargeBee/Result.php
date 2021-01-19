@@ -25,7 +25,7 @@ class ChargeBee_Result
         return $contract_term;
     }
 
-    function advanceInvoiceSchedule() 
+    function advanceInvoiceSchedule()
     {
         $advance_invoice_schedule = $this->_get('advance_invoice_schedule', 'ChargeBee_AdvanceInvoiceSchedule', 
         array('fixed_interval_schedule' => 'ChargeBee_AdvanceInvoiceScheduleFixedIntervalSchedule', 'specific_dates_schedule' => 'ChargeBee_AdvanceInvoiceScheduleSpecificDatesSchedule'));
@@ -215,6 +215,12 @@ class ChargeBee_Result
         return $address;
     }
 
+    function usage() 
+    {
+        $usage = $this->_get('usage', 'ChargeBee_Usage');
+        return $usage;
+    }
+
     function event() 
     {
         $event = $this->_get('event', 'ChargeBee_Event', 
@@ -307,7 +313,7 @@ class ChargeBee_Result
     }
 
 
-    function unbilledCharges() 
+    function unbilledCharges()
     {
         $unbilled_charges = $this->_getList('unbilled_charges', 'ChargeBee_UnbilledCharge',
         array('tiers' => 'ChargeBee_UnbilledChargeTier'));

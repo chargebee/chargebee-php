@@ -1,3 +1,29 @@
+### v2.8.1 (2021-01-19)
+* * *
+##### New resources:
+* Usages is added. Applicable only for Product Catalog V2
+
+##### New end points:
+* hosted_pages#checkout_one-time_payments has been added in hosted_pages resource
+
+##### New attributes:
+* auto_close_invoices has been added to customers, subscriptions resources
+* metered, usage_calculation have been added to items resources
+* create_pending_invoices, auto_close_invoices have been added to subscriptions resources
+
+##### New parameters:
+* auto_close_invoices has been added to the endpoint: customers#create_a_customer, customers#list_customers, customers#update_a_customer
+* invoice_allocations[invoice_id] has been added to the endpoint: customers#collect_payment_for_customer
+* coupon_ids has been added to the endpoint: estimates#create_invoice_for_items_estimate. Applicable only for Product Catalog V2
+* subscription[auto_close_invoices] has been added to the endpoint: exports#export_revenue_recognition_reports, exports#export_deferred_revenue_reports, exports#export_subscriptions
+* customer[auto_close_invoices] has been added to the endpoint: exports#export_revenue_recognition_reports, exports#export_deferred_revenue_reports, exports#export_customers
+* item[metered], item[usage_calculation] have been added to the endpoint: exports#export_items. Applicable only for Product Catalog V2
+* subscription_id has been added to the endpoint: invoices#add_one-time_charge_to_a_pending_invoice, invoices#add_non-recurring_addon_to_a_pending_invoice
+* subscription_id has been added to the endpoint: invoices#add_a_charge-item_to_a_pending_invoice. Applicable only for Product Catalog V2
+* metered, usage_calculation have been added to the endpoint: items#create_an_item, items#list_item. Applicable only for Product Catalog V2
+* create_pending_invoices, auto_close_invoices, first_invoice_pending have been added to the endpoint: subscriptions#create_subscription_for_items, subscriptions#update_subscription_for_items,subscriptions#import_subscription_for_items. Applicable only for Product Catalog V2
+* create_pending_invoices, auto_close_invoices have been added to the endpoint: subscriptions#list_subscriptions
+
 ### v2.8.0 (2020-12-15)
 * * *
 ##### New end points:
