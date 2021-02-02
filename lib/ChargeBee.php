@@ -191,3 +191,5 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Usage.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Item.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPrice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemFamily.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPrice.php');
+
