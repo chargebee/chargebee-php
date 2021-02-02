@@ -188,3 +188,6 @@ require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionContractTerm.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimateContractTerm.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Token.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Usage.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Item.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/ItemPrice.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/ItemFamily.php');
