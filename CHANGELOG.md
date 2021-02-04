@@ -1,3 +1,7 @@
+### v2.8.2 (2021-02-04)
+* * *
+* fixed: missing requires for Product Catalog V2 resources.
+
 ### v2.8.1 (2021-01-19)
 * * *
 ##### New resources:
