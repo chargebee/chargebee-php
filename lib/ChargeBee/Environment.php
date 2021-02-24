@@ -5,8 +5,9 @@ class ChargeBee_Environment {
     private $apiKey;
     private $site;
     private $apiEndPoint;
-    
+
     private static $default_env;
+    private static $universal_headers;
     public static $scheme = "https";
     public static $chargebeeDomain;
 
@@ -18,9 +19,10 @@ class ChargeBee_Environment {
 
     const API_VERSION = "v2";
     
-    function __construct($site, $apiKey) {
+    function __construct($site, $apiKey, $universalHeaders = array()) {
         $this->site = $site;
         $this->apiKey = $apiKey;
+        ChargeBee_Environment::$universal_headers = $universalHeaders;
         if (ChargeBee_Environment::$chargebeeDomain == null) {
             $this->apiEndPoint = "https://$site.chargebee.com/api/" . ChargeBee_Environment::API_VERSION;
         } else {
@@ -48,6 +50,10 @@ class ChargeBee_Environment {
     
     public static function defaultEnv() {
         return ChargeBee_Environment::$default_env;
+    }
+
+    public static function universalHeaders() {
+        return ChargeBee_Environment::$universal_headers;
     }
 
     public function apiUrl($url) {
