@@ -62,7 +62,7 @@ class ChargeBee_Model
 		{
 			return $this->_data[$k];
 		} 
-		else if(in_array($k, $this->allowed))
+		else if(in_array(ChargeBee_Util::toUnderscoreFromCamelCase($k), $this->allowed))
 		{
 			return null;
 		}
@@ -82,7 +82,7 @@ class ChargeBee_Model
 		{
 			return $this->_dependantTypes[$k];
 		} 
-		else if(in_array($k, $this->allowed))
+		else if(in_array(ChargeBee_Util::toUnderscoreFromCamelCase($k), $this->allowed))
 		{
 			return null;
 		}
