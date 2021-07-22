@@ -4,7 +4,7 @@ class ChargeBee_Addon extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'description', 'pricingModel', 'type', 'chargeType',
-'price', 'currencyCode', 'period', 'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal','taxCode', 'taxjarProductCode', 'avalaraSaleType', 'avalaraTransactionType', 'avalaraServiceType','sku', 'accountingCode', 'accountingCategory1', 'accountingCategory2', 'isShippable', 'shippingFrequencyPeriod','shippingFrequencyPeriodUnit', 'resourceVersion', 'updatedAt', 'priceInDecimal', 'includedInMrr','invoiceNotes', 'taxable', 'taxProfileId', 'metaData', 'tiers', 'showDescriptionInInvoices','showDescriptionInQuotes');
+'price', 'currencyCode', 'period', 'periodUnit', 'unit', 'status', 'archivedAt', 'enabledInPortal','taxCode', 'taxjarProductCode', 'avalaraSaleType', 'avalaraTransactionType', 'avalaraServiceType','sku', 'accountingCode', 'accountingCategory1', 'accountingCategory2', 'accountingCategory3','accountingCategory4', 'isShippable', 'shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit','resourceVersion', 'updatedAt', 'priceInDecimal', 'includedInMrr', 'invoiceNotes', 'taxable','taxProfileId', 'metaData', 'tiers', 'showDescriptionInInvoices', 'showDescriptionInQuotes');
 
 
 

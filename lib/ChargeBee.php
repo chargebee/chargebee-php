@@ -206,3 +206,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionSubscriptionIte
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionChargedItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionSubscriptionItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OrderResentOrder.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionDiscount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedSubscriptionQuotedContractTerm.php');

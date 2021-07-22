@@ -4,7 +4,7 @@ class ChargeBee_Item extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'description', 'status', 'resourceVersion', 'updatedAt', 'itemFamilyId',
-'type', 'isShippable', 'isGiftable', 'redirectUrl', 'enabledForCheckout', 'enabledInPortal','includedInMrr', 'itemApplicability', 'giftClaimRedirectUrl', 'unit', 'metered', 'usageCalculation','applicableItems', 'metadata');
+'type', 'isShippable', 'isGiftable', 'redirectUrl', 'enabledForCheckout', 'enabledInPortal','includedInMrr', 'itemApplicability', 'giftClaimRedirectUrl', 'unit', 'metered', 'usageCalculation','archivedAt', 'applicableItems', 'metadata');
 
 
 

@@ -18,7 +18,7 @@ class ChargeBee_Usage extends ChargeBee_Model
 
   public static function retrieve($id, $params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("subscriptions",$id,"usage"), $params, $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("subscriptions",$id,"usages"), $params, $env, $headers);
   }
 
   public static function delete($id, $params, $env = null, $headers = array())

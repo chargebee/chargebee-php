@@ -4,7 +4,7 @@ class ChargeBee_Plan extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'invoiceName', 'description', 'price', 'currencyCode', 'period',
-'periodUnit', 'trialPeriod', 'trialPeriodUnit', 'pricingModel', 'chargeModel', 'freeQuantity','setupCost', 'downgradePenalty', 'status', 'archivedAt', 'billingCycles', 'redirectUrl', 'enabledInHostedPages','enabledInPortal', 'addonApplicability', 'taxCode', 'taxjarProductCode', 'avalaraSaleType','avalaraTransactionType', 'avalaraServiceType', 'sku', 'accountingCode', 'accountingCategory1','accountingCategory2', 'isShippable', 'shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit','resourceVersion', 'updatedAt', 'giftable', 'claimUrl', 'freeQuantityInDecimal', 'priceInDecimal','invoiceNotes', 'taxable', 'taxProfileId', 'metaData', 'tiers', 'applicableAddons', 'attachedAddons','eventBasedAddons', 'showDescriptionInInvoices', 'showDescriptionInQuotes');
+'periodUnit', 'trialPeriod', 'trialPeriodUnit', 'trialEndAction', 'pricingModel', 'chargeModel','freeQuantity', 'setupCost', 'downgradePenalty', 'status', 'archivedAt', 'billingCycles', 'redirectUrl','enabledInHostedPages', 'enabledInPortal', 'addonApplicability', 'taxCode', 'taxjarProductCode','avalaraSaleType', 'avalaraTransactionType', 'avalaraServiceType', 'sku', 'accountingCode','accountingCategory1', 'accountingCategory2', 'accountingCategory3', 'accountingCategory4','isShippable', 'shippingFrequencyPeriod', 'shippingFrequencyPeriodUnit', 'resourceVersion','updatedAt', 'giftable', 'claimUrl', 'freeQuantityInDecimal', 'priceInDecimal', 'invoiceNotes','taxable', 'taxProfileId', 'metaData', 'tiers', 'applicableAddons', 'attachedAddons', 'eventBasedAddons','showDescriptionInInvoices', 'showDescriptionInQuotes');
 
 
 

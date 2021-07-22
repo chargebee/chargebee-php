@@ -25,7 +25,7 @@ class ChargeBee_Result
         return $contract_term;
     }
 
-    function advanceInvoiceSchedule()
+    function advanceInvoiceSchedule() 
     {
         $advance_invoice_schedule = $this->_get('advance_invoice_schedule', 'ChargeBee_AdvanceInvoiceSchedule', 
         array('fixed_interval_schedule' => 'ChargeBee_AdvanceInvoiceScheduleFixedIntervalSchedule', 'specific_dates_schedule' => 'ChargeBee_AdvanceInvoiceScheduleSpecificDatesSchedule'));
@@ -112,7 +112,7 @@ class ChargeBee_Result
     function order() 
     {
         $order = $this->_get('order', 'ChargeBee_Order', 
-        array('order_line_items' => 'ChargeBee_OrderOrderLineItem', 'shipping_address' => 'ChargeBee_OrderShippingAddress', 'billing_address' => 'ChargeBee_OrderBillingAddress', 'line_item_taxes' => 'ChargeBee_OrderLineItemTax', 'line_item_discounts' => 'ChargeBee_OrderLineItemDiscount', 'linked_credit_notes' => 'ChargeBee_OrderLinkedCreditNote'));
+        array('order_line_items' => 'ChargeBee_OrderOrderLineItem', 'shipping_address' => 'ChargeBee_OrderShippingAddress', 'billing_address' => 'ChargeBee_OrderBillingAddress', 'line_item_taxes' => 'ChargeBee_OrderLineItemTax', 'line_item_discounts' => 'ChargeBee_OrderLineItemDiscount', 'linked_credit_notes' => 'ChargeBee_OrderLinkedCreditNote', 'resent_orders' => 'ChargeBee_OrderResentOrder'));
         return $order;
     }
 
@@ -158,14 +158,14 @@ class ChargeBee_Result
     function quote() 
     {
         $quote = $this->_get('quote', 'ChargeBee_Quote', 
-        array('line_items' => 'ChargeBee_QuoteLineItem', 'discounts' => 'ChargeBee_QuoteDiscount', 'line_item_discounts' => 'ChargeBee_QuoteLineItemDiscount', 'taxes' => 'ChargeBee_QuoteTax', 'line_item_taxes' => 'ChargeBee_QuoteLineItemTax', 'shipping_address' => 'ChargeBee_QuoteShippingAddress', 'billing_address' => 'ChargeBee_QuoteBillingAddress'));
+        array('line_items' => 'ChargeBee_QuoteLineItem', 'discounts' => 'ChargeBee_QuoteDiscount', 'line_item_discounts' => 'ChargeBee_QuoteLineItemDiscount', 'taxes' => 'ChargeBee_QuoteTax', 'line_item_taxes' => 'ChargeBee_QuoteLineItemTax', 'line_item_tiers' => 'ChargeBee_QuoteLineItemTier', 'shipping_address' => 'ChargeBee_QuoteShippingAddress', 'billing_address' => 'ChargeBee_QuoteBillingAddress'));
         return $quote;
     }
 
     function quotedSubscription() 
     {
         $quoted_subscription = $this->_get('quoted_subscription', 'ChargeBee_QuotedSubscription', 
-        array('addons' => 'ChargeBee_QuotedSubscriptionAddon', 'event_based_addons' => 'ChargeBee_QuotedSubscriptionEventBasedAddon', 'coupons' => 'ChargeBee_QuotedSubscriptionCoupon', 'subscription_items' => 'ChargeBee_QuotedSubscriptionSubscriptionItem', 'item_tiers' => 'ChargeBee_QuotedSubscriptionItemTier'));
+        array('addons' => 'ChargeBee_QuotedSubscriptionAddon', 'event_based_addons' => 'ChargeBee_QuotedSubscriptionEventBasedAddon', 'coupons' => 'ChargeBee_QuotedSubscriptionCoupon', 'discounts' => 'ChargeBee_QuotedSubscriptionDiscount', 'subscription_items' => 'ChargeBee_QuotedSubscriptionSubscriptionItem', 'item_tiers' => 'ChargeBee_QuotedSubscriptionItemTier', 'quoted_contract_term' => 'ChargeBee_QuotedSubscriptionQuotedContractTerm'));
         return $quoted_subscription;
     }
 
@@ -312,8 +312,7 @@ class ChargeBee_Result
         return $differential_price;
     }
 
-
-    function unbilledCharges()
+    function unbilledCharges() 
     {
         $unbilled_charges = $this->_getList('unbilled_charges', 'ChargeBee_UnbilledCharge',
         array('tiers' => 'ChargeBee_UnbilledChargeTier'));
@@ -348,7 +347,7 @@ class ChargeBee_Result
         return $invoices;
     }
     
-    function differentialPrices()
+    function differentialPrices() 
     {
         $differential_prices = $this->_getList('differential_prices', 'ChargeBee_DifferentialPrice',
         array('tiers' => 'ChargeBee_DifferentialPriceTier', 'parent_periods' => 'ChargeBee_DifferentialPriceParentPeriod'));

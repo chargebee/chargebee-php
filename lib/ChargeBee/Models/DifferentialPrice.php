@@ -3,8 +3,8 @@
 class ChargeBee_DifferentialPrice extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'itemPriceId', 'parentItemId', 'price', 'status', 'resourceVersion', 'updatedAt',
-'createdAt', 'modifiedAt', 'tiers', 'currencyCode', 'parentPeriods');
+  protected $allowed = array('id', 'itemPriceId', 'parentItemId', 'price', 'priceInDecimal', 'status', 'resourceVersion',
+'updatedAt', 'createdAt', 'modifiedAt', 'tiers', 'currencyCode', 'parentPeriods');
 
 
 

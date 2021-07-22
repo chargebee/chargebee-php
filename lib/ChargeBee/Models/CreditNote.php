@@ -4,7 +4,7 @@ class ChargeBee_CreditNote extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'referenceInvoiceId', 'type', 'reasonCode',
-'status', 'vatNumber', 'date', 'priceType', 'currencyCode', 'total', 'amountAllocated', 'amountRefunded','amountAvailable', 'refundedAt', 'voidedAt', 'resourceVersion', 'updatedAt', 'subTotal', 'subTotalInLocalCurrency','totalInLocalCurrency', 'localCurrencyCode', 'roundOffAmount', 'fractionalCorrection', 'lineItems','discounts', 'lineItemDiscounts', 'lineItemTiers', 'taxes', 'lineItemTaxes', 'linkedRefunds','allocations', 'deleted', 'createReasonCode');
+'status', 'vatNumber', 'date', 'priceType', 'currencyCode', 'total', 'amountAllocated', 'amountRefunded','amountAvailable', 'refundedAt', 'voidedAt', 'resourceVersion', 'updatedAt', 'subTotal', 'subTotalInLocalCurrency','totalInLocalCurrency', 'localCurrencyCode', 'roundOffAmount', 'fractionalCorrection', 'lineItems','discounts', 'lineItemDiscounts', 'lineItemTiers', 'taxes', 'lineItemTaxes', 'linkedRefunds','allocations', 'deleted', 'createReasonCode', 'vatNumberPrefix');
 
 
 

@@ -3,8 +3,8 @@
 class ChargeBee_AttachedItem extends ChargeBee_Model
 {
 
-  protected $allowed = array('id', 'parentItemId', 'itemId', 'type', 'status', 'quantity', 'billingCycles',
-'chargeOnEvent', 'chargeOnce', 'createdAt', 'resourceVersion', 'updatedAt');
+  protected $allowed = array('id', 'parentItemId', 'itemId', 'type', 'status', 'quantity', 'quantityInDecimal',
+'billingCycles', 'chargeOnEvent', 'chargeOnce', 'createdAt', 'resourceVersion', 'updatedAt');
 
 
 

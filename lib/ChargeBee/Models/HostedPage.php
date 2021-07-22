@@ -28,6 +28,11 @@ class ChargeBee_HostedPage extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_one_time"), $params, $env, $headers);
   }
 
+  public static function checkoutOneTimeForItems($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_one_time_for_items"), $params, $env, $headers);
+  }
+
   public static function checkoutNewForItems($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_new_for_items"), $params, $env, $headers);
@@ -76,6 +81,11 @@ class ChargeBee_HostedPage extends ChargeBee_Model
   public static function checkoutGift($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_gift"), $params, $env, $headers);
+  }
+
+  public static function checkoutGiftForItems($params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages","checkout_gift_for_items"), $params, $env, $headers);
   }
 
   public static function claimGift($params, $env = null, $headers = array())

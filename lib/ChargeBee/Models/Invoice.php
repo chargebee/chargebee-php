@@ -4,7 +4,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
-'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted','writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt','resourceVersion', 'updatedAt', 'subTotal', 'subTotalInLocalCurrency', 'totalInLocalCurrency','localCurrencyCode', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized', 'isGifted','expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts', 'lineItemDiscounts','taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'dunningAttempts', 'appliedCredits','adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress','paymentOwner', 'voidReasonCode', 'deleted');
+'priceType', 'date', 'dueDate', 'netTermDays', 'exchangeRate', 'currencyCode', 'total', 'amountPaid','amountAdjusted', 'writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus','nextRetryAt', 'voidedAt', 'resourceVersion', 'updatedAt', 'subTotal', 'subTotalInLocalCurrency','totalInLocalCurrency', 'localCurrencyCode', 'tax', 'firstInvoice', 'newSalesAmount', 'hasAdvanceCharges','termFinalized', 'isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems','discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments','dunningAttempts', 'appliedCredits', 'adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders','notes', 'shippingAddress', 'billingAddress', 'paymentOwner', 'voidReasonCode', 'deleted', 'vatNumberPrefix');
 
 
 
@@ -16,7 +16,7 @@ class ChargeBee_Invoice extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices"), $params, $env, $headers);
   }
 
-  public static function createForChargeItemsAndCharges($params = array(), $env = null, $headers = array())
+  public static function createForChargeItemsAndCharges($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("invoices","create_for_charge_items_and_charges"), $params, $env, $headers);
   }

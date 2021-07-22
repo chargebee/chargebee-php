@@ -4,7 +4,7 @@ class ChargeBee_Order extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'documentNumber', 'invoiceId', 'subscriptionId', 'customerId', 'status',
-'cancellationReason', 'paymentStatus', 'orderType', 'priceType', 'referenceId', 'fulfillmentStatus','orderDate', 'shippingDate', 'note', 'trackingId', 'batchId', 'createdBy', 'shipmentCarrier','invoiceRoundOffAmount', 'tax', 'amountPaid', 'amountAdjusted', 'refundableCreditsIssued', 'refundableCredits','roundingAdjustement', 'paidOn', 'shippingCutOffDate', 'createdAt', 'statusUpdateAt', 'deliveredAt','shippedAt', 'resourceVersion', 'updatedAt', 'cancelledAt', 'orderLineItems', 'shippingAddress','billingAddress', 'discount', 'subTotal', 'total', 'lineItemTaxes', 'lineItemDiscounts', 'linkedCreditNotes','deleted', 'currencyCode', 'isGifted', 'giftNote', 'giftId');
+'cancellationReason', 'paymentStatus', 'orderType', 'priceType', 'referenceId', 'fulfillmentStatus','orderDate', 'shippingDate', 'note', 'trackingId', 'trackingUrl', 'batchId', 'createdBy', 'shipmentCarrier','invoiceRoundOffAmount', 'tax', 'amountPaid', 'amountAdjusted', 'refundableCreditsIssued', 'refundableCredits','roundingAdjustement', 'paidOn', 'shippingCutOffDate', 'createdAt', 'statusUpdateAt', 'deliveredAt','shippedAt', 'resourceVersion', 'updatedAt', 'cancelledAt', 'resentStatus', 'isResent', 'originalOrderId','orderLineItems', 'shippingAddress', 'billingAddress', 'discount', 'subTotal', 'total', 'lineItemTaxes','lineItemDiscounts', 'linkedCreditNotes', 'deleted', 'currencyCode', 'isGifted', 'giftNote','giftId', 'resendReason', 'resentOrders');
 
 
 
@@ -64,6 +64,11 @@ class ChargeBee_Order extends ChargeBee_Model
   public static function ordersForInvoice($id, $params = array(), $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("invoices",$id,"orders"), $params, $env, $headers);
+  }
+
+  public static function resend($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("orders",$id,"resend"), $params, $env, $headers);
   }
 
  }

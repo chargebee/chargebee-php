@@ -4,7 +4,7 @@ class ChargeBee_Transaction extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'customerId', 'subscriptionId', 'gatewayAccountId', 'paymentSourceId', 'paymentMethod',
-'referenceNumber', 'gateway', 'type', 'date', 'settledAt', 'currencyCode', 'amount', 'idAtGateway','status', 'fraudFlag', 'initiatorType', 'threeDSecure', 'authorizationReason', 'errorCode','errorText', 'voidedAt', 'resourceVersion', 'updatedAt', 'fraudReason', 'amountUnused', 'maskedCardNumber','referenceTransactionId', 'refundedTxnId', 'referenceAuthorizationId', 'amountCapturable', 'reversalTransactionId','linkedInvoices', 'linkedCreditNotes', 'linkedRefunds', 'linkedPayments', 'deleted');
+'referenceNumber', 'gateway', 'type', 'date', 'settledAt', 'exchangeRate', 'currencyCode', 'amount','idAtGateway', 'status', 'fraudFlag', 'initiatorType', 'threeDSecure', 'authorizationReason','errorCode', 'errorText', 'voidedAt', 'resourceVersion', 'updatedAt', 'fraudReason', 'amountUnused','maskedCardNumber', 'referenceTransactionId', 'refundedTxnId', 'referenceAuthorizationId', 'amountCapturable','reversalTransactionId', 'linkedInvoices', 'linkedCreditNotes', 'linkedRefunds', 'linkedPayments','deleted', 'merchantReferenceId');
 
 
 

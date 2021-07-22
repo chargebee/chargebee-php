@@ -4,7 +4,7 @@ class ChargeBee_ItemPrice extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'itemFamilyId', 'itemId', 'description', 'status', 'externalName',
-'pricingModel', 'price', 'period', 'currencyCode', 'periodUnit', 'trialPeriod', 'trialPeriodUnit','shippingPeriod', 'shippingPeriodUnit', 'billingCycles', 'freeQuantity', 'freeQuantityInDecimal','priceInDecimal', 'resourceVersion', 'updatedAt', 'createdAt', 'invoiceNotes', 'tiers', 'isTaxable','taxDetail', 'accountingDetail', 'metadata', 'itemType', 'archivable', 'parentItemId', 'showDescriptionInInvoices','showDescriptionInQuotes');
+'pricingModel', 'price', 'priceInDecimal', 'period', 'currencyCode', 'periodUnit', 'trialPeriod','trialPeriodUnit', 'trialEndAction', 'shippingPeriod', 'shippingPeriodUnit', 'billingCycles','freeQuantity', 'freeQuantityInDecimal', 'resourceVersion', 'updatedAt', 'createdAt', 'archivedAt','invoiceNotes', 'tiers', 'isTaxable', 'taxDetail', 'accountingDetail', 'metadata', 'itemType','archivable', 'parentItemId', 'showDescriptionInInvoices', 'showDescriptionInQuotes');
 
 
 

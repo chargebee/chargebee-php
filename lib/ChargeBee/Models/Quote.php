@@ -4,7 +4,7 @@ class ChargeBee_Quote extends ChargeBee_Model
 {
 
   protected $allowed = array('id', 'name', 'poNumber', 'customerId', 'subscriptionId', 'invoiceId', 'status',
-'operationType', 'vatNumber', 'priceType', 'validTill', 'date', 'totalPayable', 'chargeOnAcceptance','subTotal', 'total', 'creditsApplied', 'amountPaid', 'amountDue', 'version', 'resourceVersion','updatedAt', 'lineItems', 'discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes', 'currencyCode','notes', 'shippingAddress', 'billingAddress', 'contractTermStart', 'contractTermEnd', 'contractTermTerminationFee');
+'operationType', 'vatNumber', 'priceType', 'validTill', 'date', 'totalPayable', 'chargeOnAcceptance','subTotal', 'total', 'creditsApplied', 'amountPaid', 'amountDue', 'version', 'resourceVersion','updatedAt', 'vatNumberPrefix', 'lineItems', 'discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes','lineItemTiers', 'currencyCode', 'notes', 'shippingAddress', 'billingAddress', 'contractTermStart','contractTermEnd', 'contractTermTerminationFee');
 
 
 
@@ -26,11 +26,6 @@ class ChargeBee_Quote extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_create_subscription_quote"), $params, $env, $headers);
   }
 
-  public static function createSubItemsForCustomerQuote($id, $params, $env = null, $headers = array())
-  {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"create_subscription_quote_for_items"), $params, $env, $headers);
-  }
-
   public static function updateSubscriptionQuote($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes","update_subscription_quote"), $params, $env, $headers);
@@ -41,14 +36,34 @@ class ChargeBee_Quote extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_update_subscription_quote"), $params, $env, $headers);
   }
 
+  public static function createForOnetimeCharges($params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes","create_for_onetime_charges"), $params, $env, $headers);
+  }
+
+  public static function editOneTimeQuote($id, $params = array(), $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_one_time_quote"), $params, $env, $headers);
+  }
+
+  public static function createSubItemsForCustomerQuote($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("customers",$id,"create_subscription_quote_for_items"), $params, $env, $headers);
+  }
+
+  public static function editCreateSubCustomerQuoteForItems($id, $params, $env = null, $headers = array())
+  {
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_create_subscription_quote_for_items"), $params, $env, $headers);
+  }
+
   public static function updateSubscriptionQuoteForItems($params, $env = null, $headers = array())
   {
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes","update_subscription_quote_for_items"), $params, $env, $headers);
   }
 
-  public static function createForOnetimeCharges($params, $env = null, $headers = array())
+  public static function editUpdateSubscriptionQuoteForItems($id, $params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes","create_for_onetime_charges"), $params, $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_update_subscription_quote_for_items"), $params, $env, $headers);
   }
 
   public static function createForChargeItemsAndCharges($params, $env = null, $headers = array())
@@ -56,9 +71,9 @@ class ChargeBee_Quote extends ChargeBee_Model
     return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes","create_for_charge_items_and_charges"), $params, $env, $headers);
   }
 
-  public static function editOneTimeQuote($id, $params = array(), $env = null, $headers = array())
+  public static function editForChargeItemsAndCharges($id, $params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_one_time_quote"), $params, $env, $headers);
+    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("quotes",$id,"edit_for_charge_items_and_charges"), $params, $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
