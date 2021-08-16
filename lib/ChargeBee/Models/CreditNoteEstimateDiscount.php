@@ -1,8 +1,17 @@
 <?php
 
-class ChargeBee_CreditNoteEstimateDiscount extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class CreditNoteEstimateDiscount extends Model
 {
-  protected $allowed = array('amount', 'description', 'entity_type', 'entity_id');
+  protected $allowed = [
+    'amount',
+    'description',
+    'entityType',
+    'entityId',
+  ];
 
 }
 

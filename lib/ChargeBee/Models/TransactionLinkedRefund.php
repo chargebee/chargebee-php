@@ -1,8 +1,17 @@
 <?php
 
-class ChargeBee_TransactionLinkedRefund extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class TransactionLinkedRefund extends Model
 {
-  protected $allowed = array('txn_id', 'txn_status', 'txn_date', 'txn_amount');
+  protected $allowed = [
+    'txnId',
+    'txnStatus',
+    'txnDate',
+    'txnAmount',
+  ];
 
 }
 

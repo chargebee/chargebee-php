@@ -1,8 +1,16 @@
 <?php
 
-class ChargeBee_OrderResentOrder extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class OrderResentOrder extends Model
 {
-  protected $allowed = array('order_id', 'reason', 'amount');
+  protected $allowed = [
+    'orderId',
+    'reason',
+    'amount',
+  ];
 
 }
 

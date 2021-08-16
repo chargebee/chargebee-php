@@ -1,10 +1,25 @@
 <?php
 
-class ChargeBee_Contact extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class Contact extends Model
 {
 
-  protected $allowed = array('id', 'firstName', 'lastName', 'email', 'phone', 'label', 'enabled', 'sendAccountEmail',
-'sendBillingEmail');
+  protected $allowed = [
+    'id',
+    'firstName',
+    'lastName',
+    'email',
+    'phone',
+    'label',
+    'enabled',
+    'sendAccountEmail',
+    'sendBillingEmail',
+  ];
 
 
 

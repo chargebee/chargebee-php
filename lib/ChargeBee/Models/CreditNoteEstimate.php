@@ -1,10 +1,32 @@
 <?php
 
-class ChargeBee_CreditNoteEstimate extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class CreditNoteEstimate extends Model
 {
 
-  protected $allowed = array('referenceInvoiceId', 'type', 'priceType', 'currencyCode', 'subTotal', 'total',
-'amountAllocated', 'amountAvailable', 'lineItems', 'discounts', 'taxes', 'lineItemTaxes', 'lineItemDiscounts','lineItemTiers', 'roundOffAmount', 'customerId');
+  protected $allowed = [
+    'referenceInvoiceId',
+    'type',
+    'priceType',
+    'currencyCode',
+    'subTotal',
+    'total',
+    'amountAllocated',
+    'amountAvailable',
+    'lineItems',
+    'discounts',
+    'taxes',
+    'lineItemTaxes',
+    'lineItemDiscounts',
+    'lineItemTiers',
+    'roundOffAmount',
+    'customerId',
+  ];
 
 
 

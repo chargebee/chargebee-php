@@ -1,8 +1,17 @@
 <?php
 
-class ChargeBee_QuoteLineGroupDiscount extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class QuoteLineGroupDiscount extends Model
 {
-  protected $allowed = array('amount', 'description', 'entity_type', 'entity_id');
+  protected $allowed = [
+    'amount',
+    'description',
+    'entityType',
+    'entityId',
+  ];
 
 }
 

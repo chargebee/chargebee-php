@@ -1,8 +1,16 @@
 <?php
 
-class ChargeBee_AdvanceInvoiceScheduleSpecificDatesSchedule extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class AdvanceInvoiceScheduleSpecificDatesSchedule extends Model
 {
-  protected $allowed = array('terms_to_charge', 'date', 'created_at');
+  protected $allowed = [
+    'termsToCharge',
+    'date',
+    'createdAt',
+  ];
 
 }
 

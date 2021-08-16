@@ -5,3 +5,7 @@
 
 # Ignore the SimpleTest library
 /test/simpletest/
+
+# Ignore the vendor directory for people using composer
+/vendor/
+composer.lock

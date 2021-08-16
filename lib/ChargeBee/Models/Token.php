@@ -1,10 +1,26 @@
 <?php
 
-class ChargeBee_Token extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class Token extends Model
 {
 
-  protected $allowed = array('id', 'gateway', 'gatewayAccountId', 'paymentMethodType', 'status', 'idAtVault',
-'vault', 'ipAddress', 'createdAt', 'expiredAt');
+  protected $allowed = [
+    'id',
+    'gateway',
+    'gatewayAccountId',
+    'paymentMethodType',
+    'status',
+    'idAtVault',
+    'vault',
+    'ipAddress',
+    'createdAt',
+    'expiredAt',
+  ];
 
 
 

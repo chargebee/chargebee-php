@@ -1,10 +1,18 @@
 <?php
 
-class ChargeBee_Download extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class Download extends Model
 {
 
-  protected $allowed = array('downloadUrl', 'validTill'
-);
+  protected $allowed = [
+    'downloadUrl',
+    'validTill',
+  ];
 
 
 

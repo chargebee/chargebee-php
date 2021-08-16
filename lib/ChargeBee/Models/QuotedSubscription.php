@@ -1,10 +1,39 @@
 <?php
 
-class ChargeBee_QuotedSubscription extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class QuotedSubscription extends Model
 {
 
-  protected $allowed = array('id', 'planId', 'planQuantity', 'planUnitPrice', 'setupFee', 'billingPeriod',
-'billingPeriodUnit', 'startDate', 'trialEnd', 'remainingBillingCycles', 'poNumber', 'autoCollection','planQuantityInDecimal', 'planUnitPriceInDecimal', 'contractTermBillingCycleOnRenewal', 'addons','eventBasedAddons', 'coupons', 'discounts', 'subscriptionItems', 'itemTiers', 'quotedContractTerm');
+  protected $allowed = [
+    'id',
+    'planId',
+    'planQuantity',
+    'planUnitPrice',
+    'setupFee',
+    'billingPeriod',
+    'billingPeriodUnit',
+    'startDate',
+    'trialEnd',
+    'remainingBillingCycles',
+    'poNumber',
+    'autoCollection',
+    'planQuantityInDecimal',
+    'planUnitPriceInDecimal',
+    'changesScheduledAt',
+    'changeOption',
+    'contractTermBillingCycleOnRenewal',
+    'addons',
+    'eventBasedAddons',
+    'coupons',
+    'subscriptionItems',
+    'itemTiers',
+    'quotedContractTerm',
+  ];
 
 
 

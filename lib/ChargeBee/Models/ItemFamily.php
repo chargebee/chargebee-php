@@ -1,10 +1,22 @@
 <?php
 
-class ChargeBee_ItemFamily extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class ItemFamily extends Model
 {
 
-  protected $allowed = array('id', 'name', 'description', 'status', 'resourceVersion', 'updatedAt'
-);
+  protected $allowed = [
+    'id',
+    'name',
+    'description',
+    'status',
+    'resourceVersion',
+    'updatedAt',
+  ];
 
 
 
@@ -13,27 +25,27 @@ class ChargeBee_ItemFamily extends ChargeBee_Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("item_families"), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("item_families"), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("item_families",$id), array(), $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("item_families",$id), array(), $env, $headers);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("item_families"), $params, $env, $headers);
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("item_families"), $params, $env, $headers);
   }
 
   public static function update($id, $params = array(), $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("item_families",$id), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("item_families",$id), $params, $env, $headers);
   }
 
   public static function delete($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("item_families",$id,"delete"), array(), $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("item_families",$id,"delete"), array(), $env, $headers);
   }
 
  }

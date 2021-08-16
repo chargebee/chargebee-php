@@ -1,10 +1,25 @@
 <?php
 
-class ChargeBee_SubscriptionEstimate extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class SubscriptionEstimate extends Model
 {
 
-  protected $allowed = array('id', 'currencyCode', 'status', 'trialEndAction', 'nextBillingAt', 'pauseDate',
-'resumeDate', 'shippingAddress', 'contractTerm');
+  protected $allowed = [
+    'id',
+    'currencyCode',
+    'status',
+    'trialEndAction',
+    'nextBillingAt',
+    'pauseDate',
+    'resumeDate',
+    'shippingAddress',
+    'contractTerm',
+  ];
 
 
 

@@ -1,8 +1,16 @@
 <?php
 
-class ChargeBee_QuoteLineGroupTax extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class QuoteLineGroupTax extends Model
 {
-  protected $allowed = array('name', 'amount', 'description');
+  protected $allowed = [
+    'name',
+    'amount',
+    'description',
+  ];
 
 }
 

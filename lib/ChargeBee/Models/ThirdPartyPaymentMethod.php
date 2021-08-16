@@ -1,10 +1,20 @@
 <?php
 
-class ChargeBee_ThirdPartyPaymentMethod extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class ThirdPartyPaymentMethod extends Model
 {
 
-  protected $allowed = array('type', 'gateway', 'gatewayAccountId', 'referenceId'
-);
+  protected $allowed = [
+    'type',
+    'gateway',
+    'gatewayAccountId',
+    'referenceId',
+  ];
 
 
 

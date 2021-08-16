@@ -1,8 +1,20 @@
 <?php
 
-class ChargeBee_QuotedSubscriptionItemTier extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class QuotedSubscriptionItemTier extends Model
 {
-  protected $allowed = array('item_price_id', 'starting_unit', 'ending_unit', 'price', 'starting_unit_in_decimal', 'ending_unit_in_decimal', 'price_in_decimal');
+  protected $allowed = [
+    'itemPriceId',
+    'startingUnit',
+    'endingUnit',
+    'price',
+    'startingUnitInDecimal',
+    'endingUnitInDecimal',
+    'priceInDecimal',
+  ];
 
 }
 

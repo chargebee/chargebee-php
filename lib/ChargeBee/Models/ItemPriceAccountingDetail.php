@@ -1,8 +1,19 @@
 <?php
 
-class ChargeBee_ItemPriceAccountingDetail extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class ItemPriceAccountingDetail extends Model
 {
-  protected $allowed = array('sku', 'accounting_code', 'accounting_category1', 'accounting_category2', 'accounting_category3', 'accounting_category4');
+  protected $allowed = [
+    'sku',
+    'accountingCode',
+    'accountingCategory1',
+    'accountingCategory2',
+    'accountingCategory3',
+    'accountingCategory4',
+  ];
 
 }
 

@@ -1,10 +1,29 @@
 <?php
 
-class ChargeBee_PortalSession extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
+
+class PortalSession extends Model
 {
 
-  protected $allowed = array('id', 'token', 'accessUrl', 'redirectUrl', 'status', 'createdAt', 'expiresAt',
-'customerId', 'loginAt', 'logoutAt', 'loginIpaddress', 'logoutIpaddress', 'linkedCustomers');
+  protected $allowed = [
+    'id',
+    'token',
+    'accessUrl',
+    'redirectUrl',
+    'status',
+    'createdAt',
+    'expiresAt',
+    'customerId',
+    'loginAt',
+    'logoutAt',
+    'loginIpaddress',
+    'logoutIpaddress',
+    'linkedCustomers',
+  ];
 
 
 
@@ -13,22 +32,22 @@ class ChargeBee_PortalSession extends ChargeBee_Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("portal_sessions"), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("portal_sessions"), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("portal_sessions",$id), array(), $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("portal_sessions",$id), array(), $env, $headers);
   }
 
   public static function logout($id, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("portal_sessions",$id,"logout"), array(), $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("portal_sessions",$id,"logout"), array(), $env, $headers);
   }
 
   public static function activate($id, $params, $env = null, $headers = array())
   {
-    return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("portal_sessions",$id,"activate"), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("portal_sessions",$id,"activate"), $params, $env, $headers);
   }
 
  }

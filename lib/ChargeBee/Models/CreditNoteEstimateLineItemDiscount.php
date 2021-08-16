@@ -1,8 +1,18 @@
 <?php
 
-class ChargeBee_CreditNoteEstimateLineItemDiscount extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class CreditNoteEstimateLineItemDiscount extends Model
 {
-  protected $allowed = array('line_item_id', 'discount_type', 'coupon_id', 'entity_id', 'discount_amount');
+  protected $allowed = [
+    'lineItemId',
+    'discountType',
+    'couponId',
+    'entityId',
+    'discountAmount',
+  ];
 
 }
 

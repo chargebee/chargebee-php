@@ -1,8 +1,18 @@
 <?php
 
-class ChargeBee_PlanEventBasedAddon extends ChargeBee_Model
+namespace ChargeBee\ChargeBee\Models;
+
+use ChargeBee\ChargeBee\Model;
+
+class PlanEventBasedAddon extends Model
 {
-  protected $allowed = array('id', 'quantity', 'on_event', 'charge_once', 'quantity_in_decimal');
+  protected $allowed = [
+    'id',
+    'quantity',
+    'onEvent',
+    'chargeOnce',
+    'quantityInDecimal',
+  ];
 
 }
 
