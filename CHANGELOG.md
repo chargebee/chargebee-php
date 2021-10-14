@@ -1,3 +1,18 @@
+### v3.1.0 (2021-10-14)
+* * *
+
+#### New Attributes:
+* entity_id has been added in order_line_item_discounts resource.
+
+#### New Input parameters:
+* line_items[tax5_name], line_items[tax5_amount], line_items[tax6_name], line_items[tax6_amount], line_items[tax7_name], line_items[tax7_amount], line_items[tax8_name], line_items[tax8_amount], line_items[tax9_name],  line_items[tax9_amount], line_items[tax10_name], line_items[tax10_amount] have been added in import_invoice api.
+* replace_primary_payment_source has been added in create_subscription_for_customer and create_subscription_for_items apis.
+
+#### New Enum values:
+* coupon_expired has been added to event_type enum.
+* mollie has been added to gateway enum.
+* item_level_discount and document_level_discount has been added to discount_type.
+
 ### v3.0.0 (2021-08-16)
 * * *
 * Bumped minimum php version to 5.6.0.

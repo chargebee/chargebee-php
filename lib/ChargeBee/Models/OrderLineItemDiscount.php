@@ -10,6 +10,7 @@ class OrderLineItemDiscount extends Model
     'lineItemId',
     'discountType',
     'couponId',
+    'entityId',
     'discountAmount',
   ];
 
