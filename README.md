@@ -16,9 +16,9 @@ PHP 5.6.0 or later
 ## Installation
 
 ### Composer
-```Chargebee``` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and can be installed using [Composer](https://getcomposer.org/)
+```Chargebee``` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and this RC version can be installed using [Composer](https://getcomposer.org/)
 
-<pre><code>composer require chargebee/chargebee-php</code></pre>
+<pre><code>composer require chargebee/chargebee-php:3.2.0-rc.1</code></pre>
 
 To use the bindings, 
 <pre><code>require_once('vendor/autoload.php');</code></pre>

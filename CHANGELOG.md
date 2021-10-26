@@ -1,3 +1,8 @@
+### v3.2.0-rc.1 (2021-10-26)
+* * *
+
+* Not restricting user to use guzzle http till 6.5 version.
+
 ### v3.1.0 (2021-10-14)
 * * *
 
