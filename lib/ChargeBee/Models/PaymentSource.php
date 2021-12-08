@@ -69,6 +69,11 @@ class PaymentSource extends Model
     return Request::send(Request::POST, Util::encodeURIPath("payment_sources",$id,"update_card"), $params, $env, $headers);
   }
 
+  public static function updateBankAccount($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("payment_sources",$id,"update_bank_account"), $params, $env, $headers);
+  }
+
   public static function verifyBankAccount($id, $params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("payment_sources",$id,"verify_bank_account"), $params, $env, $headers);

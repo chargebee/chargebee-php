@@ -143,6 +143,12 @@ class Result
         return $invoice;
     }
 
+    public function taxWithheld() 
+    {
+        $tax_withheld = $this->_get('tax_withheld', Models\TaxWithheld::class);
+        return $tax_withheld;
+    }
+
     public function creditNote() 
     {
         $credit_note = $this->_get('credit_note', Models\CreditNote::class, 

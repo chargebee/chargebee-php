@@ -34,6 +34,7 @@ class Plan extends Model
     'enabledInPortal',
     'addonApplicability',
     'taxCode',
+    'hsnCode',
     'taxjarProductCode',
     'avalaraSaleType',
     'avalaraTransactionType',

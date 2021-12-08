@@ -1,3 +1,32 @@
+### v3.2.0 (2021-12-08)
+* * *
+
+### Fixes:
+* Included 3.2.0-rc.1 beta changes.
+* Exposed function Environment#updateConnectTimeoutInSecs and Environment#updateRequestTimeoutInSecs to set custom connect and request timeout.
+* Updated default connect and request timeout to 30s and 80s respectively.
+
+#### New endpoints:
+* payment_sources#update_bank_account have been added in payment_sources resource.
+* item_price#item_price_find_applicable_items and item_price#item_price_find_applicable_item_prices have been added in item_price resource.
+
+#### New Attributes:
+* hsn_code have been added to the resource addon, item_price and plan.
+* first_name, last_name and email have been added to the resource payment_sources.
+
+#### New Resource:
+* TaxWithheld has been added.Applicable only for API V2. 
+
+#### New Input parameters:
+* hsn_code have been added to addons#create_an_addon, addons#update_an_addon, plan#create_an_plan and plan#update_an_plan  apis.
+* bank_account[first_name],bank_account[last_name] and bank_account[email] have been added to payment_sources#update_bank_account api.
+* charges[hsn_code] have been added in estimate#Create_Invoice, estimate#Create_Invoice_For_Items, hosted_pages#Checkout_One_Time, hosted_pages#Checkout_One_Time_For_Items, invoice#create_an_invoice, invoice#Create_For_Charge_Items_And_Charges and unbilledCharge#create_an_unbilledCharge apis.
+* tax_detail[hsn_code] have been added in item_price#create_an_itemPrice and item_price#update_an_itemPrice apis.
+* include_deleted have been added in plan#plan_list and addon#addon_list apis.Applicable only for Product Catalog V1.
+
+#### New Enum values:
+* subscription_activated_with_backdating, tax_withheld_recorded, tax_withheld_deleted and tax_withheld_refunded has been added to event_type enum.
+
 ### v3.1.0 (2021-10-14)
 * * *
 

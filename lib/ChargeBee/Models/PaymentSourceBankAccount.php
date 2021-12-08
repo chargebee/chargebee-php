@@ -9,11 +9,14 @@ class PaymentSourceBankAccount extends Model
   protected $allowed = [
     'last4',
     'nameOnAccount',
+    'firstName',
+    'lastName',
     'bankName',
     'mandateId',
     'accountType',
     'echeckType',
     'accountHolderType',
+    'email',
   ];
 
 }

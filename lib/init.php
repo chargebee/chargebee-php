@@ -174,6 +174,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionReferralInfo.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionSubscriptionItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/TaxWithheld.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ThirdPartyPaymentMethod.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TimeMachine.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Token.php');

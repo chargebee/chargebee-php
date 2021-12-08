@@ -12,8 +12,8 @@ class Environment
     public static $scheme = "https";
     public static $chargebeeDomain;
 
-    public static $connectTimeout = 50;
-    public static $timeout = 100;
+    public static $connectTimeoutInSecs = 30;
+    public static $requestTimeoutInSecs = 80;
 
     public static $timeMachineWaitInSecs = 3;
     public static $exportWaitInSecs = 3;
@@ -60,5 +60,16 @@ class Environment
     public function apiUrl($url)
     {
         return $this->apiEndPoint . $url;
+    }
+
+    public static function updateConnectTimeoutInSecs($connectTimeout)
+    {
+        self::$connectTimeoutInSecs = $connectTimeout;
+    }
+
+    public static function updateRequestTimeoutInSecs($requestTimeout)
+    {
+        self::$requestTimeoutInSecs = $requestTimeout;
+
     }
 }

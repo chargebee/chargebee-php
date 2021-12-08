@@ -12,6 +12,7 @@ class ItemPriceTaxDetail extends Model
     'avalaraTransactionType',
     'avalaraServiceType',
     'avalaraTaxCode',
+    'hsnCode',
     'taxjarProductCode',
   ];
 

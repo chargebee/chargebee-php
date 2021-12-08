@@ -78,6 +78,16 @@ class ItemPrice extends Model
     return Request::send(Request::POST, Util::encodeURIPath("item_prices",$id,"delete"), array(), $env, $headers);
   }
 
+  public static function findApplicableItems($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("item_prices",$id,"applicable_items"), $params, $env, $headers);
+  }
+
+  public static function findApplicableItemPrices($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("item_prices",$id,"applicable_item_prices"), $params, $env, $headers);
+  }
+
  }
 
 ?>

@@ -26,6 +26,7 @@ class Addon extends Model
     'archivedAt',
     'enabledInPortal',
     'taxCode',
+    'hsnCode',
     'taxjarProductCode',
     'avalaraSaleType',
     'avalaraTransactionType',

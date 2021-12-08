@@ -32,8 +32,8 @@ class Guzzle
         $client = new Client();
 
         $opts = array(
-            'connect_timeout' => Environment::$connectTimeout,
-            'timeout' => Environment::$timeout,
+            'connect_timeout' => Environment::$connectTimeoutInSecs,
+            'timeout' => Environment::$requestTimeoutInSecs,
             'allow_redirects' => true,
             'http_errors' => false
         );

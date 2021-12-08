@@ -14,7 +14,7 @@ class ListResult implements Countable, ArrayAccess, Iterator
 
     protected $_items;
 
-    private $_index;
+    private $_index = 0;
 
     public function __construct($response, $nextOffset)
     {
