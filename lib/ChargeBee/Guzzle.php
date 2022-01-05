@@ -96,7 +96,12 @@ class Guzzle
     public static function processResponse($response, $httpCode) {
         $respJson = json_decode($response, true);
         if(!$respJson){
-            throw new Exception("Response not in JSON format. Might not be a ChargeBee Response.");
+            if (strpos($response, '503') !== false)
+                 throw new Exception("Sorry, the server is currently unable to handle the request due to a temporary overload or scheduled maintenance. Please retry after sometime. \n type: internal_temporary_error, \n http_status_code: 503, \n error_code: internal_temporary_error");
+            else if (strpos($response, '504') !== false)
+                 throw new Exception("The server did not receive a timely response from an upstream server, request aborted. If this problem persists, contact us at support@chargebee.com. \n type: gateway_timeout, \n http_status_code: 504, \n error_code: gateway_timeout");
+            else          
+                 throw new Exception("Sorry, something went wrong when trying to process the request. If this problem persists, contact us at support@chargebee.com. \n type: internal_error, \n http_status_code: 500, \n error_code: internal_error ");
         }
         if ($httpCode < 200 || $httpCode > 299) {
             self::handleAPIRespError($httpCode, $respJson,$response);
