@@ -12,6 +12,7 @@ class Download extends Model
   protected $allowed = [
     'downloadUrl',
     'validTill',
+    'mimeType',
   ];
 
 

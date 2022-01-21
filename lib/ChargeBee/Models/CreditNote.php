@@ -30,6 +30,7 @@ class CreditNote extends Model
     'generatedAt',
     'resourceVersion',
     'updatedAt',
+    'einvoice',
     'subTotal',
     'subTotalInLocalCurrency',
     'totalInLocalCurrency',
@@ -67,6 +68,11 @@ class CreditNote extends Model
   public static function pdf($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("credit_notes",$id,"pdf"), $params, $env, $headers);
+  }
+
+  public static function downloadEinvoice($id, $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("credit_notes",$id,"download_einvoice"), array(), $env, $headers);
   }
 
   public static function refund($id, $params = array(), $env = null, $headers = array())

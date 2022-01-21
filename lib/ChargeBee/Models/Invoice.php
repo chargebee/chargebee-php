@@ -64,6 +64,7 @@ class Invoice extends Model
     'notes',
     'shippingAddress',
     'billingAddress',
+    'einvoice',
     'paymentOwner',
     'voidReasonCode',
     'deleted',
@@ -143,6 +144,11 @@ class Invoice extends Model
   public static function pdf($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"pdf"), $params, $env, $headers);
+  }
+
+  public static function downloadEinvoice($id, $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"download_einvoice"), array(), $env, $headers);
   }
 
   public static function addCharge($id, $params, $env = null, $headers = array())

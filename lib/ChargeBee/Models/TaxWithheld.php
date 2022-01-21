@@ -11,11 +11,15 @@ class TaxWithheld extends Model
 
   protected $allowed = [
     'id',
+    'user',
     'referenceNumber',
     'description',
+    'type',
+    'paymentMethod',
     'date',
     'currencyCode',
     'amount',
+    'exchangeRate',
   ];
 
 

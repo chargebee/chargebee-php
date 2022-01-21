@@ -1,3 +1,38 @@
+### v3.3.0 (2022-01-21)
+* * *
+
+#### New endpoints:
+* credit_notes#download_einvoice has been added to the credit_notes resource.
+* invoice#download_einvoice has been added to the invoice resource.
+
+#### New attributes:
+* is_einvoice_enabled, entity_identifier_scheme, entity_identifier_standard and entity_identifiers[] have been added to the customer resource.
+* einvoice has been added to the invoice resource.
+* einvoice has been added to the credit_notes resource.
+* mime_type has been added to the download resource.
+
+#### New Input parameters:
+* entity_identifier_scheme, entity_identifier_standard, is_einvoice_enabled, entity_identifiers[id][0..N], entity_identifiers[scheme][0..N], entity_identifiers[value][0..N], entity_identifiers[standard][0..N] have been added to customers#create_a_customer, customers#update_billing_info_for_a_customer apis.
+* customer[entity_identifier_scheme], customer[entity_identifier_standard], customer[is_einvoice_enabled], entity_identifiers[id][0..N], entity_identifiers[scheme][0..N], entity_identifiers[value][0..N], entity_identifiers[standard][0..N] have been added to the subscriptions#create_a_subscription api.
+* customer[entity_identifier_scheme], customer[entity_identifier_standard], customer[is_einvoice_enabled] have been added to subscriptions#update_a_subscription and subscriptions#update_subscription_for_items apis.
+
+#### New Enum values:
+* operation enum has been added.
+* status enum has been added in credit_notes_einvoice subresource of credit_notes resource.
+
+#### Deprecated attributes:
+* user, type, payment_method and exchange_rate have been deprecated from TaxWithHeld resource.
+
+#### Deprecated enums:
+* type and payment_method have been deprecated in TaxWithHeld resource.
+
+#### Updated parameters:
+* hierarchy_operation_type has been made mandatory in customers#get_hierarchy api.
+
+#### Removed Filter parameters:
+* create_pending_invoices has been removed from subscriptions#list_subscriptions api.
+
+
 ### v3.2.1 (2022-01-05)
 * * *
 

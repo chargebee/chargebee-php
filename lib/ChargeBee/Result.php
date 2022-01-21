@@ -59,6 +59,7 @@ class Result
 			'contacts' => Models\CustomerContact::class, 
 			'payment_method' => Models\CustomerPaymentMethod::class, 
 			'balances' => Models\CustomerBalance::class, 
+			'entity_identifiers' => Models\CustomerEntityIdentifier::class, 
 			'relationship' => Models\CustomerRelationship::class, 
 			'parent_account_access' => Models\CustomerParentAccountAccess::class, 
 			'child_account_access' => Models\CustomerChildAccountAccess::class
@@ -138,7 +139,8 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
-			'billing_address' => Models\InvoiceBillingAddress::class
+			'billing_address' => Models\InvoiceBillingAddress::class, 
+			'einvoice' => Models\InvoiceEinvoice::class
 		));
         return $invoice;
     }
@@ -153,6 +155,7 @@ class Result
     {
         $credit_note = $this->_get('credit_note', Models\CreditNote::class, 
         array( 
+			'einvoice' => Models\CreditNoteEinvoice::class, 
 			'line_items' => Models\CreditNoteLineItem::class, 
 			'discounts' => Models\CreditNoteDiscount::class, 
 			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
@@ -510,6 +513,7 @@ class Result
     {
         $credit_notes = $this->_getList('credit_notes', Models\CreditNote::class,
         array( 
+			'einvoice' => Models\CreditNoteEinvoice::class, 
 			'line_items' => Models\CreditNoteLineItem::class, 
 			'discounts' => Models\CreditNoteDiscount::class, 
 			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
@@ -541,6 +545,15 @@ class Result
         return $hierarchies;
     }
     
+    public function downloads() 
+    {
+        $downloads = $this->_getList('downloads', Models\Download::class,
+        array( 
+			
+		));
+        return $downloads;
+    }
+    
     public function invoices() 
     {
         $invoices = $this->_getList('invoices', Models\Invoice::class,
@@ -559,7 +572,8 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
-			'billing_address' => Models\InvoiceBillingAddress::class
+			'billing_address' => Models\InvoiceBillingAddress::class, 
+			'einvoice' => Models\InvoiceEinvoice::class
 		));
         return $invoices;
     }

@@ -4,12 +4,13 @@ namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
 
-class ExportDownload extends Model
+class CustomerEntityIdentifier extends Model
 {
   protected $allowed = [
-    'downloadUrl',
-    'validTill',
-    'mimeType',
+    'id',
+    'value',
+    'scheme',
+    'standard',
   ];
 
 }
