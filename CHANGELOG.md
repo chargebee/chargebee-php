@@ -1,3 +1,42 @@
+### v3.4.0 (2022-03-08)
+* * *
+
+### Fixes:
+* Fixed array access implemetation.
+
+#### New attributes:
+* upi, mandates and their subresources have been added to the payment_source resource.
+
+#### New Input parameters:
+* bank_account[phone] have been added to customers#create_bank_account
+* payment_intent[payment_method_type] have been added to customers#create_payment_intent, customers#collect_payment_intent
+* payment_intent[payment_method_type] have been added to estimate#gift_subscription and estimate#gift_subscription_for_items.
+* payment_intent[payment_method_type] have been added to gift#create_payment_intent and gift#create_gift_for_items_payment_intent.
+* customer[is_einvoice_enabled], customer[entity_identifier_scheme], customer[entity_identifier_standard], entity_identifiers[id], entity_identifiers[scheme], entity_identifiers[value], entity_identifiers[operation], entity_identifiers[standard] have been added to hosted_page#checkout_onetime_for_items, hosted_page#checkout_new_for_items and hosted_page#checkout_existing_for_items.
+* bank_account[phone] have been added to invoice#create_bank_account, invoice#create_bank_account_for_chargeitems_and_charges
+* payment_intent[payment_method_type] have been added to invoice#create_payment_intent, invoice#create_payment_intent_for_chargeitems_and_charges
+* bank_account[phone] have been added to payment_source#create_bank_account
+* payment_intent[payment_method_type] have been added to payment_source#create_using_payment_intent
+* subscription_id have been added to payment_source#list_payment_source
+* bank_account[phone] have been added to subscription#create_bank_account
+* payment_intent[payment_method_type] have been added to subscription#create_payment_intent, subscription#create_payment_intent_for_customer, subscription#create_payment_intent_with_items, subscription#update_payment_intent, subscription#update_payment_intent_for_items, subscription#reactivate_payment_intent, subscription#resume_payment_intent
+* activated_at have been added to subscription#import_subscription, subscription#import_subscription_for_customer, subscription#import_subscription_for_items
+
+#### New Enum values:
+* upi, netbanking_emandates enum has been added in customer_payment_method_type subresource of customer resource
+* current enum has been added in account_type.  
+* quickbooks, razorpay enum has been added in gateway.
+* upi, netbanking_emandates enum has been added in payment_method,payment_method_type, type
+* upi, netbanking_emandates, apple_pay enum has been added in payment_method_type subresource of payment_intent resource
+* current enum has been added in bank_account_type subresource of payment_source.
+
+#### Deprecated attributes:
+* coupon attribute have been added and deprecated in hosted_page resource.
+
+#### Deprecated enums:
+* NetdPaymentDueReminder have been deprecated in event_type.
+
+
 ### v3.3.0 (2022-01-21)
 * * *
 

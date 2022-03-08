@@ -25,7 +25,9 @@ class PaymentSource extends Model
     'card',
     'bankAccount',
     'amazonPayment',
+    'upi',
     'paypal',
+    'mandates',
     'deleted',
   ];
 

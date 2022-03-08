@@ -44,22 +44,22 @@ class ListResult implements Countable, ArrayAccess, Iterator
     //Implementation for ArrayAccess functions
     public function offsetSet($k, $v)
     {
-        $this->$k = $v;
+        $this->_items[$k] = $v;
     }
 
     public function offsetExists($k)
     {
-        return isset($this->$k);
+        return isset($this->_items[$k]);
     }
 
     public function offsetUnset($k)
     {
-        unset($this->$k);
+        unset($this->_items[$k]);
     }
 
     public function offsetGet($k)
     {
-        return isset($this->list[$k]) ? $this->list[$k] : null;
+        return isset($this->_items[$k]) ? $this->_items[$k] : null;
     }
 
     //Implementation for Iterator functions

@@ -92,7 +92,9 @@ class Result
 			'card' => Models\PaymentSourceCard::class, 
 			'bank_account' => Models\PaymentSourceBankAccount::class, 
 			'amazon_payment' => Models\PaymentSourceAmazonPayment::class, 
-			'paypal' => Models\PaymentSourcePaypal::class
+			'upi' => Models\PaymentSourceUpi::class, 
+			'paypal' => Models\PaymentSourcePaypal::class, 
+			'mandates' => Models\PaymentSourceMandate::class
 		));
         return $payment_source;
     }
