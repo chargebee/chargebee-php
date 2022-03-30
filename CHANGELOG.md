@@ -1,3 +1,9 @@
+### v3.5.2 (2022-03-30)
+* * *
+
+### Fixes:
+* Fixed typo error for content model.
+
 ### v3.5.1 (2022-03-30)
 * * *
 
