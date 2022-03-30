@@ -1,3 +1,10 @@
+### v3.5.1 (2022-03-30)
+* * *
+
+### Fixes:
+* Fixed deprecation warnings for PHP 8.1.
+
+
 ### v3.5.0 (2022-03-14)
 * * *
 
