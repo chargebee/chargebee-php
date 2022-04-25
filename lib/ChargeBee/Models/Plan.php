@@ -54,6 +54,7 @@ class Plan extends Model
     'claimUrl',
     'freeQuantityInDecimal',
     'priceInDecimal',
+    'channel',
     'invoiceNotes',
     'taxable',
     'taxProfileId',

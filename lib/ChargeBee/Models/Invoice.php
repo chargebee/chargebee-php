@@ -69,6 +69,7 @@ class Invoice extends Model
     'voidReasonCode',
     'deleted',
     'vatNumberPrefix',
+    'channel',
   ];
 
 

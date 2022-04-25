@@ -44,6 +44,7 @@ class Addon extends Model
     'updatedAt',
     'priceInDecimal',
     'includedInMrr',
+    'channel',
     'invoiceNotes',
     'taxable',
     'taxProfileId',

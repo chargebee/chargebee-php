@@ -12,6 +12,7 @@ class Item extends Model
   protected $allowed = [
     'id',
     'name',
+    'externalName',
     'description',
     'status',
     'resourceVersion',
@@ -30,6 +31,7 @@ class Item extends Model
     'metered',
     'usageCalculation',
     'archivedAt',
+    'channel',
     'applicableItems',
     'metadata',
   ];

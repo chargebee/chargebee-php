@@ -30,6 +30,7 @@ class CreditNote extends Model
     'generatedAt',
     'resourceVersion',
     'updatedAt',
+    'channel',
     'einvoice',
     'subTotal',
     'subTotalInLocalCurrency',

@@ -23,6 +23,7 @@ class AttachedItem extends Model
     'createdAt',
     'resourceVersion',
     'updatedAt',
+    'channel',
   ];
 
 

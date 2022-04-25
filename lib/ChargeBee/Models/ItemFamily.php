@@ -16,6 +16,7 @@ class ItemFamily extends Model
     'status',
     'resourceVersion',
     'updatedAt',
+    'channel',
   ];
 
 

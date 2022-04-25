@@ -38,6 +38,11 @@ class UnbilledCharge extends Model
   # OPERATIONS
   #-----------
 
+  public static function createUnbilledCharge($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","create"), $params, $env, $headers);
+  }
+
   public static function create($params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges"), $params, $env, $headers);

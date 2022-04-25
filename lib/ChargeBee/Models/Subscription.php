@@ -55,6 +55,7 @@ class Subscription extends Model
     'planAmountInDecimal',
     'cancelScheduleCreatedAt',
     'offlinePaymentMethod',
+    'channel',
     'netTermDays',
     'subscriptionItems',
     'itemTiers',

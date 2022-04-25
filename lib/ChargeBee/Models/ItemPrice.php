@@ -31,6 +31,7 @@ class ItemPrice extends Model
     'billingCycles',
     'freeQuantity',
     'freeQuantityInDecimal',
+    'channel',
     'resourceVersion',
     'updatedAt',
     'createdAt',

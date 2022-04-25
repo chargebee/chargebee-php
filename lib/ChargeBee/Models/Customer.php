@@ -39,6 +39,7 @@ class Customer extends Model
     'billingDayOfWeekMode',
     'piiCleared',
     'autoCloseInvoices',
+    'channel',
     'cardStatus',
     'fraudFlag',
     'primaryPaymentSourceId',

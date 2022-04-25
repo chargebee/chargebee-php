@@ -1,3 +1,40 @@
+### v3.6.0 (2022-04-25)
+* * *
+
+#### New endpoints:
+* UnbilledCharge#CreateUnbilledCharge has been added to UnbilledCharge resource. Applicable only for PC1.0.
+
+#### New attributes:
+* channel have been added to the Addon, AttachedItem, CreditNote, Customer, Invoice, ItemFamily, ItemPrice, Plan and Subscription resources.
+* external_name and channel have been added to the Item resource.
+
+#### New input parameters:
+* external_name have been added to Item#CreateRequest and Item#UpdateRequest.
+* channel have been added to Addon#AddonListRequest.
+* channel have been added to CreditNote#CreditNoteListRequest.
+* channel have been added to Customer#CustomerListRequest.
+* invoice[channel], subscription[channel] and customer[channel] have been added to Export#RevenueRecognitionRequest and Export#DeferredRevenueRequest.
+* plan[channel] have been added to Export#PlansRequest.
+* addon[channel] have been added to Export#AddonsRequest.
+* customer[channel] have been added to Export#CustomersRequest.
+* subscription[channel] have been added to Export#SubscriptionsRequest.
+* invoice[channel] have been added to Export#InvoicesRequest. 
+* credit_note[channel] have been added to Export#CreditNotesRequest.
+* item[channel] have been added to Export#ItemsRequest.
+* item_price[channel] have been added to Export#ItemPricesRequest.
+* channel have been added to Invoice#InvoiceListRequest.
+* channel have been added to Item#ItemListRequest.
+* channel have been added to ItemPrice#ItemPriceListRequest.
+* channel have been added to Plan#PlanListRequest.
+* channel have been added to Subscription#SubscriptionListRequest.
+
+### Existing input parameter changes:
+* item_family_id in Item#CreateRequest has been made as required field.
+
+### Removed enum values:
+* coupon_expired event has been removed from EventTypeEnum. 
+
+
 ### v3.5.2 (2022-03-30)
 * * *
 
