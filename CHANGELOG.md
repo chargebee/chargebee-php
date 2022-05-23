@@ -1,3 +1,25 @@
+### v3.7.0 (2022-05-23)
+* * *
+
+#### New endpoints:
+* invoice#sync_usages and invoice#resend_einvoice have been added to the invoice resource.
+* credit_notes#resend_einvoice has been added to the credit_notes resource.
+* features#list_features, features#create_a_feature, features#update_a_feature, features#retrieve_a_feature, features#delete_a_feature, features#activate_a_feature, features#archive_a_feature and features#reactivate_a_feature have  been added to the features resource.
+* subscription_entitlements#subscription_entitlements_for_subscription and subscription_entitlements#set_subscription_entitlement_availability have been added to the subscription_entitlements resource.
+* item_entitlements#item_entitlements_for_an_item, item_entitlements#item_entitlements_for_a_feature, item_entitlements#add_an_item_entitlements and item_entitlements#upsert_or_remove_an_item_entitlements_for_item have been added to the item_entitlements resource.
+* entitlement_overrides#add_entitlement_override_for_a_subscription and entitlement_overrides#list_entitlement_override_for_a_subscription have been added to the entitlement_overrides resource.
+
+#### New Resource:
+* features, subscription_entitlements, item_entitlements and entitlement_overrides have been added.
+
+#### New filter parameters:
+* einvoice[status] filter parameter has been added in credit_notes#list_credit_notes api.
+
+#### New Enum values:
+* paypal_express_checkout has been added to payment_method_type enum.
+* feature_created, feature_updated, feature_deleted, feature_activated, feature_reactivated, feature_archived, item_entitlements_updated, entitlement_overrides_updated, entitlement_overrides_removed, item_entitlements_removed and entitlement_overrides_auto_removed have been added to the event_type enum.
+* action enum has been added.
+
 ### v3.6.0 (2022-04-25)
 * * *
 

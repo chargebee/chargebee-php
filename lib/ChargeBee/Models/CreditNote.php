@@ -106,6 +106,11 @@ class CreditNote extends Model
     return Request::send(Request::POST, Util::encodeURIPath("credit_notes",$id,"delete"), $params, $env, $headers);
   }
 
+  public static function resendEinvoice($id, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("credit_notes",$id,"resend_einvoice"), array(), $env, $headers);
+  }
+
  }
 
 ?>

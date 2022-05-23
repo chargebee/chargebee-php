@@ -34,6 +34,12 @@ class Result
         return $subscription;
     }
 
+    public function subscriptionPreview() 
+    {
+        $subscription_preview = $this->_get('subscription_preview', Models\SubscriptionPreview::class);
+        return $subscription_preview;
+    }
+
     public function contractTerm() 
     {
         $contract_term = $this->_get('contract_term', Models\ContractTerm::class);
@@ -499,6 +505,43 @@ class Result
 			'parent_periods' => Models\DifferentialPriceParentPeriod::class
 		));
         return $differential_price;
+    }
+
+    public function feature() 
+    {
+        $feature = $this->_get('feature', Models\Feature::class, 
+        array( 
+			'levels' => Models\FeatureLevel::class
+		));
+        return $feature;
+    }
+
+    public function subscriptionEntitlement() 
+    {
+        $subscription_entitlement = $this->_get('subscription_entitlement', Models\SubscriptionEntitlement::class, 
+        array( 
+			'component' => Models\SubscriptionEntitlementComponent::class, 
+			'embedded_resource' => Models\SubscriptionEntitlementEmbeddedResource::class
+		));
+        return $subscription_entitlement;
+    }
+
+    public function itemEntitlement() 
+    {
+        $item_entitlement = $this->_get('item_entitlement', Models\ItemEntitlement::class, 
+        array( 
+			'embedded_resource' => Models\ItemEntitlementEmbeddedResource::class
+		));
+        return $item_entitlement;
+    }
+
+    public function entitlementOverride() 
+    {
+        $entitlement_override = $this->_get('entitlement_override', Models\EntitlementOverride::class, 
+        array( 
+			'embedded_resource' => Models\EntitlementOverrideEmbeddedResource::class
+		));
+        return $entitlement_override;
     }
 
 
