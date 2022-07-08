@@ -70,6 +70,7 @@ class Invoice extends Model
     'deleted',
     'vatNumberPrefix',
     'channel',
+    'businessEntityId',
   ];
 
 

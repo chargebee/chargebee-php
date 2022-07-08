@@ -11,6 +11,7 @@ class InvoiceDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }

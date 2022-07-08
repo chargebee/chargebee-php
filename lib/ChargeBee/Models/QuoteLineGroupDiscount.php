@@ -11,6 +11,7 @@ class QuoteLineGroupDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }

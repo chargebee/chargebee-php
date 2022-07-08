@@ -4,10 +4,12 @@ namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
 
-class SubscriptionEntitlementComponent extends Model
+class ImpactedItemDownload extends Model
 {
   protected $allowed = [
-    'entitlementOverrides',
+    'downloadUrl',
+    'validTill',
+    'mimeType',
   ];
 
 }

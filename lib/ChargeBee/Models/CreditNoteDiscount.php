@@ -11,6 +11,7 @@ class CreditNoteDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }

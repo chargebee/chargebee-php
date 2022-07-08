@@ -21,7 +21,6 @@ class SubscriptionEntitlement extends Model
     'isEnabled',
     'expiresAt',
     'components',
-    'embedded',
   ];
 
 

@@ -34,12 +34,6 @@ class Result
         return $subscription;
     }
 
-    public function subscriptionPreview() 
-    {
-        $subscription_preview = $this->_get('subscription_preview', Models\SubscriptionPreview::class);
-        return $subscription_preview;
-    }
-
     public function contractTerm() 
     {
         $contract_term = $this->_get('contract_term', Models\ContractTerm::class);
@@ -234,6 +228,7 @@ class Result
         $estimate = $this->_get('estimate', Models\Estimate::class, array(),
         array( 
 			'subscription_estimate' => Models\SubscriptionEstimate::class, 
+			'subscription_estimates' => Models\SubscriptionEstimate::class, 
 			'invoice_estimate' => Models\InvoiceEstimate::class, 
 			'invoice_estimates' => Models\InvoiceEstimate::class, 
 			'next_invoice_estimate' => Models\InvoiceEstimate::class, 
@@ -262,6 +257,11 @@ class Result
 			'line_item_taxes' => Models\InvoiceEstimateLineItemTax::class, 
 			'line_item_tiers' => Models\InvoiceEstimateLineItemTier::class, 
 			'line_item_discounts' => Models\InvoiceEstimateLineItemDiscount::class
+		));
+        $estimate->_initDependantList($this->_response['estimate'], 'subscription_estimates', 
+        array( 
+			'shipping_address' => Models\SubscriptionEstimateShippingAddress::class, 
+			'contract_term' => Models\SubscriptionEstimateContractTerm::class
 		));
         $estimate->_initDependantList($this->_response['estimate'], 'invoice_estimates', 
         array( 
@@ -516,32 +516,49 @@ class Result
         return $feature;
     }
 
+    public function impactedSubscription() 
+    {
+        $impacted_subscription = $this->_get('impacted_subscription', Models\ImpactedSubscription::class, 
+        array( 
+			'download' => Models\ImpactedSubscriptionDownload::class
+		));
+        return $impacted_subscription;
+    }
+
+    public function impactedItem() 
+    {
+        $impacted_item = $this->_get('impacted_item', Models\ImpactedItem::class, 
+        array( 
+			'download' => Models\ImpactedItemDownload::class
+		));
+        return $impacted_item;
+    }
+
     public function subscriptionEntitlement() 
     {
         $subscription_entitlement = $this->_get('subscription_entitlement', Models\SubscriptionEntitlement::class, 
         array( 
-			'component' => Models\SubscriptionEntitlementComponent::class, 
-			'embedded_resource' => Models\SubscriptionEntitlementEmbeddedResource::class
+			'component' => Models\SubscriptionEntitlementComponent::class
 		));
         return $subscription_entitlement;
     }
 
     public function itemEntitlement() 
     {
-        $item_entitlement = $this->_get('item_entitlement', Models\ItemEntitlement::class, 
-        array( 
-			'embedded_resource' => Models\ItemEntitlementEmbeddedResource::class
-		));
+        $item_entitlement = $this->_get('item_entitlement', Models\ItemEntitlement::class);
         return $item_entitlement;
     }
 
     public function entitlementOverride() 
     {
-        $entitlement_override = $this->_get('entitlement_override', Models\EntitlementOverride::class, 
-        array( 
-			'embedded_resource' => Models\EntitlementOverrideEmbeddedResource::class
-		));
+        $entitlement_override = $this->_get('entitlement_override', Models\EntitlementOverride::class);
         return $entitlement_override;
+    }
+
+    public function purchase() 
+    {
+        $purchase = $this->_get('purchase', Models\Purchase::class);
+        return $purchase;
     }
 
 

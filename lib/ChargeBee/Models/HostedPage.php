@@ -22,6 +22,7 @@ class HostedPage extends Model
     'updatedAt',
     'resourceVersion',
     'checkoutInfo',
+    'businessEntityId',
   ];
 
   public function content()
@@ -47,7 +48,7 @@ class HostedPage extends Model
     return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","checkout_one_time"), $params, $env, $headers);
   }
 
-  public static function checkoutOneTimeForItems($params = array(), $env = null, $headers = array())
+  public static function checkoutOneTimeForItems($params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","checkout_one_time_for_items"), $params, $env, $headers);
   }
@@ -130,6 +131,11 @@ class HostedPage extends Model
   public static function all($params = array(), $env = null, $headers = array())
   {
     return Request::sendListRequest(Request::GET, Util::encodeURIPath("hosted_pages"), $params, $env, $headers);
+  }
+
+  public static function preCancel($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","pre_cancel"), $params, $env, $headers);
   }
 
  }

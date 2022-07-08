@@ -1,3 +1,29 @@
+### v3.8.0 (2022-07-08)
+* * *
+
+### Fixes:
+* Fixed Status Enum related issues
+* Fixed EmbeddedResource related issues 
+
+#### New endpoints:
+* hostedpage#PreCancel has been added to the hostedpage resource.
+
+#### New attributes:
+* business_entity_id have been added to the CreditNote, Customer,HostedPage, Invoice, PaymentIntent, Quote, Subscription and Transaction resources.
+* coupon_set_code have been added to the CreditNote, CreditNoteEstimate, Invoice, InvoiceEstimate, Quote and QuoteLineGroup resources.
+* List of SubscriptionEstimate have been added to Estimate resource.
+
+#### New Resource:
+* ImpactedSubscription, ImpactedItem, Purchase have been added.
+
+#### New Enum values:
+* direct_debit has been added to payment_method_type enum.
+* bancontact, not_applicable added to payment_source_card_brand enum.
+* business_entity added to entity_type Enum
+* business_entity_created, business_entity_updated, business_entity_deleted, purchase_created added to event_type Enum
+* chargebee_payments added to gateway Enum
+
+
 ### v3.7.0 (2022-05-23)
 * * *
 

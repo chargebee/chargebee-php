@@ -17,7 +17,6 @@ class ItemEntitlement extends Model
     'featureName',
     'value',
     'name',
-    'embedded',
   ];
 
 

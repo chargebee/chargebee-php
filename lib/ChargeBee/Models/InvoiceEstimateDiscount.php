@@ -11,6 +11,7 @@ class InvoiceEstimateDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }

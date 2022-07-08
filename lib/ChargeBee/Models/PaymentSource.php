@@ -29,6 +29,7 @@ class PaymentSource extends Model
     'paypal',
     'mandates',
     'deleted',
+    'businessEntityId',
   ];
 
 

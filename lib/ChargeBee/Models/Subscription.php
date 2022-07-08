@@ -84,6 +84,7 @@ class Subscription extends Model
     'freePeriodUnit',
     'createPendingInvoices',
     'autoCloseInvoices',
+    'businessEntityId',
   ];
 
 

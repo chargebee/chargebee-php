@@ -64,7 +64,7 @@ class Addon extends Model
     return Request::send(Request::POST, Util::encodeURIPath("addons"), $params, $env, $headers);
   }
 
-  public static function update($id, $params = array(), $env = null, $headers = array())
+  public static function update($id, $params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("addons",$id), $params, $env, $headers);
   }

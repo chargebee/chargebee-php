@@ -12,6 +12,7 @@ class Estimate extends Model
   protected $allowed = [
     'createdAt',
     'subscriptionEstimate',
+    'subscriptionEstimates',
     'invoiceEstimate',
     'invoiceEstimates',
     'nextInvoiceEstimate',

@@ -11,6 +11,7 @@ class QuoteDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }

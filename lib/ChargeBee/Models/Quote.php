@@ -46,6 +46,7 @@ class Quote extends Model
     'contractTermStart',
     'contractTermEnd',
     'contractTermTerminationFee',
+    'businessEntityId',
   ];
 
 

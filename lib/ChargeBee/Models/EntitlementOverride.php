@@ -18,7 +18,6 @@ class EntitlementOverride extends Model
     'value',
     'name',
     'expiresAt',
-    'embedded',
   ];
 
 

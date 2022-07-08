@@ -49,6 +49,7 @@ class Customer extends Model
     'contacts',
     'paymentMethod',
     'invoiceNotes',
+    'businessEntityId',
     'preferredCurrencyCode',
     'promotionalCredits',
     'unbilledCharges',

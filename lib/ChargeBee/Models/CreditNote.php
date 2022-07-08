@@ -49,6 +49,7 @@ class CreditNote extends Model
     'deleted',
     'createReasonCode',
     'vatNumberPrefix',
+    'businessEntityId',
   ];
 
 

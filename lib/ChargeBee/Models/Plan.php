@@ -77,7 +77,7 @@ class Plan extends Model
     return Request::send(Request::POST, Util::encodeURIPath("plans"), $params, $env, $headers);
   }
 
-  public static function update($id, $params = array(), $env = null, $headers = array())
+  public static function update($id, $params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("plans",$id), $params, $env, $headers);
   }

@@ -11,6 +11,7 @@ class CreditNoteEstimateDiscount extends Model
     'description',
     'entityType',
     'entityId',
+    'couponSetCode',
   ];
 
 }
