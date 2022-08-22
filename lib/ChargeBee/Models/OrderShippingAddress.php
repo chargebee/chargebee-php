@@ -21,6 +21,7 @@ class OrderShippingAddress extends Model
     'country',
     'zip',
     'validationStatus',
+    'index',
   ];
 
 }

@@ -18,6 +18,8 @@ class Token extends Model
     'idAtVault',
     'vault',
     'ipAddress',
+    'resourceVersion',
+    'updatedAt',
     'createdAt',
     'expiredAt',
   ];

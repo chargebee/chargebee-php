@@ -14,6 +14,7 @@ class QuotedChargeItemTier extends Model
     'startingUnitInDecimal',
     'endingUnitInDecimal',
     'priceInDecimal',
+    'index',
   ];
 
 }

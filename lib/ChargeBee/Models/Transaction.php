@@ -52,6 +52,7 @@ class Transaction extends Model
     'last4',
     'merchantReferenceId',
     'businessEntityId',
+    'paymentMethodDetails',
   ];
 
 

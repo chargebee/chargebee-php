@@ -1,4 +1,28 @@
-### v3.8.0 (2022-07-18)
+### v3.9.0 (2022-08-22)
+* * *
+
+### Fixes:
+* fixed incorrect reference of OperationFailedException class in TimeMachine model.
+
+#### New endpoints:
+* Purchase#Retrieve has been added to the Purchase resource.
+
+#### New attributes:
+* ResourceVersion has been added to the Token resource.
+* UpdatedAt has been added to the Token and UnbilledCharge resources.
+* ReferenceLineItemId has been added to the CreditNote#LineItem, CreditNoteEstimate#LineItem, Quote#LineItem, QuoteLineGroup#LineItem, InvoiceEstimate#LineItem and Invoice#LineItem subResources.
+* Index has been added to the Order#ShippingAddress, Invoice#ShippingAddress, Quote#ShippingAddress, QuotedCharge#ItemTier, QuotedSubscription#ItemTier, Subscription#ItemTier, Subscription#ShippingAddress and SubscriptionEstimate#ShippingAddress subResources.
+* VoidWithCreditNote has been added to the Invoice#VoidInvoiceRequest subresources.
+* PaymentMethodDetails has been added to the Transaction resource.
+
+#### New Resource:
+* InAppSubscription have been added.
+
+### Removed input parameters:
+* BusinessEntityId has been removed from Purchase#CreateRequest and Purchase#EstimateRequest.
+
+
+### v3.8.0 (2022-07-08)
 * * *
 
 ### Fixes:

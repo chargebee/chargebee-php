@@ -549,6 +549,12 @@ class Result
         return $item_entitlement;
     }
 
+    public function inAppSubscription() 
+    {
+        $in_app_subscription = $this->_get('in_app_subscription', Models\InAppSubscription::class);
+        return $in_app_subscription;
+    }
+
     public function entitlementOverride() 
     {
         $entitlement_override = $this->_get('entitlement_override', Models\EntitlementOverride::class);
@@ -648,6 +654,15 @@ class Result
 			'parent_periods' => Models\DifferentialPriceParentPeriod::class
 		));
         return $differential_prices;
+    }
+    
+    public function inAppSubscriptions() 
+    {
+        $in_app_subscriptions = $this->_getList('in_app_subscriptions', Models\InAppSubscription::class,
+        array( 
+			
+		));
+        return $in_app_subscriptions;
     }
     
 

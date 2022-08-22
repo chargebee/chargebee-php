@@ -14,6 +14,7 @@ class QuotedSubscriptionItemTier extends Model
     'startingUnitInDecimal',
     'endingUnitInDecimal',
     'priceInDecimal',
+    'index',
   ];
 
 }

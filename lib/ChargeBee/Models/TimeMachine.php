@@ -34,7 +34,7 @@ public function waitForTimeTravelCompletion($env = null) {
     if($this->timeTravelStatus == "failed" ) {
       $errorJSON = json_decode($this->errorJson, true);
       $httpCode = $errorJSON['http_code'];
-      throw new ChargeBee_OperationFailedException($httpCode, $errorJSON);
+      throw new OperationFailedException($httpCode, $errorJSON);
     }
     if($this->timeTravelStatus != "in_progress"
            && $this->timeTravelStatus != "succeeded"

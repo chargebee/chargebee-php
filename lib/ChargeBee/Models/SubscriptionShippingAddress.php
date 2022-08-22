@@ -21,6 +21,7 @@ class SubscriptionShippingAddress extends Model
     'country',
     'zip',
     'validationStatus',
+    'index',
   ];
 
 }

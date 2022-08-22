@@ -29,6 +29,7 @@ class UnbilledCharge extends Model
     'unitAmountInDecimal',
     'quantityInDecimal',
     'amountInDecimal',
+    'updatedAt',
     'tiers',
     'deleted',
   ];

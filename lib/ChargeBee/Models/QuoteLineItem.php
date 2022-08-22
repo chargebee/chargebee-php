@@ -23,6 +23,7 @@ class QuoteLineItem extends Model
     'amountInDecimal',
     'discountAmount',
     'itemLevelDiscountAmount',
+    'referenceLineItemId',
     'description',
     'entityDescription',
     'entityType',

@@ -86,6 +86,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/ImpactedItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ImpactedItemDownload.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ImpactedSubscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ImpactedSubscriptionDownload.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/InAppSubscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Invoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceAdjustmentCreditNote.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/InvoiceAppliedCredit.php');
