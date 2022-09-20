@@ -67,6 +67,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CustomerRelationship.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPrice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceParentPeriod.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Discount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Download.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EntitlementOverride.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Estimate.php');

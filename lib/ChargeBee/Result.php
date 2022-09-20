@@ -41,6 +41,12 @@ class Result
         return $contract_term;
     }
 
+    public function discount() 
+    {
+        $discount = $this->_get('discount', Models\Discount::class);
+        return $discount;
+    }
+
     public function advanceInvoiceSchedule() 
     {
         $advance_invoice_schedule = $this->_get('advance_invoice_schedule', Models\AdvanceInvoiceSchedule::class, 

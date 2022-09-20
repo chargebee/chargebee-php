@@ -3,9 +3,12 @@
 namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
 
-class SubscriptionDiscount extends Model
+class Discount extends Model
 {
+
   protected $allowed = [
     'id',
     'invoiceName',
@@ -25,6 +28,11 @@ class SubscriptionDiscount extends Model
     'index',
   ];
 
-}
+
+
+  # OPERATIONS
+  #-----------
+
+ }
 
 ?>
