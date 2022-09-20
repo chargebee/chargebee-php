@@ -28,11 +28,6 @@ class Purchase extends Model
     return Request::send(Request::POST, Util::encodeURIPath("purchases"), $params, $env, $headers);
   }
 
-  public static function retrieve($id, $env = null, $headers = array())
-  {
-    return Request::send(Request::GET, Util::encodeURIPath("purchases",$id), array(), $env, $headers);
-  }
-
   public static function estimate($params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("purchases","estimate"), $params, $env, $headers);

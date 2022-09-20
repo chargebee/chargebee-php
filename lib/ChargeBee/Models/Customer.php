@@ -34,6 +34,7 @@ class Customer extends Model
     'updatedAt',
     'locale',
     'billingDate',
+    'billingMonth',
     'billingDateMode',
     'billingDayOfWeek',
     'billingDayOfWeekMode',

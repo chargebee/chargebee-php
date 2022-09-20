@@ -181,6 +181,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionChargedEventBasedAddo
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionChargedItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionContractTerm.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionCoupon.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEntitlement.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEntitlementComponent.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionEstimate.php');

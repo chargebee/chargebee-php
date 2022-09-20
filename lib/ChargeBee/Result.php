@@ -29,7 +29,8 @@ class Result
 			'coupons' => Models\SubscriptionCoupon::class, 
 			'shipping_address' => Models\SubscriptionShippingAddress::class, 
 			'referral_info' => Models\SubscriptionReferralInfo::class, 
-			'contract_term' => Models\SubscriptionContractTerm::class
+			'contract_term' => Models\SubscriptionContractTerm::class, 
+			'discounts' => Models\SubscriptionDiscount::class
 		));
         return $subscription;
     }

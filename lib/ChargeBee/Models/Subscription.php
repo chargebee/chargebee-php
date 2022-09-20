@@ -84,6 +84,7 @@ class Subscription extends Model
     'freePeriodUnit',
     'createPendingInvoices',
     'autoCloseInvoices',
+    'discounts',
     'businessEntityId',
   ];
 
@@ -120,6 +121,11 @@ class Subscription extends Model
   public static function contractTermsForSubscription($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"contract_terms"), $params, $env, $headers);
+  }
+
+  public static function listDiscounts($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"discounts"), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
