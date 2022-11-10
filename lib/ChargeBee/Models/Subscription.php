@@ -223,6 +223,11 @@ class Subscription extends Model
     return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"import_contract_term"), $params, $env, $headers);
   }
 
+  public static function importUnbilledCharges($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"import_unbilled_charges"), $params, $env, $headers);
+  }
+
   public static function importForItems($id, $params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"import_for_items"), $params, $env, $headers);

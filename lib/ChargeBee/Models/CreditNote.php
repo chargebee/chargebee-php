@@ -112,6 +112,11 @@ class CreditNote extends Model
     return Request::send(Request::POST, Util::encodeURIPath("credit_notes",$id,"resend_einvoice"), array(), $env, $headers);
   }
 
+  public static function importCreditNote($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("credit_notes","import_credit_note"), $params, $env, $headers);
+  }
+
  }
 
 ?>

@@ -65,6 +65,7 @@ class Order extends Model
     'giftId',
     'resendReason',
     'resentOrders',
+    'businessEntityId',
   ];
 
 

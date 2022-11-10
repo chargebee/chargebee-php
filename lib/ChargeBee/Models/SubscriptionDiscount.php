@@ -9,6 +9,7 @@ class SubscriptionDiscount extends Model
   protected $allowed = [
     'id',
     'invoiceName',
+    'type',
     'percentage',
     'amount',
     'currencyCode',

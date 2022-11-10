@@ -1,3 +1,28 @@
+### v3.12.0 (2022-11-10)
+* * *
+
+### Fixes:
+* Fixed the correct import of content in init.php
+
+#### New endpoints:
+* credit_notes#import_credit_note has been added to the credit_notes resource.
+* subscriptions#import_unbilled_charges has been added to the subscriptions resource.
+
+#### New attributes:
+* shipped_at parameter has been added to the orders#list_orders API.
+
+#### Added input parameters:
+* voided_at and void_reason_code have been added to the invoices#import_invoice API.
+
+#### New attributes:
+* business_entity_id has been added to the orders resource.
+
+#### New Enum values:
+* registered has been added to the status enum in credit_note_einvoice and invoice_einvoice subresources.
+* type enum has been added to the subscription_discount subresource.
+* subscription_entitlements_created has been added to the event_type enum.
+
+
 ### v3.11.0 (2022-09-20)
 
 #### New Resource:
