@@ -39,6 +39,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CouponItemConstraintCriteria.php'
 require(dirname(__FILE__) . '/ChargeBee/Models/CouponSet.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNote.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteAllocation.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteEinvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteEstimate.php');
@@ -53,6 +54,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemTax.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLinkedRefund.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteTax.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Customer.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBalance.php');

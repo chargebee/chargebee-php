@@ -50,6 +50,8 @@ class CreditNote extends Model
     'createReasonCode',
     'vatNumberPrefix',
     'businessEntityId',
+    'shippingAddress',
+    'billingAddress',
   ];
 
 

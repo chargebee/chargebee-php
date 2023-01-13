@@ -172,7 +172,9 @@ class Result
 			'taxes' => Models\CreditNoteTax::class, 
 			'line_item_taxes' => Models\CreditNoteLineItemTax::class, 
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
-			'allocations' => Models\CreditNoteAllocation::class
+			'allocations' => Models\CreditNoteAllocation::class, 
+			'shipping_address' => Models\CreditNoteShippingAddress::class, 
+			'billing_address' => Models\CreditNoteBillingAddress::class
 		));
         return $credit_note;
     }
@@ -596,7 +598,9 @@ class Result
 			'taxes' => Models\CreditNoteTax::class, 
 			'line_item_taxes' => Models\CreditNoteLineItemTax::class, 
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
-			'allocations' => Models\CreditNoteAllocation::class
+			'allocations' => Models\CreditNoteAllocation::class, 
+			'shipping_address' => Models\CreditNoteShippingAddress::class, 
+			'billing_address' => Models\CreditNoteBillingAddress::class
 		));
         return $credit_notes;
     }

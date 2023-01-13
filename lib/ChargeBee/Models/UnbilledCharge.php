@@ -31,6 +31,7 @@ class UnbilledCharge extends Model
     'amountInDecimal',
     'updatedAt',
     'tiers',
+    'isAdvanceCharge',
     'deleted',
   ];
 

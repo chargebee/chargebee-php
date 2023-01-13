@@ -123,6 +123,11 @@ class Invoice extends Model
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"sync_usages"), array(), $env, $headers);
   }
 
+  public static function deleteLineItems($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"delete_line_items"), $params, $env, $headers);
+  }
+
   public static function applyCredits($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"apply_credits"), $params, $env, $headers);
