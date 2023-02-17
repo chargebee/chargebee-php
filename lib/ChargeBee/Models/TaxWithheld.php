@@ -19,6 +19,8 @@ class TaxWithheld extends Model
     'date',
     'currencyCode',
     'amount',
+    'resourceVersion',
+    'updatedAt',
     'exchangeRate',
   ];
 

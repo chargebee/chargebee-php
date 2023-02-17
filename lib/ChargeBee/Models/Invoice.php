@@ -193,6 +193,16 @@ class Invoice extends Model
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"record_payment"), $params, $env, $headers);
   }
 
+  public static function recordTaxWithheld($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"record_tax_withheld"), $params, $env, $headers);
+  }
+
+  public static function removeTaxWithheld($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"remove_tax_withheld"), $params, $env, $headers);
+  }
+
   public static function refund($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"refund"), $params, $env, $headers);
