@@ -1,3 +1,32 @@
+### v3.15.0 (2023-03-24)
+* * *
+
+#### Fixes:
+* Fixed list_discounts subscriptions API error.
+* Fixed utf8_encode deprecation warnings.
+
+#### New Attributes: 
+* referenceNumber has been added to the CreditNoteEinvoice resource.
+* referenceNumber has been added to the InvoiceEinvoice resource.
+* einvoicingMethod has been added to the Customer resource.
+* storeStatus and invoiceId have been addded to the InAppSubscription resource.
+
+#### Added Input Parameters:
+* UpdateForItemsRequestParams#discount_quantity and UpdateRequestParams#discount_quantity parameter has been added to the coupon resource.
+* UpdateBillingInfoRequestParams#einvoicing_method and CreateRequestParams#einvoicing_method parameter has been added to the customer resource.
+* CreateCustomerParams#einvoicing_method , UpdateCustomerParams#einvoicing_metho and  UpdateForItemsCustomerParams#einvoicing_method parameter has been added to the Subscription resource.
+* CreateSubscriptionInfoParams#meta_data parameter has been added to the purchase resource.
+
+#### New Endpoints:
+* CreditNote#SendEinvoice has been added to the CreditNote resource. 
+* Invoice#SendEinvoice has been added to the Invoice resource.
+* InAppSubscription#ImportSubscription and InAppSubscription#RetrieveStoreSubs requests have been added to the InAppSubscription resource.
+
+#### New Enum Class:
+* EinvoicingMethod has been added.
+* StoreStatus has been added in InAppSubscription resource.
+
+
 ### v3.14.0 (2023-02-17)
 * * *
 

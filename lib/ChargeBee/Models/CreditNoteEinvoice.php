@@ -8,6 +8,7 @@ class CreditNoteEinvoice extends Model
 {
   protected $allowed = [
     'id',
+    'referenceNumber',
     'status',
     'message',
   ];

@@ -17,7 +17,7 @@ class Guzzle
 {
     public static function utf8($value) {
         if (is_string($value))
-            return utf8_encode($value);
+            return mb_convert_encoding($value, "UTF-8");
         else
             return $value;
     }

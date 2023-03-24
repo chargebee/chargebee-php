@@ -59,6 +59,7 @@ class Customer extends Model
     'balances',
     'entityIdentifiers',
     'isEinvoiceEnabled',
+    'einvoicingMethod',
     'metaData',
     'deleted',
     'registeredForGst',

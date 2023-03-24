@@ -14,6 +14,8 @@ class InAppSubscription extends Model
     'subscriptionId',
     'customerId',
     'planId',
+    'storeStatus',
+    'invoiceId',
   ];
 
 
@@ -29,6 +31,16 @@ class InAppSubscription extends Model
   public static function importReceipt($id, $params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_receipt"), $params, $env, $headers);
+  }
+
+  public static function importSubscription($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_subscription"), $params, $env, $headers);
+  }
+
+  public static function retrieveStoreSubs($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"retrieve"), $params, $env, $headers);
   }
 
  }

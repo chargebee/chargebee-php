@@ -8,6 +8,7 @@ class InvoiceEinvoice extends Model
 {
   protected $allowed = [
     'id',
+    'referenceNumber',
     'status',
     'message',
   ];
