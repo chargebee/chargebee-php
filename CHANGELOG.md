@@ -1,3 +1,32 @@
+### v3.16.0 (2023-04-28)
+* * *
+
+#### Fixes:
+* SubscriptionId attribute has been maid as required in InAppSubscription resource.
+
+#### New Attributes: 
+* TotalContractValueBeforeTax has been added to the ContractTerm resource.
+* TotalContractValueBeforeTax#SubscriptionContractTerm has been added to the Subscription resource.
+* TotalContractValueBeforeTax#SubscriptionEstimateContractTerm has been addded to the SubscriptionEstimate resource.
+* CouponConstraints has been added to the Coupon resource.
+
+#### New Resource:
+* NonSubscription have been added.
+
+#### Added Input Parameters:
+* contract_term[total_amount_raised_before_tax]#ImportSubscriptionRequest, contract_term[total_amount_raised_before_tax]#ImportForItemsRequest, contract_term[total_amount_raised_before_tax]#ImportContractTermRequest and contract_term[total_amount_raised_before_tax]#ImportForCustomerRequest parameter has been added to Subscription resource.
+* contract_term[total_contract_value_before_tax]#ImportContractTermRequest parameter has been added to Subscription resource.
+* coupon_constraints[entity_type]#CreateForItemsRequestParams, coupon_constraints[type]#CreateForItemsRequestParams and coupon_constraints[value]#CreateForItemsRequestParams parameter has been added to the Coupon resource.
+* coupon_constraints[entity_type]#UpdateForItemsRequestParams, coupon_constraints[type]#UpdateForItemsRequestParams and coupon_constraints[value]#UpdateForItemsRequestParams parameter has been added to the Coupon resource.
+* export_type#CustomersRequest and export_type#SubscriptionsRequest parameter has been added to the Export resource.
+
+#### New Enum Class:
+* ExportType has been added.
+
+#### New Enum values:
+* pending_authorization has been added to StatusEnum#PaymentIntentPaymentAttempt to the PaymentIntent resource.
+
+
 ### v3.15.0 (2023-03-24)
 * * *
 

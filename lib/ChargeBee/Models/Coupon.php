@@ -41,6 +41,7 @@ class Coupon extends Model
     'redemptions',
     'invoiceNotes',
     'metaData',
+    'couponConstraints',
   ];
 
 

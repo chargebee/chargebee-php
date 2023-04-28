@@ -10,7 +10,6 @@ class SubscriptionEntitlement extends Model
 {
 
   protected $allowed = [
-    'id',
     'subscriptionId',
     'featureId',
     'featureName',

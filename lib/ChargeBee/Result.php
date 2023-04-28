@@ -379,7 +379,8 @@ class Result
         $coupon = $this->_get('coupon', Models\Coupon::class, 
         array( 
 			'item_constraints' => Models\CouponItemConstraint::class, 
-			'item_constraint_criteria' => Models\CouponItemConstraintCriteria::class
+			'item_constraint_criteria' => Models\CouponItemConstraintCriteria::class, 
+			'coupon_constraints' => Models\CouponCouponConstraint::class
 		));
         return $coupon;
     }
@@ -562,6 +563,12 @@ class Result
     {
         $in_app_subscription = $this->_get('in_app_subscription', Models\InAppSubscription::class);
         return $in_app_subscription;
+    }
+
+    public function nonSubscription() 
+    {
+        $non_subscription = $this->_get('non_subscription', Models\NonSubscription::class);
+        return $non_subscription;
     }
 
     public function entitlementOverride() 

@@ -14,6 +14,7 @@ class SubscriptionContractTerm extends Model
     'billingCycle',
     'actionAtTermEnd',
     'totalContractValue',
+    'totalContractValueBeforeTax',
     'cancellationCutoffPeriod',
     'createdAt',
     'subscriptionId',
