@@ -15,6 +15,8 @@ use GuzzleHttp\Exception\RequestException;
 
 class Guzzle
 {
+    private static $client;
+
     public static function utf8($value) {
         if (is_string($value))
             return mb_convert_encoding($value, "UTF-8");
@@ -28,8 +30,19 @@ class Guzzle
         return $respJson;
     }
 
+    private static function getClient() {
+        if(is_null(self::$client)) {
+            self::$client = new Client();
+        }
+        return self::$client;
+    }
+
+    public static function setClient($client) {
+        self::$client = $client;
+    }
+
     public static function request($meth, $url, $env, $params, $headers) {
-        $client = new Client();
+        $client = self::getClient();
 
         $opts = array(
             'connect_timeout' => Environment::$connectTimeoutInSecs,
