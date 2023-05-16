@@ -23,11 +23,12 @@ class Guzzle
     }
 
     public static function doRequest($meth, $url, $env, $params = array(), $headers = array()) {
-        list($response, $httpCode) = self::request($meth, $url, $env, $params, $headers);
+        list($response, $httpCode, $responseHeaders) = self::request($meth, $url, $env, $params, $headers);
         $respJson = self::processResponse($response, $httpCode);
-        return $respJson;
+        $response = new Response($respJson, $responseHeaders);
+        return $response;
     }
-
+    
     public static function request($meth, $url, $env, $params, $headers) {
         $client = new Client();
 
@@ -68,9 +69,9 @@ class Guzzle
             $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $guzzleMsg;
             throw new IOException($message, $errno);
         }
-
+        $responseHeaders = $response->getHeaders();
         $httpCode = $response->getStatusCode();
-        return array((string)$response->getBody(), $httpCode);
+        return array((string)$response->getBody(), $httpCode, $responseHeaders);
     }
 
     /**
@@ -138,4 +139,14 @@ class Guzzle
         }
     }
 
+}
+
+class Response {
+    public $data;
+    public $headers;
+
+    public function __construct($data, $headers) {
+        $this->data = $data;
+        $this->headers = $headers;
+    }
 }

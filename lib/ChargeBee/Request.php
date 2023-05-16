@@ -33,12 +33,12 @@ class Request
         }
 
         $ser_params = Util::serialize($params);
-        $response = Guzzle::doRequest($method, $url, $env, $ser_params, $headers);
+        $responseObj = Guzzle::doRequest($method, $url, $env, $ser_params, $headers);
 
-        if (is_array($response) && array_key_exists("list", $response)) {
-            return new ListResult($response['list'], isset($response['next_offset'])?$response['next_offset']:null);
+        if (is_array($responseObj->data) && array_key_exists("list", $responseObj->data)) {
+            return new ListResult($responseObj->data['list'], isset($responseObj->data['next_offset']) ? $responseObj->data['next_offset'] : null, $responseObj->headers);
         } else {
-            return new Result($response);
+            return new Result($responseObj->data, $responseObj->headers);
         }
     }
 }

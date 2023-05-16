@@ -1,3 +1,11 @@
+### v3.17.0 (2023-05-16)
+* * *
+
+#### New Feature:
+* Added utility to pass **Idempotency key** along with request headers to allow a safe retry of POST requests.
+* Added isIdempotencyReplayed() utility to differentiate between original and replayed requests.
+* Added getResponseHeaders() utility to fetch the response headers.
+
 ### v3.16.0 (2023-04-28)
 * * *
 

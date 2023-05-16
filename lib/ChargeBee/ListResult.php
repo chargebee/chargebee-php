@@ -14,14 +14,22 @@ class ListResult implements Countable, ArrayAccess, Iterator
 
     protected $_items;
 
+    private $_responseHeaders;
+
     private $_index = 0;
 
-    public function __construct($response, $nextOffset)
+    public function __construct($response, $nextOffset, $_responseHeaders = null)
     {
         $this->response = $response;
         $this->nextOffset = $nextOffset;
+        $this->_responseHeaders = $_responseHeaders;
         $this->_items = [];
         $this->_initItems();
+    }
+
+    public function getResponseHeaders()
+    {
+        return $this->_responseHeaders;
     }
 
     private function _initItems()

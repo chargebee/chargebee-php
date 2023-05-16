@@ -34,28 +34,54 @@ Download the [latest release](https://github.com/chargebee/chargebee-php/release
 
 ## Usage
 
-To create a new subscription:
+### To create a new subscription:
 
-<pre><code>
+```php
 use ChargeBee\ChargeBee\Environment;
 use ChargeBee\ChargeBee\Subscription;
 
-...
-
 Environment::configure("your_site", "{your_site_api_key}");
-$result = Subscription::create(array(
-  "id" => "__dev__KyVqH3NW3f42fD",
-  "planId" => "starter",
-  "customer" => array(
-    "email" => "john@user.com",
-    "firstName" => "John",
-    "lastName" => "Wayne"
-  )
-));
+$result = Subscription::create([
+    "id" => "__dev__KyVqH3NW3f42fD",
+    "planId" => "starter",
+    "customer" => [
+        "email" => "john@user.com",
+        "firstName" => "John",
+        "lastName" => "Wayne"
+    ]
+]);
 $subscription = $result->subscription();
 $customer = $result->customer();
 $card = $result->card();
-</code></pre>
+```
+
+### Create an idempotent request
+
+[Idempotency keys](https://apidocs.chargebee.com/docs/api) are passed along with request headers to allow a safe retry of POST requests. 
+
+```php
+use ChargeBee\ChargeBee\Environment;
+use ChargeBee\ChargeBee\Models\Customer;
+
+Environment::configure("your_site", "{your_site_api_key}");
+$result = Customer::create(array(
+    "email" => "john@test.com",
+    "first_name" => "john"
+    ), 
+    null, 
+    array(
+        "chargebee-idempotency-key" => "<<UUID>>"
+        )
+    ); // Replace <<UUID>> with a unique string
+$customer = $result->customer();
+print_r($customer);
+
+$responseHeaders = $result->getResponseHeaders(); // Retrieves response headers
+print_r($responseHeaders);
+$idempotencyReplayedValue = $result->isIdempotencyReplayed(); // Retrieves Idempotency replayed header value
+print_r($idempotencyReplayedValue);
+```
+`isIdempotencyReplayed()` method can be accessed to differentiate between original and replayed requests.
 
 ## Legacy Support
 

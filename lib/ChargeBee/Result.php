@@ -4,18 +4,36 @@ namespace ChargeBee\ChargeBee;
 
 use ChargeBee\ChargeBee\Models;
 
+define('IDEMPOTENCY_REPLAY_HEADER', 'chargebee-idempotency-replayed');
+
 class Result
 {
     private $_response;
-	
+    private $_responseHeaders;
     private $_responseObj;
 
-    public function __construct($_response)
+    public function __construct($_response, $_responseHeaders = null)
     {
-            $this->_response = $_response;
-            $this->_responseObj = array();
+        $this->_response = $_response;
+        $this->_responseHeaders = $_responseHeaders;
+        $this->_responseObj = array();
     }
 
+    public function getResponseHeaders()
+    {
+        return $this->_responseHeaders;
+    }
+
+    public function isIdempotencyReplayed()
+    {   
+        $headers = $this->getResponseHeaders();
+        if (isset($headers[IDEMPOTENCY_REPLAY_HEADER])) {
+            $value = $headers[IDEMPOTENCY_REPLAY_HEADER][0];
+            return  boolval($value);
+        }
+        return false;
+    }
+    
     public function subscription() 
     {
         $subscription = $this->_get('subscription', Models\Subscription::class, 
