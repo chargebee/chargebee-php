@@ -1,9 +1,9 @@
 # Chargebee PHP Client Library - API V2
 
-[![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
-[![Packagist](https://img.shields.io/packagist/dt/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
-[![Packagist](https://img.shields.io/packagist/dm/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
-[![Packagist](https://img.shields.io/packagist/l/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
+[![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=25920000)](https://packagist.org/packages/chargebee/chargebee-php)
+[![Packagist](https://img.shields.io/packagist/dt/chargebee/chargebee-php.svg?maxAge=25920000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
+[![Packagist](https://img.shields.io/packagist/dm/chargebee/chargebee-php.svg?maxAge=25920000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
+[![Packagist](https://img.shields.io/packagist/l/chargebee/chargebee-php.svg?maxAge=25920000)](https://packagist.org/packages/chargebee/chargebee-php)
 
 This is the PHP Library for integrating with Chargebee. Sign up for a Chargebee account [here](https://www.chargebee.com).
 
