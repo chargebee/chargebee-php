@@ -138,6 +138,11 @@ class HostedPage extends Model
     return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","pre_cancel"), $params, $env, $headers);
   }
 
+  public static function events($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","events"), $params, $env, $headers);
+  }
+
  }
 
 ?>

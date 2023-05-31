@@ -116,6 +116,8 @@ class Result
         array( 
 			'card' => Models\PaymentSourceCard::class, 
 			'bank_account' => Models\PaymentSourceBankAccount::class, 
+			'cust_voucher_source' => Models\PaymentSourceCustVoucherSource::class, 
+			'billing_address' => Models\PaymentSourceBillingAddress::class, 
 			'amazon_payment' => Models\PaymentSourceAmazonPayment::class, 
 			'upi' => Models\PaymentSourceUpi::class, 
 			'paypal' => Models\PaymentSourcePaypal::class, 
@@ -599,6 +601,16 @@ class Result
     {
         $purchase = $this->_get('purchase', Models\Purchase::class);
         return $purchase;
+    }
+
+
+    public function paymentVoucher() 
+    {
+        $payment_voucher = $this->_get('payment_voucher', Models\PaymentVoucher::class, 
+        array( 
+			'linked_invoices' => Models\PaymentVoucherLinkedInvoice::class
+		));
+        return $payment_voucher;
     }
 
 

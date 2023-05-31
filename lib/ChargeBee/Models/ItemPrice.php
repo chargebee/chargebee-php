@@ -13,6 +13,7 @@ class ItemPrice extends Model
     'id',
     'name',
     'itemFamilyId',
+    'productId',
     'itemId',
     'description',
     'status',

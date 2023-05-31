@@ -137,10 +137,14 @@ require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php')
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSource.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceAmazonPayment.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceBankAccount.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceCard.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceCustVoucherSource.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceMandate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourcePaypal.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceUpi.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentVoucher.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentVoucherLinkedInvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Plan.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PlanApplicableAddon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PlanAttachedAddon.php');
