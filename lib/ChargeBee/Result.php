@@ -174,6 +174,12 @@ class Result
         return $invoice;
     }
 
+    public function paymentReferenceNumber() 
+    {
+        $payment_reference_number = $this->_get('payment_reference_number', Models\PaymentReferenceNumber::class);
+        return $payment_reference_number;
+    }
+
     public function taxWithheld() 
     {
         $tax_withheld = $this->_get('tax_withheld', Models\TaxWithheld::class);

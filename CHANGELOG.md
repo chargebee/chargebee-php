@@ -1,3 +1,40 @@
+### v3.19.0 (2023-06-30)
+* * *
+
+#### New endpoints:
+* ViewVoucher#ViewVoucherRequest has been added to the HostedPage resource.
+* InvoiceListPaymentReferenceNumbers#InvoiceListPaymentReferenceNumbersRequest has been added to the Invoice resource.
+
+#### New Resource:
+* PaymentReferenceNumber has been added.
+
+#### New attributes:
+* local_currency_exchange_rate has been added to the CreditNote and Invoice resource. 
+
+#### New Enum values:
+* view_voucher has been added to Type enum in HostedPage resource.
+* paused has been added in StoreStatus enum in InAppSubscription resource.
+* metrics_global and windcave has been added in Gateway enum. 
+
+
+#### New Input parameters:
+* payment_initiator has been added to Customers#CollectPaymentRequest. 
+* payment_initiator has been added to Invoice#CreateRequest.
+* payment_initiator has been added to Invoice#ChargeRequest.
+* payment_initiator has been added to Invoice#ChargeAddonRequest.
+* payment_initiator has been added to Invoice#CollectPaymentRequest.
+* payment_initiator has been added to Subscription#CreateRequest.
+* payment_initiator has been added to Invoice#CreateForChargeItemRequest.
+* payment_initiator has been added to Subscription#CreateForCustomerRequest.
+* payment_initiator has been added to Subscription#CreateWithItemsRequest.
+* payment_initiator has been added to Subscription#UpdateForItemsRequest.
+* payment_initiator has been added to Subscription#ReactivateRequest.
+* payment_initiator has been added to Subscription#ResumeRequest.
+* payment_reference_numbers[id] has been added to Invoice#ImportInvoiceRequest.
+* payment_reference_numbers[type] has been added to Invoice#ImportInvoiceRequest.
+* payment_reference_numbers[number] has been added to Invoice#ImportInvoiceRequest.
+
+
 ### v3.18.0 (2023-05-31)
 * * *
 

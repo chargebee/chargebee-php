@@ -134,6 +134,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/OrderResentOrder.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntent.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentReferenceNumber.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSource.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceAmazonPayment.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceBankAccount.php');

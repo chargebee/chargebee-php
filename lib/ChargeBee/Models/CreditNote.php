@@ -47,6 +47,7 @@ class CreditNote extends Model
     'linkedRefunds',
     'allocations',
     'deleted',
+    'localCurrencyExchangeRate',
     'createReasonCode',
     'vatNumberPrefix',
     'businessEntityId',

@@ -40,6 +40,7 @@ class Invoice extends Model
     'totalInLocalCurrency',
     'localCurrencyCode',
     'tax',
+    'localCurrencyExchangeRate',
     'firstInvoice',
     'newSalesAmount',
     'hasAdvanceCharges',
@@ -161,6 +162,11 @@ class Invoice extends Model
   public static function downloadEinvoice($id, $env = null, $headers = array())
   {
     return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"download_einvoice"), array(), $env, $headers);
+  }
+
+  public static function listPaymentReferenceNumbers($params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("invoices","payment_reference_numbers"), $params, $env, $headers);
   }
 
   public static function addCharge($id, $params, $env = null, $headers = array())

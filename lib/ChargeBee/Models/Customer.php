@@ -81,7 +81,7 @@ class Customer extends Model
   # OPERATIONS
   #-----------
 
-  public static function create($params, $env = null, $headers = array())
+  public static function create($params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("customers"), $params, $env, $headers);
   }
@@ -96,7 +96,7 @@ class Customer extends Model
     return Request::send(Request::GET, Util::encodeURIPath("customers",$id), array(), $env, $headers);
   }
 
-  public static function update($id, $params, $env = null, $headers = array())
+  public static function update($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("customers",$id), $params, $env, $headers);
   }

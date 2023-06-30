@@ -143,6 +143,11 @@ class HostedPage extends Model
     return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","events"), $params, $env, $headers);
   }
 
+  public static function viewVoucher($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("hosted_pages","view_voucher"), $params, $env, $headers);
+  }
+
  }
 
 ?>
