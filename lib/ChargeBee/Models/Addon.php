@@ -45,6 +45,7 @@ class Addon extends Model
     'priceInDecimal',
     'includedInMrr',
     'channel',
+    'prorationType',
     'invoiceNotes',
     'taxable',
     'taxProfileId',

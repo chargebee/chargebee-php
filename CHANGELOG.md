@@ -1,3 +1,34 @@
+### v3.20.0 (2023-07-31)
+* * *
+
+#### New Attributes:
+* tax_category has been added to the CreditNote, Quote and Invoice resource. 
+* proration_type has been added in Addon resource.
+
+#### New Enum values:
+* tax has been added to EntityType enum in Invoice resource.
+* payment_source_locally_deleted has been added to EventType.
+
+#### New Input parameters:
+
+* CouponId and CouponApplyTill has been added to Subscritpion#CreateRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#CreateForCustomerRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#CreateWithItemsRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#UpdateRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#UpdateForItemsRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#ImportSubscriptionRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#ImportForCustomerRequest in Subscritpion resource. 
+* CouponId and CouponApplyTill has been added to Subscritpion#ImportForItemsRequest in Subscritpion resource. 
+* cancel_reason_code has been added to Subscritpion#ImportForItemsRequest in Subscritpion resource.
+* proration_type has been added in addon#createRequest and addon#UpdateRequest in Addon resource.
+* addons[proration_type] has been added in Estimate#UpdateSubscriptionRequest in Estimate resource.
+* addons[proration_type]  has been added in Subscription#UpdateRequest in Subscritpion resource.
+
+#### New Enum Class:
+* ProrationType enum has been added to addon resource.
+* ProrationType enum has been added.
+
+
 ### v3.19.0 (2023-06-30)
 * * *
 

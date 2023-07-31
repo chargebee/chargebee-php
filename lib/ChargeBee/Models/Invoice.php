@@ -69,6 +69,7 @@ class Invoice extends Model
     'paymentOwner',
     'voidReasonCode',
     'deleted',
+    'taxCategory',
     'vatNumberPrefix',
     'channel',
     'businessEntityId',

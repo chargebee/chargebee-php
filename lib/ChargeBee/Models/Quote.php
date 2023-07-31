@@ -39,6 +39,7 @@ class Quote extends Model
     'taxes',
     'lineItemTaxes',
     'lineItemTiers',
+    'taxCategory',
     'currencyCode',
     'notes',
     'shippingAddress',
