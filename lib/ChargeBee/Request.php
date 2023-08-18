@@ -4,9 +4,11 @@ namespace ChargeBee\ChargeBee;
 
 use ChargeBee\ChargeBee\Exceptions\APIError;
 use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
+use ChargeBee\ChargeBee\Exceptions\IOException;
 use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
 use ChargeBee\ChargeBee\Exceptions\PaymentException;
 use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
 
 class Request
 {
@@ -48,11 +50,22 @@ class Request
 
     public static function doRequest($meth, $url, $env, $params = array(), $headers = array())
     {
-        list($response, $httpCode, $responseHeaders) = Guzzle::request($meth, $url, $env, $params, $headers);
+        $url = self::utf8($env->apiUrl($url));
 
-        $respJson = self::processResponse($response, $httpCode);
-        $response = new Response($respJson, $responseHeaders);
-        return $response;
+        $client = Environment::getClient();
+        $request = GuzzleFactory::createRequest($meth, $headers, $env, $url, $params);
+
+        try {
+            $clientResponse = $client->sendRequest($request);
+        } catch (ClientExceptionInterface $e) {
+            $errno = $e->getCode();
+            $errorMessage = $e->getMessage();
+            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $errorMessage;
+            throw new IOException($message, $errno);
+        }
+
+        $respJson = self::processResponse((string)$clientResponse->getBody(), $clientResponse->getStatusCode());
+        return new Response($respJson, $clientResponse->getHeaders());
     }
 
     /**
@@ -110,5 +123,13 @@ class Request
         } else {
             throw new APIError($httpCode, $respJson);
         }
+    }
+
+    public static function utf8($value)
+    {
+        if (is_string($value))
+            return mb_convert_encoding($value, "UTF-8");
+        else
+            return $value;
     }
 }
