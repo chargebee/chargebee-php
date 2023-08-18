@@ -2,6 +2,9 @@
 
 namespace ChargeBee\ChargeBee;
 
+use GuzzleHttp\Client;
+use Psr\Http\Client\ClientInterface;
+
 class Environment
 {
     private $apiKey;
@@ -9,6 +12,8 @@ class Environment
     private $apiEndPoint;
 
     private static $default_env;
+    private static $httpClient;
+
     public static $scheme = "https";
     public static $chargebeeDomain;
 
@@ -30,6 +35,8 @@ class Environment
         } else {
             $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
         }
+
+        self::configureClient(new Client());
     }
 
     public static function configure($site, $apiKey)
@@ -71,5 +78,22 @@ class Environment
     {
         self::$requestTimeoutInSecs = $requestTimeout;
 
+    }
+
+    /**
+     * @return void
+     * Please note that Request class is currently coupled with Guzzle implementation of http client
+     */
+    public static function configureClient(ClientInterface $client)
+    {
+        self::$httpClient = $client;
+    }
+
+    /**
+     * @return ClientInterface
+     */
+    public static function getClient()
+    {
+        return self::$httpClient;
     }
 }

@@ -10,9 +10,11 @@ use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
 use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
 use ChargeBee\ChargeBee\Exceptions\APIError;
 use Exception;
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+/**
+ * TODO: Decouple implementation from Guzzle and rename to HttpClient
+ */
 class Guzzle
 {
     public static function utf8($value) {
@@ -30,7 +32,7 @@ class Guzzle
     }
     
     public static function request($meth, $url, $env, $params, $headers) {
-        $client = new Client();
+        $client = Environment::getClient();
 
         $opts = array(
             'connect_timeout' => Environment::$connectTimeoutInSecs,
