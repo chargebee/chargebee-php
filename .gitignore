@@ -9,3 +9,5 @@
 # Ignore the vendor directory for people using composer
 /vendor/
 composer.lock
+
+*.cache
