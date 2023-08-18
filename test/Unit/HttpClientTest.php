@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \ChargeBee\ChargeBee\Guzzle
+ * @covers \ChargeBee\ChargeBee\Request
  * @covers \ChargeBee\ChargeBee\Models\Customer
  */
 final class HttpClientTest extends TestCase

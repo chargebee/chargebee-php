@@ -24,13 +24,6 @@ class Guzzle
             return $value;
     }
 
-    public static function doRequest($meth, $url, $env, $params = array(), $headers = array()) {
-        list($response, $httpCode, $responseHeaders) = self::request($meth, $url, $env, $params, $headers);
-        $respJson = self::processResponse($response, $httpCode);
-        $response = new Response($respJson, $responseHeaders);
-        return $response;
-    }
-    
     public static function request($meth, $url, $env, $params, $headers) {
         $client = Environment::getClient();
 
@@ -79,61 +72,6 @@ class Guzzle
      */
     private static function isAppEngine() {
         return (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
-    }
-
-    /**
-     * @param $response
-     * @param $httpCode
-     *
-     * @return mixed
-     * @throws APIError
-     * @throws InvalidRequestException
-     * @throws OperationFailedException
-     * @throws PaymentException
-     */
-    public static function processResponse($response, $httpCode) {
-        $respJson = json_decode($response, true);
-        if(!$respJson){
-            if (strpos($response, '503') !== false)
-                 throw new Exception("Sorry, the server is currently unable to handle the request due to a temporary overload or scheduled maintenance. Please retry after sometime. \n type: internal_temporary_error, \n http_status_code: 503, \n error_code: internal_temporary_error");
-            else if (strpos($response, '504') !== false)
-                 throw new Exception("The server did not receive a timely response from an upstream server, request aborted. If this problem persists, contact us at support@chargebee.com. \n type: gateway_timeout, \n http_status_code: 504, \n error_code: gateway_timeout");
-            else          
-                 throw new Exception("Sorry, something went wrong when trying to process the request. If this problem persists, contact us at support@chargebee.com. \n type: internal_error, \n http_status_code: 500, \n error_code: internal_error ");
-        }
-        if ($httpCode < 200 || $httpCode > 299) {
-            self::handleAPIRespError($httpCode, $respJson,$response);
-        }
-        return $respJson;
-    }
-
-    /**
-     * @param $httpCode
-     * @param $respJson
-     * @param $response
-     *
-     * @throws APIError
-     * @throws InvalidRequestException
-     * @throws OperationFailedException
-     * @throws PaymentException
-     */
-    public static function handleAPIRespError($httpCode, $respJson,$response) {
-        if(!isset($respJson['api_error_code'])){
-            throw new Exception("No api_error_code attribute in content. Probably not a ChargeBee's error response. The content is \n " . $response);
-        }
-        $type="unknown";
-        if(isset($respJson['type'])){
-            $type = $respJson['type'];
-        }
-        if ($type == "payment") {
-            throw new PaymentException($httpCode, $respJson);
-        } elseif ($type == "operation_failed") {
-            throw new OperationFailedException($httpCode, $respJson);
-        } elseif ($type == "invalid_request") {
-            throw new InvalidRequestException($httpCode, $respJson);
-        } else {
-            throw new APIError($httpCode, $respJson);
-        }
     }
 
 }
