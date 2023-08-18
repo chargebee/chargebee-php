@@ -5,12 +5,9 @@ namespace ChargeBee\ChargeBee;
 
 use ChargeBee\ChargeBee;
 use ChargeBee\ChargeBee\Exceptions\IOException;
-use ChargeBee\ChargeBee\Exceptions\PaymentException;
-use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
-use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
-use ChargeBee\ChargeBee\Exceptions\APIError;
 use Exception;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Client\ClientExceptionInterface;
 
 /**
  * TODO: Decouple implementation from Guzzle and rename to HttpClient
@@ -28,35 +25,53 @@ class Guzzle
         $client = Environment::getClient();
 
         $opts = [];
-        if ($meth == Request::GET) {
-            if (count($params) > 0) {
-                $opts['query'] = $params;
-            }
-        } else if ($meth == Request::POST) {
-            $opts['form_params'] = $params;
-        } else {
+
+        if (!in_array($meth, [Request::GET, Request::POST])) {
             throw new Exception("Invalid http method $meth");
         }
+
         $url = self::utf8($env->apiUrl($url));
 
         $userAgent = "Chargebee-PHP-Client" . " v" . Version::VERSION;
-        $httpHeaders = array_merge($headers, ['Accept' => 'application/json', 'User-Agent' => $userAgent, 'Lang-Version' => phpversion() , 'OS-Version' => PHP_OS]);
+        $httpHeaders = array_merge(
+            $headers,
+            [
+                'Accept' => 'application/json',
+                'User-Agent' => $userAgent,
+                'Lang-Version' => phpversion(),
+                'OS-Version' => PHP_OS,
+                'Authorization' => 'Basic ' . \base64_encode($env->getApiKey() . ':')
+            ]
+        );
+        $body = null;
 
-        $opts['headers'] = $httpHeaders;
-        $opts['auth'] = [$env->getApiKey(), ''];
+        $uri = new Uri($url);
+
+        if ($meth == Request::GET) {
+            if (count($params) > 0) {
+                $query = \http_build_query($params, '', '&', \PHP_QUERY_RFC3986);
+                $uri->withQuery($query);
+            }
+        }
+
+        if ($meth == Request::POST) {
+            $body = \http_build_query($params, '', '&');
+            $httpHeaders['Content-Type'] = 'application/x-www-form-urlencoded';
+        }
+
+        $request = new \GuzzleHttp\Psr7\Request($meth, $uri, $httpHeaders, $body);
 
         // Specifying a CA bundle results in the following error when running in Google App Engine:
         // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
         // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
         $opts['verify'] = ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false;
 
-        $response = null;
         try {
-            $response = $client->request($meth, $url, $opts);
-        } catch (RequestException $e) {
+            $response = $client->sendRequest($request);
+        } catch (ClientExceptionInterface $e) {
             $errno = $e->getCode();
-            $guzzleMsg = $e->getMessage();
-            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $guzzleMsg;
+            $errorMessage = $e->getMessage();
+            $message = "IO exception occurred when trying to connect to " . $url . " . Reason : " . $errorMessage;
             throw new IOException($message, $errno);
         }
         $responseHeaders = $response->getHeaders();
