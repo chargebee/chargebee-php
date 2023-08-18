@@ -34,12 +34,7 @@ class Guzzle
     public static function request($meth, $url, $env, $params, $headers) {
         $client = Environment::getClient();
 
-        $opts = array(
-            'connect_timeout' => Environment::$connectTimeoutInSecs,
-            'timeout' => Environment::$requestTimeoutInSecs,
-            'allow_redirects' => true,
-            'http_errors' => false
-        );
+        $opts = [];
         if ($meth == Request::GET) {
             if (count($params) > 0) {
                 $opts['query'] = $params;
@@ -143,12 +138,4 @@ class Guzzle
 
 }
 
-class Response {
-    public $data;
-    public $headers;
 
-    public function __construct($data, $headers) {
-        $this->data = $data;
-        $this->headers = $headers;
-    }
-}

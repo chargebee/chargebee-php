@@ -2,7 +2,6 @@
 
 namespace ChargeBee\ChargeBee;
 
-use GuzzleHttp\Client;
 use Psr\Http\Client\ClientInterface;
 
 class Environment
@@ -36,7 +35,12 @@ class Environment
             $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
         }
 
-        self::configureClient(new Client());
+        self::configureClient(
+            GuzzleFactory::createClient(
+                self::$connectTimeoutInSecs,
+                self::$requestTimeoutInSecs
+            )
+        );
     }
 
     public static function configure($site, $apiKey)

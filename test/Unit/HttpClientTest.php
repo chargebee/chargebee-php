@@ -3,9 +3,9 @@
 use ChargeBee\ChargeBee\Environment;
 use ChargeBee\ChargeBee\Exceptions\APIError;
 use ChargeBee\ChargeBee\Exceptions\IOException;
+use ChargeBee\ChargeBee\GuzzleFactory;
 use ChargeBee\ChargeBee\Models\Customer;
 use ChargeBee\ChargeBee\Result;
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -26,10 +26,7 @@ final class HttpClientTest extends TestCase
     {
         $mockHandler = new MockHandler();
         Environment::configure("test_site", "not-real");
-        Environment::configureClient(
-            new Client(['handler' => HandlerStack::create($mockHandler)]
-            )
-        );
+        $this->setUpClient($mockHandler);
 
         $customer = <<<'JSON'
  {
@@ -88,10 +85,7 @@ JSON;
             )
         ]);
         Environment::configure("test_site", "not-real");
-        Environment::configureClient(
-            new Client(['handler' => HandlerStack::create($mockHandler)]
-            )
-        );
+        $this->setUpClient($mockHandler);
 
         $this->expectException(IOException::class);
 
@@ -107,10 +101,7 @@ JSON;
             new Response(500, [], '{"message": "Server error"}')
         ]);
         Environment::configure("test_site", "not-real");
-        Environment::configureClient(
-            new Client(['handler' => HandlerStack::create($mockHandler)]
-            )
-        );
+        $this->setUpClient($mockHandler);
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessageMatches('/^No api_error_code attribute in content/');
@@ -127,13 +118,19 @@ JSON;
             new Response(500, [], '{"message": "Server error", "api_error_code": 500}')
         ]);
         Environment::configure("test_site", "not-real");
-        Environment::configureClient(
-            new Client(['handler' => HandlerStack::create($mockHandler)]
-            )
-        );
+        $this->setUpClient($mockHandler);
 
         $this->expectException(APIError::class);
 
         Customer::retrieve(123);
+    }
+
+    private function setUpClient(MockHandler $mockHandler)
+    {
+        Environment::configureClient(GuzzleFactory::createClient(
+            2,
+            5,
+            ['handler' => HandlerStack::create($mockHandler)])
+        );
     }
 }
