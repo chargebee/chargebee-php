@@ -3,7 +3,7 @@
 use ChargeBee\ChargeBee\Environment;
 use ChargeBee\ChargeBee\Exceptions\APIError;
 use ChargeBee\ChargeBee\Exceptions\IOException;
-use ChargeBee\ChargeBee\GuzzleFactory;
+use ChargeBee\ChargeBee\HttpClient\GuzzleFactory;
 use ChargeBee\ChargeBee\Models\Customer;
 use ChargeBee\ChargeBee\Result;
 use GuzzleHttp\Exception\RequestException;
@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \ChargeBee\ChargeBee\Request
- * @covers \ChargeBee\ChargeBee\Models\Customer
  */
 final class HttpClientTest extends TestCase
 {
@@ -127,10 +126,11 @@ JSON;
 
     private function setUpClient(MockHandler $mockHandler)
     {
-        Environment::configureClient(GuzzleFactory::createClient(
-            2,
-            5,
-            ['handler' => HandlerStack::create($mockHandler)])
+        $factory = new GuzzleFactory(
+            2.0,
+            5.0,
+            ['handler' => HandlerStack::create($mockHandler)]
         );
+        Environment::setHttpClientFactory($factory);
     }
 }

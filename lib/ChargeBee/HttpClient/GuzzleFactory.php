@@ -1,40 +1,62 @@
 <?php
 
-namespace ChargeBee\ChargeBee;
+namespace ChargeBee\ChargeBee\HttpClient;
 
 use ChargeBee\ChargeBee;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Version;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestInterface;
 
-final class GuzzleFactory
+final class GuzzleFactory implements HttpClientFactory
 {
+    private $options;
+    private $connectTimeoutInSecs;
+    private $requestTimeoutInSecs;
+
     /**
-     * @param array $opts
+     * @param array $options
+     * @param float $connectTimeoutInSecs
+     * @param float $requestTimeoutInSecs
+     */
+    public function __construct($connectTimeoutInSecs, $requestTimeoutInSecs, $options = [])
+    {
+        $this->connectTimeoutInSecs = $connectTimeoutInSecs;
+        $this->requestTimeoutInSecs = $requestTimeoutInSecs;
+        $this->options = $options;
+    }
+
+    /**
      * @return ClientInterface|Client
      */
-    public static function createClient($connectTimeoutInSecs, $requestTimeoutInSecs, $opts = [])
+    public function createClient()
     {
         return new Client(
             array_merge(
                 [
                     'allow_redirects' => true,
                     'http_errors' => false,
-                    'connect_timeout' => $connectTimeoutInSecs,
-                    'timeout' => $requestTimeoutInSecs,
+                    'connect_timeout' => $this->connectTimeoutInSecs,
+                    'timeout' => $this->requestTimeoutInSecs,
                     // Specifying a CA bundle results in the following error when running in Google App Engine:
                     // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
                     // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
                     // TODO: extract parameter
                     'verify' => ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false
                 ],
-                $opts
+                $this->options
             )
         );
     }
 
-    public static function createRequest($meth, $headers, $env, $url, $params)
+    /**
+     * @throws Exception
+     * @return RequestInterface
+     */
+    public function createRequest($meth, $headers, $env, $url, $params)
     {
         if (!in_array($meth, [Request::GET, Request::POST])) {
             throw new Exception("Invalid http method $meth");

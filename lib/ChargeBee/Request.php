@@ -48,12 +48,14 @@ class Request
         }
     }
 
-    public static function doRequest($meth, $url, $env, $params = array(), $headers = array())
+    private static function doRequest($meth, $url, $env, $params = array(), $headers = array())
     {
         $url = self::utf8($env->apiUrl($url));
 
-        $client = Environment::getClient();
-        $request = GuzzleFactory::createRequest($meth, $headers, $env, $url, $params);
+        $factory = Environment::getHttpClientFactory();
+
+        $client = $factory->createClient();
+        $request = $factory->createRequest($meth, $headers, $env, $url, $params);
 
         try {
             $clientResponse = $client->sendRequest($request);

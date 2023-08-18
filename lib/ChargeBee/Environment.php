@@ -2,7 +2,8 @@
 
 namespace ChargeBee\ChargeBee;
 
-use Psr\Http\Client\ClientInterface;
+use ChargeBee\ChargeBee\HttpClient\GuzzleFactory;
+use ChargeBee\ChargeBee\HttpClient\HttpClientFactory;
 
 class Environment
 {
@@ -11,7 +12,7 @@ class Environment
     private $apiEndPoint;
 
     private static $default_env;
-    private static $httpClient;
+    private static $httpClientFactory;
 
     public static $scheme = "https";
     public static $chargebeeDomain;
@@ -35,12 +36,7 @@ class Environment
             $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
         }
 
-        self::configureClient(
-            GuzzleFactory::createClient(
-                self::$connectTimeoutInSecs,
-                self::$requestTimeoutInSecs
-            )
-        );
+        self::$httpClientFactory = new GuzzleFactory(self::$connectTimeoutInSecs, self::$requestTimeoutInSecs);
     }
 
     public static function configure($site, $apiKey)
@@ -86,18 +82,17 @@ class Environment
 
     /**
      * @return void
-     * Please note that Request class is currently coupled with Guzzle implementation of http client
      */
-    public static function configureClient(ClientInterface $client)
+    public static function setHttpClientFactory(HttpClientFactory $factory)
     {
-        self::$httpClient = $client;
+        self::$httpClientFactory = $factory;
     }
 
     /**
-     * @return ClientInterface
+     * @return HttpClientFactory
      */
-    public static function getClient()
+    public static function getHttpClientFactory()
     {
-        return self::$httpClient;
+        return self::$httpClientFactory;
     }
 }
