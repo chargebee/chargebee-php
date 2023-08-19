@@ -2,6 +2,7 @@
 
 namespace ChargeBee\ChargeBee;
 
+use ChargeBee\ChargeBee;
 use ChargeBee\ChargeBee\HttpClient\GuzzleFactory;
 use ChargeBee\ChargeBee\HttpClient\HttpClientFactory;
 
@@ -36,7 +37,14 @@ class Environment
             $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
         }
 
-        self::$httpClientFactory = new GuzzleFactory(self::$connectTimeoutInSecs, self::$requestTimeoutInSecs);
+        self::$httpClientFactory = new GuzzleFactory(
+            self::$connectTimeoutInSecs,
+            self::$requestTimeoutInSecs,
+            // Specifying a CA bundle results in the following error when running in Google App Engine:
+            // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
+            // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
+            ['verify' => ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false]
+        );
     }
 
     public static function configure($site, $apiKey)
@@ -94,5 +102,16 @@ class Environment
     public static function getHttpClientFactory()
     {
         return self::$httpClientFactory;
+    }
+
+    /**
+     * Recommended way to check if script is running in Google App Engine:
+     * https://github.com/google/google-api-php-client/blob/master/src/Google/Client.php#L799
+     *
+     * @return bool Returns true if running in Google App Engine
+     */
+    public static function isAppEngine()
+    {
+        return (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
     }
 }
