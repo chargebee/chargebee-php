@@ -2,9 +2,13 @@
 
 use ChargeBee\ChargeBee\Environment;
 use ChargeBee\ChargeBee\Exceptions\APIError;
+use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
 use ChargeBee\ChargeBee\Exceptions\IOException;
+use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
+use ChargeBee\ChargeBee\Exceptions\PaymentException;
 use ChargeBee\ChargeBee\HttpClient\GuzzleFactory;
 use ChargeBee\ChargeBee\Models\Customer;
+use ChargeBee\ChargeBee\Models\PaymentIntent;
 use ChargeBee\ChargeBee\Result;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Handler\MockHandler;
@@ -170,6 +174,117 @@ final class HttpClientTest extends TestCase
         $this->expectException(APIError::class);
 
         Customer::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testTemporaryUnavailableResponse()
+    {
+        $mockHandler = new MockHandler([
+            new Response(503, [], '<html><h1>503</h1>')
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageMatches('/error_code: internal_temporary_error/');
+
+        Customer::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGatewayTimeout()
+    {
+        $mockHandler = new MockHandler([
+            new Response(504, [], '<html><h1>504</h1>')
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageMatches('/error_code: gateway_timeout/');
+
+        Customer::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testFallbackInternalErrorResponse()
+    {
+        $mockHandler = new MockHandler([
+            new Response(504, [], 'no http code in response body')
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageMatches('/error_code: internal_error/');
+
+        Customer::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testPaymentExceptionIsThrown()
+    {
+        $mockHandler = new MockHandler([
+            new Response(
+                402,
+                [],
+                '{"api_error_code": "value not used", "type": "payment"}'
+            )
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(PaymentException::class);
+
+        PaymentIntent::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testOperationFailedExceptionIsThrown()
+    {
+        $mockHandler = new MockHandler([
+            new Response(
+                409,
+                [],
+                '{"api_error_code": "value not used", "type": "operation_failed"}'
+            )
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(OperationFailedException::class);
+
+        PaymentIntent::retrieve(123);
+    }
+
+    /**
+     * @return void
+     */
+    public function testInvalidRequestExceptionIsThrown()
+    {
+        $mockHandler = new MockHandler([
+            new Response(
+                400,
+                [],
+                '{"api_error_code": "value not used", "type": "invalid_request"}'
+            )
+        ]);
+        Environment::configure("test_site", "not-real");
+        $this->setUpClient($mockHandler);
+
+        $this->expectException(InvalidRequestException::class);
+
+        PaymentIntent::retrieve(123);
     }
 
     private function setUpClient(MockHandler $mockHandler)
