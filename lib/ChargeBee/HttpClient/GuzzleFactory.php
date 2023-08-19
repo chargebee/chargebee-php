@@ -80,7 +80,7 @@ final class GuzzleFactory implements HttpClientFactory
         if ($meth == Request::GET) {
             if (count($params) > 0) {
                 $query = \http_build_query($params, '', '&', \PHP_QUERY_RFC3986);
-                $uri->withQuery($query);
+                $uri = $uri->withQuery($query);
             }
         }
 
