@@ -23,20 +23,19 @@ use PHPUnit\Framework\TestCase;
  */
 final class HttpClientTest extends TestCase
 {
+    /** @var MockHandler $mockHandler */
+    private $mockHandler;
     /**
      * @return void
      */
     public function testThatResultIsRetrievedFromValidHttpResponse()
     {
-        $mockHandler = new MockHandler();
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
-
-        $mockHandler->append(new Response(200, [], self::customerJson()));
+        $this->mockHandler = new MockHandler([new Response(200, [], self::customerJson())]);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $customerResult = Customer::retrieve(123);
 
-        self::assertEquals('/api/v2/customers/123', $mockHandler->getLastRequest()->getUri()->getPath());
+        self::assertEquals('/api/v2/customers/123', $this->mockHandler->getLastRequest()->getUri()->getPath());
         self::assertInstanceOf(Result::class, $customerResult);
     }
 
@@ -45,16 +44,13 @@ final class HttpClientTest extends TestCase
      */
     public function testThatQueryParametersAreBuiltWithOneParam()
     {
-        $mockHandler = new MockHandler();
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
-        $mockHandler->append(new Response(200, [], self::customerListJson()
-));
+        $this->mockHandler = new MockHandler([new Response(200, [], self::customerListJson())]);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
-        $result = Customer::all(["firstName[is]" => "John"]);
+        Customer::all(["firstName[is]" => "John"]);
 
-        self::assertEquals('/api/v2/customers', $mockHandler->getLastRequest()->getUri()->getPath());
-        self::assertEquals('first_name%5Bis%5D=John', $mockHandler->getLastRequest()->getUri()->getQuery());
+        self::assertEquals('/api/v2/customers', $this->mockHandler->getLastRequest()->getUri()->getPath());
+        self::assertEquals('first_name%5Bis%5D=John', $this->mockHandler->getLastRequest()->getUri()->getQuery());
     }
 
     /**
@@ -62,18 +58,15 @@ final class HttpClientTest extends TestCase
      */
     public function testThatQueryParametersAreBuiltWithMultipleParams()
     {
-        $mockHandler = new MockHandler();
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
-        $mockHandler->append(new Response(200, [], self::customerListJson()
-));
+        $this->mockHandler= new MockHandler([new Response(200, [], self::customerListJson())]);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $result = Customer::all(["firstName[is]" => "John", "lastName[is]" => "Doe", "email[is]" => "john@test.com"]);
 
-        self::assertEquals('/api/v2/customers', $mockHandler->getLastRequest()->getUri()->getPath());
+        self::assertEquals('/api/v2/customers', $this->mockHandler->getLastRequest()->getUri()->getPath());
         self::assertEquals(
             'first_name%5Bis%5D=John&last_name%5Bis%5D=Doe&email%5Bis%5D=john%40test.com',
-            $mockHandler->getLastRequest()->getUri()->getQuery()
+            $this->mockHandler->getLastRequest()->getUri()->getQuery()
         );
     }
 
@@ -82,11 +75,8 @@ final class HttpClientTest extends TestCase
      */
     public function testThatPostRequestBodyIsBuilt()
     {
-        $mockHandler = new MockHandler();
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
-        $mockHandler->append(new Response(200, [], self::customerListJson()
-        ));
+        $this->mockHandler= new MockHandler([new Response(200, [], self::customerListJson())]);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $result = Customer::create([
             "firstName" => "John",
@@ -104,7 +94,7 @@ final class HttpClientTest extends TestCase
             ]
         ]);
 
-        $performedRequest = $mockHandler->getLastRequest();
+        $performedRequest = $this->mockHandler->getLastRequest();
 
         self::assertEquals('POST', $performedRequest->getMethod());
         self::assertEquals('/api/v2/customers', $performedRequest->getUri()->getPath());
@@ -130,13 +120,12 @@ final class HttpClientTest extends TestCase
      */
     public function testIOExceptionIsThrownOnHttpClientException()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             RequestException::create(
                 new Request('GET', '/api/v2/customers/123')
             )
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(IOException::class);
 
@@ -148,11 +137,10 @@ final class HttpClientTest extends TestCase
      */
     public function testUnexpectedServerErrorResponse()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(500, [], '{"message": "Server error"}')
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessageMatches('/^No api_error_code attribute in content/');
@@ -165,11 +153,10 @@ final class HttpClientTest extends TestCase
      */
     public function testDefaultServerErrorResponse()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(500, [], '{"message": "Server error", "api_error_code": 500}')
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(APIError::class);
 
@@ -181,11 +168,10 @@ final class HttpClientTest extends TestCase
      */
     public function testTemporaryUnavailableResponse()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(503, [], '<html><h1>503</h1>')
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessageMatches('/error_code: internal_temporary_error/');
@@ -198,11 +184,10 @@ final class HttpClientTest extends TestCase
      */
     public function testGatewayTimeout()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(504, [], '<html><h1>504</h1>')
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessageMatches('/error_code: gateway_timeout/');
@@ -215,11 +200,10 @@ final class HttpClientTest extends TestCase
      */
     public function testFallbackInternalErrorResponse()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(504, [], 'no http code in response body')
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(Exception::class);
         $this->expectExceptionMessageMatches('/error_code: internal_error/');
@@ -232,15 +216,14 @@ final class HttpClientTest extends TestCase
      */
     public function testPaymentExceptionIsThrown()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(
                 402,
                 [],
                 '{"api_error_code": "value not used", "type": "payment"}'
             )
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(PaymentException::class);
 
@@ -252,15 +235,14 @@ final class HttpClientTest extends TestCase
      */
     public function testOperationFailedExceptionIsThrown()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(
                 409,
                 [],
                 '{"api_error_code": "value not used", "type": "operation_failed"}'
             )
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(OperationFailedException::class);
 
@@ -272,29 +254,26 @@ final class HttpClientTest extends TestCase
      */
     public function testInvalidRequestExceptionIsThrown()
     {
-        $mockHandler = new MockHandler([
+        $this->mockHandler = new MockHandler([
             new Response(
                 400,
                 [],
                 '{"api_error_code": "value not used", "type": "invalid_request"}'
             )
         ]);
-        Environment::configure("test_site", "not-real");
-        $this->setUpClient($mockHandler);
+        Environment::configure("test_site", "not-real", $this->clientFactory());
 
         $this->expectException(InvalidRequestException::class);
 
         PaymentIntent::retrieve(123);
     }
 
-    private function setUpClient(MockHandler $mockHandler)
-    {
-        $factory = new GuzzleFactory(
+    private function clientFactory() {
+        return new GuzzleFactory(
             2.0,
             5.0,
-            ['handler' => HandlerStack::create($mockHandler)]
+            ['handler' => HandlerStack::create($this->mockHandler)]
         );
-        Environment::setHttpClientFactory($factory);
     }
 
     public static function customerJson()

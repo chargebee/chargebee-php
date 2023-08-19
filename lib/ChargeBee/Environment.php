@@ -26,7 +26,7 @@ class Environment
 
     const API_VERSION = "v2";
 
-    public function __construct($site, $apiKey)
+    public function __construct($site, $apiKey, $httpClientFactory = null)
     {
         $this->site = $site;
         $this->apiKey = $apiKey;
@@ -37,19 +37,25 @@ class Environment
             $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
         }
 
-        self::$httpClientFactory = new GuzzleFactory(
-            self::$connectTimeoutInSecs,
-            self::$requestTimeoutInSecs,
-            // Specifying a CA bundle results in the following error when running in Google App Engine:
-            // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
-            // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
-            ['verify' => ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false]
-        );
+        if (null === $httpClientFactory) {
+            self::$httpClientFactory = new GuzzleFactory(
+                self::$connectTimeoutInSecs,
+                self::$requestTimeoutInSecs,
+                // Specifying a CA bundle results in the following error when running in Google App Engine:
+                // "Unsupported SSL context options are set. The following options are present, but have been ignored: allow_self_signed, cafile"
+                // https://cloud.google.com/appengine/docs/php/outbound-requests#secure_connections_and_https
+                ['verify' => ChargeBee::getVerifyCaCerts() && !self::isAppEngine() ? ChargeBee::getCaCertPath() : false]
+            );
+
+            return;
+        }
+
+        self::$httpClientFactory = $httpClientFactory;
     }
 
-    public static function configure($site, $apiKey)
+    public static function configure($site, $apiKey, $httpClientFactory = null)
     {
-        self::$default_env = new self($site, $apiKey);
+        self::$default_env = new self($site, $apiKey, $httpClientFactory);
     }
 
     public function getApiKey()
@@ -86,14 +92,6 @@ class Environment
     {
         self::$requestTimeoutInSecs = $requestTimeout;
 
-    }
-
-    /**
-     * @return void
-     */
-    public static function setHttpClientFactory(HttpClientFactory $factory)
-    {
-        self::$httpClientFactory = $factory;
     }
 
     /**
