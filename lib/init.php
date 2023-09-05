@@ -57,6 +57,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLineItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteLinkedRefund.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CreditNoteTax.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CsvTaxRule.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Customer.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBalance.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBillingAddress.php');

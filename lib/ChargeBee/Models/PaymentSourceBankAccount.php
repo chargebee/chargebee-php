@@ -11,6 +11,7 @@ class PaymentSourceBankAccount extends Model
     'nameOnAccount',
     'firstName',
     'lastName',
+    'directDebitScheme',
     'bankName',
     'mandateId',
     'accountType',

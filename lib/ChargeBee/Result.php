@@ -619,6 +619,12 @@ class Result
         return $payment_voucher;
     }
 
+    public function csvTaxRule() 
+    {
+        $csv_tax_rule = $this->_get('csv_tax_rule', Models\CsvTaxRule::class);
+        return $csv_tax_rule;
+    }
+
 
     public function unbilledCharges() 
     {
