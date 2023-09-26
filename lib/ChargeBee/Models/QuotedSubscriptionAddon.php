@@ -16,6 +16,7 @@ class QuotedSubscriptionAddon extends Model
     'quantityInDecimal',
     'unitPriceInDecimal',
     'amountInDecimal',
+    'prorationType',
   ];
 
 }

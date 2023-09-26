@@ -121,6 +121,7 @@ class Result
 			'amazon_payment' => Models\PaymentSourceAmazonPayment::class, 
 			'upi' => Models\PaymentSourceUpi::class, 
 			'paypal' => Models\PaymentSourcePaypal::class, 
+			'venmo' => Models\PaymentSourceVenmo::class, 
 			'mandates' => Models\PaymentSourceMandate::class
 		));
         return $payment_source;

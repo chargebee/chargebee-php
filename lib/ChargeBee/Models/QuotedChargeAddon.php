@@ -12,6 +12,7 @@ class QuotedChargeAddon extends Model
     'unitPrice',
     'quantityInDecimal',
     'unitPriceInDecimal',
+    'prorationType',
     'servicePeriod',
   ];
 

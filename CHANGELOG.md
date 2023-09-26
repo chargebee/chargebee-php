@@ -1,3 +1,23 @@
+### v3.22.0 (2023-09-26)
+* * *
+
+#### New attributes:
+* venmo has been added to the PaymentSource resource.
+* proration_type has been added to the QuotedCharge, QuotedSubscription and Subscription resource.
+
+#### New Enum values:
+* ebanx has been added to Gateway.
+* venmo has been added to Customer#TypeEnum.
+* venmo has been added to PaymentMethodEnum.
+* venmo has been added to PaymentMethodTypeEnum.
+* venmo has been added to TypeEnum.
+* venmo has been added to PaymentIntent#PaymentMethodTypeEnum.
+
+#### New Input parameters:
+* einvoicing_method has been added to HostedPage#CheckoutOneTimeForItemsRequest.
+* einvoicing_method has been added to HostedPage#CheckoutNewForItemsRequest.
+* additional_information has been added to PaymentSource#CardAdditionalInformation.
+
 ### v3.21.0 (2023-09-05)
 * * *
 

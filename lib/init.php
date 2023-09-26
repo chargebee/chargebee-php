@@ -145,6 +145,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceCustVoucherSource.ph
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceMandate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourcePaypal.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceUpi.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSourceVenmo.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentVoucher.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentVoucherLinkedInvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Plan.php');

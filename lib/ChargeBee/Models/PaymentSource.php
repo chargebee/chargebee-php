@@ -29,6 +29,7 @@ class PaymentSource extends Model
     'amazonPayment',
     'upi',
     'paypal',
+    'venmo',
     'mandates',
     'deleted',
     'businessEntityId',

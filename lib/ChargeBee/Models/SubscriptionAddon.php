@@ -16,6 +16,7 @@ class SubscriptionAddon extends Model
     'quantityInDecimal',
     'unitPriceInDecimal',
     'amountInDecimal',
+    'prorationType',
   ];
 
 }
