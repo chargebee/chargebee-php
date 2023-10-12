@@ -67,7 +67,7 @@ body:
     id: lib-version
     attributes:
       label: Library version
-      placeholder: 2.28.0
+      placeholder: v3.22.0
     validations:
       required: true
 
