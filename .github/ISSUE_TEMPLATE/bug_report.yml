@@ -1,0 +1,80 @@
+name: Bug Report
+description: Report a bug for this repository.
+labels:
+  - Bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to submit this bug report!
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Description of the Bug
+      description: Please provide a clear and concise description of the bug.
+      placeholder: Describe what you're experiencing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro-steps
+    attributes:
+      label: Steps to reproduce
+      description: Clear and concise instructions to reproduce the bug are essential for quick resolution.
+      placeholder: |
+        1. Fetch '...'
+        2. Update the '....'
+        3. Encounter the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-snippets
+    attributes:
+      label: Code Snippets (if applicable)
+      description: If relevant, provide code snippets to clarify the issue.
+      render: PHP
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: macOS
+    validations:
+      required: true
+
+  - type: input
+    id: language-version
+    attributes:
+      label: Language version
+      placeholder: PHP 8.2
+    validations:
+      required: true
+
+  - type: input
+    id: lib-version
+    attributes:
+      label: Library version
+      placeholder: v3.22.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Provide any other relevant information about the problem.
+    validations:
+      required: false
