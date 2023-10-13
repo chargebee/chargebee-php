@@ -1,0 +1,47 @@
+name: Greet New Contributors
+
+on: 
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:   
+    - name: Greet for issue
+      if: github.event_name == 'issues' && github.event.action == 'opened'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const issueComment = `
+            Hello @${context.payload.sender.login}, thank you for raising the issue. Your contribution is greatly appreciated and we look forward to addressing it.
+          `
+          github.rest.issues.createComment({
+            issue_number: context.payload.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: issueComment,
+          })
+          
+    - name: Greet for pull request
+      if: github.event_name == 'pull_request' && github.event.action == 'opened'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const prComment = `
+            Thank you, @${context.payload.sender.login}, for the pull request. We will take a look at it and get back to you shortly.
+          `
+          github.rest.issues.createComment({
+            issue_number: context.payload.pull_request.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: prComment,
+          })
