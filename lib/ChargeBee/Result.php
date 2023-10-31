@@ -14,9 +14,9 @@ class Result
 
     public function __construct($_response, $_responseHeaders = null)
     {
-        $this->_response = $_response;
+            $this->_response = $_response;
         $this->_responseHeaders = $_responseHeaders;
-        $this->_responseObj = array();
+            $this->_responseObj = array();
     }
 
     public function getResponseHeaders()
@@ -169,6 +169,7 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
+			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
 			'einvoice' => Models\InvoiceEinvoice::class
 		));
@@ -620,11 +621,6 @@ class Result
         return $payment_voucher;
     }
 
-    public function csvTaxRule() 
-    {
-        $csv_tax_rule = $this->_get('csv_tax_rule', Models\CsvTaxRule::class);
-        return $csv_tax_rule;
-    }
 
 
     public function unbilledCharges() 
@@ -701,6 +697,7 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
+			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
 			'einvoice' => Models\InvoiceEinvoice::class
 		));

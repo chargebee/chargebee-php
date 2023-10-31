@@ -1,3 +1,50 @@
+### v3.23.0 (2023-10-31)
+* * *
+
+#### New attributes:
+* statement_descriptor has been added to invoice resource.
+* source has been added to the Hosted_Pages resource.
+
+#### New Enum values:
+* pay_com has been added to Gateway.
+* pay_to, faster_payments, sepa_instant_transfer has been added to Customer#TypeEnum.
+* pay_to, faster_payments, sepa_instant_transfer has been added to PaymentMethodEnum.
+* pay_to, faster_payments, sepa_instant_transfer has been added to PaymentMethodTypeEnum.
+* pay_to, faster_payments, sepa_instant_transfer has been added to TypeEnum.
+* pay_to, faster_payments, sepa_instant_transfer, amazon_payments has been added to PaymentIntent#PaymentMethodTypeEnum.
+
+#### New Input parameters:
+* source has been added to HostedPage#CheckoutOneTimeForItemsRequest.
+* source has been added to HostedPage#CheckoutNewForItemsRequest.
+* source has been added to HostedPage#CheckoutExistingForItemsRequest.
+* statement_descriptor_descriptor has been added to Invoice#CreateRequest.
+* statement_descriptor_descriptor has been added to Invoice#CreateForChargeItemsAndChargesRequest.
+* statement_descriptor_descriptor has been added to Invoice#UpdateDetailsRequest.
+* statement_descriptor_additional_info has been added to Invoice#CreateRequest.
+* statement_descriptor_additional_info has been added to Invoice#CreateForChargeItemsAndChargesRequest.
+* statement_descriptor_additional_info has been added to Invoice#UpdateDetailsRequest.
+* statement_descriptor_descriptor has been added to Subscription#CreateRequest.
+* statement_descriptor_descriptor has been added to Subscription#CreateForCustomerRequest.
+* statement_descriptor_descriptor has been added to Subscription#CreateWithItemsRequest.
+* statement_descriptor_descriptor has been added to Subscription#UpdateRequest.
+* statement_descriptor_descriptor has been added to Subscription#UpdateForItemsRequest.
+* statement_descriptor_descriptor has been added to Subscription#ReactivateRequest.
+* statement_descriptor_additional_info has been added to Subscription#CreateRequest.
+* statement_descriptor_additional_info has been added to Subscription#CreateForCustomerRequest.
+* statement_descriptor_additional_info has been added to Subscription#CreateWithItemsRequest.
+* statement_descriptor_additional_info has been added to Subscription#UpdateRequest.
+* statement_descriptor_additional_info has been added to Subscription#UpdateForItemsRequest.
+* statement_descriptor_additional_info has been added to Subscription#ReactivateRequest.
+
+#### Updates to old parameters:
+* duration_type, discount_type in coupons has been made optional.
+* proration_type in addons is now supported.
+* csv_tax_rule has been removed.
+* Tax1JurisTypeEnum has been removed.
+* Tax2JurisTypeEnum has been removed.
+* Tax3JurisTypeEnum has been removed.
+* Tax4JurisTypeEnum has been removed.
+
 ### v3.22.0 (2023-09-26)
 * * *
 

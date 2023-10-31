@@ -64,6 +64,7 @@ class Invoice extends Model
     'linkedOrders',
     'notes',
     'shippingAddress',
+    'statementDescriptor',
     'billingAddress',
     'einvoice',
     'paymentOwner',
