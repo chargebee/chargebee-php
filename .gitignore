@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 
 #Ignore the loca test file
 /lib/test.php
@@ -9,3 +10,5 @@
 # Ignore the vendor directory for people using composer
 /vendor/
 composer.lock
+
+*.cache
