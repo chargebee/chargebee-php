@@ -36,6 +36,7 @@ class Transaction extends Model
     'resourceVersion',
     'updatedAt',
     'fraudReason',
+    'customPaymentMethodId',
     'amountUnused',
     'maskedCardNumber',
     'referenceTransactionId',
@@ -53,6 +54,8 @@ class Transaction extends Model
     'merchantReferenceId',
     'businessEntityId',
     'paymentMethodDetails',
+    'errorDetail',
+    'customPaymentMethodName',
   ];
 
 

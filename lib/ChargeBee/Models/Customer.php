@@ -41,6 +41,7 @@ class Customer extends Model
     'piiCleared',
     'autoCloseInvoices',
     'channel',
+    'activeId',
     'cardStatus',
     'fraudFlag',
     'primaryPaymentSourceId',

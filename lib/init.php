@@ -72,6 +72,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceParentPeriod.php
 require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Discount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Download.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Entitlement.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EntitlementOverride.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Estimate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Event.php');
@@ -209,6 +210,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/ThirdPartyPaymentMethod.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TimeMachine.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Token.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Transaction.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/TransactionGatewayErrorDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedCreditNote.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedInvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/TransactionLinkedPayment.php');

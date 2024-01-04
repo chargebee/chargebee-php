@@ -18,6 +18,7 @@ class ItemPrice extends Model
     'description',
     'status',
     'externalName',
+    'prorationType',
     'pricingModel',
     'price',
     'priceInDecimal',

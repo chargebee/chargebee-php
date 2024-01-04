@@ -249,7 +249,8 @@ class Result
 			'linked_invoices' => Models\TransactionLinkedInvoice::class, 
 			'linked_credit_notes' => Models\TransactionLinkedCreditNote::class, 
 			'linked_refunds' => Models\TransactionLinkedRefund::class, 
-			'linked_payments' => Models\TransactionLinkedPayment::class
+			'linked_payments' => Models\TransactionLinkedPayment::class,
+			'gateway_error_detail' => Models\TransactionGatewayErrorDetail::class
 		));
         return $transaction;
     }
@@ -587,7 +588,13 @@ class Result
         return $item_entitlement;
     }
 
-    public function inAppSubscription() 
+    public function entitlement()
+    {
+        $entitlement = $this->_get('entitlement', Models\Entitlement::class);
+        return $entitlement;
+    }
+
+    public function inAppSubscription()
     {
         $in_app_subscription = $this->_get('in_app_subscription', Models\InAppSubscription::class);
         return $in_app_subscription;

@@ -57,6 +57,7 @@ class Subscription extends Model
     'offlinePaymentMethod',
     'channel',
     'netTermDays',
+    'activeId',
     'subscriptionItems',
     'itemTiers',
     'chargedItems',
