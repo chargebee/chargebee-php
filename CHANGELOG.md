@@ -15,7 +15,6 @@
 * active_id has been added to customers.
 * active_id has been added to subscriptions.
 * reference_id has been made optional for payment_sources/create_using_permanent_token
-* payment_method_token, customer_profile_token, network_transaction_id, mandate_id, skip_retrieval, card, billing_address has been added to payment_sources.
 * custom_payment_method_id has been added to transactions.
 * custom_payment_method_name has been added to transactions.
 * error_detail has been added to transactions.
@@ -25,9 +24,6 @@
 * CMR_FALABELLA, TARJETA_NARANJA, NATIVA, CENCOSUD, CABAL, ARGENCARD, ELO, HIPERCARD, CARNET, RUPAY, MAESTRO has been added to Card#CardTypeEnum
 * Transferred has been added to Subscription#StatusEnum.
 * Transferred has been added to SubscriptionEstimate#StatusEnum.
-* proration_type has been added to Subscription#UpdateForItemsRequest.
-* proration_type has been added to ItemPrice.
-* payment_initiator has been added to Invoice.
 * AutomatedBankTransfer has been added to PaymentMethodEnum.
 * UsAutomatedBankTransfer, GbAutomatedBankTransfer, EuAutomatedBankTransfer, JpAutomatedBankTransfer, MxAutomatedBankTransfer has been added to VirtualBankAccount#SchemeEnum.
 * CustomerBusinessEntityChanged, SubscriptionBusinessEntityChanged has been added to EventTypeEnum.
@@ -39,16 +35,9 @@
 #### New Input parameters:
 * custom_payment_method_name has been added to Transactions#RecordRefundRequest.
 * proration_type has been added to Subscription#UpdateForItemsRequest.
+* proration_type has been added to ItemPrice.
+* payment_initiator has been added to Invoice.
 * payment_method_token, customer_profile_token, network_transaction_id, mandate_id, skip_retrieval, card, billing_address has been added to PaymentSource#CreateUsingPermanentTokenRequest.
-* date_to, date_from, prorated_taxable_amount has been added to QuoteLineGroup#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to Quote#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to CreditNoteEstimate#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to CreditNote#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to InvoiceEstimate#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to Order#LineItemTax.
-* date_to, date_from, prorated_taxable_amount has been added to Invoice#LineItemTax.
-* active_id has been added to Customer.
-* active_id has been added to Subscription.
 * subscription_items[proration_type] has been added to Estimate#UpdateSubscriptionForItemsRequest.
 * transaction[custom_payment_method_id] has been added to Customer#RecordExcessPaymentRequest.
 * transaction[custom_payment_method_id] has been added to CreditNote#RecordRefundRequest.
