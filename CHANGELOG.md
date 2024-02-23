@@ -1,3 +1,8 @@
+### v3.24.1 (2024-02-23)
+* * *
+
+* Fixed Custom field case conversion issue
+
 ### v3.24.0 (2024-01-04)
 * * *
 

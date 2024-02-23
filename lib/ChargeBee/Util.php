@@ -21,6 +21,10 @@ class Util
             return "_" . strtolower($c[1]);
         };
 
+        if (preg_match('/_/', $str)) {
+            return $str;
+        }
+
         return preg_replace_callback('/([A-Z])/', $func, $str);
     }
 

@@ -6,6 +6,8 @@ class ChargeBee_UtilTest extends UnitTestCase
     {
         $before = [
           "id" => "sub_KyVq7DNSNM7CSD",
+          "cf_URL" => "www.chargebee.com",
+          "cf_Single_line" => "Single line custom field",
           "planId" => "free",
            "addons" => [
              ["id" => "monitor", "quantity" => 2], ["id" => "ssl"]
@@ -23,6 +25,8 @@ class ChargeBee_UtilTest extends UnitTestCase
 
         $after = [
           "id" => "sub_KyVq7DNSNM7CSD",
+          "cf_URL" => "www.chargebee.com",
+          "cf_Single_line" => "Single line custom field",
           "plan_id" => "free",
           "addons[id][0]" => "monitor",
           "addons[quantity][0]"=>2,
