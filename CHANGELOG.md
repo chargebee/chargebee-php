@@ -1,3 +1,25 @@
+### v3.25.0 (2024-02-29)
+* * *
+
+#### New attributes:
+* usage_percentage has been added to QuoteLineGroup resource.
+* usage_percentage has been added to Quote resource.
+* usage_percentage has been added to CreditNoteEstimate resource.
+* usage_percentage has been added to CreditNote resource.
+* usage_percentage has been added to InvoiceEstimate resource.
+* usage_percentage has been added to Invoice resource.
+* error_detail of type GatewayErrorDetail has been added to PaymentIntent#PaymentAttempt subResource.
+* origin_user has been added to Event resource.
+* proration_type has been added to QuotedSubscription#SubscriptionItem and Subscription#SubscriptionItem subResources
+* network_error_message, recommendation_message, processor_error_code, processor_error_message has been added to Transaction#GatewayErrorDetail subResource.
+
+#### New Enum values:
+* TAX_NOT_CONFIGURED_EXTERNAL_PROVIDER has been added to TaxExemptReasonEnum.
+
+#### New Input parameters:
+* billing_address has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* transactions[amount] has been added to Invoice#ApplyPaymentsRequest.
+
 ### v3.24.1 (2024-02-23)
 * * *
 

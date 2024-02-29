@@ -25,6 +25,7 @@ class SubscriptionSubscriptionItem extends Model
     'chargeOnEvent',
     'chargeOnce',
     'chargeOnOption',
+    'prorationType',
   ];
 
 }

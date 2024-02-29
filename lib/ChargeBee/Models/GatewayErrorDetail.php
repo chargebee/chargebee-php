@@ -3,9 +3,12 @@
 namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
+use ChargeBee\ChargeBee\Request;
+use ChargeBee\ChargeBee\Util;
 
-class TransactionGatewayErrorDetail extends Model
+class GatewayErrorDetail extends Model
 {
+
   protected $allowed = [
     'requestId',
     'errorCategory',
@@ -22,6 +25,11 @@ class TransactionGatewayErrorDetail extends Model
     'processorErrorMessage',
   ];
 
-}
+
+
+  # OPERATIONS
+  #-----------
+
+ }
 
 ?>

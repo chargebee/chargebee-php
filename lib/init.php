@@ -1,6 +1,6 @@
 <?php
-	
-	
+
+
 require(dirname(__FILE__) . '/AbstractChargeBee.php');
 require(dirname(__FILE__) . '/ChargeBee.php');
 require(dirname(__FILE__) . '/ChargeBee/Version.php');
@@ -81,6 +81,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/Export.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ExportDownload.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Feature.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/FeatureLevel.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/GatewayErrorDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Gift.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftReceiver.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/GiftGiftTimeline.php');
@@ -125,7 +126,6 @@ require(dirname(__FILE__) . '/ChargeBee/Models/ItemPrice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceAccountingDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceTaxDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceTier.php');
-require(dirname(__FILE__) . '/ChargeBee/Models/NonSubscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Order.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderLineItemDiscount.php');

@@ -25,6 +25,7 @@ class QuotedSubscriptionSubscriptionItem extends Model
     'chargeOnEvent',
     'chargeOnce',
     'chargeOnOption',
+    'prorationType',
   ];
 
 }
