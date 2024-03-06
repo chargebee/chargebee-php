@@ -1,3 +1,7 @@
+### v3.25.1 (2024-03-06)
+* * *
+* NonSubscription has been added.
+
 ### v3.25.0 (2024-02-29)
 * * *
 

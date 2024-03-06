@@ -607,6 +607,12 @@ class Result
         return $in_app_subscription;
     }
 
+    public function nonSubscription() 
+    {
+        $non_subscription = $this->_get('non_subscription', Models\NonSubscription::class);
+        return $non_subscription;
+    }
+
     public function entitlementOverride() 
     {
         $entitlement_override = $this->_get('entitlement_override', Models\EntitlementOverride::class);

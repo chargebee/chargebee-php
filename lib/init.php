@@ -126,6 +126,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/ItemPrice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceAccountingDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceTaxDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/NonSubscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Order.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderLineItemDiscount.php');
