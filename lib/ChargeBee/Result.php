@@ -525,6 +525,12 @@ class Result
         return $item;
     }
 
+    public function attribute() 
+    {
+        $attribute = $this->_get('attribute', Models\Attribute::class);
+        return $attribute;
+    }
+
     public function itemPrice() 
     {
         $item_price = $this->_get('item_price', Models\ItemPrice::class, 
@@ -541,7 +547,6 @@ class Result
         $attached_item = $this->_get('attached_item', Models\AttachedItem::class);
         return $attached_item;
     }
-
 
     public function differentialPrice() 
     {
@@ -578,6 +583,15 @@ class Result
 			'download' => Models\ImpactedItemDownload::class
 		));
         return $impacted_item;
+    }
+
+    public function impactedItemPrice() 
+    {
+        $impacted_item_price = $this->_get('impacted_item_price', Models\ImpactedItemPrice::class, 
+        array( 
+			'download' => Models\ImpactedItemPriceDownload::class
+		));
+        return $impacted_item_price;
     }
 
     public function subscriptionEntitlement() 
@@ -632,6 +646,21 @@ class Result
 			'linked_invoices' => Models\PaymentVoucherLinkedInvoice::class
 		));
         return $payment_voucher;
+    }
+
+    public function installmentConfig() 
+    {
+        $installment_config = $this->_get('installment_config', Models\InstallmentConfig::class, 
+        array( 
+			'installments' => Models\InstallmentConfigInstallment::class
+		));
+        return $installment_config;
+    }
+
+    public function installment() 
+    {
+        $installment = $this->_get('installment', Models\Installment::class);
+        return $installment;
     }
 
     public function advanceInvoiceSchedules()

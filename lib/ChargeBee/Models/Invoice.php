@@ -251,6 +251,11 @@ class Invoice extends Model
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"update_details"), $params, $env, $headers);
   }
 
+  public static function installments($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"installments"), $params, $env, $headers);
+  }
+
   public static function resendEinvoice($id, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"resend_einvoice"), array(), $env, $headers);

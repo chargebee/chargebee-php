@@ -1,3 +1,46 @@
+### v3.26.0 (2024-03-20)
+* * *
+
+#### New resources:
+* Attribute has been added.
+* ImpactedItemPrice has been added.
+* InstallmentConfig has been added.
+* Installment has been added.
+
+#### Removed attributes:
+* product_id has been removed from ItemPrice resource.
+
+#### New Enum values:
+* klarna_pay_now has been added to TypeEnum in Customer resource.
+* klarna_pay_now has been added to PaymentMethodEnum.
+* klarna_pay_now has been added to PaymentMethodTypeEnum enum.
+* klarna_pay_now has been added to TypeEnum.
+* price_variant has been added to EntityTypeEnum.
+* price_variant_created has been added in EventType enum.
+* price_variant_updated has been added in EventType enum.
+* price_variant_deleted has been added in EventType enum.
+
+#### Removed Enum values:
+* product and variant have been removed from EntityTypeEnum.
+
+#### New Input parameters:
+* config_id has been added to Invoice#InstallmentsRequest.
+* amount has been added to Invoice#InstallmentsRequest.
+* payment_source_id has been added to Purchase#CreateRequest.
+* installment_info[config_id] has been added to Purchase#CreateRequest.
+* installment_info[amount] has been added to Purchase#CreateRequest.
+* subscription_info[contract_term_billing_cycle_on_renewal] has been added to Purchase#CreateRequest.
+* contract_terms[index] has been added to Purchase#CreateRequest.
+* contract_terms[action_at_term_end] has been added to Purchase#CreateRequest.
+* contract_terms[cancellation_cutoff_period] has been added to Purchase#CreateRequest.
+* subscription_info[contract_term_billing_cycle_on_renewal] has been added to Purchase#EstimateRequest.
+* contract_terms[index] has been added to Purchase#EstimateRequest.
+* contract_terms[action_at_term_end] has been added to Purchase#EstimateRequest.
+* contract_terms[cancellation_cutoff_period] has been added to Purchase#EstimateRequest.
+
+#### Deprecated input parameters:
+* product_created, product_updated, product_deleted, variant_created, variant_updated, variant_deleted has been deprecated in EventTypeEnum.
+
 ### v3.25.1 (2024-03-06)
 * * *
 * NonSubscription has been added.
