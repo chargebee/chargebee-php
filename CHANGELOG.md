@@ -1,3 +1,13 @@
+### v3.26.1 (2024-04-03)
+* * *
+
+#### New Input parameters:
+* to_customer_id has been added to subscription#MoveRequest.
+* copy_payment_source has been added to subscription#MoveRequest.
+
+#### New endpoints:
+* Subscription#MoveRequest has been added to the Subscription resource.
+
 ### v3.26.0 (2024-03-20)
 * * *
 

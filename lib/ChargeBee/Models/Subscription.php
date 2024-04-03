@@ -274,6 +274,11 @@ class Subscription extends Model
     return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"remove_scheduled_resumption"), array(), $env, $headers);
   }
 
+  public static function move($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"move"), $params, $env, $headers);
+  }
+
  }
 
 ?>
