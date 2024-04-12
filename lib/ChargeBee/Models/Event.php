@@ -2,6 +2,7 @@
 
 namespace ChargeBee\ChargeBee\Models;
 
+use Exception;
 use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
