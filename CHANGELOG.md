@@ -1,3 +1,57 @@
+### v3.27.0 (2024-04-30)
+* * *
+
+#### New resources:
+* PriceVariant has been added.
+* Ramp has been added.
+* InstallmentDetail has been added.
+* Session has been added.
+* Ramp has been added.
+
+#### New Enum values:
+* INVOICE_INSTALLMENTS_CREATED has been added in EventType enum.
+* INVOICE_INSTALLMENT_UPDATED has been added in EventType enum.
+* INSTALLMENT_CONFIG_CREATED has been added in EventType enum.
+* INSTALLMENT_CONFIG_DELETED has been added in EventType enum.
+* RAMP_CREATED has been added in EventType enum.
+* RAMP_DELETED has been added in EventType enum.
+* RAMP_APPLIED has been added in EventType enum.
+
+#### New Attributes:
+* tax_providers_fields has been added to Addon resource.
+* tax_providers_fields has been added to Customer resource.
+* tax_providers_fields has been added to ItemPrice resource.
+* tax_providers_fields has been added to Plan resource.
+* resource_version has been added to Installment resource.
+* resource_version has been added to InstallmentConfig resource.
+* KlarnaPayNow has been added to PaymentSource resource.
+* business_entity_id has been added to UnbilledCharge resource.
+
+#### New Endpoints:
+* Exports#PriceVariantsRequest has been added to Exports resource.
+
+#### New Input parameters:
+* changes_scheduled_at, change_option has been added to Estimate#UpdateSubscriptionRequest.
+* changes_scheduled_at, change_option has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* contract_term[contract_start] has been added to Estimate#CreateSubItemEstimateRequest.
+* contract_term[contract_start] has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* contract_term[contract_start] has been added to Subscription#CreateWithItemsRequest.
+* contract_term[contract_start] has been added to Subscription#UpdateForItemsRequest.
+* price_variant_id has been added to ItemPrice#CreateRequest.
+* price_variant_id has been added to ItemPrice#UpdateRequest.
+* price_variant_id has been added to ItemPrice#ListRequest.
+
+#### Removed attributes:
+* additional_info has been removed from Invoice#StatmentDescriptor resource.
+
+#### Removed Input parameters:
+* additional_info has been removed from Subscription#CreateRequest.
+* additional_info has been removed from Subscription#CreateForCustomerRequest.
+* additional_info has been removed from Subscription#CreateWithItemsRequest.
+* additional_info has been removed from Subscription#UpdateRequest.
+* additional_info has been removed from Subscription#UpdateForItemsRequest.
+* additional_info has been removed from Subscription#ReactivateRequest.
+
 ### v3.26.1 (2024-04-03)
 * * *
 

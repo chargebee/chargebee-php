@@ -4,11 +4,11 @@ namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
 
-class InvoiceStatementDescriptor extends Model
+class PriceVariantAttribute extends Model
 {
   protected $allowed = [
-    'id',
-    'descriptor',
+    'name',
+    'value',
   ];
 
 }

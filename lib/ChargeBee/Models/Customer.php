@@ -59,6 +59,7 @@ class Customer extends Model
     'excessPayments',
     'balances',
     'entityIdentifiers',
+    'taxProvidersFields',
     'isEinvoiceEnabled',
     'einvoicingMethod',
     'metaData',

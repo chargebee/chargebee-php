@@ -60,6 +60,7 @@ class Plan extends Model
     'taxProfileId',
     'metaData',
     'tiers',
+    'taxProvidersFields',
     'applicableAddons',
     'attachedAddons',
     'eventBasedAddons',

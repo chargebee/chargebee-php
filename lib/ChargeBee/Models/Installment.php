@@ -16,6 +16,7 @@ class Installment extends Model
     'amount',
     'status',
     'createdAt',
+    'resourceVersion',
     'updatedAt',
   ];
 

@@ -85,6 +85,7 @@ class Result
 			'payment_method' => Models\CustomerPaymentMethod::class, 
 			'balances' => Models\CustomerBalance::class, 
 			'entity_identifiers' => Models\CustomerEntityIdentifier::class, 
+			'tax_providers_fields' => Models\CustomerTaxProvidersField::class, 
 			'relationship' => Models\CustomerRelationship::class, 
 			'parent_account_access' => Models\CustomerParentAccountAccess::class, 
 			'child_account_access' => Models\CustomerChildAccountAccess::class
@@ -122,6 +123,7 @@ class Result
 			'upi' => Models\PaymentSourceUpi::class, 
 			'paypal' => Models\PaymentSourcePaypal::class, 
 			'venmo' => Models\PaymentSourceVenmo::class, 
+			'klarna_pay_now' => Models\PaymentSourceKlarnaPayNow::class, 
 			'mandates' => Models\PaymentSourceMandate::class
 		));
         return $payment_source;
@@ -387,6 +389,7 @@ class Result
         $plan = $this->_get('plan', Models\Plan::class, 
         array( 
 			'tiers' => Models\PlanTier::class, 
+			'tax_providers_fields' => Models\PlanTaxProvidersField::class, 
 			'applicable_addons' => Models\PlanApplicableAddon::class, 
 			'attached_addons' => Models\PlanAttachedAddon::class, 
 			'event_based_addons' => Models\PlanEventBasedAddon::class
@@ -398,7 +401,8 @@ class Result
     {
         $addon = $this->_get('addon', Models\Addon::class, 
         array( 
-			'tiers' => Models\AddonTier::class
+			'tiers' => Models\AddonTier::class, 
+			'tax_providers_fields' => Models\AddonTaxProvidersField::class
 		));
         return $addon;
     }
@@ -525,6 +529,15 @@ class Result
         return $item;
     }
 
+    public function priceVariant() 
+    {
+        $price_variant = $this->_get('price_variant', Models\PriceVariant::class, 
+        array( 
+			'attributes' => Models\PriceVariantAttribute::class
+		));
+        return $price_variant;
+    }
+
     public function attribute() 
     {
         $attribute = $this->_get('attribute', Models\Attribute::class);
@@ -537,6 +550,7 @@ class Result
         array( 
 			'tiers' => Models\ItemPriceTier::class, 
 			'tax_detail' => Models\ItemPriceTaxDetail::class, 
+			'tax_providers_fields' => Models\ItemPriceTaxProvidersField::class, 
 			'accounting_detail' => Models\ItemPriceAccountingDetail::class
 		));
         return $item_price;
@@ -648,6 +662,19 @@ class Result
         return $payment_voucher;
     }
 
+    public function ramp() 
+    {
+        $ramp = $this->_get('ramp', Models\Ramp::class, 
+        array( 
+			'items_to_add' => Models\RampItemsToAdd::class, 
+			'items_to_update' => Models\RampItemsToUpdate::class, 
+			'coupons_to_add' => Models\RampCouponsToAdd::class, 
+			'discounts_to_add' => Models\RampDiscountsToAdd::class, 
+			'item_tiers' => Models\RampItemTier::class
+		));
+        return $ramp;
+    }
+
     public function installmentConfig() 
     {
         $installment_config = $this->_get('installment_config', Models\InstallmentConfig::class, 
@@ -661,6 +688,21 @@ class Result
     {
         $installment = $this->_get('installment', Models\Installment::class);
         return $installment;
+    }
+
+    public function installmentDetail() 
+    {
+        $installment_detail = $this->_get('installment_detail', Models\InstallmentDetail::class, 
+        array( 
+			'installments' => Models\InstallmentDetailInstallment::class
+		));
+        return $installment_detail;
+    }
+
+    public function session() 
+    {
+        $session = $this->_get('session', Models\Session::class);
+        return $session;
     }
 
     public function advanceInvoiceSchedules()

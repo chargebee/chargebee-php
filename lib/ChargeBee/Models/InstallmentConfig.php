@@ -17,6 +17,7 @@ class InstallmentConfig extends Model
     'period',
     'preferredDay',
     'createdAt',
+    'resourceVersion',
     'updatedAt',
     'installments',
   ];
