@@ -699,12 +699,6 @@ class Result
         return $installment_detail;
     }
 
-    public function session() 
-    {
-        $session = $this->_get('session', Models\Session::class);
-        return $session;
-    }
-
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,

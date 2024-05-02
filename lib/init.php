@@ -209,7 +209,6 @@ require(dirname(__FILE__) . '/ChargeBee/Models/RampItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/RampItemsToAdd.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/RampItemsToUpdate.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/ResourceMigration.php');
-require(dirname(__FILE__) . '/ChargeBee/Models/Session.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SiteMigrationDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Subscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/SubscriptionAddon.php');
