@@ -1,3 +1,11 @@
+### v3.27.2(2024-05-28)
+***
+
+#### Refactoring
+- PSR-18 compatible http client (decouple from Guzzle)
+- introduce HttpClientFactory in Environment class (also covers GH-19, GH-43 use cases)
+- make request logic unit-testable by using custom HttpClientFactory (GH-50)
+- cover Request class with unit tests
 ### v3.27.1 (2024-05-02)
 * * *
 
