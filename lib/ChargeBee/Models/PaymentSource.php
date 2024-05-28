@@ -30,6 +30,7 @@ class PaymentSource extends Model
     'upi',
     'paypal',
     'venmo',
+    'klarnaPayNow',
     'mandates',
     'deleted',
     'businessEntityId',

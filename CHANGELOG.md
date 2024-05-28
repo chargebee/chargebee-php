@@ -1,4 +1,4 @@
-### v4.0.0 (2023-11-08)
+### v3.27.2(2024-05-28)
 ***
 
 #### Refactoring
@@ -6,6 +6,193 @@
 - introduce HttpClientFactory in Environment class (also covers GH-19, GH-43 use cases)
 - make request logic unit-testable by using custom HttpClientFactory (GH-50)
 - cover Request class with unit tests
+### v3.27.1 (2024-05-02)
+* * *
+
+#### Removed resources:
+* Session has been removed.
+
+### v3.27.0 (2024-04-30)
+* * *
+
+#### New resources:
+* PriceVariant has been added.
+* Ramp has been added.
+* InstallmentDetail has been added.
+* Session has been added.
+* Ramp has been added.
+
+#### New Enum values:
+* INVOICE_INSTALLMENTS_CREATED has been added in EventType enum.
+* INVOICE_INSTALLMENT_UPDATED has been added in EventType enum.
+* INSTALLMENT_CONFIG_CREATED has been added in EventType enum.
+* INSTALLMENT_CONFIG_DELETED has been added in EventType enum.
+* RAMP_CREATED has been added in EventType enum.
+* RAMP_DELETED has been added in EventType enum.
+* RAMP_APPLIED has been added in EventType enum.
+
+#### New Attributes:
+* tax_providers_fields has been added to Addon resource.
+* tax_providers_fields has been added to Customer resource.
+* tax_providers_fields has been added to ItemPrice resource.
+* tax_providers_fields has been added to Plan resource.
+* resource_version has been added to Installment resource.
+* resource_version has been added to InstallmentConfig resource.
+* KlarnaPayNow has been added to PaymentSource resource.
+* business_entity_id has been added to UnbilledCharge resource.
+
+#### New Endpoints:
+* Exports#PriceVariantsRequest has been added to Exports resource.
+
+#### New Input parameters:
+* changes_scheduled_at, change_option has been added to Estimate#UpdateSubscriptionRequest.
+* changes_scheduled_at, change_option has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* contract_term[contract_start] has been added to Estimate#CreateSubItemEstimateRequest.
+* contract_term[contract_start] has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* contract_term[contract_start] has been added to Subscription#CreateWithItemsRequest.
+* contract_term[contract_start] has been added to Subscription#UpdateForItemsRequest.
+* price_variant_id has been added to ItemPrice#CreateRequest.
+* price_variant_id has been added to ItemPrice#UpdateRequest.
+* price_variant_id has been added to ItemPrice#ListRequest.
+
+#### Removed attributes:
+* additional_info has been removed from Invoice#StatmentDescriptor resource.
+
+#### Removed Input parameters:
+* additional_info has been removed from Subscription#CreateRequest.
+* additional_info has been removed from Subscription#CreateForCustomerRequest.
+* additional_info has been removed from Subscription#CreateWithItemsRequest.
+* additional_info has been removed from Subscription#UpdateRequest.
+* additional_info has been removed from Subscription#UpdateForItemsRequest.
+* additional_info has been removed from Subscription#ReactivateRequest.
+
+### v3.26.1 (2024-04-03)
+* * *
+
+#### New Input parameters:
+* to_customer_id has been added to subscription#MoveRequest.
+* copy_payment_source has been added to subscription#MoveRequest.
+
+#### New endpoints:
+* Subscription#MoveRequest has been added to the Subscription resource.
+
+### v3.26.0 (2024-03-20)
+* * *
+
+#### New resources:
+* Attribute has been added.
+* ImpactedItemPrice has been added.
+* InstallmentConfig has been added.
+* Installment has been added.
+
+#### Removed attributes:
+* product_id has been removed from ItemPrice resource.
+
+#### New Enum values:
+* klarna_pay_now has been added to TypeEnum in Customer resource.
+* klarna_pay_now has been added to PaymentMethodEnum.
+* klarna_pay_now has been added to PaymentMethodTypeEnum enum.
+* klarna_pay_now has been added to TypeEnum.
+* price_variant has been added to EntityTypeEnum.
+* price_variant_created has been added in EventType enum.
+* price_variant_updated has been added in EventType enum.
+* price_variant_deleted has been added in EventType enum.
+
+#### Removed Enum values:
+* product and variant have been removed from EntityTypeEnum.
+
+#### New Input parameters:
+* config_id has been added to Invoice#InstallmentsRequest.
+* amount has been added to Invoice#InstallmentsRequest.
+* payment_source_id has been added to Purchase#CreateRequest.
+* installment_info[config_id] has been added to Purchase#CreateRequest.
+* installment_info[amount] has been added to Purchase#CreateRequest.
+* subscription_info[contract_term_billing_cycle_on_renewal] has been added to Purchase#CreateRequest.
+* contract_terms[index] has been added to Purchase#CreateRequest.
+* contract_terms[action_at_term_end] has been added to Purchase#CreateRequest.
+* contract_terms[cancellation_cutoff_period] has been added to Purchase#CreateRequest.
+* subscription_info[contract_term_billing_cycle_on_renewal] has been added to Purchase#EstimateRequest.
+* contract_terms[index] has been added to Purchase#EstimateRequest.
+* contract_terms[action_at_term_end] has been added to Purchase#EstimateRequest.
+* contract_terms[cancellation_cutoff_period] has been added to Purchase#EstimateRequest.
+
+#### Deprecated input parameters:
+* product_created, product_updated, product_deleted, variant_created, variant_updated, variant_deleted has been deprecated in EventTypeEnum.
+
+### v3.25.1 (2024-03-06)
+* * *
+* NonSubscription has been added.
+
+### v3.25.0 (2024-02-29)
+* * *
+
+#### New attributes:
+* usage_percentage has been added to QuoteLineGroup resource.
+* usage_percentage has been added to Quote resource.
+* usage_percentage has been added to CreditNoteEstimate resource.
+* usage_percentage has been added to CreditNote resource.
+* usage_percentage has been added to InvoiceEstimate resource.
+* usage_percentage has been added to Invoice resource.
+* error_detail of type GatewayErrorDetail has been added to PaymentIntent#PaymentAttempt subResource.
+* origin_user has been added to Event resource.
+* proration_type has been added to QuotedSubscription#SubscriptionItem and Subscription#SubscriptionItem subResources
+* network_error_message, recommendation_message, processor_error_code, processor_error_message has been added to Transaction#GatewayErrorDetail subResource.
+
+#### New Enum values:
+* TAX_NOT_CONFIGURED_EXTERNAL_PROVIDER has been added to TaxExemptReasonEnum.
+
+#### New Input parameters:
+* billing_address has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* transactions[amount] has been added to Invoice#ApplyPaymentsRequest.
+
+### v3.24.1 (2024-02-23)
+* * *
+
+* Fixed Custom field case conversion issue
+
+### v3.24.0 (2024-01-04)
+* * *
+
+#### New resources:
+* Entitlements has been added.
+
+#### New attributes:
+* date_to, date_from, prorated_taxable_amount has been added to quote_line_group.
+* date_to, date_from, prorated_taxable_amount has been added to quote.
+* date_to, date_from, prorated_taxable_amount has been added to credit_note_estimate.
+* date_to, date_from, prorated_taxable_amount has been added to credit_note.
+* date_to, date_from, prorated_taxable_amount has been added to invoice_estimate.
+* date_to, date_from, prorated_taxable_amount has been added to order.
+* date_to, date_from, prorated_taxable_amount has been added to invoice.
+* active_id has been added to customers.
+* active_id has been added to subscriptions.
+* reference_id has been made optional for payment_sources/create_using_permanent_token
+* custom_payment_method_id has been added to transactions.
+* custom_payment_method_name has been added to transactions.
+* error_detail has been added to transactions.
+
+
+#### New Enum values:
+* CMR_FALABELLA, TARJETA_NARANJA, NATIVA, CENCOSUD, CABAL, ARGENCARD, ELO, HIPERCARD, CARNET, RUPAY, MAESTRO has been added to Card#CardTypeEnum
+* Transferred has been added to Subscription#StatusEnum.
+* Transferred has been added to SubscriptionEstimate#StatusEnum.
+* AutomatedBankTransfer has been added to PaymentMethodEnum.
+* UsAutomatedBankTransfer, GbAutomatedBankTransfer, EuAutomatedBankTransfer, JpAutomatedBankTransfer, MxAutomatedBankTransfer has been added to VirtualBankAccount#SchemeEnum.
+* CustomerBusinessEntityChanged, SubscriptionBusinessEntityChanged has been added to EventTypeEnum.
+* Dlocal has been added to GatewayEnum.
+* UsAutomatedBankTransfer, UkAutomatedBankTransfer, EuAutomatedBankTransfer, JpAutomatedBankTransfer, MxAutomatedBankTransfer, Custom has been added to OfflinePaymentMethodEnum.
+* AutomatedBankTransfer has been added to PaymentMethodEnum.
+* AutomatedBankTransfer has been added to PaymentMethodTypeEnum.
+
+#### New Input parameters:
+* custom_payment_method_name has been added to Transactions#RecordRefundRequest.
+* proration_type has been added to Subscription#UpdateForItemsRequest.
+* proration_type has been added to ItemPrice.
+* payment_initiator has been added to Invoice.
+* payment_method_token, customer_profile_token, network_transaction_id, mandate_id, skip_retrieval, card, billing_address has been added to PaymentSource#CreateUsingPermanentTokenRequest.
+* subscription_items[proration_type] has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* transaction[custom_payment_method_id] has been added to Customer#RecordExcessPaymentRequest.
+* transaction[custom_payment_method_id] has been added to CreditNote#RecordRefundRequest.
 
 ### v3.23.0 (2023-10-31)
 * * *

@@ -121,6 +121,11 @@ public function waitForExportCompletion($env = null, $headers = array()) {
     return Request::send(Request::POST, Util::encodeURIPath("exports","differential_prices"), $params, $env, $headers);
   }
 
+  public static function priceVariants($params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("exports","price_variants"), $params, $env, $headers);
+  }
+
  }
 
 ?>

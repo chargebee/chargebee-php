@@ -20,6 +20,7 @@ class Event extends Model
     'webhooks',
     'eventType',
     'apiVersion',
+    'originUser',
   ];
 
     public function content()

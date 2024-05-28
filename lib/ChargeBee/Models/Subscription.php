@@ -57,6 +57,7 @@ class Subscription extends Model
     'offlinePaymentMethod',
     'channel',
     'netTermDays',
+    'activeId',
     'subscriptionItems',
     'itemTiers',
     'chargedItems',
@@ -271,6 +272,11 @@ class Subscription extends Model
   public static function removeScheduledResumption($id, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"remove_scheduled_resumption"), array(), $env, $headers);
+  }
+
+  public static function move($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"move"), $params, $env, $headers);
   }
 
  }

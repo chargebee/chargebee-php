@@ -4,7 +4,8 @@ namespace ChargeBee\ChargeBee;
 
 final class Version
 {
-	  const VERSION = '4.0.0';
+
+	  const VERSION = '3.27.2';
 }
 
 ?>

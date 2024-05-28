@@ -15,6 +15,7 @@ class PaymentIntentPaymentAttempt extends Model
     'errorText',
     'createdAt',
     'modifiedAt',
+    'errorDetail',
   ];
 
 }

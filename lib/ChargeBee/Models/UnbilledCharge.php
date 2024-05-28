@@ -32,6 +32,7 @@ class UnbilledCharge extends Model
     'updatedAt',
     'tiers',
     'isAdvanceCharge',
+    'businessEntityId',
     'deleted',
   ];
 

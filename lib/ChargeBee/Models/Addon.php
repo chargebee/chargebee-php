@@ -51,6 +51,7 @@ class Addon extends Model
     'taxProfileId',
     'metaData',
     'tiers',
+    'taxProvidersFields',
     'showDescriptionInInvoices',
     'showDescriptionInQuotes',
   ];
