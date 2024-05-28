@@ -74,6 +74,7 @@ class Invoice extends Model
     'vatNumberPrefix',
     'channel',
     'businessEntityId',
+    'siteDetailsAtCreation',
   ];
 
 

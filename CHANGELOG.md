@@ -1,3 +1,60 @@
+### v3.28.0 (2024-05-28)
+* * *
+
+### New Feature 
+* Ability to access response headers in case of API failure is added.
+
+
+#### New resources:
+* BusinessEntity has been added.
+* BusinessEntity Transfer has been added.
+
+
+#### New Enum values:
+* NUVEI has been added in Gateway enum.
+
+
+#### New Attributes:
+* site_details_at_creation has been added to CreditNote. 
+* site_details_at_creation has been added to Invoice. 
+
+
+#### New Input parameters:
+* tax_providers_fields[provider_name] has been added to Addon#CreateRequest, Addon#UpdateRequest.
+* tax_providers_fields[field_id] has been added to Addon#CreateRequest, Addon#UpdateRequest.
+* tax_providers_fields[field_value] has been added to Addon#CreateRequest, #UpdateRequest.
+
+* tax_providers_fields[provider_name] has been added to Customer#CreateRequest, Customer#UpdateRequest, Customer#MoveRequest.
+* tax_providers_fields[field_id] has been added to Customer#CreateRequest, Customer#UpdateRequest, Customer#MoveRequest.
+* tax_providers_fields[field_value] has been added to Customer#CreateRequest, Customer#UpdateRequest, Customer#MoveRequest..
+
+* tax_providers_fields[provider_name] has been added to Estimate#CreateSubscriptionRequest, Estimate#CreateSubItemEstimateRequest, Estimate#CreateInvoiceRequest, CreateInvoiceForItemsRequest.
+* tax_providers_fields[field_id] has been added to Estimate#CreateSubscriptionRequest, Estimate#CreateSubItemEstimateRequest, Estimate#CreateInvoiceRequest, CreateInvoiceForItemsRequest.
+* tax_providers_fields[field_value] has been added to Estimate#CreateSubscriptionRequest, Estimate#CreateSubItemEstimateRequest, Estimate#CreateInvoiceRequest, CreateInvoiceForItemsRequest.
+
+* tax_providers_fields[provider_name] has been added to Invoice#CreateRequest, Invoice#CreateForChargeItemsAndChargesRequest, Invoice#ChargeRequest.
+* tax_providers_fields[field_id] has been added to Invoice#CreateRequest, Invoice#CreateForChargeItemsAndChargesRequest, Invoice#ChargeRequest.
+* tax_providers_fields[field_value] has been added to Invoice#CreateRequest, Invoice#CreateForChargeItemsAndChargesRequest, Invoice#ChargeRequest.
+
+* tax_providers_fields[provider_name] has been added to ItemPrice#CreateRequest, ItemPrice#UpdateRequest.
+* tax_providers_fields[field_id] has been added to ItemPrice#CreateRequest, ItemPrice#UpdateRequest.
+* tax_providers_fields[field_value] has been added to ItemPrice#CreateRequest, ItemPrice#UpdateRequest.
+
+* tax_providers_fields[provider_name] has been added to Plan#CreateRequest, Plan#UpdateRequest.
+* tax_providers_fields[field_id] has been added to Plan#CreateRequest, Plan#UpdateRequest.
+* tax_providers_fields[field_value] has been added to Plan#CreateRequest, Plan#UpdateRequest.
+
+* tax_providers_fields[provider_name] has been added to Quote#EditOneTimeQuoteRequest, Quote#CreateForOnetimeChargesRequest, Quote#CreateForChargeItemsAndChargesRequest, Quote#EditForChargeItemsAndChargesRequest.
+* tax_providers_fields[field_id] has been added to Quote#EditOneTimeQuoteRequest, Quote#CreateForOnetimeChargesRequest, Quote#CreateForChargeItemsAndChargesRequest, Quote#EditForChargeItemsAndChargesRequest.
+* tax_providers_fields[field_value] has been added to Quote#EditOneTimeQuoteRequest, Quote#CreateForOnetimeChargesRequest, Quote#CreateForChargeItemsAndChargesRequest, Quote#EditForChargeItemsAndChargesRequest.
+
+* tax_providers_fields[provider_name] has been added to UnbilledCharge#CreateUnbilledChargeRequest, UnbilledCharge#CreateRequest.
+* tax_providers_fields[field_id] has been added to UnbilledCharge#CreateUnbilledChargeRequest, UnbilledCharge#CreateRequest.
+* tax_providers_fields[field_value] has been added to UnbilledCharge#CreateUnbilledChargeRequest, UnbilledCharge#CreateRequest.
+
+* line_items[entity_type] has been added to CreditNote#CreateRequest.
+* line_items[entity_id] has been added to CreditNote#CreateRequest.
+
 ### v3.27.2(2024-05-28)
 ***
 

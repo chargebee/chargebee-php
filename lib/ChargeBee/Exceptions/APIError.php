@@ -11,8 +11,8 @@ class APIError extends Exception
     private $type;
     private $apiErrorCode;
     private $param;
-
-    public function __construct($httpStatusCode, $jsonObject)
+    private $headers;
+    public function __construct($httpStatusCode, $jsonObject, $responseHeaders)
     {
         parent::__construct($jsonObject['message']);
 
@@ -21,6 +21,7 @@ class APIError extends Exception
         $this->apiErrorCode = $jsonObject['api_error_code'];
         $this->param = isset($jsonObject['param']) ? $jsonObject['param'] : null;
         $this->httpStatusCode = $httpStatusCode;
+        $this->headers = $responseHeaders;
     }
 
     public function getHttpStatusCode()
@@ -65,5 +66,9 @@ class APIError extends Exception
     public function getJsonObject()
     {
         return $this->jsonObject;
+    }
+    public function getHeaders()
+    {
+        return $this->headers;
     }
 }

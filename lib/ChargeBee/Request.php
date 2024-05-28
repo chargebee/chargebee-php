@@ -66,7 +66,7 @@ class Request
             throw new IOException($message, $errno);
         }
 
-        $respJson = self::processResponse((string)$clientResponse->getBody(), $clientResponse->getStatusCode());
+        $respJson = self::processResponse((string)$clientResponse->getBody(), $clientResponse->getStatusCode(), $clientResponse->getHeaders());
         return new Response($respJson, $clientResponse->getHeaders());
     }
 
@@ -80,7 +80,7 @@ class Request
      * @throws OperationFailedException
      * @throws PaymentException
      */
-    public static function processResponse($response, $httpCode)
+    public static function processResponse($response, $httpCode, $headers)
     {
         $respJson = json_decode($response, true);
         if (!$respJson) {
@@ -92,7 +92,7 @@ class Request
                 throw new Exception("Sorry, something went wrong when trying to process the request. If this problem persists, contact us at support@chargebee.com. \n type: internal_error, \n http_status_code: 500, \n error_code: internal_error ");
         }
         if ($httpCode < 200 || $httpCode > 299) {
-            self::handleAPIRespError($httpCode, $respJson, $response);
+            self::handleAPIRespError($httpCode, $respJson, $response, $headers);
         }
         return $respJson;
     }
@@ -107,7 +107,7 @@ class Request
      * @throws OperationFailedException
      * @throws PaymentException
      */
-    public static function handleAPIRespError($httpCode, $respJson, $response)
+    public static function handleAPIRespError($httpCode, $respJson, $response, $headers)
     {
         if (!isset($respJson['api_error_code'])) {
             throw new Exception("No api_error_code attribute in content. Probably not a ChargeBee's error response. The content is \n " . $response);
@@ -117,13 +117,13 @@ class Request
             $type = $respJson['type'];
         }
         if ($type == "payment") {
-            throw new PaymentException($httpCode, $respJson);
+            throw new PaymentException($httpCode, $respJson, $headers);
         } elseif ($type == "operation_failed") {
-            throw new OperationFailedException($httpCode, $respJson);
+            throw new OperationFailedException($httpCode, $respJson, $headers);
         } elseif ($type == "invalid_request") {
-            throw new InvalidRequestException($httpCode, $respJson);
+            throw new InvalidRequestException($httpCode, $respJson, $headers);
         } else {
-            throw new APIError($httpCode, $respJson);
+            throw new APIError($httpCode, $respJson, $headers);
         }
     }
 

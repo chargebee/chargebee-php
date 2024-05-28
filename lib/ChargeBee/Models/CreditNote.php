@@ -54,6 +54,7 @@ class CreditNote extends Model
     'businessEntityId',
     'shippingAddress',
     'billingAddress',
+    'siteDetailsAtCreation',
   ];
 
 

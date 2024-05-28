@@ -105,6 +105,12 @@ class Result
         return $contact;
     }
 
+    public function businessEntityTransfer() 
+    {
+        $business_entity_transfer = $this->_get('business_entity_transfer', Models\BusinessEntityTransfer::class);
+        return $business_entity_transfer;
+    }
+
     public function token() 
     {
         $token = $this->_get('token', Models\Token::class);
@@ -173,7 +179,8 @@ class Result
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
 			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
-			'einvoice' => Models\InvoiceEinvoice::class
+			'einvoice' => Models\InvoiceEinvoice::class, 
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
 		));
         return $invoice;
     }
@@ -204,7 +211,8 @@ class Result
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
-			'billing_address' => Models\CreditNoteBillingAddress::class
+			'billing_address' => Models\CreditNoteBillingAddress::class, 
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
 		));
         return $credit_note;
     }
@@ -647,6 +655,12 @@ class Result
         return $entitlement_override;
     }
 
+    public function businessEntity() 
+    {
+        $business_entity = $this->_get('business_entity', Models\BusinessEntity::class);
+        return $business_entity;
+    }
+
     public function purchase() 
     {
         $purchase = $this->_get('purchase', Models\Purchase::class);
@@ -737,7 +751,8 @@ class Result
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
 			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
-			'einvoice' => Models\InvoiceEinvoice::class
+			'einvoice' => Models\InvoiceEinvoice::class, 
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
 		));
         return $invoices;
     }
@@ -766,7 +781,8 @@ class Result
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
-			'billing_address' => Models\CreditNoteBillingAddress::class
+			'billing_address' => Models\CreditNoteBillingAddress::class, 
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
 		));
         return $credit_notes;
     }
