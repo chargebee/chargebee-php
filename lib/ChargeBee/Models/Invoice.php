@@ -75,6 +75,7 @@ class Invoice extends Model
     'channel',
     'businessEntityId',
     'siteDetailsAtCreation',
+    'taxOrigin',
   ];
 
 

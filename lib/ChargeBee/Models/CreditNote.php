@@ -55,6 +55,7 @@ class CreditNote extends Model
     'shippingAddress',
     'billingAddress',
     'siteDetailsAtCreation',
+    'taxOrigin',
   ];
 
 

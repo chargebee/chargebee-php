@@ -180,7 +180,8 @@ class Result
 			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
 			'einvoice' => Models\InvoiceEinvoice::class, 
-			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class, 
+			'tax_origin' => Models\InvoiceTaxOrigin::class
 		));
         return $invoice;
     }
@@ -212,7 +213,8 @@ class Result
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
 			'billing_address' => Models\CreditNoteBillingAddress::class, 
-			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class, 
+			'tax_origin' => Models\CreditNoteTaxOrigin::class
 		));
         return $credit_note;
     }
@@ -676,6 +678,12 @@ class Result
         return $payment_voucher;
     }
 
+    public function currency() 
+    {
+        $currency = $this->_get('currency', Models\Currency::class);
+        return $currency;
+    }
+
     public function ramp() 
     {
         $ramp = $this->_get('ramp', Models\Ramp::class, 
@@ -711,6 +719,12 @@ class Result
 			'installments' => Models\InstallmentDetailInstallment::class
 		));
         return $installment_detail;
+    }
+
+    public function pricingPageSession() 
+    {
+        $pricing_page_session = $this->_get('pricing_page_session', Models\PricingPageSession::class);
+        return $pricing_page_session;
     }
 
     public function advanceInvoiceSchedules()
@@ -752,7 +766,8 @@ class Result
 			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
 			'einvoice' => Models\InvoiceEinvoice::class, 
-			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class, 
+			'tax_origin' => Models\InvoiceTaxOrigin::class
 		));
         return $invoices;
     }
@@ -782,7 +797,8 @@ class Result
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
 			'billing_address' => Models\CreditNoteBillingAddress::class, 
-			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class, 
+			'tax_origin' => Models\CreditNoteTaxOrigin::class
 		));
         return $credit_notes;
     }
