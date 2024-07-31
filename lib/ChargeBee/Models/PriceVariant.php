@@ -13,6 +13,7 @@ class PriceVariant extends Model
     'id',
     'name',
     'externalName',
+    'variantGroup',
     'description',
     'status',
     'createdAt',

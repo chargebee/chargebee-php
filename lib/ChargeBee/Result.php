@@ -618,6 +618,12 @@ class Result
         return $impacted_item_price;
     }
 
+    public function metadata() 
+    {
+        $metadata = $this->_get('metadata', Models\Metadata::class);
+        return $metadata;
+    }
+
     public function subscriptionEntitlement() 
     {
         $subscription_entitlement = $this->_get('subscription_entitlement', Models\SubscriptionEntitlement::class, 
@@ -692,7 +698,8 @@ class Result
 			'items_to_update' => Models\RampItemsToUpdate::class, 
 			'coupons_to_add' => Models\RampCouponsToAdd::class, 
 			'discounts_to_add' => Models\RampDiscountsToAdd::class, 
-			'item_tiers' => Models\RampItemTier::class
+			'item_tiers' => Models\RampItemTier::class, 
+			'status_transition_reason' => Models\RampStatusTransitionReason::class
 		));
         return $ramp;
     }

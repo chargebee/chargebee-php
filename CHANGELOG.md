@@ -1,3 +1,29 @@
+### v3.31.0 (2024-07-31)
+* * *
+
+#### New Resource:
+* Metadata has been added. 
+
+#### New Attributes:
+* variant_group has been added in PriceVariant resource.
+* effective_from & schedule_status have been added in EntitlementOverride resource.
+* effective_from & schedule_status have been added in SubscriptionEntitlement resource.
+* status_transition_reason has been added in Ramp subresource.
+* billing_period & billing_period_unit have been added in SubscriptionItem subresource.
+
+#### New Input parameters:
+* variant_group has been added to PriceVariant#CreateRequest, PriceVariant#UpdateRequest.
+* include_scheduled_overrides has been added to SubscriptionEntitlement#SubscriptionEntitlementsForSubscriptionRequest.
+* entitlement_overrides[effective_from] has been added to SubscriptionEntitlement#SubscriptionEntitlementsForSubscriptionRequest.
+* entitlement_overrides[effective_from] has been added to EntitlementOverride#AddEntitlementOverrideForSubscriptionRequest.
+* include_scheduled_overrides has been added to EntitlementOverride#ListEntitlementOverrideForSubscriptionRequest.
+* updated_at has been added to Usage#ListRequest.
+
+#### New Enum values:
+* SUBSCRIPTION_ITEMS_RENEWED has been added in EventType enum.
+* SUBSCRIPTION_RAMP_DRAFTED has been added in EventType enum.
+* SUBSCRIPTION_RAMP_UPDATED has been added in EventType enum.
+
 ### v3.30.0 (2024-07-03)
 * * *
 

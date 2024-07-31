@@ -18,6 +18,8 @@ class EntitlementOverride extends Model
     'value',
     'name',
     'expiresAt',
+    'effectiveFrom',
+    'scheduleStatus',
   ];
 
 

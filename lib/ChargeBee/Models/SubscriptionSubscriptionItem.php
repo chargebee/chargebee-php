@@ -17,6 +17,8 @@ class SubscriptionSubscriptionItem extends Model
     'unitPriceInDecimal',
     'amount',
     'amountInDecimal',
+    'billingPeriod',
+    'billingPeriodUnit',
     'freeQuantity',
     'freeQuantityInDecimal',
     'trialEnd',

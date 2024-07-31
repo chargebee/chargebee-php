@@ -44,7 +44,7 @@ class Usage extends Model
     return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"delete_usage"), $params, $env, $headers);
   }
 
-  public static function all($params, $env = null, $headers = array())
+  public static function all($params = array(), $env = null, $headers = array())
   {
     return Request::sendListRequest(Request::GET, Util::encodeURIPath("usages"), $params, $env, $headers);
   }

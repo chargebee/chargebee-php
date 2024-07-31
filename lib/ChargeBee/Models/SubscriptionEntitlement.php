@@ -18,6 +18,8 @@ class SubscriptionEntitlement extends Model
     'name',
     'isOverridden',
     'isEnabled',
+    'effectiveFrom',
+    'scheduleStatus',
     'expiresAt',
     'components',
   ];
