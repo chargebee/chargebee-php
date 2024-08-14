@@ -14,6 +14,7 @@ class SubscriptionEntitlement extends Model
     'featureId',
     'featureName',
     'featureUnit',
+    'featureType',
     'value',
     'name',
     'isOverridden',

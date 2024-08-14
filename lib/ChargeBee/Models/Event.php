@@ -6,6 +6,8 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 use ChargeBee\ChargeBee\Environment;
+use Exception;
+use RuntimeException;
 
 class Event extends Model
 {
