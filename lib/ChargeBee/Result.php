@@ -633,6 +633,12 @@ class Result
         return $subscription_entitlement;
     }
 
+    public function customerEntitlement() 
+    {
+        $customer_entitlement = $this->_get('customer_entitlement', Models\CustomerEntitlement::class);
+        return $customer_entitlement;
+    }
+
     public function itemEntitlement() 
     {
         $item_entitlement = $this->_get('item_entitlement', Models\ItemEntitlement::class);

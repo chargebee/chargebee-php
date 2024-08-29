@@ -69,6 +69,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBalance.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerBillingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerChildAccountAccess.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerContact.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/CustomerEntitlement.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerEntityIdentifier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerParentAccountAccess.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/CustomerPaymentMethod.php');

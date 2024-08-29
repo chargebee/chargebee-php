@@ -40,6 +40,11 @@ class Ramp extends Model
     return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"create_ramp"), $params, $env, $headers);
   }
 
+  public static function update($id, $params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("ramps",$id,"update"), $params, $env, $headers);
+  }
+
   public static function retrieve($id, $env = null, $headers = array())
   {
     return Request::send(Request::GET, Util::encodeURIPath("ramps",$id), array(), $env, $headers);

@@ -1,3 +1,22 @@
+### v3.33.0 (2024-08-29)
+* * *
+
+#### New Resource:
+* CustomerEntitlement has been added. 
+
+#### New Endpoints:
+* Ramp#UpdateRequest has been added to Ramp resource.
+* Transaction#ReconcileRequest has been added to Transaction resource. 
+
+### New Attributes: 
+* arr has been added to Subscription. 
+
+### New Enum Values: 
+* customer_entitlements_updated has been added to EntityTypeEnum.
+* subscription_moved_in has been added in EventType enum.
+* subscription_moved_out has been added in EventType enum.
+* subscription_movement_failed has been added in EventType enum.
+
 ### v3.32.0 (2024-08-14)
 * * *
 

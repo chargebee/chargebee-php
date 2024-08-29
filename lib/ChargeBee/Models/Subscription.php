@@ -65,6 +65,7 @@ class Subscription extends Model
     'dueSince',
     'totalDues',
     'mrr',
+    'arr',
     'exchangeRate',
     'baseCurrencyCode',
     'addons',

@@ -78,6 +78,11 @@ class Transaction extends Model
     return Request::send(Request::POST, Util::encodeURIPath("transactions",$id,"record_refund"), $params, $env, $headers);
   }
 
+  public static function reconcile($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("transactions",$id,"reconcile"), $params, $env, $headers);
+  }
+
   public static function refund($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("transactions",$id,"refund"), $params, $env, $headers);
