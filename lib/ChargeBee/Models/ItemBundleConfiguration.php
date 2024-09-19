@@ -4,11 +4,10 @@ namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
 
-class InstallmentConfigInstallment extends Model
+class ItemBundleConfiguration extends Model
 {
   protected $allowed = [
-    'period',
-    'amountPercentage',
+    'type',
   ];
 
 }

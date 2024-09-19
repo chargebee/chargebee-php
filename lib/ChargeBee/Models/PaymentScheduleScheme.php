@@ -6,20 +6,19 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class InstallmentConfig extends Model
+class PaymentScheduleScheme extends Model
 {
 
   protected $allowed = [
     'id',
     'description',
-    'numberOfInstallments',
+    'numberOfSchedules',
     'periodUnit',
     'period',
-    'preferredDay',
     'createdAt',
     'resourceVersion',
     'updatedAt',
-    'installments',
+    'preferredSchedules',
   ];
 
 
@@ -29,17 +28,17 @@ class InstallmentConfig extends Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("installment_configs"), $params, $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("payment_schedule_schemes"), $params, $env, $headers);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("installment_configs",$id), array(), $env, $headers);
+    return Request::send(Request::GET, Util::encodeURIPath("payment_schedule_schemes",$id), array(), $env, $headers);
   }
 
   public static function delete($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("installment_configs",$id,"delete"), array(), $env, $headers);
+    return Request::send(Request::POST, Util::encodeURIPath("payment_schedule_schemes",$id,"delete"), array(), $env, $headers);
   }
 
  }

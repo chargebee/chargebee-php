@@ -192,6 +192,15 @@ class Result
         return $payment_reference_number;
     }
 
+    public function paymentSchedule() 
+    {
+        $payment_schedule = $this->_get('payment_schedule', Models\PaymentSchedule::class, 
+        array( 
+			'schedule_entries' => Models\PaymentScheduleScheduleEntry::class
+		));
+        return $payment_schedule;
+    }
+
     public function taxWithheld() 
     {
         $tax_withheld = $this->_get('tax_withheld', Models\TaxWithheld::class);
@@ -534,7 +543,9 @@ class Result
     {
         $item = $this->_get('item', Models\Item::class, 
         array( 
-			'applicable_items' => Models\ItemApplicableItem::class
+			'applicable_items' => Models\ItemApplicableItem::class, 
+			'bundle_items' => Models\ItemBundleItem::class, 
+			'bundle_configuration' => Models\ItemBundleConfiguration::class
 		));
         return $item;
     }
@@ -710,28 +721,13 @@ class Result
         return $ramp;
     }
 
-    public function installmentConfig() 
+    public function paymentScheduleScheme() 
     {
-        $installment_config = $this->_get('installment_config', Models\InstallmentConfig::class, 
+        $payment_schedule_scheme = $this->_get('payment_schedule_scheme', Models\PaymentScheduleScheme::class, 
         array( 
-			'installments' => Models\InstallmentConfigInstallment::class
+			'preferred_schedules' => Models\PaymentScheduleSchemePreferredSchedule::class
 		));
-        return $installment_config;
-    }
-
-    public function installment() 
-    {
-        $installment = $this->_get('installment', Models\Installment::class);
-        return $installment;
-    }
-
-    public function installmentDetail() 
-    {
-        $installment_detail = $this->_get('installment_detail', Models\InstallmentDetail::class, 
-        array( 
-			'installments' => Models\InstallmentDetailInstallment::class
-		));
-        return $installment_detail;
+        return $payment_schedule_scheme;
     }
 
     public function pricingPageSession() 
@@ -793,6 +789,15 @@ class Result
                 'parent_periods' => Models\DifferentialPriceParentPeriod::class
             ));
         return $differential_prices;
+    }
+
+    public function paymentSchedules()
+    {
+        $payment_schedules = $this->_getList('payment_schedules', Models\PaymentSchedule::class,
+        array( 
+			'schedule_entries' => Models\PaymentScheduleScheduleEntry::class
+		));
+        return $payment_schedules;
     }
 
     public function creditNotes()

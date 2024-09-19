@@ -1,3 +1,48 @@
+### v3.34.0 (2024-09-19)
+* * *
+
+#### New Resource:
+* PaymentScheduleScheme has been added. 
+* PaymentSchedule has been added. 
+
+### New Endpoints: 
+* Invoice#ApplyPaymentScheduleScheme has been added. 
+* Invoice#PaymentSchedules has been added. 
+
+### New Attributes 
+* bundle_items[] has been added to Items. 
+* bundle_configuration has been added to Items.
+
+#### New Input parameters: 
+* bundle_configuration has been added to Items#CreateParams, Items#UpdateParams & Items#ListParams.
+* bundle_items_to_add[] has been added to Items#CreateParams & Items#UpdateParams.  
+* bundle_items_to_update[] has been added to Items#UpdateParams.
+* bundle_items_to_remove[] has been added to Items#UpdateParams.
+* payment_schedule has been added to Purchase#CreateParams.
+
+### New Enum Values:
+* payment_schedules_created has been added to EventTypeEnum.
+* payment_schedules_updated has been added to EventTypeEnum.
+* payment_schedule_scheme_created has been added to EventTypeEnum.
+* payment_schedule_scheme_deleted has been added to EventTypeEnum.
+
+### Removed Resource: 
+* Installment has been removed. 
+* InstallmentConfig has been removed.
+* InstallmentDetail has been removed.
+
+### Removed Endpoints: 
+* Invoice#Installments has been removed. 
+
+### Removed Input parameters: 
+* installment_info has been removed from Purchase#CreateParams.
+
+### Removed Enum Values: 
+* invoice_installments_created has been removed from EventTypeEnum.
+* invoice_installment_updated has been removed from EventTypeEnum.
+* installment_config_created has been removed from EventTypeEnum.
+* installment_config_deleted has been removed from EventTypeEnum.
+
 ### v3.33.0 (2024-08-29)
 * * *
 

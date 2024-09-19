@@ -33,6 +33,8 @@ class Item extends Model
     'archivedAt',
     'channel',
     'applicableItems',
+    'bundleItems',
+    'bundleConfiguration',
     'metadata',
   ];
 

@@ -6,14 +6,20 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class InstallmentDetail extends Model
+class PaymentSchedule extends Model
 {
 
   protected $allowed = [
     'id',
-    'invoiceId',
+    'schemeId',
+    'entityType',
+    'entityId',
     'amount',
-    'installments',
+    'createdAt',
+    'resourceVersion',
+    'updatedAt',
+    'currencyCode',
+    'scheduleEntries',
   ];
 
 
