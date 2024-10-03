@@ -36,7 +36,10 @@ class Util
 
         $serialized = [];
         foreach ($value as $k => $v) {
-            if (is_array($v) && !is_int($k)) {
+            if($k == "metadata" || $k == "meta_data"){ // metadata is encoded as a JSON string instead of URL-encoded.
+              $serialized[$k] = json_encode($v);
+            }
+            else if (is_array($v) && !is_int($k)) {
                 $serialized = array_merge($serialized, self::serialize($v, self::toUnderscoreFromCamelCase($k)));
             } elseif (is_array($v) && is_int($k)) {
                 $serialized = array_merge($serialized, self::serialize($v, $prefix, $k));
