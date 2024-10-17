@@ -28,6 +28,7 @@ class QuotedSubscriptionSubscriptionItem extends Model
     'chargeOnce',
     'chargeOnOption',
     'prorationType',
+    'usageAccumulationResetFrequency',
   ];
 
 }

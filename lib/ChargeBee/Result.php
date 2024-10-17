@@ -290,6 +290,7 @@ class Result
 			'subscription_estimates' => Models\SubscriptionEstimate::class, 
 			'invoice_estimate' => Models\InvoiceEstimate::class, 
 			'invoice_estimates' => Models\InvoiceEstimate::class, 
+			'payment_schedule_estimates' => Models\PaymentScheduleEstimate::class, 
 			'next_invoice_estimate' => Models\InvoiceEstimate::class, 
 			'credit_note_estimates' => Models\CreditNoteEstimate::class, 
 			'unbilled_charge_estimates' => Models\UnbilledCharge::class
@@ -330,6 +331,10 @@ class Result
 			'line_item_taxes' => Models\InvoiceEstimateLineItemTax::class, 
 			'line_item_tiers' => Models\InvoiceEstimateLineItemTier::class, 
 			'line_item_discounts' => Models\InvoiceEstimateLineItemDiscount::class
+		));
+        $estimate->_initDependantList($this->_response['estimate'], 'payment_schedule_estimates',
+        array( 
+			'schedule_entries' => Models\PaymentScheduleEstimateScheduleEntry::class
 		));
         $estimate->_initDependantList($this->_response['estimate'], 'credit_note_estimates',
         array( 

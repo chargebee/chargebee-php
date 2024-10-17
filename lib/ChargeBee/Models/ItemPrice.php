@@ -37,6 +37,7 @@ class ItemPrice extends Model
     'resourceVersion',
     'updatedAt',
     'createdAt',
+    'usageAccumulationResetFrequency',
     'archivedAt',
     'invoiceNotes',
     'tiers',

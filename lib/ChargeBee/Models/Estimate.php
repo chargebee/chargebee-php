@@ -15,6 +15,7 @@ class Estimate extends Model
     'subscriptionEstimates',
     'invoiceEstimate',
     'invoiceEstimates',
+    'paymentScheduleEstimates',
     'nextInvoiceEstimate',
     'creditNoteEstimates',
     'unbilledChargeEstimates',
@@ -118,6 +119,11 @@ class Estimate extends Model
   public static function createInvoiceForItems($params, $env = null, $headers = array())
   {
     return Request::send(Request::POST, Util::encodeURIPath("estimates","create_invoice_for_items"), $params, $env, $headers);
+  }
+
+  public static function paymentSchedules($params, $env = null, $headers = array())
+  {
+    return Request::send(Request::POST, Util::encodeURIPath("estimates","payment_schedules"), $params, $env, $headers);
   }
 
  }

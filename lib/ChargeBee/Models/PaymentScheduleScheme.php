@@ -11,6 +11,7 @@ class PaymentScheduleScheme extends Model
 
   protected $allowed = [
     'id',
+    'name',
     'description',
     'numberOfSchedules',
     'periodUnit',

@@ -156,6 +156,8 @@ require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntent.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentIntentPaymentAttempt.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentReferenceNumber.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentSchedule.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentScheduleEstimate.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/PaymentScheduleEstimateScheduleEntry.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentScheduleScheduleEntry.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentScheduleScheme.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/PaymentScheduleSchemePreferredSchedule.php');
