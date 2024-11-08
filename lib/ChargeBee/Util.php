@@ -36,7 +36,7 @@ class Util
 
         $serialized = [];
         foreach ($value as $k => $v) {
-            if($k == "metadata" || $k == "meta_data"){ // metadata is encoded as a JSON string instead of URL-encoded.
+            if($k === "metadata" || $k === "meta_data"){ // metadata is encoded as a JSON string instead of URL-encoded.
               $serialized[$k] = json_encode($v);
             }
             else if (is_array($v) && !is_int($k)) {

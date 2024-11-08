@@ -1,3 +1,9 @@
+###  v3.35.1 (2024-11-08)
+* * *
+
+### Bug fix:
+* metadata equality operator bug fixed, to resolve #61.
+
 ###  v3.35.0 (2024-10-17)
 * * *
 
