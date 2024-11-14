@@ -36,6 +36,7 @@ class Item extends Model
     'bundleItems',
     'bundleConfiguration',
     'metadata',
+    'businessEntityId',
   ];
 
 

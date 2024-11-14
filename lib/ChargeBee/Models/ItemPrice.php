@@ -51,6 +51,7 @@ class ItemPrice extends Model
     'parentItemId',
     'showDescriptionInInvoices',
     'showDescriptionInQuotes',
+    'businessEntityId',
   ];
 
 

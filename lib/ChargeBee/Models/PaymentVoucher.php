@@ -47,11 +47,26 @@ class PaymentVoucher extends Model
     return Request::send(Request::GET, Util::encodeURIPath("payment_vouchers",$id), array(), $env, $headers);
   }
 
-  public static function payment_vouchersForInvoice($id, $params = array(), $env = null, $headers = array())
+  public static function paymentVouchersForInvoice($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"payment_vouchers"), $params, $env, $headers);
   }
 
+  public static function paymentVouchersForCustomer($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"payment_vouchers"), $params, $env, $headers);
+  }
+
+  /**
+  * @deprecated use paymentVouchersForInvoice instead
+  */
+  public static function payment_vouchersForInvoice($id, $params = array(), $env = null, $headers = array())
+  {
+    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"payment_vouchers"), $params, $env, $headers);
+  }
+  /**
+  * @deprecated use paymentVouchersForCustomer instead
+  */
   public static function payment_vouchersForCustomer($id, $params = array(), $env = null, $headers = array())
   {
     return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"payment_vouchers"), $params, $env, $headers);

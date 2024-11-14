@@ -741,6 +741,31 @@ class Result
         return $pricing_page_session;
     }
 
+    public function omnichannelSubscription() 
+    {
+        $omnichannel_subscription = $this->_get('omnichannel_subscription', Models\OmnichannelSubscription::class, 
+        array( 
+			'omnichannel_subscription_items' => Models\OmnichannelSubscriptionOmnichannelSubscriptionItem::class
+		));
+        return $omnichannel_subscription;
+    }
+
+    public function omnichannelTransaction() 
+    {
+        $omnichannel_transaction = $this->_get('omnichannel_transaction', Models\OmnichannelTransaction::class);
+        return $omnichannel_transaction;
+    }
+
+    public function recordedPurchase() 
+    {
+        $recorded_purchase = $this->_get('recorded_purchase', Models\RecordedPurchase::class, 
+        array( 
+			'linked_omnichannel_subscriptions' => Models\RecordedPurchaseLinkedOmnichannelSubscription::class, 
+			'error_detail' => Models\RecordedPurchaseErrorDetail::class
+		));
+        return $recorded_purchase;
+    }
+
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,

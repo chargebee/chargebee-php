@@ -1,3 +1,67 @@
+###  v3.36.0 (2024-11-14)
+* * *
+
+#### New Resource: 
+* OmnichannelTransaction has been added. 
+* OmnichannelSubscription has been added.
+* RecordedPurchase has been added.
+
+
+#### New Attributes: 
+* business_entity_id has been added to AttachedItem.
+* business_entity_id has been added to DifferentialPrice.
+* business_entity_id has been added to Items.
+* business_entity_id has been added to ItemFamily.
+* business_entity_id has been added to ItemPrice.
+* business_entity_id has been added to PriceVariant.
+* valid_from has been added to coupon.
+
+#### New Input Parameters:
+* business_entity_id has been added to AttachedItem#CreateRequest.
+* preferred_scheme has been added to Card#UpdateCardForCustomerRequest.
+* valid_from has been added to Coupon#CreateForItem &  Coupon#UpdateForItemsRequest.
+* preferred_scheme has been added to Customer#CreateRequest & Customer#CollectPaymentRequest.
+* business_entity_id has been added to DifferentialPrice#CreateRequest.
+* preferred_scheme has been added to Invoice#CreateRequest & Invoice#CreateForChargeItemsAndChargesRequest.
+* business_entity_id has been added to Items#CreateRequest.
+* business_entity_id & include_site_level_resources have been added to Items#ListItemParams.
+* business_entity_id has been added to ItemFamily#CreateRequest.
+* business_entity_id & include_site_level_resources have been added to ItemFamily#ListItemFamilyParams.
+* business_entity_id has been added to ItemPrice#CreateRequest.
+* business_entity_id & include_site_level_resources have been added to ItemPrice#ListItemPriceParams.
+* business_entity_id & include_site_level_resources have been added to PriceVariant#ListItemFamilyParams.
+* business_entity_id has been added to PriceVariant#CreateRequest.
+* business_entity_id & include_site_level_resources have been added to PriceVariant#ListPriceVariantParams.
+* preferred_scheme has been added to Subscription#CreateRequest, Subscription#UpdateRequest.
+* preferred_scheme Subscription#UpdateForItemsRequest, & Subscription#ImportSubscriptionRequest.
+* business_entity_id & include_site_level_resources have been added to Export#ItemFamiliesRequest & Export#ItemsRequest.
+* business_entity_id & include_site_level_resources have been added to Export#ItemPricesRequest Export#PriceVariantsRequest
+* name & flexible_schedules[period] have been added to PaymentScheduleScheme#CreateRequest.
+
+#### New Enum Values: 
+* FUTURE has been added to Coupon#StatusEnum.
+* EXISTING_CUSTOMER & NEW_CUSTOMER have been added to Coupon#TypeEnum.
+* LATE_FAILURE has added to Transation#LinkedPaymentEnum & Transation#StatusEnum.
+* OMNICHANNEL_SUBSCRIPTION, has been added to EntityTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM, has been added to EntityTypeEnum.
+* OMNICHANNEL_TRANSACTION, has been added to EntityTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_RENEWED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_CREATED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADE_SCHEDULED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_DOWNGRADE_REMOVED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_EXPIRED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_CANCELLATION_SCHEDULED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_CANCELLATION_REMOVED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_RESUBSCRIBED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_UPGRADED, has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_CANCELLED, has been added to EventTypeEnum.
+
+#### Deprecated method name:
+* PaymentVoucherPaymentVouchersForInvoiceRequest method payment_vouchersForInvoice use paymentVouchersForInvoice instead.
+* PaymentVoucherPaymentVouchersForCustomerRequest method payment_vouchersForCustomer use paymentVouchersForCustomer instead.
+
+
 ###  v3.35.1 (2024-11-08)
 * * *
 

@@ -17,6 +17,7 @@ class ItemFamily extends Model
     'resourceVersion',
     'updatedAt',
     'channel',
+    'businessEntityId',
   ];
 
 

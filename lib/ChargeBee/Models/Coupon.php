@@ -20,6 +20,7 @@ class Coupon extends Model
     'currencyCode',
     'durationType',
     'durationMonth',
+    'validFrom',
     'validTill',
     'maxRedemptions',
     'status',

@@ -23,6 +23,7 @@ class DifferentialPrice extends Model
     'tiers',
     'currencyCode',
     'parentPeriods',
+    'businessEntityId',
   ];
 
 

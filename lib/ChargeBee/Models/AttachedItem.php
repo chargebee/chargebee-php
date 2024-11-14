@@ -24,6 +24,7 @@ class AttachedItem extends Model
     'resourceVersion',
     'updatedAt',
     'channel',
+    'businessEntityId',
   ];
 
 

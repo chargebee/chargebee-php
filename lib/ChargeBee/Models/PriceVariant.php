@@ -21,6 +21,7 @@ class PriceVariant extends Model
     'updatedAt',
     'archivedAt',
     'attributes',
+    'businessEntityId',
   ];
 
 
