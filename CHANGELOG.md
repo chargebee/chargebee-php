@@ -1,3 +1,28 @@
+### v3.37.0 (2024-11-27)
+* * * 
+
+#### New Resource: 
+* OmnichannelSubscriptionItem has been added. 
+
+#### New Attribute: 
+* resource_version has been added to OmnichannelSubscription.
+* resource_version has been added to OmnichannelTransaction.
+* resource_version has been added to RecordedPurchase.
+
+#### New Input Parameters:
+* limit has been added to OmnichannelSubscription#ListRequest.
+* offset has been added to OmnichannelSubscription#ListRequest.
+* customer_id has been added to OmnichannelSubscription#ListRequest.
+* replace_coupon_list has been added to HostedPage#CheckoutExistingRequest.
+* replace_coupon_list has been added to HostedPage#CheckoutExistingForItemsRequest.
+* subscription[po_number] has been added to HostedPage#CheckoutNewForItemsRequest.
+
+#### Removed Subresource: 
+* OmnichannelSubscriptionItem subresource has been removed from OmnichannelSubscription and is now a standalone resource.
+
+#### Deprecated Attribute: 
+* metadata has been deprecated from subscription. 
+
 ###  v3.36.0 (2024-11-14)
 * * *
 

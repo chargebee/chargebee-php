@@ -17,6 +17,7 @@ class RecordedPurchase extends Model
     'status',
     'omnichannelTransactionId',
     'createdAt',
+    'resourceVersion',
     'linkedOmnichannelSubscriptions',
     'errorDetail',
   ];

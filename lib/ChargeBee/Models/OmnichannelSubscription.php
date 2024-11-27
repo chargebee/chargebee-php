@@ -16,6 +16,7 @@ class OmnichannelSubscription extends Model
     'source',
     'customerId',
     'createdAt',
+    'resourceVersion',
     'omnichannelSubscriptionItems',
   ];
 

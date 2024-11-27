@@ -743,9 +743,12 @@ class Result
 
     public function omnichannelSubscription() 
     {
-        $omnichannel_subscription = $this->_get('omnichannel_subscription', Models\OmnichannelSubscription::class, 
+        $omnichannel_subscription = $this->_get('omnichannel_subscription', Models\OmnichannelSubscription::class, array(),
         array( 
-			'omnichannel_subscription_items' => Models\OmnichannelSubscriptionOmnichannelSubscriptionItem::class
+			'omnichannel_subscription_items' => Models\OmnichannelSubscriptionItem::class
+		));
+        $omnichannel_subscription->_initDependantList($this->_response['omnichannel_subscription'], 'omnichannel_subscription_items',
+        array( 
 		));
         return $omnichannel_subscription;
     }
@@ -754,6 +757,12 @@ class Result
     {
         $omnichannel_transaction = $this->_get('omnichannel_transaction', Models\OmnichannelTransaction::class);
         return $omnichannel_transaction;
+    }
+
+    public function omnichannelSubscriptionItem() 
+    {
+        $omnichannel_subscription_item = $this->_get('omnichannel_subscription_item', Models\OmnichannelSubscriptionItem::class);
+        return $omnichannel_subscription_item;
     }
 
     public function recordedPurchase() 

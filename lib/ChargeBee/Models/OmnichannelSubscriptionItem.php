@@ -6,19 +6,19 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class OmnichannelTransaction extends Model
+class OmnichannelSubscriptionItem extends Model
 {
 
   protected $allowed = [
     'id',
-    'idAtSource',
-    'appId',
-    'priceCurrency',
-    'priceUnits',
-    'priceNanos',
-    'type',
-    'transactedAt',
-    'createdAt',
+    'itemIdAtSource',
+    'status',
+    'currentTermStart',
+    'currentTermEnd',
+    'expiredAt',
+    'expirationReason',
+    'cancelledAt',
+    'cancellationReason',
     'resourceVersion',
   ];
 

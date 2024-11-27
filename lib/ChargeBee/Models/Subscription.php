@@ -77,7 +77,6 @@ class Subscription extends Model
     'referralInfo',
     'invoiceNotes',
     'metaData',
-    'metadata',
     'deleted',
     'changesScheduledAt',
     'contractTerm',

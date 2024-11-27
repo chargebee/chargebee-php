@@ -145,7 +145,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/ItemPriceTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Metadata.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/NonSubscription.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OmnichannelSubscription.php');
-require(dirname(__FILE__) . '/ChargeBee/Models/OmnichannelSubscriptionOmnichannelSubscriptionItem.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/OmnichannelSubscriptionItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OmnichannelTransaction.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Order.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/OrderBillingAddress.php');
