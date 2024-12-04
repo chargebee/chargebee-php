@@ -89,7 +89,7 @@ class Model
 
     private function isHash($array)
     {
-        if (!is_array($array)) {
+        if (!is_array($array) || count($array) === 0) {
             return false;
         }
 
