@@ -75,6 +75,7 @@ class Subscription extends Model
     'coupons',
     'shippingAddress',
     'referralInfo',
+    'billingOverride',
     'invoiceNotes',
     'metaData',
     'deleted',

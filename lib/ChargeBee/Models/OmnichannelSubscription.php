@@ -18,6 +18,7 @@ class OmnichannelSubscription extends Model
     'createdAt',
     'resourceVersion',
     'omnichannelSubscriptionItems',
+    'initialPurchaseTransaction',
   ];
 
 

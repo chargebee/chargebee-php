@@ -10,6 +10,7 @@ class CreditNoteDiscount extends Model
     'amount',
     'description',
     'entityType',
+    'discountType',
     'entityId',
     'couponSetCode',
   ];

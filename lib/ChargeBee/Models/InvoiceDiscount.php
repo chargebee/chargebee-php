@@ -10,6 +10,7 @@ class InvoiceDiscount extends Model
     'amount',
     'description',
     'entityType',
+    'discountType',
     'entityId',
     'couponSetCode',
   ];

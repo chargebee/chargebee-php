@@ -47,6 +47,7 @@ class Result
 			'coupons' => Models\SubscriptionCoupon::class, 
 			'shipping_address' => Models\SubscriptionShippingAddress::class, 
 			'referral_info' => Models\SubscriptionReferralInfo::class, 
+			'billing_override' => Models\SubscriptionBillingOverride::class, 
 			'contract_term' => Models\SubscriptionContractTerm::class, 
 			'discounts' => Models\SubscriptionDiscount::class
 		));
@@ -598,6 +599,12 @@ class Result
         return $differential_price;
     }
 
+    public function configuration() 
+    {
+        $configuration = $this->_get('configuration', Models\Configuration::class);
+        return $configuration;
+    }
+
     public function feature() 
     {
         $feature = $this->_get('feature', Models\Feature::class, 
@@ -875,6 +882,14 @@ class Result
         array( 
 		));
         return $downloads;
+    }
+
+    public function configurations()
+    {
+        $configurations = $this->_getList('configurations', Models\Configuration::class,
+        array( 
+		));
+        return $configurations;
     }
 
     public function inAppSubscriptions()

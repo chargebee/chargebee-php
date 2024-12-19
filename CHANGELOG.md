@@ -1,3 +1,43 @@
+### v3.38.0 (2024-12-19)
+* * * 
+
+#### New Resource: 
+* Configuration has been added. 
+
+#### New Attribute:
+* discount_type has been added to CreditNote#Discount.
+* discount_type has been added to CreditNoteEstimate#Discount.
+* discount_type has been added to Invoice#Discount.
+* discount_type has been added to InvoiceEstimate#Discount.
+* discount_type has been added to QuoteLineGroup#Discount.
+* initial_purchase_transaction has been added to OmnichannelSubscription.
+* error_cause_id has been added to GatewayErrorDetail.
+* error_cause_id has been added to Transaction#GatewayErrorDetail.
+* error_cause_id has been added to APIError.
+* deleted has been added to Quote. 
+* current_term_start has been added to QuotedSubscripiton#SubscriptionItem.
+* current_term_end has been added to QuotedSubscripiton#SubscriptionItem.
+* next_billing_at has been added to QuotedSubscripiton#SubscriptionItem.
+* current_term_start has been added to Subscription#SubscriptionItem.
+* current_term_end has been added to Subscription#SubscriptionItem.
+* next_billing_at has been added to Subscription#SubscriptionItem.
+* billing_override has been added to Subscription. 
+* grace_period_expires_at has been added to OmnichannelSubscriptionItem.
+
+#### New Input Params:
+* billing_override has been added to Subscription#CreateWithItemsInputParam.
+* billing_override has been added to Subscription#UpdateForItemsInputParam.
+
+#### New Enum Values:
+* OMNICHANNEL_SUBSCRIPTION_IMPORTED has been added to EventTypeEnum.
+* DISABLED has been added to Event#WebhookStatus.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_GRACE_PERIOD_STARTED has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_GRACE_PERIOD_EXPIRED has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_DUNNING_STARTED has been added to EventTypeEnum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_DUNNING_EXPIRED has been added to EventTypeEnum. 
+* IGNORED has been added to RecordedPurchase#StatusEnum.
+* IN_DUNNING & IN_GRACE_PERIOD have been added to OmnichannelSubscriptionItem#StatusEnum.
+
 ### v3.37.1 (2024-12-04)
 * * * 
 

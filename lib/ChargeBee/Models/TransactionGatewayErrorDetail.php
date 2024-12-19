@@ -20,6 +20,7 @@ class TransactionGatewayErrorDetail extends Model
     'recommendationMessage',
     'processorErrorCode',
     'processorErrorMessage',
+    'errorCauseId',
   ];
 
 }

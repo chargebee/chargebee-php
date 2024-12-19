@@ -19,6 +19,7 @@ class OmnichannelSubscriptionItem extends Model
     'expirationReason',
     'cancelledAt',
     'cancellationReason',
+    'gracePeriodExpiresAt',
     'resourceVersion',
   ];
 

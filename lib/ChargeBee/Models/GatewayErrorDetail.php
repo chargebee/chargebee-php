@@ -23,6 +23,7 @@ class GatewayErrorDetail extends Model
     'recommendationMessage',
     'processorErrorCode',
     'processorErrorMessage',
+    'errorCauseId',
   ];
 
 
