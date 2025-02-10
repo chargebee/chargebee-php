@@ -12,6 +12,7 @@ class CreditNoteAllocation extends Model
     'allocatedAt',
     'invoiceDate',
     'invoiceStatus',
+    'taxApplication',
   ];
 
 }

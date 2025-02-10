@@ -25,12 +25,18 @@ class Purchase extends Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("purchases"), $params, $env, $headers);
+    $jsonKeys = array(
+        "metaData" => 1,
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("purchases"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function estimate($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("purchases","estimate"), $params, $env, $headers);
+    $jsonKeys = array(
+        "exemptionDetails" => 1,
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("purchases","estimate"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

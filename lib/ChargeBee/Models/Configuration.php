@@ -21,7 +21,9 @@ class Configuration extends Model
 
   public static function all($env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("configurations"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("configurations"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

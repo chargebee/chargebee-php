@@ -56,12 +56,16 @@ class Event extends Model
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("events"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("events"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("events",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("events",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

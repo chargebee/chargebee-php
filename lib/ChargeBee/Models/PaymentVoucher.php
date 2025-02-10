@@ -39,22 +39,30 @@ class PaymentVoucher extends Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("payment_vouchers"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("payment_vouchers"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("payment_vouchers",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("payment_vouchers",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function paymentVouchersForInvoice($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"payment_vouchers"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id,"payment_vouchers"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function paymentVouchersForCustomer($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"payment_vouchers"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"payment_vouchers"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   /**

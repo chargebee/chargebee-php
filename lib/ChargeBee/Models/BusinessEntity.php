@@ -26,12 +26,16 @@ class BusinessEntity extends Model
 
   public static function createTransfers($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("business_entities","transfers"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("business_entities","transfers"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function getTransfers($params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("business_entities","transfers"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("business_entities","transfers"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

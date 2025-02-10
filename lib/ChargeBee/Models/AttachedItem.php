@@ -25,6 +25,7 @@ class AttachedItem extends Model
     'updatedAt',
     'channel',
     'businessEntityId',
+    'deleted',
   ];
 
 
@@ -34,27 +35,37 @@ class AttachedItem extends Model
 
   public static function create($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("items",$id,"attached_items"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("items",$id,"attached_items"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function update($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("attached_items",$id), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("attached_items",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("attached_items",$id), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("attached_items",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function delete($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("attached_items",$id,"delete"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("attached_items",$id,"delete"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function all($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("items",$id,"attached_items"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("items",$id,"attached_items"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

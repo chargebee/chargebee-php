@@ -75,37 +75,53 @@ class Plan extends Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("plans"), $params, $env, $headers);
+    $jsonKeys = array(
+        "metaData" => 0,
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("plans"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function update($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("plans",$id), $params, $env, $headers);
+    $jsonKeys = array(
+        "metaData" => 0,
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("plans",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("plans"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("plans"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("plans",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("plans",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function delete($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("plans",$id,"delete"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("plans",$id,"delete"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function copy($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("plans","copy"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("plans","copy"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function unarchive($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("plans",$id,"unarchive"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("plans",$id,"unarchive"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

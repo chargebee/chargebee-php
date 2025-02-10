@@ -25,7 +25,9 @@ class CustomerEntitlement extends Model
 
   public static function entitlementsForCustomer($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"customer_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"customer_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

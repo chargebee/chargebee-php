@@ -37,17 +37,23 @@ class PaymentIntent extends Model
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("payment_intents"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("payment_intents"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function update($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("payment_intents",$id), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("payment_intents",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("payment_intents",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("payment_intents",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

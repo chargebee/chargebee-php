@@ -32,12 +32,16 @@ class SubscriptionEntitlement extends Model
 
   public static function subscriptionEntitlementsForSubscription($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"subscription_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"subscription_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function setSubscriptionEntitlementAvailability($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"subscription_entitlements/set_availability"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"subscription_entitlements/set_availability"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

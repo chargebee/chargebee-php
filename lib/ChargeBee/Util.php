@@ -28,7 +28,7 @@ class Util
         return preg_replace_callback('/([A-Z])/', $func, $str);
     }
 
-    public static function serialize($value, $prefix = null, $idx = null)
+    public static function serialize($value, $prefix = null, $idx = null, $jsonKeys = null, $level = 0)
     {
         if ($value && !is_array($value)) {
             throw new Exception("only arrays are allowed as value");
@@ -36,23 +36,49 @@ class Util
 
         $serialized = [];
         foreach ($value as $k => $v) {
-            if($k === "metadata" || $k === "meta_data"){ // metadata is encoded as a JSON string instead of URL-encoded.
-              $serialized[$k] = json_encode($v);
-            }
-            else if (is_array($v) && !is_int($k)) {
-                $serialized = array_merge($serialized, self::serialize($v, self::toUnderscoreFromCamelCase($k)));
-            } elseif (is_array($v) && is_int($k)) {
-                $serialized = array_merge($serialized, self::serialize($v, $prefix, $k));
-            } else {
+            $shouldJsonEncode = isset($jsonKeys[$k]) && $jsonKeys[$k] === $level;
+            if ($shouldJsonEncode) {
                 $usK = self::toUnderscoreFromCamelCase($k);
-                $key = (!is_null($prefix)?$prefix:'').(!is_null($prefix)?'['.$usK.']':$usK).(!is_null($idx)?'['.$idx.']':'');
+                $key = (!is_null($prefix) ? $prefix : '') .
+                    (!is_null($prefix) ? '[' . $usK . ']' : $usK) .
+                    (!is_null($idx) ? '[' . $idx . ']' : '');
+                $serialized[$key] = json_encode($v);
+            } else if (is_array($v) && !is_int($k)) {
+                $tempPrefix = (!is_null($prefix)) ? $prefix . '[' . self::toUnderscoreFromCamelCase($k) . ']' : self::toUnderscoreFromCamelCase($k);
+                $serialized = array_merge($serialized, self::serialize($v, $tempPrefix, null, $jsonKeys, $level + 1));
+            } elseif (is_array($v) && is_int($k)) {
+                $serialized = array_merge($serialized, self::serialize($v, $prefix, $k, $jsonKeys, $level));
+            } else {
+                $usK = self::toUnderscoreFromCamelCase($k);  
+                $key = (!is_null($prefix) ? $prefix : '') . (!is_null($prefix) ? '[' . $usK . ']' : $usK) . (!is_null($idx) ? '[' . $idx . ']' : '');
                 $serialized[$key] = self::asString($v);
             }
         }
-
         return $serialized;
     }
 
+    public static function formatJsonKeysAsSnakeCase($value, $maxDepth = 1000, $currentDepth = 0){
+        if ($value && !is_array($value)) {
+            throw new Exception("only arrays are allowed as value");
+        }
+
+        if ($currentDepth > $maxDepth) {
+            throw new Exception("Maximum recursion depth exceeded");
+        }
+
+        $serialized = [];
+
+        foreach ($value as $k => $v) {
+            $underscoreKey = self::toUnderscoreFromCamelCase($k);
+
+            if(is_array($v)){
+                $serialized[$underscoreKey] = self::formatJsonKeysAsSnakeCase($v, $maxDepth, $currentDepth+1);
+            }else{
+                $serialized[$underscoreKey] = self::asString($v);
+            }
+        }
+        return $serialized;
+    }
     public static function asString($value)
     {
         if (is_null($value)) {

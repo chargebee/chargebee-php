@@ -10,7 +10,7 @@ class Environment
 
     private static $default_env;
     public static $scheme = "https";
-    public static $chargebeeDomain;
+    public static $chargebeeDomain = "chargebee.com";
 
     public static $connectTimeoutInSecs = 30;
     public static $requestTimeoutInSecs = 80;
@@ -24,12 +24,7 @@ class Environment
     {
         $this->site = $site;
         $this->apiKey = $apiKey;
-
-        if (self::$chargebeeDomain == null) {
-            $this->apiEndPoint = "https://$site.chargebee.com/api/" . self::API_VERSION;
-        } else {
-            $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
-        }
+        $this->apiEndPoint = self::$scheme . "://$site." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
     }
 
     public static function configure($site, $apiKey)
@@ -57,9 +52,17 @@ class Environment
         return self::$default_env;
     }
 
-    public function apiUrl($url)
+    private function getSubDomainApiUrl($subDomain)
     {
-        return $this->apiEndPoint . $url;
+        return self::$scheme . "://" . self::getSite() . "." . $subDomain . "." . self::$chargebeeDomain . "/api/" . self::API_VERSION;
+    }
+
+    public function apiUrl($url, $subDomain = null)
+    {
+      if($subDomain != null) {
+          return self::getSubDomainApiUrl($subDomain) . $url;
+      }
+      return $this->apiEndPoint . $url;
     }
 
     public static function updateConnectTimeoutInSecs($connectTimeout)

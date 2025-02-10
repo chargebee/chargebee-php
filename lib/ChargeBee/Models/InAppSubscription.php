@@ -25,22 +25,30 @@ class InAppSubscription extends Model
 
   public static function processReceipt($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"process_purchase_command"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"process_purchase_command"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function importReceipt($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_receipt"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_receipt"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function importSubscription($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_subscription"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"import_subscription"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieveStoreSubs($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"retrieve"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("in_app_subscriptions",$id,"retrieve"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

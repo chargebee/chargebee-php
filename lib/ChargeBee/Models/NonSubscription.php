@@ -23,7 +23,9 @@ class NonSubscription extends Model
 
   public static function processReceipt($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("non_subscriptions",$id,"one_time_purchase"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("non_subscriptions",$id,"one_time_purchase"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

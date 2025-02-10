@@ -14,6 +14,7 @@ class InvoiceAppliedCredit extends Model
     'cnCreateReasonCode',
     'cnDate',
     'cnStatus',
+    'taxApplication',
   ];
 
 }

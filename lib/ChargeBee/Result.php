@@ -11,17 +11,23 @@ class Result
     private $_response;
     private $_responseHeaders;
     private $_responseObj;
-
-    public function __construct($_response, $_responseHeaders = null)
+    private $_responseStatusCode;
+    public function __construct($_response, $_responseHeaders = null, $_responseStatusCode = null)
     {
             $this->_response = $_response;
         $this->_responseHeaders = $_responseHeaders;
             $this->_responseObj = array();
+            $this->_responseStatusCode = $_responseStatusCode;
     }
 
     public function getResponseHeaders()
     {
         return $this->_responseHeaders;
+    }
+
+    public function getResponseStatusCode()
+    {
+        return $this->_responseStatusCode;
     }
 
     public function isIdempotencyReplayed()
@@ -169,6 +175,7 @@ class Result
 			'line_item_discounts' => Models\InvoiceLineItemDiscount::class, 
 			'taxes' => Models\InvoiceTax::class, 
 			'line_item_taxes' => Models\InvoiceLineItemTax::class, 
+			'line_item_credits' => Models\InvoiceLineItemCredit::class, 
 			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 
@@ -308,6 +315,7 @@ class Result
 			'taxes' => Models\InvoiceEstimateTax::class, 
 			'line_item_taxes' => Models\InvoiceEstimateLineItemTax::class, 
 			'line_item_tiers' => Models\InvoiceEstimateLineItemTier::class, 
+			'line_item_credits' => Models\InvoiceEstimateLineItemCredit::class, 
 			'line_item_discounts' => Models\InvoiceEstimateLineItemDiscount::class
 		));
         $estimate->_initDependant($this->_response['estimate'], 'next_invoice_estimate',
@@ -317,6 +325,7 @@ class Result
 			'taxes' => Models\InvoiceEstimateTax::class, 
 			'line_item_taxes' => Models\InvoiceEstimateLineItemTax::class, 
 			'line_item_tiers' => Models\InvoiceEstimateLineItemTier::class, 
+			'line_item_credits' => Models\InvoiceEstimateLineItemCredit::class, 
 			'line_item_discounts' => Models\InvoiceEstimateLineItemDiscount::class
 		));
         $estimate->_initDependantList($this->_response['estimate'], 'subscription_estimates',
@@ -331,6 +340,7 @@ class Result
 			'taxes' => Models\InvoiceEstimateTax::class, 
 			'line_item_taxes' => Models\InvoiceEstimateLineItemTax::class, 
 			'line_item_tiers' => Models\InvoiceEstimateLineItemTier::class, 
+			'line_item_credits' => Models\InvoiceEstimateLineItemCredit::class, 
 			'line_item_discounts' => Models\InvoiceEstimateLineItemDiscount::class
 		));
         $estimate->_initDependantList($this->_response['estimate'], 'payment_schedule_estimates',
@@ -782,6 +792,18 @@ class Result
         return $recorded_purchase;
     }
 
+    public function rule() 
+    {
+        $rule = $this->_get('rule', Models\Rule::class);
+        return $rule;
+    }
+
+    public function usageEvent() 
+    {
+        $usage_event = $this->_get('usage_event', Models\UsageEvent::class);
+        return $usage_event;
+    }
+
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,
@@ -809,6 +831,7 @@ class Result
 			'line_item_discounts' => Models\InvoiceLineItemDiscount::class, 
 			'taxes' => Models\InvoiceTax::class, 
 			'line_item_taxes' => Models\InvoiceLineItemTax::class, 
+			'line_item_credits' => Models\InvoiceLineItemCredit::class, 
 			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 

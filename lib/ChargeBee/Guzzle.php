@@ -22,14 +22,14 @@ class Guzzle
             return $value;
     }
 
-    public static function doRequest($meth, $url, $env, $params = array(), $headers = array()) {
-        list($response, $httpCode, $responseHeaders) = self::request($meth, $url, $env, $params, $headers);
+    public static function doRequest($meth, $url, $env, $params = array(), $headers = array(), $subDomain = null, $isJsonRequest=false) {
+        list($response, $httpCode, $responseHeaders) = self::request($meth, $url, $env, $params, $headers, $subDomain, $isJsonRequest);
         $respJson = self::processResponse($response, $httpCode, $responseHeaders);
-        $response = new Response($respJson, $responseHeaders);
+        $response = new Response($respJson, $responseHeaders, $httpCode);
         return $response;
     }
     
-    public static function request($meth, $url, $env, $params, $headers) {
+    public static function request($meth, $url, $env, $params, $headers, $subDomain = null, $isJsonRequest=false) {
         $client = new Client();
 
         $opts = array(
@@ -43,14 +43,19 @@ class Guzzle
                 $opts['query'] = $params;
             }
         } else if ($meth == Request::POST) {
-            $opts['form_params'] = $params;
+            if ($isJsonRequest) {
+                $params = json_encode($params);
+                $opts['body'] = $params;
+            } else {
+                $opts['form_params'] = $params;
+            }
         } else {
             throw new Exception("Invalid http method $meth");
         }
-        $url = self::utf8($env->apiUrl($url));
-
+        $url = self::utf8($env->apiUrl($url, $subDomain));
+        $contentType = $isJsonRequest ? 'application/json' : 'application/x-www-form-urlencoded';
         $userAgent = "Chargebee-PHP-Client" . " v" . Version::VERSION;
-        $httpHeaders = array_merge($headers, ['Accept' => 'application/json', 'User-Agent' => $userAgent, 'Lang-Version' => phpversion() , 'OS-Version' => PHP_OS]);
+        $httpHeaders = array_merge($headers, ['Accept' => 'application/json', 'User-Agent' => $userAgent, 'Lang-Version' => phpversion() , 'OS-Version' => PHP_OS, 'Content-Type' => $contentType]);
 
         $opts['headers'] = $httpHeaders;
         $opts['auth'] = [$env->getApiKey(), ''];
@@ -96,7 +101,7 @@ class Guzzle
      */
     public static function processResponse($response, $httpCode, $responseHeaders){
         $respJson = json_decode($response, true);
-        if(!$respJson){
+        if(!$respJson && ($httpCode < 200 || $httpCode > 299)){
             if (strpos($response, '503') !== false)
                  throw new Exception("Sorry, the server is currently unable to handle the request due to a temporary overload or scheduled maintenance. Please retry after sometime. \n type: internal_temporary_error, \n http_status_code: 503, \n error_code: internal_temporary_error");
             else if (strpos($response, '504') !== false)
@@ -144,9 +149,11 @@ class Guzzle
 class Response {
     public $data;
     public $headers;
+    public $httpStatusCode;
 
-    public function __construct($data, $headers) {
+    public function __construct($data, $headers, $httpStatusCode) {
         $this->data = $data;
         $this->headers = $headers;
+        $this->httpStatusCode = $httpStatusCode;
     }
 }

@@ -26,12 +26,16 @@ class Entitlement extends Model
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

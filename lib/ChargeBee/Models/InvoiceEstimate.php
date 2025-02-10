@@ -23,6 +23,7 @@ class InvoiceEstimate extends Model
     'taxes',
     'lineItemTaxes',
     'lineItemTiers',
+    'lineItemCredits',
     'lineItemDiscounts',
     'roundOffAmount',
     'customerId',

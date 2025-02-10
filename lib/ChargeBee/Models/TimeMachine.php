@@ -50,17 +50,23 @@ public function waitForTimeTravelCompletion($env = null) {
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("time_machines",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("time_machines",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function startAfresh($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("time_machines",$id,"start_afresh"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("time_machines",$id,"start_afresh"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function travelForward($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("time_machines",$id,"travel_forward"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("time_machines",$id,"travel_forward"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

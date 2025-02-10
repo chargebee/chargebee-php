@@ -25,7 +25,9 @@ class SiteMigrationDetail extends Model
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("site_migration_details"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("site_migration_details"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

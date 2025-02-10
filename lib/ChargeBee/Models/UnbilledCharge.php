@@ -43,32 +43,44 @@ class UnbilledCharge extends Model
 
   public static function createUnbilledCharge($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","create"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","create"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function invoiceUnbilledCharges($params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","invoice_unbilled_charges"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","invoice_unbilled_charges"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function delete($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges",$id,"delete"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges",$id,"delete"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("unbilled_charges"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("unbilled_charges"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function invoiceNowEstimate($params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","invoice_now_estimate"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("unbilled_charges","invoice_now_estimate"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

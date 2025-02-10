@@ -1,3 +1,44 @@
+### v3.39.0 (2025-02-10)
+* * * 
+
+#### New Resources:
+* Rule has been added. 
+* UsageEvent has been added.
+
+#### New Attribute: 
+* deleted has been added to AttachedItem.
+* deleted has been added to Coupon.
+* deleted has been added to DifferentialPrice.
+* deleted has been added to ItemFamily.
+* deleted has been added to ItemPrice.
+* deleted has been added to Item.
+* deleted has been added to PriceVariant.
+* tax_application has abeend added to CreditNote#Allocation.
+* tax_application has been added to Invoice#AppliedCredit.
+* line_item_credit has been added to Invoice.
+
+#### New Input Params:
+* exhausted_coupon_ids has been added to Subscription#ImportForItems.
+
+#### New Enums 
+* STORE has been added in CreditNote#TypeEnum.
+* STORE has been added in CreditNoteEstimate#TypeEnum.
+* STORE has been added in Order#TypeEnum.
+* TaxApplicationEnum has been added in CreditNote#Application.
+* TaxApplicationEnum has been added in Invoice#AppliedCredit.
+* RECORDED_PURCHASE has been added in EntityTypeEnum.
+* RECORD_PURCHASE_FAILED, has been added in EventTypeEnum.
+
+#### Deleted Input Params
+* tax_providers_fields has been removed from Customer#MoveParams. 
+* tax_providers_fields has been removed from Customer#MergeParams
+
+#### Deprecated input params. 
+* deprecated label in discount_quantity has been removed from Coupon#CreateParams.
+* deprecated label in discount_quantity has been removed from Coupon#UpdateParams.
+* deprecated label in discount_quantity has been removed from Coupon#CreateForItemsParams.
+* deprecated label in discount_quantity has been removed from Coupon#UpdateForItemsParams.
+
 ### v3.38.0 (2024-12-19)
 * * * 
 

@@ -47,27 +47,37 @@ class Card extends Model
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("cards",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("cards",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function updateCardForCustomer($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"credit_card"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"credit_card"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function switchGatewayForCustomer($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"switch_gateway"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"switch_gateway"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function copyCardForCustomer($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"copy_card"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"copy_card"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function deleteCardForCustomer($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"delete_card"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("customers",$id,"delete_card"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

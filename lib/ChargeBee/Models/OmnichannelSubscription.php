@@ -28,17 +28,23 @@ class OmnichannelSubscription extends Model
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscriptions",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscriptions",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("omnichannel_subscriptions"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("omnichannel_subscriptions"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function omnichannelTransactionsForOmnichannelSubscription($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscriptions",$id,"omnichannel_transactions"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscriptions",$id,"omnichannel_transactions"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

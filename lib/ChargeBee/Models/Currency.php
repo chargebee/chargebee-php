@@ -25,32 +25,44 @@ class Currency extends Model
 
   public static function all($env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("currencies","list"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("currencies","list"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("currencies",$id), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("currencies",$id), array(), $env, $headers, null, false, $jsonKeys);
   }
 
   public static function create($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("currencies"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("currencies"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function update($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function addSchedule($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id,"add_schedule"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id,"add_schedule"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function removeSchedule($id, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id,"remove_schedule"), array(), $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("currencies",$id,"remove_schedule"), array(), $env, $headers, null, false, $jsonKeys);
   }
 
  }

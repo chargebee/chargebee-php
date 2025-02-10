@@ -35,12 +35,16 @@ class Address extends Model
 
   public static function retrieve($params, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("addresses"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("addresses"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function update($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("addresses"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("addresses"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

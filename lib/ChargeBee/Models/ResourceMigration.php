@@ -26,7 +26,9 @@ class ResourceMigration extends Model
 
   public static function retrieveLatest($params, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("resource_migrations","retrieve_latest"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("resource_migrations","retrieve_latest"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

@@ -31,27 +31,37 @@ class Usage extends Model
 
   public static function create($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"usages"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"usages"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"usages"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"usages"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function delete($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"delete_usage"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("subscriptions",$id,"delete_usage"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function all($params = array(), $env = null, $headers = array())
   {
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("usages"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("usages"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function pdf($params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("usages","pdf"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("usages","pdf"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }

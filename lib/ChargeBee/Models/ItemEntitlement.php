@@ -26,22 +26,30 @@ class ItemEntitlement extends Model
 
   public static function itemEntitlementsForItem($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("items",$id,"item_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("items",$id,"item_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function itemEntitlementsForFeature($id, $params = array(), $env = null, $headers = array())
   {
-    return Request::send(Request::GET, Util::encodeURIPath("features",$id,"item_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("features",$id,"item_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function addItemEntitlements($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("features",$id,"item_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("features",$id,"item_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function upsertOrRemoveItemEntitlementsForItem($id, $params, $env = null, $headers = array())
   {
-    return Request::send(Request::POST, Util::encodeURIPath("items",$id,"item_entitlements"), $params, $env, $headers);
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("items",$id,"item_entitlements"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
  }
