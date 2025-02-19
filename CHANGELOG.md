@@ -1,3 +1,9 @@
+### v3.39.1 (2025-02-19)
+* * *
+
+#### Bug Fixes
+* Fixed double parsing issue when input is already in JSON format for JSON keys.
+
 ### v3.39.0 (2025-02-10)
 * * * 
 

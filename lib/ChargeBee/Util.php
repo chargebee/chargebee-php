@@ -36,13 +36,14 @@ class Util
 
         $serialized = [];
         foreach ($value as $k => $v) {
-            $shouldJsonEncode = isset($jsonKeys[$k]) && $jsonKeys[$k] === $level;
+            $keysInCamelCase = self::toCamelCaseFromUnderscore($k);
+            $shouldJsonEncode = (isset($jsonKeys[$k]) || isset($jsonKeys[$keysInCamelCase])) && $jsonKeys[$keysInCamelCase] === $level;
             if ($shouldJsonEncode) {
                 $usK = self::toUnderscoreFromCamelCase($k);
                 $key = (!is_null($prefix) ? $prefix : '') .
                     (!is_null($prefix) ? '[' . $usK . ']' : $usK) .
                     (!is_null($idx) ? '[' . $idx . ']' : '');
-                $serialized[$key] = json_encode($v);
+                $serialized[$key] = is_string($v)?$v:json_encode($v);
             } else if (is_array($v) && !is_int($k)) {
                 $tempPrefix = (!is_null($prefix)) ? $prefix . '[' . self::toUnderscoreFromCamelCase($k) . ']' : self::toUnderscoreFromCamelCase($k);
                 $serialized = array_merge($serialized, self::serialize($v, $tempPrefix, null, $jsonKeys, $level + 1));
