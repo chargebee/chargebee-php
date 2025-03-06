@@ -26,6 +26,7 @@ class Purchase extends Model
   public static function create($params, $env = null, $headers = array())
   {
     $jsonKeys = array(
+        "additionalInformation" => 1,
         "metaData" => 1,
     );
     return Request::send(Request::POST, Util::encodeURIPath("purchases"), $params, $env, $headers, null, false, $jsonKeys);
