@@ -1,4 +1,4 @@
-# Chargebee PHP Client Library - API V2
+# Chargebee PHP Client Library (Beta) - API V2
 
 [![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=3)](https://packagist.org/packages/chargebee/chargebee-php)
 [![Packagist](https://img.shields.io/packagist/dt/chargebee/chargebee-php.svg?maxAge=3)](https://packagist.org/packages/chargebee/chargebee-php/stats)
@@ -11,48 +11,41 @@ Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/doc
 
 ## Requirements
 
-PHP 5.6.0 or later
+PHP 8.1 or later
 
 ## Installation
 
 ### Composer
 ```Chargebee``` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and can be installed using [Composer](https://getcomposer.org/)
 
-<pre><code>composer require chargebee/chargebee-php</code></pre>
+<pre><code>composer require chargebee/chargebee-php:^4.0.0-beta</code></pre>
 
 To use the bindings, 
 <pre><code>require_once('vendor/autoload.php');</code></pre>
-
-### Manual Installation
-Download the [latest release](https://github.com/chargebee/chargebee-php/releases) and to use the bindings, include 
-<code>init.php</code> file. 
-<pre><code>require_once('/path/to/chargebee-php/lib/init.php');</code></pre>
-
-## Documentation
-
-* <a href="https://apidocs.chargebee.com/docs/api?lang=php" target="_blank">API Reference</a>
 
 ## Usage
 
 ### To create a new subscription:
 
 ```php
-use ChargeBee\ChargeBee\Environment;
-use ChargeBee\ChargeBee\Subscription;
+use Chargebee\ChargebeeClient;
 
-Environment::configure("your_site", "{your_site_api_key}");
-$result = Subscription::create([
-    "id" => "__dev__KyVqH3NW3f42fD",
-    "planId" => "starter",
-    "customer" => [
-        "email" => "john@user.com",
-        "firstName" => "John",
-        "lastName" => "Wayne"
+$chargebee = new ChargebeeClient(options: [
+    "site" => "{your_site}",
+    "apiKey" => "{your_apiKey}",
+]);
+
+$result = $chargebee->subscription()->createWithItems("customer_id", [
+    "subscription_items" => [
+        [
+            "item_price_id" => "Montly-Item",
+            "quantity" => "3",
+        ]
     ]
 ]);
-$subscription = $result->subscription();
-$customer = $result->customer();
-$card = $result->card();
+$subscription = $result->subscription;
+$customer = $result->customer;
+
 ```
 
 ### Create an idempotent request
@@ -60,33 +53,35 @@ $card = $result->card();
 [Idempotency keys](https://apidocs.chargebee.com/docs/api/idempotency?prod_cat_ver=2) are passed along with request headers to allow a safe retry of POST requests. 
 
 ```php
-use ChargeBee\ChargeBee\Environment;
-use ChargeBee\ChargeBee\Models\Customer;
+use Chargebee\ChargebeeClient;
 
-Environment::configure("your_site", "{your_site_api_key}");
-$result = Customer::create(array(
-    "email" => "john@test.com",
-    "first_name" => "john"
-    ), 
-    null, 
-    array(
-        "chargebee-idempotency-key" => "<<UUID>>"
-        )
-    ); // Replace <<UUID>> with a unique string
-$customer = $result->customer();
-print_r($customer);
-
-$responseHeaders = $result->getResponseHeaders(); // Retrieves response headers
+$chargebee = new ChargebeeClient(options: [
+    "site" => "{your_site}",
+    "apiKey" => "{your_apiKey}",
+]);
+$responseCustomer = $chargebee->customer()->create([
+    "first_name" => "custom field",
+    "last_name" => "support",
+    "email" => "helloworld@gmail.com",
+    "card" => [
+        "first_name" => "Alish",
+        "last_name" => "Sapkota",
+        "number" => "4012888888881881",
+        "expiry_month" => "10",
+        "expiry_year" => "29",
+        "cvv" => "231"
+        ]
+    ], 
+    [
+        "chargebee-idempotency-key" => "<<UUID>>" // Replace <<UUID>> with a unique string
+]);
+$responseHeaders = $responseCustomer->getResponseHeaders(); // Retrieves response headers
 print_r($responseHeaders);
-$idempotencyReplayedValue = $result->isIdempotencyReplayed(); // Retrieves Idempotency replayed header value
+$idempotencyReplayedValue = $responseCustomer->isIdempotencyReplayed(); // Retrieves Idempotency replayed header value
 print_r($idempotencyReplayedValue);
 ```
 `isIdempotencyReplayed()` method can be accessed to differentiate between original and replayed requests.
 
-## Legacy Support
-
-If you are using PHP < 5.6.0 , you can download chargebee-php [v2.8.3](https://github.com/chargebee/chargebee-php/tree/v2.8.3). This version will not support recently added features since the version was released. We recommend you to upgrade PHP inorder to use the latest features. 
 ## License
 
 See the LICENSE file.
-

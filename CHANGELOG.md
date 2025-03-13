@@ -1,3 +1,14 @@
+### v4.0.0-beta.1
+* * * 
+
+* chargebee-php now requires PHP >= 8.1.
+* The namespace ChargeBee has been renamed to Chargebee.
+* Models now follow the namespace use `Chargebee\Resources\*;` instead of use `ChargeBee\ChargeBee\Models\*`;
+* The way to initialize the Chargebee client has changed.
+* Users no longer need to import individual classes for operations.
+* The response will no longer return a global Result class; instead, it returns a specific response class for each action.
+* Input parameters have changed from camelCase to snake_case.
+
 ### v3.40.0 (2025-03-06)
 * * *
 
