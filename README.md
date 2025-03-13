@@ -18,7 +18,7 @@ PHP 8.1 or later
 ### Composer
 ```Chargebee``` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and can be installed using [Composer](https://getcomposer.org/)
 
-<pre><code>composer require chargebee/chargebee-php:^4.0.0-beta</code></pre>
+<pre><code>composer require chargebee/chargebee-php:@beta</code></pre>
 
 To use the bindings, 
 <pre><code>require_once('vendor/autoload.php');</code></pre>
