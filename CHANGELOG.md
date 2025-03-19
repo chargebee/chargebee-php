@@ -1,3 +1,9 @@
+### v3.41.0 (2025-03-19)
+* * *
+
+### New Feature: 
+* Added a way to append suffix in User-Agent headers through `ChargeBee::Environment`.
+
 ### v3.40.0 (2025-03-06)
 * * *
 

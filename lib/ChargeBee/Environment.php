@@ -11,6 +11,7 @@ class Environment
     private static $default_env;
     public static $scheme = "https";
     public static $chargebeeDomain = "chargebee.com";
+    public static $userAgentSuffix = "";
 
     public static $connectTimeoutInSecs = 30;
     public static $requestTimeoutInSecs = 80;
@@ -73,6 +74,9 @@ class Environment
     public static function updateRequestTimeoutInSecs($requestTimeout)
     {
         self::$requestTimeoutInSecs = $requestTimeout;
+    }
 
+    public static function setUserAgentSuffix($suffix){
+        self::$userAgentSuffix = $suffix;
     }
 }

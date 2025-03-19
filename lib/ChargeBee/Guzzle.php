@@ -55,6 +55,9 @@ class Guzzle
         $url = self::utf8($env->apiUrl($url, $subDomain));
         $contentType = $isJsonRequest ? 'application/json' : 'application/x-www-form-urlencoded';
         $userAgent = "Chargebee-PHP-Client" . " v" . Version::VERSION;
+        if (!empty(Environment::$userAgentSuffix)) {
+            $userAgent .= "; " . Environment::$userAgentSuffix;
+        }
         $httpHeaders = array_merge($headers, ['Accept' => 'application/json', 'User-Agent' => $userAgent, 'Lang-Version' => phpversion() , 'OS-Version' => PHP_OS, 'Content-Type' => $contentType]);
 
         $opts['headers'] = $httpHeaders;
