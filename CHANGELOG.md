@@ -1,3 +1,10 @@
+### v4.0.0-beta.2
+* * * 
+
+* Added a way to append suffix in User-Agent headers through `Chargebee::Environment`.
+* Fixed double parsing issue when input is already in JSON format for JSON attributes.
+
+
 ### v4.0.0-beta.1
 * * * 
 

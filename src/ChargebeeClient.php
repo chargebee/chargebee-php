@@ -70,7 +70,8 @@ class ChargebeeClient {
      *      httpScheme: 'http' | 'https',
      *      chargebeeDomain?: string,
      *      connectTimeoutInMillis?: float,
-     *      requestTimeoutInMillis?: float
+     *      requestTimeoutInMillis?: float,
+     *      userAgentSuffix?: string
      * } $options
      * @param HttpClientFactory|null $httpClient
      * @throws \Exception
@@ -95,6 +96,9 @@ class ChargebeeClient {
         }
         if (isset($options["requestTimeoutInMillis"]) && is_numeric($options["requestTimeoutInMillis"])) {
             $env->updateRequestTimeoutInSecs($options["requestTimeoutInMillis"] / 1000);
+        }
+        if(isset($options['userAgentSuffix'])){
+            $env->setUserAgentSuffix($options['userAgentSuffix']);
         }
         $this->env = $env;
         $this->httpClientFactory = $httpClient ?? new GuzzleFactory($env->requestTimeoutInSecs, $env->connectTimeoutInSecs);
