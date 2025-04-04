@@ -84,10 +84,13 @@ class ChargebeePayloadBuilder
         if (!$this->env) {
             throw new \InvalidArgumentException('Environment is required to construct headers');
         }
-
+        $userAgentHeader = "Chargebee-PHP-Client" . " v" . Version::VERSION;
+        if(!empty($this->env->userAgentSuffix)){
+            $userAgentHeader .= "; " . $this->env->userAgentSuffix;
+        }
         $defaultHeaders = [
             'Accept' => 'application/json',
-            'User-Agent' => "Chargebee-PHP-Client" . " v" . Version::VERSION,
+            'User-Agent' => $userAgentHeader,
             'Lang-Version' => phpversion(),
             'OS-Version' => PHP_OS,
             'Content-Type' => 'application/x-www-form-urlencoded',

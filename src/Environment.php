@@ -10,6 +10,7 @@ class Environment
     private string $subDomain = "";
     public  string $scheme = "https";
     public  string $chargebeeDomain="chargebee.com";
+    public string $userAgentSuffix = "";
 
     public float $connectTimeoutInSecs = 30;
     public float $requestTimeoutInSecs = 80;
@@ -73,5 +74,8 @@ class Environment
 
     public function setScheme(string $scheme): void {
         $this->scheme = $scheme;
+    }
+    public function setUserAgentSuffix($suffix){
+        $this->userAgentSuffix = $suffix;
     }
 }
