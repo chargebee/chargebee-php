@@ -70,7 +70,7 @@ class ChargebeeClient {
      *      httpScheme: 'http' | 'https',
      *      chargebeeDomain?: string,
      *      connectTimeoutInMillis?: float,
-     *      requestTimeoutInMillis?: float
+     *      requestTimeoutInMillis?: float,
      *      userAgentSuffix?: string
      * } $options
      * @param HttpClientFactory|null $httpClient
