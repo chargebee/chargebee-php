@@ -1,3 +1,8 @@
+### v4.0.0-beta.3
+* * * 
+
+* Autoloader bug fixes.
+
 ### v4.0.0-beta.2
 * * * 
 
