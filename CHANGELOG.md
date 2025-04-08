@@ -1,3 +1,8 @@
+### v4.0.0-beta.3
+* * * 
+
+* Renamed directory to comply with the autoloader standard.
+
 ### v4.0.0-beta.2
 * * * 
 
