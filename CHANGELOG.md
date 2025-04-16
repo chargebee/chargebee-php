@@ -1,3 +1,9 @@
+### v4.0.0 (2025-04-16)
+* * * 
+
+* Releasing major version v4.0.0 :tada:
+
+
 ### v4.0.0-beta.3
 * * * 
 
