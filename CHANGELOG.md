@@ -27,6 +27,12 @@
 * The response will no longer return a global Result class; instead, it returns a specific response class for each action.
 * Input parameters have changed from camelCase to snake_case.
 
+### v3.41.0 (2025-03-19)
+* * *
+
+### New Feature: 
+* Added a way to append suffix in User-Agent headers through `ChargeBee::Environment`.
+
 ### v3.40.0 (2025-03-06)
 * * *
 
