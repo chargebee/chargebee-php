@@ -1,3 +1,32 @@
+### v4.0.0 (2025-04-16)
+* * * 
+
+* Releasing major version v4.0.0 :tada:
+
+
+### v4.0.0-beta.3
+* * * 
+
+* Renamed directory to comply with the autoloader standard.
+
+### v4.0.0-beta.2
+* * * 
+
+* Added a way to append suffix in User-Agent headers through `Chargebee::Environment`.
+* Fixed double parsing issue when input is already in JSON format for JSON attributes.
+
+
+### v4.0.0-beta.1
+* * * 
+
+* chargebee-php now requires PHP >= 8.1.
+* The namespace ChargeBee has been renamed to Chargebee.
+* Models now follow the namespace use `Chargebee\Resources\*;` instead of use `ChargeBee\ChargeBee\Models\*`;
+* The way to initialize the Chargebee client has changed.
+* Users no longer need to import individual classes for operations.
+* The response will no longer return a global Result class; instead, it returns a specific response class for each action.
+* Input parameters have changed from camelCase to snake_case.
+
 ### v3.41.0 (2025-03-19)
 * * *
 
