@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This branch contains the code for Chargebee PHP SDK v3 which is deprecated. v3 will continue to receive updates till December 31, 2025. If you are using v3, we request you to upgrade to v4 by following [this migration guide](https://github.com/chargebee/chargebee-php/wiki/Migration-guide-for-v4).
+
 # Chargebee PHP Client Library - API V2
 
 [![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=3)](https://packagist.org/packages/chargebee/chargebee-php)
