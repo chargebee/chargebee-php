@@ -77,21 +77,21 @@ class Ramp  {
     
     /**
     *
-    * @var ?string $items_to_remove
+    * @var ?array<string> $items_to_remove
     */
-    public ?string $items_to_remove;
+    public ?array $items_to_remove;
     
     /**
     *
-    * @var ?string $coupons_to_remove
+    * @var ?array<string> $coupons_to_remove
     */
-    public ?string $coupons_to_remove;
+    public ?array $coupons_to_remove;
     
     /**
     *
-    * @var ?string $discounts_to_remove
+    * @var ?array<string> $discounts_to_remove
     */
-    public ?string $discounts_to_remove;
+    public ?array $discounts_to_remove;
     
     /**
     *
@@ -135,9 +135,9 @@ class Ramp  {
         ?array $coupons_to_add,
         ?array $discounts_to_add,
         ?array $item_tiers,
-        ?string $items_to_remove,
-        ?string $coupons_to_remove,
-        ?string $discounts_to_remove,
+        ?array $items_to_remove,
+        ?array $coupons_to_remove,
+        ?array $discounts_to_remove,
         bool $deleted,
         ?StatusTransitionReason $status_transition_reason,
         \Chargebee\Resources\Ramp\Enums\Status $status,

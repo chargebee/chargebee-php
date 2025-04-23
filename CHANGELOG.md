@@ -139,6 +139,9 @@
 * REFUNDED_DUE_TO_APP_ISSUE has been added to OmnichannelSubscriptionItem#CancellationReasonEnum. 
 * REFUNDED_FOR_OTHER_REASON has been added to OmnichannelSubscriptionItem#CancellationReasonEnum.
 
+### Bug Fixes: 
+* Fixed an issue where an array of strings was incorrectly converted into a single string in resource attributes.
+
 ### v4.0.0 (2025-04-16)
 * * * 
 
