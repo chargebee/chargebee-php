@@ -29,6 +29,7 @@ use Chargebee\Actions\ItemActions;
 use Chargebee\Actions\ItemEntitlementActions;
 use Chargebee\Actions\ItemFamilyActions;
 use Chargebee\Actions\ItemPriceActions;
+use Chargebee\Actions\NonSubscriptionActions;
 use Chargebee\Actions\OmnichannelSubscriptionActions;
 use Chargebee\Actions\OmnichannelSubscriptionItemActions;
 use Chargebee\Actions\OrderActions;
@@ -219,6 +220,10 @@ class ChargebeeClient {
 
     public function itemPrice() :ItemPriceActions {
         return new ItemPriceActions($this->httpClientFactory, $this->env);
+    }
+
+    public function nonSubscription() :NonSubscriptionActions {
+        return new NonSubscriptionActions($this->httpClientFactory, $this->env);
     }
 
     public function omnichannelSubscription() :OmnichannelSubscriptionActions {

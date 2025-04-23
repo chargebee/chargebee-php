@@ -52,6 +52,11 @@ final class RecordedPurchaseActions
     *     },
     * apple_app_store?: array{
     *     transaction_id?: string,
+    *     receipt?: string,
+    *     product_id?: string,
+    *     },
+    * google_play_store?: array{
+    *     purchase_token?: string,
     *     },
     * app_id?: string,
     *     } $params Description of the parameters

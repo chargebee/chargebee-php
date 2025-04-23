@@ -26,16 +26,16 @@ final class EntitlementActions
     *     limit?: int,
     *     offset?: string,
     *     feature_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * entity_type?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * entity_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * include_drafts?: bool,
     *     embed?: string,
@@ -71,6 +71,7 @@ final class EntitlementActions
     *     feature_id?: string,
     *     entity_type?: string,
     *     value?: string,
+    *     apply_grandfathering?: bool,
     *     }>,
     *     action?: string,
     *     } $params Description of the parameters

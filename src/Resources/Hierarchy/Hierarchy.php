@@ -29,9 +29,9 @@ class Hierarchy  {
     
     /**
     *
-    * @var ?string $children_ids
+    * @var ?array<string> $children_ids
     */
-    public ?string $children_ids;
+    public ?array $children_ids;
     
     /**
     * @var array<string> $knownFields
@@ -49,7 +49,7 @@ class Hierarchy  {
         ?string $parent_id,
         string $payment_owner_id,
         string $invoice_owner_id,
-        ?string $children_ids,
+        ?array $children_ids,
     )
     { 
         $this->customer_id = $customer_id;

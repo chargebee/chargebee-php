@@ -218,6 +218,8 @@ final class SubscriptionActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     coupons?: array<array{
     *     coupon_id?: string,
@@ -1026,6 +1028,8 @@ final class SubscriptionActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     coupons?: array<array{
     *     coupon_id?: string,
@@ -1445,6 +1449,8 @@ final class SubscriptionActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     coupons?: array<array{
     *     coupon_id?: string,

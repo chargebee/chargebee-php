@@ -174,6 +174,8 @@ final class UnbilledChargeActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     charges?: array<array{
     *     amount?: int,

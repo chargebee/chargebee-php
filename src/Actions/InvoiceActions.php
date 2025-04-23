@@ -403,6 +403,8 @@ final class InvoiceActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     comment?: string,
     *     subscription_id?: string,
@@ -874,6 +876,8 @@ final class InvoiceActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     customer_id?: string,
     *     subscription_id?: string,
@@ -1004,6 +1008,8 @@ final class InvoiceActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     charges?: array<array{
     *     amount?: int,
@@ -1531,13 +1537,13 @@ final class InvoiceActions
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         is?: string,
-    *             in?: string,
+    *         in?: string,
+    *             is?: string,
     *             },
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   

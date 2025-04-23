@@ -23,27 +23,27 @@ class OmnichannelTransaction  {
     
     /**
     *
-    * @var string $price_currency
+    * @var ?string $price_currency
     */
-    public string $price_currency;
+    public ?string $price_currency;
     
     /**
     *
-    * @var int $price_units
+    * @var ?int $price_units
     */
-    public int $price_units;
+    public ?int $price_units;
     
     /**
     *
-    * @var int $price_nanos
+    * @var ?int $price_nanos
     */
-    public int $price_nanos;
+    public ?int $price_nanos;
     
     /**
     *
-    * @var int $transacted_at
+    * @var ?int $transacted_at
     */
-    public int $transacted_at;
+    public ?int $transacted_at;
     
     /**
     *
@@ -78,10 +78,10 @@ class OmnichannelTransaction  {
         string $id,
         string $id_at_source,
         string $app_id,
-        string $price_currency,
-        int $price_units,
-        int $price_nanos,
-        int $transacted_at,
+        ?string $price_currency,
+        ?int $price_units,
+        ?int $price_nanos,
+        ?int $transacted_at,
         int $created_at,
         ?int $resource_version,
         \Chargebee\Resources\OmnichannelTransaction\Enums\Type $type,
@@ -104,10 +104,10 @@ class OmnichannelTransaction  {
         $returnData = new self( $resourceAttributes['id'] ,
         $resourceAttributes['id_at_source'] ,
         $resourceAttributes['app_id'] ,
-        $resourceAttributes['price_currency'] ,
-        $resourceAttributes['price_units'] ,
-        $resourceAttributes['price_nanos'] ,
-        $resourceAttributes['transacted_at'] ,
+        $resourceAttributes['price_currency'] ?? null,
+        $resourceAttributes['price_units'] ?? null,
+        $resourceAttributes['price_nanos'] ?? null,
+        $resourceAttributes['transacted_at'] ?? null,
         $resourceAttributes['created_at'] ,
         $resourceAttributes['resource_version'] ?? null,
         

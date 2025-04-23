@@ -29,15 +29,15 @@ class Purchase  {
     
     /**
     *
-    * @var ?string $subscription_ids
+    * @var ?array<string> $subscription_ids
     */
-    public ?string $subscription_ids;
+    public ?array $subscription_ids;
     
     /**
     *
-    * @var ?string $invoice_ids
+    * @var ?array<string> $invoice_ids
     */
-    public ?string $invoice_ids;
+    public ?array $invoice_ids;
     
     /**
     * @var array<string> $knownFields
@@ -55,8 +55,8 @@ class Purchase  {
         string $customer_id,
         ?int $created_at,
         ?int $modified_at,
-        ?string $subscription_ids,
-        ?string $invoice_ids,
+        ?array $subscription_ids,
+        ?array $invoice_ids,
     )
     { 
         $this->id = $id;

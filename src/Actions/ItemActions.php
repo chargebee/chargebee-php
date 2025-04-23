@@ -170,6 +170,7 @@ final class ItemActions
     *     usage_calculation?: string,
     *     metadata?: mixed,
     *     business_entity_id?: string,
+    *     is_percentage_pricing?: bool,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

@@ -53,6 +53,8 @@ enum Gateway : string {
     case EBANX = "ebanx";
     case DLOCAL = "dlocal";
     case NUVEI = "nuvei";
+    case PAYSTACK = "paystack";
+    case JP_MORGAN = "jp_morgan";
     case GOCARDLESS = "gocardless";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";

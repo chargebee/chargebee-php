@@ -77,6 +77,8 @@ final class RampActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     coupons_to_add?: array<array{
     *     coupon_id?: string,
@@ -128,12 +130,12 @@ final class RampActions
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * subscription_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,
@@ -204,6 +206,8 @@ final class RampActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     coupons_to_add?: array<array{
     *     coupon_id?: string,
