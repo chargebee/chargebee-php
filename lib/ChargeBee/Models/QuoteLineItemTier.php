@@ -16,6 +16,8 @@ class QuoteLineItemTier extends Model
     'endingUnitInDecimal',
     'quantityUsedInDecimal',
     'unitAmountInDecimal',
+    'pricingType',
+    'packageSize',
   ];
 
 }

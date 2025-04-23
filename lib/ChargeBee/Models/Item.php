@@ -30,6 +30,7 @@ class Item extends Model
     'unit',
     'metered',
     'usageCalculation',
+    'isPercentagePricing',
     'archivedAt',
     'channel',
     'applicableItems',

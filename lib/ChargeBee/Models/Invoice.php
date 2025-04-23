@@ -77,6 +77,7 @@ class Invoice extends Model
     'businessEntityId',
     'siteDetailsAtCreation',
     'taxOrigin',
+    'lineItemAddresses',
   ];
 
 

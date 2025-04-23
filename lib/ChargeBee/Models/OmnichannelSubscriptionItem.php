@@ -12,7 +12,9 @@ class OmnichannelSubscriptionItem extends Model
   protected $allowed = [
     'id',
     'itemIdAtSource',
+    'itemParentIdAtSource',
     'status',
+    'autoRenewStatus',
     'currentTermStart',
     'currentTermEnd',
     'expiredAt',
@@ -20,13 +22,22 @@ class OmnichannelSubscriptionItem extends Model
     'cancelledAt',
     'cancellationReason',
     'gracePeriodExpiresAt',
+    'hasScheduledChanges',
     'resourceVersion',
+    'upcomingRenewal',
   ];
 
 
 
   # OPERATIONS
   #-----------
+
+  public static function listOmniSubItemScheduleChanges($id, $params = array(), $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscription_items",$id,"scheduled_changes"), $params, $env, $headers, null, false, $jsonKeys);
+  }
 
  }
 

@@ -13,6 +13,8 @@ class AddonTier extends Model
     'startingUnitInDecimal',
     'endingUnitInDecimal',
     'priceInDecimal',
+    'pricingType',
+    'packageSize',
   ];
 
 }

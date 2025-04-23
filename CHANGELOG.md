@@ -1,3 +1,142 @@
+### v3.42.0 (2025-04-23)
+* * * 
+
+### New Resources:
+* OmnichannelSubscriptionItemScheduledChange has been added. 
+
+### New Attributes:
+* pricing_type has been added to DifferentialPrice#Tier.
+* package_size has been added to DifferentialPrice#Tier.
+* pricing_type has been added to ItemPrice#Tier.
+* package_size has been added to ItemPrice#Tier.
+* pricing_type has been added to Addon#Tier.
+* package_size has been added to Addon#Tier.
+* pricing_type has been added to Plan#Tier.
+* package_size has been added to Plan#Tier.
+* pricing_type has been added to CreditNote#LineItemTier.
+* package_size has been added to CreditNote#LineItemTier.
+* pricing_type has been added to CreditNoteEstimate#LineItemTier.
+* package_size has been added to CreditNoteEstimate#LineItemTier.
+* pricing_type has been added to DifferentialPrice#Tier.
+* package_size has been added to DifferentialPrice#Tier.
+* pricing_type has been added to Invoice#LineItemTier.
+* package_size has been added to Invoice#LineItemTier.
+* pricing_type has been added to InvoiceEstimate#LineItemTier.
+* package_size has been added to InvoiceEstimate#LineItemTier.
+* pricing_type has been added to Quote#LineItemTier.
+* package_size has been added to Quote#LineItemTier.
+* pricing_type has been added to QuotedCharge#LineItemTier.
+* package_size has been added to QuotedCharge#LineItemTier.
+* pricing_type has been added to QuotedSubscription#LineItemTier.
+* package_size has been added to QuotedSubscription#LineItemTier.
+* pricing_type has been added to Ramp#ItemTier.
+* package_size has been added to Ramp#ItemTier.
+* pricing_type has been added to Subscription#ItemTier.
+* package_size has been added to Subscription#ItemTier.
+* pricing_type has been added to UnbilledCharges#Tier.
+* package_size has been added to UnbilledCharges#Tier.
+* metered has been added to CreditNote#LineItem.
+* metered has been added to CreditNoteEstimate#LineItem.
+* metered has been added to Invoice#LineItem.
+* metered has been added to Quote#LineItem.
+* metered has been added to QuoteLineGroup#LineItem.
+* usage_percentage has been changed to percentage in CreditNote#LineItem.
+* usage_percentage has been changed to percentage in CreditNoteEstimate#LineItem.
+* usage_percentage has been changed to percentage in Invoice#LineItem.
+* usage_percentage has been changed to percentage in Quote#LineItem.
+* usage_percentage has been changed to percentage in QuoteLineGroup#LineItem.
+* line_item_addresses has been added to CreditNote.
+* line_item_addresses has been added to Invoices.
+* line_item_addresses has been added to InvoiceEstimate.
+* has_scheduled_changes has been added on OmnichannelSubscriptionItem.
+* item_parent_id_at_source has been added to OmnichannelSubscriptionItem.
+* auto_renew_status has been added to OmnichannelSubscriptionItem.
+* upcoming_renewal has been added to OmnichannelSubscriptionItem.
+* is_percentage_pricing has been added to Item.
+
+### New Action:
+* listOmniSubItemScheduleChanges has been added to OmnichannelSubscriptionItem.
+
+### Optional Attribute: 
+* price_currency has been made optional from requried in OmnichannelTransaction. 
+* price_units has been made optional from requried in OmnichannelTransaction.
+* price_nanos has been made optional from requried in OmnichannelTransaction.
+* transacted_at has been made optional from requried in OmnichannelTransaction.
+
+### New Input Params:
+* item_tiers[pricing_type] has been added to DifferentialPrice#CreateInputParam.
+* item_tiers[package_size] has been added to DifferentialPrice#CreateInputParam.
+* item_tiers[pricing_type] has been added to ItemPrice#CreateInputParam.
+* item_tiers[package_size] has been added to ItemPrice#CreateInputParam.
+* tiers[pricing_type] has been added to DifferentialPrice#CreateInputParam.
+* tiers[package_size] has been added to DifferentialPrice#CreateInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CreateSubItemEstimateRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CreateSubItemEstimateRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CreateSubItemForCustomerRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CreateSubItemForCustomerRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#UpdateSubscriptionForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#UpdateSubscriptionForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CreateInvoiceForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CreateInvoiceForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CheckoutNewForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CheckoutNewForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CheckoutOneTimeForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CheckoutOneTimeForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Estimate#CheckoutExistingForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Estimate#CheckoutExistingForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Invoice#CreateForChargeItemsAndChargesRequestInputParam.
+* item_tiers[package_size] has been added to Invoice#CreateForChargeItemsAndChargesRequestInputParam.
+* item_tiers[pricing_type] has been added to Invoice#CreateForChargeItemRequestInputParam.
+* item_tiers[package_size] has been added to Invoice#CreateForChargeItemRequestInputParam.
+* item_tiers[pricing_type] has been added to Invoice#AddChargeItemRequestInputParam.
+* item_tiers[package_size] has been added to Invoice#AddChargeItemRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#CreateSubItemsForCustomerQuoteRequestInputParam.
+* item_tiers[package_size] has been added to Quote#CreateSubItemsForCustomerQuoteRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#EditCreateSubCustomerQuoteForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Quote#EditCreateSubCustomerQuoteForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#UpdateSubscriptionQuoteForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Quote#UpdateSubscriptionQuoteForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#CreateForChargeItemsAndChargesRequestInputParam.
+* item_tiers[package_size] has been added to Quote#CreateForChargeItemsAndChargesRequestInputParam.
+* item_tiers[pricing_type] has been added to Quote#EditForChargeItemsAndChargesRequestInputParam.
+* item_tiers[package_size] has been added to Quote#EditForChargeItemsAndChargesRequestInputParam.
+* item_tiers[pricing_type] has been added to Ramp#CreateForSubscriptionRequestInputParam.
+* item_tiers[package_size] has been added to Ramp#CreateForSubscriptionRequestInputParam.
+* item_tiers[pricing_type] has been added to Ramp#UpdateRequestInputParam.
+* item_tiers[package_size] has been added to Ramp#UpdateRequestInputParam.
+* item_tiers[pricing_type] has been added to Subscription#CreateWithItemsRequestInputParam.
+* item_tiers[package_size] has been added to Subscription#CreateWithItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Subscription#UpdateForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Subscription#UpdateForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to Subscription#ImportForItemsRequestInputParam.
+* item_tiers[package_size] has been added to Subscription#ImportForItemsRequestInputParam.
+* item_tiers[pricing_type] has been added to UnbilledCharged#CreateRequestInputParam.
+* item_tiers[package_size] has been added to UnbilledCharged#CreateRequestInputParam.
+* billing_address has been added to Estimate#CreateInvoiceForItemsRequestInputParam.
+* google_play_store[purchase_token] has been added to RecordedPurchase#CreateRequestInputParam.
+* is_percentage_pricing has been added to Item#CreateRequest.
+* include_deleted has been added to PaymentSource#ListRequest.
+
+### New Enums: 
+* OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_CHANGE has been added to EntityType#Enum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_CHANGE_SCHEDULED has been added to EventType#Enum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_CHANGE_REMOVED has been added to EventType#Enum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_REACTIVATED has been added to EventType#Enum.
+* GOOGLE_PLAY_STORE has been added to OminchannelSubscription#SourceEnum.
+* SPECIFIC_DATE has been added to ContractTermCancelOption.
+* END_OF_SUBSCRIPTION_BILLING_TERM has been added to ContractTermCancelOption. 
+* PAYSTACK has been added to GatewayEnum.
+* PricingType Enum has been added.
+* JP_MORGAN has been added to GatewayEnum.
+
+### Deprecated Enums: 
+* OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADE_SCHEDULED has been deprecated from EntityType#Enum.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_DOWNGRADE_REMOVED has been deprecated from EntityType#Enum.
+* REFUNDED_DUE_TO_APP_ISSUE has been added to OmnichannelSubscriptionItem#CancellationReasonEnum. 
+* REFUNDED_FOR_OTHER_REASON has been added to OmnichannelSubscriptionItem#CancellationReasonEnum.
+
 ### v3.41.0 (2025-03-19)
 * * *
 

@@ -27,6 +27,7 @@ class InvoiceEstimate extends Model
     'lineItemDiscounts',
     'roundOffAmount',
     'customerId',
+    'lineItemAddresses',
   ];
 
 
