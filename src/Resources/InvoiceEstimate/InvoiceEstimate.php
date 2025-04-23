@@ -101,6 +101,12 @@ class InvoiceEstimate  {
     
     /**
     *
+    * @var ?array<LineItemAddress> $line_item_addresses
+    */
+    public ?array $line_item_addresses;
+    
+    /**
+    *
     * @var \Chargebee\Enums\PriceType $price_type
     */
     public \Chargebee\Enums\PriceType $price_type;
@@ -108,7 +114,7 @@ class InvoiceEstimate  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "recurring" , "currency_code" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "line_items" , "discounts" , "taxes" , "line_item_taxes" , "line_item_tiers" , "line_item_credits" , "line_item_discounts" , "round_off_amount" , "customer_id"  ];
+    protected static array $knownFields = [ "recurring" , "currency_code" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "line_items" , "discounts" , "taxes" , "line_item_taxes" , "line_item_tiers" , "line_item_credits" , "line_item_discounts" , "round_off_amount" , "customer_id" , "line_item_addresses"  ];
 
     /**
     * dynamic properties for resources
@@ -133,6 +139,7 @@ class InvoiceEstimate  {
         ?array $line_item_discounts,
         ?int $round_off_amount,
         ?string $customer_id,
+        ?array $line_item_addresses,
         \Chargebee\Enums\PriceType $price_type,
     )
     { 
@@ -151,7 +158,8 @@ class InvoiceEstimate  {
         $this->line_item_credits = $line_item_credits;
         $this->line_item_discounts = $line_item_discounts;
         $this->round_off_amount = $round_off_amount;
-        $this->customer_id = $customer_id; 
+        $this->customer_id = $customer_id;
+        $this->line_item_addresses = $line_item_addresses; 
         $this->price_type = $price_type; 
     }
 
@@ -185,6 +193,10 @@ class InvoiceEstimate  {
             $result
         ), $resourceAttributes['line_item_discounts'] ?? []);
         
+        $line_item_addresses = array_map(fn (array $result): LineItemAddress =>  LineItemAddress::from(
+            $result
+        ), $resourceAttributes['line_item_addresses'] ?? []);
+        
         $returnData = new self( $resourceAttributes['recurring'] ,
         $resourceAttributes['currency_code'] ,
         $resourceAttributes['sub_total'] ,
@@ -201,6 +213,7 @@ class InvoiceEstimate  {
         $line_item_discounts,
         $resourceAttributes['round_off_amount'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
+        $line_item_addresses,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
@@ -229,6 +242,7 @@ class InvoiceEstimate  {
         
         'round_off_amount' => $this->round_off_amount,
         'customer_id' => $this->customer_id,
+        
         
         'price_type' => $this->price_type?->value,
         
@@ -278,6 +292,12 @@ class InvoiceEstimate  {
             $data['line_item_discounts'] = array_map(
                 fn (LineItemDiscount $line_item_discounts): array => $line_item_discounts->toArray(),
                 $this->line_item_discounts
+            );
+        }
+        if($this->line_item_addresses !== []){
+            $data['line_item_addresses'] = array_map(
+                fn (LineItemAddress $line_item_addresses): array => $line_item_addresses->toArray(),
+                $this->line_item_addresses
             );
         }
 

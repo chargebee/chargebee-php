@@ -101,9 +101,15 @@ class LineItem  {
     
     /**
     *
-    * @var ?string $usage_percentage
+    * @var ?bool $metered
     */
-    public ?string $usage_percentage;
+    public ?bool $metered;
+    
+    /**
+    *
+    * @var ?string $percentage
+    */
+    public ?string $percentage;
     
     /**
     *
@@ -150,7 +156,7 @@ class LineItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "pricing_model" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "usage_percentage" , "reference_line_item_id" , "description" , "entity_description" , "entity_type" , "tax_exempt_reason" , "entity_id" , "customer_id"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "pricing_model" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "metered" , "percentage" , "reference_line_item_id" , "description" , "entity_description" , "entity_type" , "tax_exempt_reason" , "entity_id" , "customer_id"  ];
 
     /**
     * dynamic properties for resources
@@ -175,7 +181,8 @@ class LineItem  {
         ?string $amount_in_decimal,
         ?int $discount_amount,
         ?int $item_level_discount_amount,
-        ?string $usage_percentage,
+        ?bool $metered,
+        ?string $percentage,
         ?string $reference_line_item_id,
         string $description,
         ?string $entity_description,
@@ -201,7 +208,8 @@ class LineItem  {
         $this->amount_in_decimal = $amount_in_decimal;
         $this->discount_amount = $discount_amount;
         $this->item_level_discount_amount = $item_level_discount_amount;
-        $this->usage_percentage = $usage_percentage;
+        $this->metered = $metered;
+        $this->percentage = $percentage;
         $this->reference_line_item_id = $reference_line_item_id;
         $this->description = $description;
         $this->entity_description = $entity_description;
@@ -229,7 +237,8 @@ class LineItem  {
         $resourceAttributes['amount_in_decimal'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
         $resourceAttributes['item_level_discount_amount'] ?? null,
-        $resourceAttributes['usage_percentage'] ?? null,
+        $resourceAttributes['metered'] ?? null,
+        $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['reference_line_item_id'] ?? null,
         $resourceAttributes['description'] ,
         $resourceAttributes['entity_description'] ?? null,
@@ -263,7 +272,8 @@ class LineItem  {
         'amount_in_decimal' => $this->amount_in_decimal,
         'discount_amount' => $this->discount_amount,
         'item_level_discount_amount' => $this->item_level_discount_amount,
-        'usage_percentage' => $this->usage_percentage,
+        'metered' => $this->metered,
+        'percentage' => $this->percentage,
         'reference_line_item_id' => $this->reference_line_item_id,
         'description' => $this->description,
         'entity_description' => $this->entity_description,

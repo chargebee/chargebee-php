@@ -100,6 +100,8 @@ final class HostedPageActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     charges?: array<array{
     *     amount?: int,
@@ -583,6 +585,8 @@ final class HostedPageActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     entity_identifiers?: array<array{
     *     id?: string,
@@ -707,6 +711,8 @@ final class HostedPageActions
     *     starting_unit_in_decimal?: string,
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
     *     }>,
     *     entity_identifiers?: array<array{
     *     id?: string,

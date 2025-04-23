@@ -17,6 +17,12 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?string $item_parent_id_at_source
+    */
+    public ?string $item_parent_id_at_source;
+    
+    /**
+    *
     * @var ?int $current_term_start
     */
     public ?int $current_term_start;
@@ -59,6 +65,12 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?UpcomingRenewal $upcoming_renewal
+    */
+    public ?UpcomingRenewal $upcoming_renewal;
+    
+    /**
+    *
     * @var \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status
     */
     public \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status;
@@ -84,7 +96,7 @@ class OmnichannelSubscriptionItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "item_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "has_scheduled_changes" , "resource_version"  ];
+    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "has_scheduled_changes" , "resource_version" , "upcoming_renewal"  ];
 
     /**
     * dynamic properties for resources
@@ -95,6 +107,7 @@ class OmnichannelSubscriptionItem  {
     private function __construct(
         string $id,
         string $item_id_at_source,
+        ?string $item_parent_id_at_source,
         ?int $current_term_start,
         ?int $current_term_end,
         ?int $expired_at,
@@ -102,6 +115,7 @@ class OmnichannelSubscriptionItem  {
         ?int $grace_period_expires_at,
         bool $has_scheduled_changes,
         ?int $resource_version,
+        ?UpcomingRenewal $upcoming_renewal,
         \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\AutoRenewStatus $auto_renew_status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\ExpirationReason $expiration_reason,
@@ -110,13 +124,15 @@ class OmnichannelSubscriptionItem  {
     { 
         $this->id = $id;
         $this->item_id_at_source = $item_id_at_source;
+        $this->item_parent_id_at_source = $item_parent_id_at_source;
         $this->current_term_start = $current_term_start;
         $this->current_term_end = $current_term_end;
         $this->expired_at = $expired_at;
         $this->cancelled_at = $cancelled_at;
         $this->grace_period_expires_at = $grace_period_expires_at;
         $this->has_scheduled_changes = $has_scheduled_changes;
-        $this->resource_version = $resource_version;  
+        $this->resource_version = $resource_version;
+        $this->upcoming_renewal = $upcoming_renewal;  
         $this->status = $status;
         $this->auto_renew_status = $auto_renew_status;
         $this->expiration_reason = $expiration_reason;
@@ -127,6 +143,7 @@ class OmnichannelSubscriptionItem  {
     { 
         $returnData = new self( $resourceAttributes['id'] ,
         $resourceAttributes['item_id_at_source'] ,
+        $resourceAttributes['item_parent_id_at_source'] ?? null,
         $resourceAttributes['current_term_start'] ?? null,
         $resourceAttributes['current_term_end'] ?? null,
         $resourceAttributes['expired_at'] ?? null,
@@ -134,6 +151,7 @@ class OmnichannelSubscriptionItem  {
         $resourceAttributes['grace_period_expires_at'] ?? null,
         $resourceAttributes['has_scheduled_changes'] ,
         $resourceAttributes['resource_version'] ?? null,
+        isset($resourceAttributes['upcoming_renewal']) ? UpcomingRenewal::from($resourceAttributes['upcoming_renewal']) : null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
@@ -154,6 +172,7 @@ class OmnichannelSubscriptionItem  {
 
         $data = array_filter(['id' => $this->id,
         'item_id_at_source' => $this->item_id_at_source,
+        'item_parent_id_at_source' => $this->item_parent_id_at_source,
         'current_term_start' => $this->current_term_start,
         'current_term_end' => $this->current_term_end,
         'expired_at' => $this->expired_at,
@@ -161,6 +180,7 @@ class OmnichannelSubscriptionItem  {
         'grace_period_expires_at' => $this->grace_period_expires_at,
         'has_scheduled_changes' => $this->has_scheduled_changes,
         'resource_version' => $this->resource_version,
+        
         
         'status' => $this->status?->value,
         
@@ -175,6 +195,9 @@ class OmnichannelSubscriptionItem  {
         });
 
         
+        if($this->upcoming_renewal instanceof UpcomingRenewal){
+            $data['upcoming_renewal'] = $this->upcoming_renewal->toArray();
+        }
         
 
         

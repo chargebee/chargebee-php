@@ -102,6 +102,12 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
+    * @var bool $is_percentage_pricing
+    */
+    public bool $is_percentage_pricing;
+    
+    /**
+    *
     * @var ?int $archived_at
     */
     public ?int $archived_at;
@@ -175,7 +181,7 @@ class Item  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "external_name" , "description" , "resource_version" , "updated_at" , "item_family_id" , "is_shippable" , "is_giftable" , "redirect_url" , "enabled_for_checkout" , "enabled_in_portal" , "included_in_mrr" , "gift_claim_redirect_url" , "unit" , "metered" , "archived_at" , "applicable_items" , "bundle_items" , "bundle_configuration" , "metadata" , "deleted" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "name" , "external_name" , "description" , "resource_version" , "updated_at" , "item_family_id" , "is_shippable" , "is_giftable" , "redirect_url" , "enabled_for_checkout" , "enabled_in_portal" , "included_in_mrr" , "gift_claim_redirect_url" , "unit" , "metered" , "is_percentage_pricing" , "archived_at" , "applicable_items" , "bundle_items" , "bundle_configuration" , "metadata" , "deleted" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -200,6 +206,7 @@ class Item  extends SupportsCustomFields  {
         ?string $gift_claim_redirect_url,
         ?string $unit,
         bool $metered,
+        bool $is_percentage_pricing,
         ?int $archived_at,
         ?array $applicable_items,
         ?array $bundle_items,
@@ -230,6 +237,7 @@ class Item  extends SupportsCustomFields  {
         $this->gift_claim_redirect_url = $gift_claim_redirect_url;
         $this->unit = $unit;
         $this->metered = $metered;
+        $this->is_percentage_pricing = $is_percentage_pricing;
         $this->archived_at = $archived_at;
         $this->applicable_items = $applicable_items;
         $this->bundle_items = $bundle_items;
@@ -270,6 +278,7 @@ class Item  extends SupportsCustomFields  {
         $resourceAttributes['gift_claim_redirect_url'] ?? null,
         $resourceAttributes['unit'] ?? null,
         $resourceAttributes['metered'] ,
+        $resourceAttributes['is_percentage_pricing'] ,
         $resourceAttributes['archived_at'] ?? null,
         $applicable_items,
         $bundle_items,
@@ -317,6 +326,7 @@ class Item  extends SupportsCustomFields  {
         'gift_claim_redirect_url' => $this->gift_claim_redirect_url,
         'unit' => $this->unit,
         'metered' => $this->metered,
+        'is_percentage_pricing' => $this->is_percentage_pricing,
         'archived_at' => $this->archived_at,
         
         

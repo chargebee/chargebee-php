@@ -2,7 +2,8 @@
 
 namespace Chargebee\Resources\Quote;
 
-class Quote  { 
+use Chargebee\ValueObjects\SupportsCustomFields;
+class Quote  extends SupportsCustomFields  { 
     /**
     *
     * @var string $id
@@ -402,7 +403,11 @@ class Quote  {
         isset($resourceAttributes['operation_type']) ? \Chargebee\Resources\Quote\Enums\OperationType::tryFromValue($resourceAttributes['operation_type']) : null,
         
         );
-       
+       foreach ($resourceAttributes as $key => $value) {
+            if (!in_array($key, $returnData::$knownFields, true)) {
+                $returnData->__set($key, $value);
+            }
+        } 
         return $returnData;
     }
 
@@ -501,7 +506,11 @@ class Quote  {
             );
         }
 
-        
+        foreach($this->_data as $keys => $value){
+            if (!in_array($keys, $this::$knownFields)) {
+                $data[$keys] = $value;
+            }
+        } 
         return $data;
     }
 }

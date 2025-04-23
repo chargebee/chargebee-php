@@ -204,6 +204,7 @@ final class PaymentSourceActions
     *     limit?: int,
     *     offset?: string,
     *     subscription_id?: string,
+    *     include_deleted?: bool,
     *     customer_id?: array{
     *     is?: mixed,
     *     is_not?: mixed,

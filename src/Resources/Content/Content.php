@@ -45,6 +45,7 @@ use Chargebee\Resources\ItemEntitlement\ItemEntitlement;
 use Chargebee\Resources\ItemFamily\ItemFamily;
 use Chargebee\Resources\ItemPrice\ItemPrice;
 use Chargebee\Resources\Metadata\Metadata;
+use Chargebee\Resources\NonSubscription\NonSubscription;
 use Chargebee\Resources\OmnichannelSubscription\OmnichannelSubscription;
 use Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem;
 use Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\OmnichannelSubscriptionItemScheduledChange;
@@ -352,6 +353,12 @@ class Content  {
     
     /**
     *
+    * @var ?NonSubscription $nonsubscription
+    */
+    public ?NonSubscription $nonsubscription;
+    
+    /**
+    *
     * @var ?OmnichannelSubscription $omnichannelsubscription
     */
     public ?OmnichannelSubscription $omnichannelsubscription;
@@ -587,7 +594,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "virtual_bank_account"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "virtual_bank_account"  ];
 
     /**
     * dynamic properties for resources
@@ -640,6 +647,7 @@ class Content  {
         ?ItemFamily $itemfamily,
         ?ItemPrice $itemprice,
         ?Metadata $metadata,
+        ?NonSubscription $nonsubscription,
         ?OmnichannelSubscription $omnichannelsubscription,
         ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem,
         ?OmnichannelSubscriptionItemScheduledChange $omnichannelsubscriptionitemscheduledchange,
@@ -725,6 +733,7 @@ class Content  {
         $this->itemfamily = $itemfamily;
         $this->itemprice = $itemprice;
         $this->metadata = $metadata;
+        $this->nonsubscription = $nonsubscription;
         $this->omnichannelsubscription = $omnichannelsubscription;
         $this->omnichannelsubscriptionitem = $omnichannelsubscriptionitem;
         $this->omnichannelsubscriptionitemscheduledchange = $omnichannelsubscriptionitemscheduledchange;
@@ -812,6 +821,7 @@ class Content  {
         isset($resourceAttributes['item_family']) ? ItemFamily::from($resourceAttributes['item_family']) : null,
         isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
+        isset($resourceAttributes['non_subscription']) ? NonSubscription::from($resourceAttributes['non_subscription']) : null,
         isset($resourceAttributes['omnichannel_subscription']) ? OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']) : null,
         isset($resourceAttributes['omnichannel_subscription_item']) ? OmnichannelSubscriptionItem::from($resourceAttributes['omnichannel_subscription_item']) : null,
         isset($resourceAttributes['omnichannel_subscription_item_scheduled_change']) ? OmnichannelSubscriptionItemScheduledChange::from($resourceAttributes['omnichannel_subscription_item_scheduled_change']) : null,
@@ -862,6 +872,7 @@ class Content  {
     {
 
         $data = array_filter([
+        
         
         
         
@@ -1081,6 +1092,9 @@ class Content  {
         }
         if($this->metadata instanceof Metadata){
             $data['metadata'] = $this->metadata->toArray();
+        }
+        if($this->nonsubscription instanceof NonSubscription){
+            $data['non_subscription'] = $this->nonsubscription->toArray();
         }
         if($this->omnichannelsubscription instanceof OmnichannelSubscription){
             $data['omnichannel_subscription'] = $this->omnichannelsubscription->toArray();

@@ -383,6 +383,12 @@ class Invoice  {
     
     /**
     *
+    * @var ?array<LineItemAddress> $line_item_addresses
+    */
+    public ?array $line_item_addresses;
+    
+    /**
+    *
     * @var \Chargebee\Enums\PriceType $price_type
     */
     public \Chargebee\Enums\PriceType $price_type;
@@ -408,7 +414,7 @@ class Invoice  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "po_number" , "customer_id" , "subscription_id" , "recurring" , "vat_number" , "date" , "due_date" , "net_term_days" , "exchange_rate" , "currency_code" , "total" , "amount_paid" , "amount_adjusted" , "write_off_amount" , "credits_applied" , "amount_due" , "paid_at" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "tax" , "local_currency_exchange_rate" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "discounts" , "line_item_discounts" , "taxes" , "line_item_taxes" , "line_item_credits" , "line_item_tiers" , "linked_payments" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "statement_descriptor" , "billing_address" , "einvoice" , "payment_owner" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "site_details_at_creation" , "tax_origin"  ];
+    protected static array $knownFields = [ "id" , "po_number" , "customer_id" , "subscription_id" , "recurring" , "vat_number" , "date" , "due_date" , "net_term_days" , "exchange_rate" , "currency_code" , "total" , "amount_paid" , "amount_adjusted" , "write_off_amount" , "credits_applied" , "amount_due" , "paid_at" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "tax" , "local_currency_exchange_rate" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "discounts" , "line_item_discounts" , "taxes" , "line_item_taxes" , "line_item_credits" , "line_item_tiers" , "linked_payments" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "statement_descriptor" , "billing_address" , "einvoice" , "payment_owner" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "site_details_at_creation" , "tax_origin" , "line_item_addresses"  ];
 
     /**
     * dynamic properties for resources
@@ -480,6 +486,7 @@ class Invoice  {
         ?string $business_entity_id,
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?TaxOrigin $tax_origin,
+        ?array $line_item_addresses,
         \Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
         \Chargebee\Resources\Invoice\Enums\Status $status,
@@ -548,7 +555,8 @@ class Invoice  {
         $this->vat_number_prefix = $vat_number_prefix;
         $this->business_entity_id = $business_entity_id;
         $this->site_details_at_creation = $site_details_at_creation;
-        $this->tax_origin = $tax_origin; 
+        $this->tax_origin = $tax_origin;
+        $this->line_item_addresses = $line_item_addresses; 
         $this->price_type = $price_type;
         $this->channel = $channel; 
         $this->status = $status;
@@ -613,6 +621,10 @@ class Invoice  {
             $result
         ), $resourceAttributes['notes'] ?? []);
         
+        $line_item_addresses = array_map(fn (array $result): LineItemAddress =>  LineItemAddress::from(
+            $result
+        ), $resourceAttributes['line_item_addresses'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ,
         $resourceAttributes['po_number'] ?? null,
         $resourceAttributes['customer_id'] ,
@@ -676,6 +688,7 @@ class Invoice  {
         $resourceAttributes['business_entity_id'] ?? null,
         isset($resourceAttributes['site_details_at_creation']) ? SiteDetailsAtCreation::from($resourceAttributes['site_details_at_creation']) : null,
         isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
+        $line_item_addresses,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
@@ -755,6 +768,7 @@ class Invoice  {
         'tax_category' => $this->tax_category,
         'vat_number_prefix' => $this->vat_number_prefix,
         'business_entity_id' => $this->business_entity_id,
+        
         
         
         
@@ -872,6 +886,12 @@ class Invoice  {
             $data['notes'] = array_map(
                 fn (Note $notes): array => $notes->toArray(),
                 $this->notes
+            );
+        }
+        if($this->line_item_addresses !== []){
+            $data['line_item_addresses'] = array_map(
+                fn (LineItemAddress $line_item_addresses): array => $line_item_addresses->toArray(),
+                $this->line_item_addresses
             );
         }
 

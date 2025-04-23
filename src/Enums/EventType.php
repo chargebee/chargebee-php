@@ -200,6 +200,9 @@ enum EventType : string {
     case OMNICHANNEL_SUBSCRIPTION_ITEM_CHANGE_SCHEDULED = "omnichannel_subscription_item_change_scheduled";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_CHANGE_REMOVED = "omnichannel_subscription_item_scheduled_change_removed";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_REACTIVATED = "omnichannel_subscription_item_reactivated";
+    case SALES_ORDER_CREATED = "sales_order_created";
+    case SALES_ORDER_UPDATED = "sales_order_updated";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_CHANGED = "omnichannel_subscription_item_changed";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";

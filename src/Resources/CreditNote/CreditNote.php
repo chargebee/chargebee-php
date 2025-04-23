@@ -251,6 +251,12 @@ class CreditNote  {
     
     /**
     *
+    * @var ?array<LineItemAddress> $line_item_addresses
+    */
+    public ?array $line_item_addresses;
+    
+    /**
+    *
     * @var \Chargebee\Enums\PriceType $price_type
     */
     public \Chargebee\Enums\PriceType $price_type;
@@ -282,7 +288,7 @@ class CreditNote  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "einvoice" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "discounts" , "line_item_discounts" , "line_item_tiers" , "taxes" , "line_item_taxes" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "site_details_at_creation" , "tax_origin"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "einvoice" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "discounts" , "line_item_discounts" , "line_item_tiers" , "taxes" , "line_item_taxes" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "site_details_at_creation" , "tax_origin" , "line_item_addresses"  ];
 
     /**
     * dynamic properties for resources
@@ -332,6 +338,7 @@ class CreditNote  {
         ?BillingAddress $billing_address,
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?TaxOrigin $tax_origin,
+        ?array $line_item_addresses,
         \Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
         \Chargebee\Resources\CreditNote\Enums\Type $type,
@@ -379,7 +386,8 @@ class CreditNote  {
         $this->shipping_address = $shipping_address;
         $this->billing_address = $billing_address;
         $this->site_details_at_creation = $site_details_at_creation;
-        $this->tax_origin = $tax_origin; 
+        $this->tax_origin = $tax_origin;
+        $this->line_item_addresses = $line_item_addresses; 
         $this->price_type = $price_type;
         $this->channel = $channel; 
         $this->type = $type;
@@ -420,6 +428,10 @@ class CreditNote  {
         $allocations = array_map(fn (array $result): Allocation =>  Allocation::from(
             $result
         ), $resourceAttributes['allocations'] ?? []);
+        
+        $line_item_addresses = array_map(fn (array $result): LineItemAddress =>  LineItemAddress::from(
+            $result
+        ), $resourceAttributes['line_item_addresses'] ?? []);
         
         $returnData = new self( $resourceAttributes['id'] ,
         $resourceAttributes['customer_id'] ,
@@ -462,6 +474,7 @@ class CreditNote  {
         isset($resourceAttributes['billing_address']) ? BillingAddress::from($resourceAttributes['billing_address']) : null,
         isset($resourceAttributes['site_details_at_creation']) ? SiteDetailsAtCreation::from($resourceAttributes['site_details_at_creation']) : null,
         isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
+        $line_item_addresses,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
@@ -519,6 +532,7 @@ class CreditNote  {
         'create_reason_code' => $this->create_reason_code,
         'vat_number_prefix' => $this->vat_number_prefix,
         'business_entity_id' => $this->business_entity_id,
+        
         
         
         
@@ -601,6 +615,12 @@ class CreditNote  {
             $data['allocations'] = array_map(
                 fn (Allocation $allocations): array => $allocations->toArray(),
                 $this->allocations
+            );
+        }
+        if($this->line_item_addresses !== []){
+            $data['line_item_addresses'] = array_map(
+                fn (LineItemAddress $line_item_addresses): array => $line_item_addresses->toArray(),
+                $this->line_item_addresses
             );
         }
 
