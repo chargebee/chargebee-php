@@ -102,9 +102,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $is_percentage_pricing
+    * @var ?bool $is_percentage_pricing
     */
-    public bool $is_percentage_pricing;
+    public ?bool $is_percentage_pricing;
     
     /**
     *
@@ -168,9 +168,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability
+    * @var ?\Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability
     */
-    public \Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability;
+    public ?\Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability;
     
     /**
     *
@@ -206,7 +206,7 @@ class Item  extends SupportsCustomFields  {
         ?string $gift_claim_redirect_url,
         ?string $unit,
         bool $metered,
-        bool $is_percentage_pricing,
+        ?bool $is_percentage_pricing,
         ?int $archived_at,
         ?array $applicable_items,
         ?array $bundle_items,
@@ -217,7 +217,7 @@ class Item  extends SupportsCustomFields  {
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Resources\Item\Enums\Status $status,
         \Chargebee\Resources\Item\Enums\Type $type,
-        \Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability,
+        ?\Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability,
         ?\Chargebee\Resources\Item\Enums\UsageCalculation $usage_calculation,
     )
     { 
@@ -278,7 +278,7 @@ class Item  extends SupportsCustomFields  {
         $resourceAttributes['gift_claim_redirect_url'] ?? null,
         $resourceAttributes['unit'] ?? null,
         $resourceAttributes['metered'] ,
-        $resourceAttributes['is_percentage_pricing'] ,
+        $resourceAttributes['is_percentage_pricing'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $applicable_items,
         $bundle_items,
