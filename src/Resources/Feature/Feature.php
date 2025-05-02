@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Feature  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -42,9 +42,9 @@ class Feature  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -76,13 +76,13 @@ class Feature  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $description,
         ?string $unit,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
+        ?int $created_at,
         ?array $levels,
         ?\Chargebee\Resources\Feature\Enums\Status $status,
         ?\Chargebee\Resources\Feature\Enums\Type $type,
@@ -106,13 +106,13 @@ class Feature  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['levels'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['unit'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $levels,
         
          

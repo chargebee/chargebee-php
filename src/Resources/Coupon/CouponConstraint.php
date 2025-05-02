@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Coupon;
 class CouponConstraint  { 
     /**
     *
-    * @var string $entity_type
+    * @var ?string $entity_type
     */
-    public string $entity_type;
+    public ?string $entity_type;
     
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
@@ -33,8 +33,8 @@ class CouponConstraint  {
     protected $_data = [];
 
     private function __construct(
-        string $entity_type,
-        string $type,
+        ?string $entity_type,
+        ?string $type,
         ?string $value,
     )
     { 
@@ -45,8 +45,8 @@ class CouponConstraint  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['entity_type'] ,
-        $resourceAttributes['type'] ,
+        $returnData = new self( $resourceAttributes['entity_type'] ?? null,
+        $resourceAttributes['type'] ?? null,
         $resourceAttributes['value'] ?? null,
         
          

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Discount;
 class Discount  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -41,9 +41,9 @@ class Discount  {
     
     /**
     *
-    * @var bool $included_in_mrr
+    * @var ?bool $included_in_mrr
     */
-    public bool $included_in_mrr;
+    public ?bool $included_in_mrr;
     
     /**
     *
@@ -53,9 +53,9 @@ class Discount  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -71,21 +71,21 @@ class Discount  {
     
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
-    * @var int $index
+    * @var ?int $index
     */
-    public int $index;
+    public ?int $index;
     
     /**
     *
-    * @var \Chargebee\Enums\DurationType $duration_type
+    * @var ?\Chargebee\Enums\DurationType $duration_type
     */
-    public \Chargebee\Enums\DurationType $duration_type;
+    public ?\Chargebee\Enums\DurationType $duration_type;
     
     /**
     *
@@ -95,15 +95,15 @@ class Discount  {
     
     /**
     *
-    * @var \Chargebee\Enums\ApplyOn $apply_on
+    * @var ?\Chargebee\Enums\ApplyOn $apply_on
     */
-    public \Chargebee\Enums\ApplyOn $apply_on;
+    public ?\Chargebee\Enums\ApplyOn $apply_on;
     
     /**
     *
-    * @var \Chargebee\Resources\Discount\Enums\Type $type
+    * @var ?\Chargebee\Resources\Discount\Enums\Type $type
     */
-    public \Chargebee\Resources\Discount\Enums\Type $type;
+    public ?\Chargebee\Resources\Discount\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -117,23 +117,23 @@ class Discount  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $invoice_name,
         ?int $percentage,
         ?int $amount,
         ?string $currency_code,
         ?int $period,
-        bool $included_in_mrr,
+        ?bool $included_in_mrr,
         ?string $item_price_id,
-        int $created_at,
+        ?int $created_at,
         ?int $apply_till,
         ?int $applied_count,
-        string $coupon_id,
-        int $index,
-        \Chargebee\Enums\DurationType $duration_type,
+        ?string $coupon_id,
+        ?int $index,
+        ?\Chargebee\Enums\DurationType $duration_type,
         ?\Chargebee\Enums\PeriodUnit $period_unit,
-        \Chargebee\Enums\ApplyOn $apply_on,
-        \Chargebee\Resources\Discount\Enums\Type $type,
+        ?\Chargebee\Enums\ApplyOn $apply_on,
+        ?\Chargebee\Resources\Discount\Enums\Type $type,
     )
     { 
         $this->id = $id;
@@ -157,19 +157,19 @@ class Discount  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['period'] ?? null,
-        $resourceAttributes['included_in_mrr'] ,
+        $resourceAttributes['included_in_mrr'] ?? null,
         $resourceAttributes['item_price_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['apply_till'] ?? null,
         $resourceAttributes['applied_count'] ?? null,
-        $resourceAttributes['coupon_id'] ,
-        $resourceAttributes['index'] ,
+        $resourceAttributes['coupon_id'] ?? null,
+        $resourceAttributes['index'] ?? null,
         
         
         isset($resourceAttributes['duration_type']) ? \Chargebee\Enums\DurationType::tryFromValue($resourceAttributes['duration_type']) : null,

@@ -11,9 +11,9 @@ class SubscriptionEstimate  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -70,7 +70,7 @@ class SubscriptionEstimate  {
 
     private function __construct(
         ?string $id,
-        string $currency_code,
+        ?string $currency_code,
         ?int $next_billing_at,
         ?int $pause_date,
         ?int $resume_date,
@@ -94,7 +94,7 @@ class SubscriptionEstimate  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['next_billing_at'] ?? null,
         $resourceAttributes['pause_date'] ?? null,
         $resourceAttributes['resume_date'] ?? null,

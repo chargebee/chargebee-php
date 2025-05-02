@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentSource;
 class BankAccount  { 
     /**
     *
-    * @var string $last4
+    * @var ?string $last4
     */
-    public string $last4;
+    public ?string $last4;
     
     /**
     *
@@ -81,7 +81,7 @@ class BankAccount  {
     protected $_data = [];
 
     private function __construct(
-        string $last4,
+        ?string $last4,
         ?string $name_on_account,
         ?string $first_name,
         ?string $last_name,
@@ -109,7 +109,7 @@ class BankAccount  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['last4'] ,
+        $returnData = new self( $resourceAttributes['last4'] ?? null,
         $resourceAttributes['name_on_account'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,

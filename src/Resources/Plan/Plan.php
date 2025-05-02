@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Plan  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -36,15 +36,15 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
-    * @var int $period
+    * @var ?int $period
     */
-    public int $period;
+    public ?int $period;
     
     /**
     *
@@ -54,9 +54,9 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $free_quantity
+    * @var ?int $free_quantity
     */
-    public int $free_quantity;
+    public ?int $free_quantity;
     
     /**
     *
@@ -90,15 +90,15 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $enabled_in_hosted_pages
+    * @var ?bool $enabled_in_hosted_pages
     */
-    public bool $enabled_in_hosted_pages;
+    public ?bool $enabled_in_hosted_pages;
     
     /**
     *
-    * @var bool $enabled_in_portal
+    * @var ?bool $enabled_in_portal
     */
-    public bool $enabled_in_portal;
+    public ?bool $enabled_in_portal;
     
     /**
     *
@@ -192,9 +192,9 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $giftable
+    * @var ?bool $giftable
     */
-    public bool $giftable;
+    public ?bool $giftable;
     
     /**
     *
@@ -282,9 +282,9 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Enums\PricingModel $pricing_model
+    * @var ?\Chargebee\Enums\PricingModel $pricing_model
     */
-    public \Chargebee\Enums\PricingModel $pricing_model;
+    public ?\Chargebee\Enums\PricingModel $pricing_model;
     
     /**
     *
@@ -300,9 +300,9 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit
+    * @var ?\Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit
     */
-    public \Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit;
+    public ?\Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit;
     
     /**
     *
@@ -318,21 +318,21 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Plan\Enums\ChargeModel $charge_model
+    * @var ?\Chargebee\Resources\Plan\Enums\ChargeModel $charge_model
     */
-    public \Chargebee\Resources\Plan\Enums\ChargeModel $charge_model;
+    public ?\Chargebee\Resources\Plan\Enums\ChargeModel $charge_model;
     
     /**
     *
-    * @var \Chargebee\Resources\Plan\Enums\Status $status
+    * @var ?\Chargebee\Resources\Plan\Enums\Status $status
     */
-    public \Chargebee\Resources\Plan\Enums\Status $status;
+    public ?\Chargebee\Resources\Plan\Enums\Status $status;
     
     /**
     *
-    * @var \Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability
+    * @var ?\Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability
     */
-    public \Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability;
+    public ?\Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability;
     
     /**
     *
@@ -352,22 +352,22 @@ class Plan  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $invoice_name,
         ?string $description,
         ?int $price,
-        string $currency_code,
-        int $period,
+        ?string $currency_code,
+        ?int $period,
         ?int $trial_period,
-        int $free_quantity,
+        ?int $free_quantity,
         ?int $setup_cost,
         ?int $downgrade_penalty,
         ?int $archived_at,
         ?int $billing_cycles,
         ?string $redirect_url,
-        bool $enabled_in_hosted_pages,
-        bool $enabled_in_portal,
+        ?bool $enabled_in_hosted_pages,
+        ?bool $enabled_in_portal,
         ?string $tax_code,
         ?string $hsn_code,
         ?string $taxjar_product_code,
@@ -383,7 +383,7 @@ class Plan  extends SupportsCustomFields  {
         ?int $shipping_frequency_period,
         ?int $resource_version,
         ?int $updated_at,
-        bool $giftable,
+        ?bool $giftable,
         ?string $claim_url,
         ?string $free_quantity_in_decimal,
         ?string $price_in_decimal,
@@ -398,15 +398,15 @@ class Plan  extends SupportsCustomFields  {
         ?array $event_based_addons,
         ?bool $show_description_in_invoices,
         ?bool $show_description_in_quotes,
-        \Chargebee\Enums\PricingModel $pricing_model,
+        ?\Chargebee\Enums\PricingModel $pricing_model,
         ?\Chargebee\Enums\AvalaraSaleType $avalara_sale_type,
         ?\Chargebee\Enums\Channel $channel,
-        \Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit,
+        ?\Chargebee\Resources\Plan\Enums\PeriodUnit $period_unit,
         ?\Chargebee\Resources\Plan\Enums\TrialPeriodUnit $trial_period_unit,
         ?\Chargebee\Resources\Plan\Enums\TrialEndAction $trial_end_action,
-        \Chargebee\Resources\Plan\Enums\ChargeModel $charge_model,
-        \Chargebee\Resources\Plan\Enums\Status $status,
-        \Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability,
+        ?\Chargebee\Resources\Plan\Enums\ChargeModel $charge_model,
+        ?\Chargebee\Resources\Plan\Enums\Status $status,
+        ?\Chargebee\Resources\Plan\Enums\AddonApplicability $addon_applicability,
         ?\Chargebee\Resources\Plan\Enums\ShippingFrequencyPeriodUnit $shipping_frequency_period_unit,
     )
     { 
@@ -490,22 +490,22 @@ class Plan  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['event_based_addons'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['price'] ?? null,
-        $resourceAttributes['currency_code'] ,
-        $resourceAttributes['period'] ,
+        $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['period'] ?? null,
         $resourceAttributes['trial_period'] ?? null,
-        $resourceAttributes['free_quantity'] ,
+        $resourceAttributes['free_quantity'] ?? null,
         $resourceAttributes['setup_cost'] ?? null,
         $resourceAttributes['downgrade_penalty'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $resourceAttributes['billing_cycles'] ?? null,
         $resourceAttributes['redirect_url'] ?? null,
-        $resourceAttributes['enabled_in_hosted_pages'] ,
-        $resourceAttributes['enabled_in_portal'] ,
+        $resourceAttributes['enabled_in_hosted_pages'] ?? null,
+        $resourceAttributes['enabled_in_portal'] ?? null,
         $resourceAttributes['tax_code'] ?? null,
         $resourceAttributes['hsn_code'] ?? null,
         $resourceAttributes['taxjar_product_code'] ?? null,
@@ -521,7 +521,7 @@ class Plan  extends SupportsCustomFields  {
         $resourceAttributes['shipping_frequency_period'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['giftable'] ,
+        $resourceAttributes['giftable'] ?? null,
         $resourceAttributes['claim_url'] ?? null,
         $resourceAttributes['free_quantity_in_decimal'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,

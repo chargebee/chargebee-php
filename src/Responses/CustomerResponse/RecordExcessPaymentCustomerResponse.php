@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class RecordExcessPaymentCustomerResponse extends ResponseBase { 
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
-    * @var Transaction $transaction
+    * @var ?Transaction $transaction
     */
-    public Transaction $transaction;
+    public ?Transaction $transaction;
     
 
     private function __construct(
-        Customer $customer,
-        Transaction $transaction,
+        ?Customer $customer,
+        ?Transaction $transaction,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->customer = $customer;
         $this->transaction = $transaction;
         
@@ -34,17 +35,23 @@ class RecordExcessPaymentCustomerResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Customer::from($resourceAttributes['customer']),
-             Transaction::from($resourceAttributes['transaction']), $headers);
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
+            isset($resourceAttributes['transaction']) ? Transaction::from($resourceAttributes['transaction']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'customer' => $this->customer->toArray(), 
-            'transaction' => $this->transaction->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        }  
+        if($this->transaction instanceof Transaction){
+            $data['transaction'] = $this->transaction->toArray();
+        } 
 
         return $data;
     }

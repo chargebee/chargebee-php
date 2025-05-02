@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class AgreementPdfPaymentSourceResponse extends ResponseBase { 
     /**
     *
-    * @var Download $download
+    * @var ?Download $download
     */
-    public Download $download;
+    public ?Download $download;
     
 
     private function __construct(
-        Download $download,
+        ?Download $download,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->download = $download;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Download::from($resourceAttributes['download']), $headers);
+            isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'download' => $this->download->toArray(),
         ]);
-        
+         
+        if($this->download instanceof Download){
+            $data['download'] = $this->download->toArray();
+        } 
 
         return $data;
     }

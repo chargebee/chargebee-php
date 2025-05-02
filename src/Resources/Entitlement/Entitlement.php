@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Entitlement;
 class Entitlement  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -57,7 +57,7 @@ class Entitlement  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $entity_id,
         ?string $feature_id,
         ?string $feature_name,
@@ -77,7 +77,7 @@ class Entitlement  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['feature_id'] ?? null,
         $resourceAttributes['feature_name'] ?? null,

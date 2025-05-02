@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class DeleteCouponResponse extends ResponseBase { 
     /**
     *
-    * @var Coupon $coupon
+    * @var ?Coupon $coupon
     */
-    public Coupon $coupon;
+    public ?Coupon $coupon;
     
 
     private function __construct(
-        Coupon $coupon,
+        ?Coupon $coupon,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->coupon = $coupon;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Coupon::from($resourceAttributes['coupon']), $headers);
+            isset($resourceAttributes['coupon']) ? Coupon::from($resourceAttributes['coupon']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'coupon' => $this->coupon->toArray(),
         ]);
-        
+         
+        if($this->coupon instanceof Coupon){
+            $data['coupon'] = $this->coupon->toArray();
+        } 
 
         return $data;
     }

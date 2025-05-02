@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Subscription  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -84,9 +84,9 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -204,15 +204,15 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $has_scheduled_advance_invoices
+    * @var ?bool $has_scheduled_advance_invoices
     */
-    public bool $has_scheduled_advance_invoices;
+    public ?bool $has_scheduled_advance_invoices;
     
     /**
     *
-    * @var bool $has_scheduled_changes
+    * @var ?bool $has_scheduled_changes
     */
-    public bool $has_scheduled_changes;
+    public ?bool $has_scheduled_changes;
     
     /**
     *
@@ -372,9 +372,9 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -462,9 +462,9 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Subscription\Enums\Status $status
+    * @var ?\Chargebee\Resources\Subscription\Enums\Status $status
     */
-    public \Chargebee\Resources\Subscription\Enums\Status $status;
+    public ?\Chargebee\Resources\Subscription\Enums\Status $status;
     
     /**
     *
@@ -484,8 +484,8 @@ class Subscription  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $currency_code,
+        ?string $id,
+        ?string $currency_code,
         ?string $plan_id,
         ?int $plan_quantity,
         ?int $plan_unit_price,
@@ -497,7 +497,7 @@ class Subscription  extends SupportsCustomFields  {
         ?string $po_number,
         ?string $plan_quantity_in_decimal,
         ?string $plan_unit_price_in_decimal,
-        string $customer_id,
+        ?string $customer_id,
         ?int $plan_amount,
         ?int $plan_free_quantity,
         ?int $trial_start,
@@ -517,8 +517,8 @@ class Subscription  extends SupportsCustomFields  {
         ?string $created_from_ip,
         ?int $resource_version,
         ?int $updated_at,
-        bool $has_scheduled_advance_invoices,
-        bool $has_scheduled_changes,
+        ?bool $has_scheduled_advance_invoices,
+        ?bool $has_scheduled_changes,
         ?string $payment_source_id,
         ?string $plan_free_quantity_in_decimal,
         ?string $plan_amount_in_decimal,
@@ -545,7 +545,7 @@ class Subscription  extends SupportsCustomFields  {
         ?BillingOverride $billing_override,
         ?string $invoice_notes,
         mixed $meta_data,
-        bool $deleted,
+        ?bool $deleted,
         ?int $changes_scheduled_at,
         ?ContractTerm $contract_term,
         ?string $cancel_reason_code,
@@ -560,7 +560,7 @@ class Subscription  extends SupportsCustomFields  {
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Enums\FreePeriodUnit $free_period_unit,
         ?\Chargebee\Resources\Subscription\Enums\BillingPeriodUnit $billing_period_unit,
-        \Chargebee\Resources\Subscription\Enums\Status $status,
+        ?\Chargebee\Resources\Subscription\Enums\Status $status,
         ?\Chargebee\Resources\Subscription\Enums\CancelReason $cancel_reason,
     )
     { 
@@ -678,8 +678,8 @@ class Subscription  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['discounts'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['currency_code'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['plan_id'] ?? null,
         $resourceAttributes['plan_quantity'] ?? null,
         $resourceAttributes['plan_unit_price'] ?? null,
@@ -691,7 +691,7 @@ class Subscription  extends SupportsCustomFields  {
         $resourceAttributes['po_number'] ?? null,
         $resourceAttributes['plan_quantity_in_decimal'] ?? null,
         $resourceAttributes['plan_unit_price_in_decimal'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['plan_amount'] ?? null,
         $resourceAttributes['plan_free_quantity'] ?? null,
         $resourceAttributes['trial_start'] ?? null,
@@ -711,8 +711,8 @@ class Subscription  extends SupportsCustomFields  {
         $resourceAttributes['created_from_ip'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['has_scheduled_advance_invoices'] ,
-        $resourceAttributes['has_scheduled_changes'] ,
+        $resourceAttributes['has_scheduled_advance_invoices'] ?? null,
+        $resourceAttributes['has_scheduled_changes'] ?? null,
         $resourceAttributes['payment_source_id'] ?? null,
         $resourceAttributes['plan_free_quantity_in_decimal'] ?? null,
         $resourceAttributes['plan_amount_in_decimal'] ?? null,
@@ -739,7 +739,7 @@ class Subscription  extends SupportsCustomFields  {
         isset($resourceAttributes['billing_override']) ? BillingOverride::from($resourceAttributes['billing_override']) : null,
         $resourceAttributes['invoice_notes'] ?? null,
         $resourceAttributes['meta_data'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['changes_scheduled_at'] ?? null,
         isset($resourceAttributes['contract_term']) ? ContractTerm::from($resourceAttributes['contract_term']) : null,
         $resourceAttributes['cancel_reason_code'] ?? null,

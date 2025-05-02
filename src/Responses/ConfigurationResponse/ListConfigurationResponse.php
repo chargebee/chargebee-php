@@ -8,17 +8,18 @@ use Chargebee\ValueObjects\ResponseBase;
 class ListConfigurationResponse extends ResponseBase { 
     /**
     *
-    * @var array<Configuration> $configurations
+    * @var ?array<Configuration> $configurations
     */
-    public array $configurations;
+    public ?array $configurations;
     
 
     private function __construct(
-        array $configurations,
+        ?array $configurations,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->configurations = $configurations;
         
     }
@@ -26,16 +27,16 @@ class ListConfigurationResponse extends ResponseBase {
     {
         $configurations = array_map(fn (array $result): Configuration =>  Configuration::from(
             $result
-        ), $resourceAttributes['configurations'] );
+        ), $resourceAttributes['configurations'] ?? []);
         
-        return new self($configurations, $headers);
+        return new self($configurations, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
         ]);
-        
+          
 
         if($this->configurations !== []) {
             $data['configurations'] = array_map(

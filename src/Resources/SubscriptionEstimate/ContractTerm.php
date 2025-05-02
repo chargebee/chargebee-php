@@ -5,51 +5,51 @@ namespace Chargebee\Resources\SubscriptionEstimate;
 class ContractTerm  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
-    * @var int $contract_start
+    * @var ?int $contract_start
     */
-    public int $contract_start;
+    public ?int $contract_start;
     
     /**
     *
-    * @var int $contract_end
+    * @var ?int $contract_end
     */
-    public int $contract_end;
+    public ?int $contract_end;
     
     /**
     *
-    * @var int $billing_cycle
+    * @var ?int $billing_cycle
     */
-    public int $billing_cycle;
+    public ?int $billing_cycle;
     
     /**
     *
-    * @var string $action_at_term_end
+    * @var ?string $action_at_term_end
     */
-    public string $action_at_term_end;
+    public ?string $action_at_term_end;
     
     /**
     *
-    * @var int $total_contract_value
+    * @var ?int $total_contract_value
     */
-    public int $total_contract_value;
+    public ?int $total_contract_value;
     
     /**
     *
-    * @var int $total_contract_value_before_tax
+    * @var ?int $total_contract_value_before_tax
     */
-    public int $total_contract_value_before_tax;
+    public ?int $total_contract_value_before_tax;
     
     /**
     *
@@ -59,15 +59,15 @@ class ContractTerm  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -87,17 +87,17 @@ class ContractTerm  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $status,
-        int $contract_start,
-        int $contract_end,
-        int $billing_cycle,
-        string $action_at_term_end,
-        int $total_contract_value,
-        int $total_contract_value_before_tax,
+        ?string $id,
+        ?string $status,
+        ?int $contract_start,
+        ?int $contract_end,
+        ?int $billing_cycle,
+        ?string $action_at_term_end,
+        ?int $total_contract_value,
+        ?int $total_contract_value_before_tax,
         ?int $cancellation_cutoff_period,
-        int $created_at,
-        string $subscription_id,
+        ?int $created_at,
+        ?string $subscription_id,
         ?int $remaining_billing_cycles,
     )
     { 
@@ -117,17 +117,17 @@ class ContractTerm  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['status'] ,
-        $resourceAttributes['contract_start'] ,
-        $resourceAttributes['contract_end'] ,
-        $resourceAttributes['billing_cycle'] ,
-        $resourceAttributes['action_at_term_end'] ,
-        $resourceAttributes['total_contract_value'] ,
-        $resourceAttributes['total_contract_value_before_tax'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['status'] ?? null,
+        $resourceAttributes['contract_start'] ?? null,
+        $resourceAttributes['contract_end'] ?? null,
+        $resourceAttributes['billing_cycle'] ?? null,
+        $resourceAttributes['action_at_term_end'] ?? null,
+        $resourceAttributes['total_contract_value'] ?? null,
+        $resourceAttributes['total_contract_value_before_tax'] ?? null,
         $resourceAttributes['cancellation_cutoff_period'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['subscription_id'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['remaining_billing_cycles'] ?? null,
         
          

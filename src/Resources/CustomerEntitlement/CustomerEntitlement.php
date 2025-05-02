@@ -5,9 +5,9 @@ namespace Chargebee\Resources\CustomerEntitlement;
 class CustomerEntitlement  { 
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -35,9 +35,9 @@ class CustomerEntitlement  {
     
     /**
     *
-    * @var bool $is_enabled
+    * @var ?bool $is_enabled
     */
-    public bool $is_enabled;
+    public ?bool $is_enabled;
     
     /**
     * @var array<string> $knownFields
@@ -51,12 +51,12 @@ class CustomerEntitlement  {
     protected $_data = [];
 
     private function __construct(
-        string $customer_id,
+        ?string $customer_id,
         ?string $subscription_id,
         ?string $feature_id,
         ?string $value,
         ?string $name,
-        bool $is_enabled,
+        ?bool $is_enabled,
     )
     { 
         $this->customer_id = $customer_id;
@@ -69,12 +69,12 @@ class CustomerEntitlement  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['feature_id'] ?? null,
         $resourceAttributes['value'] ?? null,
         $resourceAttributes['name'] ?? null,
-        $resourceAttributes['is_enabled'] ,
+        $resourceAttributes['is_enabled'] ?? null,
         
          
         );

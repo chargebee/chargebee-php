@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class RemoveAdvanceInvoiceScheduleSubscriptionResponse extends ResponseBase { 
     /**
     *
-    * @var Subscription $subscription
+    * @var ?Subscription $subscription
     */
-    public Subscription $subscription;
+    public ?Subscription $subscription;
     
     /**
     *
@@ -21,12 +21,13 @@ class RemoveAdvanceInvoiceScheduleSubscriptionResponse extends ResponseBase {
     
 
     private function __construct(
-        Subscription $subscription,
+        ?Subscription $subscription,
         ?array $advance_invoice_schedules,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->subscription = $subscription;
         $this->advance_invoice_schedules = $advance_invoice_schedules;
         
@@ -38,15 +39,18 @@ class RemoveAdvanceInvoiceScheduleSubscriptionResponse extends ResponseBase {
         ), $resourceAttributes['advance_invoice_schedules'] ?? []);
         
         return new self(
-             Subscription::from($resourceAttributes['subscription']),$advance_invoice_schedules, $headers);
+            isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
+            $advance_invoice_schedules, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'subscription' => $this->subscription->toArray(), 
+        $data = array_filter([  
         ]);
-          
+         
+        if($this->subscription instanceof Subscription){
+            $data['subscription'] = $this->subscription->toArray();
+        }   
 
         if($this->advance_invoice_schedules !== []) {
             $data['advance_invoice_schedules'] = array_map(

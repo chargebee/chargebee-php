@@ -13,15 +13,15 @@ use Chargebee\ValueObjects\ResponseBase;
 class UpdateForItemsSubscriptionResponse extends ResponseBase { 
     /**
     *
-    * @var Subscription $subscription
+    * @var ?Subscription $subscription
     */
-    public Subscription $subscription;
+    public ?Subscription $subscription;
     
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
@@ -49,16 +49,17 @@ class UpdateForItemsSubscriptionResponse extends ResponseBase {
     
 
     private function __construct(
-        Subscription $subscription,
-        Customer $customer,
+        ?Subscription $subscription,
+        ?Customer $customer,
         ?Card $card,
         ?Invoice $invoice,
         ?array $unbilled_charges,
         ?array $credit_notes,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->subscription = $subscription;
         $this->customer = $customer;
         $this->card = $card;
@@ -78,21 +79,27 @@ class UpdateForItemsSubscriptionResponse extends ResponseBase {
         ), $resourceAttributes['credit_notes'] ?? []);
         
         return new self(
-             Subscription::from($resourceAttributes['subscription']),
-             Customer::from($resourceAttributes['customer']),
+            isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
+            
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
             isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
             
             isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
-            $unbilled_charges,$credit_notes, $headers);
+            $unbilled_charges,$credit_notes, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'subscription' => $this->subscription->toArray(), 
-            'customer' => $this->customer->toArray(),    
+        $data = array_filter([      
         ]);
          
+        if($this->subscription instanceof Subscription){
+            $data['subscription'] = $this->subscription->toArray();
+        }  
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        }  
         if($this->card instanceof Card){
             $data['card'] = $this->card->toArray();
         }  

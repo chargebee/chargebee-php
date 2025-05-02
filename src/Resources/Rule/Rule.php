@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Rule;
 class Rule  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $namespace
+    * @var ?string $namespace
     */
-    public string $namespace;
+    public ?string $namespace;
     
     /**
     *
-    * @var string $rule_name
+    * @var ?string $rule_name
     */
-    public string $rule_name;
+    public ?string $rule_name;
     
     /**
     *
@@ -41,27 +41,27 @@ class Rule  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $modified_at
+    * @var ?int $modified_at
     */
-    public int $modified_at;
+    public ?int $modified_at;
     
     /**
     *
-    * @var \Chargebee\Resources\Rule\Enums\Status $status
+    * @var ?\Chargebee\Resources\Rule\Enums\Status $status
     */
-    public \Chargebee\Resources\Rule\Enums\Status $status;
+    public ?\Chargebee\Resources\Rule\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class Rule  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $namespace,
-        string $rule_name,
+        ?string $id,
+        ?string $namespace,
+        ?string $rule_name,
         ?int $rule_order,
         ?string $conditions,
         ?string $outcome,
-        bool $deleted,
-        int $created_at,
-        int $modified_at,
-        \Chargebee\Resources\Rule\Enums\Status $status,
+        ?bool $deleted,
+        ?int $created_at,
+        ?int $modified_at,
+        ?\Chargebee\Resources\Rule\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -101,15 +101,15 @@ class Rule  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['namespace'] ,
-        $resourceAttributes['rule_name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['namespace'] ?? null,
+        $resourceAttributes['rule_name'] ?? null,
         $resourceAttributes['rule_order'] ?? null,
         $resourceAttributes['conditions'] ?? null,
         $resourceAttributes['outcome'] ?? null,
-        $resourceAttributes['deleted'] ,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['modified_at'] ,
+        $resourceAttributes['deleted'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Rule\Enums\Status::tryFromValue($resourceAttributes['status']) : null,

@@ -5,15 +5,15 @@ namespace Chargebee\Resources\PaymentScheduleEstimate;
 class PaymentScheduleEstimate  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $scheme_id
+    * @var ?string $scheme_id
     */
-    public string $scheme_id;
+    public ?string $scheme_id;
     
     /**
     *
@@ -23,9 +23,9 @@ class PaymentScheduleEstimate  {
     
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
@@ -41,9 +41,9 @@ class PaymentScheduleEstimate  {
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type
+    * @var ?\Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type
     */
-    public \Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type;
+    public ?\Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type;
     
     /**
     * @var array<string> $knownFields
@@ -57,13 +57,13 @@ class PaymentScheduleEstimate  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $scheme_id,
+        ?string $id,
+        ?string $scheme_id,
         ?string $entity_id,
-        int $amount,
+        ?int $amount,
         ?string $currency_code,
         ?array $schedule_entries,
-        \Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\PaymentScheduleEstimate\Enums\EntityType $entity_type,
     )
     { 
         $this->id = $id;
@@ -81,10 +81,10 @@ class PaymentScheduleEstimate  {
             $result
         ), $resourceAttributes['schedule_entries'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['scheme_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['scheme_id'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
-        $resourceAttributes['amount'] ,
+        $resourceAttributes['amount'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $schedule_entries,
         

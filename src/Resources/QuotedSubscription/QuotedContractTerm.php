@@ -5,33 +5,33 @@ namespace Chargebee\Resources\QuotedSubscription;
 class QuotedContractTerm  { 
     /**
     *
-    * @var int $contract_start
+    * @var ?int $contract_start
     */
-    public int $contract_start;
+    public ?int $contract_start;
     
     /**
     *
-    * @var int $contract_end
+    * @var ?int $contract_end
     */
-    public int $contract_end;
+    public ?int $contract_end;
     
     /**
     *
-    * @var int $billing_cycle
+    * @var ?int $billing_cycle
     */
-    public int $billing_cycle;
+    public ?int $billing_cycle;
     
     /**
     *
-    * @var string $action_at_term_end
+    * @var ?string $action_at_term_end
     */
-    public string $action_at_term_end;
+    public ?string $action_at_term_end;
     
     /**
     *
-    * @var int $total_contract_value
+    * @var ?int $total_contract_value
     */
-    public int $total_contract_value;
+    public ?int $total_contract_value;
     
     /**
     *
@@ -51,11 +51,11 @@ class QuotedContractTerm  {
     protected $_data = [];
 
     private function __construct(
-        int $contract_start,
-        int $contract_end,
-        int $billing_cycle,
-        string $action_at_term_end,
-        int $total_contract_value,
+        ?int $contract_start,
+        ?int $contract_end,
+        ?int $billing_cycle,
+        ?string $action_at_term_end,
+        ?int $total_contract_value,
         ?int $cancellation_cutoff_period,
     )
     { 
@@ -69,11 +69,11 @@ class QuotedContractTerm  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['contract_start'] ,
-        $resourceAttributes['contract_end'] ,
-        $resourceAttributes['billing_cycle'] ,
-        $resourceAttributes['action_at_term_end'] ,
-        $resourceAttributes['total_contract_value'] ,
+        $returnData = new self( $resourceAttributes['contract_start'] ?? null,
+        $resourceAttributes['contract_end'] ?? null,
+        $resourceAttributes['billing_cycle'] ?? null,
+        $resourceAttributes['action_at_term_end'] ?? null,
+        $resourceAttributes['total_contract_value'] ?? null,
         $resourceAttributes['cancellation_cutoff_period'] ?? null,
         
          

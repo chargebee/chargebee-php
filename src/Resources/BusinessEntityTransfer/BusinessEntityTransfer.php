@@ -5,51 +5,51 @@ namespace Chargebee\Resources\BusinessEntityTransfer;
 class BusinessEntityTransfer  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $resource_id
+    * @var ?string $resource_id
     */
-    public string $resource_id;
+    public ?string $resource_id;
     
     /**
     *
-    * @var string $active_resource_id
+    * @var ?string $active_resource_id
     */
-    public string $active_resource_id;
+    public ?string $active_resource_id;
     
     /**
     *
-    * @var string $destination_business_entity_id
+    * @var ?string $destination_business_entity_id
     */
-    public string $destination_business_entity_id;
+    public ?string $destination_business_entity_id;
     
     /**
     *
-    * @var string $source_business_entity_id
+    * @var ?string $source_business_entity_id
     */
-    public string $source_business_entity_id;
+    public ?string $source_business_entity_id;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var \Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type
+    * @var ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type
     */
-    public \Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type;
+    public ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type;
     
     /**
     *
-    * @var \Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code
+    * @var ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code
     */
-    public \Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code;
+    public ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code;
     
     /**
     * @var array<string> $knownFields
@@ -63,14 +63,14 @@ class BusinessEntityTransfer  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $resource_id,
-        string $active_resource_id,
-        string $destination_business_entity_id,
-        string $source_business_entity_id,
-        int $created_at,
-        \Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type,
-        \Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code,
+        ?string $id,
+        ?string $resource_id,
+        ?string $active_resource_id,
+        ?string $destination_business_entity_id,
+        ?string $source_business_entity_id,
+        ?int $created_at,
+        ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType $resource_type,
+        ?\Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode $reason_code,
     )
     { 
         $this->id = $id;
@@ -85,12 +85,12 @@ class BusinessEntityTransfer  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['resource_id'] ,
-        $resourceAttributes['active_resource_id'] ,
-        $resourceAttributes['destination_business_entity_id'] ,
-        $resourceAttributes['source_business_entity_id'] ,
-        $resourceAttributes['created_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['resource_id'] ?? null,
+        $resourceAttributes['active_resource_id'] ?? null,
+        $resourceAttributes['destination_business_entity_id'] ?? null,
+        $resourceAttributes['source_business_entity_id'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         
          
         isset($resourceAttributes['resource_type']) ? \Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType::tryFromValue($resourceAttributes['resource_type']) : null,

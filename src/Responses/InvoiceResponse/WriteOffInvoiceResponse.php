@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class WriteOffInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var Invoice $invoice
+    * @var ?Invoice $invoice
     */
-    public Invoice $invoice;
+    public ?Invoice $invoice;
     
     /**
     *
-    * @var CreditNote $credit_note
+    * @var ?CreditNote $credit_note
     */
-    public CreditNote $credit_note;
+    public ?CreditNote $credit_note;
     
 
     private function __construct(
-        Invoice $invoice,
-        CreditNote $credit_note,
+        ?Invoice $invoice,
+        ?CreditNote $credit_note,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         $this->credit_note = $credit_note;
         
@@ -34,17 +35,23 @@ class WriteOffInvoiceResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Invoice::from($resourceAttributes['invoice']),
-             CreditNote::from($resourceAttributes['credit_note']), $headers);
+            isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
+            
+            isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'invoice' => $this->invoice->toArray(), 
-            'credit_note' => $this->credit_note->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->invoice instanceof Invoice){
+            $data['invoice'] = $this->invoice->toArray();
+        }  
+        if($this->credit_note instanceof CreditNote){
+            $data['credit_note'] = $this->credit_note->toArray();
+        } 
 
         return $data;
     }

@@ -17,21 +17,21 @@ class ParentAccountAccess  {
     
     /**
     *
-    * @var bool $send_subscription_emails
+    * @var ?bool $send_subscription_emails
     */
-    public bool $send_subscription_emails;
+    public ?bool $send_subscription_emails;
     
     /**
     *
-    * @var bool $send_invoice_emails
+    * @var ?bool $send_invoice_emails
     */
-    public bool $send_invoice_emails;
+    public ?bool $send_invoice_emails;
     
     /**
     *
-    * @var bool $send_payment_emails
+    * @var ?bool $send_payment_emails
     */
-    public bool $send_payment_emails;
+    public ?bool $send_payment_emails;
     
     /**
     * @var array<string> $knownFields
@@ -47,9 +47,9 @@ class ParentAccountAccess  {
     private function __construct(
         ?string $portal_edit_child_subscriptions,
         ?string $portal_download_child_invoices,
-        bool $send_subscription_emails,
-        bool $send_invoice_emails,
-        bool $send_payment_emails,
+        ?bool $send_subscription_emails,
+        ?bool $send_invoice_emails,
+        ?bool $send_payment_emails,
     )
     { 
         $this->portal_edit_child_subscriptions = $portal_edit_child_subscriptions;
@@ -63,9 +63,9 @@ class ParentAccountAccess  {
     { 
         $returnData = new self( $resourceAttributes['portal_edit_child_subscriptions'] ?? null,
         $resourceAttributes['portal_download_child_invoices'] ?? null,
-        $resourceAttributes['send_subscription_emails'] ,
-        $resourceAttributes['send_invoice_emails'] ,
-        $resourceAttributes['send_payment_emails'] ,
+        $resourceAttributes['send_subscription_emails'] ?? null,
+        $resourceAttributes['send_invoice_emails'] ?? null,
+        $resourceAttributes['send_payment_emails'] ?? null,
         
          
         );

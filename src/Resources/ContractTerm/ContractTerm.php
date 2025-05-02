@@ -5,39 +5,39 @@ namespace Chargebee\Resources\ContractTerm;
 class ContractTerm  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $contract_start
+    * @var ?int $contract_start
     */
-    public int $contract_start;
+    public ?int $contract_start;
     
     /**
     *
-    * @var int $contract_end
+    * @var ?int $contract_end
     */
-    public int $contract_end;
+    public ?int $contract_end;
     
     /**
     *
-    * @var int $billing_cycle
+    * @var ?int $billing_cycle
     */
-    public int $billing_cycle;
+    public ?int $billing_cycle;
     
     /**
     *
-    * @var int $total_contract_value
+    * @var ?int $total_contract_value
     */
-    public int $total_contract_value;
+    public ?int $total_contract_value;
     
     /**
     *
-    * @var int $total_contract_value_before_tax
+    * @var ?int $total_contract_value_before_tax
     */
-    public int $total_contract_value_before_tax;
+    public ?int $total_contract_value_before_tax;
     
     /**
     *
@@ -47,15 +47,15 @@ class ContractTerm  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -65,15 +65,15 @@ class ContractTerm  {
     
     /**
     *
-    * @var \Chargebee\Resources\ContractTerm\Enums\Status $status
+    * @var ?\Chargebee\Resources\ContractTerm\Enums\Status $status
     */
-    public \Chargebee\Resources\ContractTerm\Enums\Status $status;
+    public ?\Chargebee\Resources\ContractTerm\Enums\Status $status;
     
     /**
     *
-    * @var \Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end
+    * @var ?\Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end
     */
-    public \Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end;
+    public ?\Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end;
     
     /**
     * @var array<string> $knownFields
@@ -87,18 +87,18 @@ class ContractTerm  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $contract_start,
-        int $contract_end,
-        int $billing_cycle,
-        int $total_contract_value,
-        int $total_contract_value_before_tax,
+        ?string $id,
+        ?int $contract_start,
+        ?int $contract_end,
+        ?int $billing_cycle,
+        ?int $total_contract_value,
+        ?int $total_contract_value_before_tax,
         ?int $cancellation_cutoff_period,
-        int $created_at,
-        string $subscription_id,
+        ?int $created_at,
+        ?string $subscription_id,
         ?int $remaining_billing_cycles,
-        \Chargebee\Resources\ContractTerm\Enums\Status $status,
-        \Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end,
+        ?\Chargebee\Resources\ContractTerm\Enums\Status $status,
+        ?\Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd $action_at_term_end,
     )
     { 
         $this->id = $id;
@@ -117,15 +117,15 @@ class ContractTerm  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['contract_start'] ,
-        $resourceAttributes['contract_end'] ,
-        $resourceAttributes['billing_cycle'] ,
-        $resourceAttributes['total_contract_value'] ,
-        $resourceAttributes['total_contract_value_before_tax'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['contract_start'] ?? null,
+        $resourceAttributes['contract_end'] ?? null,
+        $resourceAttributes['billing_cycle'] ?? null,
+        $resourceAttributes['total_contract_value'] ?? null,
+        $resourceAttributes['total_contract_value_before_tax'] ?? null,
         $resourceAttributes['cancellation_cutoff_period'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['subscription_id'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['remaining_billing_cycles'] ?? null,
         
          

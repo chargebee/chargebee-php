@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class UpdatePaymentMethodCustomerResponse extends ResponseBase { 
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
@@ -21,12 +21,13 @@ class UpdatePaymentMethodCustomerResponse extends ResponseBase {
     
 
     private function __construct(
-        Customer $customer,
+        ?Customer $customer,
         ?Card $card,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->customer = $customer;
         $this->card = $card;
         
@@ -34,17 +35,20 @@ class UpdatePaymentMethodCustomerResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Customer::from($resourceAttributes['customer']),
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
             isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'customer' => $this->customer->toArray(), 
+        $data = array_filter([  
         ]);
          
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        }  
         if($this->card instanceof Card){
             $data['card'] = $this->card->toArray();
         } 

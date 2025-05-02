@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrieveOmnichannelSubscriptionResponse extends ResponseBase { 
     /**
     *
-    * @var OmnichannelSubscription $omnichannel_subscription
+    * @var ?OmnichannelSubscription $omnichannel_subscription
     */
-    public OmnichannelSubscription $omnichannel_subscription;
+    public ?OmnichannelSubscription $omnichannel_subscription;
     
 
     private function __construct(
-        OmnichannelSubscription $omnichannel_subscription,
+        ?OmnichannelSubscription $omnichannel_subscription,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->omnichannel_subscription = $omnichannel_subscription;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']), $headers);
+            isset($resourceAttributes['omnichannel_subscription']) ? OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'omnichannel_subscription' => $this->omnichannel_subscription->toArray(),
         ]);
-        
+         
+        if($this->omnichannel_subscription instanceof OmnichannelSubscription){
+            $data['omnichannel_subscription'] = $this->omnichannel_subscription->toArray();
+        } 
 
         return $data;
     }

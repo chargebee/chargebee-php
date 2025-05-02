@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class ItemFamily  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -42,9 +42,9 @@ class ItemFamily  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -70,13 +70,13 @@ class ItemFamily  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $description,
         ?int $resource_version,
         ?int $updated_at,
         ?string $business_entity_id,
-        bool $deleted,
+        ?bool $deleted,
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Resources\ItemFamily\Enums\Status $status,
     )
@@ -94,13 +94,13 @@ class ItemFamily  extends SupportsCustomFields  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['channel']) ? \Chargebee\Enums\Channel::tryFromValue($resourceAttributes['channel']) : null,

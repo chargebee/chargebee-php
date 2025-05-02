@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class DeleteUsageResponse extends ResponseBase { 
     /**
     *
-    * @var Usage $usage
+    * @var ?Usage $usage
     */
-    public Usage $usage;
+    public ?Usage $usage;
     
 
     private function __construct(
-        Usage $usage,
+        ?Usage $usage,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->usage = $usage;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Usage::from($resourceAttributes['usage']), $headers);
+            isset($resourceAttributes['usage']) ? Usage::from($resourceAttributes['usage']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'usage' => $this->usage->toArray(),
         ]);
-        
+         
+        if($this->usage instanceof Usage){
+            $data['usage'] = $this->usage->toArray();
+        } 
 
         return $data;
     }

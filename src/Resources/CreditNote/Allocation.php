@@ -5,21 +5,21 @@ namespace Chargebee\Resources\CreditNote;
 class Allocation  { 
     /**
     *
-    * @var string $invoice_id
+    * @var ?string $invoice_id
     */
-    public string $invoice_id;
+    public ?string $invoice_id;
     
     /**
     *
-    * @var int $allocated_amount
+    * @var ?int $allocated_amount
     */
-    public int $allocated_amount;
+    public ?int $allocated_amount;
     
     /**
     *
-    * @var int $allocated_at
+    * @var ?int $allocated_at
     */
-    public int $allocated_at;
+    public ?int $allocated_at;
     
     /**
     *
@@ -29,9 +29,9 @@ class Allocation  {
     
     /**
     *
-    * @var string $invoice_status
+    * @var ?string $invoice_status
     */
-    public string $invoice_status;
+    public ?string $invoice_status;
     
     /**
     *
@@ -51,11 +51,11 @@ class Allocation  {
     protected $_data = [];
 
     private function __construct(
-        string $invoice_id,
-        int $allocated_amount,
-        int $allocated_at,
+        ?string $invoice_id,
+        ?int $allocated_amount,
+        ?int $allocated_at,
         ?int $invoice_date,
-        string $invoice_status,
+        ?string $invoice_status,
         ?string $tax_application,
     )
     { 
@@ -69,11 +69,11 @@ class Allocation  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['invoice_id'] ,
-        $resourceAttributes['allocated_amount'] ,
-        $resourceAttributes['allocated_at'] ,
+        $returnData = new self( $resourceAttributes['invoice_id'] ?? null,
+        $resourceAttributes['allocated_amount'] ?? null,
+        $resourceAttributes['allocated_at'] ?? null,
         $resourceAttributes['invoice_date'] ?? null,
-        $resourceAttributes['invoice_status'] ,
+        $resourceAttributes['invoice_status'] ?? null,
         $resourceAttributes['tax_application'] ?? null,
         
          

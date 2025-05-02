@@ -41,15 +41,15 @@ class ReferralInfo  {
     
     /**
     *
-    * @var string $account_id
+    * @var ?string $account_id
     */
-    public string $account_id;
+    public ?string $account_id;
     
     /**
     *
-    * @var string $campaign_id
+    * @var ?string $campaign_id
     */
-    public string $campaign_id;
+    public ?string $campaign_id;
     
     /**
     *
@@ -83,9 +83,9 @@ class ReferralInfo  {
     
     /**
     *
-    * @var bool $post_purchase_widget_enabled
+    * @var ?bool $post_purchase_widget_enabled
     */
-    public bool $post_purchase_widget_enabled;
+    public ?bool $post_purchase_widget_enabled;
     
     /**
     * @var array<string> $knownFields
@@ -105,14 +105,14 @@ class ReferralInfo  {
         ?string $external_reference_id,
         ?string $reward_status,
         ?string $referral_system,
-        string $account_id,
-        string $campaign_id,
+        ?string $account_id,
+        ?string $campaign_id,
         ?string $external_campaign_id,
         ?string $friend_offer_type,
         ?string $referrer_reward_type,
         ?string $notify_referral_system,
         ?string $destination_url,
-        bool $post_purchase_widget_enabled,
+        ?bool $post_purchase_widget_enabled,
     )
     { 
         $this->referral_code = $referral_code;
@@ -139,14 +139,14 @@ class ReferralInfo  {
         $resourceAttributes['external_reference_id'] ?? null,
         $resourceAttributes['reward_status'] ?? null,
         $resourceAttributes['referral_system'] ?? null,
-        $resourceAttributes['account_id'] ,
-        $resourceAttributes['campaign_id'] ,
+        $resourceAttributes['account_id'] ?? null,
+        $resourceAttributes['campaign_id'] ?? null,
         $resourceAttributes['external_campaign_id'] ?? null,
         $resourceAttributes['friend_offer_type'] ?? null,
         $resourceAttributes['referrer_reward_type'] ?? null,
         $resourceAttributes['notify_referral_system'] ?? null,
         $resourceAttributes['destination_url'] ?? null,
-        $resourceAttributes['post_purchase_widget_enabled'] ,
+        $resourceAttributes['post_purchase_widget_enabled'] ?? null,
         
          
         );

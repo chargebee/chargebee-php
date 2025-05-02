@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Coupon  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -72,9 +72,9 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -108,15 +108,15 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?array<string> $plan_ids
+    * @var ?string $plan_ids
     */
-    public ?array $plan_ids;
+    public ?string $plan_ids;
     
     /**
     *
-    * @var ?array<string> $addon_ids
+    * @var ?string $addon_ids
     */
-    public ?array $addon_ids;
+    public ?string $addon_ids;
     
     /**
     *
@@ -156,9 +156,9 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -168,15 +168,15 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Coupon\Enums\DiscountType $discount_type
+    * @var ?\Chargebee\Resources\Coupon\Enums\DiscountType $discount_type
     */
-    public \Chargebee\Resources\Coupon\Enums\DiscountType $discount_type;
+    public ?\Chargebee\Resources\Coupon\Enums\DiscountType $discount_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Coupon\Enums\DurationType $duration_type
+    * @var ?\Chargebee\Resources\Coupon\Enums\DurationType $duration_type
     */
-    public \Chargebee\Resources\Coupon\Enums\DurationType $duration_type;
+    public ?\Chargebee\Resources\Coupon\Enums\DurationType $duration_type;
     
     /**
     *
@@ -186,15 +186,15 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on
+    * @var ?\Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on
     */
-    public \Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on;
+    public ?\Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on;
     
     /**
     *
-    * @var \Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on
+    * @var ?\Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on
     */
-    public \Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on;
+    public ?\Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on;
     
     /**
     *
@@ -220,8 +220,8 @@ class Coupon  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $invoice_name,
         ?int $discount_percentage,
         ?int $discount_amount,
@@ -231,27 +231,27 @@ class Coupon  extends SupportsCustomFields  {
         ?int $valid_from,
         ?int $valid_till,
         ?int $max_redemptions,
-        int $created_at,
+        ?int $created_at,
         ?int $archived_at,
         ?int $resource_version,
         ?int $updated_at,
         ?bool $included_in_mrr,
         ?int $period,
-        ?array $plan_ids,
-        ?array $addon_ids,
+        ?string $plan_ids,
+        ?string $addon_ids,
         ?array $item_constraints,
         ?array $item_constraint_criteria,
         ?int $redemptions,
         ?string $invoice_notes,
         mixed $meta_data,
         ?array $coupon_constraints,
-        bool $deleted,
+        ?bool $deleted,
         ?\Chargebee\Enums\PeriodUnit $period_unit,
-        \Chargebee\Resources\Coupon\Enums\DiscountType $discount_type,
-        \Chargebee\Resources\Coupon\Enums\DurationType $duration_type,
+        ?\Chargebee\Resources\Coupon\Enums\DiscountType $discount_type,
+        ?\Chargebee\Resources\Coupon\Enums\DurationType $duration_type,
         ?\Chargebee\Resources\Coupon\Enums\Status $status,
-        \Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on,
-        \Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on,
+        ?\Chargebee\Resources\Coupon\Enums\ApplyDiscountOn $apply_discount_on,
+        ?\Chargebee\Resources\Coupon\Enums\ApplyOn $apply_on,
         ?\Chargebee\Resources\Coupon\Enums\PlanConstraint $plan_constraint,
         ?\Chargebee\Resources\Coupon\Enums\AddonConstraint $addon_constraint,
     )
@@ -306,8 +306,8 @@ class Coupon  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['coupon_constraints'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['discount_percentage'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
@@ -317,7 +317,7 @@ class Coupon  extends SupportsCustomFields  {
         $resourceAttributes['valid_from'] ?? null,
         $resourceAttributes['valid_till'] ?? null,
         $resourceAttributes['max_redemptions'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
@@ -331,7 +331,7 @@ class Coupon  extends SupportsCustomFields  {
         $resourceAttributes['invoice_notes'] ?? null,
         $resourceAttributes['meta_data'] ?? null,
         $coupon_constraints,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['period_unit']) ? \Chargebee\Enums\PeriodUnit::tryFromValue($resourceAttributes['period_unit']) : null,

@@ -11,21 +11,21 @@ class ThirdPartyPaymentMethod  {
     
     /**
     *
-    * @var string $reference_id
+    * @var ?string $reference_id
     */
-    public string $reference_id;
+    public ?string $reference_id;
     
     /**
     *
-    * @var \Chargebee\Enums\Type $type
+    * @var ?\Chargebee\Enums\Type $type
     */
-    public \Chargebee\Enums\Type $type;
+    public ?\Chargebee\Enums\Type $type;
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     * @var array<string> $knownFields
@@ -40,9 +40,9 @@ class ThirdPartyPaymentMethod  {
 
     private function __construct(
         ?string $gateway_account_id,
-        string $reference_id,
-        \Chargebee\Enums\Type $type,
-        \Chargebee\Enums\Gateway $gateway,
+        ?string $reference_id,
+        ?\Chargebee\Enums\Type $type,
+        ?\Chargebee\Enums\Gateway $gateway,
     )
     { 
         $this->gateway_account_id = $gateway_account_id;
@@ -54,7 +54,7 @@ class ThirdPartyPaymentMethod  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['gateway_account_id'] ?? null,
-        $resourceAttributes['reference_id'] ,
+        $resourceAttributes['reference_id'] ?? null,
         
         
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,

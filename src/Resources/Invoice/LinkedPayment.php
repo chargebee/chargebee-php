@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Invoice;
 class LinkedPayment  { 
     /**
     *
-    * @var string $txn_id
+    * @var ?string $txn_id
     */
-    public string $txn_id;
+    public ?string $txn_id;
     
     /**
     *
-    * @var int $applied_amount
+    * @var ?int $applied_amount
     */
-    public int $applied_amount;
+    public ?int $applied_amount;
     
     /**
     *
-    * @var int $applied_at
+    * @var ?int $applied_at
     */
-    public int $applied_at;
+    public ?int $applied_at;
     
     /**
     *
@@ -51,9 +51,9 @@ class LinkedPayment  {
     protected $_data = [];
 
     private function __construct(
-        string $txn_id,
-        int $applied_amount,
-        int $applied_at,
+        ?string $txn_id,
+        ?int $applied_amount,
+        ?int $applied_at,
         ?string $txn_status,
         ?int $txn_date,
         ?int $txn_amount,
@@ -69,9 +69,9 @@ class LinkedPayment  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['txn_id'] ,
-        $resourceAttributes['applied_amount'] ,
-        $resourceAttributes['applied_at'] ,
+        $returnData = new self( $resourceAttributes['txn_id'] ?? null,
+        $resourceAttributes['applied_amount'] ?? null,
+        $resourceAttributes['applied_at'] ?? null,
         $resourceAttributes['txn_status'] ?? null,
         $resourceAttributes['txn_date'] ?? null,
         $resourceAttributes['txn_amount'] ?? null,

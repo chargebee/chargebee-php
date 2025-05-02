@@ -5,27 +5,27 @@ namespace Chargebee\Resources\Transaction;
 class LinkedRefund  { 
     /**
     *
-    * @var string $txn_id
+    * @var ?string $txn_id
     */
-    public string $txn_id;
+    public ?string $txn_id;
     
     /**
     *
-    * @var string $txn_status
+    * @var ?string $txn_status
     */
-    public string $txn_status;
+    public ?string $txn_status;
     
     /**
     *
-    * @var int $txn_date
+    * @var ?int $txn_date
     */
-    public int $txn_date;
+    public ?int $txn_date;
     
     /**
     *
-    * @var int $txn_amount
+    * @var ?int $txn_amount
     */
-    public int $txn_amount;
+    public ?int $txn_amount;
     
     /**
     * @var array<string> $knownFields
@@ -39,10 +39,10 @@ class LinkedRefund  {
     protected $_data = [];
 
     private function __construct(
-        string $txn_id,
-        string $txn_status,
-        int $txn_date,
-        int $txn_amount,
+        ?string $txn_id,
+        ?string $txn_status,
+        ?int $txn_date,
+        ?int $txn_amount,
     )
     { 
         $this->txn_id = $txn_id;
@@ -53,10 +53,10 @@ class LinkedRefund  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['txn_id'] ,
-        $resourceAttributes['txn_status'] ,
-        $resourceAttributes['txn_date'] ,
-        $resourceAttributes['txn_amount'] ,
+        $returnData = new self( $resourceAttributes['txn_id'] ?? null,
+        $resourceAttributes['txn_status'] ?? null,
+        $resourceAttributes['txn_date'] ?? null,
+        $resourceAttributes['txn_amount'] ?? null,
         
          
         );

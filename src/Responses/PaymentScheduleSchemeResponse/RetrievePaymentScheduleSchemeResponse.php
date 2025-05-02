@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrievePaymentScheduleSchemeResponse extends ResponseBase { 
     /**
     *
-    * @var PaymentScheduleScheme $payment_schedule_scheme
+    * @var ?PaymentScheduleScheme $payment_schedule_scheme
     */
-    public PaymentScheduleScheme $payment_schedule_scheme;
+    public ?PaymentScheduleScheme $payment_schedule_scheme;
     
 
     private function __construct(
-        PaymentScheduleScheme $payment_schedule_scheme,
+        ?PaymentScheduleScheme $payment_schedule_scheme,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->payment_schedule_scheme = $payment_schedule_scheme;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             PaymentScheduleScheme::from($resourceAttributes['payment_schedule_scheme']), $headers);
+            isset($resourceAttributes['payment_schedule_scheme']) ? PaymentScheduleScheme::from($resourceAttributes['payment_schedule_scheme']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'payment_schedule_scheme' => $this->payment_schedule_scheme->toArray(),
         ]);
-        
+         
+        if($this->payment_schedule_scheme instanceof PaymentScheduleScheme){
+            $data['payment_schedule_scheme'] = $this->payment_schedule_scheme->toArray();
+        } 
 
         return $data;
     }

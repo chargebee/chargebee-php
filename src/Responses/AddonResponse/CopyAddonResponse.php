@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CopyAddonResponse extends ResponseBase { 
     /**
     *
-    * @var Addon $addon
+    * @var ?Addon $addon
     */
-    public Addon $addon;
+    public ?Addon $addon;
     
 
     private function __construct(
-        Addon $addon,
+        ?Addon $addon,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->addon = $addon;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Addon::from($resourceAttributes['addon']), $headers);
+            isset($resourceAttributes['addon']) ? Addon::from($resourceAttributes['addon']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'addon' => $this->addon->toArray(),
         ]);
-        
+         
+        if($this->addon instanceof Addon){
+            $data['addon'] = $this->addon->toArray();
+        } 
 
         return $data;
     }

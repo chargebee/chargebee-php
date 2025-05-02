@@ -11,21 +11,21 @@ class Usage  {
     
     /**
     *
-    * @var int $usage_date
+    * @var ?int $usage_date
     */
-    public int $usage_date;
+    public ?int $usage_date;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
@@ -41,9 +41,9 @@ class Usage  {
     
     /**
     *
-    * @var string $quantity
+    * @var ?string $quantity
     */
-    public string $quantity;
+    public ?string $quantity;
     
     /**
     *
@@ -65,9 +65,9 @@ class Usage  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -88,16 +88,16 @@ class Usage  {
 
     private function __construct(
         ?string $id,
-        int $usage_date,
-        string $subscription_id,
-        string $item_price_id,
+        ?int $usage_date,
+        ?string $subscription_id,
+        ?string $item_price_id,
         ?string $invoice_id,
         ?string $line_item_id,
-        string $quantity,
+        ?string $quantity,
         ?string $note,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
+        ?int $created_at,
         ?\Chargebee\Enums\Source $source,
     )
     { 
@@ -118,16 +118,16 @@ class Usage  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['usage_date'] ,
-        $resourceAttributes['subscription_id'] ,
-        $resourceAttributes['item_price_id'] ,
+        $resourceAttributes['usage_date'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
+        $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,
         $resourceAttributes['line_item_id'] ?? null,
-        $resourceAttributes['quantity'] ,
+        $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['note'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         
         
         isset($resourceAttributes['source']) ? \Chargebee\Enums\Source::tryFromValue($resourceAttributes['source']) : null,

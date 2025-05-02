@@ -5,21 +5,21 @@ namespace Chargebee\Resources\PaymentSchedule;
 class PaymentSchedule  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $scheme_id
+    * @var ?string $scheme_id
     */
-    public string $scheme_id;
+    public ?string $scheme_id;
     
     /**
     *
-    * @var string $entity_id
+    * @var ?string $entity_id
     */
-    public string $entity_id;
+    public ?string $entity_id;
     
     /**
     *
@@ -29,9 +29,9 @@ class PaymentSchedule  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -59,9 +59,9 @@ class PaymentSchedule  {
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type
+    * @var ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type
     */
-    public \Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type;
+    public ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class PaymentSchedule  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $scheme_id,
-        string $entity_id,
+        ?string $id,
+        ?string $scheme_id,
+        ?string $entity_id,
         ?int $amount,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?string $currency_code,
         ?array $schedule_entries,
-        \Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type,
     )
     { 
         $this->id = $id;
@@ -105,11 +105,11 @@ class PaymentSchedule  {
             $result
         ), $resourceAttributes['schedule_entries'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['scheme_id'] ,
-        $resourceAttributes['entity_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['scheme_id'] ?? null,
+        $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['currency_code'] ?? null,

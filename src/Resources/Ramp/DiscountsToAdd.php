@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Ramp;
 class DiscountsToAdd  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,9 +17,9 @@ class DiscountsToAdd  {
     
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
@@ -35,9 +35,9 @@ class DiscountsToAdd  {
     
     /**
     *
-    * @var string $duration_type
+    * @var ?string $duration_type
     */
-    public string $duration_type;
+    public ?string $duration_type;
     
     /**
     *
@@ -53,15 +53,15 @@ class DiscountsToAdd  {
     
     /**
     *
-    * @var bool $included_in_mrr
+    * @var ?bool $included_in_mrr
     */
-    public bool $included_in_mrr;
+    public ?bool $included_in_mrr;
     
     /**
     *
-    * @var string $apply_on
+    * @var ?string $apply_on
     */
-    public string $apply_on;
+    public ?string $apply_on;
     
     /**
     *
@@ -71,9 +71,9 @@ class DiscountsToAdd  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     * @var array<string> $knownFields
@@ -87,18 +87,18 @@ class DiscountsToAdd  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $invoice_name,
-        string $type,
+        ?string $type,
         ?int $percentage,
         ?int $amount,
-        string $duration_type,
+        ?string $duration_type,
         ?int $period,
         ?string $period_unit,
-        bool $included_in_mrr,
-        string $apply_on,
+        ?bool $included_in_mrr,
+        ?string $apply_on,
         ?string $item_price_id,
-        int $created_at,
+        ?int $created_at,
     )
     { 
         $this->id = $id;
@@ -117,18 +117,18 @@ class DiscountsToAdd  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
-        $resourceAttributes['type'] ,
+        $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['duration_type'] ,
+        $resourceAttributes['duration_type'] ?? null,
         $resourceAttributes['period'] ?? null,
         $resourceAttributes['period_unit'] ?? null,
-        $resourceAttributes['included_in_mrr'] ,
-        $resourceAttributes['apply_on'] ,
+        $resourceAttributes['included_in_mrr'] ?? null,
+        $resourceAttributes['apply_on'] ?? null,
         $resourceAttributes['item_price_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         
          
         );

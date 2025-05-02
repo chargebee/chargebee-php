@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Transaction;
 class LinkedCreditNote  { 
     /**
     *
-    * @var string $cn_id
+    * @var ?string $cn_id
     */
-    public string $cn_id;
+    public ?string $cn_id;
     
     /**
     *
-    * @var int $applied_amount
+    * @var ?int $applied_amount
     */
-    public int $applied_amount;
+    public ?int $applied_amount;
     
     /**
     *
-    * @var int $applied_at
+    * @var ?int $applied_at
     */
-    public int $applied_at;
+    public ?int $applied_at;
     
     /**
     *
@@ -47,9 +47,9 @@ class LinkedCreditNote  {
     
     /**
     *
-    * @var string $cn_status
+    * @var ?string $cn_status
     */
-    public string $cn_status;
+    public ?string $cn_status;
     
     /**
     *
@@ -69,14 +69,14 @@ class LinkedCreditNote  {
     protected $_data = [];
 
     private function __construct(
-        string $cn_id,
-        int $applied_amount,
-        int $applied_at,
+        ?string $cn_id,
+        ?int $applied_amount,
+        ?int $applied_at,
         ?string $cn_reason_code,
         ?string $cn_create_reason_code,
         ?int $cn_date,
         ?int $cn_total,
-        string $cn_status,
+        ?string $cn_status,
         ?string $cn_reference_invoice_id,
     )
     { 
@@ -93,14 +93,14 @@ class LinkedCreditNote  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['cn_id'] ,
-        $resourceAttributes['applied_amount'] ,
-        $resourceAttributes['applied_at'] ,
+        $returnData = new self( $resourceAttributes['cn_id'] ?? null,
+        $resourceAttributes['applied_amount'] ?? null,
+        $resourceAttributes['applied_at'] ?? null,
         $resourceAttributes['cn_reason_code'] ?? null,
         $resourceAttributes['cn_create_reason_code'] ?? null,
         $resourceAttributes['cn_date'] ?? null,
         $resourceAttributes['cn_total'] ?? null,
-        $resourceAttributes['cn_status'] ,
+        $resourceAttributes['cn_status'] ?? null,
         $resourceAttributes['cn_reference_invoice_id'] ?? null,
         
          

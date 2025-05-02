@@ -5,15 +5,15 @@ namespace Chargebee\Resources\OmnichannelSubscriptionItem;
 class OmnichannelSubscriptionItem  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $item_id_at_source
+    * @var ?string $item_id_at_source
     */
-    public string $item_id_at_source;
+    public ?string $item_id_at_source;
     
     /**
     *
@@ -53,9 +53,9 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
-    * @var bool $has_scheduled_changes
+    * @var ?bool $has_scheduled_changes
     */
-    public bool $has_scheduled_changes;
+    public ?bool $has_scheduled_changes;
     
     /**
     *
@@ -71,9 +71,9 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
-    * @var \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status
+    * @var ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status
     */
-    public \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status;
+    public ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status;
     
     /**
     *
@@ -105,18 +105,18 @@ class OmnichannelSubscriptionItem  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $item_id_at_source,
+        ?string $id,
+        ?string $item_id_at_source,
         ?string $item_parent_id_at_source,
         ?int $current_term_start,
         ?int $current_term_end,
         ?int $expired_at,
         ?int $cancelled_at,
         ?int $grace_period_expires_at,
-        bool $has_scheduled_changes,
+        ?bool $has_scheduled_changes,
         ?int $resource_version,
         ?UpcomingRenewal $upcoming_renewal,
-        \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status,
+        ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\AutoRenewStatus $auto_renew_status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\ExpirationReason $expiration_reason,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\CancellationReason $cancellation_reason,
@@ -141,15 +141,15 @@ class OmnichannelSubscriptionItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['item_id_at_source'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['item_id_at_source'] ?? null,
         $resourceAttributes['item_parent_id_at_source'] ?? null,
         $resourceAttributes['current_term_start'] ?? null,
         $resourceAttributes['current_term_end'] ?? null,
         $resourceAttributes['expired_at'] ?? null,
         $resourceAttributes['cancelled_at'] ?? null,
         $resourceAttributes['grace_period_expires_at'] ?? null,
-        $resourceAttributes['has_scheduled_changes'] ,
+        $resourceAttributes['has_scheduled_changes'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         isset($resourceAttributes['upcoming_renewal']) ? UpcomingRenewal::from($resourceAttributes['upcoming_renewal']) : null,
         

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Estimate;
 class Estimate  { 
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -69,7 +69,7 @@ class Estimate  {
     protected $_data = [];
 
     private function __construct(
-        int $created_at,
+        ?int $created_at,
         ?\Chargebee\Resources\SubscriptionEstimate\SubscriptionEstimate $subscription_estimate,
         ?array $subscription_estimates,
         ?\Chargebee\Resources\InvoiceEstimate\InvoiceEstimate $invoice_estimate,
@@ -113,7 +113,7 @@ class Estimate  {
             $result
         ), $resourceAttributes['unbilled_charge_estimates'] ?? []);
         
-        $returnData = new self( $resourceAttributes['created_at'] ,
+        $returnData = new self( $resourceAttributes['created_at'] ?? null,
         isset($resourceAttributes['subscription_estimate']) ? \Chargebee\Resources\SubscriptionEstimate\SubscriptionEstimate::from($resourceAttributes['subscription_estimate']) : null,
         $subscription_estimates,
         isset($resourceAttributes['invoice_estimate']) ? \Chargebee\Resources\InvoiceEstimate\InvoiceEstimate::from($resourceAttributes['invoice_estimate']) : null,

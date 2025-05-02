@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateItemPriceResponse extends ResponseBase { 
     /**
     *
-    * @var ItemPrice $item_price
+    * @var ?ItemPrice $item_price
     */
-    public ItemPrice $item_price;
+    public ?ItemPrice $item_price;
     
 
     private function __construct(
-        ItemPrice $item_price,
+        ?ItemPrice $item_price,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->item_price = $item_price;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             ItemPrice::from($resourceAttributes['item_price']), $headers);
+            isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'item_price' => $this->item_price->toArray(),
         ]);
-        
+         
+        if($this->item_price instanceof ItemPrice){
+            $data['item_price'] = $this->item_price->toArray();
+        } 
 
         return $data;
     }

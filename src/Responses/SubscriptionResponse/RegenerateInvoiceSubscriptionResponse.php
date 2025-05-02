@@ -24,9 +24,10 @@ class RegenerateInvoiceSubscriptionResponse extends ResponseBase {
         ?Invoice $invoice,
         ?array $unbilled_charges,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         $this->unbilled_charges = $unbilled_charges;
         
@@ -39,7 +40,7 @@ class RegenerateInvoiceSubscriptionResponse extends ResponseBase {
         
         return new self(
             isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
-            $unbilled_charges, $headers);
+            $unbilled_charges, $headers, $resourceAttributes);
     }
 
     public function toArray(): array

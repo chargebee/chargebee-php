@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentScheduleScheme;
 class PaymentScheduleScheme  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -23,9 +23,9 @@ class PaymentScheduleScheme  {
     
     /**
     *
-    * @var int $number_of_schedules
+    * @var ?int $number_of_schedules
     */
-    public int $number_of_schedules;
+    public ?int $number_of_schedules;
     
     /**
     *
@@ -35,9 +35,9 @@ class PaymentScheduleScheme  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -59,9 +59,9 @@ class PaymentScheduleScheme  {
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit
+    * @var ?\Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit
     */
-    public \Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit;
+    public ?\Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class PaymentScheduleScheme  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $name,
         ?string $description,
-        int $number_of_schedules,
+        ?int $number_of_schedules,
         ?int $period,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?array $preferred_schedules,
-        \Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit,
+        ?\Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit $period_unit,
     )
     { 
         $this->id = $id;
@@ -105,12 +105,12 @@ class PaymentScheduleScheme  {
             $result
         ), $resourceAttributes['preferred_schedules'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['name'] ?? null,
         $resourceAttributes['description'] ?? null,
-        $resourceAttributes['number_of_schedules'] ,
+        $resourceAttributes['number_of_schedules'] ?? null,
         $resourceAttributes['period'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $preferred_schedules,

@@ -11,21 +11,21 @@ class LinkedCreditNote  {
     
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
@@ -52,9 +52,9 @@ class LinkedCreditNote  {
 
     private function __construct(
         ?int $amount,
-        string $type,
-        string $id,
-        string $status,
+        ?string $type,
+        ?string $id,
+        ?string $status,
         ?int $amount_adjusted,
         ?int $amount_refunded,
     )
@@ -70,9 +70,9 @@ class LinkedCreditNote  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['type'] ,
-        $resourceAttributes['id'] ,
-        $resourceAttributes['status'] ,
+        $resourceAttributes['type'] ?? null,
+        $resourceAttributes['id'] ?? null,
+        $resourceAttributes['status'] ?? null,
         $resourceAttributes['amount_adjusted'] ?? null,
         $resourceAttributes['amount_refunded'] ?? null,
         

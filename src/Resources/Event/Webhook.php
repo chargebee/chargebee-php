@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Event;
 class Webhook  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $webhook_status
+    * @var ?string $webhook_status
     */
-    public string $webhook_status;
+    public ?string $webhook_status;
     
     /**
     * @var array<string> $knownFields
@@ -27,8 +27,8 @@ class Webhook  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $webhook_status,
+        ?string $id,
+        ?string $webhook_status,
     )
     { 
         $this->id = $id;
@@ -37,8 +37,8 @@ class Webhook  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['webhook_status'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['webhook_status'] ?? null,
         
          
         );

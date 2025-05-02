@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentIntent;
 class PaymentIntent  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,21 +17,21 @@ class PaymentIntent  {
     
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
-    * @var string $gateway_account_id
+    * @var ?string $gateway_account_id
     */
-    public string $gateway_account_id;
+    public ?string $gateway_account_id;
     
     /**
     *
-    * @var int $expires_at
+    * @var ?int $expires_at
     */
-    public int $expires_at;
+    public ?int $expires_at;
     
     /**
     *
@@ -53,15 +53,15 @@ class PaymentIntent  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $modified_at
+    * @var ?int $modified_at
     */
-    public int $modified_at;
+    public ?int $modified_at;
     
     /**
     *
@@ -77,9 +77,9 @@ class PaymentIntent  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -101,9 +101,9 @@ class PaymentIntent  {
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentIntent\Enums\Status $status
+    * @var ?\Chargebee\Resources\PaymentIntent\Enums\Status $status
     */
-    public \Chargebee\Resources\PaymentIntent\Enums\Status $status;
+    public ?\Chargebee\Resources\PaymentIntent\Enums\Status $status;
     
     /**
     *
@@ -123,23 +123,23 @@ class PaymentIntent  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $currency_code,
-        int $amount,
-        string $gateway_account_id,
-        int $expires_at,
+        ?int $amount,
+        ?string $gateway_account_id,
+        ?int $expires_at,
         ?string $reference_id,
         ?string $success_url,
         ?string $failure_url,
-        int $created_at,
-        int $modified_at,
+        ?int $created_at,
+        ?int $modified_at,
         ?int $resource_version,
         ?int $updated_at,
-        string $customer_id,
+        ?string $customer_id,
         ?string $gateway,
         ?PaymentAttempt $active_payment_attempt,
         ?string $business_entity_id,
-        \Chargebee\Resources\PaymentIntent\Enums\Status $status,
+        ?\Chargebee\Resources\PaymentIntent\Enums\Status $status,
         ?\Chargebee\Resources\PaymentIntent\Enums\PaymentMethodType $payment_method_type,
     )
     { 
@@ -165,19 +165,19 @@ class PaymentIntent  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
-        $resourceAttributes['amount'] ,
-        $resourceAttributes['gateway_account_id'] ,
-        $resourceAttributes['expires_at'] ,
+        $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['gateway_account_id'] ?? null,
+        $resourceAttributes['expires_at'] ?? null,
         $resourceAttributes['reference_id'] ?? null,
         $resourceAttributes['success_url'] ?? null,
         $resourceAttributes['failure_url'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['modified_at'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['gateway'] ?? null,
         isset($resourceAttributes['active_payment_attempt']) ? PaymentAttempt::from($resourceAttributes['active_payment_attempt']) : null,
         $resourceAttributes['business_entity_id'] ?? null,

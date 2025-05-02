@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Ramp;
 class CouponsToAdd  { 
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
@@ -27,7 +27,7 @@ class CouponsToAdd  {
     protected $_data = [];
 
     private function __construct(
-        string $coupon_id,
+        ?string $coupon_id,
         ?int $apply_till,
     )
     { 
@@ -37,7 +37,7 @@ class CouponsToAdd  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['coupon_id'] ,
+        $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['apply_till'] ?? null,
         
          

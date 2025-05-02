@@ -5,21 +5,21 @@ namespace Chargebee\Resources\InvoiceEstimate;
 class InvoiceEstimate  { 
     /**
     *
-    * @var bool $recurring
+    * @var ?bool $recurring
     */
-    public bool $recurring;
+    public ?bool $recurring;
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
@@ -107,9 +107,9 @@ class InvoiceEstimate  {
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     * @var array<string> $knownFields
@@ -123,9 +123,9 @@ class InvoiceEstimate  {
     protected $_data = [];
 
     private function __construct(
-        bool $recurring,
-        string $currency_code,
-        int $sub_total,
+        ?bool $recurring,
+        ?string $currency_code,
+        ?int $sub_total,
         ?int $total,
         ?int $credits_applied,
         ?int $amount_paid,
@@ -140,7 +140,7 @@ class InvoiceEstimate  {
         ?int $round_off_amount,
         ?string $customer_id,
         ?array $line_item_addresses,
-        \Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Enums\PriceType $price_type,
     )
     { 
         $this->recurring = $recurring;
@@ -197,9 +197,9 @@ class InvoiceEstimate  {
             $result
         ), $resourceAttributes['line_item_addresses'] ?? []);
         
-        $returnData = new self( $resourceAttributes['recurring'] ,
-        $resourceAttributes['currency_code'] ,
-        $resourceAttributes['sub_total'] ,
+        $returnData = new self( $resourceAttributes['recurring'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['total'] ?? null,
         $resourceAttributes['credits_applied'] ?? null,
         $resourceAttributes['amount_paid'] ?? null,

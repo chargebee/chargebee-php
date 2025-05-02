@@ -5,33 +5,33 @@ namespace Chargebee\Resources\CouponCode;
 class CouponCode  { 
     /**
     *
-    * @var string $code
+    * @var ?string $code
     */
-    public string $code;
+    public ?string $code;
     
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
-    * @var string $coupon_set_id
+    * @var ?string $coupon_set_id
     */
-    public string $coupon_set_id;
+    public ?string $coupon_set_id;
     
     /**
     *
-    * @var string $coupon_set_name
+    * @var ?string $coupon_set_name
     */
-    public string $coupon_set_name;
+    public ?string $coupon_set_name;
     
     /**
     *
-    * @var \Chargebee\Resources\CouponCode\Enums\Status $status
+    * @var ?\Chargebee\Resources\CouponCode\Enums\Status $status
     */
-    public \Chargebee\Resources\CouponCode\Enums\Status $status;
+    public ?\Chargebee\Resources\CouponCode\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -45,11 +45,11 @@ class CouponCode  {
     protected $_data = [];
 
     private function __construct(
-        string $code,
-        string $coupon_id,
-        string $coupon_set_id,
-        string $coupon_set_name,
-        \Chargebee\Resources\CouponCode\Enums\Status $status,
+        ?string $code,
+        ?string $coupon_id,
+        ?string $coupon_set_id,
+        ?string $coupon_set_name,
+        ?\Chargebee\Resources\CouponCode\Enums\Status $status,
     )
     { 
         $this->code = $code;
@@ -61,10 +61,10 @@ class CouponCode  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['code'] ,
-        $resourceAttributes['coupon_id'] ,
-        $resourceAttributes['coupon_set_id'] ,
-        $resourceAttributes['coupon_set_name'] ,
+        $returnData = new self( $resourceAttributes['code'] ?? null,
+        $resourceAttributes['coupon_id'] ?? null,
+        $resourceAttributes['coupon_set_id'] ?? null,
+        $resourceAttributes['coupon_set_name'] ?? null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\CouponCode\Enums\Status::tryFromValue($resourceAttributes['status']) : null,

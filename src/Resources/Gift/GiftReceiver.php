@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Gift;
 class GiftReceiver  { 
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -45,8 +45,8 @@ class GiftReceiver  {
     protected $_data = [];
 
     private function __construct(
-        string $customer_id,
-        string $subscription_id,
+        ?string $customer_id,
+        ?string $subscription_id,
         ?string $first_name,
         ?string $last_name,
         ?string $email,
@@ -61,8 +61,8 @@ class GiftReceiver  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['customer_id'] ,
-        $resourceAttributes['subscription_id'] ,
+        $returnData = new self( $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,

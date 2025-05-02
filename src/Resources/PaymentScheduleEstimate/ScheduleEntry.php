@@ -5,27 +5,27 @@ namespace Chargebee\Resources\PaymentScheduleEstimate;
 class ScheduleEntry  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $date
+    * @var ?int $date
     */
-    public int $date;
+    public ?int $date;
     
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     * @var array<string> $knownFields
@@ -39,10 +39,10 @@ class ScheduleEntry  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $date,
-        int $amount,
-        string $status,
+        ?string $id,
+        ?int $date,
+        ?int $amount,
+        ?string $status,
     )
     { 
         $this->id = $id;
@@ -53,10 +53,10 @@ class ScheduleEntry  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['date'] ,
-        $resourceAttributes['amount'] ,
-        $resourceAttributes['status'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['date'] ?? null,
+        $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['status'] ?? null,
         
          
         );

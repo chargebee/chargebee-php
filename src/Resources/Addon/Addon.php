@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Addon  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -36,9 +36,9 @@ class Addon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -60,9 +60,9 @@ class Addon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $enabled_in_portal
+    * @var ?bool $enabled_in_portal
     */
-    public bool $enabled_in_portal;
+    public ?bool $enabled_in_portal;
     
     /**
     *
@@ -216,9 +216,9 @@ class Addon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Enums\PricingModel $pricing_model
+    * @var ?\Chargebee\Enums\PricingModel $pricing_model
     */
-    public \Chargebee\Enums\PricingModel $pricing_model;
+    public ?\Chargebee\Enums\PricingModel $pricing_model;
     
     /**
     *
@@ -234,27 +234,27 @@ class Addon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Addon\Enums\Type $type
+    * @var ?\Chargebee\Resources\Addon\Enums\Type $type
     */
-    public \Chargebee\Resources\Addon\Enums\Type $type;
+    public ?\Chargebee\Resources\Addon\Enums\Type $type;
     
     /**
     *
-    * @var \Chargebee\Resources\Addon\Enums\ChargeType $charge_type
+    * @var ?\Chargebee\Resources\Addon\Enums\ChargeType $charge_type
     */
-    public \Chargebee\Resources\Addon\Enums\ChargeType $charge_type;
+    public ?\Chargebee\Resources\Addon\Enums\ChargeType $charge_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit
+    * @var ?\Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit
     */
-    public \Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit;
+    public ?\Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit;
     
     /**
     *
-    * @var \Chargebee\Resources\Addon\Enums\Status $status
+    * @var ?\Chargebee\Resources\Addon\Enums\Status $status
     */
-    public \Chargebee\Resources\Addon\Enums\Status $status;
+    public ?\Chargebee\Resources\Addon\Enums\Status $status;
     
     /**
     *
@@ -280,16 +280,16 @@ class Addon  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $invoice_name,
         ?string $description,
         ?int $price,
-        string $currency_code,
+        ?string $currency_code,
         ?int $period,
         ?string $unit,
         ?int $archived_at,
-        bool $enabled_in_portal,
+        ?bool $enabled_in_portal,
         ?string $tax_code,
         ?string $hsn_code,
         ?string $taxjar_product_code,
@@ -315,13 +315,13 @@ class Addon  extends SupportsCustomFields  {
         ?array $tax_providers_fields,
         ?bool $show_description_in_invoices,
         ?bool $show_description_in_quotes,
-        \Chargebee\Enums\PricingModel $pricing_model,
+        ?\Chargebee\Enums\PricingModel $pricing_model,
         ?\Chargebee\Enums\AvalaraSaleType $avalara_sale_type,
         ?\Chargebee\Enums\Channel $channel,
-        \Chargebee\Resources\Addon\Enums\Type $type,
-        \Chargebee\Resources\Addon\Enums\ChargeType $charge_type,
-        \Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit,
-        \Chargebee\Resources\Addon\Enums\Status $status,
+        ?\Chargebee\Resources\Addon\Enums\Type $type,
+        ?\Chargebee\Resources\Addon\Enums\ChargeType $charge_type,
+        ?\Chargebee\Resources\Addon\Enums\PeriodUnit $period_unit,
+        ?\Chargebee\Resources\Addon\Enums\Status $status,
         ?\Chargebee\Resources\Addon\Enums\ShippingFrequencyPeriodUnit $shipping_frequency_period_unit,
         ?\Chargebee\Resources\Addon\Enums\ProrationType $proration_type,
     )
@@ -382,16 +382,16 @@ class Addon  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['tax_providers_fields'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['price'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['period'] ?? null,
         $resourceAttributes['unit'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
-        $resourceAttributes['enabled_in_portal'] ,
+        $resourceAttributes['enabled_in_portal'] ?? null,
         $resourceAttributes['tax_code'] ?? null,
         $resourceAttributes['hsn_code'] ?? null,
         $resourceAttributes['taxjar_product_code'] ?? null,

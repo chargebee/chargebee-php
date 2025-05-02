@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrievePlanResponse extends ResponseBase { 
     /**
     *
-    * @var Plan $plan
+    * @var ?Plan $plan
     */
-    public Plan $plan;
+    public ?Plan $plan;
     
 
     private function __construct(
-        Plan $plan,
+        ?Plan $plan,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->plan = $plan;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Plan::from($resourceAttributes['plan']), $headers);
+            isset($resourceAttributes['plan']) ? Plan::from($resourceAttributes['plan']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'plan' => $this->plan->toArray(),
         ]);
-        
+         
+        if($this->plan instanceof Plan){
+            $data['plan'] = $this->plan->toArray();
+        } 
 
         return $data;
     }

@@ -7,9 +7,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class BatchIngestUsageEventResponse extends ResponseBase { 
     /**
     *
-    * @var string $batch_id
+    * @var ?string $batch_id
     */
-    public string $batch_id;
+    public ?string $batch_id;
     
     /**
     *
@@ -19,12 +19,13 @@ class BatchIngestUsageEventResponse extends ResponseBase {
     
 
     private function __construct(
-        string $batch_id,
+        ?string $batch_id,
         mixed $failed_events,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->batch_id = $batch_id;
         $this->failed_events = $failed_events;
         
@@ -32,8 +33,8 @@ class BatchIngestUsageEventResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-            $resourceAttributes['batch_id'] ,
-            $resourceAttributes['failed_events'] , $headers);
+            $resourceAttributes['batch_id'] ?? null,
+            $resourceAttributes['failed_events'] ?? null, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
@@ -42,7 +43,7 @@ class BatchIngestUsageEventResponse extends ResponseBase {
             'batch_id' => $this->batch_id,
             'failed_events' => $this->failed_events,
         ]);
-        
+            
 
         return $data;
     }

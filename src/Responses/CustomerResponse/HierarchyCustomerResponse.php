@@ -8,17 +8,18 @@ use Chargebee\ValueObjects\ResponseBase;
 class HierarchyCustomerResponse extends ResponseBase { 
     /**
     *
-    * @var array<Hierarchy> $hierarchies
+    * @var ?array<Hierarchy> $hierarchies
     */
-    public array $hierarchies;
+    public ?array $hierarchies;
     
 
     private function __construct(
-        array $hierarchies,
+        ?array $hierarchies,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->hierarchies = $hierarchies;
         
     }
@@ -26,16 +27,16 @@ class HierarchyCustomerResponse extends ResponseBase {
     {
         $hierarchies = array_map(fn (array $result): Hierarchy =>  Hierarchy::from(
             $result
-        ), $resourceAttributes['hierarchies'] );
+        ), $resourceAttributes['hierarchies'] ?? []);
         
-        return new self($hierarchies, $headers);
+        return new self($hierarchies, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
         ]);
-        
+          
 
         if($this->hierarchies !== []) {
             $data['hierarchies'] = array_map(

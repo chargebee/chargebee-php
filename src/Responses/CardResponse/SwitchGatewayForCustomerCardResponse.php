@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class SwitchGatewayForCustomerCardResponse extends ResponseBase { 
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
-    * @var Card $card
+    * @var ?Card $card
     */
-    public Card $card;
+    public ?Card $card;
     
 
     private function __construct(
-        Customer $customer,
-        Card $card,
+        ?Customer $customer,
+        ?Card $card,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->customer = $customer;
         $this->card = $card;
         
@@ -34,17 +35,23 @@ class SwitchGatewayForCustomerCardResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Customer::from($resourceAttributes['customer']),
-             Card::from($resourceAttributes['card']), $headers);
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
+            isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'customer' => $this->customer->toArray(), 
-            'card' => $this->card->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        }  
+        if($this->card instanceof Card){
+            $data['card'] = $this->card->toArray();
+        } 
 
         return $data;
     }

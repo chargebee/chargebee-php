@@ -5,21 +5,21 @@ namespace Chargebee\Resources\PortalSession;
 class PortalSession  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $token
+    * @var ?string $token
     */
-    public string $token;
+    public ?string $token;
     
     /**
     *
-    * @var string $access_url
+    * @var ?string $access_url
     */
-    public string $access_url;
+    public ?string $access_url;
     
     /**
     *
@@ -29,9 +29,9 @@ class PortalSession  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -41,9 +41,9 @@ class PortalSession  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -77,9 +77,9 @@ class PortalSession  {
     
     /**
     *
-    * @var \Chargebee\Resources\PortalSession\Enums\Status $status
+    * @var ?\Chargebee\Resources\PortalSession\Enums\Status $status
     */
-    public \Chargebee\Resources\PortalSession\Enums\Status $status;
+    public ?\Chargebee\Resources\PortalSession\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -93,19 +93,19 @@ class PortalSession  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $token,
-        string $access_url,
+        ?string $id,
+        ?string $token,
+        ?string $access_url,
         ?string $redirect_url,
-        int $created_at,
+        ?int $created_at,
         ?int $expires_at,
-        string $customer_id,
+        ?string $customer_id,
         ?int $login_at,
         ?int $logout_at,
         ?string $login_ipaddress,
         ?string $logout_ipaddress,
         ?array $linked_customers,
-        \Chargebee\Resources\PortalSession\Enums\Status $status,
+        ?\Chargebee\Resources\PortalSession\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -129,13 +129,13 @@ class PortalSession  {
             $result
         ), $resourceAttributes['linked_customers'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['token'] ,
-        $resourceAttributes['access_url'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['token'] ?? null,
+        $resourceAttributes['access_url'] ?? null,
         $resourceAttributes['redirect_url'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['login_at'] ?? null,
         $resourceAttributes['logout_at'] ?? null,
         $resourceAttributes['login_ipaddress'] ?? null,

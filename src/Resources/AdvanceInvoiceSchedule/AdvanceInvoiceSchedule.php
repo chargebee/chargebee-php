@@ -5,9 +5,9 @@ namespace Chargebee\Resources\AdvanceInvoiceSchedule;
 class AdvanceInvoiceSchedule  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -39,7 +39,7 @@ class AdvanceInvoiceSchedule  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?FixedIntervalSchedule $fixed_interval_schedule,
         ?SpecificDatesSchedule $specific_dates_schedule,
         ?\Chargebee\Resources\AdvanceInvoiceSchedule\Enums\ScheduleType $schedule_type,
@@ -53,7 +53,7 @@ class AdvanceInvoiceSchedule  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         isset($resourceAttributes['fixed_interval_schedule']) ? FixedIntervalSchedule::from($resourceAttributes['fixed_interval_schedule']) : null,
         isset($resourceAttributes['specific_dates_schedule']) ? SpecificDatesSchedule::from($resourceAttributes['specific_dates_schedule']) : null,
         

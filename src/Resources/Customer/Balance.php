@@ -5,39 +5,39 @@ namespace Chargebee\Resources\Customer;
 class Balance  { 
     /**
     *
-    * @var int $promotional_credits
+    * @var ?int $promotional_credits
     */
-    public int $promotional_credits;
+    public ?int $promotional_credits;
     
     /**
     *
-    * @var int $excess_payments
+    * @var ?int $excess_payments
     */
-    public int $excess_payments;
+    public ?int $excess_payments;
     
     /**
     *
-    * @var int $refundable_credits
+    * @var ?int $refundable_credits
     */
-    public int $refundable_credits;
+    public ?int $refundable_credits;
     
     /**
     *
-    * @var int $unbilled_charges
+    * @var ?int $unbilled_charges
     */
-    public int $unbilled_charges;
+    public ?int $unbilled_charges;
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
-    * @var string $balance_currency_code
+    * @var ?string $balance_currency_code
     */
-    public string $balance_currency_code;
+    public ?string $balance_currency_code;
     
     /**
     * @var array<string> $knownFields
@@ -51,12 +51,12 @@ class Balance  {
     protected $_data = [];
 
     private function __construct(
-        int $promotional_credits,
-        int $excess_payments,
-        int $refundable_credits,
-        int $unbilled_charges,
-        string $currency_code,
-        string $balance_currency_code,
+        ?int $promotional_credits,
+        ?int $excess_payments,
+        ?int $refundable_credits,
+        ?int $unbilled_charges,
+        ?string $currency_code,
+        ?string $balance_currency_code,
     )
     { 
         $this->promotional_credits = $promotional_credits;
@@ -69,12 +69,12 @@ class Balance  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['promotional_credits'] ,
-        $resourceAttributes['excess_payments'] ,
-        $resourceAttributes['refundable_credits'] ,
-        $resourceAttributes['unbilled_charges'] ,
-        $resourceAttributes['currency_code'] ,
-        $resourceAttributes['balance_currency_code'] ,
+        $returnData = new self( $resourceAttributes['promotional_credits'] ?? null,
+        $resourceAttributes['excess_payments'] ?? null,
+        $resourceAttributes['refundable_credits'] ?? null,
+        $resourceAttributes['unbilled_charges'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['balance_currency_code'] ?? null,
         
          
         );

@@ -5,27 +5,27 @@ namespace Chargebee\Resources\Plan;
 class EventBasedAddon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $quantity
+    * @var ?int $quantity
     */
-    public int $quantity;
+    public ?int $quantity;
     
     /**
     *
-    * @var string $on_event
+    * @var ?string $on_event
     */
-    public string $on_event;
+    public ?string $on_event;
     
     /**
     *
-    * @var bool $charge_once
+    * @var ?bool $charge_once
     */
-    public bool $charge_once;
+    public ?bool $charge_once;
     
     /**
     *
@@ -45,10 +45,10 @@ class EventBasedAddon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $quantity,
-        string $on_event,
-        bool $charge_once,
+        ?string $id,
+        ?int $quantity,
+        ?string $on_event,
+        ?bool $charge_once,
         ?string $quantity_in_decimal,
     )
     { 
@@ -61,10 +61,10 @@ class EventBasedAddon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['quantity'] ,
-        $resourceAttributes['on_event'] ,
-        $resourceAttributes['charge_once'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
+        $resourceAttributes['on_event'] ?? null,
+        $resourceAttributes['charge_once'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         
          

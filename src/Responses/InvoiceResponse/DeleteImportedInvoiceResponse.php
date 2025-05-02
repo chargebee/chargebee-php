@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class DeleteImportedInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var Invoice $invoice
+    * @var ?Invoice $invoice
     */
-    public Invoice $invoice;
+    public ?Invoice $invoice;
     
     /**
     *
@@ -21,12 +21,13 @@ class DeleteImportedInvoiceResponse extends ResponseBase {
     
 
     private function __construct(
-        Invoice $invoice,
+        ?Invoice $invoice,
         ?array $credit_notes,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         $this->credit_notes = $credit_notes;
         
@@ -38,15 +39,18 @@ class DeleteImportedInvoiceResponse extends ResponseBase {
         ), $resourceAttributes['credit_notes'] ?? []);
         
         return new self(
-             Invoice::from($resourceAttributes['invoice']),$credit_notes, $headers);
+            isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
+            $credit_notes, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'invoice' => $this->invoice->toArray(), 
+        $data = array_filter([  
         ]);
-          
+         
+        if($this->invoice instanceof Invoice){
+            $data['invoice'] = $this->invoice->toArray();
+        }   
 
         if($this->credit_notes !== []) {
             $data['credit_notes'] = array_map(

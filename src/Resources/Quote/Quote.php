@@ -6,9 +6,9 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Quote  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -24,9 +24,9 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -48,15 +48,15 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $valid_till
+    * @var ?int $valid_till
     */
-    public int $valid_till;
+    public ?int $valid_till;
     
     /**
     *
-    * @var int $date
+    * @var ?int $date
     */
-    public int $date;
+    public ?int $date;
     
     /**
     *
@@ -72,9 +72,9 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
@@ -168,9 +168,9 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -216,27 +216,27 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Quote\Enums\Status $status
+    * @var ?\Chargebee\Resources\Quote\Enums\Status $status
     */
-    public \Chargebee\Resources\Quote\Enums\Status $status;
+    public ?\Chargebee\Resources\Quote\Enums\Status $status;
     
     /**
     *
-    * @var \Chargebee\Resources\Quote\Enums\OperationType $operation_type
+    * @var ?\Chargebee\Resources\Quote\Enums\OperationType $operation_type
     */
-    public \Chargebee\Resources\Quote\Enums\OperationType $operation_type;
+    public ?\Chargebee\Resources\Quote\Enums\OperationType $operation_type;
     
     /**
     * @var array<string> $knownFields
@@ -250,18 +250,18 @@ class Quote  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $name,
         ?string $po_number,
-        string $customer_id,
+        ?string $customer_id,
         ?string $subscription_id,
         ?string $invoice_id,
         ?string $vat_number,
-        int $valid_till,
-        int $date,
+        ?int $valid_till,
+        ?int $date,
         ?int $total_payable,
         ?int $charge_on_acceptance,
-        int $sub_total,
+        ?int $sub_total,
         ?int $total,
         ?int $credits_applied,
         ?int $amount_paid,
@@ -277,7 +277,7 @@ class Quote  extends SupportsCustomFields  {
         ?array $line_item_taxes,
         ?array $line_item_tiers,
         ?string $tax_category,
-        string $currency_code,
+        ?string $currency_code,
         mixed $notes,
         ?ShippingAddress $shipping_address,
         ?BillingAddress $billing_address,
@@ -285,10 +285,10 @@ class Quote  extends SupportsCustomFields  {
         ?int $contract_term_end,
         ?int $contract_term_termination_fee,
         ?string $business_entity_id,
-        bool $deleted,
-        \Chargebee\Enums\PriceType $price_type,
-        \Chargebee\Resources\Quote\Enums\Status $status,
-        \Chargebee\Resources\Quote\Enums\OperationType $operation_type,
+        ?bool $deleted,
+        ?\Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Resources\Quote\Enums\Status $status,
+        ?\Chargebee\Resources\Quote\Enums\OperationType $operation_type,
     )
     { 
         $this->id = $id;
@@ -358,18 +358,18 @@ class Quote  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['line_item_tiers'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['name'] ?? null,
         $resourceAttributes['po_number'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,
         $resourceAttributes['vat_number'] ?? null,
-        $resourceAttributes['valid_till'] ,
-        $resourceAttributes['date'] ,
+        $resourceAttributes['valid_till'] ?? null,
+        $resourceAttributes['date'] ?? null,
         $resourceAttributes['total_payable'] ?? null,
         $resourceAttributes['charge_on_acceptance'] ?? null,
-        $resourceAttributes['sub_total'] ,
+        $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['total'] ?? null,
         $resourceAttributes['credits_applied'] ?? null,
         $resourceAttributes['amount_paid'] ?? null,
@@ -385,7 +385,7 @@ class Quote  extends SupportsCustomFields  {
         $line_item_taxes,
         $line_item_tiers,
         $resourceAttributes['tax_category'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['notes'] ?? null,
         isset($resourceAttributes['shipping_address']) ? ShippingAddress::from($resourceAttributes['shipping_address']) : null,
         isset($resourceAttributes['billing_address']) ? BillingAddress::from($resourceAttributes['billing_address']) : null,
@@ -393,7 +393,7 @@ class Quote  extends SupportsCustomFields  {
         $resourceAttributes['contract_term_end'] ?? null,
         $resourceAttributes['contract_term_termination_fee'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,

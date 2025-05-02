@@ -5,15 +5,15 @@ namespace Chargebee\Resources\QuotedSubscription;
 class SubscriptionItem  { 
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
-    * @var string $item_type
+    * @var ?string $item_type
     */
-    public string $item_type;
+    public ?string $item_type;
     
     /**
     *
@@ -165,8 +165,8 @@ class SubscriptionItem  {
     protected $_data = [];
 
     private function __construct(
-        string $item_price_id,
-        string $item_type,
+        ?string $item_price_id,
+        ?string $item_type,
         ?int $quantity,
         ?string $quantity_in_decimal,
         ?string $metered_quantity,
@@ -221,8 +221,8 @@ class SubscriptionItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_price_id'] ,
-        $resourceAttributes['item_type'] ,
+        $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
+        $resourceAttributes['item_type'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['metered_quantity'] ?? null,

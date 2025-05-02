@@ -89,9 +89,9 @@ class ShippingAddress  {
     
     /**
     *
-    * @var int $index
+    * @var ?int $index
     */
-    public int $index;
+    public ?int $index;
     
     /**
     * @var array<string> $knownFields
@@ -119,7 +119,7 @@ class ShippingAddress  {
         ?string $country,
         ?string $zip,
         ?string $validation_status,
-        int $index,
+        ?int $index,
     )
     { 
         $this->first_name = $first_name;
@@ -155,7 +155,7 @@ class ShippingAddress  {
         $resourceAttributes['country'] ?? null,
         $resourceAttributes['zip'] ?? null,
         $resourceAttributes['validation_status'] ?? null,
-        $resourceAttributes['index'] ,
+        $resourceAttributes['index'] ?? null,
         
          
         );

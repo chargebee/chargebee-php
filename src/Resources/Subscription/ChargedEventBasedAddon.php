@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Subscription;
 class ChargedEventBasedAddon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $last_charged_at
+    * @var ?int $last_charged_at
     */
-    public int $last_charged_at;
+    public ?int $last_charged_at;
     
     /**
     * @var array<string> $knownFields
@@ -27,8 +27,8 @@ class ChargedEventBasedAddon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $last_charged_at,
+        ?string $id,
+        ?int $last_charged_at,
     )
     { 
         $this->id = $id;
@@ -37,8 +37,8 @@ class ChargedEventBasedAddon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['last_charged_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['last_charged_at'] ?? null,
         
          
         );

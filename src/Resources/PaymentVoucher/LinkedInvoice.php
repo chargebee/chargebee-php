@@ -5,21 +5,21 @@ namespace Chargebee\Resources\PaymentVoucher;
 class LinkedInvoice  { 
     /**
     *
-    * @var string $invoice_id
+    * @var ?string $invoice_id
     */
-    public string $invoice_id;
+    public ?string $invoice_id;
     
     /**
     *
-    * @var string $txn_id
+    * @var ?string $txn_id
     */
-    public string $txn_id;
+    public ?string $txn_id;
     
     /**
     *
-    * @var int $applied_at
+    * @var ?int $applied_at
     */
-    public int $applied_at;
+    public ?int $applied_at;
     
     /**
     * @var array<string> $knownFields
@@ -33,9 +33,9 @@ class LinkedInvoice  {
     protected $_data = [];
 
     private function __construct(
-        string $invoice_id,
-        string $txn_id,
-        int $applied_at,
+        ?string $invoice_id,
+        ?string $txn_id,
+        ?int $applied_at,
     )
     { 
         $this->invoice_id = $invoice_id;
@@ -45,9 +45,9 @@ class LinkedInvoice  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['invoice_id'] ,
-        $resourceAttributes['txn_id'] ,
-        $resourceAttributes['applied_at'] ,
+        $returnData = new self( $resourceAttributes['invoice_id'] ?? null,
+        $resourceAttributes['txn_id'] ?? null,
+        $resourceAttributes['applied_at'] ?? null,
         
          
         );

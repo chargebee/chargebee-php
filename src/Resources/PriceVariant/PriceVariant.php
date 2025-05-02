@@ -5,15 +5,15 @@ namespace Chargebee\Resources\PriceVariant;
 class PriceVariant  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -35,9 +35,9 @@ class PriceVariant  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -71,9 +71,9 @@ class PriceVariant  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -93,18 +93,18 @@ class PriceVariant  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $external_name,
         ?string $variant_group,
         ?string $description,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?int $archived_at,
         ?array $attributes,
         ?string $business_entity_id,
-        bool $deleted,
+        ?bool $deleted,
         ?\Chargebee\Resources\PriceVariant\Enums\Status $status,
     )
     { 
@@ -129,18 +129,18 @@ class PriceVariant  {
             $result
         ), $resourceAttributes['attributes'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['external_name'] ?? null,
         $resourceAttributes['variant_group'] ?? null,
         $resourceAttributes['description'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $attributes,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PriceVariant\Enums\Status::tryFromValue($resourceAttributes['status']) : null,

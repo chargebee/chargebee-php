@@ -5,21 +5,21 @@ namespace Chargebee\Resources\CouponSet;
 class CouponSet  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -57,9 +57,9 @@ class CouponSet  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $coupon_id,
-        string $name,
+        ?string $id,
+        ?string $coupon_id,
+        ?string $name,
         ?int $total_count,
         ?int $redeemed_count,
         ?int $archived_count,
@@ -77,9 +77,9 @@ class CouponSet  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['coupon_id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['coupon_id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['total_count'] ?? null,
         $resourceAttributes['redeemed_count'] ?? null,
         $resourceAttributes['archived_count'] ?? null,

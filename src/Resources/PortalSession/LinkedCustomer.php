@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PortalSession;
 class LinkedCustomer  { 
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -17,21 +17,21 @@ class LinkedCustomer  {
     
     /**
     *
-    * @var bool $has_billing_address
+    * @var ?bool $has_billing_address
     */
-    public bool $has_billing_address;
+    public ?bool $has_billing_address;
     
     /**
     *
-    * @var bool $has_payment_method
+    * @var ?bool $has_payment_method
     */
-    public bool $has_payment_method;
+    public ?bool $has_payment_method;
     
     /**
     *
-    * @var bool $has_active_subscription
+    * @var ?bool $has_active_subscription
     */
-    public bool $has_active_subscription;
+    public ?bool $has_active_subscription;
     
     /**
     * @var array<string> $knownFields
@@ -45,11 +45,11 @@ class LinkedCustomer  {
     protected $_data = [];
 
     private function __construct(
-        string $customer_id,
+        ?string $customer_id,
         ?string $email,
-        bool $has_billing_address,
-        bool $has_payment_method,
-        bool $has_active_subscription,
+        ?bool $has_billing_address,
+        ?bool $has_payment_method,
+        ?bool $has_active_subscription,
     )
     { 
         $this->customer_id = $customer_id;
@@ -61,11 +61,11 @@ class LinkedCustomer  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['email'] ?? null,
-        $resourceAttributes['has_billing_address'] ,
-        $resourceAttributes['has_payment_method'] ,
-        $resourceAttributes['has_active_subscription'] ,
+        $resourceAttributes['has_billing_address'] ?? null,
+        $resourceAttributes['has_payment_method'] ?? null,
+        $resourceAttributes['has_active_subscription'] ?? null,
         
          
         );

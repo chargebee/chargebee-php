@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentVoucher;
 class PaymentVoucher  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -29,9 +29,9 @@ class PaymentVoucher  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -95,9 +95,9 @@ class PaymentVoucher  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -107,15 +107,15 @@ class PaymentVoucher  {
     
     /**
     *
-    * @var \Chargebee\Enums\PaymentVoucherType $payment_voucher_type
+    * @var ?\Chargebee\Enums\PaymentVoucherType $payment_voucher_type
     */
-    public \Chargebee\Enums\PaymentVoucherType $payment_voucher_type;
+    public ?\Chargebee\Enums\PaymentVoucherType $payment_voucher_type;
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
@@ -135,11 +135,11 @@ class PaymentVoucher  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $id_at_gateway,
         ?int $expires_at,
         ?string $subscription_id,
-        string $currency_code,
+        ?string $currency_code,
         ?int $amount,
         ?string $gateway_account_id,
         ?string $payment_source_id,
@@ -150,10 +150,10 @@ class PaymentVoucher  {
         ?int $date,
         ?int $resource_version,
         ?int $updated_at,
-        string $customer_id,
+        ?string $customer_id,
         ?array $linked_invoices,
-        \Chargebee\Enums\PaymentVoucherType $payment_voucher_type,
-        \Chargebee\Enums\Gateway $gateway,
+        ?\Chargebee\Enums\PaymentVoucherType $payment_voucher_type,
+        ?\Chargebee\Enums\Gateway $gateway,
         ?\Chargebee\Resources\PaymentVoucher\Enums\Status $status,
     )
     { 
@@ -185,11 +185,11 @@ class PaymentVoucher  {
             $result
         ), $resourceAttributes['linked_invoices'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['id_at_gateway'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['gateway_account_id'] ?? null,
         $resourceAttributes['payment_source_id'] ?? null,
@@ -200,7 +200,7 @@ class PaymentVoucher  {
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $linked_invoices,
         
         

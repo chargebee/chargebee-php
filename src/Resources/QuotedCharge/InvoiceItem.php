@@ -5,9 +5,9 @@ namespace Chargebee\Resources\QuotedCharge;
 class InvoiceItem  { 
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
@@ -51,7 +51,7 @@ class InvoiceItem  {
     protected $_data = [];
 
     private function __construct(
-        string $item_price_id,
+        ?string $item_price_id,
         ?int $quantity,
         ?string $quantity_in_decimal,
         ?int $unit_price,
@@ -69,7 +69,7 @@ class InvoiceItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_price_id'] ,
+        $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price'] ?? null,

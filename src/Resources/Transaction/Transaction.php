@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Transaction;
 class Transaction  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -59,9 +59,9 @@ class Transaction  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -191,9 +191,9 @@ class Transaction  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -239,21 +239,21 @@ class Transaction  {
     
     /**
     *
-    * @var \Chargebee\Enums\PaymentMethod $payment_method
+    * @var ?\Chargebee\Enums\PaymentMethod $payment_method
     */
-    public \Chargebee\Enums\PaymentMethod $payment_method;
+    public ?\Chargebee\Enums\PaymentMethod $payment_method;
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
-    * @var \Chargebee\Resources\Transaction\Enums\Type $type
+    * @var ?\Chargebee\Resources\Transaction\Enums\Type $type
     */
-    public \Chargebee\Resources\Transaction\Enums\Type $type;
+    public ?\Chargebee\Resources\Transaction\Enums\Type $type;
     
     /**
     *
@@ -291,7 +291,7 @@ class Transaction  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $customer_id,
         ?string $subscription_id,
         ?string $gateway_account_id,
@@ -300,7 +300,7 @@ class Transaction  {
         ?int $date,
         ?int $settled_at,
         ?int $exchange_rate,
-        string $currency_code,
+        ?string $currency_code,
         ?int $amount,
         ?string $id_at_gateway,
         ?bool $three_d_secure,
@@ -322,7 +322,7 @@ class Transaction  {
         ?array $linked_credit_notes,
         ?array $linked_refunds,
         ?array $linked_payments,
-        bool $deleted,
+        ?bool $deleted,
         ?string $iin,
         ?string $last4,
         ?string $merchant_reference_id,
@@ -330,9 +330,9 @@ class Transaction  {
         ?string $payment_method_details,
         ?GatewayErrorDetail $error_detail,
         ?string $custom_payment_method_name,
-        \Chargebee\Enums\PaymentMethod $payment_method,
-        \Chargebee\Enums\Gateway $gateway,
-        \Chargebee\Resources\Transaction\Enums\Type $type,
+        ?\Chargebee\Enums\PaymentMethod $payment_method,
+        ?\Chargebee\Enums\Gateway $gateway,
+        ?\Chargebee\Resources\Transaction\Enums\Type $type,
         ?\Chargebee\Resources\Transaction\Enums\Status $status,
         ?\Chargebee\Resources\Transaction\Enums\FraudFlag $fraud_flag,
         ?\Chargebee\Resources\Transaction\Enums\InitiatorType $initiator_type,
@@ -405,7 +405,7 @@ class Transaction  {
             $result
         ), $resourceAttributes['linked_payments'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['gateway_account_id'] ?? null,
@@ -414,7 +414,7 @@ class Transaction  {
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['settled_at'] ?? null,
         $resourceAttributes['exchange_rate'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['id_at_gateway'] ?? null,
         $resourceAttributes['three_d_secure'] ?? null,
@@ -436,7 +436,7 @@ class Transaction  {
         $linked_credit_notes,
         $linked_refunds,
         $linked_payments,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['iin'] ?? null,
         $resourceAttributes['last4'] ?? null,
         $resourceAttributes['merchant_reference_id'] ?? null,

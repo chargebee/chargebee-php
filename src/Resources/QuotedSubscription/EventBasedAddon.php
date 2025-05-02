@@ -5,21 +5,21 @@ namespace Chargebee\Resources\QuotedSubscription;
 class EventBasedAddon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $quantity
+    * @var ?int $quantity
     */
-    public int $quantity;
+    public ?int $quantity;
     
     /**
     *
-    * @var int $unit_price
+    * @var ?int $unit_price
     */
-    public int $unit_price;
+    public ?int $unit_price;
     
     /**
     *
@@ -29,15 +29,15 @@ class EventBasedAddon  {
     
     /**
     *
-    * @var string $on_event
+    * @var ?string $on_event
     */
-    public string $on_event;
+    public ?string $on_event;
     
     /**
     *
-    * @var bool $charge_once
+    * @var ?bool $charge_once
     */
-    public bool $charge_once;
+    public ?bool $charge_once;
     
     /**
     *
@@ -63,12 +63,12 @@ class EventBasedAddon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $quantity,
-        int $unit_price,
+        ?string $id,
+        ?int $quantity,
+        ?int $unit_price,
         ?int $service_period_in_days,
-        string $on_event,
-        bool $charge_once,
+        ?string $on_event,
+        ?bool $charge_once,
         ?string $quantity_in_decimal,
         ?string $unit_price_in_decimal,
     )
@@ -85,12 +85,12 @@ class EventBasedAddon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['quantity'] ,
-        $resourceAttributes['unit_price'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
+        $resourceAttributes['unit_price'] ?? null,
         $resourceAttributes['service_period_in_days'] ?? null,
-        $resourceAttributes['on_event'] ,
-        $resourceAttributes['charge_once'] ,
+        $resourceAttributes['on_event'] ?? null,
+        $resourceAttributes['charge_once'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price_in_decimal'] ?? null,
         

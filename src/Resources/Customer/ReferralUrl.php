@@ -11,33 +11,33 @@ class ReferralUrl  {
     
     /**
     *
-    * @var string $referral_sharing_url
+    * @var ?string $referral_sharing_url
     */
-    public string $referral_sharing_url;
+    public ?string $referral_sharing_url;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $updated_at
+    * @var ?int $updated_at
     */
-    public int $updated_at;
+    public ?int $updated_at;
     
     /**
     *
-    * @var string $referral_campaign_id
+    * @var ?string $referral_campaign_id
     */
-    public string $referral_campaign_id;
+    public ?string $referral_campaign_id;
     
     /**
     *
-    * @var string $referral_account_id
+    * @var ?string $referral_account_id
     */
-    public string $referral_account_id;
+    public ?string $referral_account_id;
     
     /**
     *
@@ -47,9 +47,9 @@ class ReferralUrl  {
     
     /**
     *
-    * @var string $referral_system
+    * @var ?string $referral_system
     */
-    public string $referral_system;
+    public ?string $referral_system;
     
     /**
     * @var array<string> $knownFields
@@ -64,13 +64,13 @@ class ReferralUrl  {
 
     private function __construct(
         ?string $external_customer_id,
-        string $referral_sharing_url,
-        int $created_at,
-        int $updated_at,
-        string $referral_campaign_id,
-        string $referral_account_id,
+        ?string $referral_sharing_url,
+        ?int $created_at,
+        ?int $updated_at,
+        ?string $referral_campaign_id,
+        ?string $referral_account_id,
         ?string $referral_external_campaign_id,
-        string $referral_system,
+        ?string $referral_system,
     )
     { 
         $this->external_customer_id = $external_customer_id;
@@ -86,13 +86,13 @@ class ReferralUrl  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['external_customer_id'] ?? null,
-        $resourceAttributes['referral_sharing_url'] ,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['updated_at'] ,
-        $resourceAttributes['referral_campaign_id'] ,
-        $resourceAttributes['referral_account_id'] ,
+        $resourceAttributes['referral_sharing_url'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['updated_at'] ?? null,
+        $resourceAttributes['referral_campaign_id'] ?? null,
+        $resourceAttributes['referral_account_id'] ?? null,
         $resourceAttributes['referral_external_campaign_id'] ?? null,
-        $resourceAttributes['referral_system'] ,
+        $resourceAttributes['referral_system'] ?? null,
         
          
         );

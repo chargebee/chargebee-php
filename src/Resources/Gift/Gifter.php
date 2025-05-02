@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Gift;
 class Gifter  { 
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -39,7 +39,7 @@ class Gifter  {
     protected $_data = [];
 
     private function __construct(
-        string $customer_id,
+        ?string $customer_id,
         ?string $invoice_id,
         ?string $signature,
         ?string $note,
@@ -53,7 +53,7 @@ class Gifter  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,
         $resourceAttributes['signature'] ?? null,
         $resourceAttributes['note'] ?? null,

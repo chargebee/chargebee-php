@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Export;
 class Export  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $operation_type
+    * @var ?string $operation_type
     */
-    public string $operation_type;
+    public ?string $operation_type;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -29,15 +29,15 @@ class Export  {
     
     /**
     *
-    * @var \Chargebee\Resources\Export\Enums\MimeType $mime_type
+    * @var ?\Chargebee\Resources\Export\Enums\MimeType $mime_type
     */
-    public \Chargebee\Resources\Export\Enums\MimeType $mime_type;
+    public ?\Chargebee\Resources\Export\Enums\MimeType $mime_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Export\Enums\Status $status
+    * @var ?\Chargebee\Resources\Export\Enums\Status $status
     */
-    public \Chargebee\Resources\Export\Enums\Status $status;
+    public ?\Chargebee\Resources\Export\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -51,12 +51,12 @@ class Export  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $operation_type,
-        int $created_at,
+        ?string $id,
+        ?string $operation_type,
+        ?int $created_at,
         ?Download $download,
-        \Chargebee\Resources\Export\Enums\MimeType $mime_type,
-        \Chargebee\Resources\Export\Enums\Status $status,
+        ?\Chargebee\Resources\Export\Enums\MimeType $mime_type,
+        ?\Chargebee\Resources\Export\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -69,9 +69,9 @@ class Export  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['operation_type'] ,
-        $resourceAttributes['created_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['operation_type'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
         
          

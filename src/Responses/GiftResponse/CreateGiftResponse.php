@@ -10,15 +10,15 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateGiftResponse extends ResponseBase { 
     /**
     *
-    * @var Gift $gift
+    * @var ?Gift $gift
     */
-    public Gift $gift;
+    public ?Gift $gift;
     
     /**
     *
-    * @var Subscription $subscription
+    * @var ?Subscription $subscription
     */
-    public Subscription $subscription;
+    public ?Subscription $subscription;
     
     /**
     *
@@ -28,13 +28,14 @@ class CreateGiftResponse extends ResponseBase {
     
 
     private function __construct(
-        Gift $gift,
-        Subscription $subscription,
+        ?Gift $gift,
+        ?Subscription $subscription,
         ?Invoice $invoice,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->gift = $gift;
         $this->subscription = $subscription;
         $this->invoice = $invoice;
@@ -43,19 +44,25 @@ class CreateGiftResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Gift::from($resourceAttributes['gift']),
-             Subscription::from($resourceAttributes['subscription']),
+            isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
+            
+            isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
+            
             isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'gift' => $this->gift->toArray(), 
-            'subscription' => $this->subscription->toArray(), 
+        $data = array_filter([   
         ]);
          
+        if($this->gift instanceof Gift){
+            $data['gift'] = $this->gift->toArray();
+        }  
+        if($this->subscription instanceof Subscription){
+            $data['subscription'] = $this->subscription->toArray();
+        }  
         if($this->invoice instanceof Invoice){
             $data['invoice'] = $this->invoice->toArray();
         } 

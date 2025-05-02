@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Transaction;
 class LinkedInvoice  { 
     /**
     *
-    * @var string $invoice_id
+    * @var ?string $invoice_id
     */
-    public string $invoice_id;
+    public ?string $invoice_id;
     
     /**
     *
-    * @var int $applied_amount
+    * @var ?int $applied_amount
     */
-    public int $applied_amount;
+    public ?int $applied_amount;
     
     /**
     *
-    * @var int $applied_at
+    * @var ?int $applied_at
     */
-    public int $applied_at;
+    public ?int $applied_at;
     
     /**
     *
@@ -35,9 +35,9 @@ class LinkedInvoice  {
     
     /**
     *
-    * @var string $invoice_status
+    * @var ?string $invoice_status
     */
-    public string $invoice_status;
+    public ?string $invoice_status;
     
     /**
     * @var array<string> $knownFields
@@ -51,12 +51,12 @@ class LinkedInvoice  {
     protected $_data = [];
 
     private function __construct(
-        string $invoice_id,
-        int $applied_amount,
-        int $applied_at,
+        ?string $invoice_id,
+        ?int $applied_amount,
+        ?int $applied_at,
         ?int $invoice_date,
         ?int $invoice_total,
-        string $invoice_status,
+        ?string $invoice_status,
     )
     { 
         $this->invoice_id = $invoice_id;
@@ -69,12 +69,12 @@ class LinkedInvoice  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['invoice_id'] ,
-        $resourceAttributes['applied_amount'] ,
-        $resourceAttributes['applied_at'] ,
+        $returnData = new self( $resourceAttributes['invoice_id'] ?? null,
+        $resourceAttributes['applied_amount'] ?? null,
+        $resourceAttributes['applied_at'] ?? null,
         $resourceAttributes['invoice_date'] ?? null,
         $resourceAttributes['invoice_total'] ?? null,
-        $resourceAttributes['invoice_status'] ,
+        $resourceAttributes['invoice_status'] ?? null,
         
          
         );

@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateForNewSubscriptionPricingPageSessionResponse extends ResponseBase { 
     /**
     *
-    * @var PricingPageSession $pricing_page_session
+    * @var ?PricingPageSession $pricing_page_session
     */
-    public PricingPageSession $pricing_page_session;
+    public ?PricingPageSession $pricing_page_session;
     
 
     private function __construct(
-        PricingPageSession $pricing_page_session,
+        ?PricingPageSession $pricing_page_session,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->pricing_page_session = $pricing_page_session;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             PricingPageSession::from($resourceAttributes['pricing_page_session']), $headers);
+            isset($resourceAttributes['pricing_page_session']) ? PricingPageSession::from($resourceAttributes['pricing_page_session']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'pricing_page_session' => $this->pricing_page_session->toArray(),
         ]);
-        
+         
+        if($this->pricing_page_session instanceof PricingPageSession){
+            $data['pricing_page_session'] = $this->pricing_page_session->toArray();
+        } 
 
         return $data;
     }

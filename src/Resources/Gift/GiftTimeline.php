@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Gift;
 class GiftTimeline  { 
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
@@ -27,7 +27,7 @@ class GiftTimeline  {
     protected $_data = [];
 
     private function __construct(
-        string $status,
+        ?string $status,
         ?int $occurred_at,
     )
     { 
@@ -37,7 +37,7 @@ class GiftTimeline  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['status'] ,
+        $returnData = new self( $resourceAttributes['status'] ?? null,
         $resourceAttributes['occurred_at'] ?? null,
         
          

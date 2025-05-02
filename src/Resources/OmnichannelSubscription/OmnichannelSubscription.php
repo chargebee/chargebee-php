@@ -5,21 +5,21 @@ namespace Chargebee\Resources\OmnichannelSubscription;
 class OmnichannelSubscription  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $id_at_source
+    * @var ?string $id_at_source
     */
-    public string $id_at_source;
+    public ?string $id_at_source;
     
     /**
     *
-    * @var string $app_id
+    * @var ?string $app_id
     */
-    public string $app_id;
+    public ?string $app_id;
     
     /**
     *
@@ -29,9 +29,9 @@ class OmnichannelSubscription  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -41,9 +41,9 @@ class OmnichannelSubscription  {
     
     /**
     *
-    * @var array<\Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem> $omnichannel_subscription_items
+    * @var ?array<\Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem> $omnichannel_subscription_items
     */
-    public array $omnichannel_subscription_items;
+    public ?array $omnichannel_subscription_items;
     
     /**
     *
@@ -53,9 +53,9 @@ class OmnichannelSubscription  {
     
     /**
     *
-    * @var \Chargebee\Resources\OmnichannelSubscription\Enums\Source $source
+    * @var ?\Chargebee\Resources\OmnichannelSubscription\Enums\Source $source
     */
-    public \Chargebee\Resources\OmnichannelSubscription\Enums\Source $source;
+    public ?\Chargebee\Resources\OmnichannelSubscription\Enums\Source $source;
     
     /**
     * @var array<string> $knownFields
@@ -69,15 +69,15 @@ class OmnichannelSubscription  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $id_at_source,
-        string $app_id,
+        ?string $id,
+        ?string $id_at_source,
+        ?string $app_id,
         ?string $customer_id,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
-        array $omnichannel_subscription_items,
+        ?array $omnichannel_subscription_items,
         ?OmnichannelTransaction $initial_purchase_transaction,
-        \Chargebee\Resources\OmnichannelSubscription\Enums\Source $source,
+        ?\Chargebee\Resources\OmnichannelSubscription\Enums\Source $source,
     )
     { 
         $this->id = $id;
@@ -95,13 +95,13 @@ class OmnichannelSubscription  {
     { 
         $omnichannel_subscription_items = array_map(fn (array $result): \Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem =>  \Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem::from(
             $result
-        ), $resourceAttributes['omnichannel_subscription_items'] );
+        ), $resourceAttributes['omnichannel_subscription_items'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['id_at_source'] ,
-        $resourceAttributes['app_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['id_at_source'] ?? null,
+        $resourceAttributes['app_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $omnichannel_subscription_items,
         isset($resourceAttributes['initial_purchase_transaction']) ? OmnichannelTransaction::from($resourceAttributes['initial_purchase_transaction']) : null,
@@ -123,10 +123,7 @@ class OmnichannelSubscription  {
         'customer_id' => $this->customer_id,
         'created_at' => $this->created_at,
         'resource_version' => $this->resource_version,
-        'omnichannel_subscription_items' => array_map(
-            static fn( \Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem $result): array => $result->toArray(),
-            $this->omnichannel_subscription_items
-        ),
+        
         
         
         'source' => $this->source?->value,
@@ -140,6 +137,12 @@ class OmnichannelSubscription  {
             $data['initial_purchase_transaction'] = $this->initial_purchase_transaction->toArray();
         }
         
+        if($this->omnichannel_subscription_items !== []){
+            $data['omnichannel_subscription_items'] = array_map(
+                fn (\Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem $omnichannel_subscription_items): array => $omnichannel_subscription_items->toArray(),
+                $this->omnichannel_subscription_items
+            );
+        }
 
         
         return $data;

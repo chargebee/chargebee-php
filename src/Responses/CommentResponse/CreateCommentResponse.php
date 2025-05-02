@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateCommentResponse extends ResponseBase { 
     /**
     *
-    * @var Comment $comment
+    * @var ?Comment $comment
     */
-    public Comment $comment;
+    public ?Comment $comment;
     
 
     private function __construct(
-        Comment $comment,
+        ?Comment $comment,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->comment = $comment;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Comment::from($resourceAttributes['comment']), $headers);
+            isset($resourceAttributes['comment']) ? Comment::from($resourceAttributes['comment']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'comment' => $this->comment->toArray(),
         ]);
-        
+         
+        if($this->comment instanceof Comment){
+            $data['comment'] = $this->comment->toArray();
+        } 
 
         return $data;
     }

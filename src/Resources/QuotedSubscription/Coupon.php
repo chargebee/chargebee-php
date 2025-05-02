@@ -5,9 +5,9 @@ namespace Chargebee\Resources\QuotedSubscription;
 class Coupon  { 
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     * @var array<string> $knownFields
@@ -21,7 +21,7 @@ class Coupon  {
     protected $_data = [];
 
     private function __construct(
-        string $coupon_id,
+        ?string $coupon_id,
     )
     { 
         $this->coupon_id = $coupon_id;  
@@ -29,7 +29,7 @@ class Coupon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['coupon_id'] ,
+        $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         
          
         );

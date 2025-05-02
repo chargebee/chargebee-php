@@ -10,9 +10,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class RecordRefundInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var Invoice $invoice
+    * @var ?Invoice $invoice
     */
-    public Invoice $invoice;
+    public ?Invoice $invoice;
     
     /**
     *
@@ -28,13 +28,14 @@ class RecordRefundInvoiceResponse extends ResponseBase {
     
 
     private function __construct(
-        Invoice $invoice,
+        ?Invoice $invoice,
         ?Transaction $transaction,
         ?CreditNote $credit_note,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         $this->transaction = $transaction;
         $this->credit_note = $credit_note;
@@ -43,19 +44,22 @@ class RecordRefundInvoiceResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Invoice::from($resourceAttributes['invoice']),
+            isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
+            
             isset($resourceAttributes['transaction']) ? Transaction::from($resourceAttributes['transaction']) : null,
             
             isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'invoice' => $this->invoice->toArray(),  
+        $data = array_filter([   
         ]);
          
+        if($this->invoice instanceof Invoice){
+            $data['invoice'] = $this->invoice->toArray();
+        }  
         if($this->transaction instanceof Transaction){
             $data['transaction'] = $this->transaction->toArray();
         }  

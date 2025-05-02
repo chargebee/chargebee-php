@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Token;
 class Token  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $gateway_account_id
+    * @var ?string $gateway_account_id
     */
-    public string $gateway_account_id;
+    public ?string $gateway_account_id;
     
     /**
     *
-    * @var string $id_at_vault
+    * @var ?string $id_at_vault
     */
-    public string $id_at_vault;
+    public ?string $id_at_vault;
     
     /**
     *
@@ -41,9 +41,9 @@ class Token  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -53,27 +53,27 @@ class Token  {
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
-    * @var \Chargebee\Enums\PaymentMethodType $payment_method_type
+    * @var ?\Chargebee\Enums\PaymentMethodType $payment_method_type
     */
-    public \Chargebee\Enums\PaymentMethodType $payment_method_type;
+    public ?\Chargebee\Enums\PaymentMethodType $payment_method_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Token\Enums\Status $status
+    * @var ?\Chargebee\Resources\Token\Enums\Status $status
     */
-    public \Chargebee\Resources\Token\Enums\Status $status;
+    public ?\Chargebee\Resources\Token\Enums\Status $status;
     
     /**
     *
-    * @var \Chargebee\Resources\Token\Enums\Vault $vault
+    * @var ?\Chargebee\Resources\Token\Enums\Vault $vault
     */
-    public \Chargebee\Resources\Token\Enums\Vault $vault;
+    public ?\Chargebee\Resources\Token\Enums\Vault $vault;
     
     /**
     * @var array<string> $knownFields
@@ -87,18 +87,18 @@ class Token  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $gateway_account_id,
-        string $id_at_vault,
+        ?string $id,
+        ?string $gateway_account_id,
+        ?string $id_at_vault,
         ?string $ip_address,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
+        ?int $created_at,
         ?int $expired_at,
-        \Chargebee\Enums\Gateway $gateway,
-        \Chargebee\Enums\PaymentMethodType $payment_method_type,
-        \Chargebee\Resources\Token\Enums\Status $status,
-        \Chargebee\Resources\Token\Enums\Vault $vault,
+        ?\Chargebee\Enums\Gateway $gateway,
+        ?\Chargebee\Enums\PaymentMethodType $payment_method_type,
+        ?\Chargebee\Resources\Token\Enums\Status $status,
+        ?\Chargebee\Resources\Token\Enums\Vault $vault,
     )
     { 
         $this->id = $id;
@@ -117,13 +117,13 @@ class Token  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['gateway_account_id'] ,
-        $resourceAttributes['id_at_vault'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['gateway_account_id'] ?? null,
+        $resourceAttributes['id_at_vault'] ?? null,
         $resourceAttributes['ip_address'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['expired_at'] ?? null,
         
         

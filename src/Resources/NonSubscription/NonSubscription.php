@@ -5,15 +5,15 @@ namespace Chargebee\Resources\NonSubscription;
 class NonSubscription  { 
     /**
     *
-    * @var string $app_id
+    * @var ?string $app_id
     */
-    public string $app_id;
+    public ?string $app_id;
     
     /**
     *
-    * @var string $invoice_id
+    * @var ?string $invoice_id
     */
-    public string $invoice_id;
+    public ?string $invoice_id;
     
     /**
     *
@@ -23,9 +23,9 @@ class NonSubscription  {
     
     /**
     *
-    * @var string $charge_id
+    * @var ?string $charge_id
     */
-    public string $charge_id;
+    public ?string $charge_id;
     
     /**
     * @var array<string> $knownFields
@@ -39,10 +39,10 @@ class NonSubscription  {
     protected $_data = [];
 
     private function __construct(
-        string $app_id,
-        string $invoice_id,
+        ?string $app_id,
+        ?string $invoice_id,
         ?string $customer_id,
-        string $charge_id,
+        ?string $charge_id,
     )
     { 
         $this->app_id = $app_id;
@@ -53,10 +53,10 @@ class NonSubscription  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['app_id'] ,
-        $resourceAttributes['invoice_id'] ,
+        $returnData = new self( $resourceAttributes['app_id'] ?? null,
+        $resourceAttributes['invoice_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
-        $resourceAttributes['charge_id'] ,
+        $resourceAttributes['charge_id'] ?? null,
         
          
         );

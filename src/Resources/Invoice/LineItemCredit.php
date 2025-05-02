@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Invoice;
 class LineItemCredit  { 
     /**
     *
-    * @var string $cn_id
+    * @var ?string $cn_id
     */
-    public string $cn_id;
+    public ?string $cn_id;
     
     /**
     *
-    * @var int $applied_amount
+    * @var ?int $applied_amount
     */
-    public int $applied_amount;
+    public ?int $applied_amount;
     
     /**
     *
@@ -33,8 +33,8 @@ class LineItemCredit  {
     protected $_data = [];
 
     private function __construct(
-        string $cn_id,
-        int $applied_amount,
+        ?string $cn_id,
+        ?int $applied_amount,
         ?string $line_item_id,
     )
     { 
@@ -45,8 +45,8 @@ class LineItemCredit  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['cn_id'] ,
-        $resourceAttributes['applied_amount'] ,
+        $returnData = new self( $resourceAttributes['cn_id'] ?? null,
+        $resourceAttributes['applied_amount'] ?? null,
         $resourceAttributes['line_item_id'] ?? null,
         
          

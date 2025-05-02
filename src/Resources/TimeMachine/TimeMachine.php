@@ -5,21 +5,21 @@ namespace Chargebee\Resources\TimeMachine;
 class TimeMachine  { 
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
-    * @var int $genesis_time
+    * @var ?int $genesis_time
     */
-    public int $genesis_time;
+    public ?int $genesis_time;
     
     /**
     *
-    * @var int $destination_time
+    * @var ?int $destination_time
     */
-    public int $destination_time;
+    public ?int $destination_time;
     
     /**
     *
@@ -41,9 +41,9 @@ class TimeMachine  {
     
     /**
     *
-    * @var \Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status
+    * @var ?\Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status
     */
-    public \Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status;
+    public ?\Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status;
     
     /**
     * @var array<string> $knownFields
@@ -57,13 +57,13 @@ class TimeMachine  {
     protected $_data = [];
 
     private function __construct(
-        string $name,
-        int $genesis_time,
-        int $destination_time,
+        ?string $name,
+        ?int $genesis_time,
+        ?int $destination_time,
         ?string $failure_code,
         ?string $failure_reason,
         ?string $error_json,
-        \Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status,
+        ?\Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus $time_travel_status,
     )
     { 
         $this->name = $name;
@@ -77,9 +77,9 @@ class TimeMachine  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['name'] ,
-        $resourceAttributes['genesis_time'] ,
-        $resourceAttributes['destination_time'] ,
+        $returnData = new self( $resourceAttributes['name'] ?? null,
+        $resourceAttributes['genesis_time'] ?? null,
+        $resourceAttributes['destination_time'] ?? null,
         $resourceAttributes['failure_code'] ?? null,
         $resourceAttributes['failure_reason'] ?? null,
         $resourceAttributes['error_json'] ?? null,

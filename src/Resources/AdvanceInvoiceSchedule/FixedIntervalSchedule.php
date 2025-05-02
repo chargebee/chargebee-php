@@ -29,9 +29,9 @@ class FixedIntervalSchedule  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -55,7 +55,7 @@ class FixedIntervalSchedule  {
         ?int $number_of_occurrences,
         ?int $days_before_renewal,
         ?int $end_date,
-        int $created_at,
+        ?int $created_at,
         ?int $terms_to_charge,
     )
     { 
@@ -73,7 +73,7 @@ class FixedIntervalSchedule  {
         $resourceAttributes['number_of_occurrences'] ?? null,
         $resourceAttributes['days_before_renewal'] ?? null,
         $resourceAttributes['end_date'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['terms_to_charge'] ?? null,
         
          

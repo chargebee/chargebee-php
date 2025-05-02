@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Item  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -54,9 +54,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $is_giftable
+    * @var ?bool $is_giftable
     */
-    public bool $is_giftable;
+    public ?bool $is_giftable;
     
     /**
     *
@@ -66,15 +66,15 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $enabled_for_checkout
+    * @var ?bool $enabled_for_checkout
     */
-    public bool $enabled_for_checkout;
+    public ?bool $enabled_for_checkout;
     
     /**
     *
-    * @var bool $enabled_in_portal
+    * @var ?bool $enabled_in_portal
     */
-    public bool $enabled_in_portal;
+    public ?bool $enabled_in_portal;
     
     /**
     *
@@ -96,9 +96,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $metered
+    * @var ?bool $metered
     */
-    public bool $metered;
+    public ?bool $metered;
     
     /**
     *
@@ -138,9 +138,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -162,9 +162,9 @@ class Item  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Resources\Item\Enums\Type $type
+    * @var ?\Chargebee\Resources\Item\Enums\Type $type
     */
-    public \Chargebee\Resources\Item\Enums\Type $type;
+    public ?\Chargebee\Resources\Item\Enums\Type $type;
     
     /**
     *
@@ -190,33 +190,33 @@ class Item  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $external_name,
         ?string $description,
         ?int $resource_version,
         ?int $updated_at,
         ?string $item_family_id,
         ?bool $is_shippable,
-        bool $is_giftable,
+        ?bool $is_giftable,
         ?string $redirect_url,
-        bool $enabled_for_checkout,
-        bool $enabled_in_portal,
+        ?bool $enabled_for_checkout,
+        ?bool $enabled_in_portal,
         ?bool $included_in_mrr,
         ?string $gift_claim_redirect_url,
         ?string $unit,
-        bool $metered,
+        ?bool $metered,
         ?bool $is_percentage_pricing,
         ?int $archived_at,
         ?array $applicable_items,
         ?array $bundle_items,
         ?BundleConfiguration $bundle_configuration,
         mixed $metadata,
-        bool $deleted,
+        ?bool $deleted,
         ?string $business_entity_id,
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Resources\Item\Enums\Status $status,
-        \Chargebee\Resources\Item\Enums\Type $type,
+        ?\Chargebee\Resources\Item\Enums\Type $type,
         ?\Chargebee\Resources\Item\Enums\ItemApplicability $item_applicability,
         ?\Chargebee\Resources\Item\Enums\UsageCalculation $usage_calculation,
     )
@@ -262,29 +262,29 @@ class Item  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['bundle_items'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['external_name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['item_family_id'] ?? null,
         $resourceAttributes['is_shippable'] ?? null,
-        $resourceAttributes['is_giftable'] ,
+        $resourceAttributes['is_giftable'] ?? null,
         $resourceAttributes['redirect_url'] ?? null,
-        $resourceAttributes['enabled_for_checkout'] ,
-        $resourceAttributes['enabled_in_portal'] ,
+        $resourceAttributes['enabled_for_checkout'] ?? null,
+        $resourceAttributes['enabled_in_portal'] ?? null,
         $resourceAttributes['included_in_mrr'] ?? null,
         $resourceAttributes['gift_claim_redirect_url'] ?? null,
         $resourceAttributes['unit'] ?? null,
-        $resourceAttributes['metered'] ,
+        $resourceAttributes['metered'] ?? null,
         $resourceAttributes['is_percentage_pricing'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $applicable_items,
         $bundle_items,
         isset($resourceAttributes['bundle_configuration']) ? BundleConfiguration::from($resourceAttributes['bundle_configuration']) : null,
         $resourceAttributes['metadata'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         
         

@@ -17,9 +17,9 @@ class QuoteLineGroup  {
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
@@ -101,7 +101,7 @@ class QuoteLineGroup  {
     private function __construct(
         ?int $version,
         ?string $id,
-        int $sub_total,
+        ?int $sub_total,
         ?int $total,
         ?int $credits_applied,
         ?int $amount_paid,
@@ -155,7 +155,7 @@ class QuoteLineGroup  {
         
         $returnData = new self( $resourceAttributes['version'] ?? null,
         $resourceAttributes['id'] ?? null,
-        $resourceAttributes['sub_total'] ,
+        $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['total'] ?? null,
         $resourceAttributes['credits_applied'] ?? null,
         $resourceAttributes['amount_paid'] ?? null,

@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class DeleteLocalPaymentSourceResponse extends ResponseBase { 
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
-    * @var PaymentSource $payment_source
+    * @var ?PaymentSource $payment_source
     */
-    public PaymentSource $payment_source;
+    public ?PaymentSource $payment_source;
     
 
     private function __construct(
-        Customer $customer,
-        PaymentSource $payment_source,
+        ?Customer $customer,
+        ?PaymentSource $payment_source,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->customer = $customer;
         $this->payment_source = $payment_source;
         
@@ -34,17 +35,23 @@ class DeleteLocalPaymentSourceResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Customer::from($resourceAttributes['customer']),
-             PaymentSource::from($resourceAttributes['payment_source']), $headers);
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
+            isset($resourceAttributes['payment_source']) ? PaymentSource::from($resourceAttributes['payment_source']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'customer' => $this->customer->toArray(), 
-            'payment_source' => $this->payment_source->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        }  
+        if($this->payment_source instanceof PaymentSource){
+            $data['payment_source'] = $this->payment_source->toArray();
+        } 
 
         return $data;
     }

@@ -9,12 +9,14 @@ class ResponseBase
      * @var array<string, string> $responseHeaders
      */
     protected ?array $responseHeaders;
+    private ?array $rawResponseData;
 
-    public function __construct(array $responseHeaders = [])
+    public function __construct(array $responseHeaders = [], array $rawResponseData = [])
     {
         $this->responseHeaders = $responseHeaders;
+        $this->rawResponseData = $rawResponseData;
     }
-
+    
     public function getResponseHeaders(): ?array
     {
         return $this->responseHeaders;
@@ -28,4 +30,8 @@ class ResponseBase
         }
         return false;
     }
+
+    public function getRawResponseData(): ?array { 
+        return $this->rawResponseData;
+    } 
 }

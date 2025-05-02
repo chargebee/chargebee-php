@@ -5,39 +5,39 @@ namespace Chargebee\Resources\CreditNoteEstimate;
 class CreditNoteEstimate  { 
     /**
     *
-    * @var string $reference_invoice_id
+    * @var ?string $reference_invoice_id
     */
-    public string $reference_invoice_id;
+    public ?string $reference_invoice_id;
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
-    * @var int $total
+    * @var ?int $total
     */
-    public int $total;
+    public ?int $total;
     
     /**
     *
-    * @var int $amount_allocated
+    * @var ?int $amount_allocated
     */
-    public int $amount_allocated;
+    public ?int $amount_allocated;
     
     /**
     *
-    * @var int $amount_available
+    * @var ?int $amount_available
     */
-    public int $amount_available;
+    public ?int $amount_available;
     
     /**
     *
@@ -89,15 +89,15 @@ class CreditNoteEstimate  {
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     *
-    * @var \Chargebee\Resources\CreditNoteEstimate\Enums\Type $type
+    * @var ?\Chargebee\Resources\CreditNoteEstimate\Enums\Type $type
     */
-    public \Chargebee\Resources\CreditNoteEstimate\Enums\Type $type;
+    public ?\Chargebee\Resources\CreditNoteEstimate\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -111,12 +111,12 @@ class CreditNoteEstimate  {
     protected $_data = [];
 
     private function __construct(
-        string $reference_invoice_id,
-        string $currency_code,
-        int $sub_total,
-        int $total,
-        int $amount_allocated,
-        int $amount_available,
+        ?string $reference_invoice_id,
+        ?string $currency_code,
+        ?int $sub_total,
+        ?int $total,
+        ?int $amount_allocated,
+        ?int $amount_available,
         ?array $line_items,
         ?array $discounts,
         ?array $taxes,
@@ -125,8 +125,8 @@ class CreditNoteEstimate  {
         ?array $line_item_tiers,
         ?int $round_off_amount,
         ?string $customer_id,
-        \Chargebee\Enums\PriceType $price_type,
-        \Chargebee\Resources\CreditNoteEstimate\Enums\Type $type,
+        ?\Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Resources\CreditNoteEstimate\Enums\Type $type,
     )
     { 
         $this->reference_invoice_id = $reference_invoice_id;
@@ -173,12 +173,12 @@ class CreditNoteEstimate  {
             $result
         ), $resourceAttributes['line_item_tiers'] ?? []);
         
-        $returnData = new self( $resourceAttributes['reference_invoice_id'] ,
-        $resourceAttributes['currency_code'] ,
-        $resourceAttributes['sub_total'] ,
-        $resourceAttributes['total'] ,
-        $resourceAttributes['amount_allocated'] ,
-        $resourceAttributes['amount_available'] ,
+        $returnData = new self( $resourceAttributes['reference_invoice_id'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['sub_total'] ?? null,
+        $resourceAttributes['total'] ?? null,
+        $resourceAttributes['amount_allocated'] ?? null,
+        $resourceAttributes['amount_available'] ?? null,
         $line_items,
         $discounts,
         $taxes,

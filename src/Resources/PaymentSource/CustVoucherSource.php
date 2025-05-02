@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentSource;
 class CustVoucherSource  { 
     /**
     *
-    * @var string $last4
+    * @var ?string $last4
     */
-    public string $last4;
+    public ?string $last4;
     
     /**
     *
@@ -39,7 +39,7 @@ class CustVoucherSource  {
     protected $_data = [];
 
     private function __construct(
-        string $last4,
+        ?string $last4,
         ?string $first_name,
         ?string $last_name,
         ?string $email,
@@ -53,7 +53,7 @@ class CustVoucherSource  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['last4'] ,
+        $returnData = new self( $resourceAttributes['last4'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,
