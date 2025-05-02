@@ -5,21 +5,21 @@ namespace Chargebee\Resources\PaymentSource;
 class Mandate  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     * @var array<string> $knownFields
@@ -33,9 +33,9 @@ class Mandate  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $subscription_id,
-        int $created_at,
+        ?string $id,
+        ?string $subscription_id,
+        ?int $created_at,
     )
     { 
         $this->id = $id;
@@ -45,9 +45,9 @@ class Mandate  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['subscription_id'] ,
-        $resourceAttributes['created_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         
          
         );

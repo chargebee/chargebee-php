@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Gift;
 class Gift  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,15 +17,15 @@ class Gift  {
     
     /**
     *
-    * @var bool $auto_claim
+    * @var ?bool $auto_claim
     */
-    public bool $auto_claim;
+    public ?bool $auto_claim;
     
     /**
     *
-    * @var bool $no_expiry
+    * @var ?bool $no_expiry
     */
-    public bool $no_expiry;
+    public ?bool $no_expiry;
     
     /**
     *
@@ -47,15 +47,15 @@ class Gift  {
     
     /**
     *
-    * @var Gifter $gifter
+    * @var ?Gifter $gifter
     */
-    public Gifter $gifter;
+    public ?Gifter $gifter;
     
     /**
     *
-    * @var GiftReceiver $gift_receiver
+    * @var ?GiftReceiver $gift_receiver
     */
-    public GiftReceiver $gift_receiver;
+    public ?GiftReceiver $gift_receiver;
     
     /**
     *
@@ -65,9 +65,9 @@ class Gift  {
     
     /**
     *
-    * @var \Chargebee\Resources\Gift\Enums\Status $status
+    * @var ?\Chargebee\Resources\Gift\Enums\Status $status
     */
-    public \Chargebee\Resources\Gift\Enums\Status $status;
+    public ?\Chargebee\Resources\Gift\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -81,17 +81,17 @@ class Gift  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?int $scheduled_at,
-        bool $auto_claim,
-        bool $no_expiry,
+        ?bool $auto_claim,
+        ?bool $no_expiry,
         ?int $claim_expiry_date,
         ?int $resource_version,
         ?int $updated_at,
-        Gifter $gifter,
-        GiftReceiver $gift_receiver,
+        ?Gifter $gifter,
+        ?GiftReceiver $gift_receiver,
         ?array $gift_timelines,
-        \Chargebee\Resources\Gift\Enums\Status $status,
+        ?\Chargebee\Resources\Gift\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -113,10 +113,10 @@ class Gift  {
             $result
         ), $resourceAttributes['gift_timelines'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['scheduled_at'] ?? null,
-        $resourceAttributes['auto_claim'] ,
-        $resourceAttributes['no_expiry'] ,
+        $resourceAttributes['auto_claim'] ?? null,
+        $resourceAttributes['no_expiry'] ?? null,
         $resourceAttributes['claim_expiry_date'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
@@ -142,8 +142,8 @@ class Gift  {
         'claim_expiry_date' => $this->claim_expiry_date,
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,
-        'gifter' => $this->gifter->toArray(),
-        'gift_receiver' => $this->gift_receiver->toArray(),
+        
+        
         
         
         'status' => $this->status?->value,
@@ -153,6 +153,12 @@ class Gift  {
         });
 
         
+        if($this->gifter instanceof Gifter){
+            $data['gifter'] = $this->gifter->toArray();
+        }
+        if($this->gift_receiver instanceof GiftReceiver){
+            $data['gift_receiver'] = $this->gift_receiver->toArray();
+        }
         
         if($this->gift_timelines !== []){
             $data['gift_timelines'] = array_map(

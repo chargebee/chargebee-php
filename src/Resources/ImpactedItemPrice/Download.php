@@ -5,15 +5,15 @@ namespace Chargebee\Resources\ImpactedItemPrice;
 class Download  { 
     /**
     *
-    * @var string $download_url
+    * @var ?string $download_url
     */
-    public string $download_url;
+    public ?string $download_url;
     
     /**
     *
-    * @var int $valid_till
+    * @var ?int $valid_till
     */
-    public int $valid_till;
+    public ?int $valid_till;
     
     /**
     *
@@ -33,8 +33,8 @@ class Download  {
     protected $_data = [];
 
     private function __construct(
-        string $download_url,
-        int $valid_till,
+        ?string $download_url,
+        ?int $valid_till,
         ?string $mime_type,
     )
     { 
@@ -45,8 +45,8 @@ class Download  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['download_url'] ,
-        $resourceAttributes['valid_till'] ,
+        $returnData = new self( $resourceAttributes['download_url'] ?? null,
+        $resourceAttributes['valid_till'] ?? null,
         $resourceAttributes['mime_type'] ?? null,
         
          

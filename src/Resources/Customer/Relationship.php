@@ -11,15 +11,15 @@ class Relationship  {
     
     /**
     *
-    * @var string $payment_owner_id
+    * @var ?string $payment_owner_id
     */
-    public string $payment_owner_id;
+    public ?string $payment_owner_id;
     
     /**
     *
-    * @var string $invoice_owner_id
+    * @var ?string $invoice_owner_id
     */
-    public string $invoice_owner_id;
+    public ?string $invoice_owner_id;
     
     /**
     * @var array<string> $knownFields
@@ -34,8 +34,8 @@ class Relationship  {
 
     private function __construct(
         ?string $parent_id,
-        string $payment_owner_id,
-        string $invoice_owner_id,
+        ?string $payment_owner_id,
+        ?string $invoice_owner_id,
     )
     { 
         $this->parent_id = $parent_id;
@@ -46,8 +46,8 @@ class Relationship  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['parent_id'] ?? null,
-        $resourceAttributes['payment_owner_id'] ,
-        $resourceAttributes['invoice_owner_id'] ,
+        $resourceAttributes['payment_owner_id'] ?? null,
+        $resourceAttributes['invoice_owner_id'] ?? null,
         
          
         );

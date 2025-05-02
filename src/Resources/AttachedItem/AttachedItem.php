@@ -5,21 +5,21 @@ namespace Chargebee\Resources\AttachedItem;
 class AttachedItem  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $parent_item_id
+    * @var ?string $parent_item_id
     */
-    public string $parent_item_id;
+    public ?string $parent_item_id;
     
     /**
     *
-    * @var string $item_id
+    * @var ?string $item_id
     */
-    public string $item_id;
+    public ?string $item_id;
     
     /**
     *
@@ -41,15 +41,15 @@ class AttachedItem  {
     
     /**
     *
-    * @var bool $charge_once
+    * @var ?bool $charge_once
     */
-    public bool $charge_once;
+    public ?bool $charge_once;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -71,15 +71,15 @@ class AttachedItem  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
-    * @var \Chargebee\Enums\ChargeOnEvent $charge_on_event
+    * @var ?\Chargebee\Enums\ChargeOnEvent $charge_on_event
     */
-    public \Chargebee\Enums\ChargeOnEvent $charge_on_event;
+    public ?\Chargebee\Enums\ChargeOnEvent $charge_on_event;
     
     /**
     *
@@ -89,9 +89,9 @@ class AttachedItem  {
     
     /**
     *
-    * @var \Chargebee\Resources\AttachedItem\Enums\Type $type
+    * @var ?\Chargebee\Resources\AttachedItem\Enums\Type $type
     */
-    public \Chargebee\Resources\AttachedItem\Enums\Type $type;
+    public ?\Chargebee\Resources\AttachedItem\Enums\Type $type;
     
     /**
     *
@@ -111,21 +111,21 @@ class AttachedItem  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $parent_item_id,
-        string $item_id,
+        ?string $id,
+        ?string $parent_item_id,
+        ?string $item_id,
         ?int $quantity,
         ?string $quantity_in_decimal,
         ?int $billing_cycles,
-        bool $charge_once,
-        int $created_at,
+        ?bool $charge_once,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?string $business_entity_id,
-        bool $deleted,
-        \Chargebee\Enums\ChargeOnEvent $charge_on_event,
+        ?bool $deleted,
+        ?\Chargebee\Enums\ChargeOnEvent $charge_on_event,
         ?\Chargebee\Enums\Channel $channel,
-        \Chargebee\Resources\AttachedItem\Enums\Type $type,
+        ?\Chargebee\Resources\AttachedItem\Enums\Type $type,
         ?\Chargebee\Resources\AttachedItem\Enums\Status $status,
     )
     { 
@@ -149,18 +149,18 @@ class AttachedItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['parent_item_id'] ,
-        $resourceAttributes['item_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['parent_item_id'] ?? null,
+        $resourceAttributes['item_id'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['billing_cycles'] ?? null,
-        $resourceAttributes['charge_once'] ,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['charge_once'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['charge_on_event']) ? \Chargebee\Enums\ChargeOnEvent::tryFromValue($resourceAttributes['charge_on_event']) : null,

@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Subscription;
 class ChargedItem  { 
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
-    * @var int $last_charged_at
+    * @var ?int $last_charged_at
     */
-    public int $last_charged_at;
+    public ?int $last_charged_at;
     
     /**
     * @var array<string> $knownFields
@@ -27,8 +27,8 @@ class ChargedItem  {
     protected $_data = [];
 
     private function __construct(
-        string $item_price_id,
-        int $last_charged_at,
+        ?string $item_price_id,
+        ?int $last_charged_at,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -37,8 +37,8 @@ class ChargedItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_price_id'] ,
-        $resourceAttributes['last_charged_at'] ,
+        $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
+        $resourceAttributes['last_charged_at'] ?? null,
         
          
         );

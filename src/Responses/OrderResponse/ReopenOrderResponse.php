@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class ReopenOrderResponse extends ResponseBase { 
     /**
     *
-    * @var Order $order
+    * @var ?Order $order
     */
-    public Order $order;
+    public ?Order $order;
     
 
     private function __construct(
-        Order $order,
+        ?Order $order,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->order = $order;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Order::from($resourceAttributes['order']), $headers);
+            isset($resourceAttributes['order']) ? Order::from($resourceAttributes['order']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'order' => $this->order->toArray(),
         ]);
-        
+         
+        if($this->order instanceof Order){
+            $data['order'] = $this->order->toArray();
+        } 
 
         return $data;
     }

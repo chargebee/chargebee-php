@@ -25,9 +25,10 @@ class ListSubscriptionResponse extends ResponseBase {
         array $list,
         ?string $next_offset,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->list = $list;
         $this->next_offset = $next_offset;
         
@@ -44,7 +45,7 @@ class ListSubscriptionResponse extends ResponseBase {
                 );}, $resourceAttributes['list'] ?? []);
         
         return new self($list,
-            $resourceAttributes['next_offset'] ?? null, $headers);
+            $resourceAttributes['next_offset'] ?? null, $headers, $resourceAttributes);
     }
 
     public function toArray(): array

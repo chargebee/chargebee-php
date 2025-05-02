@@ -15,9 +15,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class ConvertQuoteResponse extends ResponseBase { 
     /**
     *
-    * @var Quote $quote
+    * @var ?Quote $quote
     */
-    public Quote $quote;
+    public ?Quote $quote;
     
     /**
     *
@@ -33,9 +33,9 @@ class ConvertQuoteResponse extends ResponseBase {
     
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
     /**
     *
@@ -63,18 +63,19 @@ class ConvertQuoteResponse extends ResponseBase {
     
 
     private function __construct(
-        Quote $quote,
+        ?Quote $quote,
         ?QuotedSubscription $quoted_subscription,
         ?QuotedCharge $quoted_charge,
-        Customer $customer,
+        ?Customer $customer,
         ?Subscription $subscription,
         ?Invoice $invoice,
         ?CreditNote $credit_note,
         ?array $unbilled_charges,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->quote = $quote;
         $this->quoted_subscription = $quoted_subscription;
         $this->quoted_charge = $quoted_charge;
@@ -92,32 +93,38 @@ class ConvertQuoteResponse extends ResponseBase {
         ), $resourceAttributes['unbilled_charges'] ?? []);
         
         return new self(
-             Quote::from($resourceAttributes['quote']),
+            isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
+            
             isset($resourceAttributes['quoted_subscription']) ? QuotedSubscription::from($resourceAttributes['quoted_subscription']) : null,
             
             isset($resourceAttributes['quoted_charge']) ? QuotedCharge::from($resourceAttributes['quoted_charge']) : null,
             
-             Customer::from($resourceAttributes['customer']),
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+            
             isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
             
             isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
             
             isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
-            $unbilled_charges, $headers);
+            $unbilled_charges, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'quote' => $this->quote->toArray(),   
-            'customer' => $this->customer->toArray(),    
+        $data = array_filter([        
         ]);
          
+        if($this->quote instanceof Quote){
+            $data['quote'] = $this->quote->toArray();
+        }  
         if($this->quoted_subscription instanceof QuotedSubscription){
             $data['quoted_subscription'] = $this->quoted_subscription->toArray();
         }  
         if($this->quoted_charge instanceof QuotedCharge){
             $data['quoted_charge'] = $this->quoted_charge->toArray();
+        }  
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
         }  
         if($this->subscription instanceof Subscription){
             $data['subscription'] = $this->subscription->toArray();

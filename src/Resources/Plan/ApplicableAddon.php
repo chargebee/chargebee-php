@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Plan;
 class ApplicableAddon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     * @var array<string> $knownFields
@@ -21,7 +21,7 @@ class ApplicableAddon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
     )
     { 
         $this->id = $id;  
@@ -29,7 +29,7 @@ class ApplicableAddon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         
          
         );

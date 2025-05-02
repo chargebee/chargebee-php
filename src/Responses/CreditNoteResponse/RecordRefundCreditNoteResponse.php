@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class RecordRefundCreditNoteResponse extends ResponseBase { 
     /**
     *
-    * @var CreditNote $credit_note
+    * @var ?CreditNote $credit_note
     */
-    public CreditNote $credit_note;
+    public ?CreditNote $credit_note;
     
     /**
     *
@@ -21,12 +21,13 @@ class RecordRefundCreditNoteResponse extends ResponseBase {
     
 
     private function __construct(
-        CreditNote $credit_note,
+        ?CreditNote $credit_note,
         ?Transaction $transaction,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->credit_note = $credit_note;
         $this->transaction = $transaction;
         
@@ -34,17 +35,20 @@ class RecordRefundCreditNoteResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             CreditNote::from($resourceAttributes['credit_note']),
+            isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
+            
             isset($resourceAttributes['transaction']) ? Transaction::from($resourceAttributes['transaction']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'credit_note' => $this->credit_note->toArray(), 
+        $data = array_filter([  
         ]);
          
+        if($this->credit_note instanceof CreditNote){
+            $data['credit_note'] = $this->credit_note->toArray();
+        }  
         if($this->transaction instanceof Transaction){
             $data['transaction'] = $this->transaction->toArray();
         } 

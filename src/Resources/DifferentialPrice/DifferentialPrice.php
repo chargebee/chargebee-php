@@ -5,21 +5,21 @@ namespace Chargebee\Resources\DifferentialPrice;
 class DifferentialPrice  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
-    * @var string $parent_item_id
+    * @var ?string $parent_item_id
     */
-    public string $parent_item_id;
+    public ?string $parent_item_id;
     
     /**
     *
@@ -47,15 +47,15 @@ class DifferentialPrice  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $modified_at
+    * @var ?int $modified_at
     */
-    public int $modified_at;
+    public ?int $modified_at;
     
     /**
     *
@@ -65,9 +65,9 @@ class DifferentialPrice  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -83,9 +83,9 @@ class DifferentialPrice  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -105,20 +105,20 @@ class DifferentialPrice  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $item_price_id,
-        string $parent_item_id,
+        ?string $id,
+        ?string $item_price_id,
+        ?string $parent_item_id,
         ?int $price,
         ?string $price_in_decimal,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
-        int $modified_at,
+        ?int $created_at,
+        ?int $modified_at,
         ?array $tiers,
-        string $currency_code,
+        ?string $currency_code,
         ?array $parent_periods,
         ?string $business_entity_id,
-        bool $deleted,
+        ?bool $deleted,
         ?\Chargebee\Resources\DifferentialPrice\Enums\Status $status,
     )
     { 
@@ -149,20 +149,20 @@ class DifferentialPrice  {
             $result
         ), $resourceAttributes['parent_periods'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['item_price_id'] ,
-        $resourceAttributes['parent_item_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['item_price_id'] ?? null,
+        $resourceAttributes['parent_item_id'] ?? null,
         $resourceAttributes['price'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['modified_at'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
         $tiers,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $parent_periods,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\DifferentialPrice\Enums\Status::tryFromValue($resourceAttributes['status']) : null,

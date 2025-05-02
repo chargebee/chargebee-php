@@ -5,9 +5,9 @@ namespace Chargebee\Resources\QuotedSubscription;
 class Addon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -75,7 +75,7 @@ class Addon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?int $quantity,
         ?int $unit_price,
         ?int $amount,
@@ -101,7 +101,7 @@ class Addon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['unit_price'] ?? null,
         $resourceAttributes['amount'] ?? null,

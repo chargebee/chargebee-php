@@ -17,21 +17,21 @@ class OmnichannelSubscriptionItemScheduledChange  {
     
     /**
     *
-    * @var int $scheduled_at
+    * @var ?int $scheduled_at
     */
-    public int $scheduled_at;
+    public ?int $scheduled_at;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $modified_at
+    * @var ?int $modified_at
     */
-    public int $modified_at;
+    public ?int $modified_at;
     
     /**
     *
@@ -53,9 +53,9 @@ class OmnichannelSubscriptionItemScheduledChange  {
     
     /**
     *
-    * @var \Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type
+    * @var ?\Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type
     */
-    public \Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type;
+    public ?\Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type;
     
     /**
     * @var array<string> $knownFields
@@ -71,13 +71,13 @@ class OmnichannelSubscriptionItemScheduledChange  {
     private function __construct(
         ?string $id,
         ?string $omnichannel_subscription_item_id,
-        int $scheduled_at,
-        int $created_at,
-        int $modified_at,
+        ?int $scheduled_at,
+        ?int $created_at,
+        ?int $modified_at,
         ?int $resource_version,
         ?CurrentState $current_state,
         ?ScheduledState $scheduled_state,
-        \Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type,
+        ?\Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType $change_type,
     )
     { 
         $this->id = $id;
@@ -95,9 +95,9 @@ class OmnichannelSubscriptionItemScheduledChange  {
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['omnichannel_subscription_item_id'] ?? null,
-        $resourceAttributes['scheduled_at'] ,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['modified_at'] ,
+        $resourceAttributes['scheduled_at'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         isset($resourceAttributes['current_state']) ? CurrentState::from($resourceAttributes['current_state']) : null,
         isset($resourceAttributes['scheduled_state']) ? ScheduledState::from($resourceAttributes['scheduled_state']) : null,

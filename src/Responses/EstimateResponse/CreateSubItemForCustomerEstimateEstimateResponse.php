@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateSubItemForCustomerEstimateEstimateResponse extends ResponseBase { 
     /**
     *
-    * @var Estimate $estimate
+    * @var ?Estimate $estimate
     */
-    public Estimate $estimate;
+    public ?Estimate $estimate;
     
 
     private function __construct(
-        Estimate $estimate,
+        ?Estimate $estimate,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->estimate = $estimate;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Estimate::from($resourceAttributes['estimate']), $headers);
+            isset($resourceAttributes['estimate']) ? Estimate::from($resourceAttributes['estimate']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'estimate' => $this->estimate->toArray(),
         ]);
-        
+         
+        if($this->estimate instanceof Estimate){
+            $data['estimate'] = $this->estimate->toArray();
+        } 
 
         return $data;
     }

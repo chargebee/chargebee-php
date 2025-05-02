@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Invoice;
 class Note  { 
     /**
     *
-    * @var string $entity_type
+    * @var ?string $entity_type
     */
-    public string $entity_type;
+    public ?string $entity_type;
     
     /**
     *
-    * @var string $note
+    * @var ?string $note
     */
-    public string $note;
+    public ?string $note;
     
     /**
     *
@@ -33,8 +33,8 @@ class Note  {
     protected $_data = [];
 
     private function __construct(
-        string $entity_type,
-        string $note,
+        ?string $entity_type,
+        ?string $note,
         ?string $entity_id,
     )
     { 
@@ -45,8 +45,8 @@ class Note  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['entity_type'] ,
-        $resourceAttributes['note'] ,
+        $returnData = new self( $resourceAttributes['entity_type'] ?? null,
+        $resourceAttributes['note'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         
          

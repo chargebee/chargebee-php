@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Ramp;
 class ItemsToUpdate  { 
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
-    * @var string $item_type
+    * @var ?string $item_type
     */
-    public string $item_type;
+    public ?string $item_type;
     
     /**
     *
@@ -93,8 +93,8 @@ class ItemsToUpdate  {
     protected $_data = [];
 
     private function __construct(
-        string $item_price_id,
-        string $item_type,
+        ?string $item_price_id,
+        ?string $item_type,
         ?int $quantity,
         ?string $quantity_in_decimal,
         ?int $unit_price,
@@ -125,8 +125,8 @@ class ItemsToUpdate  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_price_id'] ,
-        $resourceAttributes['item_type'] ,
+        $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
+        $resourceAttributes['item_type'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price'] ?? null,

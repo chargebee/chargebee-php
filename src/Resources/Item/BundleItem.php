@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Item;
 class BundleItem  { 
     /**
     *
-    * @var string $item_id
+    * @var ?string $item_id
     */
-    public string $item_id;
+    public ?string $item_id;
     
     /**
     *
@@ -39,7 +39,7 @@ class BundleItem  {
     protected $_data = [];
 
     private function __construct(
-        string $item_id,
+        ?string $item_id,
         ?string $item_type,
         ?int $quantity,
         ?int $price_allocation,
@@ -53,7 +53,7 @@ class BundleItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_id'] ,
+        $returnData = new self( $resourceAttributes['item_id'] ?? null,
         $resourceAttributes['item_type'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['price_allocation'] ?? null,

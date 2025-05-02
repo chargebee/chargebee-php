@@ -5,15 +5,15 @@ namespace Chargebee\Resources\PaymentReferenceNumber;
 class PaymentReferenceNumber  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $number
+    * @var ?string $number
     */
-    public string $number;
+    public ?string $number;
     
     /**
     *
@@ -23,9 +23,9 @@ class PaymentReferenceNumber  {
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type
+    * @var ?\Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type
     */
-    public \Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type;
+    public ?\Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -39,10 +39,10 @@ class PaymentReferenceNumber  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $number,
+        ?string $id,
+        ?string $number,
         ?string $invoice_id,
-        \Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type,
+        ?\Chargebee\Resources\PaymentReferenceNumber\Enums\Type $type,
     )
     { 
         $this->id = $id;
@@ -53,8 +53,8 @@ class PaymentReferenceNumber  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['number'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['number'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,
         
          

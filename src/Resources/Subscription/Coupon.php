@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Subscription;
 class Coupon  { 
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
@@ -17,9 +17,9 @@ class Coupon  {
     
     /**
     *
-    * @var int $applied_count
+    * @var ?int $applied_count
     */
-    public int $applied_count;
+    public ?int $applied_count;
     
     /**
     *
@@ -39,9 +39,9 @@ class Coupon  {
     protected $_data = [];
 
     private function __construct(
-        string $coupon_id,
+        ?string $coupon_id,
         ?int $apply_till,
-        int $applied_count,
+        ?int $applied_count,
         ?string $coupon_code,
     )
     { 
@@ -53,9 +53,9 @@ class Coupon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['coupon_id'] ,
+        $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['apply_till'] ?? null,
-        $resourceAttributes['applied_count'] ,
+        $resourceAttributes['applied_count'] ?? null,
         $resourceAttributes['coupon_code'] ?? null,
         
          

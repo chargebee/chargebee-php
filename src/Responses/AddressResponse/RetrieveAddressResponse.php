@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrieveAddressResponse extends ResponseBase { 
     /**
     *
-    * @var Address $address
+    * @var ?Address $address
     */
-    public Address $address;
+    public ?Address $address;
     
 
     private function __construct(
-        Address $address,
+        ?Address $address,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->address = $address;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Address::from($resourceAttributes['address']), $headers);
+            isset($resourceAttributes['address']) ? Address::from($resourceAttributes['address']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'address' => $this->address->toArray(),
         ]);
-        
+         
+        if($this->address instanceof Address){
+            $data['address'] = $this->address->toArray();
+        } 
 
         return $data;
     }

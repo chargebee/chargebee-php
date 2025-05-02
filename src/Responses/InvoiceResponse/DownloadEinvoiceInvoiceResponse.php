@@ -8,17 +8,18 @@ use Chargebee\ValueObjects\ResponseBase;
 class DownloadEinvoiceInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var array<Download> $downloads
+    * @var ?array<Download> $downloads
     */
-    public array $downloads;
+    public ?array $downloads;
     
 
     private function __construct(
-        array $downloads,
+        ?array $downloads,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->downloads = $downloads;
         
     }
@@ -26,16 +27,16 @@ class DownloadEinvoiceInvoiceResponse extends ResponseBase {
     {
         $downloads = array_map(fn (array $result): Download =>  Download::from(
             $result
-        ), $resourceAttributes['downloads'] );
+        ), $resourceAttributes['downloads'] ?? []);
         
-        return new self($downloads, $headers);
+        return new self($downloads, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
         ]);
-        
+          
 
         if($this->downloads !== []) {
             $data['downloads'] = array_map(

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\UnbilledCharge;
 class Tier  { 
     /**
     *
-    * @var int $starting_unit
+    * @var ?int $starting_unit
     */
-    public int $starting_unit;
+    public ?int $starting_unit;
     
     /**
     *
@@ -17,15 +17,15 @@ class Tier  {
     
     /**
     *
-    * @var int $quantity_used
+    * @var ?int $quantity_used
     */
-    public int $quantity_used;
+    public ?int $quantity_used;
     
     /**
     *
-    * @var int $unit_amount
+    * @var ?int $unit_amount
     */
-    public int $unit_amount;
+    public ?int $unit_amount;
     
     /**
     *
@@ -75,10 +75,10 @@ class Tier  {
     protected $_data = [];
 
     private function __construct(
-        int $starting_unit,
+        ?int $starting_unit,
         ?int $ending_unit,
-        int $quantity_used,
-        int $unit_amount,
+        ?int $quantity_used,
+        ?int $unit_amount,
         ?string $starting_unit_in_decimal,
         ?string $ending_unit_in_decimal,
         ?string $quantity_used_in_decimal,
@@ -101,10 +101,10 @@ class Tier  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['starting_unit'] ,
+        $returnData = new self( $resourceAttributes['starting_unit'] ?? null,
         $resourceAttributes['ending_unit'] ?? null,
-        $resourceAttributes['quantity_used'] ,
-        $resourceAttributes['unit_amount'] ,
+        $resourceAttributes['quantity_used'] ?? null,
+        $resourceAttributes['unit_amount'] ?? null,
         $resourceAttributes['starting_unit_in_decimal'] ?? null,
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['quantity_used_in_decimal'] ?? null,

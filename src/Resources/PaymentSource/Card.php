@@ -17,39 +17,39 @@ class Card  {
     
     /**
     *
-    * @var string $iin
+    * @var ?string $iin
     */
-    public string $iin;
+    public ?string $iin;
     
     /**
     *
-    * @var string $last4
+    * @var ?string $last4
     */
-    public string $last4;
+    public ?string $last4;
     
     /**
     *
-    * @var string $brand
+    * @var ?string $brand
     */
-    public string $brand;
+    public ?string $brand;
     
     /**
     *
-    * @var string $funding_type
+    * @var ?string $funding_type
     */
-    public string $funding_type;
+    public ?string $funding_type;
     
     /**
     *
-    * @var int $expiry_month
+    * @var ?int $expiry_month
     */
-    public int $expiry_month;
+    public ?int $expiry_month;
     
     /**
     *
-    * @var int $expiry_year
+    * @var ?int $expiry_year
     */
-    public int $expiry_year;
+    public ?int $expiry_year;
     
     /**
     *
@@ -113,12 +113,12 @@ class Card  {
     private function __construct(
         ?string $first_name,
         ?string $last_name,
-        string $iin,
-        string $last4,
-        string $brand,
-        string $funding_type,
-        int $expiry_month,
-        int $expiry_year,
+        ?string $iin,
+        ?string $last4,
+        ?string $brand,
+        ?string $funding_type,
+        ?int $expiry_month,
+        ?int $expiry_year,
         ?string $billing_addr1,
         ?string $billing_addr2,
         ?string $billing_city,
@@ -151,12 +151,12 @@ class Card  {
     { 
         $returnData = new self( $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
-        $resourceAttributes['iin'] ,
-        $resourceAttributes['last4'] ,
-        $resourceAttributes['brand'] ,
-        $resourceAttributes['funding_type'] ,
-        $resourceAttributes['expiry_month'] ,
-        $resourceAttributes['expiry_year'] ,
+        $resourceAttributes['iin'] ?? null,
+        $resourceAttributes['last4'] ?? null,
+        $resourceAttributes['brand'] ?? null,
+        $resourceAttributes['funding_type'] ?? null,
+        $resourceAttributes['expiry_month'] ?? null,
+        $resourceAttributes['expiry_year'] ?? null,
         $resourceAttributes['billing_addr1'] ?? null,
         $resourceAttributes['billing_addr2'] ?? null,
         $resourceAttributes['billing_city'] ?? null,

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Order;
 class Order  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -149,9 +149,9 @@ class Order  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -191,9 +191,9 @@ class Order  {
     
     /**
     *
-    * @var bool $is_resent
+    * @var ?bool $is_resent
     */
-    public bool $is_resent;
+    public ?bool $is_resent;
     
     /**
     *
@@ -257,9 +257,9 @@ class Order  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -305,9 +305,9 @@ class Order  {
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     *
@@ -351,7 +351,7 @@ class Order  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $document_number,
         ?string $invoice_id,
         ?string $subscription_id,
@@ -375,14 +375,14 @@ class Order  {
         ?int $rounding_adjustement,
         ?int $paid_on,
         ?int $shipping_cut_off_date,
-        int $created_at,
+        ?int $created_at,
         ?int $status_update_at,
         ?int $delivered_at,
         ?int $shipped_at,
         ?int $resource_version,
         ?int $updated_at,
         ?int $cancelled_at,
-        bool $is_resent,
+        ?bool $is_resent,
         ?string $original_order_id,
         ?array $order_line_items,
         ?ShippingAddress $shipping_address,
@@ -393,7 +393,7 @@ class Order  {
         ?array $line_item_taxes,
         ?array $line_item_discounts,
         ?array $linked_credit_notes,
-        bool $deleted,
+        ?bool $deleted,
         ?string $currency_code,
         ?bool $is_gifted,
         ?string $gift_note,
@@ -401,7 +401,7 @@ class Order  {
         ?string $resend_reason,
         ?array $resent_orders,
         ?string $business_entity_id,
-        \Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Resources\Order\Enums\Status $status,
         ?\Chargebee\Resources\Order\Enums\CancellationReason $cancellation_reason,
         ?\Chargebee\Resources\Order\Enums\PaymentStatus $payment_status,
@@ -489,7 +489,7 @@ class Order  {
             $result
         ), $resourceAttributes['resent_orders'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['document_number'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
@@ -513,14 +513,14 @@ class Order  {
         $resourceAttributes['rounding_adjustement'] ?? null,
         $resourceAttributes['paid_on'] ?? null,
         $resourceAttributes['shipping_cut_off_date'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['status_update_at'] ?? null,
         $resourceAttributes['delivered_at'] ?? null,
         $resourceAttributes['shipped_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['cancelled_at'] ?? null,
-        $resourceAttributes['is_resent'] ,
+        $resourceAttributes['is_resent'] ?? null,
         $resourceAttributes['original_order_id'] ?? null,
         $order_line_items,
         isset($resourceAttributes['shipping_address']) ? ShippingAddress::from($resourceAttributes['shipping_address']) : null,
@@ -531,7 +531,7 @@ class Order  {
         $line_item_taxes,
         $line_item_discounts,
         $linked_credit_notes,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['is_gifted'] ?? null,
         $resourceAttributes['gift_note'] ?? null,

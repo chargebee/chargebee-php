@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Plan;
 class TaxProvidersField  { 
     /**
     *
-    * @var string $provider_name
+    * @var ?string $provider_name
     */
-    public string $provider_name;
+    public ?string $provider_name;
     
     /**
     *
-    * @var string $field_id
+    * @var ?string $field_id
     */
-    public string $field_id;
+    public ?string $field_id;
     
     /**
     *
-    * @var string $field_value
+    * @var ?string $field_value
     */
-    public string $field_value;
+    public ?string $field_value;
     
     /**
     * @var array<string> $knownFields
@@ -33,9 +33,9 @@ class TaxProvidersField  {
     protected $_data = [];
 
     private function __construct(
-        string $provider_name,
-        string $field_id,
-        string $field_value,
+        ?string $provider_name,
+        ?string $field_id,
+        ?string $field_value,
     )
     { 
         $this->provider_name = $provider_name;
@@ -45,9 +45,9 @@ class TaxProvidersField  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['provider_name'] ,
-        $resourceAttributes['field_id'] ,
-        $resourceAttributes['field_value'] ,
+        $returnData = new self( $resourceAttributes['provider_name'] ?? null,
+        $resourceAttributes['field_id'] ?? null,
+        $resourceAttributes['field_value'] ?? null,
         
          
         );

@@ -8,24 +8,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class RemoveScheduleCurrencyResponse extends ResponseBase { 
     /**
     *
-    * @var int $scheduled_at
+    * @var ?int $scheduled_at
     */
-    public int $scheduled_at;
+    public ?int $scheduled_at;
     
     /**
     *
-    * @var Currency $currency
+    * @var ?Currency $currency
     */
-    public Currency $currency;
+    public ?Currency $currency;
     
 
     private function __construct(
-        int $scheduled_at,
-        Currency $currency,
+        ?int $scheduled_at,
+        ?Currency $currency,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->scheduled_at = $scheduled_at;
         $this->currency = $currency;
         
@@ -33,17 +34,20 @@ class RemoveScheduleCurrencyResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-            $resourceAttributes['scheduled_at'] ,
-             Currency::from($resourceAttributes['currency']), $headers);
+            $resourceAttributes['scheduled_at'] ?? null,
+            isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([
             'scheduled_at' => $this->scheduled_at, 
-            'currency' => $this->currency->toArray(),
         ]);
-        
+           
+        if($this->currency instanceof Currency){
+            $data['currency'] = $this->currency->toArray();
+        } 
 
         return $data;
     }

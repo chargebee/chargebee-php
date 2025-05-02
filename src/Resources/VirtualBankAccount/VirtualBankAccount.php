@@ -5,21 +5,21 @@ namespace Chargebee\Resources\VirtualBankAccount;
 class VirtualBankAccount  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
-    * @var string $email
+    * @var ?string $email
     */
-    public string $email;
+    public ?string $email;
     
     /**
     *
@@ -29,9 +29,9 @@ class VirtualBankAccount  {
     
     /**
     *
-    * @var string $account_number
+    * @var ?string $account_number
     */
-    public string $account_number;
+    public ?string $account_number;
     
     /**
     *
@@ -41,15 +41,15 @@ class VirtualBankAccount  {
     
     /**
     *
-    * @var string $swift_code
+    * @var ?string $swift_code
     */
-    public string $swift_code;
+    public ?string $swift_code;
     
     /**
     *
-    * @var string $gateway_account_id
+    * @var ?string $gateway_account_id
     */
-    public string $gateway_account_id;
+    public ?string $gateway_account_id;
     
     /**
     *
@@ -65,27 +65,27 @@ class VirtualBankAccount  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var string $reference_id
+    * @var ?string $reference_id
     */
-    public string $reference_id;
+    public ?string $reference_id;
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
@@ -105,20 +105,20 @@ class VirtualBankAccount  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $customer_id,
-        string $email,
+        ?string $id,
+        ?string $customer_id,
+        ?string $email,
         ?string $bank_name,
-        string $account_number,
+        ?string $account_number,
         ?string $routing_number,
-        string $swift_code,
-        string $gateway_account_id,
+        ?string $swift_code,
+        ?string $gateway_account_id,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
-        string $reference_id,
-        bool $deleted,
-        \Chargebee\Enums\Gateway $gateway,
+        ?int $created_at,
+        ?string $reference_id,
+        ?bool $deleted,
+        ?\Chargebee\Enums\Gateway $gateway,
         ?\Chargebee\Resources\VirtualBankAccount\Enums\Scheme $scheme,
     )
     { 
@@ -141,19 +141,19 @@ class VirtualBankAccount  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['customer_id'] ,
-        $resourceAttributes['email'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['email'] ?? null,
         $resourceAttributes['bank_name'] ?? null,
-        $resourceAttributes['account_number'] ,
+        $resourceAttributes['account_number'] ?? null,
         $resourceAttributes['routing_number'] ?? null,
-        $resourceAttributes['swift_code'] ,
-        $resourceAttributes['gateway_account_id'] ,
+        $resourceAttributes['swift_code'] ?? null,
+        $resourceAttributes['gateway_account_id'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['reference_id'] ,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['reference_id'] ?? null,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,

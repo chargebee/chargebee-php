@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class VoidTransactionTransactionResponse extends ResponseBase { 
     /**
     *
-    * @var Transaction $transaction
+    * @var ?Transaction $transaction
     */
-    public Transaction $transaction;
+    public ?Transaction $transaction;
     
 
     private function __construct(
-        Transaction $transaction,
+        ?Transaction $transaction,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->transaction = $transaction;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Transaction::from($resourceAttributes['transaction']), $headers);
+            isset($resourceAttributes['transaction']) ? Transaction::from($resourceAttributes['transaction']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'transaction' => $this->transaction->toArray(),
         ]);
-        
+         
+        if($this->transaction instanceof Transaction){
+            $data['transaction'] = $this->transaction->toArray();
+        } 
 
         return $data;
     }

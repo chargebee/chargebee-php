@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Subscription;
 class Discount  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,9 +17,9 @@ class Discount  {
     
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
@@ -41,9 +41,9 @@ class Discount  {
     
     /**
     *
-    * @var string $duration_type
+    * @var ?string $duration_type
     */
-    public string $duration_type;
+    public ?string $duration_type;
     
     /**
     *
@@ -59,15 +59,15 @@ class Discount  {
     
     /**
     *
-    * @var bool $included_in_mrr
+    * @var ?bool $included_in_mrr
     */
-    public bool $included_in_mrr;
+    public ?bool $included_in_mrr;
     
     /**
     *
-    * @var string $apply_on
+    * @var ?string $apply_on
     */
-    public string $apply_on;
+    public ?string $apply_on;
     
     /**
     *
@@ -77,9 +77,9 @@ class Discount  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -95,15 +95,15 @@ class Discount  {
     
     /**
     *
-    * @var string $coupon_id
+    * @var ?string $coupon_id
     */
-    public string $coupon_id;
+    public ?string $coupon_id;
     
     /**
     *
-    * @var int $index
+    * @var ?int $index
     */
-    public int $index;
+    public ?int $index;
     
     /**
     * @var array<string> $knownFields
@@ -117,23 +117,23 @@ class Discount  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $invoice_name,
-        string $type,
+        ?string $type,
         ?int $percentage,
         ?int $amount,
         ?string $currency_code,
-        string $duration_type,
+        ?string $duration_type,
         ?int $period,
         ?string $period_unit,
-        bool $included_in_mrr,
-        string $apply_on,
+        ?bool $included_in_mrr,
+        ?string $apply_on,
         ?string $item_price_id,
-        int $created_at,
+        ?int $created_at,
         ?int $apply_till,
         ?int $applied_count,
-        string $coupon_id,
-        int $index,
+        ?string $coupon_id,
+        ?int $index,
     )
     { 
         $this->id = $id;
@@ -157,23 +157,23 @@ class Discount  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
-        $resourceAttributes['type'] ,
+        $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
-        $resourceAttributes['duration_type'] ,
+        $resourceAttributes['duration_type'] ?? null,
         $resourceAttributes['period'] ?? null,
         $resourceAttributes['period_unit'] ?? null,
-        $resourceAttributes['included_in_mrr'] ,
-        $resourceAttributes['apply_on'] ,
+        $resourceAttributes['included_in_mrr'] ?? null,
+        $resourceAttributes['apply_on'] ?? null,
         $resourceAttributes['item_price_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['apply_till'] ?? null,
         $resourceAttributes['applied_count'] ?? null,
-        $resourceAttributes['coupon_id'] ,
-        $resourceAttributes['index'] ,
+        $resourceAttributes['coupon_id'] ?? null,
+        $resourceAttributes['index'] ?? null,
         
          
         );

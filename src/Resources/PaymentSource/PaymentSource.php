@@ -5,9 +5,9 @@ namespace Chargebee\Resources\PaymentSource;
 class PaymentSource  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -23,21 +23,21 @@ class PaymentSource  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
-    * @var string $reference_id
+    * @var ?string $reference_id
     */
-    public string $reference_id;
+    public ?string $reference_id;
     
     /**
     *
@@ -119,9 +119,9 @@ class PaymentSource  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -131,21 +131,21 @@ class PaymentSource  {
     
     /**
     *
-    * @var \Chargebee\Enums\Type $type
+    * @var ?\Chargebee\Enums\Type $type
     */
-    public \Chargebee\Enums\Type $type;
+    public ?\Chargebee\Enums\Type $type;
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
-    * @var \Chargebee\Resources\PaymentSource\Enums\Status $status
+    * @var ?\Chargebee\Resources\PaymentSource\Enums\Status $status
     */
-    public \Chargebee\Resources\PaymentSource\Enums\Status $status;
+    public ?\Chargebee\Resources\PaymentSource\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -159,12 +159,12 @@ class PaymentSource  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
-        string $customer_id,
-        string $reference_id,
+        ?int $created_at,
+        ?string $customer_id,
+        ?string $reference_id,
         ?string $gateway_account_id,
         ?string $ip_address,
         ?string $issuing_country,
@@ -178,11 +178,11 @@ class PaymentSource  {
         ?Venmo $venmo,
         ?KlarnaPayNow $klarna_pay_now,
         ?array $mandates,
-        bool $deleted,
+        ?bool $deleted,
         ?string $business_entity_id,
-        \Chargebee\Enums\Type $type,
-        \Chargebee\Enums\Gateway $gateway,
-        \Chargebee\Resources\PaymentSource\Enums\Status $status,
+        ?\Chargebee\Enums\Type $type,
+        ?\Chargebee\Enums\Gateway $gateway,
+        ?\Chargebee\Resources\PaymentSource\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -217,12 +217,12 @@ class PaymentSource  {
             $result
         ), $resourceAttributes['mandates'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['customer_id'] ,
-        $resourceAttributes['reference_id'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['reference_id'] ?? null,
         $resourceAttributes['gateway_account_id'] ?? null,
         $resourceAttributes['ip_address'] ?? null,
         $resourceAttributes['issuing_country'] ?? null,
@@ -236,7 +236,7 @@ class PaymentSource  {
         isset($resourceAttributes['venmo']) ? Venmo::from($resourceAttributes['venmo']) : null,
         isset($resourceAttributes['klarna_pay_now']) ? KlarnaPayNow::from($resourceAttributes['klarna_pay_now']) : null,
         $mandates,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         
         

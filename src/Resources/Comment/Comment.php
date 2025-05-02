@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Comment;
 class Comment  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,33 +17,33 @@ class Comment  {
     
     /**
     *
-    * @var string $notes
+    * @var ?string $notes
     */
-    public string $notes;
+    public ?string $notes;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var string $entity_id
+    * @var ?string $entity_id
     */
-    public string $entity_id;
+    public ?string $entity_id;
     
     /**
     *
-    * @var \Chargebee\Enums\EntityType $entity_type
+    * @var ?\Chargebee\Enums\EntityType $entity_type
     */
-    public \Chargebee\Enums\EntityType $entity_type;
+    public ?\Chargebee\Enums\EntityType $entity_type;
     
     /**
     *
-    * @var \Chargebee\Resources\Comment\Enums\Type $type
+    * @var ?\Chargebee\Resources\Comment\Enums\Type $type
     */
-    public \Chargebee\Resources\Comment\Enums\Type $type;
+    public ?\Chargebee\Resources\Comment\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -57,13 +57,13 @@ class Comment  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $added_by,
-        string $notes,
-        int $created_at,
-        string $entity_id,
-        \Chargebee\Enums\EntityType $entity_type,
-        \Chargebee\Resources\Comment\Enums\Type $type,
+        ?string $notes,
+        ?int $created_at,
+        ?string $entity_id,
+        ?\Chargebee\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\Comment\Enums\Type $type,
     )
     { 
         $this->id = $id;
@@ -77,11 +77,11 @@ class Comment  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['added_by'] ?? null,
-        $resourceAttributes['notes'] ,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['entity_id'] ,
+        $resourceAttributes['notes'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['entity_id'] ?? null,
         
         
         isset($resourceAttributes['entity_type']) ? \Chargebee\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,

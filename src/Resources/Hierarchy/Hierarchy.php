@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Hierarchy;
 class Hierarchy  { 
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -17,21 +17,21 @@ class Hierarchy  {
     
     /**
     *
-    * @var string $payment_owner_id
+    * @var ?string $payment_owner_id
     */
-    public string $payment_owner_id;
+    public ?string $payment_owner_id;
     
     /**
     *
-    * @var string $invoice_owner_id
+    * @var ?string $invoice_owner_id
     */
-    public string $invoice_owner_id;
+    public ?string $invoice_owner_id;
     
     /**
     *
-    * @var ?array<string> $children_ids
+    * @var ?string $children_ids
     */
-    public ?array $children_ids;
+    public ?string $children_ids;
     
     /**
     * @var array<string> $knownFields
@@ -45,11 +45,11 @@ class Hierarchy  {
     protected $_data = [];
 
     private function __construct(
-        string $customer_id,
+        ?string $customer_id,
         ?string $parent_id,
-        string $payment_owner_id,
-        string $invoice_owner_id,
-        ?array $children_ids,
+        ?string $payment_owner_id,
+        ?string $invoice_owner_id,
+        ?string $children_ids,
     )
     { 
         $this->customer_id = $customer_id;
@@ -61,10 +61,10 @@ class Hierarchy  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['parent_id'] ?? null,
-        $resourceAttributes['payment_owner_id'] ,
-        $resourceAttributes['invoice_owner_id'] ,
+        $resourceAttributes['payment_owner_id'] ?? null,
+        $resourceAttributes['invoice_owner_id'] ?? null,
         $resourceAttributes['children_ids'] ?? null,
         
          

@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class EditForChargeItemsAndChargesQuoteResponse extends ResponseBase { 
     /**
     *
-    * @var Quote $quote
+    * @var ?Quote $quote
     */
-    public Quote $quote;
+    public ?Quote $quote;
     
     /**
     *
@@ -21,12 +21,13 @@ class EditForChargeItemsAndChargesQuoteResponse extends ResponseBase {
     
 
     private function __construct(
-        Quote $quote,
+        ?Quote $quote,
         ?QuotedCharge $quoted_charge,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->quote = $quote;
         $this->quoted_charge = $quoted_charge;
         
@@ -34,17 +35,20 @@ class EditForChargeItemsAndChargesQuoteResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Quote::from($resourceAttributes['quote']),
+            isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
+            
             isset($resourceAttributes['quoted_charge']) ? QuotedCharge::from($resourceAttributes['quoted_charge']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'quote' => $this->quote->toArray(), 
+        $data = array_filter([  
         ]);
          
+        if($this->quote instanceof Quote){
+            $data['quote'] = $this->quote->toArray();
+        }  
         if($this->quoted_charge instanceof QuotedCharge){
             $data['quoted_charge'] = $this->quoted_charge->toArray();
         } 

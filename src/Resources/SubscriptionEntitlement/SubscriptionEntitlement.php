@@ -5,9 +5,9 @@ namespace Chargebee\Resources\SubscriptionEntitlement;
 class SubscriptionEntitlement  { 
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -47,15 +47,15 @@ class SubscriptionEntitlement  {
     
     /**
     *
-    * @var bool $is_overridden
+    * @var ?bool $is_overridden
     */
-    public bool $is_overridden;
+    public ?bool $is_overridden;
     
     /**
     *
-    * @var bool $is_enabled
+    * @var ?bool $is_enabled
     */
-    public bool $is_enabled;
+    public ?bool $is_enabled;
     
     /**
     *
@@ -93,15 +93,15 @@ class SubscriptionEntitlement  {
     protected $_data = [];
 
     private function __construct(
-        string $subscription_id,
+        ?string $subscription_id,
         ?string $feature_id,
         ?string $feature_name,
         ?string $feature_unit,
         ?string $feature_type,
         ?string $value,
         ?string $name,
-        bool $is_overridden,
-        bool $is_enabled,
+        ?bool $is_overridden,
+        ?bool $is_enabled,
         ?int $effective_from,
         ?int $expires_at,
         ?Component $components,
@@ -125,15 +125,15 @@ class SubscriptionEntitlement  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['subscription_id'] ,
+        $returnData = new self( $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['feature_id'] ?? null,
         $resourceAttributes['feature_name'] ?? null,
         $resourceAttributes['feature_unit'] ?? null,
         $resourceAttributes['feature_type'] ?? null,
         $resourceAttributes['value'] ?? null,
         $resourceAttributes['name'] ?? null,
-        $resourceAttributes['is_overridden'] ,
-        $resourceAttributes['is_enabled'] ,
+        $resourceAttributes['is_overridden'] ?? null,
+        $resourceAttributes['is_enabled'] ?? null,
         $resourceAttributes['effective_from'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
         isset($resourceAttributes['components']) ? Component::from($resourceAttributes['components']) : null,

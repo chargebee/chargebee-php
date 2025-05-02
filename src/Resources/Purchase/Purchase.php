@@ -11,9 +11,9 @@ class Purchase  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -29,15 +29,15 @@ class Purchase  {
     
     /**
     *
-    * @var ?array<string> $subscription_ids
+    * @var ?string $subscription_ids
     */
-    public ?array $subscription_ids;
+    public ?string $subscription_ids;
     
     /**
     *
-    * @var ?array<string> $invoice_ids
+    * @var ?string $invoice_ids
     */
-    public ?array $invoice_ids;
+    public ?string $invoice_ids;
     
     /**
     * @var array<string> $knownFields
@@ -52,11 +52,11 @@ class Purchase  {
 
     private function __construct(
         ?string $id,
-        string $customer_id,
+        ?string $customer_id,
         ?int $created_at,
         ?int $modified_at,
-        ?array $subscription_ids,
-        ?array $invoice_ids,
+        ?string $subscription_ids,
+        ?string $invoice_ids,
     )
     { 
         $this->id = $id;
@@ -70,7 +70,7 @@ class Purchase  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['subscription_ids'] ?? null,

@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateVirtualBankAccountResponse extends ResponseBase { 
     /**
     *
-    * @var VirtualBankAccount $virtual_bank_account
+    * @var ?VirtualBankAccount $virtual_bank_account
     */
-    public VirtualBankAccount $virtual_bank_account;
+    public ?VirtualBankAccount $virtual_bank_account;
     
     /**
     *
@@ -21,12 +21,13 @@ class CreateVirtualBankAccountResponse extends ResponseBase {
     
 
     private function __construct(
-        VirtualBankAccount $virtual_bank_account,
+        ?VirtualBankAccount $virtual_bank_account,
         ?Customer $customer,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->virtual_bank_account = $virtual_bank_account;
         $this->customer = $customer;
         
@@ -34,17 +35,20 @@ class CreateVirtualBankAccountResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             VirtualBankAccount::from($resourceAttributes['virtual_bank_account']),
+            isset($resourceAttributes['virtual_bank_account']) ? VirtualBankAccount::from($resourceAttributes['virtual_bank_account']) : null,
+            
             isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'virtual_bank_account' => $this->virtual_bank_account->toArray(), 
+        $data = array_filter([  
         ]);
          
+        if($this->virtual_bank_account instanceof VirtualBankAccount){
+            $data['virtual_bank_account'] = $this->virtual_bank_account->toArray();
+        }  
         if($this->customer instanceof Customer){
             $data['customer'] = $this->customer->toArray();
         } 

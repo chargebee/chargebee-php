@@ -17,21 +17,21 @@ class LineItem  {
     
     /**
     *
-    * @var int $date_from
+    * @var ?int $date_from
     */
-    public int $date_from;
+    public ?int $date_from;
     
     /**
     *
-    * @var int $date_to
+    * @var ?int $date_to
     */
-    public int $date_to;
+    public ?int $date_to;
     
     /**
     *
-    * @var int $unit_amount
+    * @var ?int $unit_amount
     */
-    public int $unit_amount;
+    public ?int $unit_amount;
     
     /**
     *
@@ -53,9 +53,9 @@ class LineItem  {
     
     /**
     *
-    * @var bool $is_taxed
+    * @var ?bool $is_taxed
     */
-    public bool $is_taxed;
+    public ?bool $is_taxed;
     
     /**
     *
@@ -119,9 +119,9 @@ class LineItem  {
     
     /**
     *
-    * @var string $description
+    * @var ?string $description
     */
-    public string $description;
+    public ?string $description;
     
     /**
     *
@@ -131,9 +131,9 @@ class LineItem  {
     
     /**
     *
-    * @var string $entity_type
+    * @var ?string $entity_type
     */
-    public string $entity_type;
+    public ?string $entity_type;
     
     /**
     *
@@ -167,13 +167,13 @@ class LineItem  {
     private function __construct(
         ?string $id,
         ?string $subscription_id,
-        int $date_from,
-        int $date_to,
-        int $unit_amount,
+        ?int $date_from,
+        ?int $date_to,
+        ?int $unit_amount,
         ?int $quantity,
         ?int $amount,
         ?string $pricing_model,
-        bool $is_taxed,
+        ?bool $is_taxed,
         ?int $tax_amount,
         ?int $tax_rate,
         ?string $unit_amount_in_decimal,
@@ -184,9 +184,9 @@ class LineItem  {
         ?bool $metered,
         ?string $percentage,
         ?string $reference_line_item_id,
-        string $description,
+        ?string $description,
         ?string $entity_description,
-        string $entity_type,
+        ?string $entity_type,
         ?string $tax_exempt_reason,
         ?string $entity_id,
         ?string $customer_id,
@@ -223,13 +223,13 @@ class LineItem  {
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
-        $resourceAttributes['date_from'] ,
-        $resourceAttributes['date_to'] ,
-        $resourceAttributes['unit_amount'] ,
+        $resourceAttributes['date_from'] ?? null,
+        $resourceAttributes['date_to'] ?? null,
+        $resourceAttributes['unit_amount'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['pricing_model'] ?? null,
-        $resourceAttributes['is_taxed'] ,
+        $resourceAttributes['is_taxed'] ?? null,
         $resourceAttributes['tax_amount'] ?? null,
         $resourceAttributes['tax_rate'] ?? null,
         $resourceAttributes['unit_amount_in_decimal'] ?? null,
@@ -240,9 +240,9 @@ class LineItem  {
         $resourceAttributes['metered'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['reference_line_item_id'] ?? null,
-        $resourceAttributes['description'] ,
+        $resourceAttributes['description'] ?? null,
         $resourceAttributes['entity_description'] ?? null,
-        $resourceAttributes['entity_type'] ,
+        $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['tax_exempt_reason'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,

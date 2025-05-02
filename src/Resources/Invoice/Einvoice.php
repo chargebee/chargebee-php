@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class Einvoice  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,9 +17,9 @@ class Einvoice  {
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
@@ -39,9 +39,9 @@ class Einvoice  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $reference_number,
-        string $status,
+        ?string $status,
         ?string $message,
     )
     { 
@@ -53,9 +53,9 @@ class Einvoice  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['reference_number'] ?? null,
-        $resourceAttributes['status'] ,
+        $resourceAttributes['status'] ?? null,
         $resourceAttributes['message'] ?? null,
         
          

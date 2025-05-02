@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateRecordedPurchaseResponse extends ResponseBase { 
     /**
     *
-    * @var RecordedPurchase $recorded_purchase
+    * @var ?RecordedPurchase $recorded_purchase
     */
-    public RecordedPurchase $recorded_purchase;
+    public ?RecordedPurchase $recorded_purchase;
     
     /**
     *
-    * @var Customer $customer
+    * @var ?Customer $customer
     */
-    public Customer $customer;
+    public ?Customer $customer;
     
 
     private function __construct(
-        RecordedPurchase $recorded_purchase,
-        Customer $customer,
+        ?RecordedPurchase $recorded_purchase,
+        ?Customer $customer,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->recorded_purchase = $recorded_purchase;
         $this->customer = $customer;
         
@@ -34,17 +35,23 @@ class CreateRecordedPurchaseResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             RecordedPurchase::from($resourceAttributes['recorded_purchase']),
-             Customer::from($resourceAttributes['customer']), $headers);
+            isset($resourceAttributes['recorded_purchase']) ? RecordedPurchase::from($resourceAttributes['recorded_purchase']) : null,
+            
+            isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'recorded_purchase' => $this->recorded_purchase->toArray(), 
-            'customer' => $this->customer->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->recorded_purchase instanceof RecordedPurchase){
+            $data['recorded_purchase'] = $this->recorded_purchase->toArray();
+        }  
+        if($this->customer instanceof Customer){
+            $data['customer'] = $this->customer->toArray();
+        } 
 
         return $data;
     }

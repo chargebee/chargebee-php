@@ -5,21 +5,21 @@ namespace Chargebee\Resources\RecordedPurchase;
 class RecordedPurchase  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
-    * @var string $app_id
+    * @var ?string $app_id
     */
-    public string $app_id;
+    public ?string $app_id;
     
     /**
     *
@@ -29,9 +29,9 @@ class RecordedPurchase  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -53,15 +53,15 @@ class RecordedPurchase  {
     
     /**
     *
-    * @var \Chargebee\Resources\RecordedPurchase\Enums\Source $source
+    * @var ?\Chargebee\Resources\RecordedPurchase\Enums\Source $source
     */
-    public \Chargebee\Resources\RecordedPurchase\Enums\Source $source;
+    public ?\Chargebee\Resources\RecordedPurchase\Enums\Source $source;
     
     /**
     *
-    * @var \Chargebee\Resources\RecordedPurchase\Enums\Status $status
+    * @var ?\Chargebee\Resources\RecordedPurchase\Enums\Status $status
     */
-    public \Chargebee\Resources\RecordedPurchase\Enums\Status $status;
+    public ?\Chargebee\Resources\RecordedPurchase\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class RecordedPurchase  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $customer_id,
-        string $app_id,
+        ?string $id,
+        ?string $customer_id,
+        ?string $app_id,
         ?string $omnichannel_transaction_id,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
         ?array $linked_omnichannel_subscriptions,
         ?ErrorDetail $error_detail,
-        \Chargebee\Resources\RecordedPurchase\Enums\Source $source,
-        \Chargebee\Resources\RecordedPurchase\Enums\Status $status,
+        ?\Chargebee\Resources\RecordedPurchase\Enums\Source $source,
+        ?\Chargebee\Resources\RecordedPurchase\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -105,11 +105,11 @@ class RecordedPurchase  {
             $result
         ), $resourceAttributes['linked_omnichannel_subscriptions'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['customer_id'] ,
-        $resourceAttributes['app_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['app_id'] ?? null,
         $resourceAttributes['omnichannel_transaction_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $linked_omnichannel_subscriptions,
         isset($resourceAttributes['error_detail']) ? ErrorDetail::from($resourceAttributes['error_detail']) : null,

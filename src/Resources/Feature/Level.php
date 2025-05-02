@@ -11,21 +11,21 @@ class Level  {
     
     /**
     *
-    * @var string $value
+    * @var ?string $value
     */
-    public string $value;
+    public ?string $value;
     
     /**
     *
-    * @var int $level
+    * @var ?int $level
     */
-    public int $level;
+    public ?int $level;
     
     /**
     *
-    * @var bool $is_unlimited
+    * @var ?bool $is_unlimited
     */
-    public bool $is_unlimited;
+    public ?bool $is_unlimited;
     
     /**
     * @var array<string> $knownFields
@@ -40,9 +40,9 @@ class Level  {
 
     private function __construct(
         ?string $name,
-        string $value,
-        int $level,
-        bool $is_unlimited,
+        ?string $value,
+        ?int $level,
+        ?bool $is_unlimited,
     )
     { 
         $this->name = $name;
@@ -54,9 +54,9 @@ class Level  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['name'] ?? null,
-        $resourceAttributes['value'] ,
-        $resourceAttributes['level'] ,
-        $resourceAttributes['is_unlimited'] ,
+        $resourceAttributes['value'] ?? null,
+        $resourceAttributes['level'] ?? null,
+        $resourceAttributes['is_unlimited'] ?? null,
         
          
         );

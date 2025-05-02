@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Addon;
 class Tier  { 
     /**
     *
-    * @var int $starting_unit
+    * @var ?int $starting_unit
     */
-    public int $starting_unit;
+    public ?int $starting_unit;
     
     /**
     *
@@ -17,9 +17,9 @@ class Tier  {
     
     /**
     *
-    * @var int $price
+    * @var ?int $price
     */
-    public int $price;
+    public ?int $price;
     
     /**
     *
@@ -63,9 +63,9 @@ class Tier  {
     protected $_data = [];
 
     private function __construct(
-        int $starting_unit,
+        ?int $starting_unit,
         ?int $ending_unit,
-        int $price,
+        ?int $price,
         ?string $starting_unit_in_decimal,
         ?string $ending_unit_in_decimal,
         ?string $price_in_decimal,
@@ -85,9 +85,9 @@ class Tier  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['starting_unit'] ,
+        $returnData = new self( $resourceAttributes['starting_unit'] ?? null,
         $resourceAttributes['ending_unit'] ?? null,
-        $resourceAttributes['price'] ,
+        $resourceAttributes['price'] ?? null,
         $resourceAttributes['starting_unit_in_decimal'] ?? null,
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,

@@ -5,15 +5,15 @@ namespace Chargebee\Resources\InAppSubscription;
 class InAppSubscription  { 
     /**
     *
-    * @var string $app_id
+    * @var ?string $app_id
     */
-    public string $app_id;
+    public ?string $app_id;
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -51,8 +51,8 @@ class InAppSubscription  {
     protected $_data = [];
 
     private function __construct(
-        string $app_id,
-        string $subscription_id,
+        ?string $app_id,
+        ?string $subscription_id,
         ?string $customer_id,
         ?string $plan_id,
         ?string $invoice_id,
@@ -69,8 +69,8 @@ class InAppSubscription  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['app_id'] ,
-        $resourceAttributes['subscription_id'] ,
+        $returnData = new self( $resourceAttributes['app_id'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['plan_id'] ?? null,
         $resourceAttributes['invoice_id'] ?? null,

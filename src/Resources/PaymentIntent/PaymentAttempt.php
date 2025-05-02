@@ -11,9 +11,9 @@ class PaymentAttempt  {
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
@@ -41,15 +41,15 @@ class PaymentAttempt  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $modified_at
+    * @var ?int $modified_at
     */
-    public int $modified_at;
+    public ?int $modified_at;
     
     /**
     *
@@ -70,13 +70,13 @@ class PaymentAttempt  {
 
     private function __construct(
         ?string $id,
-        string $status,
+        ?string $status,
         ?string $payment_method_type,
         ?string $id_at_gateway,
         ?string $error_code,
         ?string $error_text,
-        int $created_at,
-        int $modified_at,
+        ?int $created_at,
+        ?int $modified_at,
         ?\Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail $error_detail,
     )
     { 
@@ -94,13 +94,13 @@ class PaymentAttempt  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['status'] ,
+        $resourceAttributes['status'] ?? null,
         $resourceAttributes['payment_method_type'] ?? null,
         $resourceAttributes['id_at_gateway'] ?? null,
         $resourceAttributes['error_code'] ?? null,
         $resourceAttributes['error_text'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['modified_at'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
         isset($resourceAttributes['error_detail']) ? \Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
         
          

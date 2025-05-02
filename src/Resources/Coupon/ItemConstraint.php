@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Coupon;
 class ItemConstraint  { 
     /**
     *
-    * @var string $item_type
+    * @var ?string $item_type
     */
-    public string $item_type;
+    public ?string $item_type;
     
     /**
     *
-    * @var string $constraint
+    * @var ?string $constraint
     */
-    public string $constraint;
+    public ?string $constraint;
     
     /**
     *
@@ -33,8 +33,8 @@ class ItemConstraint  {
     protected $_data = [];
 
     private function __construct(
-        string $item_type,
-        string $constraint,
+        ?string $item_type,
+        ?string $constraint,
         mixed $item_price_ids,
     )
     { 
@@ -45,8 +45,8 @@ class ItemConstraint  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_type'] ,
-        $resourceAttributes['constraint'] ,
+        $returnData = new self( $resourceAttributes['item_type'] ?? null,
+        $resourceAttributes['constraint'] ?? null,
         $resourceAttributes['item_price_ids'] ?? null,
         
          

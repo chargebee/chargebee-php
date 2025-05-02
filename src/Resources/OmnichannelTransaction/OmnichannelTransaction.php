@@ -5,21 +5,21 @@ namespace Chargebee\Resources\OmnichannelTransaction;
 class OmnichannelTransaction  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $id_at_source
+    * @var ?string $id_at_source
     */
-    public string $id_at_source;
+    public ?string $id_at_source;
     
     /**
     *
-    * @var string $app_id
+    * @var ?string $app_id
     */
-    public string $app_id;
+    public ?string $app_id;
     
     /**
     *
@@ -47,9 +47,9 @@ class OmnichannelTransaction  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -59,9 +59,9 @@ class OmnichannelTransaction  {
     
     /**
     *
-    * @var \Chargebee\Resources\OmnichannelTransaction\Enums\Type $type
+    * @var ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type
     */
-    public \Chargebee\Resources\OmnichannelTransaction\Enums\Type $type;
+    public ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class OmnichannelTransaction  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $id_at_source,
-        string $app_id,
+        ?string $id,
+        ?string $id_at_source,
+        ?string $app_id,
         ?string $price_currency,
         ?int $price_units,
         ?int $price_nanos,
         ?int $transacted_at,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
-        \Chargebee\Resources\OmnichannelTransaction\Enums\Type $type,
+        ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type,
     )
     { 
         $this->id = $id;
@@ -101,14 +101,14 @@ class OmnichannelTransaction  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['id_at_source'] ,
-        $resourceAttributes['app_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['id_at_source'] ?? null,
+        $resourceAttributes['app_id'] ?? null,
         $resourceAttributes['price_currency'] ?? null,
         $resourceAttributes['price_units'] ?? null,
         $resourceAttributes['price_nanos'] ?? null,
         $resourceAttributes['transacted_at'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         
          

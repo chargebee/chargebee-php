@@ -6,15 +6,15 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class ItemPrice  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
@@ -66,9 +66,9 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -90,9 +90,9 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $free_quantity
+    * @var ?int $free_quantity
     */
-    public int $free_quantity;
+    public ?int $free_quantity;
     
     /**
     *
@@ -114,9 +114,9 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -192,9 +192,9 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -204,9 +204,9 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Enums\PricingModel $pricing_model
+    * @var ?\Chargebee\Enums\PricingModel $pricing_model
     */
-    public \Chargebee\Enums\PricingModel $pricing_model;
+    public ?\Chargebee\Enums\PricingModel $pricing_model;
     
     /**
     *
@@ -274,8 +274,8 @@ class ItemPrice  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
+        ?string $id,
+        ?string $name,
         ?string $item_family_id,
         ?string $item_id,
         ?string $description,
@@ -284,15 +284,15 @@ class ItemPrice  extends SupportsCustomFields  {
         ?int $price,
         ?string $price_in_decimal,
         ?int $period,
-        string $currency_code,
+        ?string $currency_code,
         ?int $trial_period,
         ?int $shipping_period,
         ?int $billing_cycles,
-        int $free_quantity,
+        ?int $free_quantity,
         ?string $free_quantity_in_decimal,
         ?int $resource_version,
         ?int $updated_at,
-        int $created_at,
+        ?int $created_at,
         ?int $archived_at,
         ?string $invoice_notes,
         ?array $tiers,
@@ -305,9 +305,9 @@ class ItemPrice  extends SupportsCustomFields  {
         ?string $parent_item_id,
         ?bool $show_description_in_invoices,
         ?bool $show_description_in_quotes,
-        bool $deleted,
+        ?bool $deleted,
         ?string $business_entity_id,
-        \Chargebee\Enums\PricingModel $pricing_model,
+        ?\Chargebee\Enums\PricingModel $pricing_model,
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Enums\UsageAccumulationResetFrequency $usage_accumulation_reset_frequency,
         ?\Chargebee\Enums\ItemType $item_type,
@@ -374,8 +374,8 @@ class ItemPrice  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['tax_providers_fields'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
         $resourceAttributes['item_family_id'] ?? null,
         $resourceAttributes['item_id'] ?? null,
         $resourceAttributes['description'] ?? null,
@@ -384,15 +384,15 @@ class ItemPrice  extends SupportsCustomFields  {
         $resourceAttributes['price'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['period'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['trial_period'] ?? null,
         $resourceAttributes['shipping_period'] ?? null,
         $resourceAttributes['billing_cycles'] ?? null,
-        $resourceAttributes['free_quantity'] ,
+        $resourceAttributes['free_quantity'] ?? null,
         $resourceAttributes['free_quantity_in_decimal'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['archived_at'] ?? null,
         $resourceAttributes['invoice_notes'] ?? null,
         $tiers,
@@ -405,7 +405,7 @@ class ItemPrice  extends SupportsCustomFields  {
         $resourceAttributes['parent_item_id'] ?? null,
         $resourceAttributes['show_description_in_invoices'] ?? null,
         $resourceAttributes['show_description_in_quotes'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         
         

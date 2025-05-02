@@ -5,27 +5,27 @@ namespace Chargebee\Resources\BusinessEntity;
 class BusinessEntity  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -41,9 +41,9 @@ class BusinessEntity  {
     
     /**
     *
-    * @var \Chargebee\Resources\BusinessEntity\Enums\Status $status
+    * @var ?\Chargebee\Resources\BusinessEntity\Enums\Status $status
     */
-    public \Chargebee\Resources\BusinessEntity\Enums\Status $status;
+    public ?\Chargebee\Resources\BusinessEntity\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -57,13 +57,13 @@ class BusinessEntity  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $name,
-        bool $deleted,
-        int $created_at,
+        ?string $id,
+        ?string $name,
+        ?bool $deleted,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
-        \Chargebee\Resources\BusinessEntity\Enums\Status $status,
+        ?\Chargebee\Resources\BusinessEntity\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -77,10 +77,10 @@ class BusinessEntity  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['name'] ,
-        $resourceAttributes['deleted'] ,
-        $resourceAttributes['created_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['name'] ?? null,
+        $resourceAttributes['deleted'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         

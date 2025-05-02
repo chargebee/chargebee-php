@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class Discount  { 
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
@@ -17,9 +17,9 @@ class Discount  {
     
     /**
     *
-    * @var string $entity_type
+    * @var ?string $entity_type
     */
-    public string $entity_type;
+    public ?string $entity_type;
     
     /**
     *
@@ -51,9 +51,9 @@ class Discount  {
     protected $_data = [];
 
     private function __construct(
-        int $amount,
+        ?int $amount,
         ?string $description,
-        string $entity_type,
+        ?string $entity_type,
         ?string $discount_type,
         ?string $entity_id,
         ?string $coupon_set_code,
@@ -69,9 +69,9 @@ class Discount  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['amount'] ,
+        $returnData = new self( $resourceAttributes['amount'] ?? null,
         $resourceAttributes['description'] ?? null,
-        $resourceAttributes['entity_type'] ,
+        $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['discount_type'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['coupon_set_code'] ?? null,

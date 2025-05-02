@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrieveEventResponse extends ResponseBase { 
     /**
     *
-    * @var Event $event
+    * @var ?Event $event
     */
-    public Event $event;
+    public ?Event $event;
     
 
     private function __construct(
-        Event $event,
+        ?Event $event,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->event = $event;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Event::from($resourceAttributes['event']), $headers);
+            isset($resourceAttributes['event']) ? Event::from($resourceAttributes['event']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'event' => $this->event->toArray(),
         ]);
-        
+         
+        if($this->event instanceof Event){
+            $data['event'] = $this->event->toArray();
+        } 
 
         return $data;
     }

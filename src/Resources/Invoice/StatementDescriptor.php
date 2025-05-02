@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class StatementDescriptor  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -27,7 +27,7 @@ class StatementDescriptor  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $descriptor,
     )
     { 
@@ -37,7 +37,7 @@ class StatementDescriptor  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['descriptor'] ?? null,
         
          

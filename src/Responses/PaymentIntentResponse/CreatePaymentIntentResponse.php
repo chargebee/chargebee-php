@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreatePaymentIntentResponse extends ResponseBase { 
     /**
     *
-    * @var PaymentIntent $payment_intent
+    * @var ?PaymentIntent $payment_intent
     */
-    public PaymentIntent $payment_intent;
+    public ?PaymentIntent $payment_intent;
     
 
     private function __construct(
-        PaymentIntent $payment_intent,
+        ?PaymentIntent $payment_intent,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->payment_intent = $payment_intent;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             PaymentIntent::from($resourceAttributes['payment_intent']), $headers);
+            isset($resourceAttributes['payment_intent']) ? PaymentIntent::from($resourceAttributes['payment_intent']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'payment_intent' => $this->payment_intent->toArray(),
         ]);
-        
+         
+        if($this->payment_intent instanceof PaymentIntent){
+            $data['payment_intent'] = $this->payment_intent->toArray();
+        } 
 
         return $data;
     }

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Contact;
 class Contact  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -23,9 +23,9 @@ class Contact  {
     
     /**
     *
-    * @var string $email
+    * @var ?string $email
     */
-    public string $email;
+    public ?string $email;
     
     /**
     *
@@ -41,21 +41,21 @@ class Contact  {
     
     /**
     *
-    * @var bool $enabled
+    * @var ?bool $enabled
     */
-    public bool $enabled;
+    public ?bool $enabled;
     
     /**
     *
-    * @var bool $send_account_email
+    * @var ?bool $send_account_email
     */
-    public bool $send_account_email;
+    public ?bool $send_account_email;
     
     /**
     *
-    * @var bool $send_billing_email
+    * @var ?bool $send_billing_email
     */
-    public bool $send_billing_email;
+    public ?bool $send_billing_email;
     
     /**
     * @var array<string> $knownFields
@@ -69,15 +69,15 @@ class Contact  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $first_name,
         ?string $last_name,
-        string $email,
+        ?string $email,
         ?string $phone,
         ?string $label,
-        bool $enabled,
-        bool $send_account_email,
-        bool $send_billing_email,
+        ?bool $enabled,
+        ?bool $send_account_email,
+        ?bool $send_billing_email,
     )
     { 
         $this->id = $id;
@@ -93,15 +93,15 @@ class Contact  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
-        $resourceAttributes['email'] ,
+        $resourceAttributes['email'] ?? null,
         $resourceAttributes['phone'] ?? null,
         $resourceAttributes['label'] ?? null,
-        $resourceAttributes['enabled'] ,
-        $resourceAttributes['send_account_email'] ,
-        $resourceAttributes['send_billing_email'] ,
+        $resourceAttributes['enabled'] ?? null,
+        $resourceAttributes['send_account_email'] ?? null,
+        $resourceAttributes['send_billing_email'] ?? null,
         
          
         );

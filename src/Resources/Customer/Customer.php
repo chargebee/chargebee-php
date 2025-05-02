@@ -6,9 +6,9 @@ use Chargebee\ValueObjects\SupportsCustomFields;
 class Customer  extends SupportsCustomFields  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -48,9 +48,9 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $net_term_days
+    * @var ?int $net_term_days
     */
-    public int $net_term_days;
+    public ?int $net_term_days;
     
     /**
     *
@@ -60,9 +60,9 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $allow_direct_debit
+    * @var ?bool $allow_direct_debit
     */
-    public bool $allow_direct_debit;
+    public ?bool $allow_direct_debit;
     
     /**
     *
@@ -72,9 +72,9 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -192,27 +192,27 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var int $promotional_credits
+    * @var ?int $promotional_credits
     */
-    public int $promotional_credits;
+    public ?int $promotional_credits;
     
     /**
     *
-    * @var int $unbilled_charges
+    * @var ?int $unbilled_charges
     */
-    public int $unbilled_charges;
+    public ?int $unbilled_charges;
     
     /**
     *
-    * @var int $refundable_credits
+    * @var ?int $refundable_credits
     */
-    public int $refundable_credits;
+    public ?int $refundable_credits;
     
     /**
     *
-    * @var int $excess_payments
+    * @var ?int $excess_payments
     */
-    public int $excess_payments;
+    public ?int $excess_payments;
     
     /**
     *
@@ -246,9 +246,9 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -318,9 +318,9 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
-    * @var \Chargebee\Enums\AutoCollection $auto_collection
+    * @var ?\Chargebee\Enums\AutoCollection $auto_collection
     */
-    public \Chargebee\Enums\AutoCollection $auto_collection;
+    public ?\Chargebee\Enums\AutoCollection $auto_collection;
     
     /**
     *
@@ -412,18 +412,18 @@ class Customer  extends SupportsCustomFields  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $first_name,
         ?string $last_name,
         ?string $email,
         ?string $phone,
         ?string $company,
         ?string $vat_number,
-        int $net_term_days,
+        ?int $net_term_days,
         ?int $vat_number_validated_time,
-        bool $allow_direct_debit,
+        ?bool $allow_direct_debit,
         ?bool $is_location_valid,
-        int $created_at,
+        ?int $created_at,
         ?string $created_from_ip,
         mixed $exemption_details,
         ?string $exempt_number,
@@ -443,16 +443,16 @@ class Customer  extends SupportsCustomFields  {
         ?string $invoice_notes,
         ?string $business_entity_id,
         ?string $preferred_currency_code,
-        int $promotional_credits,
-        int $unbilled_charges,
-        int $refundable_credits,
-        int $excess_payments,
+        ?int $promotional_credits,
+        ?int $unbilled_charges,
+        ?int $refundable_credits,
+        ?int $excess_payments,
         ?array $balances,
         ?array $entity_identifiers,
         ?array $tax_providers_fields,
         ?bool $is_einvoice_enabled,
         mixed $meta_data,
-        bool $deleted,
+        ?bool $deleted,
         ?bool $registered_for_gst,
         ?bool $consolidated_invoicing,
         ?bool $business_customer_without_vat_number,
@@ -464,7 +464,7 @@ class Customer  extends SupportsCustomFields  {
         ?string $vat_number_prefix,
         ?string $entity_identifier_scheme,
         ?string $entity_identifier_standard,
-        \Chargebee\Enums\AutoCollection $auto_collection,
+        ?\Chargebee\Enums\AutoCollection $auto_collection,
         ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method,
         ?\Chargebee\Enums\Taxability $taxability,
         ?\Chargebee\Enums\EntityCode $entity_code,
@@ -570,18 +570,18 @@ class Customer  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['tax_providers_fields'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,
         $resourceAttributes['phone'] ?? null,
         $resourceAttributes['company'] ?? null,
         $resourceAttributes['vat_number'] ?? null,
-        $resourceAttributes['net_term_days'] ,
+        $resourceAttributes['net_term_days'] ?? null,
         $resourceAttributes['vat_number_validated_time'] ?? null,
-        $resourceAttributes['allow_direct_debit'] ,
+        $resourceAttributes['allow_direct_debit'] ?? null,
         $resourceAttributes['is_location_valid'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['created_from_ip'] ?? null,
         $resourceAttributes['exemption_details'] ?? null,
         $resourceAttributes['exempt_number'] ?? null,
@@ -601,16 +601,16 @@ class Customer  extends SupportsCustomFields  {
         $resourceAttributes['invoice_notes'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         $resourceAttributes['preferred_currency_code'] ?? null,
-        $resourceAttributes['promotional_credits'] ,
-        $resourceAttributes['unbilled_charges'] ,
-        $resourceAttributes['refundable_credits'] ,
-        $resourceAttributes['excess_payments'] ,
+        $resourceAttributes['promotional_credits'] ?? null,
+        $resourceAttributes['unbilled_charges'] ?? null,
+        $resourceAttributes['refundable_credits'] ?? null,
+        $resourceAttributes['excess_payments'] ?? null,
         $balances,
         $entity_identifiers,
         $tax_providers_fields,
         $resourceAttributes['is_einvoice_enabled'] ?? null,
         $resourceAttributes['meta_data'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['registered_for_gst'] ?? null,
         $resourceAttributes['consolidated_invoicing'] ?? null,
         $resourceAttributes['business_customer_without_vat_number'] ?? null,

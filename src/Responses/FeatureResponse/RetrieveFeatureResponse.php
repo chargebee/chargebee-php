@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrieveFeatureResponse extends ResponseBase { 
     /**
     *
-    * @var Feature $feature
+    * @var ?Feature $feature
     */
-    public Feature $feature;
+    public ?Feature $feature;
     
 
     private function __construct(
-        Feature $feature,
+        ?Feature $feature,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->feature = $feature;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Feature::from($resourceAttributes['feature']), $headers);
+            isset($resourceAttributes['feature']) ? Feature::from($resourceAttributes['feature']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'feature' => $this->feature->toArray(),
         ]);
-        
+         
+        if($this->feature instanceof Feature){
+            $data['feature'] = $this->feature->toArray();
+        } 
 
         return $data;
     }

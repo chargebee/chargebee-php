@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Transaction;
 class LinkedPayment  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -39,7 +39,7 @@ class LinkedPayment  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $status,
         ?int $amount,
         ?int $date,
@@ -53,7 +53,7 @@ class LinkedPayment  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['status'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['date'] ?? null,

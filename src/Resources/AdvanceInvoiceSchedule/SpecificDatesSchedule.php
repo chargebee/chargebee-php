@@ -17,9 +17,9 @@ class SpecificDatesSchedule  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     * @var array<string> $knownFields
@@ -35,7 +35,7 @@ class SpecificDatesSchedule  {
     private function __construct(
         ?int $terms_to_charge,
         ?int $date,
-        int $created_at,
+        ?int $created_at,
     )
     { 
         $this->terms_to_charge = $terms_to_charge;
@@ -47,7 +47,7 @@ class SpecificDatesSchedule  {
     { 
         $returnData = new self( $resourceAttributes['terms_to_charge'] ?? null,
         $resourceAttributes['date'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         
          
         );

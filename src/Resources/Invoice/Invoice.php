@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class Invoice  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,9 +17,9 @@ class Invoice  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -29,9 +29,9 @@ class Invoice  {
     
     /**
     *
-    * @var bool $recurring
+    * @var ?bool $recurring
     */
-    public bool $recurring;
+    public ?bool $recurring;
     
     /**
     *
@@ -65,9 +65,9 @@ class Invoice  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -137,9 +137,9 @@ class Invoice  {
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
@@ -161,9 +161,9 @@ class Invoice  {
     
     /**
     *
-    * @var int $tax
+    * @var ?int $tax
     */
-    public int $tax;
+    public ?int $tax;
     
     /**
     *
@@ -191,15 +191,15 @@ class Invoice  {
     
     /**
     *
-    * @var bool $term_finalized
+    * @var ?bool $term_finalized
     */
-    public bool $term_finalized;
+    public ?bool $term_finalized;
     
     /**
     *
-    * @var bool $is_gifted
+    * @var ?bool $is_gifted
     */
-    public bool $is_gifted;
+    public ?bool $is_gifted;
     
     /**
     *
@@ -347,9 +347,9 @@ class Invoice  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -389,9 +389,9 @@ class Invoice  {
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     *
@@ -401,9 +401,9 @@ class Invoice  {
     
     /**
     *
-    * @var \Chargebee\Resources\Invoice\Enums\Status $status
+    * @var ?\Chargebee\Resources\Invoice\Enums\Status $status
     */
-    public \Chargebee\Resources\Invoice\Enums\Status $status;
+    public ?\Chargebee\Resources\Invoice\Enums\Status $status;
     
     /**
     *
@@ -423,17 +423,17 @@ class Invoice  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $po_number,
-        string $customer_id,
+        ?string $customer_id,
         ?string $subscription_id,
-        bool $recurring,
+        ?bool $recurring,
         ?string $vat_number,
         ?int $date,
         ?int $due_date,
         ?int $net_term_days,
         ?int $exchange_rate,
-        string $currency_code,
+        ?string $currency_code,
         ?int $total,
         ?int $amount_paid,
         ?int $amount_adjusted,
@@ -445,17 +445,17 @@ class Invoice  {
         ?int $voided_at,
         ?int $resource_version,
         ?int $updated_at,
-        int $sub_total,
+        ?int $sub_total,
         ?int $sub_total_in_local_currency,
         ?int $total_in_local_currency,
         ?string $local_currency_code,
-        int $tax,
+        ?int $tax,
         ?int $local_currency_exchange_rate,
         ?bool $first_invoice,
         ?int $new_sales_amount,
         ?bool $has_advance_charges,
-        bool $term_finalized,
-        bool $is_gifted,
+        ?bool $term_finalized,
+        ?bool $is_gifted,
         ?int $generated_at,
         ?int $expected_payment_date,
         ?int $amount_to_collect,
@@ -480,16 +480,16 @@ class Invoice  {
         ?Einvoice $einvoice,
         ?string $payment_owner,
         ?string $void_reason_code,
-        bool $deleted,
+        ?bool $deleted,
         ?string $tax_category,
         ?string $vat_number_prefix,
         ?string $business_entity_id,
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?TaxOrigin $tax_origin,
         ?array $line_item_addresses,
-        \Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
-        \Chargebee\Resources\Invoice\Enums\Status $status,
+        ?\Chargebee\Resources\Invoice\Enums\Status $status,
         ?\Chargebee\Resources\Invoice\Enums\DunningStatus $dunning_status,
     )
     { 
@@ -625,17 +625,17 @@ class Invoice  {
             $result
         ), $resourceAttributes['line_item_addresses'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['po_number'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
-        $resourceAttributes['recurring'] ,
+        $resourceAttributes['recurring'] ?? null,
         $resourceAttributes['vat_number'] ?? null,
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['due_date'] ?? null,
         $resourceAttributes['net_term_days'] ?? null,
         $resourceAttributes['exchange_rate'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['total'] ?? null,
         $resourceAttributes['amount_paid'] ?? null,
         $resourceAttributes['amount_adjusted'] ?? null,
@@ -647,17 +647,17 @@ class Invoice  {
         $resourceAttributes['voided_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $resourceAttributes['sub_total'] ,
+        $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['sub_total_in_local_currency'] ?? null,
         $resourceAttributes['total_in_local_currency'] ?? null,
         $resourceAttributes['local_currency_code'] ?? null,
-        $resourceAttributes['tax'] ,
+        $resourceAttributes['tax'] ?? null,
         $resourceAttributes['local_currency_exchange_rate'] ?? null,
         $resourceAttributes['first_invoice'] ?? null,
         $resourceAttributes['new_sales_amount'] ?? null,
         $resourceAttributes['has_advance_charges'] ?? null,
-        $resourceAttributes['term_finalized'] ,
-        $resourceAttributes['is_gifted'] ,
+        $resourceAttributes['term_finalized'] ?? null,
+        $resourceAttributes['is_gifted'] ?? null,
         $resourceAttributes['generated_at'] ?? null,
         $resourceAttributes['expected_payment_date'] ?? null,
         $resourceAttributes['amount_to_collect'] ?? null,
@@ -682,7 +682,7 @@ class Invoice  {
         isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
         $resourceAttributes['payment_owner'] ?? null,
         $resourceAttributes['void_reason_code'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['tax_category'] ?? null,
         $resourceAttributes['vat_number_prefix'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,

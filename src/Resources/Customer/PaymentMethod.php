@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Customer;
 class PaymentMethod  { 
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
-    * @var string $gateway
+    * @var ?string $gateway
     */
-    public string $gateway;
+    public ?string $gateway;
     
     /**
     *
@@ -23,15 +23,15 @@ class PaymentMethod  {
     
     /**
     *
-    * @var string $status
+    * @var ?string $status
     */
-    public string $status;
+    public ?string $status;
     
     /**
     *
-    * @var string $reference_id
+    * @var ?string $reference_id
     */
-    public string $reference_id;
+    public ?string $reference_id;
     
     /**
     * @var array<string> $knownFields
@@ -45,11 +45,11 @@ class PaymentMethod  {
     protected $_data = [];
 
     private function __construct(
-        string $type,
-        string $gateway,
+        ?string $type,
+        ?string $gateway,
         ?string $gateway_account_id,
-        string $status,
-        string $reference_id,
+        ?string $status,
+        ?string $reference_id,
     )
     { 
         $this->type = $type;
@@ -61,11 +61,11 @@ class PaymentMethod  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['type'] ,
-        $resourceAttributes['gateway'] ,
+        $returnData = new self( $resourceAttributes['type'] ?? null,
+        $resourceAttributes['gateway'] ?? null,
         $resourceAttributes['gateway_account_id'] ?? null,
-        $resourceAttributes['status'] ,
-        $resourceAttributes['reference_id'] ,
+        $resourceAttributes['status'] ?? null,
+        $resourceAttributes['reference_id'] ?? null,
         
          
         );

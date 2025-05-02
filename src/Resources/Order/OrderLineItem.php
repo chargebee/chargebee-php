@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Order;
 class OrderLineItem  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $invoice_id
+    * @var ?string $invoice_id
     */
-    public string $invoice_id;
+    public ?string $invoice_id;
     
     /**
     *
-    * @var string $invoice_line_item_id
+    * @var ?string $invoice_line_item_id
     */
-    public string $invoice_line_item_id;
+    public ?string $invoice_line_item_id;
     
     /**
     *
@@ -83,9 +83,9 @@ class OrderLineItem  {
     
     /**
     *
-    * @var bool $is_shippable
+    * @var ?bool $is_shippable
     */
-    public bool $is_shippable;
+    public ?bool $is_shippable;
     
     /**
     *
@@ -101,9 +101,9 @@ class OrderLineItem  {
     
     /**
     *
-    * @var string $entity_type
+    * @var ?string $entity_type
     */
-    public string $entity_type;
+    public ?string $entity_type;
     
     /**
     *
@@ -135,9 +135,9 @@ class OrderLineItem  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $invoice_id,
-        string $invoice_line_item_id,
+        ?string $id,
+        ?string $invoice_id,
+        ?string $invoice_line_item_id,
         ?int $unit_price,
         ?string $description,
         ?int $amount,
@@ -148,10 +148,10 @@ class OrderLineItem  {
         ?int $amount_adjusted,
         ?int $refundable_credits_issued,
         ?int $refundable_credits,
-        bool $is_shippable,
+        ?bool $is_shippable,
         ?string $sku,
         ?string $status,
-        string $entity_type,
+        ?string $entity_type,
         ?int $item_level_discount_amount,
         ?int $discount_amount,
         ?string $entity_id,
@@ -181,9 +181,9 @@ class OrderLineItem  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['invoice_id'] ,
-        $resourceAttributes['invoice_line_item_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['invoice_id'] ?? null,
+        $resourceAttributes['invoice_line_item_id'] ?? null,
         $resourceAttributes['unit_price'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['amount'] ?? null,
@@ -194,10 +194,10 @@ class OrderLineItem  {
         $resourceAttributes['amount_adjusted'] ?? null,
         $resourceAttributes['refundable_credits_issued'] ?? null,
         $resourceAttributes['refundable_credits'] ?? null,
-        $resourceAttributes['is_shippable'] ,
+        $resourceAttributes['is_shippable'] ?? null,
         $resourceAttributes['sku'] ?? null,
         $resourceAttributes['status'] ?? null,
-        $resourceAttributes['entity_type'] ,
+        $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['item_level_discount_amount'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
         $resourceAttributes['entity_id'] ?? null,

@@ -6,15 +6,15 @@ use Chargebee\Resources\Content\Content;
 class Event  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $occurred_at
+    * @var ?int $occurred_at
     */
-    public int $occurred_at;
+    public ?int $occurred_at;
     
     /**
     *
@@ -48,9 +48,9 @@ class Event  {
     
     /**
     *
-    * @var \Chargebee\Enums\Source $source
+    * @var ?\Chargebee\Enums\Source $source
     */
-    public \Chargebee\Enums\Source $source;
+    public ?\Chargebee\Enums\Source $source;
     
     /**
     *
@@ -66,9 +66,9 @@ class Event  {
     
     /**
     *
-    * @var \Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status
+    * @var ?\Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status
     */
-    public \Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status;
+    public ?\Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status;
     
     /**
     * @var array<string> $knownFields
@@ -82,17 +82,17 @@ class Event  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $occurred_at,
+        ?string $id,
+        ?int $occurred_at,
         ?string $user,
         ?string $webhook_failure_reason,
         ?array $webhooks,
         ?Content $content,
         ?string $origin_user,
-        \Chargebee\Enums\Source $source,
+        ?\Chargebee\Enums\Source $source,
         ?\Chargebee\Enums\EventType $event_type,
         ?\Chargebee\Enums\ApiVersion $api_version,
-        \Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status,
+        ?\Chargebee\Resources\Event\Enums\WebhookStatus $webhook_status,
     )
     { 
         $this->id = $id;
@@ -114,8 +114,8 @@ class Event  {
             $result
         ), $resourceAttributes['webhooks'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['occurred_at'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['occurred_at'] ?? null,
         $resourceAttributes['user'] ?? null,
         $resourceAttributes['webhook_failure_reason'] ?? null,
         $webhooks,

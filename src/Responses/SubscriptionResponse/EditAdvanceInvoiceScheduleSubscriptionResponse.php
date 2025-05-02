@@ -8,17 +8,18 @@ use Chargebee\ValueObjects\ResponseBase;
 class EditAdvanceInvoiceScheduleSubscriptionResponse extends ResponseBase { 
     /**
     *
-    * @var array<AdvanceInvoiceSchedule> $advance_invoice_schedules
+    * @var ?array<AdvanceInvoiceSchedule> $advance_invoice_schedules
     */
-    public array $advance_invoice_schedules;
+    public ?array $advance_invoice_schedules;
     
 
     private function __construct(
-        array $advance_invoice_schedules,
+        ?array $advance_invoice_schedules,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->advance_invoice_schedules = $advance_invoice_schedules;
         
     }
@@ -26,16 +27,16 @@ class EditAdvanceInvoiceScheduleSubscriptionResponse extends ResponseBase {
     {
         $advance_invoice_schedules = array_map(fn (array $result): AdvanceInvoiceSchedule =>  AdvanceInvoiceSchedule::from(
             $result
-        ), $resourceAttributes['advance_invoice_schedules'] );
+        ), $resourceAttributes['advance_invoice_schedules'] ?? []);
         
-        return new self($advance_invoice_schedules, $headers);
+        return new self($advance_invoice_schedules, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
         ]);
-        
+          
 
         if($this->advance_invoice_schedules !== []) {
             $data['advance_invoice_schedules'] = array_map(

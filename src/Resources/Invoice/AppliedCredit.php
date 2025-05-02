@@ -5,21 +5,21 @@ namespace Chargebee\Resources\Invoice;
 class AppliedCredit  { 
     /**
     *
-    * @var string $cn_id
+    * @var ?string $cn_id
     */
-    public string $cn_id;
+    public ?string $cn_id;
     
     /**
     *
-    * @var int $applied_amount
+    * @var ?int $applied_amount
     */
-    public int $applied_amount;
+    public ?int $applied_amount;
     
     /**
     *
-    * @var int $applied_at
+    * @var ?int $applied_at
     */
-    public int $applied_at;
+    public ?int $applied_at;
     
     /**
     *
@@ -41,9 +41,9 @@ class AppliedCredit  {
     
     /**
     *
-    * @var string $cn_status
+    * @var ?string $cn_status
     */
-    public string $cn_status;
+    public ?string $cn_status;
     
     /**
     *
@@ -63,13 +63,13 @@ class AppliedCredit  {
     protected $_data = [];
 
     private function __construct(
-        string $cn_id,
-        int $applied_amount,
-        int $applied_at,
+        ?string $cn_id,
+        ?int $applied_amount,
+        ?int $applied_at,
         ?string $cn_reason_code,
         ?string $cn_create_reason_code,
         ?int $cn_date,
-        string $cn_status,
+        ?string $cn_status,
         ?string $tax_application,
     )
     { 
@@ -85,13 +85,13 @@ class AppliedCredit  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['cn_id'] ,
-        $resourceAttributes['applied_amount'] ,
-        $resourceAttributes['applied_at'] ,
+        $returnData = new self( $resourceAttributes['cn_id'] ?? null,
+        $resourceAttributes['applied_amount'] ?? null,
+        $resourceAttributes['applied_at'] ?? null,
         $resourceAttributes['cn_reason_code'] ?? null,
         $resourceAttributes['cn_create_reason_code'] ?? null,
         $resourceAttributes['cn_date'] ?? null,
-        $resourceAttributes['cn_status'] ,
+        $resourceAttributes['cn_status'] ?? null,
         $resourceAttributes['tax_application'] ?? null,
         
          

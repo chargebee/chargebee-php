@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class RetrieveCardResponse extends ResponseBase { 
     /**
     *
-    * @var Card $card
+    * @var ?Card $card
     */
-    public Card $card;
+    public ?Card $card;
     
 
     private function __construct(
-        Card $card,
+        ?Card $card,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->card = $card;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Card::from($resourceAttributes['card']), $headers);
+            isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'card' => $this->card->toArray(),
         ]);
-        
+         
+        if($this->card instanceof Card){
+            $data['card'] = $this->card->toArray();
+        } 
 
         return $data;
     }

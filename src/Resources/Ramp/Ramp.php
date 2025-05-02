@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Ramp;
 class Ramp  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,21 +17,21 @@ class Ramp  {
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
-    * @var int $effective_from
+    * @var ?int $effective_from
     */
-    public int $effective_from;
+    public ?int $effective_from;
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -77,27 +77,27 @@ class Ramp  {
     
     /**
     *
-    * @var ?array<string> $items_to_remove
+    * @var ?string $items_to_remove
     */
-    public ?array $items_to_remove;
+    public ?string $items_to_remove;
     
     /**
     *
-    * @var ?array<string> $coupons_to_remove
+    * @var ?string $coupons_to_remove
     */
-    public ?array $coupons_to_remove;
+    public ?string $coupons_to_remove;
     
     /**
     *
-    * @var ?array<string> $discounts_to_remove
+    * @var ?string $discounts_to_remove
     */
-    public ?array $discounts_to_remove;
+    public ?string $discounts_to_remove;
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -107,9 +107,9 @@ class Ramp  {
     
     /**
     *
-    * @var \Chargebee\Resources\Ramp\Enums\Status $status
+    * @var ?\Chargebee\Resources\Ramp\Enums\Status $status
     */
-    public \Chargebee\Resources\Ramp\Enums\Status $status;
+    public ?\Chargebee\Resources\Ramp\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -123,11 +123,11 @@ class Ramp  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $description,
-        string $subscription_id,
-        int $effective_from,
-        int $created_at,
+        ?string $subscription_id,
+        ?int $effective_from,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?array $items_to_add,
@@ -135,12 +135,12 @@ class Ramp  {
         ?array $coupons_to_add,
         ?array $discounts_to_add,
         ?array $item_tiers,
-        ?array $items_to_remove,
-        ?array $coupons_to_remove,
-        ?array $discounts_to_remove,
-        bool $deleted,
+        ?string $items_to_remove,
+        ?string $coupons_to_remove,
+        ?string $discounts_to_remove,
+        ?bool $deleted,
         ?StatusTransitionReason $status_transition_reason,
-        \Chargebee\Resources\Ramp\Enums\Status $status,
+        ?\Chargebee\Resources\Ramp\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -185,11 +185,11 @@ class Ramp  {
             $result
         ), $resourceAttributes['item_tiers'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['description'] ?? null,
-        $resourceAttributes['subscription_id'] ,
-        $resourceAttributes['effective_from'] ,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['subscription_id'] ?? null,
+        $resourceAttributes['effective_from'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $items_to_add,
@@ -200,7 +200,7 @@ class Ramp  {
         $resourceAttributes['items_to_remove'] ?? null,
         $resourceAttributes['coupons_to_remove'] ?? null,
         $resourceAttributes['discounts_to_remove'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         isset($resourceAttributes['status_transition_reason']) ? StatusTransitionReason::from($resourceAttributes['status_transition_reason']) : null,
         
          

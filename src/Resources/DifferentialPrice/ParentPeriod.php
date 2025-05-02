@@ -5,9 +5,9 @@ namespace Chargebee\Resources\DifferentialPrice;
 class ParentPeriod  { 
     /**
     *
-    * @var string $period_unit
+    * @var ?string $period_unit
     */
-    public string $period_unit;
+    public ?string $period_unit;
     
     /**
     *
@@ -27,7 +27,7 @@ class ParentPeriod  {
     protected $_data = [];
 
     private function __construct(
-        string $period_unit,
+        ?string $period_unit,
         mixed $period,
     )
     { 
@@ -37,7 +37,7 @@ class ParentPeriod  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['period_unit'] ,
+        $returnData = new self( $resourceAttributes['period_unit'] ?? null,
         $resourceAttributes['period'] ?? null,
         
          

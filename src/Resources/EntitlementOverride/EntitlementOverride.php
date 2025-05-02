@@ -5,9 +5,9 @@ namespace Chargebee\Resources\EntitlementOverride;
 class EntitlementOverride  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -75,7 +75,7 @@ class EntitlementOverride  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $entity_id,
         ?string $entity_type,
         ?string $feature_id,
@@ -101,7 +101,7 @@ class EntitlementOverride  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['feature_id'] ?? null,

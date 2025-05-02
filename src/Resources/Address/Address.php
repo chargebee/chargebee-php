@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Address;
 class Address  { 
     /**
     *
-    * @var string $label
+    * @var ?string $label
     */
-    public string $label;
+    public ?string $label;
     
     /**
     *
@@ -89,9 +89,9 @@ class Address  {
     
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
@@ -111,7 +111,7 @@ class Address  {
     protected $_data = [];
 
     private function __construct(
-        string $label,
+        ?string $label,
         ?string $first_name,
         ?string $last_name,
         ?string $email,
@@ -125,7 +125,7 @@ class Address  {
         ?string $state,
         ?string $country,
         ?string $zip,
-        string $subscription_id,
+        ?string $subscription_id,
         ?\Chargebee\Enums\ValidationStatus $validation_status,
     )
     { 
@@ -149,7 +149,7 @@ class Address  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['label'] ,
+        $returnData = new self( $resourceAttributes['label'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,
@@ -163,7 +163,7 @@ class Address  {
         $resourceAttributes['state'] ?? null,
         $resourceAttributes['country'] ?? null,
         $resourceAttributes['zip'] ?? null,
-        $resourceAttributes['subscription_id'] ,
+        $resourceAttributes['subscription_id'] ?? null,
         
         
         isset($resourceAttributes['validation_status']) ? \Chargebee\Enums\ValidationStatus::tryFromValue($resourceAttributes['validation_status']) : null,

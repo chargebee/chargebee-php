@@ -5,9 +5,9 @@ namespace Chargebee\Resources\TaxWithheld;
 class TaxWithheld  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -35,9 +35,9 @@ class TaxWithheld  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -65,15 +65,15 @@ class TaxWithheld  {
     
     /**
     *
-    * @var \Chargebee\Resources\TaxWithheld\Enums\Type $type
+    * @var ?\Chargebee\Resources\TaxWithheld\Enums\Type $type
     */
-    public \Chargebee\Resources\TaxWithheld\Enums\Type $type;
+    public ?\Chargebee\Resources\TaxWithheld\Enums\Type $type;
     
     /**
     *
-    * @var \Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method
+    * @var ?\Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method
     */
-    public \Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method;
+    public ?\Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method;
     
     /**
     * @var array<string> $knownFields
@@ -87,18 +87,18 @@ class TaxWithheld  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $user,
         ?string $reference_number,
         ?string $description,
         ?int $date,
-        string $currency_code,
+        ?string $currency_code,
         ?int $amount,
         ?int $resource_version,
         ?int $updated_at,
         ?int $exchange_rate,
-        \Chargebee\Resources\TaxWithheld\Enums\Type $type,
-        \Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method,
+        ?\Chargebee\Resources\TaxWithheld\Enums\Type $type,
+        ?\Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method,
     )
     { 
         $this->id = $id;
@@ -117,12 +117,12 @@ class TaxWithheld  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['user'] ?? null,
         $resourceAttributes['reference_number'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['date'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,

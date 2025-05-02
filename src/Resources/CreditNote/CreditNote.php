@@ -5,15 +5,15 @@ namespace Chargebee\Resources\CreditNote;
 class CreditNote  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -41,9 +41,9 @@ class CreditNote  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -107,9 +107,9 @@ class CreditNote  {
     
     /**
     *
-    * @var int $sub_total
+    * @var ?int $sub_total
     */
-    public int $sub_total;
+    public ?int $sub_total;
     
     /**
     *
@@ -191,9 +191,9 @@ class CreditNote  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -257,9 +257,9 @@ class CreditNote  {
     
     /**
     *
-    * @var \Chargebee\Enums\PriceType $price_type
+    * @var ?\Chargebee\Enums\PriceType $price_type
     */
-    public \Chargebee\Enums\PriceType $price_type;
+    public ?\Chargebee\Enums\PriceType $price_type;
     
     /**
     *
@@ -269,9 +269,9 @@ class CreditNote  {
     
     /**
     *
-    * @var \Chargebee\Resources\CreditNote\Enums\Type $type
+    * @var ?\Chargebee\Resources\CreditNote\Enums\Type $type
     */
-    public \Chargebee\Resources\CreditNote\Enums\Type $type;
+    public ?\Chargebee\Resources\CreditNote\Enums\Type $type;
     
     /**
     *
@@ -281,9 +281,9 @@ class CreditNote  {
     
     /**
     *
-    * @var \Chargebee\Resources\CreditNote\Enums\Status $status
+    * @var ?\Chargebee\Resources\CreditNote\Enums\Status $status
     */
-    public \Chargebee\Resources\CreditNote\Enums\Status $status;
+    public ?\Chargebee\Resources\CreditNote\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -297,13 +297,13 @@ class CreditNote  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $customer_id,
+        ?string $id,
+        ?string $customer_id,
         ?string $subscription_id,
         ?string $reference_invoice_id,
         ?string $vat_number,
         ?int $date,
-        string $currency_code,
+        ?string $currency_code,
         ?int $total,
         ?int $amount_allocated,
         ?int $amount_refunded,
@@ -314,7 +314,7 @@ class CreditNote  {
         ?int $resource_version,
         ?int $updated_at,
         ?Einvoice $einvoice,
-        int $sub_total,
+        ?int $sub_total,
         ?int $sub_total_in_local_currency,
         ?int $total_in_local_currency,
         ?string $local_currency_code,
@@ -328,7 +328,7 @@ class CreditNote  {
         ?array $line_item_taxes,
         ?array $linked_refunds,
         ?array $allocations,
-        bool $deleted,
+        ?bool $deleted,
         ?string $tax_category,
         ?int $local_currency_exchange_rate,
         ?string $create_reason_code,
@@ -339,11 +339,11 @@ class CreditNote  {
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?TaxOrigin $tax_origin,
         ?array $line_item_addresses,
-        \Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
-        \Chargebee\Resources\CreditNote\Enums\Type $type,
+        ?\Chargebee\Resources\CreditNote\Enums\Type $type,
         ?\Chargebee\Resources\CreditNote\Enums\ReasonCode $reason_code,
-        \Chargebee\Resources\CreditNote\Enums\Status $status,
+        ?\Chargebee\Resources\CreditNote\Enums\Status $status,
     )
     { 
         $this->id = $id;
@@ -433,13 +433,13 @@ class CreditNote  {
             $result
         ), $resourceAttributes['line_item_addresses'] ?? []);
         
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['reference_invoice_id'] ?? null,
         $resourceAttributes['vat_number'] ?? null,
         $resourceAttributes['date'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['total'] ?? null,
         $resourceAttributes['amount_allocated'] ?? null,
         $resourceAttributes['amount_refunded'] ?? null,
@@ -450,7 +450,7 @@ class CreditNote  {
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
-        $resourceAttributes['sub_total'] ,
+        $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['sub_total_in_local_currency'] ?? null,
         $resourceAttributes['total_in_local_currency'] ?? null,
         $resourceAttributes['local_currency_code'] ?? null,
@@ -464,7 +464,7 @@ class CreditNote  {
         $line_item_taxes,
         $linked_refunds,
         $allocations,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['tax_category'] ?? null,
         $resourceAttributes['local_currency_exchange_rate'] ?? null,
         $resourceAttributes['create_reason_code'] ?? null,

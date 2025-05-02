@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class DunningAttempt  { 
     /**
     *
-    * @var int $attempt
+    * @var ?int $attempt
     */
-    public int $attempt;
+    public ?int $attempt;
     
     /**
     *
@@ -17,9 +17,9 @@ class DunningAttempt  {
     
     /**
     *
-    * @var string $dunning_type
+    * @var ?string $dunning_type
     */
-    public string $dunning_type;
+    public ?string $dunning_type;
     
     /**
     *
@@ -51,9 +51,9 @@ class DunningAttempt  {
     protected $_data = [];
 
     private function __construct(
-        int $attempt,
+        ?int $attempt,
         ?string $transaction_id,
-        string $dunning_type,
+        ?string $dunning_type,
         ?int $created_at,
         ?string $txn_status,
         ?int $txn_amount,
@@ -69,9 +69,9 @@ class DunningAttempt  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['attempt'] ,
+        $returnData = new self( $resourceAttributes['attempt'] ?? null,
         $resourceAttributes['transaction_id'] ?? null,
-        $resourceAttributes['dunning_type'] ,
+        $resourceAttributes['dunning_type'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['txn_status'] ?? null,
         $resourceAttributes['txn_amount'] ?? null,

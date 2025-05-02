@@ -11,9 +11,9 @@ class Currency  {
     
     /**
     *
-    * @var bool $enabled
+    * @var ?bool $enabled
     */
-    public bool $enabled;
+    public ?bool $enabled;
     
     /**
     *
@@ -52,7 +52,7 @@ class Currency  {
 
     private function __construct(
         ?string $id,
-        bool $enabled,
+        ?bool $enabled,
         ?string $currency_code,
         ?bool $is_base_currency,
         ?string $manual_exchange_rate,
@@ -70,7 +70,7 @@ class Currency  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['enabled'] ,
+        $resourceAttributes['enabled'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['is_base_currency'] ?? null,
         $resourceAttributes['manual_exchange_rate'] ?? null,

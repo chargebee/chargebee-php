@@ -11,15 +11,15 @@ class LineItemTax  {
     
     /**
     *
-    * @var string $tax_name
+    * @var ?string $tax_name
     */
-    public string $tax_name;
+    public ?string $tax_name;
     
     /**
     *
-    * @var int $tax_rate
+    * @var ?int $tax_rate
     */
-    public int $tax_rate;
+    public ?int $tax_rate;
     
     /**
     *
@@ -53,15 +53,15 @@ class LineItemTax  {
     
     /**
     *
-    * @var int $taxable_amount
+    * @var ?int $taxable_amount
     */
-    public int $taxable_amount;
+    public ?int $taxable_amount;
     
     /**
     *
-    * @var int $tax_amount
+    * @var ?int $tax_amount
     */
-    public int $tax_amount;
+    public ?int $tax_amount;
     
     /**
     *
@@ -106,15 +106,15 @@ class LineItemTax  {
 
     private function __construct(
         ?string $line_item_id,
-        string $tax_name,
-        int $tax_rate,
+        ?string $tax_name,
+        ?int $tax_rate,
         ?int $date_to,
         ?int $date_from,
         ?int $prorated_taxable_amount,
         ?bool $is_partial_tax_applied,
         ?bool $is_non_compliance_tax,
-        int $taxable_amount,
-        int $tax_amount,
+        ?int $taxable_amount,
+        ?int $tax_amount,
         ?string $tax_juris_type,
         ?string $tax_juris_name,
         ?string $tax_juris_code,
@@ -142,15 +142,15 @@ class LineItemTax  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['line_item_id'] ?? null,
-        $resourceAttributes['tax_name'] ,
-        $resourceAttributes['tax_rate'] ,
+        $resourceAttributes['tax_name'] ?? null,
+        $resourceAttributes['tax_rate'] ?? null,
         $resourceAttributes['date_to'] ?? null,
         $resourceAttributes['date_from'] ?? null,
         $resourceAttributes['prorated_taxable_amount'] ?? null,
         $resourceAttributes['is_partial_tax_applied'] ?? null,
         $resourceAttributes['is_non_compliance_tax'] ?? null,
-        $resourceAttributes['taxable_amount'] ,
-        $resourceAttributes['tax_amount'] ,
+        $resourceAttributes['taxable_amount'] ?? null,
+        $resourceAttributes['tax_amount'] ?? null,
         $resourceAttributes['tax_juris_type'] ?? null,
         $resourceAttributes['tax_juris_name'] ?? null,
         $resourceAttributes['tax_juris_code'] ?? null,

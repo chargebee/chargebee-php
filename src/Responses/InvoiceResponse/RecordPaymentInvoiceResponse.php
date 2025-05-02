@@ -9,24 +9,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class RecordPaymentInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var Invoice $invoice
+    * @var ?Invoice $invoice
     */
-    public Invoice $invoice;
+    public ?Invoice $invoice;
     
     /**
     *
-    * @var Transaction $transaction
+    * @var ?Transaction $transaction
     */
-    public Transaction $transaction;
+    public ?Transaction $transaction;
     
 
     private function __construct(
-        Invoice $invoice,
-        Transaction $transaction,
+        ?Invoice $invoice,
+        ?Transaction $transaction,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         $this->transaction = $transaction;
         
@@ -34,17 +35,23 @@ class RecordPaymentInvoiceResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Invoice::from($resourceAttributes['invoice']),
-             Transaction::from($resourceAttributes['transaction']), $headers);
+            isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
+            
+            isset($resourceAttributes['transaction']) ? Transaction::from($resourceAttributes['transaction']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'invoice' => $this->invoice->toArray(), 
-            'transaction' => $this->transaction->toArray(),
+        $data = array_filter([  
         ]);
-        
+         
+        if($this->invoice instanceof Invoice){
+            $data['invoice'] = $this->invoice->toArray();
+        }  
+        if($this->transaction instanceof Transaction){
+            $data['transaction'] = $this->transaction->toArray();
+        } 
 
         return $data;
     }

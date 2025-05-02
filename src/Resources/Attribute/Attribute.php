@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Attribute;
 class Attribute  { 
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
-    * @var string $value
+    * @var ?string $value
     */
-    public string $value;
+    public ?string $value;
     
     /**
     * @var array<string> $knownFields
@@ -27,8 +27,8 @@ class Attribute  {
     protected $_data = [];
 
     private function __construct(
-        string $name,
-        string $value,
+        ?string $name,
+        ?string $value,
     )
     { 
         $this->name = $name;
@@ -37,8 +37,8 @@ class Attribute  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['name'] ,
-        $resourceAttributes['value'] ,
+        $returnData = new self( $resourceAttributes['name'] ?? null,
+        $resourceAttributes['value'] ?? null,
         
          
         );

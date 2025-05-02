@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateCurrencyResponse extends ResponseBase { 
     /**
     *
-    * @var Currency $currency
+    * @var ?Currency $currency
     */
-    public Currency $currency;
+    public ?Currency $currency;
     
 
     private function __construct(
-        Currency $currency,
+        ?Currency $currency,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->currency = $currency;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Currency::from($resourceAttributes['currency']), $headers);
+            isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'currency' => $this->currency->toArray(),
         ]);
-        
+         
+        if($this->currency instanceof Currency){
+            $data['currency'] = $this->currency->toArray();
+        } 
 
         return $data;
     }

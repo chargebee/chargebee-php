@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreateForChargeItemInvoiceResponse extends ResponseBase { 
     /**
     *
-    * @var Invoice $invoice
+    * @var ?Invoice $invoice
     */
-    public Invoice $invoice;
+    public ?Invoice $invoice;
     
 
     private function __construct(
-        Invoice $invoice,
+        ?Invoice $invoice,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->invoice = $invoice;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Invoice::from($resourceAttributes['invoice']), $headers);
+            isset($resourceAttributes['invoice']) ? Invoice::from($resourceAttributes['invoice']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'invoice' => $this->invoice->toArray(),
         ]);
-        
+         
+        if($this->invoice instanceof Invoice){
+            $data['invoice'] = $this->invoice->toArray();
+        } 
 
         return $data;
     }

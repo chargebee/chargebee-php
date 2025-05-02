@@ -9,9 +9,9 @@ use Chargebee\ValueObjects\ResponseBase;
 class EditCreateSubForCustomerQuoteQuoteResponse extends ResponseBase { 
     /**
     *
-    * @var Quote $quote
+    * @var ?Quote $quote
     */
-    public Quote $quote;
+    public ?Quote $quote;
     
     /**
     *
@@ -21,12 +21,13 @@ class EditCreateSubForCustomerQuoteQuoteResponse extends ResponseBase {
     
 
     private function __construct(
-        Quote $quote,
+        ?Quote $quote,
         ?QuotedSubscription $quoted_subscription,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->quote = $quote;
         $this->quoted_subscription = $quoted_subscription;
         
@@ -34,17 +35,20 @@ class EditCreateSubForCustomerQuoteQuoteResponse extends ResponseBase {
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Quote::from($resourceAttributes['quote']),
+            isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
+            
             isset($resourceAttributes['quoted_subscription']) ? QuotedSubscription::from($resourceAttributes['quoted_subscription']) : null,
-             $headers);
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
-            'quote' => $this->quote->toArray(), 
+        $data = array_filter([  
         ]);
          
+        if($this->quote instanceof Quote){
+            $data['quote'] = $this->quote->toArray();
+        }  
         if($this->quoted_subscription instanceof QuotedSubscription){
             $data['quoted_subscription'] = $this->quoted_subscription->toArray();
         } 

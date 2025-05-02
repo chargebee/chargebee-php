@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Invoice;
 class LinkedOrder  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -47,9 +47,9 @@ class LinkedOrder  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     * @var array<string> $knownFields
@@ -63,14 +63,14 @@ class LinkedOrder  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $document_number,
         ?string $status,
         ?string $order_type,
         ?string $reference_id,
         ?string $fulfillment_status,
         ?string $batch_id,
-        int $created_at,
+        ?int $created_at,
     )
     { 
         $this->id = $id;
@@ -85,14 +85,14 @@ class LinkedOrder  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['document_number'] ?? null,
         $resourceAttributes['status'] ?? null,
         $resourceAttributes['order_type'] ?? null,
         $resourceAttributes['reference_id'] ?? null,
         $resourceAttributes['fulfillment_status'] ?? null,
         $resourceAttributes['batch_id'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         
          
         );

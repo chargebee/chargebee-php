@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class AcknowledgeHostedPageResponse extends ResponseBase { 
     /**
     *
-    * @var HostedPage $hosted_page
+    * @var ?HostedPage $hosted_page
     */
-    public HostedPage $hosted_page;
+    public ?HostedPage $hosted_page;
     
 
     private function __construct(
-        HostedPage $hosted_page,
+        ?HostedPage $hosted_page,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->hosted_page = $hosted_page;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             HostedPage::from($resourceAttributes['hosted_page']), $headers);
+            isset($resourceAttributes['hosted_page']) ? HostedPage::from($resourceAttributes['hosted_page']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'hosted_page' => $this->hosted_page->toArray(),
         ]);
-        
+         
+        if($this->hosted_page instanceof HostedPage){
+            $data['hosted_page'] = $this->hosted_page->toArray();
+        } 
 
         return $data;
     }

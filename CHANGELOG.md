@@ -1,3 +1,10 @@
+### v4.2.0 (2025-05-02)
+* * * 
+
+### New Features:
+* Made all attributes in responses and resources optional.
+* Introduced a method to access the raw response data in associative array format for response classes.
+
 ### v4.1.1 (2025-04-25)
 * * * 
 

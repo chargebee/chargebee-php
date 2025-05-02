@@ -5,15 +5,15 @@ namespace Chargebee\Resources\ResourceMigration;
 class ResourceMigration  { 
     /**
     *
-    * @var string $from_site
+    * @var ?string $from_site
     */
-    public string $from_site;
+    public ?string $from_site;
     
     /**
     *
-    * @var string $entity_id
+    * @var ?string $entity_id
     */
-    public string $entity_id;
+    public ?string $entity_id;
     
     /**
     *
@@ -23,27 +23,27 @@ class ResourceMigration  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var int $updated_at
+    * @var ?int $updated_at
     */
-    public int $updated_at;
+    public ?int $updated_at;
     
     /**
     *
-    * @var \Chargebee\Enums\EntityType $entity_type
+    * @var ?\Chargebee\Enums\EntityType $entity_type
     */
-    public \Chargebee\Enums\EntityType $entity_type;
+    public ?\Chargebee\Enums\EntityType $entity_type;
     
     /**
     *
-    * @var \Chargebee\Resources\ResourceMigration\Enums\Status $status
+    * @var ?\Chargebee\Resources\ResourceMigration\Enums\Status $status
     */
-    public \Chargebee\Resources\ResourceMigration\Enums\Status $status;
+    public ?\Chargebee\Resources\ResourceMigration\Enums\Status $status;
     
     /**
     * @var array<string> $knownFields
@@ -57,13 +57,13 @@ class ResourceMigration  {
     protected $_data = [];
 
     private function __construct(
-        string $from_site,
-        string $entity_id,
+        ?string $from_site,
+        ?string $entity_id,
         ?string $errors,
-        int $created_at,
-        int $updated_at,
-        \Chargebee\Enums\EntityType $entity_type,
-        \Chargebee\Resources\ResourceMigration\Enums\Status $status,
+        ?int $created_at,
+        ?int $updated_at,
+        ?\Chargebee\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\ResourceMigration\Enums\Status $status,
     )
     { 
         $this->from_site = $from_site;
@@ -77,11 +77,11 @@ class ResourceMigration  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['from_site'] ,
-        $resourceAttributes['entity_id'] ,
+        $returnData = new self( $resourceAttributes['from_site'] ?? null,
+        $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['errors'] ?? null,
-        $resourceAttributes['created_at'] ,
-        $resourceAttributes['updated_at'] ,
+        $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['updated_at'] ?? null,
         
         
         isset($resourceAttributes['entity_type']) ? \Chargebee\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,

@@ -8,32 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class CreatePurchaseResponse extends ResponseBase { 
     /**
     *
-    * @var Purchase $purchase
+    * @var ?Purchase $purchase
     */
-    public Purchase $purchase;
+    public ?Purchase $purchase;
     
 
     private function __construct(
-        Purchase $purchase,
+        ?Purchase $purchase,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->purchase = $purchase;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-             Purchase::from($resourceAttributes['purchase']), $headers);
+            isset($resourceAttributes['purchase']) ? Purchase::from($resourceAttributes['purchase']) : null,
+             $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
         $data = array_filter([ 
-            'purchase' => $this->purchase->toArray(),
         ]);
-        
+         
+        if($this->purchase instanceof Purchase){
+            $data['purchase'] = $this->purchase->toArray();
+        } 
 
         return $data;
     }

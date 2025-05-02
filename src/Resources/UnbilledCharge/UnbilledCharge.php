@@ -53,9 +53,9 @@ class UnbilledCharge  {
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
@@ -77,9 +77,9 @@ class UnbilledCharge  {
     
     /**
     *
-    * @var bool $is_voided
+    * @var ?bool $is_voided
     */
-    public bool $is_voided;
+    public ?bool $is_voided;
     
     /**
     *
@@ -107,9 +107,9 @@ class UnbilledCharge  {
     
     /**
     *
-    * @var int $updated_at
+    * @var ?int $updated_at
     */
-    public int $updated_at;
+    public ?int $updated_at;
     
     /**
     *
@@ -131,9 +131,9 @@ class UnbilledCharge  {
     
     /**
     *
-    * @var bool $deleted
+    * @var ?bool $deleted
     */
-    public bool $deleted;
+    public ?bool $deleted;
     
     /**
     *
@@ -143,9 +143,9 @@ class UnbilledCharge  {
     
     /**
     *
-    * @var \Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type
+    * @var ?\Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type
     */
-    public \Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type;
+    public ?\Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type;
     
     /**
     * @var array<string> $knownFields
@@ -167,22 +167,22 @@ class UnbilledCharge  {
         ?int $unit_amount,
         ?int $quantity,
         ?int $amount,
-        string $currency_code,
+        ?string $currency_code,
         ?int $discount_amount,
         ?string $description,
         ?string $entity_id,
-        bool $is_voided,
+        ?bool $is_voided,
         ?int $voided_at,
         ?string $unit_amount_in_decimal,
         ?string $quantity_in_decimal,
         ?string $amount_in_decimal,
-        int $updated_at,
+        ?int $updated_at,
         ?array $tiers,
         ?bool $is_advance_charge,
         ?string $business_entity_id,
-        bool $deleted,
+        ?bool $deleted,
         ?\Chargebee\Enums\PricingModel $pricing_model,
-        \Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\UnbilledCharge\Enums\EntityType $entity_type,
     )
     { 
         $this->id = $id;
@@ -225,20 +225,20 @@ class UnbilledCharge  {
         $resourceAttributes['unit_amount'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['currency_code'] ,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
-        $resourceAttributes['is_voided'] ,
+        $resourceAttributes['is_voided'] ?? null,
         $resourceAttributes['voided_at'] ?? null,
         $resourceAttributes['unit_amount_in_decimal'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['amount_in_decimal'] ?? null,
-        $resourceAttributes['updated_at'] ,
+        $resourceAttributes['updated_at'] ?? null,
         $tiers,
         $resourceAttributes['is_advance_charge'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
-        $resourceAttributes['deleted'] ,
+        $resourceAttributes['deleted'] ?? null,
         
         
         isset($resourceAttributes['pricing_model']) ? \Chargebee\Enums\PricingModel::tryFromValue($resourceAttributes['pricing_model']) : null,

@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Customer;
 class EntityIdentifier  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
@@ -17,9 +17,9 @@ class EntityIdentifier  {
     
     /**
     *
-    * @var string $scheme
+    * @var ?string $scheme
     */
-    public string $scheme;
+    public ?string $scheme;
     
     /**
     *
@@ -39,9 +39,9 @@ class EntityIdentifier  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
+        ?string $id,
         ?string $value,
-        string $scheme,
+        ?string $scheme,
         ?string $standard,
     )
     { 
@@ -53,9 +53,9 @@ class EntityIdentifier  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['value'] ?? null,
-        $resourceAttributes['scheme'] ,
+        $resourceAttributes['scheme'] ?? null,
         $resourceAttributes['standard'] ?? null,
         
          

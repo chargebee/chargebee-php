@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Plan;
 class AttachedAddon  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var int $quantity
+    * @var ?int $quantity
     */
-    public int $quantity;
+    public ?int $quantity;
     
     /**
     *
@@ -23,9 +23,9 @@ class AttachedAddon  {
     
     /**
     *
-    * @var string $type
+    * @var ?string $type
     */
-    public string $type;
+    public ?string $type;
     
     /**
     *
@@ -45,10 +45,10 @@ class AttachedAddon  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        int $quantity,
+        ?string $id,
+        ?int $quantity,
         ?int $billing_cycles,
-        string $type,
+        ?string $type,
         ?string $quantity_in_decimal,
     )
     { 
@@ -61,10 +61,10 @@ class AttachedAddon  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['quantity'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['billing_cycles'] ?? null,
-        $resourceAttributes['type'] ,
+        $resourceAttributes['type'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         
          

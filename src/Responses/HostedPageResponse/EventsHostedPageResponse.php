@@ -7,24 +7,25 @@ use Chargebee\ValueObjects\ResponseBase;
 class EventsHostedPageResponse extends ResponseBase { 
     /**
     *
-    * @var bool $success
+    * @var ?bool $success
     */
-    public bool $success;
+    public ?bool $success;
     
 
     private function __construct(
-        bool $success,
+        ?bool $success,
         array $responseHeaders=[],
+        array $rawResponse=[]
     )
     {
-        parent::__construct($responseHeaders);
+        parent::__construct($responseHeaders, $rawResponse);
         $this->success = $success;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
         return new self(
-            $resourceAttributes['success'] , $headers);
+            $resourceAttributes['success'] ?? null, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
@@ -32,7 +33,7 @@ class EventsHostedPageResponse extends ResponseBase {
         $data = array_filter([
             'success' => $this->success,
         ]);
-        
+          
 
         return $data;
     }

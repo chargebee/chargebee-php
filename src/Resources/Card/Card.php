@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Card;
 class Card  { 
     /**
     *
-    * @var string $payment_source_id
+    * @var ?string $payment_source_id
     */
-    public string $payment_source_id;
+    public ?string $payment_source_id;
     
     /**
     *
@@ -35,27 +35,27 @@ class Card  {
     
     /**
     *
-    * @var string $iin
+    * @var ?string $iin
     */
-    public string $iin;
+    public ?string $iin;
     
     /**
     *
-    * @var string $last4
+    * @var ?string $last4
     */
-    public string $last4;
+    public ?string $last4;
     
     /**
     *
-    * @var int $expiry_month
+    * @var ?int $expiry_month
     */
-    public int $expiry_month;
+    public ?int $expiry_month;
     
     /**
     *
-    * @var int $expiry_year
+    * @var ?int $expiry_year
     */
-    public int $expiry_year;
+    public ?int $expiry_year;
     
     /**
     *
@@ -107,9 +107,9 @@ class Card  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
@@ -131,9 +131,9 @@ class Card  {
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -143,15 +143,15 @@ class Card  {
     
     /**
     *
-    * @var \Chargebee\Enums\Gateway $gateway
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public \Chargebee\Enums\Gateway $gateway;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
-    * @var \Chargebee\Resources\Card\Enums\Status $status
+    * @var ?\Chargebee\Resources\Card\Enums\Status $status
     */
-    public \Chargebee\Resources\Card\Enums\Status $status;
+    public ?\Chargebee\Resources\Card\Enums\Status $status;
     
     /**
     *
@@ -161,9 +161,9 @@ class Card  {
     
     /**
     *
-    * @var \Chargebee\Resources\Card\Enums\FundingType $funding_type
+    * @var ?\Chargebee\Resources\Card\Enums\FundingType $funding_type
     */
-    public \Chargebee\Resources\Card\Enums\FundingType $funding_type;
+    public ?\Chargebee\Resources\Card\Enums\FundingType $funding_type;
     
     /**
     *
@@ -183,15 +183,15 @@ class Card  {
     protected $_data = [];
 
     private function __construct(
-        string $payment_source_id,
+        ?string $payment_source_id,
         ?string $gateway_account_id,
         ?string $ref_tx_id,
         ?string $first_name,
         ?string $last_name,
-        string $iin,
-        string $last4,
-        int $expiry_month,
-        int $expiry_year,
+        ?string $iin,
+        ?string $last4,
+        ?int $expiry_month,
+        ?int $expiry_year,
         ?string $issuing_country,
         ?string $billing_addr1,
         ?string $billing_addr2,
@@ -200,16 +200,16 @@ class Card  {
         ?string $billing_state,
         ?string $billing_country,
         ?string $billing_zip,
-        int $created_at,
+        ?int $created_at,
         ?int $resource_version,
         ?int $updated_at,
         ?string $ip_address,
-        string $customer_id,
+        ?string $customer_id,
         ?string $masked_number,
-        \Chargebee\Enums\Gateway $gateway,
-        \Chargebee\Resources\Card\Enums\Status $status,
+        ?\Chargebee\Enums\Gateway $gateway,
+        ?\Chargebee\Resources\Card\Enums\Status $status,
         ?\Chargebee\Resources\Card\Enums\CardType $card_type,
-        \Chargebee\Resources\Card\Enums\FundingType $funding_type,
+        ?\Chargebee\Resources\Card\Enums\FundingType $funding_type,
         ?\Chargebee\Resources\Card\Enums\PoweredBy $powered_by,
     )
     { 
@@ -245,15 +245,15 @@ class Card  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['payment_source_id'] ,
+        $returnData = new self( $resourceAttributes['payment_source_id'] ?? null,
         $resourceAttributes['gateway_account_id'] ?? null,
         $resourceAttributes['ref_tx_id'] ?? null,
         $resourceAttributes['first_name'] ?? null,
         $resourceAttributes['last_name'] ?? null,
-        $resourceAttributes['iin'] ,
-        $resourceAttributes['last4'] ,
-        $resourceAttributes['expiry_month'] ,
-        $resourceAttributes['expiry_year'] ,
+        $resourceAttributes['iin'] ?? null,
+        $resourceAttributes['last4'] ?? null,
+        $resourceAttributes['expiry_month'] ?? null,
+        $resourceAttributes['expiry_year'] ?? null,
         $resourceAttributes['issuing_country'] ?? null,
         $resourceAttributes['billing_addr1'] ?? null,
         $resourceAttributes['billing_addr2'] ?? null,
@@ -262,11 +262,11 @@ class Card  {
         $resourceAttributes['billing_state'] ?? null,
         $resourceAttributes['billing_country'] ?? null,
         $resourceAttributes['billing_zip'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['ip_address'] ?? null,
-        $resourceAttributes['customer_id'] ,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['masked_number'] ?? null,
         
         

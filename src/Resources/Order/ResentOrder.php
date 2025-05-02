@@ -5,9 +5,9 @@ namespace Chargebee\Resources\Order;
 class ResentOrder  { 
     /**
     *
-    * @var string $order_id
+    * @var ?string $order_id
     */
-    public string $order_id;
+    public ?string $order_id;
     
     /**
     *
@@ -33,7 +33,7 @@ class ResentOrder  {
     protected $_data = [];
 
     private function __construct(
-        string $order_id,
+        ?string $order_id,
         ?string $reason,
         ?int $amount,
     )
@@ -45,7 +45,7 @@ class ResentOrder  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['order_id'] ,
+        $returnData = new self( $resourceAttributes['order_id'] ?? null,
         $resourceAttributes['reason'] ?? null,
         $resourceAttributes['amount'] ?? null,
         

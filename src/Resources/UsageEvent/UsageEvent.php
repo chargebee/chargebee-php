@@ -5,21 +5,21 @@ namespace Chargebee\Resources\UsageEvent;
 class UsageEvent  { 
     /**
     *
-    * @var string $subscription_id
+    * @var ?string $subscription_id
     */
-    public string $subscription_id;
+    public ?string $subscription_id;
     
     /**
     *
-    * @var string $deduplication_id
+    * @var ?string $deduplication_id
     */
-    public string $deduplication_id;
+    public ?string $deduplication_id;
     
     /**
     *
-    * @var int $usage_timestamp
+    * @var ?int $usage_timestamp
     */
-    public int $usage_timestamp;
+    public ?int $usage_timestamp;
     
     /**
     *
@@ -39,9 +39,9 @@ class UsageEvent  {
     protected $_data = [];
 
     private function __construct(
-        string $subscription_id,
-        string $deduplication_id,
-        int $usage_timestamp,
+        ?string $subscription_id,
+        ?string $deduplication_id,
+        ?int $usage_timestamp,
         mixed $properties,
     )
     { 
@@ -53,10 +53,10 @@ class UsageEvent  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['subscription_id'] ,
-        $resourceAttributes['deduplication_id'] ,
-        $resourceAttributes['usage_timestamp'] ,
-        $resourceAttributes['properties'] ,
+        $returnData = new self( $resourceAttributes['subscription_id'] ?? null,
+        $resourceAttributes['deduplication_id'] ?? null,
+        $resourceAttributes['usage_timestamp'] ?? null,
+        $resourceAttributes['properties'] ?? null,
         
          
         );

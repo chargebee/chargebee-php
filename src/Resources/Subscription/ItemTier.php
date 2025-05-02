@@ -5,15 +5,15 @@ namespace Chargebee\Resources\Subscription;
 class ItemTier  { 
     /**
     *
-    * @var string $item_price_id
+    * @var ?string $item_price_id
     */
-    public string $item_price_id;
+    public ?string $item_price_id;
     
     /**
     *
-    * @var int $starting_unit
+    * @var ?int $starting_unit
     */
-    public int $starting_unit;
+    public ?int $starting_unit;
     
     /**
     *
@@ -23,9 +23,9 @@ class ItemTier  {
     
     /**
     *
-    * @var int $price
+    * @var ?int $price
     */
-    public int $price;
+    public ?int $price;
     
     /**
     *
@@ -59,9 +59,9 @@ class ItemTier  {
     
     /**
     *
-    * @var int $index
+    * @var ?int $index
     */
-    public int $index;
+    public ?int $index;
     
     /**
     * @var array<string> $knownFields
@@ -75,16 +75,16 @@ class ItemTier  {
     protected $_data = [];
 
     private function __construct(
-        string $item_price_id,
-        int $starting_unit,
+        ?string $item_price_id,
+        ?int $starting_unit,
         ?int $ending_unit,
-        int $price,
+        ?int $price,
         ?string $starting_unit_in_decimal,
         ?string $ending_unit_in_decimal,
         ?string $price_in_decimal,
         ?string $pricing_type,
         ?int $package_size,
-        int $index,
+        ?int $index,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -101,16 +101,16 @@ class ItemTier  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_price_id'] ,
-        $resourceAttributes['starting_unit'] ,
+        $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
+        $resourceAttributes['starting_unit'] ?? null,
         $resourceAttributes['ending_unit'] ?? null,
-        $resourceAttributes['price'] ,
+        $resourceAttributes['price'] ?? null,
         $resourceAttributes['starting_unit_in_decimal'] ?? null,
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['pricing_type'] ?? null,
         $resourceAttributes['package_size'] ?? null,
-        $resourceAttributes['index'] ,
+        $resourceAttributes['index'] ?? null,
         
          
         );

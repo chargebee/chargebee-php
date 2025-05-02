@@ -5,15 +5,15 @@ namespace Chargebee\Resources\QuoteLineGroup;
 class Tax  { 
     /**
     *
-    * @var string $name
+    * @var ?string $name
     */
-    public string $name;
+    public ?string $name;
     
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
@@ -33,8 +33,8 @@ class Tax  {
     protected $_data = [];
 
     private function __construct(
-        string $name,
-        int $amount,
+        ?string $name,
+        ?int $amount,
         ?string $description,
     )
     { 
@@ -45,8 +45,8 @@ class Tax  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['name'] ,
-        $resourceAttributes['amount'] ,
+        $returnData = new self( $resourceAttributes['name'] ?? null,
+        $resourceAttributes['amount'] ?? null,
         $resourceAttributes['description'] ?? null,
         
          

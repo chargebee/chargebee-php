@@ -5,15 +5,15 @@ namespace Chargebee\Resources\PromotionalCredit;
 class PromotionalCredit  { 
     /**
     *
-    * @var string $id
+    * @var ?string $id
     */
-    public string $id;
+    public ?string $id;
     
     /**
     *
-    * @var string $customer_id
+    * @var ?string $customer_id
     */
-    public string $customer_id;
+    public ?string $customer_id;
     
     /**
     *
@@ -23,21 +23,21 @@ class PromotionalCredit  {
     
     /**
     *
-    * @var int $amount
+    * @var ?int $amount
     */
-    public int $amount;
+    public ?int $amount;
     
     /**
     *
-    * @var string $currency_code
+    * @var ?string $currency_code
     */
-    public string $currency_code;
+    public ?string $currency_code;
     
     /**
     *
-    * @var string $description
+    * @var ?string $description
     */
-    public string $description;
+    public ?string $description;
     
     /**
     *
@@ -47,9 +47,9 @@ class PromotionalCredit  {
     
     /**
     *
-    * @var int $closing_balance
+    * @var ?int $closing_balance
     */
-    public int $closing_balance;
+    public ?int $closing_balance;
     
     /**
     *
@@ -59,21 +59,21 @@ class PromotionalCredit  {
     
     /**
     *
-    * @var int $created_at
+    * @var ?int $created_at
     */
-    public int $created_at;
+    public ?int $created_at;
     
     /**
     *
-    * @var \Chargebee\Enums\CreditType $credit_type
+    * @var ?\Chargebee\Enums\CreditType $credit_type
     */
-    public \Chargebee\Enums\CreditType $credit_type;
+    public ?\Chargebee\Enums\CreditType $credit_type;
     
     /**
     *
-    * @var \Chargebee\Resources\PromotionalCredit\Enums\Type $type
+    * @var ?\Chargebee\Resources\PromotionalCredit\Enums\Type $type
     */
-    public \Chargebee\Resources\PromotionalCredit\Enums\Type $type;
+    public ?\Chargebee\Resources\PromotionalCredit\Enums\Type $type;
     
     /**
     * @var array<string> $knownFields
@@ -87,18 +87,18 @@ class PromotionalCredit  {
     protected $_data = [];
 
     private function __construct(
-        string $id,
-        string $customer_id,
+        ?string $id,
+        ?string $customer_id,
         ?string $amount_in_decimal,
-        int $amount,
-        string $currency_code,
-        string $description,
+        ?int $amount,
+        ?string $currency_code,
+        ?string $description,
         ?string $reference,
-        int $closing_balance,
+        ?int $closing_balance,
         ?string $done_by,
-        int $created_at,
-        \Chargebee\Enums\CreditType $credit_type,
-        \Chargebee\Resources\PromotionalCredit\Enums\Type $type,
+        ?int $created_at,
+        ?\Chargebee\Enums\CreditType $credit_type,
+        ?\Chargebee\Resources\PromotionalCredit\Enums\Type $type,
     )
     { 
         $this->id = $id;
@@ -117,16 +117,16 @@ class PromotionalCredit  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['id'] ,
-        $resourceAttributes['customer_id'] ,
+        $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['amount_in_decimal'] ?? null,
-        $resourceAttributes['amount'] ,
-        $resourceAttributes['currency_code'] ,
-        $resourceAttributes['description'] ,
+        $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['description'] ?? null,
         $resourceAttributes['reference'] ?? null,
-        $resourceAttributes['closing_balance'] ,
+        $resourceAttributes['closing_balance'] ?? null,
         $resourceAttributes['done_by'] ?? null,
-        $resourceAttributes['created_at'] ,
+        $resourceAttributes['created_at'] ?? null,
         
         
         isset($resourceAttributes['credit_type']) ? \Chargebee\Enums\CreditType::tryFromValue($resourceAttributes['credit_type']) : null,
