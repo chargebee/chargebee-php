@@ -6,22 +6,9 @@ use Chargebee\Responses\ItemResponse\UpdateItemResponse;
 use Chargebee\Responses\ItemResponse\CreateItemResponse;
 use Chargebee\Responses\ItemResponse\RetrieveItemResponse;
 use Chargebee\Responses\ItemResponse\ListItemResponse;
-use Chargebee\ValueObjects\Encoders\ListParamEncoder;
-use Chargebee\ValueObjects\Encoders\URLFormEncoder;
-use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\APIRequester;
-use Chargebee\HttpClient\HttpClientFactory;
-use Chargebee\Environment;
 
-final class ItemActions implements ItemActionsInterface
+interface ItemActionsInterface
 {
-    private HttpClientFactory $httpClientFactory;
-    private Environment $env;
-
-    public function __construct(HttpClientFactory $httpClientFactory, Environment $env){
-       $this->httpClientFactory = $httpClientFactory;
-       $this->env = $env;
-    }
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#list_items
@@ -119,25 +106,8 @@ final class ItemActions implements ItemActionsInterface
     *   @param array<string, string> $headers
     *   @return ListItemResponse
     */
-    #[\Override]
-    public function all(array $params = [], array $headers = []): ListItemResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["items"])
-        ->withParamEncoder(new ListParamEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
-        $respObject = $apiRequester->makeRequest($payload);
-        return ListItemResponse::from($respObject->data, $respObject->headers);
-    }
+    public function all(array $params = [], array $headers = []): ListItemResponse;
+
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#create_an_item
@@ -177,26 +147,7 @@ final class ItemActions implements ItemActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateItemResponse
     */
-    #[\Override]
-    public function create(array $params, array $headers = []): CreateItemResponse
-    {
-        $jsonKeys = [
-            "metadata" => 0,
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["items"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
-        $respObject = $apiRequester->makeRequest($payload);
-        return CreateItemResponse::from($respObject->data, $respObject->headers);
-    }
+    public function create(array $params, array $headers = []): CreateItemResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#delete_an_item
@@ -205,24 +156,7 @@ final class ItemActions implements ItemActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteItemResponse
     */
-    #[\Override]
-    public function delete(string $id, array $headers = []): DeleteItemResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["items",$id,"delete"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeleteItemResponse::from($respObject->data, $respObject->headers);
-    }
+    public function delete(string $id, array $headers = []): DeleteItemResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#retrieve_an_item
@@ -231,24 +165,7 @@ final class ItemActions implements ItemActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveItemResponse
     */
-    #[\Override]
-    public function retrieve(string $id, array $headers = []): RetrieveItemResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["items",$id])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
-        $respObject = $apiRequester->makeRequest($payload);
-        return RetrieveItemResponse::from($respObject->data, $respObject->headers);
-    }
+    public function retrieve(string $id, array $headers = []): RetrieveItemResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#update_an_item
@@ -293,24 +210,5 @@ final class ItemActions implements ItemActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateItemResponse
     */
-    #[\Override]
-    public function update(string $id, array $params = [], array $headers = []): UpdateItemResponse
-    {
-        $jsonKeys = [
-            "metadata" => 0,
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["items",$id])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
-        $respObject = $apiRequester->makeRequest($payload);
-        return UpdateItemResponse::from($respObject->data, $respObject->headers);
-    }
+    public function update(string $id, array $params = [], array $headers = []): UpdateItemResponse;
 }
