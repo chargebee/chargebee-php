@@ -26,6 +26,7 @@ use Chargebee\Actions\HostedPageActions;
 use Chargebee\Actions\InAppSubscriptionActions;
 use Chargebee\Actions\InvoiceActions;
 use Chargebee\Actions\ItemActions;
+use Chargebee\Actions\ItemActionsInterface;
 use Chargebee\Actions\ItemEntitlementActions;
 use Chargebee\Actions\ItemFamilyActions;
 use Chargebee\Actions\ItemPriceActions;
@@ -206,7 +207,7 @@ class ChargebeeClient {
         return new InvoiceActions($this->httpClientFactory, $this->env);
     }
 
-    public function item() :ItemActions {
+    public function item() :ItemActionsInterface {
         return new ItemActions($this->httpClientFactory, $this->env);
     }
 
