@@ -18,6 +18,7 @@ use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ListInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeInvoiceResponse;
+use Chargebee\Actions\Contracts\InvoiceActionsInterface;
 use Chargebee\Responses\InvoiceResponse\RecordPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddAddonChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CloseInvoiceResponse;
@@ -43,12 +44,11 @@ use Chargebee\Responses\InvoiceResponse\ImportInvoiceInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RefundInvoiceResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class InvoiceActions
+final class InvoiceActions implements InvoiceActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

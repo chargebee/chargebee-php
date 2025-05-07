@@ -1,16 +1,16 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\SiteMigrationDetailActionsInterface;
 use Chargebee\Responses\SiteMigrationDetailResponse\ListSiteMigrationDetailResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class SiteMigrationDetailActions
+final class SiteMigrationDetailActions implements SiteMigrationDetailActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

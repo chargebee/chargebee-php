@@ -1,17 +1,17 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\TimeMachineActionsInterface;
 use Chargebee\Responses\TimeMachineResponse\TravelForwardTimeMachineResponse;
 use Chargebee\Responses\TimeMachineResponse\RetrieveTimeMachineResponse;
 use Chargebee\Responses\TimeMachineResponse\StartAfreshTimeMachineResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class TimeMachineActions
+final class TimeMachineActions implements TimeMachineActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

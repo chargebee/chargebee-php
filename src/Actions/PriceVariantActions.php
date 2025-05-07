@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\PriceVariantActionsInterface;
 use Chargebee\Responses\PriceVariantResponse\ListPriceVariantResponse;
 use Chargebee\Responses\PriceVariantResponse\CreatePriceVariantResponse;
 use Chargebee\Responses\PriceVariantResponse\UpdatePriceVariantResponse;
@@ -9,12 +10,11 @@ use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\PriceVariantResponse\RetrievePriceVariantResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PriceVariantActions
+final class PriceVariantActions implements PriceVariantActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

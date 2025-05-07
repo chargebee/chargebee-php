@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\UnbilledChargeActionsInterface;
 use Chargebee\Responses\UnbilledChargeResponse\DeleteUnbilledChargeResponse;
 use Chargebee\Responses\UnbilledChargeResponse\CreateUnbilledChargeResponse;
 use Chargebee\Responses\UnbilledChargeResponse\ListUnbilledChargeResponse;
@@ -10,12 +11,11 @@ use Chargebee\Responses\UnbilledChargeResponse\InvoiceUnbilledChargesUnbilledCha
 use Chargebee\Responses\UnbilledChargeResponse\CreateUnbilledChargeUnbilledChargeResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class UnbilledChargeActions
+final class UnbilledChargeActions implements UnbilledChargeActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

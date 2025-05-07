@@ -2,6 +2,7 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\OrderResponse\UpdateOrderResponse;
+use Chargebee\Actions\Contracts\OrderActionsInterface;
 use Chargebee\Responses\OrderResponse\ImportOrderOrderResponse;
 use Chargebee\Responses\OrderResponse\CancelOrderResponse;
 use Chargebee\Responses\OrderResponse\OrdersForInvoiceOrderResponse;
@@ -16,12 +17,11 @@ use Chargebee\Responses\OrderResponse\CreateOrderResponse;
 use Chargebee\Responses\OrderResponse\DeleteOrderResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class OrderActions
+final class OrderActions implements OrderActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -14,14 +14,14 @@ use Chargebee\Responses\TransactionResponse\TransactionsForSubscriptionTransacti
 use Chargebee\Responses\TransactionResponse\ReconcileTransactionResponse;
 use Chargebee\Responses\TransactionResponse\DeleteOfflineTransactionTransactionResponse;
 use Chargebee\Responses\TransactionResponse\RecordRefundTransactionResponse;
+use Chargebee\Actions\Contracts\TransactionActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class TransactionActions
+final class TransactionActions implements TransactionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -3,17 +3,17 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\CardResponse\CopyCardForCustomerCardResponse;
 use Chargebee\Responses\CardResponse\RetrieveCardResponse;
+use Chargebee\Actions\Contracts\CardActionsInterface;
 use Chargebee\Responses\CardResponse\SwitchGatewayForCustomerCardResponse;
 use Chargebee\Responses\CardResponse\DeleteCardForCustomerCardResponse;
 use Chargebee\Responses\CardResponse\UpdateCardForCustomerCardResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CardActions
+final class CardActions implements CardActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

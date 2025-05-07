@@ -4,6 +4,7 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\CouponResponse\DeleteCouponResponse;
 use Chargebee\Responses\CouponResponse\CopyCouponResponse;
 use Chargebee\Responses\CouponResponse\UpdateCouponResponse;
+use Chargebee\Actions\Contracts\CouponActionsInterface;
 use Chargebee\Responses\CouponResponse\UpdateForItemsCouponResponse;
 use Chargebee\Responses\CouponResponse\RetrieveCouponResponse;
 use Chargebee\Responses\CouponResponse\CreateForItemsCouponResponse;
@@ -13,12 +14,11 @@ use Chargebee\Responses\CouponResponse\ListCouponResponse;
 use Chargebee\Responses\CouponResponse\CreateCouponResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CouponActions
+final class CouponActions implements CouponActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -18,6 +18,7 @@ use Chargebee\Responses\HostedPageResponse\UpdateCardHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\CheckoutNewForItemsHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\ClaimGiftHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\CheckoutOneTimeForItemsHostedPageResponse;
+use Chargebee\Actions\Contracts\HostedPageActionsInterface;
 use Chargebee\Responses\HostedPageResponse\CheckoutOneTimeHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\CollectNowHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\CheckoutGiftHostedPageResponse;
@@ -26,12 +27,11 @@ use Chargebee\Responses\HostedPageResponse\CheckoutNewHostedPageResponse;
 use Chargebee\Responses\HostedPageResponse\RetrieveHostedPageResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class HostedPageActions
+final class HostedPageActions implements HostedPageActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

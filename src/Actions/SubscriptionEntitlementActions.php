@@ -1,17 +1,17 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\SubscriptionEntitlementActionsInterface;
 use Chargebee\Responses\SubscriptionEntitlementResponse\SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponse;
 use Chargebee\Responses\SubscriptionEntitlementResponse\SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class SubscriptionEntitlementActions
+final class SubscriptionEntitlementActions implements SubscriptionEntitlementActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

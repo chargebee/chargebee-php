@@ -16,6 +16,7 @@ use Chargebee\Responses\CustomerResponse\CreateCustomerResponse;
 use Chargebee\Responses\CustomerResponse\RecordExcessPaymentCustomerResponse;
 use Chargebee\Responses\CustomerResponse\AssignPaymentRoleCustomerResponse;
 use Chargebee\Responses\CustomerResponse\AddPromotionalCreditsCustomerResponse;
+use Chargebee\Actions\Contracts\CustomerActionsInterface;
 use Chargebee\Responses\CustomerResponse\ClearPersonalDataCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ChangeBillingDateCustomerResponse;
 use Chargebee\Responses\CustomerResponse\UpdateContactCustomerResponse;
@@ -29,12 +30,11 @@ use Chargebee\Responses\CustomerResponse\HierarchyCustomerResponse;
 use Chargebee\Responses\CustomerResponse\UpdateCustomerResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CustomerActions
+final class CustomerActions implements CustomerActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

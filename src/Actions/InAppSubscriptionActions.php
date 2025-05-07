@@ -5,14 +5,14 @@ use Chargebee\Responses\InAppSubscriptionResponse\ImportSubscriptionInAppSubscri
 use Chargebee\Responses\InAppSubscriptionResponse\RetrieveStoreSubsInAppSubscriptionResponse;
 use Chargebee\Responses\InAppSubscriptionResponse\ProcessReceiptInAppSubscriptionResponse;
 use Chargebee\Responses\InAppSubscriptionResponse\ImportReceiptInAppSubscriptionResponse;
+use Chargebee\Actions\Contracts\InAppSubscriptionActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class InAppSubscriptionActions
+final class InAppSubscriptionActions implements InAppSubscriptionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

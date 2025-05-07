@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\AddonActionsInterface;
 use Chargebee\Responses\AddonResponse\CopyAddonResponse;
 use Chargebee\Responses\AddonResponse\ListAddonResponse;
 use Chargebee\Responses\AddonResponse\RetrieveAddonResponse;
@@ -11,12 +12,11 @@ use Chargebee\Responses\AddonResponse\CreateAddonResponse;
 use Chargebee\Responses\AddonResponse\DeleteAddonResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class AddonActions
+final class AddonActions implements AddonActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

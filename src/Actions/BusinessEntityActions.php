@@ -2,16 +2,16 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\BusinessEntityResponse\GetTransfersBusinessEntityResponse;
+use Chargebee\Actions\Contracts\BusinessEntityActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\BusinessEntityResponse\CreateTransfersBusinessEntityResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class BusinessEntityActions
+final class BusinessEntityActions implements BusinessEntityActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -4,15 +4,15 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\RetrieveOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\ListOmnichannelSubscriptionResponse;
+use Chargebee\Actions\Contracts\OmnichannelSubscriptionActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class OmnichannelSubscriptionActions
+final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

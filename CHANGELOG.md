@@ -1,3 +1,9 @@
+### v4.3.0-beta.1 (2025-05-07)
+* * * 
+
+### New Features:
+* Interfaces for action classes for better unit testing.
+
 ### v4.2.0 (2025-05-02)
 * * * 
 

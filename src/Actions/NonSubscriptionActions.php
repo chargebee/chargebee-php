@@ -2,14 +2,14 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\NonSubscriptionResponse\ProcessReceiptNonSubscriptionResponse;
+use Chargebee\Actions\Contracts\NonSubscriptionActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class NonSubscriptionActions
+final class NonSubscriptionActions implements NonSubscriptionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

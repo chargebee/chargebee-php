@@ -6,15 +6,15 @@ use Chargebee\Responses\DifferentialPriceResponse\CreateDifferentialPriceRespons
 use Chargebee\Responses\DifferentialPriceResponse\ListDifferentialPriceResponse;
 use Chargebee\Responses\DifferentialPriceResponse\RetrieveDifferentialPriceResponse;
 use Chargebee\Responses\DifferentialPriceResponse\DeleteDifferentialPriceResponse;
+use Chargebee\Actions\Contracts\DifferentialPriceActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class DifferentialPriceActions
+final class DifferentialPriceActions implements DifferentialPriceActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

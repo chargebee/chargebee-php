@@ -2,16 +2,16 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\EntitlementResponse\ListEntitlementResponse;
+use Chargebee\Actions\Contracts\EntitlementActionsInterface;
 use Chargebee\Responses\EntitlementResponse\CreateEntitlementResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class EntitlementActions
+final class EntitlementActions implements EntitlementActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

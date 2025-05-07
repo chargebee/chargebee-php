@@ -7,16 +7,16 @@ use Chargebee\Responses\GiftResponse\ListGiftResponse;
 use Chargebee\Responses\GiftResponse\ClaimGiftResponse;
 use Chargebee\Responses\GiftResponse\RetrieveGiftResponse;
 use Chargebee\Responses\GiftResponse\CancelGiftResponse;
+use Chargebee\Actions\Contracts\GiftActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\GiftResponse\CreateGiftResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class GiftActions
+final class GiftActions implements GiftActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

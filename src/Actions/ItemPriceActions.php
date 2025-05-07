@@ -7,16 +7,16 @@ use Chargebee\Responses\ItemPriceResponse\DeleteItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\UpdateItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\RetrieveItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\FindApplicableItemPricesItemPriceResponse;
+use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
 use Chargebee\Responses\ItemPriceResponse\ListItemPriceResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ItemPriceActions
+final class ItemPriceActions implements ItemPriceActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

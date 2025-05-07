@@ -4,14 +4,14 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\UsageEventResponse\BatchIngestUsageEventResponse;
 use Chargebee\Responses\UsageEventResponse\CreateUsageEventResponse;
 use Chargebee\ValueObjects\Encoders\JsonParamEncoder;
+use Chargebee\Actions\Contracts\UsageEventActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class UsageEventActions
+final class UsageEventActions implements UsageEventActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

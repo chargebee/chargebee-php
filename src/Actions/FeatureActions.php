@@ -8,16 +8,16 @@ use Chargebee\Responses\FeatureResponse\CreateFeatureResponse;
 use Chargebee\Responses\FeatureResponse\DeleteFeatureResponse;
 use Chargebee\Responses\FeatureResponse\UpdateFeatureResponse;
 use Chargebee\Responses\FeatureResponse\ArchiveFeatureResponse;
+use Chargebee\Actions\Contracts\FeatureActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\FeatureResponse\RetrieveFeatureResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class FeatureActions
+final class FeatureActions implements FeatureActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

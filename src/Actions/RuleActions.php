@@ -2,14 +2,14 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\RuleResponse\RetrieveRuleResponse;
+use Chargebee\Actions\Contracts\RuleActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class RuleActions
+final class RuleActions implements RuleActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

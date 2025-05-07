@@ -13,6 +13,7 @@ use Chargebee\Responses\ExportResponse\OrdersExportResponse;
 use Chargebee\Responses\ExportResponse\PlansExportResponse;
 use Chargebee\Responses\ExportResponse\AttachedItemsExportResponse;
 use Chargebee\Responses\ExportResponse\RetrieveExportResponse;
+use Chargebee\Actions\Contracts\ExportActionsInterface;
 use Chargebee\Responses\ExportResponse\PriceVariantsExportResponse;
 use Chargebee\Responses\ExportResponse\InvoicesExportResponse;
 use Chargebee\Responses\ExportResponse\ItemPricesExportResponse;
@@ -21,12 +22,11 @@ use Chargebee\Responses\ExportResponse\ItemsExportResponse;
 use Chargebee\Responses\ExportResponse\DeferredRevenueExportResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ExportActions
+final class ExportActions implements ExportActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
