@@ -2,6 +2,7 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\CreditNoteResponse\ResendEinvoiceCreditNoteResponse;
+use Chargebee\Actions\Contracts\CreditNoteActionsInterface;
 use Chargebee\Responses\CreditNoteResponse\SendEinvoiceCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ImportCreditNoteCreditNoteResponse;
@@ -18,12 +19,11 @@ use Chargebee\Responses\CreditNoteResponse\RefundCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\RecordRefundCreditNoteResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CreditNoteActions
+final class CreditNoteActions implements CreditNoteActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

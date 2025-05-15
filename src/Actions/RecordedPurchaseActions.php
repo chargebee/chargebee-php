@@ -1,16 +1,16 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\RecordedPurchaseActionsInterface;
 use Chargebee\Responses\RecordedPurchaseResponse\RetrieveRecordedPurchaseResponse;
 use Chargebee\Responses\RecordedPurchaseResponse\CreateRecordedPurchaseResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class RecordedPurchaseActions
+final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

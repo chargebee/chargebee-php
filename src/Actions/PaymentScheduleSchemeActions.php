@@ -1,17 +1,17 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\PaymentScheduleSchemeActionsInterface;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\DeletePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\RetrievePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\CreatePaymentScheduleSchemeResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PaymentScheduleSchemeActions
+final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

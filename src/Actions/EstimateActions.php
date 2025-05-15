@@ -12,6 +12,7 @@ use Chargebee\Responses\EstimateResponse\CreateInvoiceForItemsEstimateResponse;
 use Chargebee\Responses\EstimateResponse\CancelSubscriptionEstimateResponse;
 use Chargebee\Responses\EstimateResponse\UpcomingInvoicesEstimateEstimateResponse;
 use Chargebee\Responses\EstimateResponse\CreateSubscriptionEstimateResponse;
+use Chargebee\Actions\Contracts\EstimateActionsInterface;
 use Chargebee\Responses\EstimateResponse\RenewalEstimateEstimateResponse;
 use Chargebee\Responses\EstimateResponse\RegenerateInvoiceEstimateEstimateResponse;
 use Chargebee\Responses\EstimateResponse\ChangeTermEndEstimateResponse;
@@ -23,12 +24,11 @@ use Chargebee\Responses\EstimateResponse\ResumeSubscriptionEstimateResponse;
 use Chargebee\Responses\EstimateResponse\CreateSubItemForCustomerEstimateEstimateResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class EstimateActions
+final class EstimateActions implements EstimateActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

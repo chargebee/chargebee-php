@@ -17,16 +17,16 @@ use Chargebee\Responses\PaymentSourceResponse\CreateBankAccountPaymentSourceResp
 use Chargebee\Responses\PaymentSourceResponse\ListPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\ExportPaymentSourcePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingPaymentIntentPaymentSourceResponse;
+use Chargebee\Actions\Contracts\PaymentSourceActionsInterface;
 use Chargebee\Responses\PaymentSourceResponse\VerifyBankAccountPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateVoucherPaymentSourcePaymentSourceResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PaymentSourceActions
+final class PaymentSourceActions implements PaymentSourceActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

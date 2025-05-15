@@ -1,3 +1,40 @@
+### v4.3.0 (2025-05-15)
+* * * 
+
+### New Features:
+* Interfaces for action classes for better unit testing.
+
+### New Resources
+* UsageFile has been added.
+
+### Input Parameter
+* discount[apply_on] has been made optional from required in Estimate#CreateSubItemEstimateRequest.
+* discount[apply_on] has been made optional from required in Estimate#CreateSubItemForCustomerEstimateRequest.
+* discount[apply_on] has been made optional from required in Estimate#UpdateSubscriptionForItemsRequest.
+* discount[apply_on] has been made optional from required in HostedPage#CheckoutNewForItemsRequest.
+* discount[apply_on] has been made optional from required in HostedPage#CheckoutNewForItemsRequest.
+* discount[apply_on] has been made optional from required in HostedPage#CheckoutNewForItemsRequest.
+* discount[apply_on] has been made optional from required in HostedPage#CheckoutNewForItemsRequest.
+* discount[apply_on] has been made optional from required in PricingPageSession#CheckoutNewForItemsRequest.
+* discount[apply_on] has been made optional from required in PricingPageSession#CreateForExistingSubscriptionRequest.
+* discount[apply_on] has been made optional from required in Quote#CreateSubItemsForCustomerQuoteRequest.
+* discount[apply_on] has been made optional from required in Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* discount[apply_on] has been made optional from required in Quote#UpdateSubscriptionQuoteForItemsRequest.
+* discount[apply_on] has been made optional from required in Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* discount[apply_on] has been made optional from required in Subscription#CreateWithItemsRequest.
+* discount[apply_on] has been made optional from required in Subscription#UpdateForItemsRequest.
+* discount[apply_on] has been made optional from required in Subscription#ImportForItemsRequest.
+* line_item_addresses[] has been added to  Invoice#ImportInvoiceRequest.
+* source has been added to OmnichannelSubscription#OmnichannelSubscriptionListRequest.
+
+### Attributes: 
+* swift_code has been made optional from required in VirtualBankAccount.
+
+### Enum Attributes: 
+* OMNICHANNEL_SUBSCRIPTION_ITEM_PAUSED has been added to EventTypeEnum.
+* PAUSED has been added to OmnichannelSubscriptionItem#StatusEnum.
+* MERCHANT_REVOKED has been added to OmnichannelSubscriptionItem#CancellationReasonEnum.
+
 ### v4.2.0 (2025-05-02)
 * * * 
 

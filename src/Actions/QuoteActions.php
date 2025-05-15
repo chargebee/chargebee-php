@@ -8,6 +8,7 @@ use Chargebee\Responses\QuoteResponse\ConvertQuoteResponse;
 use Chargebee\Responses\QuoteResponse\CreateSubForCustomerQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\ListQuoteResponse;
 use Chargebee\Responses\QuoteResponse\PdfQuoteResponse;
+use Chargebee\Actions\Contracts\QuoteActionsInterface;
 use Chargebee\Responses\QuoteResponse\CreateSubItemsForCustomerQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\RetrieveQuoteResponse;
 use Chargebee\Responses\QuoteResponse\UpdateStatusQuoteResponse;
@@ -24,12 +25,11 @@ use Chargebee\Responses\QuoteResponse\EditUpdateSubscriptionQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\ExtendExpiryDateQuoteResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class QuoteActions
+final class QuoteActions implements QuoteActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -5,18 +5,18 @@ use Chargebee\Responses\PlanResponse\UpdatePlanResponse;
 use Chargebee\Responses\PlanResponse\CreatePlanResponse;
 use Chargebee\Responses\PlanResponse\UnarchivePlanResponse;
 use Chargebee\Responses\PlanResponse\DeletePlanResponse;
+use Chargebee\Actions\Contracts\PlanActionsInterface;
 use Chargebee\Responses\PlanResponse\RetrievePlanResponse;
 use Chargebee\Responses\PlanResponse\CopyPlanResponse;
 use Chargebee\Responses\PlanResponse\ListPlanResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PlanActions
+final class PlanActions implements PlanActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

@@ -3,14 +3,14 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\PricingPageSessionResponse\CreateForNewSubscriptionPricingPageSessionResponse;
 use Chargebee\Responses\PricingPageSessionResponse\CreateForExistingSubscriptionPricingPageSessionResponse;
+use Chargebee\Actions\Contracts\PricingPageSessionActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PricingPageSessionActions
+final class PricingPageSessionActions implements PricingPageSessionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

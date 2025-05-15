@@ -4,14 +4,14 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\PaymentIntentResponse\UpdatePaymentIntentResponse;
 use Chargebee\Responses\PaymentIntentResponse\RetrievePaymentIntentResponse;
 use Chargebee\Responses\PaymentIntentResponse\CreatePaymentIntentResponse;
+use Chargebee\Actions\Contracts\PaymentIntentActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PaymentIntentActions
+final class PaymentIntentActions implements PaymentIntentActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

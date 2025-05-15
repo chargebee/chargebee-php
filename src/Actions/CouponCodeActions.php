@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\CouponCodeActionsInterface;
 use Chargebee\Responses\CouponCodeResponse\ListCouponCodeResponse;
 use Chargebee\Responses\CouponCodeResponse\CreateCouponCodeResponse;
 use Chargebee\Responses\CouponCodeResponse\RetrieveCouponCodeResponse;
@@ -8,12 +9,11 @@ use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\CouponCodeResponse\ArchiveCouponCodeResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CouponCodeActions
+final class CouponCodeActions implements CouponCodeActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

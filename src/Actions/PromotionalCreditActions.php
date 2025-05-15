@@ -5,16 +5,16 @@ use Chargebee\Responses\PromotionalCreditResponse\RetrievePromotionalCreditRespo
 use Chargebee\Responses\PromotionalCreditResponse\AddPromotionalCreditResponse;
 use Chargebee\Responses\PromotionalCreditResponse\ListPromotionalCreditResponse;
 use Chargebee\Responses\PromotionalCreditResponse\DeductPromotionalCreditResponse;
+use Chargebee\Actions\Contracts\PromotionalCreditActionsInterface;
 use Chargebee\Responses\PromotionalCreditResponse\SetPromotionalCreditResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PromotionalCreditActions
+final class PromotionalCreditActions implements PromotionalCreditActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

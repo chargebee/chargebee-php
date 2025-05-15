@@ -1,16 +1,16 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\CustomerEntitlementActionsInterface;
 use Chargebee\Responses\CustomerEntitlementResponse\EntitlementsForCustomerCustomerEntitlementResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CustomerEntitlementActions
+final class CustomerEntitlementActions implements CustomerEntitlementActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

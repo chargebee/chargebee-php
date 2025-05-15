@@ -2,6 +2,7 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\AttachedItemResponse\ListAttachedItemResponse;
+use Chargebee\Actions\Contracts\AttachedItemActionsInterface;
 use Chargebee\Responses\AttachedItemResponse\RetrieveAttachedItemResponse;
 use Chargebee\Responses\AttachedItemResponse\DeleteAttachedItemResponse;
 use Chargebee\Responses\AttachedItemResponse\CreateAttachedItemResponse;
@@ -9,12 +10,11 @@ use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\AttachedItemResponse\UpdateAttachedItemResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class AttachedItemActions
+final class AttachedItemActions implements AttachedItemActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

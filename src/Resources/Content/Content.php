@@ -84,6 +84,7 @@ use Chargebee\Resources\Transaction\Transaction;
 use Chargebee\Resources\UnbilledCharge\UnbilledCharge;
 use Chargebee\Resources\Usage\Usage;
 use Chargebee\Resources\UsageEvent\UsageEvent;
+use Chargebee\Resources\UsageFile\UsageFile;
 use Chargebee\Resources\VirtualBankAccount\VirtualBankAccount;
 
 class Content  { 
@@ -587,6 +588,12 @@ class Content  {
     
     /**
     *
+    * @var ?UsageFile $usagefile
+    */
+    public ?UsageFile $usagefile;
+    
+    /**
+    *
     * @var ?VirtualBankAccount $virtualbankaccount
     */
     public ?VirtualBankAccount $virtualbankaccount;
@@ -594,7 +601,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "virtual_bank_account"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
 
     /**
     * dynamic properties for resources
@@ -686,6 +693,7 @@ class Content  {
         ?UnbilledCharge $unbilledcharge,
         ?Usage $usage,
         ?UsageEvent $usageevent,
+        ?UsageFile $usagefile,
         ?VirtualBankAccount $virtualbankaccount,
     )
     { 
@@ -772,6 +780,7 @@ class Content  {
         $this->unbilledcharge = $unbilledcharge;
         $this->usage = $usage;
         $this->usageevent = $usageevent;
+        $this->usagefile = $usagefile;
         $this->virtualbankaccount = $virtualbankaccount;  
     }
 
@@ -860,6 +869,7 @@ class Content  {
         isset($resourceAttributes['unbilled_charge']) ? UnbilledCharge::from($resourceAttributes['unbilled_charge']) : null,
         isset($resourceAttributes['usage']) ? Usage::from($resourceAttributes['usage']) : null,
         isset($resourceAttributes['usage_event']) ? UsageEvent::from($resourceAttributes['usage_event']) : null,
+        isset($resourceAttributes['usage_file']) ? UsageFile::from($resourceAttributes['usage_file']) : null,
         isset($resourceAttributes['virtual_bank_account']) ? VirtualBankAccount::from($resourceAttributes['virtual_bank_account']) : null,
         
          
@@ -872,6 +882,7 @@ class Content  {
     {
 
         $data = array_filter([
+        
         
         
         
@@ -1209,6 +1220,9 @@ class Content  {
         }
         if($this->usageevent instanceof UsageEvent){
             $data['usage_event'] = $this->usageevent->toArray();
+        }
+        if($this->usagefile instanceof UsageFile){
+            $data['usage_file'] = $this->usagefile->toArray();
         }
         if($this->virtualbankaccount instanceof VirtualBankAccount){
             $data['virtual_bank_account'] = $this->virtualbankaccount->toArray();

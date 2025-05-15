@@ -6,6 +6,7 @@ use Chargebee\Responses\SubscriptionResponse\ChargeAddonAtTermEndSubscriptionRes
 use Chargebee\Responses\SubscriptionResponse\CreateSubscriptionResponse;
 use Chargebee\Responses\SubscriptionResponse\SubscriptionsForCustomerSubscriptionResponse;
 use Chargebee\Responses\SubscriptionResponse\PauseSubscriptionResponse;
+use Chargebee\Actions\Contracts\SubscriptionActionsInterface;
 use Chargebee\Responses\SubscriptionResponse\MoveSubscriptionResponse;
 use Chargebee\Responses\SubscriptionResponse\OverrideBillingProfileSubscriptionResponse;
 use Chargebee\Responses\SubscriptionResponse\RegenerateInvoiceSubscriptionResponse;
@@ -41,12 +42,11 @@ use Chargebee\Responses\SubscriptionResponse\EditAdvanceInvoiceScheduleSubscript
 use Chargebee\Responses\SubscriptionResponse\ImportForCustomerSubscriptionResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class SubscriptionActions
+final class SubscriptionActions implements SubscriptionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

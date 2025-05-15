@@ -203,6 +203,7 @@ enum EventType : string {
     case SALES_ORDER_CREATED = "sales_order_created";
     case SALES_ORDER_UPDATED = "sales_order_updated";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_CHANGED = "omnichannel_subscription_item_changed";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_PAUSED = "omnichannel_subscription_item_paused";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";

@@ -4,15 +4,15 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\PortalSessionResponse\CreatePortalSessionResponse;
 use Chargebee\Responses\PortalSessionResponse\RetrievePortalSessionResponse;
 use Chargebee\Responses\PortalSessionResponse\ActivatePortalSessionResponse;
+use Chargebee\Actions\Contracts\PortalSessionActionsInterface;
 use Chargebee\Responses\PortalSessionResponse\LogoutPortalSessionResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PortalSessionActions
+final class PortalSessionActions implements PortalSessionActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

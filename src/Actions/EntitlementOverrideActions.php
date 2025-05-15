@@ -4,14 +4,14 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\EntitlementOverrideResponse\AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 use Chargebee\Responses\EntitlementOverrideResponse\ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
+use Chargebee\Actions\Contracts\EntitlementOverrideActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class EntitlementOverrideActions
+final class EntitlementOverrideActions implements EntitlementOverrideActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

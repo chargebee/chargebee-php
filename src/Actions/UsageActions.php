@@ -6,15 +6,15 @@ use Chargebee\Responses\UsageResponse\CreateUsageResponse;
 use Chargebee\Responses\UsageResponse\ListUsageResponse;
 use Chargebee\Responses\UsageResponse\PdfUsageResponse;
 use Chargebee\Responses\UsageResponse\DeleteUsageResponse;
+use Chargebee\Actions\Contracts\UsageActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class UsageActions
+final class UsageActions implements UsageActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

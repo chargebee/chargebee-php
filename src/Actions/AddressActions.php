@@ -3,14 +3,14 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\AddressResponse\UpdateAddressResponse;
 use Chargebee\Responses\AddressResponse\RetrieveAddressResponse;
+use Chargebee\Actions\Contracts\AddressActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class AddressActions
+final class AddressActions implements AddressActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

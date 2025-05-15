@@ -5,16 +5,16 @@ use Chargebee\Responses\ItemFamilyResponse\RetrieveItemFamilyResponse;
 use Chargebee\Responses\ItemFamilyResponse\ListItemFamilyResponse;
 use Chargebee\Responses\ItemFamilyResponse\CreateItemFamilyResponse;
 use Chargebee\Responses\ItemFamilyResponse\DeleteItemFamilyResponse;
+use Chargebee\Actions\Contracts\ItemFamilyActionsInterface;
 use Chargebee\Responses\ItemFamilyResponse\UpdateItemFamilyResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ItemFamilyActions
+final class ItemFamilyActions implements ItemFamilyActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
@@ -72,8 +72,8 @@ final class ItemFamilyActions
     *     between?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is?: mixed,
     *     is_present?: mixed,
+    *     is?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

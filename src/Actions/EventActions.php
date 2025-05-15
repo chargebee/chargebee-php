@@ -1,17 +1,17 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\EventActionsInterface;
 use Chargebee\Responses\EventResponse\RetrieveEventResponse;
 use Chargebee\Responses\EventResponse\ListEventResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class EventActions
+final class EventActions implements EventActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

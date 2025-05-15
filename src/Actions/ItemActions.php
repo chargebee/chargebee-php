@@ -6,15 +6,15 @@ use Chargebee\Responses\ItemResponse\UpdateItemResponse;
 use Chargebee\Responses\ItemResponse\CreateItemResponse;
 use Chargebee\Responses\ItemResponse\RetrieveItemResponse;
 use Chargebee\Responses\ItemResponse\ListItemResponse;
+use Chargebee\Actions\Contracts\ItemActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ItemActions
+final class ItemActions implements ItemActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
@@ -104,8 +104,8 @@ final class ItemActions
     *     not_in?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is?: mixed,
     *     is_present?: mixed,
+    *     is?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

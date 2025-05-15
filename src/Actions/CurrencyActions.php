@@ -2,6 +2,7 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\CurrencyResponse\CreateCurrencyResponse;
+use Chargebee\Actions\Contracts\CurrencyActionsInterface;
 use Chargebee\Responses\CurrencyResponse\ListCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\AddScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\RetrieveCurrencyResponse;
@@ -9,12 +10,11 @@ use Chargebee\Responses\CurrencyResponse\RemoveScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\UpdateCurrencyResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CurrencyActions
+final class CurrencyActions implements CurrencyActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

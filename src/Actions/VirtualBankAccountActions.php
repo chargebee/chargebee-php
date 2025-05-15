@@ -4,6 +4,7 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\VirtualBankAccountResponse\CreateUsingPermanentTokenVirtualBankAccountResponse;
 use Chargebee\Responses\VirtualBankAccountResponse\RetrieveVirtualBankAccountResponse;
 use Chargebee\Responses\VirtualBankAccountResponse\SyncFundVirtualBankAccountResponse;
+use Chargebee\Actions\Contracts\VirtualBankAccountActionsInterface;
 use Chargebee\Responses\VirtualBankAccountResponse\DeleteVirtualBankAccountResponse;
 use Chargebee\Responses\VirtualBankAccountResponse\ListVirtualBankAccountResponse;
 use Chargebee\Responses\VirtualBankAccountResponse\CreateVirtualBankAccountResponse;
@@ -11,12 +12,11 @@ use Chargebee\Responses\VirtualBankAccountResponse\DeleteLocalVirtualBankAccount
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class VirtualBankAccountActions
+final class VirtualBankAccountActions implements VirtualBankAccountActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

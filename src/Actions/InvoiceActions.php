@@ -18,6 +18,7 @@ use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ListInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeInvoiceResponse;
+use Chargebee\Actions\Contracts\InvoiceActionsInterface;
 use Chargebee\Responses\InvoiceResponse\RecordPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddAddonChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CloseInvoiceResponse;
@@ -43,12 +44,11 @@ use Chargebee\Responses\InvoiceResponse\ImportInvoiceInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RefundInvoiceResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class InvoiceActions
+final class InvoiceActions implements InvoiceActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
@@ -1396,6 +1396,23 @@ final class InvoiceActions
     *     entity_id?: string,
     *     note?: string,
     *     }>,
+    *     line_item_addresses?: array<array{
+    *     line_item_id?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     }>,
     *     id?: string,
     *     currency_code?: string,
     *     customer_id?: string,
@@ -1537,13 +1554,13 @@ final class InvoiceActions
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         in?: string,
-    *             is?: string,
+    *         is?: string,
+    *             in?: string,
     *             },
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

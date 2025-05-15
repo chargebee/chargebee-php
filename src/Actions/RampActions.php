@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\RampActionsInterface;
 use Chargebee\Responses\RampResponse\DeleteRampResponse;
 use Chargebee\Responses\RampResponse\RetrieveRampResponse;
 use Chargebee\Responses\RampResponse\UpdateRampResponse;
@@ -9,12 +10,11 @@ use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\RampResponse\CreateForSubscriptionRampResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class RampActions
+final class RampActions implements RampActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
@@ -130,12 +130,12 @@ final class RampActions
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * subscription_id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,

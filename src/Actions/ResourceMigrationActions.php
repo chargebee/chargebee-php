@@ -2,14 +2,14 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\ResourceMigrationResponse\RetrieveLatestResourceMigrationResponse;
+use Chargebee\Actions\Contracts\ResourceMigrationActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ResourceMigrationActions
+final class ResourceMigrationActions implements ResourceMigrationActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

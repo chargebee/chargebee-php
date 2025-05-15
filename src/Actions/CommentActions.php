@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\CommentActionsInterface;
 use Chargebee\Responses\CommentResponse\ListCommentResponse;
 use Chargebee\Responses\CommentResponse\RetrieveCommentResponse;
 use Chargebee\Responses\CommentResponse\DeleteCommentResponse;
@@ -8,12 +9,11 @@ use Chargebee\Responses\CommentResponse\CreateCommentResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class CommentActions
+final class CommentActions implements CommentActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

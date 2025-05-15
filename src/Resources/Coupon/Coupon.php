@@ -108,15 +108,15 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?string $plan_ids
+    * @var ?array<string> $plan_ids
     */
-    public ?string $plan_ids;
+    public ?array $plan_ids;
     
     /**
     *
-    * @var ?string $addon_ids
+    * @var ?array<string> $addon_ids
     */
-    public ?string $addon_ids;
+    public ?array $addon_ids;
     
     /**
     *
@@ -237,8 +237,8 @@ class Coupon  extends SupportsCustomFields  {
         ?int $updated_at,
         ?bool $included_in_mrr,
         ?int $period,
-        ?string $plan_ids,
-        ?string $addon_ids,
+        ?array $plan_ids,
+        ?array $addon_ids,
         ?array $item_constraints,
         ?array $item_constraint_criteria,
         ?int $redemptions,

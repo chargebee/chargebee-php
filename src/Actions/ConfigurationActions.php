@@ -1,15 +1,15 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\ConfigurationActionsInterface;
 use Chargebee\Responses\ConfigurationResponse\ListConfigurationResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class ConfigurationActions
+final class ConfigurationActions implements ConfigurationActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

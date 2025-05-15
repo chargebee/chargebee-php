@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Actions\Contracts\PaymentVoucherActionsInterface;
 use Chargebee\Responses\PaymentVoucherResponse\PaymentVouchersForCustomerPaymentVoucherResponse;
 use Chargebee\Responses\PaymentVoucherResponse\RetrievePaymentVoucherResponse;
 use Chargebee\Responses\PaymentVoucherResponse\PaymentVouchersForInvoicePaymentVoucherResponse;
@@ -8,12 +9,11 @@ use Chargebee\Responses\PaymentVoucherResponse\CreatePaymentVoucherResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PaymentVoucherActions
+final class PaymentVoucherActions implements PaymentVoucherActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

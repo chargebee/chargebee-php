@@ -3,14 +3,14 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\OmnichannelSubscriptionItemResponse\ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
+use Chargebee\Actions\Contracts\OmnichannelSubscriptionItemActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class OmnichannelSubscriptionItemActions
+final class OmnichannelSubscriptionItemActions implements OmnichannelSubscriptionItemActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;

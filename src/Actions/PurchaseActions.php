@@ -3,14 +3,14 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\PurchaseResponse\CreatePurchaseResponse;
 use Chargebee\Responses\PurchaseResponse\EstimatePurchaseResponse;
+use Chargebee\Actions\Contracts\PurchaseActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
-use Chargebee\ValueObjects\ResponseObject;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 
-final class PurchaseActions
+final class PurchaseActions implements PurchaseActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
