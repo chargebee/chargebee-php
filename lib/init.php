@@ -274,6 +274,8 @@ require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledCharge.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/UnbilledChargeTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Usage.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/UsageEvent.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/UsageFile.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/UsageFileUploadDetail.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/VirtualBankAccount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Content.php');
 

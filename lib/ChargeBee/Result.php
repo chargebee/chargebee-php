@@ -823,6 +823,15 @@ class Result
         return $omnichannel_subscription_item_scheduled_change;
     }
 
+    public function usageFile() 
+    {
+        $usage_file = $this->_get('usage_file', Models\UsageFile::class, 
+        array( 
+			'upload_detail' => Models\UsageFileUploadDetail::class
+		));
+        return $usage_file;
+    }
+
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,
