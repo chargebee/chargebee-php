@@ -66,9 +66,9 @@ class Plan  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?int $downgrade_penalty
+    * @var ?float $downgrade_penalty
     */
-    public ?int $downgrade_penalty;
+    public ?float $downgrade_penalty;
     
     /**
     *
@@ -362,7 +362,7 @@ class Plan  extends SupportsCustomFields  {
         ?int $trial_period,
         ?int $free_quantity,
         ?int $setup_cost,
-        ?int $downgrade_penalty,
+        ?float $downgrade_penalty,
         ?int $archived_at,
         ?int $billing_cycles,
         ?string $redirect_url,

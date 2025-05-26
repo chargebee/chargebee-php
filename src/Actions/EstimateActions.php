@@ -136,7 +136,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -356,7 +356,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     }>,
     *     charges?: array<array{
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     amount?: int,
     *     amount_in_decimal?: string,
     *     description?: string,
@@ -376,7 +376,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     entity_id?: string,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
@@ -558,7 +558,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -734,7 +734,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,

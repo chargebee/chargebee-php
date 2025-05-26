@@ -24,9 +24,9 @@ class Coupon  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?int $discount_percentage
+    * @var ?float $discount_percentage
     */
-    public ?int $discount_percentage;
+    public ?float $discount_percentage;
     
     /**
     *
@@ -223,7 +223,7 @@ class Coupon  extends SupportsCustomFields  {
         ?string $id,
         ?string $name,
         ?string $invoice_name,
-        ?int $discount_percentage,
+        ?float $discount_percentage,
         ?int $discount_amount,
         ?int $discount_quantity,
         ?string $currency_code,

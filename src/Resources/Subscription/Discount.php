@@ -23,9 +23,9 @@ class Discount  {
     
     /**
     *
-    * @var ?int $percentage
+    * @var ?float $percentage
     */
-    public ?int $percentage;
+    public ?float $percentage;
     
     /**
     *
@@ -120,7 +120,7 @@ class Discount  {
         ?string $id,
         ?string $invoice_name,
         ?string $type,
-        ?int $percentage,
+        ?float $percentage,
         ?int $amount,
         ?string $currency_code,
         ?string $duration_type,

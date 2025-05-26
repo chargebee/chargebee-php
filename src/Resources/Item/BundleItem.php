@@ -23,9 +23,9 @@ class BundleItem  {
     
     /**
     *
-    * @var ?int $price_allocation
+    * @var ?float $price_allocation
     */
-    public ?int $price_allocation;
+    public ?float $price_allocation;
     
     /**
     * @var array<string> $knownFields
@@ -42,7 +42,7 @@ class BundleItem  {
         ?string $item_id,
         ?string $item_type,
         ?int $quantity,
-        ?int $price_allocation,
+        ?float $price_allocation,
     )
     { 
         $this->item_id = $item_id;

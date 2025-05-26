@@ -171,7 +171,7 @@ Interface SubscriptionActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -800,7 +800,7 @@ Interface SubscriptionActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -1057,7 +1057,7 @@ Interface SubscriptionActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,

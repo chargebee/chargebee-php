@@ -17,9 +17,9 @@ class LineItemTax  {
     
     /**
     *
-    * @var ?int $tax_rate
+    * @var ?float $tax_rate
     */
-    public ?int $tax_rate;
+    public ?float $tax_rate;
     
     /**
     *
@@ -35,9 +35,9 @@ class LineItemTax  {
     
     /**
     *
-    * @var ?int $prorated_taxable_amount
+    * @var ?float $prorated_taxable_amount
     */
-    public ?int $prorated_taxable_amount;
+    public ?float $prorated_taxable_amount;
     
     /**
     *
@@ -107,10 +107,10 @@ class LineItemTax  {
     private function __construct(
         ?string $line_item_id,
         ?string $tax_name,
-        ?int $tax_rate,
+        ?float $tax_rate,
         ?int $date_to,
         ?int $date_from,
-        ?int $prorated_taxable_amount,
+        ?float $prorated_taxable_amount,
         ?bool $is_partial_tax_applied,
         ?bool $is_non_compliance_tax,
         ?int $taxable_amount,

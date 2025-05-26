@@ -17,9 +17,9 @@ class Discount  {
     
     /**
     *
-    * @var ?int $percentage
+    * @var ?float $percentage
     */
-    public ?int $percentage;
+    public ?float $percentage;
     
     /**
     *
@@ -119,7 +119,7 @@ class Discount  {
     private function __construct(
         ?string $id,
         ?string $invoice_name,
-        ?int $percentage,
+        ?float $percentage,
         ?int $amount,
         ?string $currency_code,
         ?int $period,

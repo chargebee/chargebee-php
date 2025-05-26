@@ -59,9 +59,9 @@ class Invoice  {
     
     /**
     *
-    * @var ?int $exchange_rate
+    * @var ?float $exchange_rate
     */
-    public ?int $exchange_rate;
+    public ?float $exchange_rate;
     
     /**
     *
@@ -167,9 +167,9 @@ class Invoice  {
     
     /**
     *
-    * @var ?int $local_currency_exchange_rate
+    * @var ?float $local_currency_exchange_rate
     */
-    public ?int $local_currency_exchange_rate;
+    public ?float $local_currency_exchange_rate;
     
     /**
     *
@@ -432,7 +432,7 @@ class Invoice  {
         ?int $date,
         ?int $due_date,
         ?int $net_term_days,
-        ?int $exchange_rate,
+        ?float $exchange_rate,
         ?string $currency_code,
         ?int $total,
         ?int $amount_paid,
@@ -450,7 +450,7 @@ class Invoice  {
         ?int $total_in_local_currency,
         ?string $local_currency_code,
         ?int $tax,
-        ?int $local_currency_exchange_rate,
+        ?float $local_currency_exchange_rate,
         ?bool $first_invoice,
         ?int $new_sales_amount,
         ?bool $has_advance_charges,

@@ -300,9 +300,9 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?int $exchange_rate
+    * @var ?float $exchange_rate
     */
-    public ?int $exchange_rate;
+    public ?float $exchange_rate;
     
     /**
     *
@@ -533,7 +533,7 @@ class Subscription  extends SupportsCustomFields  {
         ?int $total_dues,
         ?int $mrr,
         ?int $arr,
-        ?int $exchange_rate,
+        ?float $exchange_rate,
         ?string $base_currency_code,
         ?array $addons,
         ?array $event_based_addons,

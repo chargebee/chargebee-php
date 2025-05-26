@@ -87,7 +87,7 @@ final class RampActions implements RampActionsInterface
     *     discounts_to_add?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -216,7 +216,7 @@ final class RampActions implements RampActionsInterface
     *     discounts_to_add?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,

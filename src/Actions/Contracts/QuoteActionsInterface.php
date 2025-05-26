@@ -79,7 +79,7 @@ Interface QuoteActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -177,7 +177,7 @@ Interface QuoteActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -300,7 +300,7 @@ Interface QuoteActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -415,10 +415,10 @@ Interface QuoteActionsInterface
     *     avalara_service_type?: int,
     *     service_period?: int,
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
@@ -515,7 +515,7 @@ Interface QuoteActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -695,10 +695,10 @@ Interface QuoteActionsInterface
     *     avalara_service_type?: int,
     *     service_period?: int,
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,

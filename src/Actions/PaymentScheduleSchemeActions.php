@@ -50,7 +50,7 @@ final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActions
     *   @param array{
     *     flexible_schedules?: array<array{
     *     period?: int,
-    *     amount_percentage?: int,
+    *     amount_percentage?: float,
     *     }>,
     *     number_of_schedules?: int,
     *     period_unit?: string,

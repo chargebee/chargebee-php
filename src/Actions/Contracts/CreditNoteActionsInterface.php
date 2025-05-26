@@ -304,7 +304,7 @@ Interface CreditNoteActionsInterface
     *     }>,
     *     taxes?: array<array{
     *     name?: string,
-    *     rate?: int,
+    *     rate?: float,
     *     amount?: int,
     *     description?: string,
     *     juris_type?: string,

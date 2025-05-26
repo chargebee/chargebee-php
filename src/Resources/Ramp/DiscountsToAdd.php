@@ -23,9 +23,9 @@ class DiscountsToAdd  {
     
     /**
     *
-    * @var ?int $percentage
+    * @var ?float $percentage
     */
-    public ?int $percentage;
+    public ?float $percentage;
     
     /**
     *
@@ -90,7 +90,7 @@ class DiscountsToAdd  {
         ?string $id,
         ?string $invoice_name,
         ?string $type,
-        ?int $percentage,
+        ?float $percentage,
         ?int $amount,
         ?string $duration_type,
         ?int $period,

@@ -707,7 +707,7 @@ Interface InvoiceActionsInterface
     *     date_from?: int,
     *     date_to?: int,
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     }>,
     *     notes_to_remove?: array<array{
     *     entity_type?: string,
@@ -719,7 +719,7 @@ Interface InvoiceActionsInterface
     *     field_value?: string,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
@@ -955,7 +955,7 @@ Interface InvoiceActionsInterface
     *     }>,
     *     taxes?: array<array{
     *     name?: string,
-    *     rate?: int,
+    *     rate?: float,
     *     amount?: int,
     *     description?: string,
     *     juris_type?: string,

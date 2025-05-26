@@ -107,7 +107,7 @@ Interface EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -258,7 +258,7 @@ Interface EstimateActionsInterface
     *     }>,
     *     charges?: array<array{
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     amount?: int,
     *     amount_in_decimal?: string,
     *     description?: string,
@@ -278,7 +278,7 @@ Interface EstimateActionsInterface
     *     entity_id?: string,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
@@ -425,7 +425,7 @@ Interface EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -551,7 +551,7 @@ Interface EstimateActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,

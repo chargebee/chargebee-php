@@ -59,9 +59,9 @@ class TaxWithheld  {
     
     /**
     *
-    * @var ?int $exchange_rate
+    * @var ?float $exchange_rate
     */
-    public ?int $exchange_rate;
+    public ?float $exchange_rate;
     
     /**
     *
@@ -96,7 +96,7 @@ class TaxWithheld  {
         ?int $amount,
         ?int $resource_version,
         ?int $updated_at,
-        ?int $exchange_rate,
+        ?float $exchange_rate,
         ?\Chargebee\Resources\TaxWithheld\Enums\Type $type,
         ?\Chargebee\Resources\TaxWithheld\Enums\PaymentMethod $payment_method,
     )

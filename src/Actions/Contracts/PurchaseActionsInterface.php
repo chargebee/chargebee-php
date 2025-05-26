@@ -68,7 +68,7 @@ Interface PurchaseActionsInterface
     *     discounts?: array<array{
     *     index?: int,
     *     coupon_id?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     included_in_mrr?: bool,
     *     }>,
@@ -154,7 +154,7 @@ Interface PurchaseActionsInterface
     *     discounts?: array<array{
     *     index?: int,
     *     coupon_id?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     included_in_mrr?: bool,
     *     }>,

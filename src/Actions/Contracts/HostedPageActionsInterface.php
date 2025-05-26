@@ -105,10 +105,10 @@ Interface HostedPageActionsInterface
     *     date_from?: int,
     *     date_to?: int,
     *     discount_amount?: int,
-    *     discount_percentage?: int,
+    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
@@ -386,7 +386,7 @@ Interface HostedPageActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,
@@ -476,7 +476,7 @@ Interface HostedPageActionsInterface
     *     discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     period?: int,
     *     period_unit?: string,

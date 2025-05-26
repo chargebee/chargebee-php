@@ -53,9 +53,9 @@ class Transaction  {
     
     /**
     *
-    * @var ?int $exchange_rate
+    * @var ?float $exchange_rate
     */
-    public ?int $exchange_rate;
+    public ?float $exchange_rate;
     
     /**
     *
@@ -299,7 +299,7 @@ class Transaction  {
         ?string $reference_number,
         ?int $date,
         ?int $settled_at,
-        ?int $exchange_rate,
+        ?float $exchange_rate,
         ?string $currency_code,
         ?int $amount,
         ?string $id_at_gateway,

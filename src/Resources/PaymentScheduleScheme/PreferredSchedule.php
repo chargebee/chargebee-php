@@ -11,9 +11,9 @@ class PreferredSchedule  {
     
     /**
     *
-    * @var ?int $amount_percentage
+    * @var ?float $amount_percentage
     */
-    public ?int $amount_percentage;
+    public ?float $amount_percentage;
     
     /**
     * @var array<string> $knownFields
@@ -28,7 +28,7 @@ class PreferredSchedule  {
 
     private function __construct(
         ?int $period,
-        ?int $amount_percentage,
+        ?float $amount_percentage,
     )
     { 
         $this->period = $period;

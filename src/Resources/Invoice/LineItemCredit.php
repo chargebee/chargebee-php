@@ -11,9 +11,9 @@ class LineItemCredit  {
     
     /**
     *
-    * @var ?int $applied_amount
+    * @var ?float $applied_amount
     */
-    public ?int $applied_amount;
+    public ?float $applied_amount;
     
     /**
     *
@@ -34,7 +34,7 @@ class LineItemCredit  {
 
     private function __construct(
         ?string $cn_id,
-        ?int $applied_amount,
+        ?float $applied_amount,
         ?string $line_item_id,
     )
     { 

@@ -65,9 +65,9 @@ class LineItem  {
     
     /**
     *
-    * @var ?int $tax_rate
+    * @var ?float $tax_rate
     */
-    public ?int $tax_rate;
+    public ?float $tax_rate;
     
     /**
     *
@@ -175,7 +175,7 @@ class LineItem  {
         ?string $pricing_model,
         ?bool $is_taxed,
         ?int $tax_amount,
-        ?int $tax_rate,
+        ?float $tax_rate,
         ?string $unit_amount_in_decimal,
         ?string $quantity_in_decimal,
         ?string $amount_in_decimal,

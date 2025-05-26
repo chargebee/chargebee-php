@@ -80,7 +80,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     discounts?: array<array{
     *     index?: int,
     *     coupon_id?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     included_in_mrr?: bool,
     *     }>,
@@ -185,7 +185,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     discounts?: array<array{
     *     index?: int,
     *     coupon_id?: string,
-    *     percentage?: int,
+    *     percentage?: float,
     *     amount?: int,
     *     included_in_mrr?: bool,
     *     }>,

@@ -203,9 +203,9 @@ class CreditNote  {
     
     /**
     *
-    * @var ?int $local_currency_exchange_rate
+    * @var ?float $local_currency_exchange_rate
     */
-    public ?int $local_currency_exchange_rate;
+    public ?float $local_currency_exchange_rate;
     
     /**
     *
@@ -330,7 +330,7 @@ class CreditNote  {
         ?array $allocations,
         ?bool $deleted,
         ?string $tax_category,
-        ?int $local_currency_exchange_rate,
+        ?float $local_currency_exchange_rate,
         ?string $create_reason_code,
         ?string $vat_number_prefix,
         ?string $business_entity_id,
