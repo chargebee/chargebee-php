@@ -1,3 +1,9 @@
+### v4.4.1 (2025-06-16)
+* * * 
+
+### Bug Fixes:
+* Implemented `__isset` method in `SupportsCustomFields` to enable compatibility with `empty()` and `isset()` functions by checking the existence of keys in the `_data` array, resolves #90.
+
 ### v4.4.0 (2025-05-15)
 * * * 
 
