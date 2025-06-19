@@ -24,7 +24,7 @@ class InvoiceEstimateLineItem extends Model
     'discountAmount',
     'itemLevelDiscountAmount',
     'metered',
-    'percentage',
+    'isPercentagePricing',
     'referenceLineItemId',
     'description',
     'entityDescription',

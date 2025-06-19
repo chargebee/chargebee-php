@@ -49,6 +49,8 @@ class Quote extends Model
     'contractTermTerminationFee',
     'businessEntityId',
     'deleted',
+    'totalContractValue',
+    'totalDiscount',
   ];
 
 

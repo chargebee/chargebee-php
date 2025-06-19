@@ -4,12 +4,11 @@ namespace ChargeBee\ChargeBee\Models;
 
 use ChargeBee\ChargeBee\Model;
 
-class InvoiceNote extends Model
+class OmnichannelSubscriptionItemLinkedItem extends Model
 {
   protected $allowed = [
-    'note',
-    'entityId',
-    'entityType',
+    'id',
+    'linkedAt',
   ];
 
 }

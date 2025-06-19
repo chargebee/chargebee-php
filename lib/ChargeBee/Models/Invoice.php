@@ -131,6 +131,20 @@ class Invoice extends Model
     return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"stop_dunning"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
+  public static function pauseDunning($id, $params, $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"pause_dunning"), $params, $env, $headers, null, false, $jsonKeys);
+  }
+
+  public static function resumeDunning($id, $params = array(), $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("invoices",$id,"resume_dunning"), $params, $env, $headers, null, false, $jsonKeys);
+  }
+
   public static function importInvoice($params, $env = null, $headers = array())
   {
     $jsonKeys = array(
@@ -187,11 +201,11 @@ class Invoice extends Model
     return Request::send(Request::GET, Util::encodeURIPath("subscriptions",$id,"invoices"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
-  public static function retrieve($id, $env = null, $headers = array())
+  public static function retrieve($id, $params = array(), $env = null, $headers = array())
   {
     $jsonKeys = array(
     );
-    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id), array(), $env, $headers, null, false, $jsonKeys);
+    return Request::send(Request::GET, Util::encodeURIPath("invoices",$id), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function pdf($id, $params = array(), $env = null, $headers = array())

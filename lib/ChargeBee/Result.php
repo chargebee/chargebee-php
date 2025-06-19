@@ -411,6 +411,17 @@ class Result
         return $quoted_charge;
     }
 
+    public function quotedRamp() 
+    {
+        $quoted_ramp = $this->_get('quoted_ramp', Models\QuotedRamp::class, 
+        array( 
+			'line_items' => Models\QuotedRampLineItem::class, 
+			'discounts' => Models\QuotedRampDiscount::class, 
+			'item_tiers' => Models\QuotedRampItemTier::class
+		));
+        return $quoted_ramp;
+    }
+
     public function quoteLineGroup() 
     {
         $quote_line_group = $this->_get('quote_line_group', Models\QuoteLineGroup::class, 
@@ -771,7 +782,8 @@ class Result
 		));
         $omnichannel_subscription->_initDependantList($this->_response['omnichannel_subscription'], 'omnichannel_subscription_items',
         array( 
-			'upcoming_renewal' => Models\OmnichannelSubscriptionItemUpcomingRenewal::class
+			'upcoming_renewal' => Models\OmnichannelSubscriptionItemUpcomingRenewal::class, 
+			'linked_item' => Models\OmnichannelSubscriptionItemLinkedItem::class
 		));
         return $omnichannel_subscription;
     }
@@ -786,7 +798,8 @@ class Result
     {
         $omnichannel_subscription_item = $this->_get('omnichannel_subscription_item', Models\OmnichannelSubscriptionItem::class, 
         array( 
-			'upcoming_renewal' => Models\OmnichannelSubscriptionItemUpcomingRenewal::class
+			'upcoming_renewal' => Models\OmnichannelSubscriptionItemUpcomingRenewal::class, 
+			'linked_item' => Models\OmnichannelSubscriptionItemLinkedItem::class
 		));
         return $omnichannel_subscription_item;
     }

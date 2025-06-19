@@ -22,9 +22,11 @@ class OmnichannelSubscriptionItem extends Model
     'cancelledAt',
     'cancellationReason',
     'gracePeriodExpiresAt',
+    'resumesAt',
     'hasScheduledChanges',
     'resourceVersion',
     'upcomingRenewal',
+    'linkedItem',
   ];
 
 
