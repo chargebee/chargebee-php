@@ -84,12 +84,12 @@ Interface RampActionsInterface
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * subscription_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,

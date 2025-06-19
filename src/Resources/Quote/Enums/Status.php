@@ -8,25 +8,10 @@ enum Status : string {
     case DECLINED = "declined";
     case INVOICED = "invoiced";
     case CLOSED = "closed";
-    /*
-    * @depcreated
-    */
     case PENDING_APPROVAL = "pending_approval";
-    /*
-    * @depcreated
-    */
     case APPROVAL_REJECTED = "approval_rejected";
-    /*
-    * @depcreated
-    */
     case PROPOSED = "proposed";
-    /*
-    * @depcreated
-    */
     case VOIDED = "voided";
-    /*
-    * @depcreated
-    */
     case EXPIRED = "expired";
     case UNKNOWN = "unknown";
 

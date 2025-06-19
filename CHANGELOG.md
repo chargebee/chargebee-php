@@ -1,3 +1,68 @@
+### v4.5.0 (2025-06-19)
+* * * 
+
+### New Resources 
+* QuotedRamp has been added.
+
+### New Attributes
+* chargebee_response_schema_type has been added to Configuration.
+* linked_item has been added to OmnichannelSubscriptionItem.
+* resumes_at has been added to OmnichannelSubscriptionItem.
+
+### Changed Attributes
+* percentage changed to is_percentage_pricing in CreditNote.
+* percentage changed to is_percentage_pricing in QuoteLineGroup.
+* percentage changed to is_percentage_pricing in CreditNoteEstimate.
+* percentage changed to is_percentage_pricing in Invoice.
+* percentage changed to is_percentage_pricing in InvoiceEstimate.
+* percentage changed to is_percentage_pricing in Quote.
+
+
+### New Input Parameters
+* is_percentage_pricing has been added to Item#UpdateRequest.
+* line_item[subscription_id] has been added to CreditNote#RetrieveRequest.
+* line_item[customer_id] has been added to CreditNote#RetrieveRequest.
+* line_item[subscription_id] has been added to Invoice#RetrieveRequest.
+* line_item[customer_id] has been added to Invoice#RetrieveRequest.
+* billing_override[max_excess_payment_usage] has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* billing_override[max_refundable_credits_usage] has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* billing_override[max_excess_payment_usage] has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* billing_override[max_refundable_credits_usage] has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* billing_start_option has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* net_term_days has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* billing_address has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* subscription_items has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* discounts has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* billing_start_option has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* net_term_days has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* billing_address has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* subscription_items has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* discounts has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* net_term_days has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* subscription_items has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* discount has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* coupons has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* net_term_days has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* subscription_items has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* discounts has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* coupons has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* billing_address has been added to Quote#CreateForChargeItemsAndChargesRequest.
+* billing_address has been added to Quote#EditForChargeItemsAndChargesRequest.
+* sort_by[order] has been added to Subscription#SubscriptionContractTermsForSubscriptionRequest.
+* item_tiers has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* item_tiers has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* item_tiers has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* item_tiers has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+
+### New Endpoints: 
+* PauseDunningRequest has been added to Invoice.
+* ResumeDunningRequest has been added to Invoice.
+
+### Enum Attributes: 
+* BillingPeriodUnitEnum has been added.
+* BillingStartOptionEnum has been added.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_RESUMED has been added to EventTypeEnum.
+
 ### v4.4.1 (2025-06-16)
 * * * 
 

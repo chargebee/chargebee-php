@@ -53,6 +53,12 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?int $resumes_at
+    */
+    public ?int $resumes_at;
+    
+    /**
+    *
     * @var ?bool $has_scheduled_changes
     */
     public ?bool $has_scheduled_changes;
@@ -68,6 +74,12 @@ class OmnichannelSubscriptionItem  {
     * @var ?UpcomingRenewal $upcoming_renewal
     */
     public ?UpcomingRenewal $upcoming_renewal;
+    
+    /**
+    *
+    * @var ?LinkedItem $linked_item
+    */
+    public ?LinkedItem $linked_item;
     
     /**
     *
@@ -96,7 +108,7 @@ class OmnichannelSubscriptionItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "has_scheduled_changes" , "resource_version" , "upcoming_renewal"  ];
+    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "resource_version" , "upcoming_renewal" , "linked_item"  ];
 
     /**
     * dynamic properties for resources
@@ -113,9 +125,11 @@ class OmnichannelSubscriptionItem  {
         ?int $expired_at,
         ?int $cancelled_at,
         ?int $grace_period_expires_at,
+        ?int $resumes_at,
         ?bool $has_scheduled_changes,
         ?int $resource_version,
         ?UpcomingRenewal $upcoming_renewal,
+        ?LinkedItem $linked_item,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\AutoRenewStatus $auto_renew_status,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\ExpirationReason $expiration_reason,
@@ -130,9 +144,11 @@ class OmnichannelSubscriptionItem  {
         $this->expired_at = $expired_at;
         $this->cancelled_at = $cancelled_at;
         $this->grace_period_expires_at = $grace_period_expires_at;
+        $this->resumes_at = $resumes_at;
         $this->has_scheduled_changes = $has_scheduled_changes;
         $this->resource_version = $resource_version;
-        $this->upcoming_renewal = $upcoming_renewal;  
+        $this->upcoming_renewal = $upcoming_renewal;
+        $this->linked_item = $linked_item;  
         $this->status = $status;
         $this->auto_renew_status = $auto_renew_status;
         $this->expiration_reason = $expiration_reason;
@@ -149,9 +165,11 @@ class OmnichannelSubscriptionItem  {
         $resourceAttributes['expired_at'] ?? null,
         $resourceAttributes['cancelled_at'] ?? null,
         $resourceAttributes['grace_period_expires_at'] ?? null,
+        $resourceAttributes['resumes_at'] ?? null,
         $resourceAttributes['has_scheduled_changes'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         isset($resourceAttributes['upcoming_renewal']) ? UpcomingRenewal::from($resourceAttributes['upcoming_renewal']) : null,
+        isset($resourceAttributes['linked_item']) ? LinkedItem::from($resourceAttributes['linked_item']) : null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
@@ -178,8 +196,10 @@ class OmnichannelSubscriptionItem  {
         'expired_at' => $this->expired_at,
         'cancelled_at' => $this->cancelled_at,
         'grace_period_expires_at' => $this->grace_period_expires_at,
+        'resumes_at' => $this->resumes_at,
         'has_scheduled_changes' => $this->has_scheduled_changes,
         'resource_version' => $this->resource_version,
+        
         
         
         'status' => $this->status?->value,
@@ -197,6 +217,9 @@ class OmnichannelSubscriptionItem  {
         
         if($this->upcoming_renewal instanceof UpcomingRenewal){
             $data['upcoming_renewal'] = $this->upcoming_renewal->toArray();
+        }
+        if($this->linked_item instanceof LinkedItem){
+            $data['linked_item'] = $this->linked_item->toArray();
         }
         
 

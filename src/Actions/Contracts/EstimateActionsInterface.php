@@ -407,6 +407,10 @@ Interface EstimateActionsInterface
     *     taxability?: string,
     *     locale?: string,
     *     },
+    * billing_override?: array{
+    *     max_excess_payment_usage?: int,
+    *     max_refundable_credits_usage?: int,
+    *     },
     * subscription_items?: array<array{
     *     item_price_id?: string,
     *     quantity?: int,
@@ -533,6 +537,10 @@ Interface EstimateActionsInterface
     *     action_at_term_end?: string,
     *     contract_start?: int,
     *     cancellation_cutoff_period?: int,
+    *     },
+    * billing_override?: array{
+    *     max_excess_payment_usage?: int,
+    *     max_refundable_credits_usage?: int,
     *     },
     * subscription_items?: array<array{
     *     item_price_id?: string,

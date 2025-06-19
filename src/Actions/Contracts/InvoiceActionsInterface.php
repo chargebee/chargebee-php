@@ -19,6 +19,7 @@ use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceRes
 use Chargebee\Responses\InvoiceResponse\ListInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordPaymentInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\ResumeDunningInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddAddonChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CloseInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\PdfInvoiceResponse;
@@ -27,6 +28,7 @@ use Chargebee\Responses\InvoiceResponse\CreateInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\UpdateDetailsInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RemovePaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\SendEinvoiceInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\PauseDunningInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\SyncUsagesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeAddonInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\InvoicesForCustomerInvoiceResponse;
@@ -216,6 +218,18 @@ Interface InvoiceActionsInterface
     *   @return AddChargeItemInvoiceResponse
     */
     public function addChargeItem(string $id, array $params, array $headers = []): AddChargeItemInvoiceResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#pause_dunning_for_invoice
+    *   @param array{
+    *     expected_payment_date?: int,
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return PauseDunningInvoiceResponse
+    */
+    public function pauseDunning(string $id, array $params, array $headers = []): PauseDunningInvoiceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#list_invoices
@@ -548,7 +562,15 @@ Interface InvoiceActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#retrieve_an_invoice
     *   @param array{
-    *     } $params Description of the parameters
+    *     line_item?: array{
+    *     subscription_id?: array{
+    *         is?: string,
+    *             },
+    *     customer_id?: array{
+    *         is?: string,
+    *             },
+    *     },
+    * } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveInvoiceResponse
@@ -1020,6 +1042,17 @@ Interface InvoiceActionsInterface
     public function importInvoice(array $params, array $headers = []): ImportInvoiceInvoiceResponse;
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#resume_dunning_for_invoice
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ResumeDunningInvoiceResponse
+    */
+    public function resumeDunning(string $id, array $params = [], array $headers = []): ResumeDunningInvoiceResponse;
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#record_tax_withheld_for_an_invoice
     *   @param array{
     *     tax_withheld?: array{
@@ -1064,13 +1097,13 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         is?: string,
-    *             in?: string,
+    *         in?: string,
+    *             is?: string,
     *             },
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   

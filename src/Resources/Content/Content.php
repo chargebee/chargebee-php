@@ -67,6 +67,7 @@ use Chargebee\Resources\Purchase\Purchase;
 use Chargebee\Resources\Quote\Quote;
 use Chargebee\Resources\QuoteLineGroup\QuoteLineGroup;
 use Chargebee\Resources\QuotedCharge\QuotedCharge;
+use Chargebee\Resources\QuotedRamp\QuotedRamp;
 use Chargebee\Resources\QuotedSubscription\QuotedSubscription;
 use Chargebee\Resources\Ramp\Ramp;
 use Chargebee\Resources\RecordedPurchase\RecordedPurchase;
@@ -486,6 +487,12 @@ class Content  {
     
     /**
     *
+    * @var ?QuotedRamp $quotedramp
+    */
+    public ?QuotedRamp $quotedramp;
+    
+    /**
+    *
     * @var ?QuotedSubscription $quotedsubscription
     */
     public ?QuotedSubscription $quotedsubscription;
@@ -601,7 +608,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
 
     /**
     * dynamic properties for resources
@@ -676,6 +683,7 @@ class Content  {
         ?Quote $quote,
         ?QuoteLineGroup $quotelinegroup,
         ?QuotedCharge $quotedcharge,
+        ?QuotedRamp $quotedramp,
         ?QuotedSubscription $quotedsubscription,
         ?Ramp $ramp,
         ?RecordedPurchase $recordedpurchase,
@@ -763,6 +771,7 @@ class Content  {
         $this->quote = $quote;
         $this->quotelinegroup = $quotelinegroup;
         $this->quotedcharge = $quotedcharge;
+        $this->quotedramp = $quotedramp;
         $this->quotedsubscription = $quotedsubscription;
         $this->ramp = $ramp;
         $this->recordedpurchase = $recordedpurchase;
@@ -852,6 +861,7 @@ class Content  {
         isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
         isset($resourceAttributes['quote_line_group']) ? QuoteLineGroup::from($resourceAttributes['quote_line_group']) : null,
         isset($resourceAttributes['quoted_charge']) ? QuotedCharge::from($resourceAttributes['quoted_charge']) : null,
+        isset($resourceAttributes['quoted_ramp']) ? QuotedRamp::from($resourceAttributes['quoted_ramp']) : null,
         isset($resourceAttributes['quoted_subscription']) ? QuotedSubscription::from($resourceAttributes['quoted_subscription']) : null,
         isset($resourceAttributes['ramp']) ? Ramp::from($resourceAttributes['ramp']) : null,
         isset($resourceAttributes['recorded_purchase']) ? RecordedPurchase::from($resourceAttributes['recorded_purchase']) : null,
@@ -882,6 +892,7 @@ class Content  {
     {
 
         $data = array_filter([
+        
         
         
         
@@ -1169,6 +1180,9 @@ class Content  {
         }
         if($this->quotedcharge instanceof QuotedCharge){
             $data['quoted_charge'] = $this->quotedcharge->toArray();
+        }
+        if($this->quotedramp instanceof QuotedRamp){
+            $data['quoted_ramp'] = $this->quotedramp->toArray();
         }
         if($this->quotedsubscription instanceof QuotedSubscription){
             $data['quoted_subscription'] = $this->quotedsubscription->toArray();

@@ -413,7 +413,15 @@ Interface CreditNoteActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_a_credit_note
     *   @param array{
-    *     } $params Description of the parameters
+    *     line_item?: array{
+    *     subscription_id?: array{
+    *         is?: string,
+    *             },
+    *     customer_id?: array{
+    *         is?: string,
+    *             },
+    *     },
+    * } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCreditNoteResponse

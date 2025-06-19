@@ -168,9 +168,9 @@ final class ItemActions implements ItemActionsInterface
     *     included_in_mrr?: bool,
     *     metered?: bool,
     *     usage_calculation?: string,
+    *     is_percentage_pricing?: bool,
     *     metadata?: mixed,
     *     business_entity_id?: string,
-    *     is_percentage_pricing?: bool,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -284,6 +284,7 @@ final class ItemActions implements ItemActionsInterface
     *     metadata?: mixed,
     *     included_in_mrr?: bool,
     *     status?: string,
+    *     is_percentage_pricing?: bool,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers

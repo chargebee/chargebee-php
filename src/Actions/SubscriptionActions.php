@@ -1972,7 +1972,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param array{
     *     limit?: int,
     *     offset?: string,
-    *     } $params Description of the parameters
+    *     sort_by?: array{
+    *     asc?: string,
+    *     desc?: string,
+    *     },
+    * } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ContractTermsForSubscriptionSubscriptionResponse

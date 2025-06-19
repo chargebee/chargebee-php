@@ -59,6 +59,22 @@ Interface QuoteActionsInterface
     *     action_at_term_end?: string,
     *     cancellation_cutoff_period?: int,
     *     },
+    * billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
     * subscription_items?: array<array{
     *     item_price_id?: string,
     *     quantity?: int,
@@ -100,6 +116,11 @@ Interface QuoteActionsInterface
     *     package_size?: int,
     *     ramp_tier_id?: string,
     *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
     *     name?: string,
     *     notes?: string,
     *     expires_at?: int,
@@ -108,7 +129,9 @@ Interface QuoteActionsInterface
     * terms_to_charge?: int,
     *     billing_alignment_mode?: string,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * billing_start_option?: string,
+    *     net_term_days?: int,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateSubItemsForCustomerQuoteQuoteResponse
@@ -157,6 +180,22 @@ Interface QuoteActionsInterface
     *     action_at_term_end?: string,
     *     cancellation_cutoff_period?: int,
     *     },
+    * billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
     * subscription_items?: array<array{
     *     item_price_id?: string,
     *     quantity?: int,
@@ -198,6 +237,11 @@ Interface QuoteActionsInterface
     *     package_size?: int,
     *     ramp_tier_id?: string,
     *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
     *     notes?: string,
     *     expires_at?: int,
     *     billing_cycles?: int,
@@ -205,7 +249,9 @@ Interface QuoteActionsInterface
     * terms_to_charge?: int,
     *     billing_alignment_mode?: string,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * billing_start_option?: string,
+    *     net_term_days?: int,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditCreateSubCustomerQuoteForItemsQuoteResponse
@@ -323,6 +369,11 @@ Interface QuoteActionsInterface
     *     package_size?: int,
     *     ramp_tier_id?: string,
     *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
     *     name?: string,
     *     notes?: string,
     *     expires_at?: int,
@@ -338,6 +389,7 @@ Interface QuoteActionsInterface
     *     changes_scheduled_at?: int,
     *     force_term_reset?: bool,
     *     reactivate?: bool,
+    *     net_term_days?: int,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -371,7 +423,23 @@ Interface QuoteActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_charge_items_and_charges
     *   @param array{
-    *     shipping_address?: array{
+    *     billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * shipping_address?: array{
     *     first_name?: string,
     *     last_name?: string,
     *     email?: string,
@@ -538,6 +606,11 @@ Interface QuoteActionsInterface
     *     package_size?: int,
     *     ramp_tier_id?: string,
     *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
     *     notes?: string,
     *     expires_at?: int,
     *     mandatory_items_to_remove?: array<string>,
@@ -552,6 +625,7 @@ Interface QuoteActionsInterface
     *     changes_scheduled_at?: int,
     *     force_term_reset?: bool,
     *     reactivate?: bool,
+    *     net_term_days?: int,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -651,7 +725,23 @@ Interface QuoteActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_a_quote_for_charge_and_charge_items
     *   @param array{
-    *     shipping_address?: array{
+    *     billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * shipping_address?: array{
     *     first_name?: string,
     *     last_name?: string,
     *     email?: string,
