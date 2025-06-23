@@ -44,8 +44,9 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteLocalVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -69,8 +70,9 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -118,7 +120,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -147,8 +149,9 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -172,8 +175,9 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SyncFundVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -198,7 +202,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }
@@ -227,8 +231,9 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingPermanentTokenVirtualBankAccountResponse::from($respObject->data, $respObject->headers);
     }

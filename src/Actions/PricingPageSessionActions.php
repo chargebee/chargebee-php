@@ -56,8 +56,9 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForExistingSubscriptionPricingPageSessionResponse::from($respObject->data, $respObject->headers);
     }
@@ -133,8 +134,9 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForNewSubscriptionPricingPageSessionResponse::from($respObject->data, $respObject->headers);
     }

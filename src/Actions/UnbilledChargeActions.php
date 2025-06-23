@@ -43,8 +43,9 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }
@@ -72,8 +73,9 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return InvoiceNowEstimateUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }
@@ -101,8 +103,9 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return InvoiceUnbilledChargesUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }
@@ -149,7 +152,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }
@@ -217,8 +220,9 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }
@@ -275,8 +279,9 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUnbilledChargeUnbilledChargeResponse::from($respObject->data, $respObject->headers);
     }

@@ -63,7 +63,7 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RenewalEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -186,8 +186,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubItemEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -217,8 +218,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PaymentSchedulesEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -262,8 +264,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CancelSubscriptionForItemsEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -294,8 +297,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ResumeSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -413,8 +417,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateInvoiceForItemsEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -491,8 +496,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return GiftSubscriptionForItemsEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -619,8 +625,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateSubscriptionForItemsEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -645,7 +652,7 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpcomingInvoicesEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -675,8 +682,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RegenerateInvoiceEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -786,8 +794,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubItemForCustomerEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -816,8 +825,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChangeTermEndEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -850,8 +860,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PauseSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -890,8 +901,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AdvanceInvoiceEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1001,8 +1013,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1084,8 +1097,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return GiftSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1172,7 +1186,7 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubForCustomerEstimateEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1285,8 +1299,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1375,8 +1390,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateInvoiceEstimateResponse::from($respObject->data, $respObject->headers);
     }
@@ -1418,8 +1434,9 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CancelSubscriptionEstimateResponse::from($respObject->data, $respObject->headers);
     }

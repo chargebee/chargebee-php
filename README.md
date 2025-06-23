@@ -86,6 +86,67 @@ print_r($idempotencyReplayedValue);
 ```
 `isIdempotencyReplayed()` method can be accessed to differentiate between original and replayed requests.
 
+
+### Retry Handling
+
+Chargebee's SDK includes built-in retry logic to handle temporary network issues and server-side errors. This feature is **disabled by default** but can be **enabled when needed**.
+
+#### Key features include:
+
+- **Automatic retries for specific HTTP status codes**: Retries are automatically triggered for status codes `500`, `502`, `503`, and `504`.
+- **Exponential backoff**: Retry delays increase exponentially to prevent overwhelming the server.
+- **Rate limit management**: If a `429 Too Many Requests` response is received with a `Retry-After` header, the SDK waits for the specified duration before retrying.
+  > *Note: Exponential backoff and max retries do not apply in this case.*
+- **Customizable retry behavior**: Retry logic can be configured using the `retryConfig` parameter in the environment configuration.
+
+#### Example: Customizing Retry Logic
+
+You can enable and configure the retry logic by passing a `retryConfig` object when initializing the Chargebee environment:
+
+```php
+use Chargebee\ChargebeeClient;
+
+// Retry Configurations
+$retryConfig = new RetryConfig();
+$retryConfig->setEnabled(true); // Enable retry mechanism
+$retryConfig->setMaxRetries(5); // Maximum number of retries
+$retryConfig->setDelayMs(1000); // Delay in milliseconds before retrying
+$retryConfig->setRetryOn([500, 502, 503, 504]); // Retry on these HTTP status codes
+
+$chargebee = new ChargebeeClient(options: [
+    "site" => "{your_site}",
+    "apiKey" => "{your_apiKey}",
+    "retryConfig" => $retryConfig,
+]);
+
+// ... your Chargebee API operations below ...
+
+```
+
+#### Example: Rate Limit retry logic
+
+You can enable and configure the retry logic for rate-limit by passing a `retryConfig` object when initializing the Chargebee environment:
+
+```php
+use Chargebee\ChargebeeClient;
+
+// Retry Configurations
+$retryConfig = new RetryConfig();
+$retryConfig->setEnabled(true); // Enable retry mechanism
+$retryConfig->setMaxRetries(5); // Maximum number of retries
+$retryConfig->setDelayMs(1000); // Delay in milliseconds before retrying
+$retryConfig->setRetryOn([429]); // Retry on 429 HTTP status codes
+
+$chargebee = new ChargebeeClient(options: [
+    "site" => "{your_site}",
+    "apiKey" => "{your_apiKey}",
+    "retryConfig" => $retryConfig,
+]);
+
+// ... your Chargebee API operations below ...
+
+```
+
 ## License
 
 See the LICENSE file.

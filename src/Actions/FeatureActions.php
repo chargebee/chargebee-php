@@ -76,7 +76,7 @@ final class FeatureActions implements FeatureActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -113,8 +113,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -138,8 +139,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -164,7 +166,7 @@ final class FeatureActions implements FeatureActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -199,8 +201,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -224,8 +227,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ArchiveFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -249,8 +253,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ActivateFeatureResponse::from($respObject->data, $respObject->headers);
     }
@@ -274,8 +279,9 @@ final class FeatureActions implements FeatureActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ReactivateFeatureResponse::from($respObject->data, $respObject->headers);
     }

@@ -44,8 +44,9 @@ final class PlanActions implements PlanActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UnarchivePlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -69,8 +70,9 @@ final class PlanActions implements PlanActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeletePlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -100,8 +102,9 @@ final class PlanActions implements PlanActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CopyPlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -231,7 +234,7 @@ final class PlanActions implements PlanActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -335,8 +338,9 @@ final class PlanActions implements PlanActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -361,7 +365,7 @@ final class PlanActions implements PlanActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePlanResponse::from($respObject->data, $respObject->headers);
     }
@@ -461,8 +465,9 @@ final class PlanActions implements PlanActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdatePlanResponse::from($respObject->data, $respObject->headers);
     }

@@ -47,8 +47,9 @@ final class PortalSessionActions implements PortalSessionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePortalSessionResponse::from($respObject->data, $respObject->headers);
     }
@@ -75,8 +76,9 @@ final class PortalSessionActions implements PortalSessionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ActivatePortalSessionResponse::from($respObject->data, $respObject->headers);
     }
@@ -100,8 +102,9 @@ final class PortalSessionActions implements PortalSessionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return LogoutPortalSessionResponse::from($respObject->data, $respObject->headers);
     }
@@ -126,7 +129,7 @@ final class PortalSessionActions implements PortalSessionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePortalSessionResponse::from($respObject->data, $respObject->headers);
     }

@@ -162,8 +162,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubItemsForCustomerQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -188,7 +189,7 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -315,8 +316,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditCreateSubCustomerQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -344,8 +346,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateStatusQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -488,8 +491,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateSubscriptionQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -518,7 +522,7 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return QuoteLineGroupsForQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -545,8 +549,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ExtendExpiryDateQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -651,8 +656,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditForChargeItemsAndChargesQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -792,8 +798,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditUpdateSubscriptionQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -867,7 +874,7 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -895,8 +902,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PdfQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -932,8 +940,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ConvertQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1040,8 +1049,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForChargeItemsAndChargesQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1068,8 +1078,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1139,8 +1150,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditOneTimeQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1259,8 +1271,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateSubscriptionQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1332,8 +1345,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForOnetimeChargesQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1424,8 +1438,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubForCustomerQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1541,8 +1556,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditUpdateSubscriptionQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -1631,8 +1647,9 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditCreateSubForCustomerQuoteQuoteResponse::from($respObject->data, $respObject->headers);
     }

@@ -47,8 +47,9 @@ final class UsageEventActions implements UsageEventActionsInterface
         ->withHeaderOverride("Content-Type", "application/json")
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsageEventResponse::from($respObject->data, $respObject->headers);
     }
@@ -82,8 +83,9 @@ final class UsageEventActions implements UsageEventActionsInterface
         ->withHeaderOverride("Content-Type", "application/json")
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return BatchIngestUsageEventResponse::from($respObject->data, $respObject->headers);
     }

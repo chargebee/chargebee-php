@@ -54,8 +54,9 @@ final class NonSubscriptionActions implements NonSubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ProcessReceiptNonSubscriptionResponse::from($respObject->data, $respObject->headers);
     }

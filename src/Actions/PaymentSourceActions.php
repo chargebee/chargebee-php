@@ -90,8 +90,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingPermanentTokenPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -115,8 +116,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeletePaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -163,8 +165,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateCardPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -192,8 +195,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return VerifyBankAccountPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -259,7 +263,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -286,8 +290,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ExportPaymentSourcePaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -328,8 +333,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingPaymentIntentPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -353,8 +359,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AgreementPdfPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -379,7 +386,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -413,8 +420,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateVoucherPaymentSourcePaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -448,8 +456,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingTempTokenPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -493,8 +502,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateCardPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -521,8 +531,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SwitchGatewayAccountPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -551,8 +562,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingTokenPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -576,8 +588,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteLocalPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -625,8 +638,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateBankAccountPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
@@ -657,8 +671,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateBankAccountPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }

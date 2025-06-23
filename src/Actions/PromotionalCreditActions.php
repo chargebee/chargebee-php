@@ -43,7 +43,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePromotionalCreditResponse::from($respObject->data, $respObject->headers);
     }
@@ -94,7 +94,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPromotionalCreditResponse::from($respObject->data, $respObject->headers);
     }
@@ -127,8 +127,9 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeductPromotionalCreditResponse::from($respObject->data, $respObject->headers);
     }
@@ -161,8 +162,9 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SetPromotionalCreditResponse::from($respObject->data, $respObject->headers);
     }
@@ -195,8 +197,9 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddPromotionalCreditResponse::from($respObject->data, $respObject->headers);
     }

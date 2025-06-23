@@ -83,8 +83,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteLineItemsInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -113,8 +114,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveCreditNoteInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -143,8 +145,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemovePaymentInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -171,8 +174,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return StopDunningInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -203,8 +207,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ApplyPaymentsInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -232,8 +237,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ApplyPaymentScheduleSchemeInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -261,8 +267,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return VoidInvoiceInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -302,8 +309,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddChargeInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -327,8 +335,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SendEinvoiceInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -353,7 +362,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PaymentSchedulesInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -380,8 +389,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return WriteOffInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -428,8 +438,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddChargeItemInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -457,8 +468,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PauseDunningInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -634,7 +646,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -789,8 +801,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -824,8 +837,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CloseInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -855,8 +869,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ApplyCreditsInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -891,7 +906,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -943,8 +958,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForChargeItemInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1118,8 +1134,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForChargeItemsAndChargesInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1146,8 +1163,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteImportedInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1212,8 +1230,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateDetailsInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1242,7 +1261,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return InvoicesForCustomerInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1280,8 +1299,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordPaymentInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1308,8 +1328,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1492,8 +1513,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportInvoiceInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1520,8 +1542,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ResumeDunningInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1553,8 +1576,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordTaxWithheldInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1578,8 +1602,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ResendEinvoiceInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1608,8 +1633,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveTaxWithheldInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1648,7 +1674,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPaymentReferenceNumbersInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1679,8 +1705,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CollectPaymentInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1704,8 +1731,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SyncUsagesInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1738,8 +1766,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RefundInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1778,8 +1807,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordRefundInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1806,8 +1836,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PdfInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1836,7 +1867,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return InvoicesForSubscriptionInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1861,7 +1892,7 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DownloadEinvoiceInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1902,8 +1933,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChargeAddonInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1940,8 +1972,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddAddonChargeInvoiceResponse::from($respObject->data, $respObject->headers);
     }
@@ -1989,8 +2022,9 @@ final class InvoiceActions implements InvoiceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChargeInvoiceResponse::from($respObject->data, $respObject->headers);
     }

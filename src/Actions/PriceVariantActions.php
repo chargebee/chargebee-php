@@ -42,8 +42,9 @@ final class PriceVariantActions implements PriceVariantActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeletePriceVariantResponse::from($respObject->data, $respObject->headers);
     }
@@ -115,7 +116,7 @@ final class PriceVariantActions implements PriceVariantActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPriceVariantResponse::from($respObject->data, $respObject->headers);
     }
@@ -151,8 +152,9 @@ final class PriceVariantActions implements PriceVariantActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePriceVariantResponse::from($respObject->data, $respObject->headers);
     }
@@ -177,7 +179,7 @@ final class PriceVariantActions implements PriceVariantActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePriceVariantResponse::from($respObject->data, $respObject->headers);
     }
@@ -212,8 +214,9 @@ final class PriceVariantActions implements PriceVariantActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdatePriceVariantResponse::from($respObject->data, $respObject->headers);
     }

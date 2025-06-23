@@ -58,7 +58,7 @@ final class EntitlementActions implements EntitlementActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListEntitlementResponse::from($respObject->data, $respObject->headers);
     }
@@ -92,8 +92,9 @@ final class EntitlementActions implements EntitlementActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateEntitlementResponse::from($respObject->data, $respObject->headers);
     }

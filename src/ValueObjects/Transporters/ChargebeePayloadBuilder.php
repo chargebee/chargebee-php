@@ -7,8 +7,10 @@ use Chargebee\Utils\Util;
 use Chargebee\ValueObjects\Encoders\ParamEncoderInterface;
 use Chargebee\Version;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
+
 class ChargebeePayloadBuilder
 {
+    private const IDEMPOTENCY_HEADER = 'chargebee-idempotency-key';
     private array $uriPaths = [];
     private array $params = [];
     private array $headers = [];
@@ -16,6 +18,7 @@ class ChargebeePayloadBuilder
     private string $httpMethod = 'get';
     private ?Environment $env = null;
     private ?string $subdomain = null;
+    private ?bool $isIdempotent = false;
     private array $jsonKeys = [];
     private ?ParamEncoderInterface $paramEncoder = null;
 
@@ -79,6 +82,12 @@ class ChargebeePayloadBuilder
         return $this;
     }
 
+    public function withIdempotent(bool $isIdempotent): self
+    {
+        $this->isIdempotent = $isIdempotent;
+        return $this;
+    }
+
     private function constructHeaders(): array
     {
         if (!$this->env) {
@@ -96,6 +105,11 @@ class ChargebeePayloadBuilder
             'Content-Type' => 'application/x-www-form-urlencoded',
             'Authorization' => 'Basic ' . base64_encode($this->env->getApiKey())
         ];
+        $idempotencyKey = $this->headers[self::IDEMPOTENCY_HEADER] ?? null;
+
+        if (strtolower($this->httpMethod) === "post"  && $this->isIdempotent && $idempotencyKey === null && $this->env->getRetryConfig()->isEnabled()) {
+            $this->headerOverrides[self::IDEMPOTENCY_HEADER] = Util::generateUUIDv4();
+        }
 
         return array_merge($defaultHeaders, $this->headers, $this->headerOverrides);
     }
@@ -112,6 +126,7 @@ class ChargebeePayloadBuilder
         }
 
         $url = $this->env->apiUrl(Util::encodeURIPath(...$this->uriPaths), $this->subdomain);
+        $headers = $this->constructHeaders();
         $serializedParameters = !empty($this->params)
             ? $this->paramEncoder->encode($this->params, $this->jsonKeys)
             : null;
@@ -119,8 +134,8 @@ class ChargebeePayloadBuilder
             $url,
             $this->httpMethod,
             $serializedParameters,
-            $this->constructHeaders(),
-            $this->env
+            $headers,
+            $this->env,
         );
     }
 }

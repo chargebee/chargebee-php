@@ -56,7 +56,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PaymentVouchersForCustomerPaymentVoucherResponse::from($respObject->data, $respObject->headers);
     }
@@ -95,7 +95,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PaymentVouchersForInvoicePaymentVoucherResponse::from($respObject->data, $respObject->headers);
     }
@@ -120,7 +120,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePaymentVoucherResponse::from($respObject->data, $respObject->headers);
     }
@@ -154,8 +154,9 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePaymentVoucherResponse::from($respObject->data, $respObject->headers);
     }

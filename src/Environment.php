@@ -8,8 +8,8 @@ class Environment
     private string $site;
     private string $apiEndPoint;
     private string $subDomain = "";
-    public  string $scheme = "https";
-    public  string $chargebeeDomain="chargebee.com";
+    public string $scheme = "https";
+    public string $chargebeeDomain = "chargebee.com";
     public string $userAgentSuffix = "";
 
     public float $connectTimeoutInSecs = 30;
@@ -20,10 +20,15 @@ class Environment
 
     public string $apiVersion = "v2";
 
+    private RetryConfig $retryConfig;
+
+    private bool $enableDebugLogs = false;
+
     public function __construct(string $site, string $apiKey)
     {
         $this->site = $site;
         $this->apiKey = $apiKey;
+        $this->retryConfig = new RetryConfig();
     }
 
     public function getApiKey(): string
@@ -42,7 +47,6 @@ class Environment
         return $this->apiEndPoint;
     }
 
-    
     private function getSubDomainApiUrl(string $subDomain): string
     {
         return $this->scheme . "://" . $this->getSite() . "." . $subDomain . "." . $this->chargebeeDomain . "/api/" . $this->apiVersion;
@@ -50,10 +54,10 @@ class Environment
 
     public function apiUrl(string $url, $subDomain = null): string
     {
-      if($subDomain != null || $this->subDomain != null) {
-          return $this->getSubDomainApiUrl($subDomain) . $url;
-      }
-      return $this->getApiEndpoint() . $url;
+        if ($subDomain != null || $this->subDomain != null) {
+            return $this->getSubDomainApiUrl($subDomain) . $url;
+        }
+        return $this->getApiEndpoint() . $url;
     }
 
     public function updateConnectTimeoutInSecs(float $connectTimeout): void
@@ -64,7 +68,6 @@ class Environment
     public function updateRequestTimeoutInSecs(float $requestTimeout): void
     {
         $this->requestTimeoutInSecs = $requestTimeout;
-
     }
 
     public function setChargebeeDomain(string $domain): void
@@ -72,10 +75,35 @@ class Environment
         $this->chargebeeDomain = $domain;
     }
 
-    public function setScheme(string $scheme): void {
+    public function setScheme(string $scheme): void
+    {
         $this->scheme = $scheme;
     }
-    public function setUserAgentSuffix($suffix){
+
+    public function setUserAgentSuffix($suffix): void
+    {
         $this->userAgentSuffix = $suffix;
+    }
+
+    public function setRetryConfig(RetryConfig $config): void
+    {
+        $this->retryConfig = $config;
+    }
+
+    public function getRetryConfig(): RetryConfig
+    {
+        return $this->retryConfig;
+    }
+
+    public function getEnableDebugLogs(): bool
+    {
+        return $this->enableDebugLogs;
+    }
+    /*
+     * @param bool $enableDebugLogs
+     */
+    public function setEnableDebugLogs(bool $enableDebugLogs): void
+    {
+        $this->enableDebugLogs = $enableDebugLogs;
     }
 }

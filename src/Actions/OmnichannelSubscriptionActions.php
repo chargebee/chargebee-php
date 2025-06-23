@@ -41,7 +41,7 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveOmnichannelSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -70,7 +70,7 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -110,7 +110,7 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListOmnichannelSubscriptionResponse::from($respObject->data, $respObject->headers);
     }

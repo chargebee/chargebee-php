@@ -46,7 +46,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveAttachedItemResponse::from($respObject->data, $respObject->headers);
     }
@@ -79,8 +79,9 @@ final class AttachedItemActions implements AttachedItemActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateAttachedItemResponse::from($respObject->data, $respObject->headers);
     }
@@ -147,7 +148,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListAttachedItemResponse::from($respObject->data, $respObject->headers);
     }
@@ -181,8 +182,9 @@ final class AttachedItemActions implements AttachedItemActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateAttachedItemResponse::from($respObject->data, $respObject->headers);
     }
@@ -209,8 +211,9 @@ final class AttachedItemActions implements AttachedItemActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteAttachedItemResponse::from($respObject->data, $respObject->headers);
     }

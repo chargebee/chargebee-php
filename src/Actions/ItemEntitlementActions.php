@@ -47,7 +47,7 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ItemEntitlementsForFeatureItemEntitlementResponse::from($respObject->data, $respObject->headers);
     }
@@ -79,8 +79,9 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddItemEntitlementsItemEntitlementResponse::from($respObject->data, $respObject->headers);
     }
@@ -111,7 +112,7 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ItemEntitlementsForItemItemEntitlementResponse::from($respObject->data, $respObject->headers);
     }
@@ -142,8 +143,9 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponse::from($respObject->data, $respObject->headers);
     }

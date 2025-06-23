@@ -131,7 +131,9 @@ class ChargebeeClient {
      *      chargebeeDomain?: string,
      *      connectTimeoutInMillis?: float,
      *      requestTimeoutInMillis?: float,
-     *      userAgentSuffix?: string
+     *      userAgentSuffix?: string,
+     *      retryConfig?: RetryConfig,
+     *      enableDebugLogs?: bool
      * } $options
      * @param HttpClientFactory|null $httpClient
      * @throws \Exception
@@ -159,6 +161,12 @@ class ChargebeeClient {
         }
         if(isset($options['userAgentSuffix'])){
             $env->setUserAgentSuffix($options['userAgentSuffix']);
+        }
+        if (isset($options['retryConfig']) && $options['retryConfig'] instanceof RetryConfig) {
+            $env->setRetryConfig($options['retryConfig']);
+        }
+        if (isset($options['enableDebugLogs']) && is_bool($options['enableDebugLogs'])) {
+            $env->setEnableDebugLogs($options['enableDebugLogs']);
         }
         $this->env = $env;
         $this->httpClientFactory = $httpClient ?? new GuzzleFactory($env->requestTimeoutInSecs, $env->connectTimeoutInSecs);

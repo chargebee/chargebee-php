@@ -17,7 +17,6 @@ class SupportsCustomFields {
         }
         return null;
     }
-
     public function __isset($key): bool
     {
         return array_key_exists($key, $this->_data);

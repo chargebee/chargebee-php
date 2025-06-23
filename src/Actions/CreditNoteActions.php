@@ -54,8 +54,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return VoidCreditNoteCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -84,8 +85,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RefundCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -248,7 +250,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -297,8 +299,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -333,8 +336,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordRefundCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -454,8 +458,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportCreditNoteCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -482,8 +487,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -512,7 +518,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreditNotesForCustomerCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -537,7 +543,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DownloadEinvoiceCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -564,8 +570,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PdfCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -589,8 +596,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ResendEinvoiceCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -619,8 +627,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveTaxWithheldRefundCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -655,7 +664,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
@@ -679,8 +688,9 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SendEinvoiceCreditNoteResponse::from($respObject->data, $respObject->headers);
     }

@@ -42,8 +42,9 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteItemFamilyResponse::from($respObject->data, $respObject->headers);
     }
@@ -97,7 +98,7 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListItemFamilyResponse::from($respObject->data, $respObject->headers);
     }
@@ -127,8 +128,9 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateItemFamilyResponse::from($respObject->data, $respObject->headers);
     }
@@ -153,7 +155,7 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveItemFamilyResponse::from($respObject->data, $respObject->headers);
     }
@@ -181,8 +183,9 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateItemFamilyResponse::from($respObject->data, $respObject->headers);
     }

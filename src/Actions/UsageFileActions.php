@@ -39,7 +39,7 @@ final class UsageFileActions implements UsageFileActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return StatusUsageFileResponse::from($respObject->data, $respObject->headers);
     }
@@ -67,8 +67,9 @@ final class UsageFileActions implements UsageFileActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(false)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UploadUsageFileResponse::from($respObject->data, $respObject->headers);
     }

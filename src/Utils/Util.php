@@ -1,4 +1,5 @@
 <?php
+
 namespace Chargebee\Utils;
 
 use Exception;
@@ -26,6 +27,7 @@ class Util
 
         return preg_replace_callback('/([A-Z])/', $func, $str);
     }
+
     public static function asString($value)
     {
         if (is_null($value)) {
@@ -52,5 +54,25 @@ class Util
         }
 
         return $uriPaths;
+    }
+
+    public static function generateUUIDv4(): string
+    {
+        $bytes = openssl_random_pseudo_bytes(16);
+        if ($bytes === false) {
+            $bytes = '';
+            for ($i = 0; $i < 16; $i++) {
+                $bytes .= chr(mt_rand(0, 255));
+            }
+        }
+        $byteArray = array_values(unpack('C*', $bytes));
+        $byteArray[6] = ($byteArray[6] & 0x0f) | 0x40;
+        $byteArray[8] = ($byteArray[8] & 0x3f) | 0x80;
+        $hex = '';
+        foreach ($byteArray as $byte) {
+            $hex .= sprintf('%02x', $byte);
+        }
+
+        return sprintf('%s-%s-%s-%s-%s', substr($hex, 0, 8), substr($hex, 8, 4), substr($hex, 12, 4), substr($hex, 16, 4), substr($hex, 20, 12));
     }
 }

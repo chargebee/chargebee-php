@@ -71,7 +71,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListCouponCodeResponse::from($respObject->data, $respObject->headers);
     }
@@ -100,8 +100,9 @@ final class CouponCodeActions implements CouponCodeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateCouponCodeResponse::from($respObject->data, $respObject->headers);
     }
@@ -126,7 +127,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveCouponCodeResponse::from($respObject->data, $respObject->headers);
     }
@@ -150,8 +151,9 @@ final class CouponCodeActions implements CouponCodeActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ArchiveCouponCodeResponse::from($respObject->data, $respObject->headers);
     }

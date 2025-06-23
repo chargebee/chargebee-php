@@ -39,7 +39,7 @@ final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveRecordedPurchaseResponse::from($respObject->data, $respObject->headers);
     }
@@ -77,8 +77,9 @@ final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateRecordedPurchaseResponse::from($respObject->data, $respObject->headers);
     }

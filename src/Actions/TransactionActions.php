@@ -162,7 +162,7 @@ final class TransactionActions implements TransactionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -191,8 +191,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ReconcileTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -217,7 +218,7 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -245,8 +246,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RefundTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -275,7 +277,7 @@ final class TransactionActions implements TransactionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return TransactionsForCustomerTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -307,8 +309,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordRefundTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -337,7 +340,7 @@ final class TransactionActions implements TransactionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return TransactionsForSubscriptionTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -361,8 +364,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return VoidTransactionTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -386,8 +390,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SyncTransactionTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -417,8 +422,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateAuthorizationTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -447,7 +453,7 @@ final class TransactionActions implements TransactionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PaymentsForInvoiceTransactionResponse::from($respObject->data, $respObject->headers);
     }
@@ -474,8 +480,9 @@ final class TransactionActions implements TransactionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteOfflineTransactionTransactionResponse::from($respObject->data, $respObject->headers);
     }

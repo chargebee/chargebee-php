@@ -40,7 +40,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePaymentIntentResponse::from($respObject->data, $respObject->headers);
     }
@@ -72,8 +72,9 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdatePaymentIntentResponse::from($respObject->data, $respObject->headers);
     }
@@ -108,8 +109,9 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePaymentIntentResponse::from($respObject->data, $respObject->headers);
     }

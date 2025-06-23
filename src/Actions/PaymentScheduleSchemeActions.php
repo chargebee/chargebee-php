@@ -40,7 +40,7 @@ final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActions
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePaymentScheduleSchemeResponse::from($respObject->data, $respObject->headers);
     }
@@ -74,8 +74,9 @@ final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActions
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreatePaymentScheduleSchemeResponse::from($respObject->data, $respObject->headers);
     }
@@ -99,8 +100,9 @@ final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActions
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeletePaymentScheduleSchemeResponse::from($respObject->data, $respObject->headers);
     }

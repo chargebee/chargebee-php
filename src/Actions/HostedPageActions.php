@@ -160,8 +160,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutOneTimeForItemsHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -202,8 +203,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdatePaymentMethodHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -244,8 +246,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateCardHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -276,8 +279,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ExtendSubscriptionHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -307,8 +311,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EventsHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -346,8 +351,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutGiftForItemsHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -401,7 +407,7 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -433,8 +439,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ViewVoucherHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -470,8 +477,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CollectNowHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -502,8 +510,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AcceptQuoteHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -624,8 +633,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutNewForItemsHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -658,8 +668,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ClaimGiftHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -757,8 +768,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutExistingForItemsHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -790,8 +802,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PreCancelHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -815,8 +828,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AcknowledgeHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -843,8 +857,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveAgreementPdfHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -869,7 +884,7 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -904,8 +919,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ManagePaymentSourcesHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -1004,8 +1020,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutOneTimeHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -1103,8 +1120,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutNewHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -1142,8 +1160,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutGiftHostedPageResponse::from($respObject->data, $respObject->headers);
     }
@@ -1215,8 +1234,9 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CheckoutExistingHostedPageResponse::from($respObject->data, $respObject->headers);
     }

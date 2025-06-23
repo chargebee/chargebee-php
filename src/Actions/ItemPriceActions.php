@@ -53,7 +53,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return FindApplicableItemsItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -78,7 +78,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -163,8 +163,9 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -188,8 +189,9 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -223,7 +225,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return FindApplicableItemPricesItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -365,7 +367,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListItemPriceResponse::from($respObject->data, $respObject->headers);
     }
@@ -452,8 +454,9 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateItemPriceResponse::from($respObject->data, $respObject->headers);
     }

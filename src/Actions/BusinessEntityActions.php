@@ -63,7 +63,7 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return GetTransfersBusinessEntityResponse::from($respObject->data, $respObject->headers);
     }
@@ -94,8 +94,9 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateTransfersBusinessEntityResponse::from($respObject->data, $respObject->headers);
     }

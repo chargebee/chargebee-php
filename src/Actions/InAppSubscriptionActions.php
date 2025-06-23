@@ -43,8 +43,9 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveStoreSubsInAppSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -78,8 +79,9 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportReceiptInAppSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -119,8 +121,9 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportSubscriptionInAppSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -162,8 +165,9 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ProcessReceiptInAppSubscriptionResponse::from($respObject->data, $respObject->headers);
     }

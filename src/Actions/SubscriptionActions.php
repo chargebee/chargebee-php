@@ -79,8 +79,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveAdvanceInvoiceScheduleSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -281,8 +282,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateForItemsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -309,8 +311,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveCouponsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -352,8 +355,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ResumeSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -397,8 +401,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CancelForItemsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -428,8 +433,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RegenerateInvoiceSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -583,7 +589,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -778,8 +784,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -807,8 +814,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return MoveSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -837,7 +845,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return SubscriptionsForCustomerSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -952,8 +960,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForCustomerSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1081,8 +1090,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportForItemsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1107,7 +1117,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveAdvanceInvoiceScheduleSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1134,8 +1144,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveScheduledCancellationSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1160,7 +1171,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveWithScheduledChangesSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1214,8 +1225,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ReactivateSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1254,8 +1266,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChargeFutureRenewalsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1289,8 +1302,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return AddChargeAtTermEndSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1314,8 +1328,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveScheduledChangesSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1344,8 +1359,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChangeTermEndSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1369,8 +1385,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return DeleteSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1505,8 +1522,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateWithItemsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1567,8 +1585,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportUnbilledChargesSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1592,8 +1611,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveScheduledResumptionSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1618,7 +1638,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1796,8 +1816,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1838,8 +1859,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportContractTermSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1867,8 +1889,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return OverrideBillingProfileSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1892,8 +1915,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RemoveScheduledPauseSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1932,8 +1956,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return EditAdvanceInvoiceScheduleSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1962,7 +1987,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListDiscountsSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -1995,7 +2020,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ContractTermsForSubscriptionSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -2027,8 +2052,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return PauseSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -2140,8 +2166,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportForCustomerSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -2302,8 +2329,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ImportSubscriptionSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -2345,8 +2373,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CancelSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
@@ -2379,8 +2408,9 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withIdempotent(true)
         ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory);
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ChargeAddonAtTermEndSubscriptionResponse::from($respObject->data, $respObject->headers);
     }

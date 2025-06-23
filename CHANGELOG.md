@@ -1,3 +1,13 @@
+### v4.6.0 (2025-06-23)
+* * * 
+
+### New Features
+* Added built-in retry support for handling transient errors and rate-limiting.
+* Retries are now supported for HTTP status codes 500, 502, 503, 504, and 429.
+* Includes exponential backoff for server errors and Retry-After respect for rate limits (429).
+* Configurable via retryConfig during SDK initialization.
+
+
 ### v4.5.0 (2025-06-19)
 * * * 
 
