@@ -6,16 +6,12 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class Hierarchy extends Model
+class BillingConfiguration extends Model
 {
 
   protected $allowed = [
-    'customerId',
-    'parentId',
-    'paymentOwnerId',
-    'invoiceOwnerId',
-    'hasChildren',
-    'childrenIds',
+    'isCalendarBillingEnabled',
+    'billingDates',
   ];
 
 

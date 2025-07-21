@@ -1,3 +1,30 @@
+### v3.45.0 (2025-07-18) 
+* * * 
+
+### New Resources: 
+* BillingConfiguration has been added. 
+* Brand has been added. 
+
+### New Attributes: 
+* has_children has been added to Hierarchy
+* coupon_applicability_mappings has been added to QuotedRamp.
+
+### New Endpoint:
+* listHierarchyDetail has been added to Customer.
+
+### New Input parameters: 
+* change_reason children has been added to Entitlement#CreateRequest.
+* entitlements[apply_grandfathering] has been added to Entitlement#CreateRequest.
+* replace_primary_payment_source has been added to Purchase#CreateRequest.
+* omnichannel_subscription has been added to RecordedPurchase#CreateRequest.
+* contract_term has been added to Subscription#RemoveScheduledCancellationRequest.
+* contract_term_billing_cycle_on_renewal has been added to Subscription#RemoveScheduledCancellationRequest.
+
+### New Enums: 
+* payconiq_by_bancontact has been added to PaymentMethodType.
+* solidgate has been added to Gateway.
+* solidgate has been added to PaymentMethod.
+
 ### v3.44.0 (2025-06-19) 
 * * * 
 

@@ -14,6 +14,7 @@ class QuotedRamp extends Model
     'lineItems',
     'discounts',
     'itemTiers',
+    'couponApplicabilityMappings',
   ];
 
 
