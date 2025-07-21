@@ -8,7 +8,6 @@ class QuotedRampDiscount extends Model
 {
   protected $allowed = [
     'id',
-    'name',
     'invoiceName',
     'type',
     'percentage',
@@ -20,7 +19,6 @@ class QuotedRampDiscount extends Model
     'periodUnit',
     'includedInMrr',
     'applyOn',
-    'applyOnItemType',
     'itemPriceId',
     'createdAt',
     'updatedAt',

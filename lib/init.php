@@ -30,6 +30,9 @@ require(dirname(__FILE__) . '/ChargeBee/Models/AdvanceInvoiceScheduleFixedInterv
 require(dirname(__FILE__) . '/ChargeBee/Models/AdvanceInvoiceScheduleSpecificDatesSchedule.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/AttachedItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Attribute.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/BillingConfiguration.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/BillingConfigurationBillingDate.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Brand.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/BusinessEntity.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/BusinessEntityTransfer.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Card.php');
@@ -224,6 +227,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeCoupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeInvoiceItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRamp.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampCouponApplicabilityMapping.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampItemTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampLineItem.php');

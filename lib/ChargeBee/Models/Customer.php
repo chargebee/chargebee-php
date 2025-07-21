@@ -259,6 +259,13 @@ class Customer extends Model
     return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"hierarchy"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
+  public static function listHierarchyDetail($id, $params, $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::GET, Util::encodeURIPath("customers",$id,"hierarchy_detail"), $params, $env, $headers, null, false, $jsonKeys);
+  }
+
   public static function updateHierarchySettings($id, $params = array(), $env = null, $headers = array())
   {
     $jsonKeys = array(

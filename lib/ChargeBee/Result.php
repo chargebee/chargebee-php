@@ -417,9 +417,19 @@ class Result
         array( 
 			'line_items' => Models\QuotedRampLineItem::class, 
 			'discounts' => Models\QuotedRampDiscount::class, 
-			'item_tiers' => Models\QuotedRampItemTier::class
+			'item_tiers' => Models\QuotedRampItemTier::class, 
+			'coupon_applicability_mappings' => Models\QuotedRampCouponApplicabilityMapping::class
 		));
         return $quoted_ramp;
+    }
+
+    public function billingConfiguration() 
+    {
+        $billing_configuration = $this->_get('billing_configuration', Models\BillingConfiguration::class, 
+        array( 
+			'billing_dates' => Models\BillingConfigurationBillingDate::class
+		));
+        return $billing_configuration;
     }
 
     public function quoteLineGroup() 
@@ -845,6 +855,12 @@ class Result
         return $usage_file;
     }
 
+    public function brand() 
+    {
+        $brand = $this->_get('brand', Models\Brand::class);
+        return $brand;
+    }
+
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,
@@ -890,16 +906,6 @@ class Result
 			'line_item_addresses' => Models\InvoiceLineItemAddress::class
 		));
         return $invoices;
-    }
-
-    public function differentialPrices()
-    {
-        $differential_prices = $this->_getList('differential_prices', Models\DifferentialPrice::class,
-            array(
-                'tiers' => Models\DifferentialPriceTier::class,
-                'parent_periods' => Models\DifferentialPriceParentPeriod::class
-            ));
-        return $differential_prices;
     }
 
     public function paymentSchedules()
