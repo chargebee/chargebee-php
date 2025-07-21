@@ -27,6 +27,7 @@ enum Type : string {
     case AUTOMATED_BANK_TRANSFER = "automated_bank_transfer";
     case KLARNA_PAY_NOW = "klarna_pay_now";
     case ONLINE_BANKING_POLAND = "online_banking_poland";
+    case PAYCONIQ_BY_BANCONTACT = "payconiq_by_bancontact";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

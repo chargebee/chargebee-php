@@ -398,7 +398,6 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *     unit_amount_in_decimal?: string,
     *     }>,
     *     discounts?: array<array{
-    *     line_item_id?: string,
     *     entity_type?: string,
     *     entity_id?: string,
     *     description?: string,

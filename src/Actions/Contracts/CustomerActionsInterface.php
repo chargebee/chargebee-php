@@ -17,6 +17,7 @@ use Chargebee\Responses\CustomerResponse\RecordExcessPaymentCustomerResponse;
 use Chargebee\Responses\CustomerResponse\AssignPaymentRoleCustomerResponse;
 use Chargebee\Responses\CustomerResponse\AddPromotionalCreditsCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ClearPersonalDataCustomerResponse;
+use Chargebee\Responses\CustomerResponse\ListHierarchyDetailCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ChangeBillingDateCustomerResponse;
 use Chargebee\Responses\CustomerResponse\UpdateContactCustomerResponse;
 use Chargebee\Responses\CustomerResponse\RelationshipsCustomerResponse;
@@ -208,6 +209,19 @@ Interface CustomerActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateCustomerResponse;
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#list_hierarchy_details
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     hierarchy_operation_type?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ListHierarchyDetailCustomerResponse
+    */
+    public function listHierarchyDetail(string $id, array $params, array $headers = []): ListHierarchyDetailCustomerResponse;
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#change_billing_date
     *   @param array{
     *     billing_date?: int,
@@ -394,9 +408,7 @@ Interface CustomerActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
-    *     skip_txn_consumption?: bool,
     *     },
     * billing_address?: array{
     *     first_name?: string,
@@ -570,7 +582,6 @@ Interface CustomerActionsInterface
     *     payment_method_type?: string,
     *     gw_payment_method_id?: string,
     *     reference_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * invoice_allocations?: array<array{

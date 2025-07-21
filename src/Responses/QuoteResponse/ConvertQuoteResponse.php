@@ -2,6 +2,7 @@
 
 namespace Chargebee\Responses\QuoteResponse;
 use Chargebee\Resources\QuotedCharge\QuotedCharge;
+use Chargebee\Resources\QuotedRamp\QuotedRamp;
 use Chargebee\Resources\Customer\Customer;
 use Chargebee\Resources\QuotedSubscription\QuotedSubscription;
 use Chargebee\Resources\UnbilledCharge\UnbilledCharge;
@@ -30,6 +31,12 @@ class ConvertQuoteResponse extends ResponseBase {
     * @var ?QuotedCharge $quoted_charge
     */
     public ?QuotedCharge $quoted_charge;
+    
+    /**
+    *
+    * @var ?QuotedRamp $quoted_ramp
+    */
+    public ?QuotedRamp $quoted_ramp;
     
     /**
     *
@@ -66,6 +73,7 @@ class ConvertQuoteResponse extends ResponseBase {
         ?Quote $quote,
         ?QuotedSubscription $quoted_subscription,
         ?QuotedCharge $quoted_charge,
+        ?QuotedRamp $quoted_ramp,
         ?Customer $customer,
         ?Subscription $subscription,
         ?Invoice $invoice,
@@ -79,6 +87,7 @@ class ConvertQuoteResponse extends ResponseBase {
         $this->quote = $quote;
         $this->quoted_subscription = $quoted_subscription;
         $this->quoted_charge = $quoted_charge;
+        $this->quoted_ramp = $quoted_ramp;
         $this->customer = $customer;
         $this->subscription = $subscription;
         $this->invoice = $invoice;
@@ -99,6 +108,8 @@ class ConvertQuoteResponse extends ResponseBase {
             
             isset($resourceAttributes['quoted_charge']) ? QuotedCharge::from($resourceAttributes['quoted_charge']) : null,
             
+            isset($resourceAttributes['quoted_ramp']) ? QuotedRamp::from($resourceAttributes['quoted_ramp']) : null,
+            
             isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
             
             isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
@@ -111,7 +122,7 @@ class ConvertQuoteResponse extends ResponseBase {
 
     public function toArray(): array
     {
-        $data = array_filter([        
+        $data = array_filter([         
         ]);
          
         if($this->quote instanceof Quote){
@@ -122,6 +133,9 @@ class ConvertQuoteResponse extends ResponseBase {
         }  
         if($this->quoted_charge instanceof QuotedCharge){
             $data['quoted_charge'] = $this->quoted_charge->toArray();
+        }  
+        if($this->quoted_ramp instanceof QuotedRamp){
+            $data['quoted_ramp'] = $this->quoted_ramp->toArray();
         }  
         if($this->customer instanceof Customer){
             $data['customer'] = $this->customer->toArray();

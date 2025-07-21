@@ -28,7 +28,6 @@ Interface PurchaseActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * purchase_items?: array<array{
@@ -86,6 +85,7 @@ Interface PurchaseActionsInterface
     *     }>,
     *     customer_id?: string,
     *     payment_source_id?: string,
+    *     replace_primary_payment_source?: bool,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -103,7 +103,6 @@ Interface PurchaseActionsInterface
     *     taxability?: string,
     *     entity_code?: string,
     *     exempt_number?: string,
-    *     locale?: string,
     *     exemption_details?: array<mixed>,
     *     customer_type?: string,
     *     },

@@ -30,6 +30,9 @@ Interface RecordedPurchaseActionsInterface
     * google_play_store?: array{
     *     purchase_token?: string,
     *     },
+    * omnichannel_subscription?: array{
+    *     id?: string,
+    *     },
     * app_id?: string,
     *     } $params Description of the parameters
     *   

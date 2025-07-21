@@ -1,6 +1,7 @@
 <?php
 
 namespace Chargebee\Responses\QuoteResponse;
+use Chargebee\Resources\QuotedRamp\QuotedRamp;
 use Chargebee\Resources\QuotedSubscription\QuotedSubscription;
 use Chargebee\Resources\Quote\Quote;
 
@@ -39,6 +40,8 @@ class ListQuoteResponse extends ResponseBase {
                     isset($result['quote']) ? Quote::from($result['quote']) : null,
                 
                     isset($result['quoted_subscription']) ? QuotedSubscription::from($result['quoted_subscription']) : null,
+                
+                    isset($result['quoted_ramp']) ? QuotedRamp::from($result['quoted_ramp']) : null,
                 );}, $resourceAttributes['list'] ?? []);
         
         return new self($list,
@@ -62,14 +65,20 @@ class ListQuoteResponseListObject {
     
         public ?QuotedSubscription $quoted_subscription;
     
+        public ?QuotedRamp $quoted_ramp;
+    
 public function __construct(
     Quote $quote,
 
     ?QuotedSubscription $quoted_subscription,
+
+    ?QuotedRamp $quoted_ramp,
 ){ 
     $this->quote = $quote;
 
     $this->quoted_subscription = $quoted_subscription;
+
+    $this->quoted_ramp = $quoted_ramp;
 
 }
 }

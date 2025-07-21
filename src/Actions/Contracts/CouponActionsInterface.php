@@ -19,25 +19,7 @@ Interface CouponActionsInterface
     *   @param array{
     *     limit?: int,
     *     offset?: string,
-    *     addon?: array{
     *     id?: array{
-    *         is?: string,
-    *             is_not?: string,
-    *             starts_with?: string,
-    *             in?: string,
-    *             not_in?: string,
-    *             },
-    *     },
-    * plan?: array{
-    *     id?: array{
-    *         is?: string,
-    *             is_not?: string,
-    *             starts_with?: string,
-    *             in?: string,
-    *             not_in?: string,
-    *             },
-    *     },
-    * id?: array{
     *     is?: mixed,
     *     is_not?: mixed,
     *     starts_with?: mixed,

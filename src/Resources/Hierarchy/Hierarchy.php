@@ -29,6 +29,12 @@ class Hierarchy  {
     
     /**
     *
+    * @var ?bool $has_children
+    */
+    public ?bool $has_children;
+    
+    /**
+    *
     * @var ?array<string> $children_ids
     */
     public ?array $children_ids;
@@ -36,7 +42,7 @@ class Hierarchy  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "customer_id" , "parent_id" , "payment_owner_id" , "invoice_owner_id" , "children_ids"  ];
+    protected static array $knownFields = [ "customer_id" , "parent_id" , "payment_owner_id" , "invoice_owner_id" , "has_children" , "children_ids"  ];
 
     /**
     * dynamic properties for resources
@@ -49,6 +55,7 @@ class Hierarchy  {
         ?string $parent_id,
         ?string $payment_owner_id,
         ?string $invoice_owner_id,
+        ?bool $has_children,
         ?array $children_ids,
     )
     { 
@@ -56,6 +63,7 @@ class Hierarchy  {
         $this->parent_id = $parent_id;
         $this->payment_owner_id = $payment_owner_id;
         $this->invoice_owner_id = $invoice_owner_id;
+        $this->has_children = $has_children;
         $this->children_ids = $children_ids;  
     }
 
@@ -65,6 +73,7 @@ class Hierarchy  {
         $resourceAttributes['parent_id'] ?? null,
         $resourceAttributes['payment_owner_id'] ?? null,
         $resourceAttributes['invoice_owner_id'] ?? null,
+        $resourceAttributes['has_children'] ?? null,
         $resourceAttributes['children_ids'] ?? null,
         
          
@@ -80,6 +89,7 @@ class Hierarchy  {
         'parent_id' => $this->parent_id,
         'payment_owner_id' => $this->payment_owner_id,
         'invoice_owner_id' => $this->invoice_owner_id,
+        'has_children' => $this->has_children,
         'children_ids' => $this->children_ids,
         
         ], function ($value) {

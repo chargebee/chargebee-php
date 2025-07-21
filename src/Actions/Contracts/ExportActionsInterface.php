@@ -370,8 +370,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -562,8 +562,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -640,12 +640,6 @@ Interface ExportActionsInterface
     *             in?: string,
     *             not_in?: string,
     *             },
-    *     item_grouping_category?: array{
-    *         is?: string,
-    *             is_not?: string,
-    *             in?: string,
-    *             not_in?: string,
-    *             },
     *     channel?: array{
     *         is?: string,
     *             is_not?: string,
@@ -654,8 +648,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -1534,18 +1528,6 @@ Interface ExportActionsInterface
     *             on?: string,
     *             between?: string,
     *             },
-    *     plan_constraint?: array{
-    *         is?: string,
-    *             is_not?: string,
-    *             in?: string,
-    *             not_in?: string,
-    *             },
-    *     addon_constraint?: array{
-    *         is?: string,
-    *             is_not?: string,
-    *             in?: string,
-    *             not_in?: string,
-    *             },
     *     },
     * currency_code?: array{
     *     is?: mixed,
@@ -1801,8 +1783,8 @@ Interface ExportActionsInterface
     *     not_in?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

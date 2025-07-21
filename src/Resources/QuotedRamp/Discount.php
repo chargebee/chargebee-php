@@ -11,12 +11,6 @@ class Discount  {
     
     /**
     *
-    * @var ?string $name
-    */
-    public ?string $name;
-    
-    /**
-    *
     * @var ?string $invoice_name
     */
     public ?string $invoice_name;
@@ -83,12 +77,6 @@ class Discount  {
     
     /**
     *
-    * @var ?string $apply_on_item_type
-    */
-    public ?string $apply_on_item_type;
-    
-    /**
-    *
     * @var ?string $item_price_id
     */
     public ?string $item_price_id;
@@ -120,7 +108,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "invoice_name" , "type" , "percentage" , "amount" , "duration_type" , "entity_type" , "entity_id" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "apply_on_item_type" , "item_price_id" , "created_at" , "updated_at" , "start_date" , "end_date"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "duration_type" , "entity_type" , "entity_id" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "updated_at" , "start_date" , "end_date"  ];
 
     /**
     * dynamic properties for resources
@@ -130,7 +118,6 @@ class Discount  {
 
     private function __construct(
         ?string $id,
-        ?string $name,
         ?string $invoice_name,
         ?string $type,
         ?float $percentage,
@@ -142,7 +129,6 @@ class Discount  {
         ?string $period_unit,
         ?bool $included_in_mrr,
         ?string $apply_on,
-        ?string $apply_on_item_type,
         ?string $item_price_id,
         ?int $created_at,
         ?int $updated_at,
@@ -151,7 +137,6 @@ class Discount  {
     )
     { 
         $this->id = $id;
-        $this->name = $name;
         $this->invoice_name = $invoice_name;
         $this->type = $type;
         $this->percentage = $percentage;
@@ -163,7 +148,6 @@ class Discount  {
         $this->period_unit = $period_unit;
         $this->included_in_mrr = $included_in_mrr;
         $this->apply_on = $apply_on;
-        $this->apply_on_item_type = $apply_on_item_type;
         $this->item_price_id = $item_price_id;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
@@ -174,7 +158,6 @@ class Discount  {
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['name'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
@@ -186,7 +169,6 @@ class Discount  {
         $resourceAttributes['period_unit'] ?? null,
         $resourceAttributes['included_in_mrr'] ?? null,
         $resourceAttributes['apply_on'] ?? null,
-        $resourceAttributes['apply_on_item_type'] ?? null,
         $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
@@ -203,7 +185,6 @@ class Discount  {
     {
 
         $data = array_filter(['id' => $this->id,
-        'name' => $this->name,
         'invoice_name' => $this->invoice_name,
         'type' => $this->type,
         'percentage' => $this->percentage,
@@ -215,7 +196,6 @@ class Discount  {
         'period_unit' => $this->period_unit,
         'included_in_mrr' => $this->included_in_mrr,
         'apply_on' => $this->apply_on,
-        'apply_on_item_type' => $this->apply_on_item_type,
         'item_price_id' => $this->item_price_id,
         'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,

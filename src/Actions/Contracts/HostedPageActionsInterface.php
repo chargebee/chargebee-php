@@ -104,8 +104,6 @@ Interface HostedPageActionsInterface
     *     avalara_service_type?: int,
     *     date_from?: int,
     *     date_to?: int,
-    *     discount_amount?: int,
-    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
     *     percentage?: float,
@@ -143,7 +141,6 @@ Interface HostedPageActionsInterface
     *     id?: string,
     *     vat_number?: string,
     *     vat_number_prefix?: string,
-    *     locale?: string,
     *     },
     * card?: array{
     *     gateway?: string,
@@ -168,7 +165,6 @@ Interface HostedPageActionsInterface
     *     id?: string,
     *     vat_number?: string,
     *     vat_number_prefix?: string,
-    *     locale?: string,
     *     },
     * card?: array{
     *     gateway?: string,
@@ -219,7 +215,6 @@ Interface HostedPageActionsInterface
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
-    *     locale?: string,
     *     },
     * subscription_items?: array<array{
     *     item_price_id?: string,
@@ -294,7 +289,6 @@ Interface HostedPageActionsInterface
     *   @param array{
     *     customer?: array{
     *     id?: string,
-    *     locale?: string,
     *     },
     * card?: array{
     *     gateway?: string,
@@ -578,7 +572,6 @@ Interface HostedPageActionsInterface
     *   @param array{
     *     customer?: array{
     *     id?: string,
-    *     locale?: string,
     *     },
     * card?: array{
     *     gateway?: string,
@@ -762,7 +755,6 @@ Interface HostedPageActionsInterface
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
-    *     locale?: string,
     *     },
     * subscription?: mixed,
     *     addons?: array<array{

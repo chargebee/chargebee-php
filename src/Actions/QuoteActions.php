@@ -43,13 +43,10 @@ final class QuoteActions implements QuoteActionsInterface
     *   @param array{
     *     subscription?: array{
     *     id?: string,
-    *     auto_collection?: string,
     *     po_number?: string,
-    *     auto_close_invoices?: bool,
     *     trial_end?: int,
     *     setup_fee?: int,
     *     start_date?: int,
-    *     coupon?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * shipping_address?: array{
@@ -200,11 +197,9 @@ final class QuoteActions implements QuoteActionsInterface
     *     subscription?: array{
     *     id?: string,
     *     po_number?: string,
-    *     auto_collection?: string,
     *     trial_end?: int,
     *     setup_fee?: int,
     *     start_date?: int,
-    *     coupon?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * shipping_address?: array{
@@ -358,14 +353,12 @@ final class QuoteActions implements QuoteActionsInterface
     *   @param array{
     *     subscription?: array{
     *     id?: string,
-    *     auto_close_invoices?: bool,
     *     setup_fee?: int,
     *     start_date?: int,
     *     trial_end?: int,
     *     coupon?: string,
     *     auto_collection?: string,
     *     offline_payment_method?: string,
-    *     po_number?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * billing_address?: array{
@@ -618,8 +611,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     avalara_transaction_type?: int,
     *     avalara_service_type?: int,
     *     service_period?: int,
-    *     discount_amount?: int,
-    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
     *     percentage?: float,
@@ -667,7 +658,6 @@ final class QuoteActions implements QuoteActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_update_subscription_quote_for_items
     *   @param array{
     *     subscription?: array{
-    *     id?: string,
     *     setup_fee?: int,
     *     start_date?: int,
     *     trial_end?: int,
@@ -1009,8 +999,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     avalara_transaction_type?: int,
     *     avalara_service_type?: int,
     *     service_period?: int,
-    *     discount_amount?: int,
-    *     discount_percentage?: float,
     *     }>,
     *     discounts?: array<array{
     *     percentage?: float,
@@ -1162,7 +1150,6 @@ final class QuoteActions implements QuoteActionsInterface
     *   @param array{
     *     subscription?: array{
     *     id?: string,
-    *     auto_close_invoices?: bool,
     *     plan_id?: string,
     *     plan_quantity?: int,
     *     plan_unit_price?: int,
@@ -1174,7 +1161,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     coupon?: string,
     *     auto_collection?: string,
     *     offline_payment_method?: string,
-    *     po_number?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * billing_address?: array{
@@ -1357,9 +1343,7 @@ final class QuoteActions implements QuoteActionsInterface
     *   @param array{
     *     subscription?: array{
     *     id?: string,
-    *     auto_collection?: string,
     *     po_number?: string,
-    *     auto_close_invoices?: bool,
     *     plan_id?: string,
     *     plan_quantity?: int,
     *     plan_quantity_in_decimal?: string,
@@ -1368,7 +1352,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     setup_fee?: int,
     *     trial_end?: int,
     *     start_date?: int,
-    *     coupon?: string,
     *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
@@ -1449,7 +1432,6 @@ final class QuoteActions implements QuoteActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_updating_a_subscription
     *   @param array{
     *     subscription?: array{
-    *     id?: string,
     *     plan_id?: string,
     *     plan_quantity?: int,
     *     plan_unit_price?: int,
@@ -1569,7 +1551,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     subscription?: array{
     *     id?: string,
     *     po_number?: string,
-    *     auto_collection?: string,
     *     plan_id?: string,
     *     plan_quantity?: int,
     *     plan_quantity_in_decimal?: string,
@@ -1578,7 +1559,6 @@ final class QuoteActions implements QuoteActionsInterface
     *     setup_fee?: int,
     *     trial_end?: int,
     *     start_date?: int,
-    *     coupon?: string,
     *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },

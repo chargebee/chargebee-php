@@ -52,9 +52,21 @@ class ItemTier  {
     public ?string $ramp_tier_id;
     
     /**
+    *
+    * @var ?string $pricing_type
+    */
+    public ?string $pricing_type;
+    
+    /**
+    *
+    * @var ?int $package_size
+    */
+    public ?int $package_size;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "starting_unit" , "ending_unit" , "price" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "price_in_decimal" , "ramp_tier_id"  ];
+    protected static array $knownFields = [ "item_price_id" , "starting_unit" , "ending_unit" , "price" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "price_in_decimal" , "ramp_tier_id" , "pricing_type" , "package_size"  ];
 
     /**
     * dynamic properties for resources
@@ -71,6 +83,8 @@ class ItemTier  {
         ?string $ending_unit_in_decimal,
         ?string $price_in_decimal,
         ?string $ramp_tier_id,
+        ?string $pricing_type,
+        ?int $package_size,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -80,7 +94,9 @@ class ItemTier  {
         $this->starting_unit_in_decimal = $starting_unit_in_decimal;
         $this->ending_unit_in_decimal = $ending_unit_in_decimal;
         $this->price_in_decimal = $price_in_decimal;
-        $this->ramp_tier_id = $ramp_tier_id;  
+        $this->ramp_tier_id = $ramp_tier_id;
+        $this->pricing_type = $pricing_type;
+        $this->package_size = $package_size;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -93,6 +109,8 @@ class ItemTier  {
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['ramp_tier_id'] ?? null,
+        $resourceAttributes['pricing_type'] ?? null,
+        $resourceAttributes['package_size'] ?? null,
         
          
         );
@@ -111,6 +129,8 @@ class ItemTier  {
         'ending_unit_in_decimal' => $this->ending_unit_in_decimal,
         'price_in_decimal' => $this->price_in_decimal,
         'ramp_tier_id' => $this->ramp_tier_id,
+        'pricing_type' => $this->pricing_type,
+        'package_size' => $this->package_size,
         
         ], function ($value) {
             return $value !== null;

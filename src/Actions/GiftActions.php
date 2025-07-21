@@ -47,7 +47,6 @@ final class GiftActions implements GiftActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * shipping_address?: array{
@@ -234,7 +233,6 @@ final class GiftActions implements GiftActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * shipping_address?: array{

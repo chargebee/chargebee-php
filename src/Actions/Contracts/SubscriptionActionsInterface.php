@@ -95,7 +95,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * billing_address?: array{
@@ -259,7 +258,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * resume_option?: string,
@@ -513,7 +511,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * billing_address?: array{
@@ -681,7 +678,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * contract_term?: array{
@@ -872,7 +868,12 @@ Interface SubscriptionActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_scheduled_cancellation
     *   @param array{
-    *     billing_cycles?: int,
+    *     contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     },
+    * billing_cycles?: int,
+    *     contract_term_billing_cycle_on_renewal?: int,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -906,7 +907,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * trial_end?: int,
@@ -1027,7 +1027,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * contract_term?: array{
@@ -1218,7 +1217,6 @@ Interface SubscriptionActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * billing_address?: array{
@@ -1578,7 +1576,6 @@ Interface SubscriptionActionsInterface
     *     billing_state?: string,
     *     billing_zip?: string,
     *     billing_country?: string,
-    *     ip_address?: string,
     *     additional_information?: mixed,
     *     },
     * payment_method?: array{
@@ -1586,7 +1583,6 @@ Interface SubscriptionActionsInterface
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     reference_id?: string,
-    *     tmp_token?: string,
     *     issuing_country?: string,
     *     additional_information?: mixed,
     *     },
