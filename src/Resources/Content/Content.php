@@ -6,6 +6,8 @@ use Chargebee\Resources\Address\Address;
 use Chargebee\Resources\AdvanceInvoiceSchedule\AdvanceInvoiceSchedule;
 use Chargebee\Resources\AttachedItem\AttachedItem;
 use Chargebee\Resources\Attribute\Attribute;
+use Chargebee\Resources\BillingConfiguration\BillingConfiguration;
+use Chargebee\Resources\Brand\Brand;
 use Chargebee\Resources\BusinessEntity\BusinessEntity;
 use Chargebee\Resources\BusinessEntityTransfer\BusinessEntityTransfer;
 use Chargebee\Resources\Card\Card;
@@ -118,6 +120,18 @@ class Content  {
     * @var ?Attribute $attribute
     */
     public ?Attribute $attribute;
+    
+    /**
+    *
+    * @var ?BillingConfiguration $billingconfiguration
+    */
+    public ?BillingConfiguration $billingconfiguration;
+    
+    /**
+    *
+    * @var ?Brand $brand
+    */
+    public ?Brand $brand;
     
     /**
     *
@@ -608,7 +622,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
 
     /**
     * dynamic properties for resources
@@ -622,6 +636,8 @@ class Content  {
         ?AdvanceInvoiceSchedule $advanceinvoiceschedule,
         ?AttachedItem $attacheditem,
         ?Attribute $attribute,
+        ?BillingConfiguration $billingconfiguration,
+        ?Brand $brand,
         ?BusinessEntity $businessentity,
         ?BusinessEntityTransfer $businessentitytransfer,
         ?Card $card,
@@ -710,6 +726,8 @@ class Content  {
         $this->advanceinvoiceschedule = $advanceinvoiceschedule;
         $this->attacheditem = $attacheditem;
         $this->attribute = $attribute;
+        $this->billingconfiguration = $billingconfiguration;
+        $this->brand = $brand;
         $this->businessentity = $businessentity;
         $this->businessentitytransfer = $businessentitytransfer;
         $this->card = $card;
@@ -800,6 +818,8 @@ class Content  {
         isset($resourceAttributes['advance_invoice_schedule']) ? AdvanceInvoiceSchedule::from($resourceAttributes['advance_invoice_schedule']) : null,
         isset($resourceAttributes['attached_item']) ? AttachedItem::from($resourceAttributes['attached_item']) : null,
         isset($resourceAttributes['attribute']) ? Attribute::from($resourceAttributes['attribute']) : null,
+        isset($resourceAttributes['billing_configuration']) ? BillingConfiguration::from($resourceAttributes['billing_configuration']) : null,
+        isset($resourceAttributes['brand']) ? Brand::from($resourceAttributes['brand']) : null,
         isset($resourceAttributes['business_entity']) ? BusinessEntity::from($resourceAttributes['business_entity']) : null,
         isset($resourceAttributes['business_entity_transfer']) ? BusinessEntityTransfer::from($resourceAttributes['business_entity_transfer']) : null,
         isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
@@ -978,6 +998,8 @@ class Content  {
         
         
         
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -997,6 +1019,12 @@ class Content  {
         }
         if($this->attribute instanceof Attribute){
             $data['attribute'] = $this->attribute->toArray();
+        }
+        if($this->billingconfiguration instanceof BillingConfiguration){
+            $data['billing_configuration'] = $this->billingconfiguration->toArray();
+        }
+        if($this->brand instanceof Brand){
+            $data['brand'] = $this->brand->toArray();
         }
         if($this->businessentity instanceof BusinessEntity){
             $data['business_entity'] = $this->businessentity->toArray();

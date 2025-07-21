@@ -74,6 +74,7 @@ final class EntitlementActions implements EntitlementActionsInterface
     *     apply_grandfathering?: bool,
     *     }>,
     *     action?: string,
+    *     change_reason?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

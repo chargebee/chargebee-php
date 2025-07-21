@@ -23,6 +23,7 @@ enum PaymentMethodType : string {
     case SEPA_INSTANT_TRANSFER = "sepa_instant_transfer";
     case KLARNA_PAY_NOW = "klarna_pay_now";
     case ONLINE_BANKING_POLAND = "online_banking_poland";
+    case PAYCONIQ_BY_BANCONTACT = "payconiq_by_bancontact";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

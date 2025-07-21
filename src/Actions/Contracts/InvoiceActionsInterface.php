@@ -12,7 +12,6 @@ use Chargebee\Responses\InvoiceResponse\CollectPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordRefundInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DeleteLineItemsInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ApplyCreditsInvoiceResponse;
-use Chargebee\Responses\InvoiceResponse\DeleteImportedInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DownloadEinvoiceInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
@@ -468,7 +467,6 @@ Interface InvoiceActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * addons?: array<array{
@@ -691,7 +689,6 @@ Interface InvoiceActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * item_prices?: array<array{
@@ -728,8 +725,6 @@ Interface InvoiceActionsInterface
     *     avalara_service_type?: int,
     *     date_from?: int,
     *     date_to?: int,
-    *     discount_amount?: int,
-    *     discount_percentage?: float,
     *     }>,
     *     notes_to_remove?: array<array{
     *     entity_type?: string,
@@ -768,17 +763,6 @@ Interface InvoiceActionsInterface
     *   @return CreateForChargeItemsAndChargesInvoiceResponse
     */
     public function createForChargeItemsAndCharges(array $params, array $headers = []): CreateForChargeItemsAndChargesInvoiceResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#delete_an_imported_invoice
-    *   @param array{
-    *     comment?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteImportedInvoiceResponse
-    */
-    public function deleteImported(string $id, array $params = [], array $headers = []): DeleteImportedInvoiceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#update_invoice_details
@@ -969,7 +953,6 @@ Interface InvoiceActionsInterface
     *     unit_amount_in_decimal?: string,
     *     }>,
     *     discounts?: array<array{
-    *     line_item_id?: string,
     *     entity_type?: string,
     *     entity_id?: string,
     *     description?: string,

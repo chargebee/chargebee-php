@@ -7,7 +7,6 @@ use Chargebee\Responses\PaymentSourceResponse\UpdateBankAccountPaymentSourceResp
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingTokenPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\UpdateCardPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\DeleteLocalPaymentSourceResponse;
-use Chargebee\Responses\PaymentSourceResponse\AgreementPdfPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateCardPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingPermanentTokenPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\SwitchGatewayAccountPaymentSourceResponse;
@@ -181,7 +180,6 @@ Interface PaymentSourceActionsInterface
     *   @param array{
     *     payment_intent?: array{
     *     id?: string,
-    *     skip_txn_consumption?: bool,
     *     gateway_account_id?: string,
     *     gw_token?: string,
     *     payment_method_type?: string,
@@ -198,15 +196,6 @@ Interface PaymentSourceActionsInterface
     *   @return CreateUsingPaymentIntentPaymentSourceResponse
     */
     public function createUsingPaymentIntent(array $params, array $headers = []): CreateUsingPaymentIntentPaymentSourceResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#retrieve_agreement_pdf
-    *   
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return AgreementPdfPaymentSourceResponse
-    */
-    public function agreementPdf(string $id, array $headers = []): AgreementPdfPaymentSourceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#retrieve_a_payment_source

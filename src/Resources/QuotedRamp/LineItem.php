@@ -131,30 +131,6 @@ class LineItem  {
     
     /**
     *
-    * @var ?int $discount_amount
-    */
-    public ?int $discount_amount;
-    
-    /**
-    *
-    * @var ?string $md_discount_amount
-    */
-    public ?string $md_discount_amount;
-    
-    /**
-    *
-    * @var ?int $item_level_discount_amount
-    */
-    public ?int $item_level_discount_amount;
-    
-    /**
-    *
-    * @var ?string $md_item_level_discount_amount
-    */
-    public ?string $md_item_level_discount_amount;
-    
-    /**
-    *
     * @var ?int $discount_per_billing_cycle
     */
     public ?int $discount_per_billing_cycle;
@@ -176,18 +152,6 @@ class LineItem  {
     * @var ?string $item_level_discount_per_billing_cycle_in_decimal
     */
     public ?string $item_level_discount_per_billing_cycle_in_decimal;
-    
-    /**
-    *
-    * @var ?int $net_amount
-    */
-    public ?int $net_amount;
-    
-    /**
-    *
-    * @var ?string $md_net_amount
-    */
-    public ?string $md_net_amount;
     
     /**
     *
@@ -216,7 +180,7 @@ class LineItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "start_date" , "end_date" , "ramp_tier_id" , "discount_amount" , "md_discount_amount" , "item_level_discount_amount" , "md_item_level_discount_amount" , "discount_per_billing_cycle" , "discount_per_billing_cycle_in_decimal" , "item_level_discount_per_billing_cycle" , "item_level_discount_per_billing_cycle_in_decimal" , "net_amount" , "md_net_amount" , "amount_per_billing_cycle" , "amount_per_billing_cycle_in_decimal" , "net_amount_per_billing_cycle" , "net_amount_per_billing_cycle_in_decimal"  ];
+    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "start_date" , "end_date" , "ramp_tier_id" , "discount_per_billing_cycle" , "discount_per_billing_cycle_in_decimal" , "item_level_discount_per_billing_cycle" , "item_level_discount_per_billing_cycle_in_decimal" , "amount_per_billing_cycle" , "amount_per_billing_cycle_in_decimal" , "net_amount_per_billing_cycle" , "net_amount_per_billing_cycle_in_decimal"  ];
 
     /**
     * dynamic properties for resources
@@ -246,16 +210,10 @@ class LineItem  {
         ?int $start_date,
         ?int $end_date,
         ?string $ramp_tier_id,
-        ?int $discount_amount,
-        ?string $md_discount_amount,
-        ?int $item_level_discount_amount,
-        ?string $md_item_level_discount_amount,
         ?int $discount_per_billing_cycle,
         ?string $discount_per_billing_cycle_in_decimal,
         ?int $item_level_discount_per_billing_cycle,
         ?string $item_level_discount_per_billing_cycle_in_decimal,
-        ?int $net_amount,
-        ?string $md_net_amount,
         ?int $amount_per_billing_cycle,
         ?string $amount_per_billing_cycle_in_decimal,
         ?int $net_amount_per_billing_cycle,
@@ -283,16 +241,10 @@ class LineItem  {
         $this->start_date = $start_date;
         $this->end_date = $end_date;
         $this->ramp_tier_id = $ramp_tier_id;
-        $this->discount_amount = $discount_amount;
-        $this->md_discount_amount = $md_discount_amount;
-        $this->item_level_discount_amount = $item_level_discount_amount;
-        $this->md_item_level_discount_amount = $md_item_level_discount_amount;
         $this->discount_per_billing_cycle = $discount_per_billing_cycle;
         $this->discount_per_billing_cycle_in_decimal = $discount_per_billing_cycle_in_decimal;
         $this->item_level_discount_per_billing_cycle = $item_level_discount_per_billing_cycle;
         $this->item_level_discount_per_billing_cycle_in_decimal = $item_level_discount_per_billing_cycle_in_decimal;
-        $this->net_amount = $net_amount;
-        $this->md_net_amount = $md_net_amount;
         $this->amount_per_billing_cycle = $amount_per_billing_cycle;
         $this->amount_per_billing_cycle_in_decimal = $amount_per_billing_cycle_in_decimal;
         $this->net_amount_per_billing_cycle = $net_amount_per_billing_cycle;
@@ -322,16 +274,10 @@ class LineItem  {
         $resourceAttributes['start_date'] ?? null,
         $resourceAttributes['end_date'] ?? null,
         $resourceAttributes['ramp_tier_id'] ?? null,
-        $resourceAttributes['discount_amount'] ?? null,
-        $resourceAttributes['md_discount_amount'] ?? null,
-        $resourceAttributes['item_level_discount_amount'] ?? null,
-        $resourceAttributes['md_item_level_discount_amount'] ?? null,
         $resourceAttributes['discount_per_billing_cycle'] ?? null,
         $resourceAttributes['discount_per_billing_cycle_in_decimal'] ?? null,
         $resourceAttributes['item_level_discount_per_billing_cycle'] ?? null,
         $resourceAttributes['item_level_discount_per_billing_cycle_in_decimal'] ?? null,
-        $resourceAttributes['net_amount'] ?? null,
-        $resourceAttributes['md_net_amount'] ?? null,
         $resourceAttributes['amount_per_billing_cycle'] ?? null,
         $resourceAttributes['amount_per_billing_cycle_in_decimal'] ?? null,
         $resourceAttributes['net_amount_per_billing_cycle'] ?? null,
@@ -367,16 +313,10 @@ class LineItem  {
         'start_date' => $this->start_date,
         'end_date' => $this->end_date,
         'ramp_tier_id' => $this->ramp_tier_id,
-        'discount_amount' => $this->discount_amount,
-        'md_discount_amount' => $this->md_discount_amount,
-        'item_level_discount_amount' => $this->item_level_discount_amount,
-        'md_item_level_discount_amount' => $this->md_item_level_discount_amount,
         'discount_per_billing_cycle' => $this->discount_per_billing_cycle,
         'discount_per_billing_cycle_in_decimal' => $this->discount_per_billing_cycle_in_decimal,
         'item_level_discount_per_billing_cycle' => $this->item_level_discount_per_billing_cycle,
         'item_level_discount_per_billing_cycle_in_decimal' => $this->item_level_discount_per_billing_cycle_in_decimal,
-        'net_amount' => $this->net_amount,
-        'md_net_amount' => $this->md_net_amount,
         'amount_per_billing_cycle' => $this->amount_per_billing_cycle,
         'amount_per_billing_cycle_in_decimal' => $this->amount_per_billing_cycle_in_decimal,
         'net_amount_per_billing_cycle' => $this->net_amount_per_billing_cycle,

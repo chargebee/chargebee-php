@@ -9,6 +9,7 @@ enum PoweredBy : string {
     case GIROPAY = "giropay";
     case CARD = "card";
     case LATAM_LOCAL_CARD = "latam_local_card";
+    case PAYCONIQ = "payconiq";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";
 

@@ -12,7 +12,6 @@ use Chargebee\Responses\InvoiceResponse\CollectPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordRefundInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DeleteLineItemsInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ApplyCreditsInvoiceResponse;
-use Chargebee\Responses\InvoiceResponse\DeleteImportedInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DownloadEinvoiceInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
@@ -729,7 +728,6 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * addons?: array<array{
@@ -1043,7 +1041,6 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     payment_method_type?: string,
     *     reference_id?: string,
     *     gw_payment_method_id?: string,
-    *     additional_info?: mixed,
     *     additional_information?: mixed,
     *     },
     * item_prices?: array<array{
@@ -1080,8 +1077,6 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     avalara_service_type?: int,
     *     date_from?: int,
     *     date_to?: int,
-    *     discount_amount?: int,
-    *     discount_percentage?: float,
     *     }>,
     *     notes_to_remove?: array<array{
     *     entity_type?: string,
@@ -1139,35 +1134,6 @@ final class InvoiceActions implements InvoiceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForChargeItemsAndChargesInvoiceResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#delete_an_imported_invoice
-    *   @param array{
-    *     comment?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteImportedInvoiceResponse
-    */
-    public function deleteImported(string $id, array $params = [], array $headers = []): DeleteImportedInvoiceResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["invoices",$id,"delete_imported"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeleteImportedInvoiceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1430,7 +1396,6 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     unit_amount_in_decimal?: string,
     *     }>,
     *     discounts?: array<array{
-    *     line_item_id?: string,
     *     entity_type?: string,
     *     entity_id?: string,
     *     description?: string,

@@ -7,7 +7,6 @@ use Chargebee\Responses\PaymentSourceResponse\UpdateBankAccountPaymentSourceResp
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingTokenPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\UpdateCardPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\DeleteLocalPaymentSourceResponse;
-use Chargebee\Responses\PaymentSourceResponse\AgreementPdfPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateCardPaymentSourceResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingPermanentTokenPaymentSourceResponse;
@@ -302,7 +301,6 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *   @param array{
     *     payment_intent?: array{
     *     id?: string,
-    *     skip_txn_consumption?: bool,
     *     gateway_account_id?: string,
     *     gw_token?: string,
     *     payment_method_type?: string,
@@ -338,32 +336,6 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateUsingPaymentIntentPaymentSourceResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#retrieve_agreement_pdf
-    *   
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return AgreementPdfPaymentSourceResponse
-    */
-    public function agreementPdf(string $id, array $headers = []): AgreementPdfPaymentSourceResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["payment_sources",$id,"agreement_pdf"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withIdempotent(true)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return AgreementPdfPaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
