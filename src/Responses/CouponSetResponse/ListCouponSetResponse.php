@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CouponSetResponse;
 use Chargebee\Resources\CouponSet\CouponSet;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListCouponSetResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListCouponSetResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCouponSetResponseListObject {
-    
-        public CouponSet $coupon_set;
-    
-public function __construct(
-    CouponSet $coupon_set,
-){ 
-    $this->coupon_set = $coupon_set;
-
-}
-}
-
 ?>

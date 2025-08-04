@@ -17,12 +17,6 @@ class Discount  {
     
     /**
     *
-    * @var ?string $type
-    */
-    public ?string $type;
-    
-    /**
-    *
     * @var ?float $percentage
     */
     public ?float $percentage;
@@ -32,18 +26,6 @@ class Discount  {
     * @var ?int $amount
     */
     public ?int $amount;
-    
-    /**
-    *
-    * @var ?string $duration_type
-    */
-    public ?string $duration_type;
-    
-    /**
-    *
-    * @var ?string $entity_type
-    */
-    public ?string $entity_type;
     
     /**
     *
@@ -59,21 +41,9 @@ class Discount  {
     
     /**
     *
-    * @var ?string $period_unit
-    */
-    public ?string $period_unit;
-    
-    /**
-    *
     * @var ?bool $included_in_mrr
     */
     public ?bool $included_in_mrr;
-    
-    /**
-    *
-    * @var ?string $apply_on
-    */
-    public ?string $apply_on;
     
     /**
     *
@@ -106,9 +76,39 @@ class Discount  {
     public ?int $end_date;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\DurationType $duration_type
+    */
+    public ?\Chargebee\ClassBasedEnums\DurationType $duration_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\PeriodUnit $period_unit
+    */
+    public ?\Chargebee\ClassBasedEnums\PeriodUnit $period_unit;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ApplyOn $apply_on
+    */
+    public ?\Chargebee\ClassBasedEnums\ApplyOn $apply_on;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountType $type
+    */
+    public ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountType $type;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountEntityType $entity_type
+    */
+    public ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountEntityType $entity_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "duration_type" , "entity_type" , "entity_id" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "updated_at" , "start_date" , "end_date"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "percentage" , "amount" , "entity_id" , "period" , "included_in_mrr" , "item_price_id" , "created_at" , "updated_at" , "start_date" , "end_date"  ];
 
     /**
     * dynamic properties for resources
@@ -119,63 +119,68 @@ class Discount  {
     private function __construct(
         ?string $id,
         ?string $invoice_name,
-        ?string $type,
         ?float $percentage,
         ?int $amount,
-        ?string $duration_type,
-        ?string $entity_type,
         ?string $entity_id,
         ?int $period,
-        ?string $period_unit,
         ?bool $included_in_mrr,
-        ?string $apply_on,
         ?string $item_price_id,
         ?int $created_at,
         ?int $updated_at,
         ?int $start_date,
         ?int $end_date,
+        ?\Chargebee\ClassBasedEnums\DurationType $duration_type,
+        ?\Chargebee\ClassBasedEnums\PeriodUnit $period_unit,
+        ?\Chargebee\ClassBasedEnums\ApplyOn $apply_on,
+        ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountType $type,
+        ?\Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountEntityType $entity_type,
     )
     { 
         $this->id = $id;
         $this->invoice_name = $invoice_name;
-        $this->type = $type;
         $this->percentage = $percentage;
         $this->amount = $amount;
-        $this->duration_type = $duration_type;
-        $this->entity_type = $entity_type;
         $this->entity_id = $entity_id;
         $this->period = $period;
-        $this->period_unit = $period_unit;
         $this->included_in_mrr = $included_in_mrr;
-        $this->apply_on = $apply_on;
         $this->item_price_id = $item_price_id;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
         $this->start_date = $start_date;
-        $this->end_date = $end_date;  
+        $this->end_date = $end_date; 
+        $this->duration_type = $duration_type;
+        $this->period_unit = $period_unit;
+        $this->apply_on = $apply_on; 
+        $this->type = $type;
+        $this->entity_type = $entity_type;
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
-        $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['duration_type'] ?? null,
-        $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['period'] ?? null,
-        $resourceAttributes['period_unit'] ?? null,
         $resourceAttributes['included_in_mrr'] ?? null,
-        $resourceAttributes['apply_on'] ?? null,
         $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['start_date'] ?? null,
         $resourceAttributes['end_date'] ?? null,
         
+        
+        isset($resourceAttributes['duration_type']) ? \Chargebee\ClassBasedEnums\DurationType::tryFromValue($resourceAttributes['duration_type']) : null,
+        
+        isset($resourceAttributes['period_unit']) ? \Chargebee\ClassBasedEnums\PeriodUnit::tryFromValue($resourceAttributes['period_unit']) : null,
+        
+        isset($resourceAttributes['apply_on']) ? \Chargebee\ClassBasedEnums\ApplyOn::tryFromValue($resourceAttributes['apply_on']) : null,
          
+        isset($resourceAttributes['type']) ? \Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountType::tryFromValue($resourceAttributes['type']) : null,
+        
+        isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\QuotedRamp\ClassBasedEnums\DiscountEntityType::tryFromValue($resourceAttributes['entity_type']) : null,
+        
         );
        
         return $returnData;
@@ -186,21 +191,26 @@ class Discount  {
 
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
-        'type' => $this->type,
         'percentage' => $this->percentage,
         'amount' => $this->amount,
-        'duration_type' => $this->duration_type,
-        'entity_type' => $this->entity_type,
         'entity_id' => $this->entity_id,
         'period' => $this->period,
-        'period_unit' => $this->period_unit,
         'included_in_mrr' => $this->included_in_mrr,
-        'apply_on' => $this->apply_on,
         'item_price_id' => $this->item_price_id,
         'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,
         'start_date' => $this->start_date,
         'end_date' => $this->end_date,
+        
+        'duration_type' => $this->duration_type?->value,
+        
+        'period_unit' => $this->period_unit?->value,
+        
+        'apply_on' => $this->apply_on?->value,
+        
+        'type' => $this->type?->value,
+        
+        'entity_type' => $this->entity_type?->value,
         
         ], function ($value) {
             return $value !== null;

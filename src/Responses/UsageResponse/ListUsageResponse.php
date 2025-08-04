@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\UsageResponse;
 use Chargebee\Resources\Usage\Usage;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListUsageResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListUsageResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListUsageResponseListObject {
-    
-        public Usage $usage;
-    
-public function __construct(
-    Usage $usage,
-){ 
-    $this->usage = $usage;
-
-}
-}
-
 ?>

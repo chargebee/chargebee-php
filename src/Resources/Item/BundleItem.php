@@ -11,12 +11,6 @@ class BundleItem  {
     
     /**
     *
-    * @var ?string $item_type
-    */
-    public ?string $item_type;
-    
-    /**
-    *
     * @var ?int $quantity
     */
     public ?int $quantity;
@@ -28,9 +22,15 @@ class BundleItem  {
     public ?float $price_allocation;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ItemType $item_type
+    */
+    public ?\Chargebee\ClassBasedEnums\ItemType $item_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_id" , "item_type" , "quantity" , "price_allocation"  ];
+    protected static array $knownFields = [ "item_id" , "quantity" , "price_allocation"  ];
 
     /**
     * dynamic properties for resources
@@ -40,24 +40,25 @@ class BundleItem  {
 
     private function __construct(
         ?string $item_id,
-        ?string $item_type,
         ?int $quantity,
         ?float $price_allocation,
+        ?\Chargebee\ClassBasedEnums\ItemType $item_type,
     )
     { 
         $this->item_id = $item_id;
-        $this->item_type = $item_type;
         $this->quantity = $quantity;
-        $this->price_allocation = $price_allocation;  
+        $this->price_allocation = $price_allocation; 
+        $this->item_type = $item_type; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['item_id'] ?? null,
-        $resourceAttributes['item_type'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['price_allocation'] ?? null,
         
+        
+        isset($resourceAttributes['item_type']) ? \Chargebee\ClassBasedEnums\ItemType::tryFromValue($resourceAttributes['item_type']) : null,
          
         );
        
@@ -68,9 +69,10 @@ class BundleItem  {
     {
 
         $data = array_filter(['item_id' => $this->item_id,
-        'item_type' => $this->item_type,
         'quantity' => $this->quantity,
         'price_allocation' => $this->price_allocation,
+        
+        'item_type' => $this->item_type?->value,
         
         ], function ($value) {
             return $value !== null;

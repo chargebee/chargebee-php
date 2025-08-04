@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\EventResponse;
 use Chargebee\Resources\Event\Event;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListEventResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListEventResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListEventResponseListObject {
-    
-        public Event $event;
-    
-public function __construct(
-    Event $event,
-){ 
-    $this->event = $event;
-
-}
-}
-
 ?>

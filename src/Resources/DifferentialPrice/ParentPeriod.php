@@ -5,20 +5,20 @@ namespace Chargebee\Resources\DifferentialPrice;
 class ParentPeriod  { 
     /**
     *
-    * @var ?string $period_unit
-    */
-    public ?string $period_unit;
-    
-    /**
-    *
     * @var mixed $period
     */
     public mixed $period;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\DifferentialPrice\ClassBasedEnums\ParentPeriodPeriodUnit $period_unit
+    */
+    public ?\Chargebee\Resources\DifferentialPrice\ClassBasedEnums\ParentPeriodPeriodUnit $period_unit;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "period_unit" , "period"  ];
+    protected static array $knownFields = [ "period"  ];
 
     /**
     * dynamic properties for resources
@@ -27,20 +27,21 @@ class ParentPeriod  {
     protected $_data = [];
 
     private function __construct(
-        ?string $period_unit,
         mixed $period,
+        ?\Chargebee\Resources\DifferentialPrice\ClassBasedEnums\ParentPeriodPeriodUnit $period_unit,
     )
     { 
-        $this->period_unit = $period_unit;
         $this->period = $period;  
+        $this->period_unit = $period_unit;
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['period_unit'] ?? null,
-        $resourceAttributes['period'] ?? null,
+        $returnData = new self( $resourceAttributes['period'] ?? null,
         
          
+        isset($resourceAttributes['period_unit']) ? \Chargebee\Resources\DifferentialPrice\ClassBasedEnums\ParentPeriodPeriodUnit::tryFromValue($resourceAttributes['period_unit']) : null,
+        
         );
        
         return $returnData;
@@ -49,8 +50,9 @@ class ParentPeriod  {
     public function toArray(): array
     {
 
-        $data = array_filter(['period_unit' => $this->period_unit,
-        'period' => $this->period,
+        $data = array_filter(['period' => $this->period,
+        
+        'period_unit' => $this->period_unit?->value,
         
         ], function ($value) {
             return $value !== null;

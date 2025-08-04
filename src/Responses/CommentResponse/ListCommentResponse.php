@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CommentResponse;
 use Chargebee\Resources\Comment\Comment;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListCommentResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListCommentResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCommentResponseListObject {
-    
-        public Comment $comment;
-    
-public function __construct(
-    Comment $comment,
-){ 
-    $this->comment = $comment;
-
-}
-}
-
 ?>

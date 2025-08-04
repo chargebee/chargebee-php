@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CreditNoteResponse;
 use Chargebee\Resources\CreditNote\CreditNote;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class CreditNotesForCustomerCreditNoteResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class CreditNotesForCustomerCreditNoteResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class CreditNotesForCustomerCreditNoteResponseListObject {
-    
-        public CreditNote $credit_note;
-    
-public function __construct(
-    CreditNote $credit_note,
-){ 
-    $this->credit_note = $credit_note;
-
-}
-}
-
 ?>

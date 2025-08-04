@@ -1,10 +1,7 @@
 <?php
 
 namespace Chargebee\Responses\SubscriptionResponse;
-use Chargebee\Resources\Customer\Customer;
-use Chargebee\Resources\Card\Card;
-use Chargebee\Resources\Subscription\Subscription;
-
+use Chargebee\Resources\Customer\Customer;use Chargebee\Resources\Card\Card;use Chargebee\Resources\Subscription\Subscription;
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListSubscriptionResponse extends ResponseBase { 
@@ -57,30 +54,4 @@ class ListSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListSubscriptionResponseListObject {
-    
-        public Subscription $subscription;
-    
-        public Customer $customer;
-    
-        public ?Card $card;
-    
-public function __construct(
-    Subscription $subscription,
-
-    Customer $customer,
-
-    ?Card $card,
-){ 
-    $this->subscription = $subscription;
-
-    $this->customer = $customer;
-
-    $this->card = $card;
-
-}
-}
-
 ?>

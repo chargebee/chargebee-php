@@ -23,14 +23,14 @@ class ScheduleEntry  {
     
     /**
     *
-    * @var ?string $status
+    * @var ?\Chargebee\Resources\PaymentSchedule\ClassBasedEnums\ScheduleEntryStatus $status
     */
-    public ?string $status;
+    public ?\Chargebee\Resources\PaymentSchedule\ClassBasedEnums\ScheduleEntryStatus $status;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "date" , "amount" , "status"  ];
+    protected static array $knownFields = [ "id" , "date" , "amount"  ];
 
     /**
     * dynamic properties for resources
@@ -42,13 +42,13 @@ class ScheduleEntry  {
         ?string $id,
         ?int $date,
         ?int $amount,
-        ?string $status,
+        ?\Chargebee\Resources\PaymentSchedule\ClassBasedEnums\ScheduleEntryStatus $status,
     )
     { 
         $this->id = $id;
         $this->date = $date;
-        $this->amount = $amount;
-        $this->status = $status;  
+        $this->amount = $amount;  
+        $this->status = $status;
     }
 
     public static function from(array $resourceAttributes): self
@@ -56,9 +56,10 @@ class ScheduleEntry  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['status'] ?? null,
         
          
+        isset($resourceAttributes['status']) ? \Chargebee\Resources\PaymentSchedule\ClassBasedEnums\ScheduleEntryStatus::tryFromValue($resourceAttributes['status']) : null,
+        
         );
        
         return $returnData;
@@ -70,7 +71,8 @@ class ScheduleEntry  {
         $data = array_filter(['id' => $this->id,
         'date' => $this->date,
         'amount' => $this->amount,
-        'status' => $this->status,
+        
+        'status' => $this->status?->value,
         
         ], function ($value) {
             return $value !== null;

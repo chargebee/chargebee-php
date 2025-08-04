@@ -53,20 +53,20 @@ class ItemTier  {
     
     /**
     *
-    * @var ?string $pricing_type
-    */
-    public ?string $pricing_type;
-    
-    /**
-    *
     * @var ?int $package_size
     */
     public ?int $package_size;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\PricingType $pricing_type
+    */
+    public ?\Chargebee\ClassBasedEnums\PricingType $pricing_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "starting_unit" , "ending_unit" , "price" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "price_in_decimal" , "ramp_tier_id" , "pricing_type" , "package_size"  ];
+    protected static array $knownFields = [ "item_price_id" , "starting_unit" , "ending_unit" , "price" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "price_in_decimal" , "ramp_tier_id" , "package_size"  ];
 
     /**
     * dynamic properties for resources
@@ -83,8 +83,8 @@ class ItemTier  {
         ?string $ending_unit_in_decimal,
         ?string $price_in_decimal,
         ?string $ramp_tier_id,
-        ?string $pricing_type,
         ?int $package_size,
+        ?\Chargebee\ClassBasedEnums\PricingType $pricing_type,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -95,8 +95,8 @@ class ItemTier  {
         $this->ending_unit_in_decimal = $ending_unit_in_decimal;
         $this->price_in_decimal = $price_in_decimal;
         $this->ramp_tier_id = $ramp_tier_id;
-        $this->pricing_type = $pricing_type;
-        $this->package_size = $package_size;  
+        $this->package_size = $package_size; 
+        $this->pricing_type = $pricing_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -109,9 +109,10 @@ class ItemTier  {
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['ramp_tier_id'] ?? null,
-        $resourceAttributes['pricing_type'] ?? null,
         $resourceAttributes['package_size'] ?? null,
         
+        
+        isset($resourceAttributes['pricing_type']) ? \Chargebee\ClassBasedEnums\PricingType::tryFromValue($resourceAttributes['pricing_type']) : null,
          
         );
        
@@ -129,8 +130,9 @@ class ItemTier  {
         'ending_unit_in_decimal' => $this->ending_unit_in_decimal,
         'price_in_decimal' => $this->price_in_decimal,
         'ramp_tier_id' => $this->ramp_tier_id,
-        'pricing_type' => $this->pricing_type,
         'package_size' => $this->package_size,
+        
+        'pricing_type' => $this->pricing_type?->value,
         
         ], function ($value) {
             return $value !== null;

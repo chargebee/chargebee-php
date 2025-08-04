@@ -11,12 +11,6 @@ class ItemsToUpdate  {
     
     /**
     *
-    * @var ?string $item_type
-    */
-    public ?string $item_type;
-    
-    /**
-    *
     * @var ?int $quantity
     */
     public ?int $quantity;
@@ -82,9 +76,15 @@ class ItemsToUpdate  {
     public ?string $metered_quantity;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ItemType $item_type
+    */
+    public ?\Chargebee\ClassBasedEnums\ItemType $item_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity"  ];
+    protected static array $knownFields = [ "item_price_id" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity"  ];
 
     /**
     * dynamic properties for resources
@@ -94,7 +94,6 @@ class ItemsToUpdate  {
 
     private function __construct(
         ?string $item_price_id,
-        ?string $item_type,
         ?int $quantity,
         ?string $quantity_in_decimal,
         ?int $unit_price,
@@ -106,10 +105,10 @@ class ItemsToUpdate  {
         ?int $billing_cycles,
         ?int $service_period_days,
         ?string $metered_quantity,
+        ?\Chargebee\ClassBasedEnums\ItemType $item_type,
     )
     { 
         $this->item_price_id = $item_price_id;
-        $this->item_type = $item_type;
         $this->quantity = $quantity;
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price = $unit_price;
@@ -120,13 +119,13 @@ class ItemsToUpdate  {
         $this->free_quantity_in_decimal = $free_quantity_in_decimal;
         $this->billing_cycles = $billing_cycles;
         $this->service_period_days = $service_period_days;
-        $this->metered_quantity = $metered_quantity;  
+        $this->metered_quantity = $metered_quantity; 
+        $this->item_type = $item_type; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
-        $resourceAttributes['item_type'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price'] ?? null,
@@ -139,6 +138,8 @@ class ItemsToUpdate  {
         $resourceAttributes['service_period_days'] ?? null,
         $resourceAttributes['metered_quantity'] ?? null,
         
+        
+        isset($resourceAttributes['item_type']) ? \Chargebee\ClassBasedEnums\ItemType::tryFromValue($resourceAttributes['item_type']) : null,
          
         );
        
@@ -149,7 +150,6 @@ class ItemsToUpdate  {
     {
 
         $data = array_filter(['item_price_id' => $this->item_price_id,
-        'item_type' => $this->item_type,
         'quantity' => $this->quantity,
         'quantity_in_decimal' => $this->quantity_in_decimal,
         'unit_price' => $this->unit_price,
@@ -161,6 +161,8 @@ class ItemsToUpdate  {
         'billing_cycles' => $this->billing_cycles,
         'service_period_days' => $this->service_period_days,
         'metered_quantity' => $this->metered_quantity,
+        
+        'item_type' => $this->item_type?->value,
         
         ], function ($value) {
             return $value !== null;

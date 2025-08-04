@@ -5,27 +5,9 @@ namespace Chargebee\Resources\Customer;
 class PaymentMethod  { 
     /**
     *
-    * @var ?string $type
-    */
-    public ?string $type;
-    
-    /**
-    *
-    * @var ?string $gateway
-    */
-    public ?string $gateway;
-    
-    /**
-    *
     * @var ?string $gateway_account_id
     */
     public ?string $gateway_account_id;
-    
-    /**
-    *
-    * @var ?string $status
-    */
-    public ?string $status;
     
     /**
     *
@@ -34,9 +16,27 @@ class PaymentMethod  {
     public ?string $reference_id;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\Type $type
+    */
+    public ?\Chargebee\ClassBasedEnums\Type $type;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\Gateway $gateway
+    */
+    public ?\Chargebee\ClassBasedEnums\Gateway $gateway;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\Customer\ClassBasedEnums\PaymentMethodStatus $status
+    */
+    public ?\Chargebee\Resources\Customer\ClassBasedEnums\PaymentMethodStatus $status;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "type" , "gateway" , "gateway_account_id" , "status" , "reference_id"  ];
+    protected static array $knownFields = [ "gateway_account_id" , "reference_id"  ];
 
     /**
     * dynamic properties for resources
@@ -45,29 +45,32 @@ class PaymentMethod  {
     protected $_data = [];
 
     private function __construct(
-        ?string $type,
-        ?string $gateway,
         ?string $gateway_account_id,
-        ?string $status,
         ?string $reference_id,
+        ?\Chargebee\ClassBasedEnums\Type $type,
+        ?\Chargebee\ClassBasedEnums\Gateway $gateway,
+        ?\Chargebee\Resources\Customer\ClassBasedEnums\PaymentMethodStatus $status,
     )
     { 
-        $this->type = $type;
-        $this->gateway = $gateway;
         $this->gateway_account_id = $gateway_account_id;
+        $this->reference_id = $reference_id; 
+        $this->type = $type;
+        $this->gateway = $gateway; 
         $this->status = $status;
-        $this->reference_id = $reference_id;  
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['type'] ?? null,
-        $resourceAttributes['gateway'] ?? null,
-        $resourceAttributes['gateway_account_id'] ?? null,
-        $resourceAttributes['status'] ?? null,
+        $returnData = new self( $resourceAttributes['gateway_account_id'] ?? null,
         $resourceAttributes['reference_id'] ?? null,
         
+        
+        isset($resourceAttributes['type']) ? \Chargebee\ClassBasedEnums\Type::tryFromValue($resourceAttributes['type']) : null,
+        
+        isset($resourceAttributes['gateway']) ? \Chargebee\ClassBasedEnums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
          
+        isset($resourceAttributes['status']) ? \Chargebee\Resources\Customer\ClassBasedEnums\PaymentMethodStatus::tryFromValue($resourceAttributes['status']) : null,
+        
         );
        
         return $returnData;
@@ -76,11 +79,14 @@ class PaymentMethod  {
     public function toArray(): array
     {
 
-        $data = array_filter(['type' => $this->type,
-        'gateway' => $this->gateway,
-        'gateway_account_id' => $this->gateway_account_id,
-        'status' => $this->status,
+        $data = array_filter(['gateway_account_id' => $this->gateway_account_id,
         'reference_id' => $this->reference_id,
+        
+        'type' => $this->type?->value,
+        
+        'gateway' => $this->gateway?->value,
+        
+        'status' => $this->status?->value,
         
         ], function ($value) {
             return $value !== null;

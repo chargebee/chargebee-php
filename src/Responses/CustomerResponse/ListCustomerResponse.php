@@ -1,9 +1,7 @@
 <?php
 
 namespace Chargebee\Responses\CustomerResponse;
-use Chargebee\Resources\Customer\Customer;
-use Chargebee\Resources\Card\Card;
-
+use Chargebee\Resources\Customer\Customer;use Chargebee\Resources\Card\Card;
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListCustomerResponse extends ResponseBase { 
@@ -54,24 +52,4 @@ class ListCustomerResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCustomerResponseListObject {
-    
-        public Customer $customer;
-    
-        public ?Card $card;
-    
-public function __construct(
-    Customer $customer,
-
-    ?Card $card,
-){ 
-    $this->customer = $customer;
-
-    $this->card = $card;
-
-}
-}
-
 ?>

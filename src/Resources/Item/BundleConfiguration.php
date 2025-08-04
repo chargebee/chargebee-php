@@ -5,14 +5,14 @@ namespace Chargebee\Resources\Item;
 class BundleConfiguration  { 
     /**
     *
-    * @var ?string $type
+    * @var ?\Chargebee\Resources\Item\ClassBasedEnums\BundleConfigurationType $type
     */
-    public ?string $type;
+    public ?\Chargebee\Resources\Item\ClassBasedEnums\BundleConfigurationType $type;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "type"  ];
+    protected static array $knownFields = [ ];
 
     /**
     * dynamic properties for resources
@@ -21,17 +21,18 @@ class BundleConfiguration  {
     protected $_data = [];
 
     private function __construct(
-        ?string $type,
+        ?\Chargebee\Resources\Item\ClassBasedEnums\BundleConfigurationType $type,
     )
-    { 
-        $this->type = $type;  
+    {   
+        $this->type = $type;
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['type'] ?? null,
-        
+        $returnData = new self( 
          
+        isset($resourceAttributes['type']) ? \Chargebee\Resources\Item\ClassBasedEnums\BundleConfigurationType::tryFromValue($resourceAttributes['type']) : null,
+        
         );
        
         return $returnData;
@@ -40,7 +41,8 @@ class BundleConfiguration  {
     public function toArray(): array
     {
 
-        $data = array_filter(['type' => $this->type,
+        $data = array_filter([
+        'type' => $this->type?->value,
         
         ], function ($value) {
             return $value !== null;

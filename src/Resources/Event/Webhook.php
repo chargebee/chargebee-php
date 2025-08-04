@@ -11,14 +11,14 @@ class Webhook  {
     
     /**
     *
-    * @var ?string $webhook_status
+    * @var ?\Chargebee\Resources\Event\ClassBasedEnums\WebhookWebhookStatus $webhook_status
     */
-    public ?string $webhook_status;
+    public ?\Chargebee\Resources\Event\ClassBasedEnums\WebhookWebhookStatus $webhook_status;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "webhook_status"  ];
+    protected static array $knownFields = [ "id"  ];
 
     /**
     * dynamic properties for resources
@@ -28,19 +28,20 @@ class Webhook  {
 
     private function __construct(
         ?string $id,
-        ?string $webhook_status,
+        ?\Chargebee\Resources\Event\ClassBasedEnums\WebhookWebhookStatus $webhook_status,
     )
     { 
-        $this->id = $id;
-        $this->webhook_status = $webhook_status;  
+        $this->id = $id;  
+        $this->webhook_status = $webhook_status;
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['webhook_status'] ?? null,
         
          
+        isset($resourceAttributes['webhook_status']) ? \Chargebee\Resources\Event\ClassBasedEnums\WebhookWebhookStatus::tryFromValue($resourceAttributes['webhook_status']) : null,
+        
         );
        
         return $returnData;
@@ -50,7 +51,8 @@ class Webhook  {
     {
 
         $data = array_filter(['id' => $this->id,
-        'webhook_status' => $this->webhook_status,
+        
+        'webhook_status' => $this->webhook_status?->value,
         
         ], function ($value) {
             return $value !== null;

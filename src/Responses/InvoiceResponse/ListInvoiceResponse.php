@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\InvoiceResponse;
 use Chargebee\Resources\Invoice\Invoice;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListInvoiceResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListInvoiceResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListInvoiceResponseListObject {
-    
-        public Invoice $invoice;
-    
-public function __construct(
-    Invoice $invoice,
-){ 
-    $this->invoice = $invoice;
-
-}
-}
-
 ?>

@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\TransactionResponse;
 use Chargebee\Resources\Transaction\Transaction;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class PaymentsForInvoiceTransactionResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class PaymentsForInvoiceTransactionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class PaymentsForInvoiceTransactionResponseListObject {
-    
-        public Transaction $transaction;
-    
-public function __construct(
-    Transaction $transaction,
-){ 
-    $this->transaction = $transaction;
-
-}
-}
-
 ?>

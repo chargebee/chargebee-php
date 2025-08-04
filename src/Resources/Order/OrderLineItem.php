@@ -95,18 +95,6 @@ class OrderLineItem  {
     
     /**
     *
-    * @var ?string $status
-    */
-    public ?string $status;
-    
-    /**
-    *
-    * @var ?string $entity_type
-    */
-    public ?string $entity_type;
-    
-    /**
-    *
     * @var ?int $item_level_discount_amount
     */
     public ?int $item_level_discount_amount;
@@ -124,9 +112,21 @@ class OrderLineItem  {
     public ?string $entity_id;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemStatus $status
+    */
+    public ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemStatus $status;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemEntityType $entity_type
+    */
+    public ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemEntityType $entity_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_id" , "invoice_line_item_id" , "unit_price" , "description" , "amount" , "fulfillment_quantity" , "fulfillment_amount" , "tax_amount" , "amount_paid" , "amount_adjusted" , "refundable_credits_issued" , "refundable_credits" , "is_shippable" , "sku" , "status" , "entity_type" , "item_level_discount_amount" , "discount_amount" , "entity_id"  ];
+    protected static array $knownFields = [ "id" , "invoice_id" , "invoice_line_item_id" , "unit_price" , "description" , "amount" , "fulfillment_quantity" , "fulfillment_amount" , "tax_amount" , "amount_paid" , "amount_adjusted" , "refundable_credits_issued" , "refundable_credits" , "is_shippable" , "sku" , "item_level_discount_amount" , "discount_amount" , "entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -150,11 +150,11 @@ class OrderLineItem  {
         ?int $refundable_credits,
         ?bool $is_shippable,
         ?string $sku,
-        ?string $status,
-        ?string $entity_type,
         ?int $item_level_discount_amount,
         ?int $discount_amount,
         ?string $entity_id,
+        ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemStatus $status,
+        ?\Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemEntityType $entity_type,
     )
     { 
         $this->id = $id;
@@ -172,11 +172,11 @@ class OrderLineItem  {
         $this->refundable_credits = $refundable_credits;
         $this->is_shippable = $is_shippable;
         $this->sku = $sku;
-        $this->status = $status;
-        $this->entity_type = $entity_type;
         $this->item_level_discount_amount = $item_level_discount_amount;
         $this->discount_amount = $discount_amount;
         $this->entity_id = $entity_id;  
+        $this->status = $status;
+        $this->entity_type = $entity_type;
     }
 
     public static function from(array $resourceAttributes): self
@@ -196,13 +196,15 @@ class OrderLineItem  {
         $resourceAttributes['refundable_credits'] ?? null,
         $resourceAttributes['is_shippable'] ?? null,
         $resourceAttributes['sku'] ?? null,
-        $resourceAttributes['status'] ?? null,
-        $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['item_level_discount_amount'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         
          
+        isset($resourceAttributes['status']) ? \Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemStatus::tryFromValue($resourceAttributes['status']) : null,
+        
+        isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\Order\ClassBasedEnums\OrderLineItemEntityType::tryFromValue($resourceAttributes['entity_type']) : null,
+        
         );
        
         return $returnData;
@@ -226,11 +228,13 @@ class OrderLineItem  {
         'refundable_credits' => $this->refundable_credits,
         'is_shippable' => $this->is_shippable,
         'sku' => $this->sku,
-        'status' => $this->status,
-        'entity_type' => $this->entity_type,
         'item_level_discount_amount' => $this->item_level_discount_amount,
         'discount_amount' => $this->discount_amount,
         'entity_id' => $this->entity_id,
+        
+        'status' => $this->status?->value,
+        
+        'entity_type' => $this->entity_type?->value,
         
         ], function ($value) {
             return $value !== null;

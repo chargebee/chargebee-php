@@ -47,12 +47,6 @@ class LineItem  {
     
     /**
     *
-    * @var ?string $pricing_model
-    */
-    public ?string $pricing_model;
-    
-    /**
-    *
     * @var ?bool $is_taxed
     */
     public ?bool $is_taxed;
@@ -131,18 +125,6 @@ class LineItem  {
     
     /**
     *
-    * @var ?string $entity_type
-    */
-    public ?string $entity_type;
-    
-    /**
-    *
-    * @var ?string $tax_exempt_reason
-    */
-    public ?string $tax_exempt_reason;
-    
-    /**
-    *
     * @var ?string $entity_id
     */
     public ?string $entity_id;
@@ -154,9 +136,27 @@ class LineItem  {
     public ?string $customer_id;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\PricingModel $pricing_model
+    */
+    public ?\Chargebee\ClassBasedEnums\PricingModel $pricing_model;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\TaxExemptReason $tax_exempt_reason
+    */
+    public ?\Chargebee\ClassBasedEnums\TaxExemptReason $tax_exempt_reason;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\CreditNoteEstimate\ClassBasedEnums\LineItemEntityType $entity_type
+    */
+    public ?\Chargebee\Resources\CreditNoteEstimate\ClassBasedEnums\LineItemEntityType $entity_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "pricing_model" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "metered" , "is_percentage_pricing" , "reference_line_item_id" , "description" , "entity_description" , "entity_type" , "tax_exempt_reason" , "entity_id" , "customer_id"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "metered" , "is_percentage_pricing" , "reference_line_item_id" , "description" , "entity_description" , "entity_id" , "customer_id"  ];
 
     /**
     * dynamic properties for resources
@@ -172,7 +172,6 @@ class LineItem  {
         ?int $unit_amount,
         ?int $quantity,
         ?int $amount,
-        ?string $pricing_model,
         ?bool $is_taxed,
         ?int $tax_amount,
         ?float $tax_rate,
@@ -186,10 +185,11 @@ class LineItem  {
         ?string $reference_line_item_id,
         ?string $description,
         ?string $entity_description,
-        ?string $entity_type,
-        ?string $tax_exempt_reason,
         ?string $entity_id,
         ?string $customer_id,
+        ?\Chargebee\ClassBasedEnums\PricingModel $pricing_model,
+        ?\Chargebee\ClassBasedEnums\TaxExemptReason $tax_exempt_reason,
+        ?\Chargebee\Resources\CreditNoteEstimate\ClassBasedEnums\LineItemEntityType $entity_type,
     )
     { 
         $this->id = $id;
@@ -199,7 +199,6 @@ class LineItem  {
         $this->unit_amount = $unit_amount;
         $this->quantity = $quantity;
         $this->amount = $amount;
-        $this->pricing_model = $pricing_model;
         $this->is_taxed = $is_taxed;
         $this->tax_amount = $tax_amount;
         $this->tax_rate = $tax_rate;
@@ -213,10 +212,11 @@ class LineItem  {
         $this->reference_line_item_id = $reference_line_item_id;
         $this->description = $description;
         $this->entity_description = $entity_description;
-        $this->entity_type = $entity_type;
-        $this->tax_exempt_reason = $tax_exempt_reason;
         $this->entity_id = $entity_id;
-        $this->customer_id = $customer_id;  
+        $this->customer_id = $customer_id; 
+        $this->pricing_model = $pricing_model;
+        $this->tax_exempt_reason = $tax_exempt_reason; 
+        $this->entity_type = $entity_type;
     }
 
     public static function from(array $resourceAttributes): self
@@ -228,7 +228,6 @@ class LineItem  {
         $resourceAttributes['unit_amount'] ?? null,
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['pricing_model'] ?? null,
         $resourceAttributes['is_taxed'] ?? null,
         $resourceAttributes['tax_amount'] ?? null,
         $resourceAttributes['tax_rate'] ?? null,
@@ -242,12 +241,16 @@ class LineItem  {
         $resourceAttributes['reference_line_item_id'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['entity_description'] ?? null,
-        $resourceAttributes['entity_type'] ?? null,
-        $resourceAttributes['tax_exempt_reason'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         
+        
+        isset($resourceAttributes['pricing_model']) ? \Chargebee\ClassBasedEnums\PricingModel::tryFromValue($resourceAttributes['pricing_model']) : null,
+        
+        isset($resourceAttributes['tax_exempt_reason']) ? \Chargebee\ClassBasedEnums\TaxExemptReason::tryFromValue($resourceAttributes['tax_exempt_reason']) : null,
          
+        isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\CreditNoteEstimate\ClassBasedEnums\LineItemEntityType::tryFromValue($resourceAttributes['entity_type']) : null,
+        
         );
        
         return $returnData;
@@ -263,7 +266,6 @@ class LineItem  {
         'unit_amount' => $this->unit_amount,
         'quantity' => $this->quantity,
         'amount' => $this->amount,
-        'pricing_model' => $this->pricing_model,
         'is_taxed' => $this->is_taxed,
         'tax_amount' => $this->tax_amount,
         'tax_rate' => $this->tax_rate,
@@ -277,10 +279,14 @@ class LineItem  {
         'reference_line_item_id' => $this->reference_line_item_id,
         'description' => $this->description,
         'entity_description' => $this->entity_description,
-        'entity_type' => $this->entity_type,
-        'tax_exempt_reason' => $this->tax_exempt_reason,
         'entity_id' => $this->entity_id,
         'customer_id' => $this->customer_id,
+        
+        'pricing_model' => $this->pricing_model?->value,
+        
+        'tax_exempt_reason' => $this->tax_exempt_reason?->value,
+        
+        'entity_type' => $this->entity_type?->value,
         
         ], function ($value) {
             return $value !== null;

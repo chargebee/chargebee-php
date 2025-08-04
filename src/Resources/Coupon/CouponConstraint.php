@@ -5,26 +5,26 @@ namespace Chargebee\Resources\Coupon;
 class CouponConstraint  { 
     /**
     *
-    * @var ?string $entity_type
-    */
-    public ?string $entity_type;
-    
-    /**
-    *
-    * @var ?string $type
-    */
-    public ?string $type;
-    
-    /**
-    *
     * @var ?string $value
     */
     public ?string $value;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintEntityType $entity_type
+    */
+    public ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintEntityType $entity_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintType $type
+    */
+    public ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintType $type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "entity_type" , "type" , "value"  ];
+    protected static array $knownFields = [ "value"  ];
 
     /**
     * dynamic properties for resources
@@ -33,23 +33,25 @@ class CouponConstraint  {
     protected $_data = [];
 
     private function __construct(
-        ?string $entity_type,
-        ?string $type,
         ?string $value,
+        ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintEntityType $entity_type,
+        ?\Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintType $type,
     )
     { 
+        $this->value = $value;  
         $this->entity_type = $entity_type;
         $this->type = $type;
-        $this->value = $value;  
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['entity_type'] ?? null,
-        $resourceAttributes['type'] ?? null,
-        $resourceAttributes['value'] ?? null,
+        $returnData = new self( $resourceAttributes['value'] ?? null,
         
          
+        isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintEntityType::tryFromValue($resourceAttributes['entity_type']) : null,
+        
+        isset($resourceAttributes['type']) ? \Chargebee\Resources\Coupon\ClassBasedEnums\CouponConstraintType::tryFromValue($resourceAttributes['type']) : null,
+        
         );
        
         return $returnData;
@@ -58,9 +60,11 @@ class CouponConstraint  {
     public function toArray(): array
     {
 
-        $data = array_filter(['entity_type' => $this->entity_type,
-        'type' => $this->type,
-        'value' => $this->value,
+        $data = array_filter(['value' => $this->value,
+        
+        'entity_type' => $this->entity_type?->value,
+        
+        'type' => $this->type?->value,
         
         ], function ($value) {
             return $value !== null;

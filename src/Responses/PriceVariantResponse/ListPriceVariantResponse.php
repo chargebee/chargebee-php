@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\PriceVariantResponse;
 use Chargebee\Resources\PriceVariant\PriceVariant;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListPriceVariantResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListPriceVariantResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListPriceVariantResponseListObject {
-    
-        public PriceVariant $price_variant;
-    
-public function __construct(
-    PriceVariant $price_variant,
-){ 
-    $this->price_variant = $price_variant;
-
-}
-}
-
 ?>

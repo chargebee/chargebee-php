@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\UnbilledChargeResponse;
 use Chargebee\Resources\UnbilledCharge\UnbilledCharge;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListUnbilledChargeResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListUnbilledChargeResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListUnbilledChargeResponseListObject {
-    
-        public UnbilledCharge $unbilled_charge;
-    
-public function __construct(
-    UnbilledCharge $unbilled_charge,
-){ 
-    $this->unbilled_charge = $unbilled_charge;
-
-}
-}
-
 ?>

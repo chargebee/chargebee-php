@@ -29,18 +29,6 @@ class ReferralInfo  {
     
     /**
     *
-    * @var ?string $reward_status
-    */
-    public ?string $reward_status;
-    
-    /**
-    *
-    * @var ?string $referral_system
-    */
-    public ?string $referral_system;
-    
-    /**
-    *
     * @var ?string $account_id
     */
     public ?string $account_id;
@@ -59,24 +47,6 @@ class ReferralInfo  {
     
     /**
     *
-    * @var ?string $friend_offer_type
-    */
-    public ?string $friend_offer_type;
-    
-    /**
-    *
-    * @var ?string $referrer_reward_type
-    */
-    public ?string $referrer_reward_type;
-    
-    /**
-    *
-    * @var ?string $notify_referral_system
-    */
-    public ?string $notify_referral_system;
-    
-    /**
-    *
     * @var ?string $destination_url
     */
     public ?string $destination_url;
@@ -88,9 +58,39 @@ class ReferralInfo  {
     public ?bool $post_purchase_widget_enabled;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system
+    */
+    public ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\FriendOfferType $friend_offer_type
+    */
+    public ?\Chargebee\ClassBasedEnums\FriendOfferType $friend_offer_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ReferrerRewardType $referrer_reward_type
+    */
+    public ?\Chargebee\ClassBasedEnums\ReferrerRewardType $referrer_reward_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\NotifyReferralSystem $notify_referral_system
+    */
+    public ?\Chargebee\ClassBasedEnums\NotifyReferralSystem $notify_referral_system;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\Subscription\ClassBasedEnums\ReferralInfoRewardStatus $reward_status
+    */
+    public ?\Chargebee\Resources\Subscription\ClassBasedEnums\ReferralInfoRewardStatus $reward_status;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "referral_code" , "coupon_code" , "referrer_id" , "external_reference_id" , "reward_status" , "referral_system" , "account_id" , "campaign_id" , "external_campaign_id" , "friend_offer_type" , "referrer_reward_type" , "notify_referral_system" , "destination_url" , "post_purchase_widget_enabled"  ];
+    protected static array $knownFields = [ "referral_code" , "coupon_code" , "referrer_id" , "external_reference_id" , "account_id" , "campaign_id" , "external_campaign_id" , "destination_url" , "post_purchase_widget_enabled"  ];
 
     /**
     * dynamic properties for resources
@@ -103,32 +103,32 @@ class ReferralInfo  {
         ?string $coupon_code,
         ?string $referrer_id,
         ?string $external_reference_id,
-        ?string $reward_status,
-        ?string $referral_system,
         ?string $account_id,
         ?string $campaign_id,
         ?string $external_campaign_id,
-        ?string $friend_offer_type,
-        ?string $referrer_reward_type,
-        ?string $notify_referral_system,
         ?string $destination_url,
         ?bool $post_purchase_widget_enabled,
+        ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system,
+        ?\Chargebee\ClassBasedEnums\FriendOfferType $friend_offer_type,
+        ?\Chargebee\ClassBasedEnums\ReferrerRewardType $referrer_reward_type,
+        ?\Chargebee\ClassBasedEnums\NotifyReferralSystem $notify_referral_system,
+        ?\Chargebee\Resources\Subscription\ClassBasedEnums\ReferralInfoRewardStatus $reward_status,
     )
     { 
         $this->referral_code = $referral_code;
         $this->coupon_code = $coupon_code;
         $this->referrer_id = $referrer_id;
         $this->external_reference_id = $external_reference_id;
-        $this->reward_status = $reward_status;
-        $this->referral_system = $referral_system;
         $this->account_id = $account_id;
         $this->campaign_id = $campaign_id;
         $this->external_campaign_id = $external_campaign_id;
+        $this->destination_url = $destination_url;
+        $this->post_purchase_widget_enabled = $post_purchase_widget_enabled; 
+        $this->referral_system = $referral_system;
         $this->friend_offer_type = $friend_offer_type;
         $this->referrer_reward_type = $referrer_reward_type;
-        $this->notify_referral_system = $notify_referral_system;
-        $this->destination_url = $destination_url;
-        $this->post_purchase_widget_enabled = $post_purchase_widget_enabled;  
+        $this->notify_referral_system = $notify_referral_system; 
+        $this->reward_status = $reward_status;
     }
 
     public static function from(array $resourceAttributes): self
@@ -137,18 +137,23 @@ class ReferralInfo  {
         $resourceAttributes['coupon_code'] ?? null,
         $resourceAttributes['referrer_id'] ?? null,
         $resourceAttributes['external_reference_id'] ?? null,
-        $resourceAttributes['reward_status'] ?? null,
-        $resourceAttributes['referral_system'] ?? null,
         $resourceAttributes['account_id'] ?? null,
         $resourceAttributes['campaign_id'] ?? null,
         $resourceAttributes['external_campaign_id'] ?? null,
-        $resourceAttributes['friend_offer_type'] ?? null,
-        $resourceAttributes['referrer_reward_type'] ?? null,
-        $resourceAttributes['notify_referral_system'] ?? null,
         $resourceAttributes['destination_url'] ?? null,
         $resourceAttributes['post_purchase_widget_enabled'] ?? null,
         
+        
+        isset($resourceAttributes['referral_system']) ? \Chargebee\ClassBasedEnums\ReferralSystem::tryFromValue($resourceAttributes['referral_system']) : null,
+        
+        isset($resourceAttributes['friend_offer_type']) ? \Chargebee\ClassBasedEnums\FriendOfferType::tryFromValue($resourceAttributes['friend_offer_type']) : null,
+        
+        isset($resourceAttributes['referrer_reward_type']) ? \Chargebee\ClassBasedEnums\ReferrerRewardType::tryFromValue($resourceAttributes['referrer_reward_type']) : null,
+        
+        isset($resourceAttributes['notify_referral_system']) ? \Chargebee\ClassBasedEnums\NotifyReferralSystem::tryFromValue($resourceAttributes['notify_referral_system']) : null,
          
+        isset($resourceAttributes['reward_status']) ? \Chargebee\Resources\Subscription\ClassBasedEnums\ReferralInfoRewardStatus::tryFromValue($resourceAttributes['reward_status']) : null,
+        
         );
        
         return $returnData;
@@ -161,16 +166,21 @@ class ReferralInfo  {
         'coupon_code' => $this->coupon_code,
         'referrer_id' => $this->referrer_id,
         'external_reference_id' => $this->external_reference_id,
-        'reward_status' => $this->reward_status,
-        'referral_system' => $this->referral_system,
         'account_id' => $this->account_id,
         'campaign_id' => $this->campaign_id,
         'external_campaign_id' => $this->external_campaign_id,
-        'friend_offer_type' => $this->friend_offer_type,
-        'referrer_reward_type' => $this->referrer_reward_type,
-        'notify_referral_system' => $this->notify_referral_system,
         'destination_url' => $this->destination_url,
         'post_purchase_widget_enabled' => $this->post_purchase_widget_enabled,
+        
+        'referral_system' => $this->referral_system?->value,
+        
+        'friend_offer_type' => $this->friend_offer_type?->value,
+        
+        'referrer_reward_type' => $this->referrer_reward_type?->value,
+        
+        'notify_referral_system' => $this->notify_referral_system?->value,
+        
+        'reward_status' => $this->reward_status?->value,
         
         ], function ($value) {
             return $value !== null;

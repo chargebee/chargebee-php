@@ -47,14 +47,14 @@ class ReferralUrl  {
     
     /**
     *
-    * @var ?string $referral_system
+    * @var ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system
     */
-    public ?string $referral_system;
+    public ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "external_customer_id" , "referral_sharing_url" , "created_at" , "updated_at" , "referral_campaign_id" , "referral_account_id" , "referral_external_campaign_id" , "referral_system"  ];
+    protected static array $knownFields = [ "external_customer_id" , "referral_sharing_url" , "created_at" , "updated_at" , "referral_campaign_id" , "referral_account_id" , "referral_external_campaign_id"  ];
 
     /**
     * dynamic properties for resources
@@ -70,7 +70,7 @@ class ReferralUrl  {
         ?string $referral_campaign_id,
         ?string $referral_account_id,
         ?string $referral_external_campaign_id,
-        ?string $referral_system,
+        ?\Chargebee\ClassBasedEnums\ReferralSystem $referral_system,
     )
     { 
         $this->external_customer_id = $external_customer_id;
@@ -79,8 +79,8 @@ class ReferralUrl  {
         $this->updated_at = $updated_at;
         $this->referral_campaign_id = $referral_campaign_id;
         $this->referral_account_id = $referral_account_id;
-        $this->referral_external_campaign_id = $referral_external_campaign_id;
-        $this->referral_system = $referral_system;  
+        $this->referral_external_campaign_id = $referral_external_campaign_id; 
+        $this->referral_system = $referral_system; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -92,8 +92,9 @@ class ReferralUrl  {
         $resourceAttributes['referral_campaign_id'] ?? null,
         $resourceAttributes['referral_account_id'] ?? null,
         $resourceAttributes['referral_external_campaign_id'] ?? null,
-        $resourceAttributes['referral_system'] ?? null,
         
+        
+        isset($resourceAttributes['referral_system']) ? \Chargebee\ClassBasedEnums\ReferralSystem::tryFromValue($resourceAttributes['referral_system']) : null,
          
         );
        
@@ -110,7 +111,8 @@ class ReferralUrl  {
         'referral_campaign_id' => $this->referral_campaign_id,
         'referral_account_id' => $this->referral_account_id,
         'referral_external_campaign_id' => $this->referral_external_campaign_id,
-        'referral_system' => $this->referral_system,
+        
+        'referral_system' => $this->referral_system?->value,
         
         ], function ($value) {
             return $value !== null;

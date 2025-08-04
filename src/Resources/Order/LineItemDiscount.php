@@ -11,12 +11,6 @@ class LineItemDiscount  {
     
     /**
     *
-    * @var ?string $discount_type
-    */
-    public ?string $discount_type;
-    
-    /**
-    *
     * @var ?string $coupon_id
     */
     public ?string $coupon_id;
@@ -34,9 +28,15 @@ class LineItemDiscount  {
     public ?int $discount_amount;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Order\ClassBasedEnums\LineItemDiscountDiscountType $discount_type
+    */
+    public ?\Chargebee\Resources\Order\ClassBasedEnums\LineItemDiscountDiscountType $discount_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "line_item_id" , "discount_type" , "coupon_id" , "entity_id" , "discount_amount"  ];
+    protected static array $knownFields = [ "line_item_id" , "coupon_id" , "entity_id" , "discount_amount"  ];
 
     /**
     * dynamic properties for resources
@@ -46,28 +46,29 @@ class LineItemDiscount  {
 
     private function __construct(
         ?string $line_item_id,
-        ?string $discount_type,
         ?string $coupon_id,
         ?string $entity_id,
         ?int $discount_amount,
+        ?\Chargebee\Resources\Order\ClassBasedEnums\LineItemDiscountDiscountType $discount_type,
     )
     { 
         $this->line_item_id = $line_item_id;
-        $this->discount_type = $discount_type;
         $this->coupon_id = $coupon_id;
         $this->entity_id = $entity_id;
         $this->discount_amount = $discount_amount;  
+        $this->discount_type = $discount_type;
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['line_item_id'] ?? null,
-        $resourceAttributes['discount_type'] ?? null,
         $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['discount_amount'] ?? null,
         
          
+        isset($resourceAttributes['discount_type']) ? \Chargebee\Resources\Order\ClassBasedEnums\LineItemDiscountDiscountType::tryFromValue($resourceAttributes['discount_type']) : null,
+        
         );
        
         return $returnData;
@@ -77,10 +78,11 @@ class LineItemDiscount  {
     {
 
         $data = array_filter(['line_item_id' => $this->line_item_id,
-        'discount_type' => $this->discount_type,
         'coupon_id' => $this->coupon_id,
         'entity_id' => $this->entity_id,
         'discount_amount' => $this->discount_amount,
+        
+        'discount_type' => $this->discount_type?->value,
         
         ], function ($value) {
             return $value !== null;

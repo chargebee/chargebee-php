@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\RampResponse;
 use Chargebee\Resources\Ramp\Ramp;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListRampResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListRampResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListRampResponseListObject {
-    
-        public Ramp $ramp;
-    
-public function __construct(
-    Ramp $ramp,
-){ 
-    $this->ramp = $ramp;
-
-}
-}
-
 ?>

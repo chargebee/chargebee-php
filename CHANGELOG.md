@@ -1,3 +1,10 @@
+### v4.8.0-beta.1 (2025-07-18) 
+* * * 
+
+### Bug fixes: 
+* Enum attributes in subresources are now typed using class-based enums to maintain backward compatibility.
+* List object classes have been moved to separate files to align with `PSR-4` directory standards.
+
 ### v4.7.0 (2025-07-18) 
 * * * 
 

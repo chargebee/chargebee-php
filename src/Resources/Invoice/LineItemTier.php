@@ -59,20 +59,20 @@ class LineItemTier  {
     
     /**
     *
-    * @var ?string $pricing_type
-    */
-    public ?string $pricing_type;
-    
-    /**
-    *
     * @var ?int $package_size
     */
     public ?int $package_size;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\PricingType $pricing_type
+    */
+    public ?\Chargebee\ClassBasedEnums\PricingType $pricing_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "line_item_id" , "starting_unit" , "ending_unit" , "quantity_used" , "unit_amount" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "quantity_used_in_decimal" , "unit_amount_in_decimal" , "pricing_type" , "package_size"  ];
+    protected static array $knownFields = [ "line_item_id" , "starting_unit" , "ending_unit" , "quantity_used" , "unit_amount" , "starting_unit_in_decimal" , "ending_unit_in_decimal" , "quantity_used_in_decimal" , "unit_amount_in_decimal" , "package_size"  ];
 
     /**
     * dynamic properties for resources
@@ -90,8 +90,8 @@ class LineItemTier  {
         ?string $ending_unit_in_decimal,
         ?string $quantity_used_in_decimal,
         ?string $unit_amount_in_decimal,
-        ?string $pricing_type,
         ?int $package_size,
+        ?\Chargebee\ClassBasedEnums\PricingType $pricing_type,
     )
     { 
         $this->line_item_id = $line_item_id;
@@ -103,8 +103,8 @@ class LineItemTier  {
         $this->ending_unit_in_decimal = $ending_unit_in_decimal;
         $this->quantity_used_in_decimal = $quantity_used_in_decimal;
         $this->unit_amount_in_decimal = $unit_amount_in_decimal;
-        $this->pricing_type = $pricing_type;
-        $this->package_size = $package_size;  
+        $this->package_size = $package_size; 
+        $this->pricing_type = $pricing_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -118,9 +118,10 @@ class LineItemTier  {
         $resourceAttributes['ending_unit_in_decimal'] ?? null,
         $resourceAttributes['quantity_used_in_decimal'] ?? null,
         $resourceAttributes['unit_amount_in_decimal'] ?? null,
-        $resourceAttributes['pricing_type'] ?? null,
         $resourceAttributes['package_size'] ?? null,
         
+        
+        isset($resourceAttributes['pricing_type']) ? \Chargebee\ClassBasedEnums\PricingType::tryFromValue($resourceAttributes['pricing_type']) : null,
          
         );
        
@@ -139,8 +140,9 @@ class LineItemTier  {
         'ending_unit_in_decimal' => $this->ending_unit_in_decimal,
         'quantity_used_in_decimal' => $this->quantity_used_in_decimal,
         'unit_amount_in_decimal' => $this->unit_amount_in_decimal,
-        'pricing_type' => $this->pricing_type,
         'package_size' => $this->package_size,
+        
+        'pricing_type' => $this->pricing_type?->value,
         
         ], function ($value) {
             return $value !== null;

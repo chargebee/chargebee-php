@@ -29,12 +29,6 @@ class Charge  {
     
     /**
     *
-    * @var ?string $avalara_sale_type
-    */
-    public ?string $avalara_sale_type;
-    
-    /**
-    *
     * @var ?int $avalara_transaction_type
     */
     public ?int $avalara_transaction_type;
@@ -46,9 +40,15 @@ class Charge  {
     public ?int $avalara_service_type;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\AvalaraSaleType $avalara_sale_type
+    */
+    public ?\Chargebee\ClassBasedEnums\AvalaraSaleType $avalara_sale_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "amount" , "amount_in_decimal" , "description" , "service_period_in_days" , "avalara_sale_type" , "avalara_transaction_type" , "avalara_service_type"  ];
+    protected static array $knownFields = [ "amount" , "amount_in_decimal" , "description" , "service_period_in_days" , "avalara_transaction_type" , "avalara_service_type"  ];
 
     /**
     * dynamic properties for resources
@@ -61,18 +61,18 @@ class Charge  {
         ?string $amount_in_decimal,
         ?string $description,
         ?int $service_period_in_days,
-        ?string $avalara_sale_type,
         ?int $avalara_transaction_type,
         ?int $avalara_service_type,
+        ?\Chargebee\ClassBasedEnums\AvalaraSaleType $avalara_sale_type,
     )
     { 
         $this->amount = $amount;
         $this->amount_in_decimal = $amount_in_decimal;
         $this->description = $description;
         $this->service_period_in_days = $service_period_in_days;
-        $this->avalara_sale_type = $avalara_sale_type;
         $this->avalara_transaction_type = $avalara_transaction_type;
-        $this->avalara_service_type = $avalara_service_type;  
+        $this->avalara_service_type = $avalara_service_type; 
+        $this->avalara_sale_type = $avalara_sale_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -81,10 +81,11 @@ class Charge  {
         $resourceAttributes['amount_in_decimal'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['service_period_in_days'] ?? null,
-        $resourceAttributes['avalara_sale_type'] ?? null,
         $resourceAttributes['avalara_transaction_type'] ?? null,
         $resourceAttributes['avalara_service_type'] ?? null,
         
+        
+        isset($resourceAttributes['avalara_sale_type']) ? \Chargebee\ClassBasedEnums\AvalaraSaleType::tryFromValue($resourceAttributes['avalara_sale_type']) : null,
          
         );
        
@@ -98,9 +99,10 @@ class Charge  {
         'amount_in_decimal' => $this->amount_in_decimal,
         'description' => $this->description,
         'service_period_in_days' => $this->service_period_in_days,
-        'avalara_sale_type' => $this->avalara_sale_type,
         'avalara_transaction_type' => $this->avalara_transaction_type,
         'avalara_service_type' => $this->avalara_service_type,
+        
+        'avalara_sale_type' => $this->avalara_sale_type?->value,
         
         ], function ($value) {
             return $value !== null;

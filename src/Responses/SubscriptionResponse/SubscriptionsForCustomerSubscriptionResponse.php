@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\SubscriptionResponse;
 use Chargebee\Resources\Subscription\Subscription;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class SubscriptionsForCustomerSubscriptionResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class SubscriptionsForCustomerSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class SubscriptionsForCustomerSubscriptionResponseListObject {
-    
-        public Subscription $subscription;
-    
-public function __construct(
-    Subscription $subscription,
-){ 
-    $this->subscription = $subscription;
-
-}
-}
-
 ?>

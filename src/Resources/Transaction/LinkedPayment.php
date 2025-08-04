@@ -11,12 +11,6 @@ class LinkedPayment  {
     
     /**
     *
-    * @var ?string $status
-    */
-    public ?string $status;
-    
-    /**
-    *
     * @var ?int $amount
     */
     public ?int $amount;
@@ -28,9 +22,15 @@ class LinkedPayment  {
     public ?int $date;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Transaction\ClassBasedEnums\LinkedPaymentStatus $status
+    */
+    public ?\Chargebee\Resources\Transaction\ClassBasedEnums\LinkedPaymentStatus $status;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "status" , "amount" , "date"  ];
+    protected static array $knownFields = [ "id" , "amount" , "date"  ];
 
     /**
     * dynamic properties for resources
@@ -40,25 +40,26 @@ class LinkedPayment  {
 
     private function __construct(
         ?string $id,
-        ?string $status,
         ?int $amount,
         ?int $date,
+        ?\Chargebee\Resources\Transaction\ClassBasedEnums\LinkedPaymentStatus $status,
     )
     { 
         $this->id = $id;
-        $this->status = $status;
         $this->amount = $amount;
         $this->date = $date;  
+        $this->status = $status;
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
-        $resourceAttributes['status'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['date'] ?? null,
         
          
+        isset($resourceAttributes['status']) ? \Chargebee\Resources\Transaction\ClassBasedEnums\LinkedPaymentStatus::tryFromValue($resourceAttributes['status']) : null,
+        
         );
        
         return $returnData;
@@ -68,9 +69,10 @@ class LinkedPayment  {
     {
 
         $data = array_filter(['id' => $this->id,
-        'status' => $this->status,
         'amount' => $this->amount,
         'date' => $this->date,
+        
+        'status' => $this->status?->value,
         
         ], function ($value) {
             return $value !== null;

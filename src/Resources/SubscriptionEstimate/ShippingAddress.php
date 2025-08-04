@@ -83,20 +83,20 @@ class ShippingAddress  {
     
     /**
     *
-    * @var ?string $validation_status
-    */
-    public ?string $validation_status;
-    
-    /**
-    *
     * @var ?int $index
     */
     public ?int $index;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ValidationStatus $validation_status
+    */
+    public ?\Chargebee\ClassBasedEnums\ValidationStatus $validation_status;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "first_name" , "last_name" , "email" , "company" , "phone" , "line1" , "line2" , "line3" , "city" , "state_code" , "state" , "country" , "zip" , "validation_status" , "index"  ];
+    protected static array $knownFields = [ "first_name" , "last_name" , "email" , "company" , "phone" , "line1" , "line2" , "line3" , "city" , "state_code" , "state" , "country" , "zip" , "index"  ];
 
     /**
     * dynamic properties for resources
@@ -118,8 +118,8 @@ class ShippingAddress  {
         ?string $state,
         ?string $country,
         ?string $zip,
-        ?string $validation_status,
         ?int $index,
+        ?\Chargebee\ClassBasedEnums\ValidationStatus $validation_status,
     )
     { 
         $this->first_name = $first_name;
@@ -135,8 +135,8 @@ class ShippingAddress  {
         $this->state = $state;
         $this->country = $country;
         $this->zip = $zip;
-        $this->validation_status = $validation_status;
-        $this->index = $index;  
+        $this->index = $index; 
+        $this->validation_status = $validation_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -154,9 +154,10 @@ class ShippingAddress  {
         $resourceAttributes['state'] ?? null,
         $resourceAttributes['country'] ?? null,
         $resourceAttributes['zip'] ?? null,
-        $resourceAttributes['validation_status'] ?? null,
         $resourceAttributes['index'] ?? null,
         
+        
+        isset($resourceAttributes['validation_status']) ? \Chargebee\ClassBasedEnums\ValidationStatus::tryFromValue($resourceAttributes['validation_status']) : null,
          
         );
        
@@ -179,8 +180,9 @@ class ShippingAddress  {
         'state' => $this->state,
         'country' => $this->country,
         'zip' => $this->zip,
-        'validation_status' => $this->validation_status,
         'index' => $this->index,
+        
+        'validation_status' => $this->validation_status?->value,
         
         ], function ($value) {
             return $value !== null;

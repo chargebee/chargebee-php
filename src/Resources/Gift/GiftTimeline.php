@@ -5,20 +5,20 @@ namespace Chargebee\Resources\Gift;
 class GiftTimeline  { 
     /**
     *
-    * @var ?string $status
-    */
-    public ?string $status;
-    
-    /**
-    *
     * @var ?int $occurred_at
     */
     public ?int $occurred_at;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Gift\ClassBasedEnums\Status $status
+    */
+    public ?\Chargebee\Resources\Gift\ClassBasedEnums\Status $status;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "status" , "occurred_at"  ];
+    protected static array $knownFields = [ "occurred_at"  ];
 
     /**
     * dynamic properties for resources
@@ -27,20 +27,21 @@ class GiftTimeline  {
     protected $_data = [];
 
     private function __construct(
-        ?string $status,
         ?int $occurred_at,
+        ?\Chargebee\Resources\Gift\ClassBasedEnums\Status $status,
     )
     { 
-        $this->status = $status;
         $this->occurred_at = $occurred_at;  
+        $this->status = $status;
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['status'] ?? null,
-        $resourceAttributes['occurred_at'] ?? null,
+        $returnData = new self( $resourceAttributes['occurred_at'] ?? null,
         
          
+        isset($resourceAttributes['status']) ? \Chargebee\Resources\Gift\ClassBasedEnums\Status::tryFromValue($resourceAttributes['status']) : null,
+        
         );
        
         return $returnData;
@@ -49,8 +50,9 @@ class GiftTimeline  {
     public function toArray(): array
     {
 
-        $data = array_filter(['status' => $this->status,
-        'occurred_at' => $this->occurred_at,
+        $data = array_filter(['occurred_at' => $this->occurred_at,
+        
+        'status' => $this->status?->value,
         
         ], function ($value) {
             return $value !== null;

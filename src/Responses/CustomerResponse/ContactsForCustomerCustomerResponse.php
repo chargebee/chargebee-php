@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CustomerResponse;
 use Chargebee\Resources\Contact\Contact;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ContactsForCustomerCustomerResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ContactsForCustomerCustomerResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ContactsForCustomerCustomerResponseListObject {
-    
-        public Contact $contact;
-    
-public function __construct(
-    Contact $contact,
-){ 
-    $this->contact = $contact;
-
-}
-}
-
 ?>

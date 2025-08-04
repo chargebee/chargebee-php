@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CustomerResponse;
 use Chargebee\Resources\Hierarchy\Hierarchy;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListHierarchyDetailCustomerResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListHierarchyDetailCustomerResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListHierarchyDetailCustomerResponseListObject {
-    
-        public Hierarchy $hierarchies;
-    
-public function __construct(
-    Hierarchy $hierarchies,
-){ 
-    $this->hierarchies = $hierarchies;
-
-}
-}
-
 ?>

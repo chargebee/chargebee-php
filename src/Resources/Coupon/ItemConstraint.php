@@ -5,26 +5,26 @@ namespace Chargebee\Resources\Coupon;
 class ItemConstraint  { 
     /**
     *
-    * @var ?string $item_type
-    */
-    public ?string $item_type;
-    
-    /**
-    *
-    * @var ?string $constraint
-    */
-    public ?string $constraint;
-    
-    /**
-    *
     * @var mixed $item_price_ids
     */
     public mixed $item_price_ids;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintItemType $item_type
+    */
+    public ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintItemType $item_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintConstraint $constraint
+    */
+    public ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintConstraint $constraint;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_type" , "constraint" , "item_price_ids"  ];
+    protected static array $knownFields = [ "item_price_ids"  ];
 
     /**
     * dynamic properties for resources
@@ -33,23 +33,25 @@ class ItemConstraint  {
     protected $_data = [];
 
     private function __construct(
-        ?string $item_type,
-        ?string $constraint,
         mixed $item_price_ids,
+        ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintItemType $item_type,
+        ?\Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintConstraint $constraint,
     )
     { 
+        $this->item_price_ids = $item_price_ids;  
         $this->item_type = $item_type;
         $this->constraint = $constraint;
-        $this->item_price_ids = $item_price_ids;  
     }
 
     public static function from(array $resourceAttributes): self
     { 
-        $returnData = new self( $resourceAttributes['item_type'] ?? null,
-        $resourceAttributes['constraint'] ?? null,
-        $resourceAttributes['item_price_ids'] ?? null,
+        $returnData = new self( $resourceAttributes['item_price_ids'] ?? null,
         
          
+        isset($resourceAttributes['item_type']) ? \Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintItemType::tryFromValue($resourceAttributes['item_type']) : null,
+        
+        isset($resourceAttributes['constraint']) ? \Chargebee\Resources\Coupon\ClassBasedEnums\ItemConstraintConstraint::tryFromValue($resourceAttributes['constraint']) : null,
+        
         );
        
         return $returnData;
@@ -58,9 +60,11 @@ class ItemConstraint  {
     public function toArray(): array
     {
 
-        $data = array_filter(['item_type' => $this->item_type,
-        'constraint' => $this->constraint,
-        'item_price_ids' => $this->item_price_ids,
+        $data = array_filter(['item_price_ids' => $this->item_price_ids,
+        
+        'item_type' => $this->item_type?->value,
+        
+        'constraint' => $this->constraint?->value,
         
         ], function ($value) {
             return $value !== null;

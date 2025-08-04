@@ -29,18 +29,6 @@ class Card  {
     
     /**
     *
-    * @var ?string $brand
-    */
-    public ?string $brand;
-    
-    /**
-    *
-    * @var ?string $funding_type
-    */
-    public ?string $funding_type;
-    
-    /**
-    *
     * @var ?int $expiry_month
     */
     public ?int $expiry_month;
@@ -100,9 +88,21 @@ class Card  {
     public ?string $masked_number;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardBrand $brand
+    */
+    public ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardBrand $brand;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardFundingType $funding_type
+    */
+    public ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardFundingType $funding_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "first_name" , "last_name" , "iin" , "last4" , "brand" , "funding_type" , "expiry_month" , "expiry_year" , "billing_addr1" , "billing_addr2" , "billing_city" , "billing_state_code" , "billing_state" , "billing_country" , "billing_zip" , "masked_number"  ];
+    protected static array $knownFields = [ "first_name" , "last_name" , "iin" , "last4" , "expiry_month" , "expiry_year" , "billing_addr1" , "billing_addr2" , "billing_city" , "billing_state_code" , "billing_state" , "billing_country" , "billing_zip" , "masked_number"  ];
 
     /**
     * dynamic properties for resources
@@ -115,8 +115,6 @@ class Card  {
         ?string $last_name,
         ?string $iin,
         ?string $last4,
-        ?string $brand,
-        ?string $funding_type,
         ?int $expiry_month,
         ?int $expiry_year,
         ?string $billing_addr1,
@@ -127,14 +125,14 @@ class Card  {
         ?string $billing_country,
         ?string $billing_zip,
         ?string $masked_number,
+        ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardBrand $brand,
+        ?\Chargebee\Resources\PaymentSource\ClassBasedEnums\CardFundingType $funding_type,
     )
     { 
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->iin = $iin;
         $this->last4 = $last4;
-        $this->brand = $brand;
-        $this->funding_type = $funding_type;
         $this->expiry_month = $expiry_month;
         $this->expiry_year = $expiry_year;
         $this->billing_addr1 = $billing_addr1;
@@ -145,6 +143,8 @@ class Card  {
         $this->billing_country = $billing_country;
         $this->billing_zip = $billing_zip;
         $this->masked_number = $masked_number;  
+        $this->brand = $brand;
+        $this->funding_type = $funding_type;
     }
 
     public static function from(array $resourceAttributes): self
@@ -153,8 +153,6 @@ class Card  {
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['iin'] ?? null,
         $resourceAttributes['last4'] ?? null,
-        $resourceAttributes['brand'] ?? null,
-        $resourceAttributes['funding_type'] ?? null,
         $resourceAttributes['expiry_month'] ?? null,
         $resourceAttributes['expiry_year'] ?? null,
         $resourceAttributes['billing_addr1'] ?? null,
@@ -167,6 +165,10 @@ class Card  {
         $resourceAttributes['masked_number'] ?? null,
         
          
+        isset($resourceAttributes['brand']) ? \Chargebee\Resources\PaymentSource\ClassBasedEnums\CardBrand::tryFromValue($resourceAttributes['brand']) : null,
+        
+        isset($resourceAttributes['funding_type']) ? \Chargebee\Resources\PaymentSource\ClassBasedEnums\CardFundingType::tryFromValue($resourceAttributes['funding_type']) : null,
+        
         );
        
         return $returnData;
@@ -179,8 +181,6 @@ class Card  {
         'last_name' => $this->last_name,
         'iin' => $this->iin,
         'last4' => $this->last4,
-        'brand' => $this->brand,
-        'funding_type' => $this->funding_type,
         'expiry_month' => $this->expiry_month,
         'expiry_year' => $this->expiry_year,
         'billing_addr1' => $this->billing_addr1,
@@ -191,6 +191,10 @@ class Card  {
         'billing_country' => $this->billing_country,
         'billing_zip' => $this->billing_zip,
         'masked_number' => $this->masked_number,
+        
+        'brand' => $this->brand?->value,
+        
+        'funding_type' => $this->funding_type?->value,
         
         ], function ($value) {
             return $value !== null;

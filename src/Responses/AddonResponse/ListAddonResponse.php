@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\AddonResponse;
 use Chargebee\Resources\Addon\Addon;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListAddonResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListAddonResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListAddonResponseListObject {
-    
-        public Addon $addon;
-    
-public function __construct(
-    Addon $addon,
-){ 
-    $this->addon = $addon;
-
-}
-}
-
 ?>

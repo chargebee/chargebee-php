@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\ItemResponse;
 use Chargebee\Resources\Item\Item;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListItemResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListItemResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListItemResponseListObject {
-    
-        public Item $item;
-    
-public function __construct(
-    Item $item,
-){ 
-    $this->item = $item;
-
-}
-}
-
 ?>

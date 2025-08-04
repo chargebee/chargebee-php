@@ -11,12 +11,6 @@ class AdjustmentCreditNote  {
     
     /**
     *
-    * @var ?string $cn_reason_code
-    */
-    public ?string $cn_reason_code;
-    
-    /**
-    *
     * @var ?string $cn_create_reason_code
     */
     public ?string $cn_create_reason_code;
@@ -35,14 +29,20 @@ class AdjustmentCreditNote  {
     
     /**
     *
-    * @var ?string $cn_status
+    * @var ?\Chargebee\Resources\CreditNote\ClassBasedEnums\ReasonCode $cn_reason_code
     */
-    public ?string $cn_status;
+    public ?\Chargebee\Resources\CreditNote\ClassBasedEnums\ReasonCode $cn_reason_code;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\CreditNote\ClassBasedEnums\Status $cn_status
+    */
+    public ?\Chargebee\Resources\CreditNote\ClassBasedEnums\Status $cn_status;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "cn_id" , "cn_reason_code" , "cn_create_reason_code" , "cn_date" , "cn_total" , "cn_status"  ];
+    protected static array $knownFields = [ "cn_id" , "cn_create_reason_code" , "cn_date" , "cn_total"  ];
 
     /**
     * dynamic properties for resources
@@ -52,31 +52,33 @@ class AdjustmentCreditNote  {
 
     private function __construct(
         ?string $cn_id,
-        ?string $cn_reason_code,
         ?string $cn_create_reason_code,
         ?int $cn_date,
         ?int $cn_total,
-        ?string $cn_status,
+        ?\Chargebee\Resources\CreditNote\ClassBasedEnums\ReasonCode $cn_reason_code,
+        ?\Chargebee\Resources\CreditNote\ClassBasedEnums\Status $cn_status,
     )
     { 
         $this->cn_id = $cn_id;
-        $this->cn_reason_code = $cn_reason_code;
         $this->cn_create_reason_code = $cn_create_reason_code;
         $this->cn_date = $cn_date;
-        $this->cn_total = $cn_total;
-        $this->cn_status = $cn_status;  
+        $this->cn_total = $cn_total;  
+        $this->cn_reason_code = $cn_reason_code;
+        $this->cn_status = $cn_status;
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['cn_id'] ?? null,
-        $resourceAttributes['cn_reason_code'] ?? null,
         $resourceAttributes['cn_create_reason_code'] ?? null,
         $resourceAttributes['cn_date'] ?? null,
         $resourceAttributes['cn_total'] ?? null,
-        $resourceAttributes['cn_status'] ?? null,
         
          
+        isset($resourceAttributes['cn_reason_code']) ? \Chargebee\Resources\CreditNote\ClassBasedEnums\ReasonCode::tryFromValue($resourceAttributes['cn_reason_code']) : null,
+        
+        isset($resourceAttributes['cn_status']) ? \Chargebee\Resources\CreditNote\ClassBasedEnums\Status::tryFromValue($resourceAttributes['cn_status']) : null,
+        
         );
        
         return $returnData;
@@ -86,11 +88,13 @@ class AdjustmentCreditNote  {
     {
 
         $data = array_filter(['cn_id' => $this->cn_id,
-        'cn_reason_code' => $this->cn_reason_code,
         'cn_create_reason_code' => $this->cn_create_reason_code,
         'cn_date' => $this->cn_date,
         'cn_total' => $this->cn_total,
-        'cn_status' => $this->cn_status,
+        
+        'cn_reason_code' => $this->cn_reason_code?->value,
+        
+        'cn_status' => $this->cn_status?->value,
         
         ], function ($value) {
             return $value !== null;

@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\FeatureResponse;
 use Chargebee\Resources\Feature\Feature;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListFeatureResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListFeatureResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListFeatureResponseListObject {
-    
-        public Feature $feature;
-    
-public function __construct(
-    Feature $feature,
-){ 
-    $this->feature = $feature;
-
-}
-}
-
 ?>

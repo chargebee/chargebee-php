@@ -65,12 +65,6 @@ class LineItemTax  {
     
     /**
     *
-    * @var ?string $tax_juris_type
-    */
-    public ?string $tax_juris_type;
-    
-    /**
-    *
     * @var ?string $tax_juris_name
     */
     public ?string $tax_juris_name;
@@ -94,9 +88,15 @@ class LineItemTax  {
     public ?string $local_currency_code;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\TaxJurisType $tax_juris_type
+    */
+    public ?\Chargebee\ClassBasedEnums\TaxJurisType $tax_juris_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "line_item_id" , "tax_name" , "tax_rate" , "date_to" , "date_from" , "prorated_taxable_amount" , "is_partial_tax_applied" , "is_non_compliance_tax" , "taxable_amount" , "tax_amount" , "tax_juris_type" , "tax_juris_name" , "tax_juris_code" , "tax_amount_in_local_currency" , "local_currency_code"  ];
+    protected static array $knownFields = [ "line_item_id" , "tax_name" , "tax_rate" , "date_to" , "date_from" , "prorated_taxable_amount" , "is_partial_tax_applied" , "is_non_compliance_tax" , "taxable_amount" , "tax_amount" , "tax_juris_name" , "tax_juris_code" , "tax_amount_in_local_currency" , "local_currency_code"  ];
 
     /**
     * dynamic properties for resources
@@ -115,11 +115,11 @@ class LineItemTax  {
         ?bool $is_non_compliance_tax,
         ?int $taxable_amount,
         ?int $tax_amount,
-        ?string $tax_juris_type,
         ?string $tax_juris_name,
         ?string $tax_juris_code,
         ?int $tax_amount_in_local_currency,
         ?string $local_currency_code,
+        ?\Chargebee\ClassBasedEnums\TaxJurisType $tax_juris_type,
     )
     { 
         $this->line_item_id = $line_item_id;
@@ -132,11 +132,11 @@ class LineItemTax  {
         $this->is_non_compliance_tax = $is_non_compliance_tax;
         $this->taxable_amount = $taxable_amount;
         $this->tax_amount = $tax_amount;
-        $this->tax_juris_type = $tax_juris_type;
         $this->tax_juris_name = $tax_juris_name;
         $this->tax_juris_code = $tax_juris_code;
         $this->tax_amount_in_local_currency = $tax_amount_in_local_currency;
-        $this->local_currency_code = $local_currency_code;  
+        $this->local_currency_code = $local_currency_code; 
+        $this->tax_juris_type = $tax_juris_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -151,12 +151,13 @@ class LineItemTax  {
         $resourceAttributes['is_non_compliance_tax'] ?? null,
         $resourceAttributes['taxable_amount'] ?? null,
         $resourceAttributes['tax_amount'] ?? null,
-        $resourceAttributes['tax_juris_type'] ?? null,
         $resourceAttributes['tax_juris_name'] ?? null,
         $resourceAttributes['tax_juris_code'] ?? null,
         $resourceAttributes['tax_amount_in_local_currency'] ?? null,
         $resourceAttributes['local_currency_code'] ?? null,
         
+        
+        isset($resourceAttributes['tax_juris_type']) ? \Chargebee\ClassBasedEnums\TaxJurisType::tryFromValue($resourceAttributes['tax_juris_type']) : null,
          
         );
        
@@ -176,11 +177,12 @@ class LineItemTax  {
         'is_non_compliance_tax' => $this->is_non_compliance_tax,
         'taxable_amount' => $this->taxable_amount,
         'tax_amount' => $this->tax_amount,
-        'tax_juris_type' => $this->tax_juris_type,
         'tax_juris_name' => $this->tax_juris_name,
         'tax_juris_code' => $this->tax_juris_code,
         'tax_amount_in_local_currency' => $this->tax_amount_in_local_currency,
         'local_currency_code' => $this->local_currency_code,
+        
+        'tax_juris_type' => $this->tax_juris_type?->value,
         
         ], function ($value) {
             return $value !== null;

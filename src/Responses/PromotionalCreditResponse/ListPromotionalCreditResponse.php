@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\PromotionalCreditResponse;
 use Chargebee\Resources\PromotionalCredit\PromotionalCredit;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListPromotionalCreditResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListPromotionalCreditResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListPromotionalCreditResponseListObject {
-    
-        public PromotionalCredit $promotional_credit;
-    
-public function __construct(
-    PromotionalCredit $promotional_credit,
-){ 
-    $this->promotional_credit = $promotional_credit;
-
-}
-}
-
 ?>

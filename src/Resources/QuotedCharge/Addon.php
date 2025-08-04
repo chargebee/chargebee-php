@@ -35,20 +35,20 @@ class Addon  {
     
     /**
     *
-    * @var ?string $proration_type
-    */
-    public ?string $proration_type;
-    
-    /**
-    *
     * @var ?int $service_period
     */
     public ?int $service_period;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\ProrationType $proration_type
+    */
+    public ?\Chargebee\ClassBasedEnums\ProrationType $proration_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "quantity" , "unit_price" , "quantity_in_decimal" , "unit_price_in_decimal" , "proration_type" , "service_period"  ];
+    protected static array $knownFields = [ "id" , "quantity" , "unit_price" , "quantity_in_decimal" , "unit_price_in_decimal" , "service_period"  ];
 
     /**
     * dynamic properties for resources
@@ -62,8 +62,8 @@ class Addon  {
         ?int $unit_price,
         ?string $quantity_in_decimal,
         ?string $unit_price_in_decimal,
-        ?string $proration_type,
         ?int $service_period,
+        ?\Chargebee\ClassBasedEnums\ProrationType $proration_type,
     )
     { 
         $this->id = $id;
@@ -71,8 +71,8 @@ class Addon  {
         $this->unit_price = $unit_price;
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price_in_decimal = $unit_price_in_decimal;
-        $this->proration_type = $proration_type;
-        $this->service_period = $service_period;  
+        $this->service_period = $service_period; 
+        $this->proration_type = $proration_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -82,9 +82,10 @@ class Addon  {
         $resourceAttributes['unit_price'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price_in_decimal'] ?? null,
-        $resourceAttributes['proration_type'] ?? null,
         $resourceAttributes['service_period'] ?? null,
         
+        
+        isset($resourceAttributes['proration_type']) ? \Chargebee\ClassBasedEnums\ProrationType::tryFromValue($resourceAttributes['proration_type']) : null,
          
         );
        
@@ -99,8 +100,9 @@ class Addon  {
         'unit_price' => $this->unit_price,
         'quantity_in_decimal' => $this->quantity_in_decimal,
         'unit_price_in_decimal' => $this->unit_price_in_decimal,
-        'proration_type' => $this->proration_type,
         'service_period' => $this->service_period,
+        
+        'proration_type' => $this->proration_type?->value,
         
         ], function ($value) {
             return $value !== null;

@@ -1,9 +1,7 @@
 <?php
 
 namespace Chargebee\Responses\GiftResponse;
-use Chargebee\Resources\Gift\Gift;
-use Chargebee\Resources\Subscription\Subscription;
-
+use Chargebee\Resources\Gift\Gift;use Chargebee\Resources\Subscription\Subscription;
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListGiftResponse extends ResponseBase { 
@@ -54,24 +52,4 @@ class ListGiftResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListGiftResponseListObject {
-    
-        public Gift $gift;
-    
-        public Subscription $subscription;
-    
-public function __construct(
-    Gift $gift,
-
-    Subscription $subscription,
-){ 
-    $this->gift = $gift;
-
-    $this->subscription = $subscription;
-
-}
-}
-
 ?>

@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\PaymentVoucherResponse;
 use Chargebee\Resources\PaymentVoucher\PaymentVoucher;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class PaymentVouchersForCustomerPaymentVoucherResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class PaymentVouchersForCustomerPaymentVoucherResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class PaymentVouchersForCustomerPaymentVoucherResponseListObject {
-    
-        public PaymentVoucher $payment_voucher;
-    
-public function __construct(
-    PaymentVoucher $payment_voucher,
-){ 
-    $this->payment_voucher = $payment_voucher;
-
-}
-}
-
 ?>

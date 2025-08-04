@@ -35,14 +35,14 @@ class LinkedInvoice  {
     
     /**
     *
-    * @var ?string $invoice_status
+    * @var ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status
     */
-    public ?string $invoice_status;
+    public ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "invoice_id" , "applied_amount" , "applied_at" , "invoice_date" , "invoice_total" , "invoice_status"  ];
+    protected static array $knownFields = [ "invoice_id" , "applied_amount" , "applied_at" , "invoice_date" , "invoice_total"  ];
 
     /**
     * dynamic properties for resources
@@ -56,15 +56,15 @@ class LinkedInvoice  {
         ?int $applied_at,
         ?int $invoice_date,
         ?int $invoice_total,
-        ?string $invoice_status,
+        ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status,
     )
     { 
         $this->invoice_id = $invoice_id;
         $this->applied_amount = $applied_amount;
         $this->applied_at = $applied_at;
         $this->invoice_date = $invoice_date;
-        $this->invoice_total = $invoice_total;
-        $this->invoice_status = $invoice_status;  
+        $this->invoice_total = $invoice_total;  
+        $this->invoice_status = $invoice_status;
     }
 
     public static function from(array $resourceAttributes): self
@@ -74,9 +74,10 @@ class LinkedInvoice  {
         $resourceAttributes['applied_at'] ?? null,
         $resourceAttributes['invoice_date'] ?? null,
         $resourceAttributes['invoice_total'] ?? null,
-        $resourceAttributes['invoice_status'] ?? null,
         
          
+        isset($resourceAttributes['invoice_status']) ? \Chargebee\Resources\Invoice\ClassBasedEnums\Status::tryFromValue($resourceAttributes['invoice_status']) : null,
+        
         );
        
         return $returnData;
@@ -90,7 +91,8 @@ class LinkedInvoice  {
         'applied_at' => $this->applied_at,
         'invoice_date' => $this->invoice_date,
         'invoice_total' => $this->invoice_total,
-        'invoice_status' => $this->invoice_status,
+        
+        'invoice_status' => $this->invoice_status?->value,
         
         ], function ($value) {
             return $value !== null;

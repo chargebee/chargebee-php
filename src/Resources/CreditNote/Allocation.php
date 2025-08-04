@@ -29,20 +29,20 @@ class Allocation  {
     
     /**
     *
-    * @var ?string $invoice_status
+    * @var ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status
     */
-    public ?string $invoice_status;
+    public ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status;
     
     /**
     *
-    * @var ?string $tax_application
+    * @var ?\Chargebee\Resources\CreditNote\ClassBasedEnums\AllocationTaxApplication $tax_application
     */
-    public ?string $tax_application;
+    public ?\Chargebee\Resources\CreditNote\ClassBasedEnums\AllocationTaxApplication $tax_application;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "invoice_id" , "allocated_amount" , "allocated_at" , "invoice_date" , "invoice_status" , "tax_application"  ];
+    protected static array $knownFields = [ "invoice_id" , "allocated_amount" , "allocated_at" , "invoice_date"  ];
 
     /**
     * dynamic properties for resources
@@ -55,16 +55,16 @@ class Allocation  {
         ?int $allocated_amount,
         ?int $allocated_at,
         ?int $invoice_date,
-        ?string $invoice_status,
-        ?string $tax_application,
+        ?\Chargebee\Resources\Invoice\ClassBasedEnums\Status $invoice_status,
+        ?\Chargebee\Resources\CreditNote\ClassBasedEnums\AllocationTaxApplication $tax_application,
     )
     { 
         $this->invoice_id = $invoice_id;
         $this->allocated_amount = $allocated_amount;
         $this->allocated_at = $allocated_at;
-        $this->invoice_date = $invoice_date;
+        $this->invoice_date = $invoice_date;  
         $this->invoice_status = $invoice_status;
-        $this->tax_application = $tax_application;  
+        $this->tax_application = $tax_application;
     }
 
     public static function from(array $resourceAttributes): self
@@ -73,10 +73,12 @@ class Allocation  {
         $resourceAttributes['allocated_amount'] ?? null,
         $resourceAttributes['allocated_at'] ?? null,
         $resourceAttributes['invoice_date'] ?? null,
-        $resourceAttributes['invoice_status'] ?? null,
-        $resourceAttributes['tax_application'] ?? null,
         
          
+        isset($resourceAttributes['invoice_status']) ? \Chargebee\Resources\Invoice\ClassBasedEnums\Status::tryFromValue($resourceAttributes['invoice_status']) : null,
+        
+        isset($resourceAttributes['tax_application']) ? \Chargebee\Resources\CreditNote\ClassBasedEnums\AllocationTaxApplication::tryFromValue($resourceAttributes['tax_application']) : null,
+        
         );
        
         return $returnData;
@@ -89,8 +91,10 @@ class Allocation  {
         'allocated_amount' => $this->allocated_amount,
         'allocated_at' => $this->allocated_at,
         'invoice_date' => $this->invoice_date,
-        'invoice_status' => $this->invoice_status,
-        'tax_application' => $this->tax_application,
+        
+        'invoice_status' => $this->invoice_status?->value,
+        
+        'tax_application' => $this->tax_application?->value,
         
         ], function ($value) {
             return $value !== null;

@@ -17,12 +17,6 @@ class EventBasedAddon  {
     
     /**
     *
-    * @var ?string $on_event
-    */
-    public ?string $on_event;
-    
-    /**
-    *
     * @var ?bool $charge_once
     */
     public ?bool $charge_once;
@@ -34,9 +28,15 @@ class EventBasedAddon  {
     public ?string $quantity_in_decimal;
     
     /**
+    *
+    * @var ?\Chargebee\ClassBasedEnums\OnEvent $on_event
+    */
+    public ?\Chargebee\ClassBasedEnums\OnEvent $on_event;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "quantity" , "on_event" , "charge_once" , "quantity_in_decimal"  ];
+    protected static array $knownFields = [ "id" , "quantity" , "charge_once" , "quantity_in_decimal"  ];
 
     /**
     * dynamic properties for resources
@@ -47,26 +47,27 @@ class EventBasedAddon  {
     private function __construct(
         ?string $id,
         ?int $quantity,
-        ?string $on_event,
         ?bool $charge_once,
         ?string $quantity_in_decimal,
+        ?\Chargebee\ClassBasedEnums\OnEvent $on_event,
     )
     { 
         $this->id = $id;
         $this->quantity = $quantity;
-        $this->on_event = $on_event;
         $this->charge_once = $charge_once;
-        $this->quantity_in_decimal = $quantity_in_decimal;  
+        $this->quantity_in_decimal = $quantity_in_decimal; 
+        $this->on_event = $on_event; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['quantity'] ?? null,
-        $resourceAttributes['on_event'] ?? null,
         $resourceAttributes['charge_once'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         
+        
+        isset($resourceAttributes['on_event']) ? \Chargebee\ClassBasedEnums\OnEvent::tryFromValue($resourceAttributes['on_event']) : null,
          
         );
        
@@ -78,9 +79,10 @@ class EventBasedAddon  {
 
         $data = array_filter(['id' => $this->id,
         'quantity' => $this->quantity,
-        'on_event' => $this->on_event,
         'charge_once' => $this->charge_once,
         'quantity_in_decimal' => $this->quantity_in_decimal,
+        
+        'on_event' => $this->on_event?->value,
         
         ], function ($value) {
             return $value !== null;

@@ -41,12 +41,6 @@ class OmnichannelTransaction  {
     
     /**
     *
-    * @var ?string $type
-    */
-    public ?string $type;
-    
-    /**
-    *
     * @var ?int $transacted_at
     */
     public ?int $transacted_at;
@@ -64,9 +58,15 @@ class OmnichannelTransaction  {
     public ?int $resource_version;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\OmnichannelSubscription\ClassBasedEnums\InitialPurchaseTransactionType $type
+    */
+    public ?\Chargebee\Resources\OmnichannelSubscription\ClassBasedEnums\InitialPurchaseTransactionType $type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "price_currency" , "price_units" , "price_nanos" , "type" , "transacted_at" , "created_at" , "resource_version"  ];
+    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "price_currency" , "price_units" , "price_nanos" , "transacted_at" , "created_at" , "resource_version"  ];
 
     /**
     * dynamic properties for resources
@@ -81,10 +81,10 @@ class OmnichannelTransaction  {
         ?string $price_currency,
         ?int $price_units,
         ?int $price_nanos,
-        ?string $type,
         ?int $transacted_at,
         ?int $created_at,
         ?int $resource_version,
+        ?\Chargebee\Resources\OmnichannelSubscription\ClassBasedEnums\InitialPurchaseTransactionType $type,
     )
     { 
         $this->id = $id;
@@ -93,10 +93,10 @@ class OmnichannelTransaction  {
         $this->price_currency = $price_currency;
         $this->price_units = $price_units;
         $this->price_nanos = $price_nanos;
-        $this->type = $type;
         $this->transacted_at = $transacted_at;
         $this->created_at = $created_at;
         $this->resource_version = $resource_version;  
+        $this->type = $type;
     }
 
     public static function from(array $resourceAttributes): self
@@ -107,12 +107,13 @@ class OmnichannelTransaction  {
         $resourceAttributes['price_currency'] ?? null,
         $resourceAttributes['price_units'] ?? null,
         $resourceAttributes['price_nanos'] ?? null,
-        $resourceAttributes['type'] ?? null,
         $resourceAttributes['transacted_at'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         
          
+        isset($resourceAttributes['type']) ? \Chargebee\Resources\OmnichannelSubscription\ClassBasedEnums\InitialPurchaseTransactionType::tryFromValue($resourceAttributes['type']) : null,
+        
         );
        
         return $returnData;
@@ -127,10 +128,11 @@ class OmnichannelTransaction  {
         'price_currency' => $this->price_currency,
         'price_units' => $this->price_units,
         'price_nanos' => $this->price_nanos,
-        'type' => $this->type,
         'transacted_at' => $this->transacted_at,
         'created_at' => $this->created_at,
         'resource_version' => $this->resource_version,
+        
+        'type' => $this->type?->value,
         
         ], function ($value) {
             return $value !== null;

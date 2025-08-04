@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\ItemPriceResponse;
 use Chargebee\Resources\ItemPrice\ItemPrice;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class FindApplicableItemPricesItemPriceResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class FindApplicableItemPricesItemPriceResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class FindApplicableItemPricesItemPriceResponseListObject {
-    
-        public ItemPrice $item_price;
-    
-public function __construct(
-    ItemPrice $item_price,
-){ 
-    $this->item_price = $item_price;
-
-}
-}
-
 ?>

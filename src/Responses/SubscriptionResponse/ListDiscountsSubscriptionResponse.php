@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\SubscriptionResponse;
 use Chargebee\Resources\Discount\Discount;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListDiscountsSubscriptionResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListDiscountsSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListDiscountsSubscriptionResponseListObject {
-    
-        public Discount $discount;
-    
-public function __construct(
-    Discount $discount,
-){ 
-    $this->discount = $discount;
-
-}
-}
-
 ?>

@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\CustomerEntitlementResponse;
 use Chargebee\Resources\CustomerEntitlement\CustomerEntitlement;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class EntitlementsForCustomerCustomerEntitlementResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class EntitlementsForCustomerCustomerEntitlementResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class EntitlementsForCustomerCustomerEntitlementResponseListObject {
-    
-        public CustomerEntitlement $customer_entitlement;
-    
-public function __construct(
-    CustomerEntitlement $customer_entitlement,
-){ 
-    $this->customer_entitlement = $customer_entitlement;
-
-}
-}
-
 ?>

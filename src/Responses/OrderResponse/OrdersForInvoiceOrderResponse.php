@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\OrderResponse;
 use Chargebee\Resources\Order\Order;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class OrdersForInvoiceOrderResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class OrdersForInvoiceOrderResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class OrdersForInvoiceOrderResponseListObject {
-    
-        public Order $order;
-    
-public function __construct(
-    Order $order,
-){ 
-    $this->order = $order;
-
-}
-}
-
 ?>

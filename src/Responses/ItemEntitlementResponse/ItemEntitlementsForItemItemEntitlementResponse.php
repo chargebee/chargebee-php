@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\ItemEntitlementResponse;
 use Chargebee\Resources\ItemEntitlement\ItemEntitlement;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ItemEntitlementsForItemItemEntitlementResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ItemEntitlementsForItemItemEntitlementResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ItemEntitlementsForItemItemEntitlementResponseListObject {
-    
-        public ItemEntitlement $item_entitlement;
-    
-public function __construct(
-    ItemEntitlement $item_entitlement,
-){ 
-    $this->item_entitlement = $item_entitlement;
-
-}
-}
-
 ?>

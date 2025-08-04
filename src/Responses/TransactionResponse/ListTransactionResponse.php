@@ -2,7 +2,6 @@
 
 namespace Chargebee\Responses\TransactionResponse;
 use Chargebee\Resources\Transaction\Transaction;
-
 use Chargebee\ValueObjects\ResponseBase;
 
 class ListTransactionResponse extends ResponseBase { 
@@ -51,18 +50,4 @@ class ListTransactionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListTransactionResponseListObject {
-    
-        public Transaction $transaction;
-    
-public function __construct(
-    Transaction $transaction,
-){ 
-    $this->transaction = $transaction;
-
-}
-}
-
 ?>

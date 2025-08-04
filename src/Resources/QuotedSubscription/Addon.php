@@ -59,14 +59,14 @@ class Addon  {
     
     /**
     *
-    * @var ?string $proration_type
+    * @var ?\Chargebee\ClassBasedEnums\ProrationType $proration_type
     */
-    public ?string $proration_type;
+    public ?\Chargebee\ClassBasedEnums\ProrationType $proration_type;
     
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "quantity" , "unit_price" , "amount" , "trial_end" , "remaining_billing_cycles" , "quantity_in_decimal" , "unit_price_in_decimal" , "amount_in_decimal" , "proration_type"  ];
+    protected static array $knownFields = [ "id" , "quantity" , "unit_price" , "amount" , "trial_end" , "remaining_billing_cycles" , "quantity_in_decimal" , "unit_price_in_decimal" , "amount_in_decimal"  ];
 
     /**
     * dynamic properties for resources
@@ -84,7 +84,7 @@ class Addon  {
         ?string $quantity_in_decimal,
         ?string $unit_price_in_decimal,
         ?string $amount_in_decimal,
-        ?string $proration_type,
+        ?\Chargebee\ClassBasedEnums\ProrationType $proration_type,
     )
     { 
         $this->id = $id;
@@ -95,8 +95,8 @@ class Addon  {
         $this->remaining_billing_cycles = $remaining_billing_cycles;
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price_in_decimal = $unit_price_in_decimal;
-        $this->amount_in_decimal = $amount_in_decimal;
-        $this->proration_type = $proration_type;  
+        $this->amount_in_decimal = $amount_in_decimal; 
+        $this->proration_type = $proration_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -110,8 +110,9 @@ class Addon  {
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price_in_decimal'] ?? null,
         $resourceAttributes['amount_in_decimal'] ?? null,
-        $resourceAttributes['proration_type'] ?? null,
         
+        
+        isset($resourceAttributes['proration_type']) ? \Chargebee\ClassBasedEnums\ProrationType::tryFromValue($resourceAttributes['proration_type']) : null,
          
         );
        
@@ -130,7 +131,8 @@ class Addon  {
         'quantity_in_decimal' => $this->quantity_in_decimal,
         'unit_price_in_decimal' => $this->unit_price_in_decimal,
         'amount_in_decimal' => $this->amount_in_decimal,
-        'proration_type' => $this->proration_type,
+        
+        'proration_type' => $this->proration_type?->value,
         
         ], function ($value) {
             return $value !== null;
