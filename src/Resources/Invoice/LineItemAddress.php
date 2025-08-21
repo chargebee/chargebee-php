@@ -136,7 +136,7 @@ class LineItemAddress  {
         $this->state = $state;
         $this->country = $country;
         $this->zip = $zip;
-        $this->validation_status = $validation_status;  
+        $this->validation_status = $validation_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -157,7 +157,7 @@ class LineItemAddress  {
         $resourceAttributes['zip'] ?? null,
         $resourceAttributes['validation_status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -165,7 +165,7 @@ class LineItemAddress  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['line_item_id' => $this->line_item_id,
         'first_name' => $this->first_name,
         'last_name' => $this->last_name,

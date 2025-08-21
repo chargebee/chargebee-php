@@ -40,7 +40,7 @@ class Configuration  {
     { 
         $this->domain = $domain; 
         $this->product_catalog_version = $product_catalog_version;
-        $this->chargebee_response_schema_type = $chargebee_response_schema_type; 
+        $this->chargebee_response_schema_type = $chargebee_response_schema_type;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -51,7 +51,7 @@ class Configuration  {
         isset($resourceAttributes['product_catalog_version']) ? \Chargebee\Enums\ProductCatalogVersion::tryFromValue($resourceAttributes['product_catalog_version']) : null,
         
         isset($resourceAttributes['chargebee_response_schema_type']) ? \Chargebee\Enums\ChargebeeResponseSchemaType::tryFromValue($resourceAttributes['chargebee_response_schema_type']) : null,
-         
+          
         );
        
         return $returnData;
@@ -59,7 +59,7 @@ class Configuration  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['domain' => $this->domain,
         
         'product_catalog_version' => $this->product_catalog_version?->value,

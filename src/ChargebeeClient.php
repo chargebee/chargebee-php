@@ -60,6 +60,8 @@ use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
 use Chargebee\Actions\ItemPriceActions;
 use Chargebee\Actions\Contracts\NonSubscriptionActionsInterface;
 use Chargebee\Actions\NonSubscriptionActions;
+use Chargebee\Actions\Contracts\OmnichannelOneTimeOrderActionsInterface;
+use Chargebee\Actions\OmnichannelOneTimeOrderActions;
 use Chargebee\Actions\Contracts\OmnichannelSubscriptionActionsInterface;
 use Chargebee\Actions\OmnichannelSubscriptionActions;
 use Chargebee\Actions\Contracts\OmnichannelSubscriptionItemActionsInterface;
@@ -116,6 +118,8 @@ use Chargebee\Actions\Contracts\UsageFileActionsInterface;
 use Chargebee\Actions\UsageFileActions;
 use Chargebee\Actions\Contracts\VirtualBankAccountActionsInterface;
 use Chargebee\Actions\VirtualBankAccountActions;
+use Chargebee\Actions\Contracts\WebhookEndpointActionsInterface;
+use Chargebee\Actions\WebhookEndpointActions;
 
 use Chargebee\HttpClient\GuzzleFactory;
 use Chargebee\HttpClient\HttpClientFactory;
@@ -293,6 +297,10 @@ class ChargebeeClient {
         return new NonSubscriptionActions($this->httpClientFactory, $this->env);
     }
 
+    public function omnichannelOneTimeOrder() :OmnichannelOneTimeOrderActionsInterface {
+        return new OmnichannelOneTimeOrderActions($this->httpClientFactory, $this->env);
+    }
+
     public function omnichannelSubscription() :OmnichannelSubscriptionActionsInterface {
         return new OmnichannelSubscriptionActions($this->httpClientFactory, $this->env);
     }
@@ -403,6 +411,10 @@ class ChargebeeClient {
 
     public function virtualBankAccount() :VirtualBankAccountActionsInterface {
         return new VirtualBankAccountActions($this->httpClientFactory, $this->env);
+    }
+
+    public function webhookEndpoint() :WebhookEndpointActionsInterface {
+        return new WebhookEndpointActions($this->httpClientFactory, $this->env);
     }
 
 }

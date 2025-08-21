@@ -13,16 +13,16 @@ Interface EntitlementActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     feature_id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * entity_type?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * entity_id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * include_drafts?: bool,
     *     embed?: string,

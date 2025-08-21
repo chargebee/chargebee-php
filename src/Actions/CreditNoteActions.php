@@ -310,6 +310,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#record_refund_for_a_credit_note
     *   @param array{
     *     transaction?: array{
+    *     id?: string,
     *     amount?: int,
     *     payment_method?: string,
     *     reference_number?: string,
@@ -418,6 +419,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *     allocated_at?: int,
     *     }>,
     *     linked_refunds?: array<array{
+    *     id?: string,
     *     amount?: int,
     *     payment_method?: string,
     *     date?: int,

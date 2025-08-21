@@ -64,7 +64,7 @@ class LinkedPayment  {
         $this->applied_at = $applied_at;
         $this->txn_status = $txn_status;
         $this->txn_date = $txn_date;
-        $this->txn_amount = $txn_amount;  
+        $this->txn_amount = $txn_amount;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class LinkedPayment  {
         $resourceAttributes['txn_date'] ?? null,
         $resourceAttributes['txn_amount'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class LinkedPayment  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['txn_id' => $this->txn_id,
         'applied_amount' => $this->applied_amount,
         'applied_at' => $this->applied_at,

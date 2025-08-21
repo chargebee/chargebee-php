@@ -24,14 +24,14 @@ class ApplicableAddon  {
         ?string $id,
     )
     { 
-        $this->id = $id;  
+        $this->id = $id;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class ApplicableAddon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         
         ], function ($value) {

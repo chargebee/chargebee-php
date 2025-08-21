@@ -32,7 +32,7 @@ class SiteDetailsAtCreation  {
     )
     { 
         $this->timezone = $timezone;
-        $this->organization_address = $organization_address;  
+        $this->organization_address = $organization_address;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class SiteDetailsAtCreation  {
         $returnData = new self( $resourceAttributes['timezone'] ?? null,
         $resourceAttributes['organization_address'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class SiteDetailsAtCreation  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['timezone' => $this->timezone,
         'organization_address' => $this->organization_address,
         

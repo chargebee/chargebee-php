@@ -104,7 +104,7 @@ class BankAccount  {
         $this->account_type = $account_type;
         $this->echeck_type = $echeck_type;
         $this->account_holder_type = $account_holder_type;
-        $this->email = $email;  
+        $this->email = $email;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -121,7 +121,7 @@ class BankAccount  {
         $resourceAttributes['account_holder_type'] ?? null,
         $resourceAttributes['email'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -129,7 +129,7 @@ class BankAccount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['last4' => $this->last4,
         'name_on_account' => $this->name_on_account,
         'first_name' => $this->first_name,

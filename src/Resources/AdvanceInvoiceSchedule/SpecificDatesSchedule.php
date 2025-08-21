@@ -40,7 +40,7 @@ class SpecificDatesSchedule  {
     { 
         $this->terms_to_charge = $terms_to_charge;
         $this->date = $date;
-        $this->created_at = $created_at;  
+        $this->created_at = $created_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class SpecificDatesSchedule  {
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class SpecificDatesSchedule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['terms_to_charge' => $this->terms_to_charge,
         'date' => $this->date,
         'created_at' => $this->created_at,

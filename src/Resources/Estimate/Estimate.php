@@ -88,7 +88,7 @@ class Estimate  {
         $this->payment_schedule_estimates = $payment_schedule_estimates;
         $this->next_invoice_estimate = $next_invoice_estimate;
         $this->credit_note_estimates = $credit_note_estimates;
-        $this->unbilled_charge_estimates = $unbilled_charge_estimates;  
+        $this->unbilled_charge_estimates = $unbilled_charge_estimates;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -123,7 +123,7 @@ class Estimate  {
         $credit_note_estimates,
         $unbilled_charge_estimates,
         
-         
+          
         );
        
         return $returnData;
@@ -131,7 +131,7 @@ class Estimate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['created_at' => $this->created_at,
         
         

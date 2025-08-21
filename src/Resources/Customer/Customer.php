@@ -545,7 +545,7 @@ class Customer  extends SupportsCustomFields  {
         $this->billing_day_of_week = $billing_day_of_week;
         $this->pii_cleared = $pii_cleared;
         $this->card_status = $card_status;
-        $this->fraud_flag = $fraud_flag;
+        $this->fraud_flag = $fraud_flag; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -651,7 +651,7 @@ class Customer  extends SupportsCustomFields  {
         isset($resourceAttributes['card_status']) ? \Chargebee\Resources\Customer\Enums\CardStatus::tryFromValue($resourceAttributes['card_status']) : null,
         
         isset($resourceAttributes['fraud_flag']) ? \Chargebee\Resources\Customer\Enums\FraudFlag::tryFromValue($resourceAttributes['fraud_flag']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -663,7 +663,7 @@ class Customer  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'first_name' => $this->first_name,
         'last_name' => $this->last_name,

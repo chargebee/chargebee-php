@@ -24,14 +24,14 @@ class CurrentState  {
         ?string $item_id_at_source,
     )
     { 
-        $this->item_id_at_source = $item_id_at_source;  
+        $this->item_id_at_source = $item_id_at_source;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['item_id_at_source'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class CurrentState  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_id_at_source' => $this->item_id_at_source,
         
         ], function ($value) {

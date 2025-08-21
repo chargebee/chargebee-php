@@ -64,7 +64,7 @@ class CustomerEntitlement  {
         $this->feature_id = $feature_id;
         $this->value = $value;
         $this->name = $name;
-        $this->is_enabled = $is_enabled;  
+        $this->is_enabled = $is_enabled;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class CustomerEntitlement  {
         $resourceAttributes['name'] ?? null,
         $resourceAttributes['is_enabled'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class CustomerEntitlement  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['customer_id' => $this->customer_id,
         'subscription_id' => $this->subscription_id,
         'feature_id' => $this->feature_id,

@@ -80,7 +80,7 @@ class LinkedOrder  {
         $this->reference_id = $reference_id;
         $this->fulfillment_status = $fulfillment_status;
         $this->batch_id = $batch_id;
-        $this->created_at = $created_at;  
+        $this->created_at = $created_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -94,7 +94,7 @@ class LinkedOrder  {
         $resourceAttributes['batch_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -102,7 +102,7 @@ class LinkedOrder  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'document_number' => $this->document_number,
         'status' => $this->status,

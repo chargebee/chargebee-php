@@ -208,7 +208,7 @@ class UnbilledCharge  {
         $this->business_entity_id = $business_entity_id;
         $this->deleted = $deleted; 
         $this->pricing_model = $pricing_model; 
-        $this->entity_type = $entity_type;
+        $this->entity_type = $entity_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -244,7 +244,7 @@ class UnbilledCharge  {
         isset($resourceAttributes['pricing_model']) ? \Chargebee\Enums\PricingModel::tryFromValue($resourceAttributes['pricing_model']) : null,
          
         isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\UnbilledCharge\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -252,7 +252,7 @@ class UnbilledCharge  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'subscription_id' => $this->subscription_id,

@@ -32,7 +32,7 @@ class BillingOverride  {
     )
     { 
         $this->max_excess_payment_usage = $max_excess_payment_usage;
-        $this->max_refundable_credits_usage = $max_refundable_credits_usage;  
+        $this->max_refundable_credits_usage = $max_refundable_credits_usage;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class BillingOverride  {
         $returnData = new self( $resourceAttributes['max_excess_payment_usage'] ?? null,
         $resourceAttributes['max_refundable_credits_usage'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class BillingOverride  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['max_excess_payment_usage' => $this->max_excess_payment_usage,
         'max_refundable_credits_usage' => $this->max_refundable_credits_usage,
         

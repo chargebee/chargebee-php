@@ -88,7 +88,7 @@ class LinkedCreditNote  {
         $this->cn_date = $cn_date;
         $this->cn_total = $cn_total;
         $this->cn_status = $cn_status;
-        $this->cn_reference_invoice_id = $cn_reference_invoice_id;  
+        $this->cn_reference_invoice_id = $cn_reference_invoice_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -103,7 +103,7 @@ class LinkedCreditNote  {
         $resourceAttributes['cn_status'] ?? null,
         $resourceAttributes['cn_reference_invoice_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -111,7 +111,7 @@ class LinkedCreditNote  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['cn_id' => $this->cn_id,
         'applied_amount' => $this->applied_amount,
         'applied_at' => $this->applied_at,

@@ -96,7 +96,7 @@ class OmnichannelTransaction  {
         $this->type = $type;
         $this->transacted_at = $transacted_at;
         $this->created_at = $created_at;
-        $this->resource_version = $resource_version;  
+        $this->resource_version = $resource_version;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -112,7 +112,7 @@ class OmnichannelTransaction  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -120,7 +120,7 @@ class OmnichannelTransaction  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'id_at_source' => $this->id_at_source,
         'app_id' => $this->app_id,

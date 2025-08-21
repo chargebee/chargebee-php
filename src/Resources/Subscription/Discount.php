@@ -35,6 +35,12 @@ class Discount  {
     
     /**
     *
+    * @var ?int $quantity
+    */
+    public ?int $quantity;
+    
+    /**
+    *
     * @var ?string $currency_code
     */
     public ?string $currency_code;
@@ -108,7 +114,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "currency_code" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "quantity" , "currency_code" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
 
     /**
     * dynamic properties for resources
@@ -122,6 +128,7 @@ class Discount  {
         ?string $type,
         ?float $percentage,
         ?int $amount,
+        ?int $quantity,
         ?string $currency_code,
         ?string $duration_type,
         ?int $period,
@@ -141,6 +148,7 @@ class Discount  {
         $this->type = $type;
         $this->percentage = $percentage;
         $this->amount = $amount;
+        $this->quantity = $quantity;
         $this->currency_code = $currency_code;
         $this->duration_type = $duration_type;
         $this->period = $period;
@@ -152,7 +160,7 @@ class Discount  {
         $this->apply_till = $apply_till;
         $this->applied_count = $applied_count;
         $this->coupon_id = $coupon_id;
-        $this->index = $index;  
+        $this->index = $index;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -162,6 +170,7 @@ class Discount  {
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['duration_type'] ?? null,
         $resourceAttributes['period'] ?? null,
@@ -175,7 +184,7 @@ class Discount  {
         $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['index'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -183,12 +192,13 @@ class Discount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
         'type' => $this->type,
         'percentage' => $this->percentage,
         'amount' => $this->amount,
+        'quantity' => $this->quantity,
         'currency_code' => $this->currency_code,
         'duration_type' => $this->duration_type,
         'period' => $this->period,

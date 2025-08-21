@@ -80,7 +80,7 @@ class BusinessEntityTransfer  {
         $this->source_business_entity_id = $source_business_entity_id;
         $this->created_at = $created_at;  
         $this->resource_type = $resource_type;
-        $this->reason_code = $reason_code;
+        $this->reason_code = $reason_code; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -96,7 +96,7 @@ class BusinessEntityTransfer  {
         isset($resourceAttributes['resource_type']) ? \Chargebee\Resources\BusinessEntityTransfer\Enums\ResourceType::tryFromValue($resourceAttributes['resource_type']) : null,
         
         isset($resourceAttributes['reason_code']) ? \Chargebee\Resources\BusinessEntityTransfer\Enums\ReasonCode::tryFromValue($resourceAttributes['reason_code']) : null,
-        
+         
         );
        
         return $returnData;
@@ -104,7 +104,7 @@ class BusinessEntityTransfer  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'resource_id' => $this->resource_id,
         'active_resource_id' => $this->active_resource_id,

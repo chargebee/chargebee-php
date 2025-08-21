@@ -96,7 +96,7 @@ class OmnichannelTransaction  {
         $this->transacted_at = $transacted_at;
         $this->created_at = $created_at;
         $this->resource_version = $resource_version;  
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -113,7 +113,7 @@ class OmnichannelTransaction  {
         
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\OmnichannelTransaction\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -121,7 +121,7 @@ class OmnichannelTransaction  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'id_at_source' => $this->id_at_source,
         'app_id' => $this->app_id,

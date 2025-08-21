@@ -64,7 +64,7 @@ class Balance  {
         $this->refundable_credits = $refundable_credits;
         $this->unbilled_charges = $unbilled_charges;
         $this->currency_code = $currency_code;
-        $this->balance_currency_code = $balance_currency_code;  
+        $this->balance_currency_code = $balance_currency_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class Balance  {
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['balance_currency_code'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class Balance  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['promotional_credits' => $this->promotional_credits,
         'excess_payments' => $this->excess_payments,
         'refundable_credits' => $this->refundable_credits,

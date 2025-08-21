@@ -152,7 +152,7 @@ class Discount  {
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
         $this->start_date = $start_date;
-        $this->end_date = $end_date;  
+        $this->end_date = $end_date;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -175,7 +175,7 @@ class Discount  {
         $resourceAttributes['start_date'] ?? null,
         $resourceAttributes['end_date'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -183,7 +183,7 @@ class Discount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
         'type' => $this->type,

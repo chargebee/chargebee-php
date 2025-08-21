@@ -24,14 +24,14 @@ class Venmo  {
         ?string $user_name,
     )
     { 
-        $this->user_name = $user_name;  
+        $this->user_name = $user_name;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['user_name'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class Venmo  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['user_name' => $this->user_name,
         
         ], function ($value) {

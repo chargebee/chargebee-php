@@ -24,14 +24,14 @@ class Metadata  {
         ?string $change_type,
     )
     { 
-        $this->change_type = $change_type;  
+        $this->change_type = $change_type;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['change_type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class Metadata  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['change_type' => $this->change_type,
         
         ], function ($value) {

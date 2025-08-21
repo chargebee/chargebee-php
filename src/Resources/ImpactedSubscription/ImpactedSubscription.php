@@ -40,7 +40,7 @@ class ImpactedSubscription  {
     { 
         $this->count = $count;
         $this->download = $download;
-        $this->subscription_ids = $subscription_ids;  
+        $this->subscription_ids = $subscription_ids;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class ImpactedSubscription  {
         isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
         $resourceAttributes['subscription_ids'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class ImpactedSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['count' => $this->count,
         
         'subscription_ids' => $this->subscription_ids,

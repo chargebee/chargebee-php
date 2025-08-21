@@ -40,7 +40,7 @@ class Tax  {
     { 
         $this->name = $name;
         $this->amount = $amount;
-        $this->description = $description;  
+        $this->description = $description;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class Tax  {
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['description'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class Tax  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['name' => $this->name,
         'amount' => $this->amount,
         'description' => $this->description,

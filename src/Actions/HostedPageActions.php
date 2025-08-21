@@ -43,8 +43,24 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_charge-items_and_one-time_charges
     *   @param array{
-    *     customer?: mixed,
-    *     invoice?: array{
+    *     customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     einvoicing_method?: string,
+    *     is_einvoice_enabled?: bool,
+    *     entity_identifier_scheme?: string,
+    *     entity_identifier_standard?: string,
+    *     consolidated_invoicing?: bool,
+    *     },
+    * invoice?: array{
     *     po_number?: string,
     *     },
     * card?: array{
@@ -121,6 +137,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     discounts?: array<array{
     *     percentage?: float,
     *     amount?: int,
+    *     quantity?: int,
     *     apply_on?: string,
     *     item_price_id?: string,
     *     }>,
@@ -514,9 +531,34 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_checkout_for_a_new_subscription
     *   @param array{
-    *     subscription?: mixed,
-    *     customer?: mixed,
-    *     card?: array{
+    *     subscription?: array{
+    *     id?: string,
+    *     trial_end?: int,
+    *     setup_fee?: int,
+    *     start_date?: int,
+    *     coupon?: string,
+    *     auto_collection?: string,
+    *     invoice_notes?: string,
+    *     po_number?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     },
+    * customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     is_einvoice_enabled?: bool,
+    *     entity_identifier_scheme?: string,
+    *     entity_identifier_standard?: string,
+    *     einvoicing_method?: string,
+    *     },
+    * card?: array{
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },
@@ -579,6 +621,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -672,9 +715,25 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_checkout_to_update_a_subscription
     *   @param array{
-    *     subscription?: mixed,
-    *     customer?: mixed,
-    *     card?: array{
+    *     subscription?: array{
+    *     id?: string,
+    *     setup_fee?: int,
+    *     start_date?: int,
+    *     trial_end?: int,
+    *     coupon?: string,
+    *     auto_collection?: string,
+    *     offline_payment_method?: string,
+    *     invoice_notes?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     },
+    * customer?: array{
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     is_einvoice_enabled?: bool,
+    *     entity_identifier_scheme?: string,
+    *     entity_identifier_standard?: string,
+    *     },
+    * card?: array{
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },
@@ -705,6 +764,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     operation_type?: string,
     *     id?: string,
     *     }>,
@@ -922,8 +982,20 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_one-time_payments
     *   @param array{
-    *     customer?: mixed,
-    *     invoice?: array{
+    *     customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     consolidated_invoicing?: bool,
+    *     },
+    * invoice?: array{
     *     po_number?: string,
     *     },
     * card?: array{
@@ -1023,9 +1095,37 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_new_subscription
     *   @param array{
-    *     subscription?: mixed,
-    *     customer?: mixed,
-    *     card?: array{
+    *     subscription?: array{
+    *     id?: string,
+    *     plan_id?: string,
+    *     plan_quantity?: int,
+    *     plan_quantity_in_decimal?: string,
+    *     plan_unit_price?: int,
+    *     plan_unit_price_in_decimal?: string,
+    *     setup_fee?: int,
+    *     trial_end?: int,
+    *     start_date?: int,
+    *     coupon?: string,
+    *     auto_collection?: string,
+    *     offline_payment_method?: string,
+    *     invoice_notes?: string,
+    *     affiliate_token?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     },
+    * customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     consolidated_invoicing?: bool,
+    *     },
+    * card?: array{
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },
@@ -1126,8 +1226,13 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     gifter?: array{
     *     customer_id?: string,
     *     },
-    * subscription?: mixed,
-    *     addons?: array<array{
+    * subscription?: array{
+    *     plan_id?: string,
+    *     plan_quantity?: int,
+    *     plan_quantity_in_decimal?: string,
+    *     coupon?: string,
+    *     },
+    * addons?: array<array{
     *     id?: string,
     *     quantity?: int,
     *     quantity_in_decimal?: string,
@@ -1162,9 +1267,27 @@ final class HostedPageActions implements HostedPageActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_existing_subscription
     *   @param array{
-    *     subscription?: mixed,
-    *     customer?: mixed,
-    *     card?: array{
+    *     subscription?: array{
+    *     id?: string,
+    *     plan_id?: string,
+    *     plan_quantity?: int,
+    *     plan_unit_price?: int,
+    *     setup_fee?: int,
+    *     plan_quantity_in_decimal?: string,
+    *     plan_unit_price_in_decimal?: string,
+    *     start_date?: int,
+    *     trial_end?: int,
+    *     coupon?: string,
+    *     auto_collection?: string,
+    *     offline_payment_method?: string,
+    *     invoice_notes?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     },
+    * customer?: array{
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     },
+    * card?: array{
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },

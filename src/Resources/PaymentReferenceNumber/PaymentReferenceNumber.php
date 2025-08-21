@@ -48,7 +48,7 @@ class PaymentReferenceNumber  {
         $this->id = $id;
         $this->number = $number;
         $this->invoice_id = $invoice_id;  
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -59,7 +59,7 @@ class PaymentReferenceNumber  {
         
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\PaymentReferenceNumber\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -67,7 +67,7 @@ class PaymentReferenceNumber  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'number' => $this->number,
         'invoice_id' => $this->invoice_id,

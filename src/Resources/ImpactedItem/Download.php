@@ -40,7 +40,7 @@ class Download  {
     { 
         $this->download_url = $download_url;
         $this->valid_till = $valid_till;
-        $this->mime_type = $mime_type;  
+        $this->mime_type = $mime_type;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class Download  {
         $resourceAttributes['valid_till'] ?? null,
         $resourceAttributes['mime_type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class Download  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['download_url' => $this->download_url,
         'valid_till' => $this->valid_till,
         'mime_type' => $this->mime_type,

@@ -136,7 +136,7 @@ class ShippingAddress  {
         $this->country = $country;
         $this->zip = $zip;
         $this->validation_status = $validation_status;
-        $this->index = $index;  
+        $this->index = $index;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -157,7 +157,7 @@ class ShippingAddress  {
         $resourceAttributes['validation_status'] ?? null,
         $resourceAttributes['index'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -165,7 +165,7 @@ class ShippingAddress  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['first_name' => $this->first_name,
         'last_name' => $this->last_name,
         'email' => $this->email,

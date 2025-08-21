@@ -48,7 +48,7 @@ class Gifter  {
         $this->customer_id = $customer_id;
         $this->invoice_id = $invoice_id;
         $this->signature = $signature;
-        $this->note = $note;  
+        $this->note = $note;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class Gifter  {
         $resourceAttributes['signature'] ?? null,
         $resourceAttributes['note'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class Gifter  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['customer_id' => $this->customer_id,
         'invoice_id' => $this->invoice_id,
         'signature' => $this->signature,

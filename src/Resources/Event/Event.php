@@ -105,7 +105,7 @@ class Event  {
         $this->source = $source;
         $this->event_type = $event_type;
         $this->api_version = $api_version; 
-        $this->webhook_status = $webhook_status;
+        $this->webhook_status = $webhook_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -130,7 +130,7 @@ class Event  {
         isset($resourceAttributes['api_version']) ? \Chargebee\Enums\ApiVersion::tryFromValue($resourceAttributes['api_version']) : null,
          
         isset($resourceAttributes['webhook_status']) ? \Chargebee\Resources\Event\Enums\WebhookStatus::tryFromValue($resourceAttributes['webhook_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -138,7 +138,7 @@ class Event  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'occurred_at' => $this->occurred_at,
         'user' => $this->user,

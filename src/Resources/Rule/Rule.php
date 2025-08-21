@@ -96,7 +96,7 @@ class Rule  {
         $this->deleted = $deleted;
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -113,7 +113,7 @@ class Rule  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Rule\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -121,7 +121,7 @@ class Rule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'namespace' => $this->namespace,
         'rule_name' => $this->rule_name,

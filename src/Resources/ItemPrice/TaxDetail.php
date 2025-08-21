@@ -72,7 +72,7 @@ class TaxDetail  {
         $this->avalara_service_type = $avalara_service_type;
         $this->avalara_tax_code = $avalara_tax_code;
         $this->hsn_code = $hsn_code;
-        $this->taxjar_product_code = $taxjar_product_code;  
+        $this->taxjar_product_code = $taxjar_product_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -85,7 +85,7 @@ class TaxDetail  {
         $resourceAttributes['hsn_code'] ?? null,
         $resourceAttributes['taxjar_product_code'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -93,7 +93,7 @@ class TaxDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['tax_profile_id' => $this->tax_profile_id,
         'avalara_sale_type' => $this->avalara_sale_type,
         'avalara_transaction_type' => $this->avalara_transaction_type,

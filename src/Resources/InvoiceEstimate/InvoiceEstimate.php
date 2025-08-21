@@ -160,7 +160,7 @@ class InvoiceEstimate  {
         $this->round_off_amount = $round_off_amount;
         $this->customer_id = $customer_id;
         $this->line_item_addresses = $line_item_addresses; 
-        $this->price_type = $price_type; 
+        $this->price_type = $price_type;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -217,7 +217,7 @@ class InvoiceEstimate  {
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
-         
+          
         );
        
         return $returnData;
@@ -225,7 +225,7 @@ class InvoiceEstimate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['recurring' => $this->recurring,
         'currency_code' => $this->currency_code,
         'sub_total' => $this->sub_total,

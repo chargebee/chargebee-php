@@ -465,7 +465,7 @@ class Plan  extends SupportsCustomFields  {
         $this->charge_model = $charge_model;
         $this->status = $status;
         $this->addon_applicability = $addon_applicability;
-        $this->shipping_frequency_period_unit = $shipping_frequency_period_unit;
+        $this->shipping_frequency_period_unit = $shipping_frequency_period_unit; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -557,7 +557,7 @@ class Plan  extends SupportsCustomFields  {
         isset($resourceAttributes['addon_applicability']) ? \Chargebee\Resources\Plan\Enums\AddonApplicability::tryFromValue($resourceAttributes['addon_applicability']) : null,
         
         isset($resourceAttributes['shipping_frequency_period_unit']) ? \Chargebee\Resources\Plan\Enums\ShippingFrequencyPeriodUnit::tryFromValue($resourceAttributes['shipping_frequency_period_unit']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -569,7 +569,7 @@ class Plan  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'invoice_name' => $this->invoice_name,

@@ -120,7 +120,7 @@ class PortalSession  {
         $this->login_ipaddress = $login_ipaddress;
         $this->logout_ipaddress = $logout_ipaddress;
         $this->linked_customers = $linked_customers;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -144,7 +144,7 @@ class PortalSession  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PortalSession\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -152,7 +152,7 @@ class PortalSession  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'token' => $this->token,
         'access_url' => $this->access_url,

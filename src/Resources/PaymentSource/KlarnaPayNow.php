@@ -24,14 +24,14 @@ class KlarnaPayNow  {
         ?string $email,
     )
     { 
-        $this->email = $email;  
+        $this->email = $email;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['email'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class KlarnaPayNow  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['email' => $this->email,
         
         ], function ($value) {

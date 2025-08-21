@@ -48,7 +48,7 @@ class PricingPageSession  {
         $this->id = $id;
         $this->url = $url;
         $this->created_at = $created_at;
-        $this->expires_at = $expires_at;  
+        $this->expires_at = $expires_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class PricingPageSession  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class PricingPageSession  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'url' => $this->url,
         'created_at' => $this->created_at,

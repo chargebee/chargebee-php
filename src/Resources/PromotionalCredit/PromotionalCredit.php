@@ -65,6 +65,12 @@ class PromotionalCredit  {
     
     /**
     *
+    * @var ?string $business_entity_id
+    */
+    public ?string $business_entity_id;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\CreditType $credit_type
     */
     public ?\Chargebee\Enums\CreditType $credit_type;
@@ -78,7 +84,7 @@ class PromotionalCredit  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "amount_in_decimal" , "amount" , "currency_code" , "description" , "reference" , "closing_balance" , "done_by" , "created_at"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "amount_in_decimal" , "amount" , "currency_code" , "description" , "reference" , "closing_balance" , "done_by" , "created_at" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -97,6 +103,7 @@ class PromotionalCredit  {
         ?int $closing_balance,
         ?string $done_by,
         ?int $created_at,
+        ?string $business_entity_id,
         ?\Chargebee\Enums\CreditType $credit_type,
         ?\Chargebee\Resources\PromotionalCredit\Enums\Type $type,
     )
@@ -110,9 +117,10 @@ class PromotionalCredit  {
         $this->reference = $reference;
         $this->closing_balance = $closing_balance;
         $this->done_by = $done_by;
-        $this->created_at = $created_at; 
+        $this->created_at = $created_at;
+        $this->business_entity_id = $business_entity_id; 
         $this->credit_type = $credit_type; 
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -127,12 +135,13 @@ class PromotionalCredit  {
         $resourceAttributes['closing_balance'] ?? null,
         $resourceAttributes['done_by'] ?? null,
         $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['business_entity_id'] ?? null,
         
         
         isset($resourceAttributes['credit_type']) ? \Chargebee\Enums\CreditType::tryFromValue($resourceAttributes['credit_type']) : null,
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\PromotionalCredit\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -140,7 +149,7 @@ class PromotionalCredit  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'amount_in_decimal' => $this->amount_in_decimal,
@@ -151,6 +160,7 @@ class PromotionalCredit  {
         'closing_balance' => $this->closing_balance,
         'done_by' => $this->done_by,
         'created_at' => $this->created_at,
+        'business_entity_id' => $this->business_entity_id,
         
         'credit_type' => $this->credit_type?->value,
         

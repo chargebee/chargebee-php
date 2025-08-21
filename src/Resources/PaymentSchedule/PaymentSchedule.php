@@ -96,7 +96,7 @@ class PaymentSchedule  {
         $this->updated_at = $updated_at;
         $this->currency_code = $currency_code;
         $this->schedule_entries = $schedule_entries;  
-        $this->entity_type = $entity_type;
+        $this->entity_type = $entity_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -117,7 +117,7 @@ class PaymentSchedule  {
         
          
         isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\PaymentSchedule\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -125,7 +125,7 @@ class PaymentSchedule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'scheme_id' => $this->scheme_id,
         'entity_id' => $this->entity_id,

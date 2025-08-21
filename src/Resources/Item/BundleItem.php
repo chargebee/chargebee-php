@@ -48,7 +48,7 @@ class BundleItem  {
         $this->item_id = $item_id;
         $this->item_type = $item_type;
         $this->quantity = $quantity;
-        $this->price_allocation = $price_allocation;  
+        $this->price_allocation = $price_allocation;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class BundleItem  {
         $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['price_allocation'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class BundleItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_id' => $this->item_id,
         'item_type' => $this->item_type,
         'quantity' => $this->quantity,

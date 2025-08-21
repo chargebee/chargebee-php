@@ -120,7 +120,7 @@ class ItemsToAdd  {
         $this->free_quantity_in_decimal = $free_quantity_in_decimal;
         $this->billing_cycles = $billing_cycles;
         $this->service_period_days = $service_period_days;
-        $this->metered_quantity = $metered_quantity;  
+        $this->metered_quantity = $metered_quantity;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -139,7 +139,7 @@ class ItemsToAdd  {
         $resourceAttributes['service_period_days'] ?? null,
         $resourceAttributes['metered_quantity'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -147,7 +147,7 @@ class ItemsToAdd  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'item_type' => $this->item_type,
         'quantity' => $this->quantity,

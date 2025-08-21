@@ -80,7 +80,7 @@ class AppliedCredit  {
         $this->cn_create_reason_code = $cn_create_reason_code;
         $this->cn_date = $cn_date;
         $this->cn_status = $cn_status;
-        $this->tax_application = $tax_application;  
+        $this->tax_application = $tax_application;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -94,7 +94,7 @@ class AppliedCredit  {
         $resourceAttributes['cn_status'] ?? null,
         $resourceAttributes['tax_application'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -102,7 +102,7 @@ class AppliedCredit  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['cn_id' => $this->cn_id,
         'applied_amount' => $this->applied_amount,
         'applied_at' => $this->applied_at,

@@ -48,7 +48,7 @@ class NonSubscription  {
         $this->app_id = $app_id;
         $this->invoice_id = $invoice_id;
         $this->customer_id = $customer_id;
-        $this->charge_id = $charge_id;  
+        $this->charge_id = $charge_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class NonSubscription  {
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['charge_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class NonSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['app_id' => $this->app_id,
         'invoice_id' => $this->invoice_id,
         'customer_id' => $this->customer_id,

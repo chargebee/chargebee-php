@@ -56,7 +56,7 @@ class ParentAccountAccess  {
         $this->portal_download_child_invoices = $portal_download_child_invoices;
         $this->send_subscription_emails = $send_subscription_emails;
         $this->send_invoice_emails = $send_invoice_emails;
-        $this->send_payment_emails = $send_payment_emails;  
+        $this->send_payment_emails = $send_payment_emails;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class ParentAccountAccess  {
         $resourceAttributes['send_invoice_emails'] ?? null,
         $resourceAttributes['send_payment_emails'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class ParentAccountAccess  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['portal_edit_child_subscriptions' => $this->portal_edit_child_subscriptions,
         'portal_download_child_invoices' => $this->portal_download_child_invoices,
         'send_subscription_emails' => $this->send_subscription_emails,

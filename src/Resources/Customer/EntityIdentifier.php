@@ -48,7 +48,7 @@ class EntityIdentifier  {
         $this->id = $id;
         $this->value = $value;
         $this->scheme = $scheme;
-        $this->standard = $standard;  
+        $this->standard = $standard;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class EntityIdentifier  {
         $resourceAttributes['scheme'] ?? null,
         $resourceAttributes['standard'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class EntityIdentifier  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'value' => $this->value,
         'scheme' => $this->scheme,

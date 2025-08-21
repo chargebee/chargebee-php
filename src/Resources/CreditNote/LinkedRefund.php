@@ -72,7 +72,7 @@ class LinkedRefund  {
         $this->txn_status = $txn_status;
         $this->txn_date = $txn_date;
         $this->txn_amount = $txn_amount;
-        $this->refund_reason_code = $refund_reason_code;  
+        $this->refund_reason_code = $refund_reason_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -85,7 +85,7 @@ class LinkedRefund  {
         $resourceAttributes['txn_amount'] ?? null,
         $resourceAttributes['refund_reason_code'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -93,7 +93,7 @@ class LinkedRefund  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['txn_id' => $this->txn_id,
         'applied_amount' => $this->applied_amount,
         'applied_at' => $this->applied_at,

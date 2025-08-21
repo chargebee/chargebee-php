@@ -13,8 +13,10 @@ Interface PricingPageSessionActionsInterface
     *     pricing_page?: array{
     *     id?: string,
     *     },
-    * subscription?: mixed,
-    *     discounts?: array<array{
+    * subscription?: array{
+    *     id?: string,
+    *     },
+    * discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
     *     percentage?: float,
@@ -23,6 +25,7 @@ Interface PricingPageSessionActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     label?: string,
     *     }>,
     *     redirect_url?: string,
@@ -39,9 +42,19 @@ Interface PricingPageSessionActionsInterface
     *     pricing_page?: array{
     *     id?: string,
     *     },
-    * subscription?: mixed,
-    *     customer?: mixed,
-    *     billing_address?: array{
+    * subscription?: array{
+    *     id?: string,
+    *     },
+    * customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     },
+    * billing_address?: array{
     *     first_name?: string,
     *     last_name?: string,
     *     email?: string,
@@ -82,6 +95,7 @@ Interface PricingPageSessionActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     label?: string,
     *     }>,
     *     redirect_url?: string,

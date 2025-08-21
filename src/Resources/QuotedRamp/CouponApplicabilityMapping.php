@@ -32,7 +32,7 @@ class CouponApplicabilityMapping  {
     )
     { 
         $this->coupon_id = $coupon_id;
-        $this->applicable_item_price_ids = $applicable_item_price_ids;  
+        $this->applicable_item_price_ids = $applicable_item_price_ids;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class CouponApplicabilityMapping  {
         $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['applicable_item_price_ids'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class CouponApplicabilityMapping  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['coupon_id' => $this->coupon_id,
         'applicable_item_price_ids' => $this->applicable_item_price_ids,
         

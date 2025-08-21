@@ -32,7 +32,7 @@ class GiftTimeline  {
     )
     { 
         $this->status = $status;
-        $this->occurred_at = $occurred_at;  
+        $this->occurred_at = $occurred_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class GiftTimeline  {
         $returnData = new self( $resourceAttributes['status'] ?? null,
         $resourceAttributes['occurred_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class GiftTimeline  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['status' => $this->status,
         'occurred_at' => $this->occurred_at,
         

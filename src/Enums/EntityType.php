@@ -38,6 +38,9 @@ enum EntityType : string {
     case RECORDED_PURCHASE = "recorded_purchase";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_CHANGE = "omnichannel_subscription_item_scheduled_change";
     case SALES_ORDER = "sales_order";
+    case OMNICHANNEL_ONE_TIME_ORDER = "omnichannel_one_time_order";
+    case OMNICHANNEL_ONE_TIME_ORDER_ITEM = "omnichannel_one_time_order_item";
+    case USAGE_FILE = "usage_file";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

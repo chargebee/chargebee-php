@@ -32,7 +32,7 @@ class LinkedItem  {
     )
     { 
         $this->id = $id;
-        $this->linked_at = $linked_at;  
+        $this->linked_at = $linked_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class LinkedItem  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['linked_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class LinkedItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'linked_at' => $this->linked_at,
         

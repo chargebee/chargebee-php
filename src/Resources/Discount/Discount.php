@@ -29,6 +29,12 @@ class Discount  {
     
     /**
     *
+    * @var ?int $quantity
+    */
+    public ?int $quantity;
+    
+    /**
+    *
     * @var ?string $currency_code
     */
     public ?string $currency_code;
@@ -108,7 +114,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "percentage" , "amount" , "currency_code" , "period" , "included_in_mrr" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "percentage" , "amount" , "quantity" , "currency_code" , "period" , "included_in_mrr" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
 
     /**
     * dynamic properties for resources
@@ -121,6 +127,7 @@ class Discount  {
         ?string $invoice_name,
         ?float $percentage,
         ?int $amount,
+        ?int $quantity,
         ?string $currency_code,
         ?int $period,
         ?bool $included_in_mrr,
@@ -140,6 +147,7 @@ class Discount  {
         $this->invoice_name = $invoice_name;
         $this->percentage = $percentage;
         $this->amount = $amount;
+        $this->quantity = $quantity;
         $this->currency_code = $currency_code;
         $this->period = $period;
         $this->included_in_mrr = $included_in_mrr;
@@ -152,7 +160,7 @@ class Discount  {
         $this->duration_type = $duration_type;
         $this->period_unit = $period_unit;
         $this->apply_on = $apply_on; 
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -161,6 +169,7 @@ class Discount  {
         $resourceAttributes['invoice_name'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['period'] ?? null,
         $resourceAttributes['included_in_mrr'] ?? null,
@@ -179,7 +188,7 @@ class Discount  {
         isset($resourceAttributes['apply_on']) ? \Chargebee\Enums\ApplyOn::tryFromValue($resourceAttributes['apply_on']) : null,
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\Discount\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -187,11 +196,12 @@ class Discount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
         'percentage' => $this->percentage,
         'amount' => $this->amount,
+        'quantity' => $this->quantity,
         'currency_code' => $this->currency_code,
         'period' => $this->period,
         'included_in_mrr' => $this->included_in_mrr,

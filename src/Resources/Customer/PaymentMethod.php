@@ -56,7 +56,7 @@ class PaymentMethod  {
         $this->gateway = $gateway;
         $this->gateway_account_id = $gateway_account_id;
         $this->status = $status;
-        $this->reference_id = $reference_id;  
+        $this->reference_id = $reference_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class PaymentMethod  {
         $resourceAttributes['status'] ?? null,
         $resourceAttributes['reference_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class PaymentMethod  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['type' => $this->type,
         'gateway' => $this->gateway,
         'gateway_account_id' => $this->gateway_account_id,

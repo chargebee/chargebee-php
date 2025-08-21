@@ -144,7 +144,7 @@ class Card  {
         $this->billing_state = $billing_state;
         $this->billing_country = $billing_country;
         $this->billing_zip = $billing_zip;
-        $this->masked_number = $masked_number;  
+        $this->masked_number = $masked_number;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -166,7 +166,7 @@ class Card  {
         $resourceAttributes['billing_zip'] ?? null,
         $resourceAttributes['masked_number'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -174,7 +174,7 @@ class Card  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['first_name' => $this->first_name,
         'last_name' => $this->last_name,
         'iin' => $this->iin,

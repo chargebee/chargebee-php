@@ -136,7 +136,7 @@ class UsageFile  {
         $this->uploaded_by = $uploaded_by;
         $this->uploaded_at = $uploaded_at;
         $this->upload_details = $upload_details;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -158,7 +158,7 @@ class UsageFile  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\UsageFile\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -166,7 +166,7 @@ class UsageFile  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'mime_type' => $this->mime_type,

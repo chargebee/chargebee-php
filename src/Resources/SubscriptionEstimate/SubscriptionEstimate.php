@@ -88,7 +88,7 @@ class SubscriptionEstimate  {
         $this->shipping_address = $shipping_address;
         $this->contract_term = $contract_term; 
         $this->trial_end_action = $trial_end_action; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -105,7 +105,7 @@ class SubscriptionEstimate  {
         isset($resourceAttributes['trial_end_action']) ? \Chargebee\Enums\TrialEndAction::tryFromValue($resourceAttributes['trial_end_action']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\SubscriptionEstimate\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -113,7 +113,7 @@ class SubscriptionEstimate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'currency_code' => $this->currency_code,
         'next_billing_at' => $this->next_billing_at,

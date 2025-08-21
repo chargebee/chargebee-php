@@ -32,7 +32,7 @@ class UploadDetail  {
     )
     { 
         $this->url = $url;
-        $this->expires_at = $expires_at;  
+        $this->expires_at = $expires_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class UploadDetail  {
         $returnData = new self( $resourceAttributes['url'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class UploadDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['url' => $this->url,
         'expires_at' => $this->expires_at,
         

@@ -48,7 +48,7 @@ class ItemConstraintCriteria  {
         $this->item_type = $item_type;
         $this->currencies = $currencies;
         $this->item_family_ids = $item_family_ids;
-        $this->item_price_periods = $item_price_periods;  
+        $this->item_price_periods = $item_price_periods;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class ItemConstraintCriteria  {
         $resourceAttributes['item_family_ids'] ?? null,
         $resourceAttributes['item_price_periods'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class ItemConstraintCriteria  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_type' => $this->item_type,
         'currencies' => $this->currencies,
         'item_family_ids' => $this->item_family_ids,

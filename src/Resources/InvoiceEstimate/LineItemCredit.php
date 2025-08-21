@@ -40,7 +40,7 @@ class LineItemCredit  {
     { 
         $this->cn_id = $cn_id;
         $this->applied_amount = $applied_amount;
-        $this->line_item_id = $line_item_id;  
+        $this->line_item_id = $line_item_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class LineItemCredit  {
         $resourceAttributes['applied_amount'] ?? null,
         $resourceAttributes['line_item_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class LineItemCredit  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['cn_id' => $this->cn_id,
         'applied_amount' => $this->applied_amount,
         'line_item_id' => $this->line_item_id,

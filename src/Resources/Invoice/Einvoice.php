@@ -48,7 +48,7 @@ class Einvoice  {
         $this->id = $id;
         $this->reference_number = $reference_number;
         $this->status = $status;
-        $this->message = $message;  
+        $this->message = $message;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class Einvoice  {
         $resourceAttributes['status'] ?? null,
         $resourceAttributes['message'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class Einvoice  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'reference_number' => $this->reference_number,
         'status' => $this->status,

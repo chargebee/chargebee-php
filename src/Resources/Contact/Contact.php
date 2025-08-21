@@ -88,7 +88,7 @@ class Contact  {
         $this->label = $label;
         $this->enabled = $enabled;
         $this->send_account_email = $send_account_email;
-        $this->send_billing_email = $send_billing_email;  
+        $this->send_billing_email = $send_billing_email;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -103,7 +103,7 @@ class Contact  {
         $resourceAttributes['send_account_email'] ?? null,
         $resourceAttributes['send_billing_email'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -111,7 +111,7 @@ class Contact  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'first_name' => $this->first_name,
         'last_name' => $this->last_name,

@@ -40,7 +40,7 @@ class ResentOrder  {
     { 
         $this->order_id = $order_id;
         $this->reason = $reason;
-        $this->amount = $amount;  
+        $this->amount = $amount;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class ResentOrder  {
         $resourceAttributes['reason'] ?? null,
         $resourceAttributes['amount'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class ResentOrder  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['order_id' => $this->order_id,
         'reason' => $this->reason,
         'amount' => $this->amount,

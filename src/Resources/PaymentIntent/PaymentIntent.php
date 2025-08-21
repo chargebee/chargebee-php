@@ -160,7 +160,7 @@ class PaymentIntent  {
         $this->active_payment_attempt = $active_payment_attempt;
         $this->business_entity_id = $business_entity_id;  
         $this->status = $status;
-        $this->payment_method_type = $payment_method_type;
+        $this->payment_method_type = $payment_method_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -186,7 +186,7 @@ class PaymentIntent  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PaymentIntent\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['payment_method_type']) ? \Chargebee\Resources\PaymentIntent\Enums\PaymentMethodType::tryFromValue($resourceAttributes['payment_method_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -194,7 +194,7 @@ class PaymentIntent  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'currency_code' => $this->currency_code,
         'amount' => $this->amount,

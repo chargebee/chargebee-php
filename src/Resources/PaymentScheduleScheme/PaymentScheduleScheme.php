@@ -96,7 +96,7 @@ class PaymentScheduleScheme  {
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
         $this->preferred_schedules = $preferred_schedules;  
-        $this->period_unit = $period_unit;
+        $this->period_unit = $period_unit; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -117,7 +117,7 @@ class PaymentScheduleScheme  {
         
          
         isset($resourceAttributes['period_unit']) ? \Chargebee\Resources\PaymentScheduleScheme\Enums\PeriodUnit::tryFromValue($resourceAttributes['period_unit']) : null,
-        
+         
         );
        
         return $returnData;
@@ -125,7 +125,7 @@ class PaymentScheduleScheme  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'description' => $this->description,

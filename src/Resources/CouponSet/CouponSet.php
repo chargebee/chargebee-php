@@ -72,7 +72,7 @@ class CouponSet  {
         $this->total_count = $total_count;
         $this->redeemed_count = $redeemed_count;
         $this->archived_count = $archived_count;
-        $this->meta_data = $meta_data;  
+        $this->meta_data = $meta_data;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -85,7 +85,7 @@ class CouponSet  {
         $resourceAttributes['archived_count'] ?? null,
         $resourceAttributes['meta_data'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -93,7 +93,7 @@ class CouponSet  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'coupon_id' => $this->coupon_id,
         'name' => $this->name,

@@ -96,7 +96,7 @@ class EntitlementOverride  {
         $this->name = $name;
         $this->expires_at = $expires_at;
         $this->effective_from = $effective_from;  
-        $this->schedule_status = $schedule_status;
+        $this->schedule_status = $schedule_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -113,7 +113,7 @@ class EntitlementOverride  {
         
          
         isset($resourceAttributes['schedule_status']) ? \Chargebee\Resources\EntitlementOverride\Enums\ScheduleStatus::tryFromValue($resourceAttributes['schedule_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -121,7 +121,7 @@ class EntitlementOverride  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'entity_id' => $this->entity_id,
         'entity_type' => $this->entity_type,

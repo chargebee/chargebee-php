@@ -56,7 +56,7 @@ class AttachedAddon  {
         $this->quantity = $quantity;
         $this->billing_cycles = $billing_cycles;
         $this->type = $type;
-        $this->quantity_in_decimal = $quantity_in_decimal;  
+        $this->quantity_in_decimal = $quantity_in_decimal;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class AttachedAddon  {
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class AttachedAddon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'quantity' => $this->quantity,
         'billing_cycles' => $this->billing_cycles,

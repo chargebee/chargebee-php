@@ -996,6 +996,7 @@ final class CustomerActions implements CustomerActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#record_an_excess_payment_for_a_customer
     *   @param array{
     *     transaction?: array{
+    *     id?: string,
     *     amount?: int,
     *     currency_code?: string,
     *     date?: int,

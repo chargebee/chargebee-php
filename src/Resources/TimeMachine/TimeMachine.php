@@ -72,7 +72,7 @@ class TimeMachine  {
         $this->failure_code = $failure_code;
         $this->failure_reason = $failure_reason;
         $this->error_json = $error_json;  
-        $this->time_travel_status = $time_travel_status;
+        $this->time_travel_status = $time_travel_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -86,7 +86,7 @@ class TimeMachine  {
         
          
         isset($resourceAttributes['time_travel_status']) ? \Chargebee\Resources\TimeMachine\Enums\TimeTravelStatus::tryFromValue($resourceAttributes['time_travel_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -94,7 +94,7 @@ class TimeMachine  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['name' => $this->name,
         'genesis_time' => $this->genesis_time,
         'destination_time' => $this->destination_time,

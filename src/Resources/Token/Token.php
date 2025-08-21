@@ -112,7 +112,7 @@ class Token  {
         $this->gateway = $gateway;
         $this->payment_method_type = $payment_method_type; 
         $this->status = $status;
-        $this->vault = $vault;
+        $this->vault = $vault; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -134,7 +134,7 @@ class Token  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Token\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['vault']) ? \Chargebee\Resources\Token\Enums\Vault::tryFromValue($resourceAttributes['vault']) : null,
-        
+         
         );
        
         return $returnData;
@@ -142,7 +142,7 @@ class Token  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'gateway_account_id' => $this->gateway_account_id,
         'id_at_vault' => $this->id_at_vault,

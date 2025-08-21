@@ -64,7 +64,7 @@ class DunningAttempt  {
         $this->dunning_type = $dunning_type;
         $this->created_at = $created_at;
         $this->txn_status = $txn_status;
-        $this->txn_amount = $txn_amount;  
+        $this->txn_amount = $txn_amount;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class DunningAttempt  {
         $resourceAttributes['txn_status'] ?? null,
         $resourceAttributes['txn_amount'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class DunningAttempt  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['attempt' => $this->attempt,
         'transaction_id' => $this->transaction_id,
         'dunning_type' => $this->dunning_type,

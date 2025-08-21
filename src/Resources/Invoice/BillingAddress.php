@@ -128,7 +128,7 @@ class BillingAddress  {
         $this->state = $state;
         $this->country = $country;
         $this->zip = $zip;
-        $this->validation_status = $validation_status;  
+        $this->validation_status = $validation_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -148,7 +148,7 @@ class BillingAddress  {
         $resourceAttributes['zip'] ?? null,
         $resourceAttributes['validation_status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -156,7 +156,7 @@ class BillingAddress  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['first_name' => $this->first_name,
         'last_name' => $this->last_name,
         'email' => $this->email,

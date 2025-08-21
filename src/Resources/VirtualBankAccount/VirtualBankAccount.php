@@ -136,7 +136,7 @@ class VirtualBankAccount  {
         $this->reference_id = $reference_id;
         $this->deleted = $deleted; 
         $this->gateway = $gateway; 
-        $this->scheme = $scheme;
+        $this->scheme = $scheme; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -159,7 +159,7 @@ class VirtualBankAccount  {
         isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
          
         isset($resourceAttributes['scheme']) ? \Chargebee\Resources\VirtualBankAccount\Enums\Scheme::tryFromValue($resourceAttributes['scheme']) : null,
-        
+         
         );
        
         return $returnData;
@@ -167,7 +167,7 @@ class VirtualBankAccount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'email' => $this->email,

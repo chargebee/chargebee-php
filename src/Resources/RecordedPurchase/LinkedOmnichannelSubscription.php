@@ -24,14 +24,14 @@ class LinkedOmnichannelSubscription  {
         ?string $omnichannel_subscription_id,
     )
     { 
-        $this->omnichannel_subscription_id = $omnichannel_subscription_id;  
+        $this->omnichannel_subscription_id = $omnichannel_subscription_id;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['omnichannel_subscription_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class LinkedOmnichannelSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['omnichannel_subscription_id' => $this->omnichannel_subscription_id,
         
         ], function ($value) {

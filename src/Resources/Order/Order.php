@@ -464,7 +464,7 @@ class Order  {
         $this->cancellation_reason = $cancellation_reason;
         $this->payment_status = $payment_status;
         $this->order_type = $order_type;
-        $this->resent_status = $resent_status;
+        $this->resent_status = $resent_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -552,7 +552,7 @@ class Order  {
         isset($resourceAttributes['order_type']) ? \Chargebee\Resources\Order\Enums\OrderType::tryFromValue($resourceAttributes['order_type']) : null,
         
         isset($resourceAttributes['resent_status']) ? \Chargebee\Resources\Order\Enums\ResentStatus::tryFromValue($resourceAttributes['resent_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -560,7 +560,7 @@ class Order  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'document_number' => $this->document_number,
         'invoice_id' => $this->invoice_id,

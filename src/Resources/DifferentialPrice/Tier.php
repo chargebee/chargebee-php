@@ -80,7 +80,7 @@ class Tier  {
         $this->ending_unit_in_decimal = $ending_unit_in_decimal;
         $this->price_in_decimal = $price_in_decimal;
         $this->pricing_type = $pricing_type;
-        $this->package_size = $package_size;  
+        $this->package_size = $package_size;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -94,7 +94,7 @@ class Tier  {
         $resourceAttributes['pricing_type'] ?? null,
         $resourceAttributes['package_size'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -102,7 +102,7 @@ class Tier  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['starting_unit' => $this->starting_unit,
         'ending_unit' => $this->ending_unit,
         'price' => $this->price,

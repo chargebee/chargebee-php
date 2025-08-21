@@ -64,7 +64,7 @@ class Allocation  {
         $this->allocated_at = $allocated_at;
         $this->invoice_date = $invoice_date;
         $this->invoice_status = $invoice_status;
-        $this->tax_application = $tax_application;  
+        $this->tax_application = $tax_application;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class Allocation  {
         $resourceAttributes['invoice_status'] ?? null,
         $resourceAttributes['tax_application'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class Allocation  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['invoice_id' => $this->invoice_id,
         'allocated_amount' => $this->allocated_amount,
         'allocated_at' => $this->allocated_at,

@@ -40,7 +40,7 @@ class Note  {
     { 
         $this->note = $note;
         $this->entity_id = $entity_id;
-        $this->entity_type = $entity_type;  
+        $this->entity_type = $entity_type;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class Note  {
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['entity_type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class Note  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['note' => $this->note,
         'entity_id' => $this->entity_id,
         'entity_type' => $this->entity_type,

@@ -48,7 +48,7 @@ class AdvanceInvoiceSchedule  {
         $this->id = $id;
         $this->fixed_interval_schedule = $fixed_interval_schedule;
         $this->specific_dates_schedule = $specific_dates_schedule;  
-        $this->schedule_type = $schedule_type;
+        $this->schedule_type = $schedule_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -59,7 +59,7 @@ class AdvanceInvoiceSchedule  {
         
          
         isset($resourceAttributes['schedule_type']) ? \Chargebee\Resources\AdvanceInvoiceSchedule\Enums\ScheduleType::tryFromValue($resourceAttributes['schedule_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -67,7 +67,7 @@ class AdvanceInvoiceSchedule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         
         

@@ -120,7 +120,7 @@ class SubscriptionEntitlement  {
         $this->effective_from = $effective_from;
         $this->expires_at = $expires_at;
         $this->components = $components;  
-        $this->schedule_status = $schedule_status;
+        $this->schedule_status = $schedule_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -140,7 +140,7 @@ class SubscriptionEntitlement  {
         
          
         isset($resourceAttributes['schedule_status']) ? \Chargebee\Resources\SubscriptionEntitlement\Enums\ScheduleStatus::tryFromValue($resourceAttributes['schedule_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -148,7 +148,7 @@ class SubscriptionEntitlement  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['subscription_id' => $this->subscription_id,
         'feature_id' => $this->feature_id,
         'feature_name' => $this->feature_name,

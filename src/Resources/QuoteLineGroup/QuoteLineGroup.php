@@ -128,7 +128,7 @@ class QuoteLineGroup  {
         $this->line_item_discounts = $line_item_discounts;
         $this->taxes = $taxes;
         $this->line_item_taxes = $line_item_taxes;  
-        $this->charge_event = $charge_event;
+        $this->charge_event = $charge_event; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -169,7 +169,7 @@ class QuoteLineGroup  {
         
          
         isset($resourceAttributes['charge_event']) ? \Chargebee\Resources\QuoteLineGroup\Enums\ChargeEvent::tryFromValue($resourceAttributes['charge_event']) : null,
-        
+         
         );
        
         return $returnData;
@@ -177,7 +177,7 @@ class QuoteLineGroup  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['version' => $this->version,
         'id' => $this->id,
         'sub_total' => $this->sub_total,
