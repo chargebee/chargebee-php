@@ -171,12 +171,14 @@ class Result
         $invoice = $this->_get('invoice', Models\Invoice::class, 
         array( 
 			'line_items' => Models\InvoiceLineItem::class, 
-			'discounts' => Models\InvoiceDiscount::class, 
+			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
 			'line_item_discounts' => Models\InvoiceLineItemDiscount::class, 
-			'taxes' => Models\InvoiceTax::class, 
 			'line_item_taxes' => Models\InvoiceLineItemTax::class, 
 			'line_item_credits' => Models\InvoiceLineItemCredit::class, 
-			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
+			'line_item_addresses' => Models\InvoiceLineItemAddress::class, 
+			'discounts' => Models\InvoiceDiscount::class, 
+			'taxes' => Models\InvoiceTax::class, 
+			'tax_origin' => Models\InvoiceTaxOrigin::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 
 			'applied_credits' => Models\InvoiceAppliedCredit::class, 
@@ -185,12 +187,10 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
-			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
+			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'einvoice' => Models\InvoiceEinvoice::class, 
-			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class, 
-			'tax_origin' => Models\InvoiceTaxOrigin::class, 
-			'line_item_addresses' => Models\InvoiceLineItemAddress::class
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
 		));
         return $invoice;
     }
@@ -220,20 +220,20 @@ class Result
     {
         $credit_note = $this->_get('credit_note', Models\CreditNote::class, 
         array( 
-			'einvoice' => Models\CreditNoteEinvoice::class, 
 			'line_items' => Models\CreditNoteLineItem::class, 
-			'discounts' => Models\CreditNoteDiscount::class, 
-			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
 			'line_item_tiers' => Models\CreditNoteLineItemTier::class, 
-			'taxes' => Models\CreditNoteTax::class, 
+			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
 			'line_item_taxes' => Models\CreditNoteLineItemTax::class, 
+			'line_item_addresses' => Models\CreditNoteLineItemAddress::class, 
+			'discounts' => Models\CreditNoteDiscount::class, 
+			'taxes' => Models\CreditNoteTax::class, 
+			'tax_origin' => Models\CreditNoteTaxOrigin::class, 
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
 			'billing_address' => Models\CreditNoteBillingAddress::class, 
-			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class, 
-			'tax_origin' => Models\CreditNoteTaxOrigin::class, 
-			'line_item_addresses' => Models\CreditNoteLineItemAddress::class
+			'einvoice' => Models\CreditNoteEinvoice::class, 
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
 		));
         return $credit_note;
     }
@@ -406,7 +406,8 @@ class Result
 			'addons' => Models\QuotedChargeAddon::class, 
 			'invoice_items' => Models\QuotedChargeInvoiceItem::class, 
 			'item_tiers' => Models\QuotedChargeItemTier::class, 
-			'coupons' => Models\QuotedChargeCoupon::class
+			'coupons' => Models\QuotedChargeCoupon::class, 
+			'coupon_applicability_mappings' => Models\QuotedChargeCouponApplicabilityMapping::class
 		));
         return $quoted_charge;
     }
@@ -819,9 +820,28 @@ class Result
         $recorded_purchase = $this->_get('recorded_purchase', Models\RecordedPurchase::class, 
         array( 
 			'linked_omnichannel_subscriptions' => Models\RecordedPurchaseLinkedOmnichannelSubscription::class, 
+			'linked_omnichannel_one_time_orders' => Models\RecordedPurchaseLinkedOmnichannelOneTimeOrder::class, 
 			'error_detail' => Models\RecordedPurchaseErrorDetail::class
 		));
         return $recorded_purchase;
+    }
+
+    public function omnichannelOneTimeOrder() 
+    {
+        $omnichannel_one_time_order = $this->_get('omnichannel_one_time_order', Models\OmnichannelOneTimeOrder::class, array(),
+        array( 
+			'omnichannel_one_time_order_items' => Models\OmnichannelOneTimeOrderItem::class
+		));
+        $omnichannel_one_time_order->_initDependantList($this->_response['omnichannel_one_time_order'], 'omnichannel_one_time_order_items',
+        array( 
+		));
+        return $omnichannel_one_time_order;
+    }
+
+    public function omnichannelOneTimeOrderItem() 
+    {
+        $omnichannel_one_time_order_item = $this->_get('omnichannel_one_time_order_item', Models\OmnichannelOneTimeOrderItem::class);
+        return $omnichannel_one_time_order_item;
     }
 
     public function rule() 
@@ -861,6 +881,33 @@ class Result
         return $brand;
     }
 
+    public function webhookEndpoint() 
+    {
+        $webhook_endpoint = $this->_get('webhook_endpoint', Models\WebhookEndpoint::class);
+        return $webhook_endpoint;
+    }
+
+    public function impactedCustomer() 
+    {
+        $impacted_customer = $this->_get('impacted_customer', Models\ImpactedCustomer::class, 
+        array( 
+			'download' => Models\ImpactedCustomerDownload::class
+		));
+        return $impacted_customer;
+    }
+
+    public function subscriptionEntitlementsUpdatedDetail() 
+    {
+        $subscription_entitlements_updated_detail = $this->_get('subscription_entitlements_updated_detail', Models\SubscriptionEntitlementsUpdatedDetail::class);
+        return $subscription_entitlements_updated_detail;
+    }
+
+    public function subscriptionEntitlementsCreatedDetail() 
+    {
+        $subscription_entitlements_created_detail = $this->_get('subscription_entitlements_created_detail', Models\SubscriptionEntitlementsCreatedDetail::class);
+        return $subscription_entitlements_created_detail;
+    }
+
     public function advanceInvoiceSchedules()
     {
         $advance_invoice_schedules = $this->_getList('advance_invoice_schedules', Models\AdvanceInvoiceSchedule::class,
@@ -884,12 +931,14 @@ class Result
         $invoices = $this->_getList('invoices', Models\Invoice::class,
         array( 
 			'line_items' => Models\InvoiceLineItem::class, 
-			'discounts' => Models\InvoiceDiscount::class, 
+			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
 			'line_item_discounts' => Models\InvoiceLineItemDiscount::class, 
-			'taxes' => Models\InvoiceTax::class, 
 			'line_item_taxes' => Models\InvoiceLineItemTax::class, 
 			'line_item_credits' => Models\InvoiceLineItemCredit::class, 
-			'line_item_tiers' => Models\InvoiceLineItemTier::class, 
+			'line_item_addresses' => Models\InvoiceLineItemAddress::class, 
+			'discounts' => Models\InvoiceDiscount::class, 
+			'taxes' => Models\InvoiceTax::class, 
+			'tax_origin' => Models\InvoiceTaxOrigin::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 
 			'applied_credits' => Models\InvoiceAppliedCredit::class, 
@@ -898,12 +947,10 @@ class Result
 			'linked_orders' => Models\InvoiceLinkedOrder::class, 
 			'notes' => Models\InvoiceNote::class, 
 			'shipping_address' => Models\InvoiceShippingAddress::class, 
-			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'billing_address' => Models\InvoiceBillingAddress::class, 
+			'statement_descriptor' => Models\InvoiceStatementDescriptor::class, 
 			'einvoice' => Models\InvoiceEinvoice::class, 
-			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class, 
-			'tax_origin' => Models\InvoiceTaxOrigin::class, 
-			'line_item_addresses' => Models\InvoiceLineItemAddress::class
+			'site_details_at_creation' => Models\InvoiceSiteDetailsAtCreation::class
 		));
         return $invoices;
     }
@@ -921,20 +968,20 @@ class Result
     {
         $credit_notes = $this->_getList('credit_notes', Models\CreditNote::class,
         array( 
-			'einvoice' => Models\CreditNoteEinvoice::class, 
 			'line_items' => Models\CreditNoteLineItem::class, 
-			'discounts' => Models\CreditNoteDiscount::class, 
-			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
 			'line_item_tiers' => Models\CreditNoteLineItemTier::class, 
-			'taxes' => Models\CreditNoteTax::class, 
+			'line_item_discounts' => Models\CreditNoteLineItemDiscount::class, 
 			'line_item_taxes' => Models\CreditNoteLineItemTax::class, 
+			'line_item_addresses' => Models\CreditNoteLineItemAddress::class, 
+			'discounts' => Models\CreditNoteDiscount::class, 
+			'taxes' => Models\CreditNoteTax::class, 
+			'tax_origin' => Models\CreditNoteTaxOrigin::class, 
 			'linked_refunds' => Models\CreditNoteLinkedRefund::class, 
 			'allocations' => Models\CreditNoteAllocation::class, 
 			'shipping_address' => Models\CreditNoteShippingAddress::class, 
 			'billing_address' => Models\CreditNoteBillingAddress::class, 
-			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class, 
-			'tax_origin' => Models\CreditNoteTaxOrigin::class, 
-			'line_item_addresses' => Models\CreditNoteLineItemAddress::class
+			'einvoice' => Models\CreditNoteEinvoice::class, 
+			'site_details_at_creation' => Models\CreditNoteSiteDetailsAtCreation::class
 		));
         return $credit_notes;
     }

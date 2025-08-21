@@ -6,16 +6,12 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class QuotedCharge extends Model
+class SubscriptionEntitlementsUpdatedDetail extends Model
 {
 
   protected $allowed = [
-    'charges',
-    'addons',
-    'invoiceItems',
-    'itemTiers',
-    'coupons',
-    'couponApplicabilityMappings',
+    'subscriptionId',
+    'hasNext',
   ];
 
 

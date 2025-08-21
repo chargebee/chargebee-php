@@ -1,3 +1,60 @@
+### v3.46.0 (2025-08-19)
+* * * 
+
+### New Resources: 
+* WebhookEndpoints has been added. 
+* OmnichannelOneTimeOrder has been added.
+* OmnichannelOneTimeOrderItem has been added. 
+
+### New Attributes: 
+* business_entity_id has been added to Comment.
+* business_entity_id has been added to PromotionalCredit.
+* quantity has been added to Discount.
+* business_entity_id has been added to PromotionalCredit.
+* coupon_applicability_mappings[] has been added to QuotedCharge.
+* linked_omnichannel_one_time_orders[] has been added to RecordedPurchase.
+* quantity has been added to Subscripiton#Discount.
+
+### New Input Parameters: 
+* transaction[id] has been added to Customer#RecordExcessPaymentRequest.
+* discounts[quantity][] has been added to Estimate#CreateSubItemEstimateRequest.
+* consolidate_entitlements has been added to CustomerEntitlement#EntitlementsForCustomer.
+* discounts[quantity][] has been added to Estimate#CreateSubItemEstimateRequest.
+* discounts[quantity][] has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* discounts[quantity][] has been added to Estimate#UpdateSubscriptionForItemsRequest.
+* discounts[quantity][] has been added to Estimate#CreateInvoiceForItemsRequest.
+* discounts[quantity][] has been added to HostedPage#CheckoutOneTimeForItemsRequest.
+* discounts[quantity][] has been added to HostedPage#CheckoutNewForItemsRequest.
+* discounts[quantity][] has been added to HostedPage#CheckoutExistingForItemsRequest.
+* discounts[quantity][] has been added to PricingPageSession#CreateForNewSubscriptionRequest.
+* discounts[quantity][] has been added to PricingPageSession#CreateForExistingSubscriptionRequest.
+* discounts[quantity][] has been added to Purchase#CreateRequest.
+* discounts[quantity][] has been added to Purchase#EstimateRequest.
+* discounts[quantity][] has been added to Quote#CreateSubItemsForCustomerQuoteRequest.
+* discounts[quantity][] has been added to Quote#EditCreateSubCustomerQuoteForItemsRequest.
+* discounts[quantity][] has been added to Quote#UpdateSubscriptionQuoteForItemsRequest.
+* discounts[quantity][] has been added to Quote#EditUpdateSubscriptionQuoteForItemsRequest.
+* discounts[quantity][] has been added to Quote#CreateForChargeItemsAndChargesRequest.
+* discounts[quantity][] has been added to Quote#EditForChargeItemsAndChargesRequest.
+* discounts[quantity][] has been added to Subscription#CreateWithItemsRequest.
+* discounts[quantity][] has been added to Subscription#UpdateForItemsRequest.
+* discounts[quantity][] has been added to Subscription#ImportForItemsRequest.
+* google_play_store[product_id] has been added to RecordedPurchase#CreateRequest.
+* google_play_store[order_id] has been added to RecordedPurchase#CreateRequest.
+
+### New Enums
+* PAUSE has been added to OmnichannelSubscriptionItemScheduledChange#ChangeType.
+* OFFER_QUANTITY has been added to Discount#Type.
+* OFFER_QUANTITY has been added to Subscription#Discount#Type.
+* OMNICHANNEL_ONE_TIME_ORDER has been added to EntityType.
+* OMNICHANNEL_ONE_TIME_ORDER_ITEM has been added to EntityType.
+* USAGE_FILE has been added to EntityType.
+* OMNICHANNEL_ONE_TIME_ORDER_CREATED has been added to EventType.
+* OMNICHANNEL_ONE_TIME_ORDER_ITEM_CANCELLED has been added to EventType.
+* USAGE_FILE_INGESTED has been added to EventType.
+* OMNICHANNEL_SUBSCRIPTION_ITEM_PAUSE_SCHEDULED has been added to EventType.
+
+
 ### v3.45.0 (2025-07-18) 
 * * * 
 

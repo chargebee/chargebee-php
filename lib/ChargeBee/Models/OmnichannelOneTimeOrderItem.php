@@ -6,16 +6,18 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class QuotedCharge extends Model
+class OmnichannelOneTimeOrderItem extends Model
 {
 
   protected $allowed = [
-    'charges',
-    'addons',
-    'invoiceItems',
-    'itemTiers',
-    'coupons',
-    'couponApplicabilityMappings',
+    'id',
+    'itemIdAtSource',
+    'itemTypeAtSource',
+    'quantity',
+    'cancelledAt',
+    'cancellationReason',
+    'createdAt',
+    'resourceVersion',
   ];
 
 
