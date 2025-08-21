@@ -64,7 +64,7 @@ class QuotedContractTerm  {
         $this->billing_cycle = $billing_cycle;
         $this->action_at_term_end = $action_at_term_end;
         $this->total_contract_value = $total_contract_value;
-        $this->cancellation_cutoff_period = $cancellation_cutoff_period;  
+        $this->cancellation_cutoff_period = $cancellation_cutoff_period;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class QuotedContractTerm  {
         $resourceAttributes['total_contract_value'] ?? null,
         $resourceAttributes['cancellation_cutoff_period'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class QuotedContractTerm  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['contract_start' => $this->contract_start,
         'contract_end' => $this->contract_end,
         'billing_cycle' => $this->billing_cycle,

@@ -64,7 +64,7 @@ class FixedIntervalSchedule  {
         $this->days_before_renewal = $days_before_renewal;
         $this->end_date = $end_date;
         $this->created_at = $created_at;
-        $this->terms_to_charge = $terms_to_charge;  
+        $this->terms_to_charge = $terms_to_charge;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class FixedIntervalSchedule  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['terms_to_charge'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class FixedIntervalSchedule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['end_schedule_on' => $this->end_schedule_on,
         'number_of_occurrences' => $this->number_of_occurrences,
         'days_before_renewal' => $this->days_before_renewal,

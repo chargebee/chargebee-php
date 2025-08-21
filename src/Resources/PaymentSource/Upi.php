@@ -24,14 +24,14 @@ class Upi  {
         ?string $vpa,
     )
     { 
-        $this->vpa = $vpa;  
+        $this->vpa = $vpa;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['vpa'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class Upi  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['vpa' => $this->vpa,
         
         ], function ($value) {

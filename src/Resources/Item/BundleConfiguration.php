@@ -24,14 +24,14 @@ class BundleConfiguration  {
         ?string $type,
     )
     { 
-        $this->type = $type;  
+        $this->type = $type;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class BundleConfiguration  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['type' => $this->type,
         
         ], function ($value) {

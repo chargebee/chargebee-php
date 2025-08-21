@@ -32,7 +32,7 @@ class CouponsToAdd  {
     )
     { 
         $this->coupon_id = $coupon_id;
-        $this->apply_till = $apply_till;  
+        $this->apply_till = $apply_till;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class CouponsToAdd  {
         $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         $resourceAttributes['apply_till'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class CouponsToAdd  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['coupon_id' => $this->coupon_id,
         'apply_till' => $this->apply_till,
         

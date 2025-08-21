@@ -248,7 +248,7 @@ class LineItem  {
         $this->amount_per_billing_cycle = $amount_per_billing_cycle;
         $this->amount_per_billing_cycle_in_decimal = $amount_per_billing_cycle_in_decimal;
         $this->net_amount_per_billing_cycle = $net_amount_per_billing_cycle;
-        $this->net_amount_per_billing_cycle_in_decimal = $net_amount_per_billing_cycle_in_decimal;  
+        $this->net_amount_per_billing_cycle_in_decimal = $net_amount_per_billing_cycle_in_decimal;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -283,7 +283,7 @@ class LineItem  {
         $resourceAttributes['net_amount_per_billing_cycle'] ?? null,
         $resourceAttributes['net_amount_per_billing_cycle_in_decimal'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -291,7 +291,7 @@ class LineItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'item_type' => $this->item_type,
         'quantity' => $this->quantity,

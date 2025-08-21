@@ -144,7 +144,7 @@ class AttachedItem  {
         $this->charge_on_event = $charge_on_event;
         $this->channel = $channel; 
         $this->type = $type;
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -170,7 +170,7 @@ class AttachedItem  {
         isset($resourceAttributes['type']) ? \Chargebee\Resources\AttachedItem\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
         
         isset($resourceAttributes['status']) ? \Chargebee\Resources\AttachedItem\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -178,7 +178,7 @@ class AttachedItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'parent_item_id' => $this->parent_item_id,
         'item_id' => $this->item_id,

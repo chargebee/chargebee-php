@@ -96,7 +96,7 @@ class Addon  {
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price_in_decimal = $unit_price_in_decimal;
         $this->amount_in_decimal = $amount_in_decimal;
-        $this->proration_type = $proration_type;  
+        $this->proration_type = $proration_type;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -112,7 +112,7 @@ class Addon  {
         $resourceAttributes['amount_in_decimal'] ?? null,
         $resourceAttributes['proration_type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -120,7 +120,7 @@ class Addon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'quantity' => $this->quantity,
         'unit_price' => $this->unit_price,

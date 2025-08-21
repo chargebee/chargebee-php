@@ -64,7 +64,7 @@ class Export  {
         $this->created_at = $created_at;
         $this->download = $download;  
         $this->mime_type = $mime_type;
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -78,7 +78,7 @@ class Export  {
         isset($resourceAttributes['mime_type']) ? \Chargebee\Resources\Export\Enums\MimeType::tryFromValue($resourceAttributes['mime_type']) : null,
         
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Export\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -86,7 +86,7 @@ class Export  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'operation_type' => $this->operation_type,
         'created_at' => $this->created_at,

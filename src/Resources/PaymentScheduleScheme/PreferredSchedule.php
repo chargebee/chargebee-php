@@ -32,7 +32,7 @@ class PreferredSchedule  {
     )
     { 
         $this->period = $period;
-        $this->amount_percentage = $amount_percentage;  
+        $this->amount_percentage = $amount_percentage;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class PreferredSchedule  {
         $returnData = new self( $resourceAttributes['period'] ?? null,
         $resourceAttributes['amount_percentage'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class PreferredSchedule  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['period' => $this->period,
         'amount_percentage' => $this->amount_percentage,
         

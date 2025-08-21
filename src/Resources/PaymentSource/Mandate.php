@@ -40,7 +40,7 @@ class Mandate  {
     { 
         $this->id = $id;
         $this->subscription_id = $subscription_id;
-        $this->created_at = $created_at;  
+        $this->created_at = $created_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class Mandate  {
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class Mandate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'subscription_id' => $this->subscription_id,
         'created_at' => $this->created_at,

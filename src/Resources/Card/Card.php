@@ -240,7 +240,7 @@ class Card  {
         $this->status = $status;
         $this->card_type = $card_type;
         $this->funding_type = $funding_type;
-        $this->powered_by = $powered_by;
+        $this->powered_by = $powered_by; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -279,7 +279,7 @@ class Card  {
         isset($resourceAttributes['funding_type']) ? \Chargebee\Resources\Card\Enums\FundingType::tryFromValue($resourceAttributes['funding_type']) : null,
         
         isset($resourceAttributes['powered_by']) ? \Chargebee\Resources\Card\Enums\PoweredBy::tryFromValue($resourceAttributes['powered_by']) : null,
-        
+         
         );
        
         return $returnData;
@@ -287,7 +287,7 @@ class Card  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['payment_source_id' => $this->payment_source_id,
         'gateway_account_id' => $this->gateway_account_id,
         'ref_tx_id' => $this->ref_tx_id,

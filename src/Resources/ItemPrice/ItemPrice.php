@@ -361,7 +361,7 @@ class ItemPrice  extends SupportsCustomFields  {
         $this->period_unit = $period_unit;
         $this->trial_period_unit = $trial_period_unit;
         $this->trial_end_action = $trial_end_action;
-        $this->shipping_period_unit = $shipping_period_unit;
+        $this->shipping_period_unit = $shipping_period_unit; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -428,7 +428,7 @@ class ItemPrice  extends SupportsCustomFields  {
         isset($resourceAttributes['trial_end_action']) ? \Chargebee\Resources\ItemPrice\Enums\TrialEndAction::tryFromValue($resourceAttributes['trial_end_action']) : null,
         
         isset($resourceAttributes['shipping_period_unit']) ? \Chargebee\Resources\ItemPrice\Enums\ShippingPeriodUnit::tryFromValue($resourceAttributes['shipping_period_unit']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -440,7 +440,7 @@ class ItemPrice  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'item_family_id' => $this->item_family_id,

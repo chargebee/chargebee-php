@@ -32,7 +32,7 @@ class BillingConfiguration  {
     )
     { 
         $this->is_calendar_billing_enabled = $is_calendar_billing_enabled;
-        $this->billing_dates = $billing_dates;  
+        $this->billing_dates = $billing_dates;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -44,7 +44,7 @@ class BillingConfiguration  {
         $returnData = new self( $resourceAttributes['is_calendar_billing_enabled'] ?? null,
         $billing_dates,
         
-         
+          
         );
        
         return $returnData;
@@ -52,7 +52,7 @@ class BillingConfiguration  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['is_calendar_billing_enabled' => $this->is_calendar_billing_enabled,
         
         

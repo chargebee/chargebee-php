@@ -216,7 +216,7 @@ class LineItem  {
         $this->entity_type = $entity_type;
         $this->tax_exempt_reason = $tax_exempt_reason;
         $this->entity_id = $entity_id;
-        $this->customer_id = $customer_id;  
+        $this->customer_id = $customer_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -247,7 +247,7 @@ class LineItem  {
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -255,7 +255,7 @@ class LineItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'subscription_id' => $this->subscription_id,
         'date_from' => $this->date_from,

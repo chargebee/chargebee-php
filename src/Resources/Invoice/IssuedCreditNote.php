@@ -64,7 +64,7 @@ class IssuedCreditNote  {
         $this->cn_create_reason_code = $cn_create_reason_code;
         $this->cn_date = $cn_date;
         $this->cn_total = $cn_total;
-        $this->cn_status = $cn_status;  
+        $this->cn_status = $cn_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class IssuedCreditNote  {
         $resourceAttributes['cn_total'] ?? null,
         $resourceAttributes['cn_status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class IssuedCreditNote  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['cn_id' => $this->cn_id,
         'cn_reason_code' => $this->cn_reason_code,
         'cn_create_reason_code' => $this->cn_create_reason_code,

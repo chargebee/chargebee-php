@@ -72,7 +72,7 @@ class ResourceMigration  {
         $this->created_at = $created_at;
         $this->updated_at = $updated_at; 
         $this->entity_type = $entity_type; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -87,7 +87,7 @@ class ResourceMigration  {
         isset($resourceAttributes['entity_type']) ? \Chargebee\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\ResourceMigration\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -95,7 +95,7 @@ class ResourceMigration  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['from_site' => $this->from_site,
         'entity_id' => $this->entity_id,
         'errors' => $this->errors,

@@ -32,7 +32,7 @@ class Paypal  {
     )
     { 
         $this->email = $email;
-        $this->agreement_id = $agreement_id;  
+        $this->agreement_id = $agreement_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class Paypal  {
         $returnData = new self( $resourceAttributes['email'] ?? null,
         $resourceAttributes['agreement_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class Paypal  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['email' => $this->email,
         'agreement_id' => $this->agreement_id,
         

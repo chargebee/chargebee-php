@@ -369,7 +369,7 @@ class Addon  extends SupportsCustomFields  {
         $this->period_unit = $period_unit;
         $this->status = $status;
         $this->shipping_frequency_period_unit = $shipping_frequency_period_unit;
-        $this->proration_type = $proration_type;
+        $this->proration_type = $proration_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -436,7 +436,7 @@ class Addon  extends SupportsCustomFields  {
         isset($resourceAttributes['shipping_frequency_period_unit']) ? \Chargebee\Resources\Addon\Enums\ShippingFrequencyPeriodUnit::tryFromValue($resourceAttributes['shipping_frequency_period_unit']) : null,
         
         isset($resourceAttributes['proration_type']) ? \Chargebee\Resources\Addon\Enums\ProrationType::tryFromValue($resourceAttributes['proration_type']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -448,7 +448,7 @@ class Addon  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'invoice_name' => $this->invoice_name,

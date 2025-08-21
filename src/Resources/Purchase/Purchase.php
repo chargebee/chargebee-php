@@ -64,7 +64,7 @@ class Purchase  {
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
         $this->subscription_ids = $subscription_ids;
-        $this->invoice_ids = $invoice_ids;  
+        $this->invoice_ids = $invoice_ids;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class Purchase  {
         $resourceAttributes['subscription_ids'] ?? null,
         $resourceAttributes['invoice_ids'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class Purchase  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'created_at' => $this->created_at,

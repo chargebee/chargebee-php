@@ -89,7 +89,7 @@ class ItemFamily  extends SupportsCustomFields  {
         $this->business_entity_id = $business_entity_id;
         $this->deleted = $deleted; 
         $this->channel = $channel; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -106,7 +106,7 @@ class ItemFamily  extends SupportsCustomFields  {
         isset($resourceAttributes['channel']) ? \Chargebee\Enums\Channel::tryFromValue($resourceAttributes['channel']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\ItemFamily\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -118,7 +118,7 @@ class ItemFamily  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'description' => $this->description,

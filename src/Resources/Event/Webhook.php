@@ -32,7 +32,7 @@ class Webhook  {
     )
     { 
         $this->id = $id;
-        $this->webhook_status = $webhook_status;  
+        $this->webhook_status = $webhook_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class Webhook  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['webhook_status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class Webhook  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'webhook_status' => $this->webhook_status,
         

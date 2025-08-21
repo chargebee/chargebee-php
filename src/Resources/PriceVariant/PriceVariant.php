@@ -120,7 +120,7 @@ class PriceVariant  {
         $this->attributes = $attributes;
         $this->business_entity_id = $business_entity_id;
         $this->deleted = $deleted;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -144,7 +144,7 @@ class PriceVariant  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PriceVariant\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -152,7 +152,7 @@ class PriceVariant  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'external_name' => $this->external_name,

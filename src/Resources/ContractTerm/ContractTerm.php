@@ -112,7 +112,7 @@ class ContractTerm  {
         $this->subscription_id = $subscription_id;
         $this->remaining_billing_cycles = $remaining_billing_cycles;  
         $this->status = $status;
-        $this->action_at_term_end = $action_at_term_end;
+        $this->action_at_term_end = $action_at_term_end; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -132,7 +132,7 @@ class ContractTerm  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\ContractTerm\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['action_at_term_end']) ? \Chargebee\Resources\ContractTerm\Enums\ActionAtTermEnd::tryFromValue($resourceAttributes['action_at_term_end']) : null,
-        
+         
         );
        
         return $returnData;
@@ -140,7 +140,7 @@ class ContractTerm  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'contract_start' => $this->contract_start,
         'contract_end' => $this->contract_end,

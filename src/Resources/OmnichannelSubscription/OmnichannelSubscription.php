@@ -88,7 +88,7 @@ class OmnichannelSubscription  {
         $this->resource_version = $resource_version;
         $this->omnichannel_subscription_items = $omnichannel_subscription_items;
         $this->initial_purchase_transaction = $initial_purchase_transaction;  
-        $this->source = $source;
+        $this->source = $source; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -108,7 +108,7 @@ class OmnichannelSubscription  {
         
          
         isset($resourceAttributes['source']) ? \Chargebee\Resources\OmnichannelSubscription\Enums\Source::tryFromValue($resourceAttributes['source']) : null,
-        
+         
         );
        
         return $returnData;
@@ -116,7 +116,7 @@ class OmnichannelSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'id_at_source' => $this->id_at_source,
         'app_id' => $this->app_id,

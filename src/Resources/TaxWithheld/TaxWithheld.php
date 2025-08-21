@@ -112,7 +112,7 @@ class TaxWithheld  {
         $this->updated_at = $updated_at;
         $this->exchange_rate = $exchange_rate;  
         $this->type = $type;
-        $this->payment_method = $payment_method;
+        $this->payment_method = $payment_method; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -132,7 +132,7 @@ class TaxWithheld  {
         isset($resourceAttributes['type']) ? \Chargebee\Resources\TaxWithheld\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
         
         isset($resourceAttributes['payment_method']) ? \Chargebee\Resources\TaxWithheld\Enums\PaymentMethod::tryFromValue($resourceAttributes['payment_method']) : null,
-        
+         
         );
        
         return $returnData;
@@ -140,7 +140,7 @@ class TaxWithheld  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'user' => $this->user,
         'reference_number' => $this->reference_number,

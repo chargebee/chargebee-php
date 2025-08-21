@@ -112,7 +112,7 @@ class Usage  {
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
         $this->created_at = $created_at; 
-        $this->source = $source; 
+        $this->source = $source;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -131,7 +131,7 @@ class Usage  {
         
         
         isset($resourceAttributes['source']) ? \Chargebee\Enums\Source::tryFromValue($resourceAttributes['source']) : null,
-         
+          
         );
        
         return $returnData;
@@ -139,7 +139,7 @@ class Usage  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'usage_date' => $this->usage_date,
         'subscription_id' => $this->subscription_id,

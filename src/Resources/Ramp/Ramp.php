@@ -160,7 +160,7 @@ class Ramp  {
         $this->discounts_to_remove = $discounts_to_remove;
         $this->deleted = $deleted;
         $this->status_transition_reason = $status_transition_reason;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -205,7 +205,7 @@ class Ramp  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Ramp\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -213,7 +213,7 @@ class Ramp  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'description' => $this->description,
         'subscription_id' => $this->subscription_id,

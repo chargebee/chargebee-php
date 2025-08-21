@@ -641,7 +641,7 @@ class Subscription  extends SupportsCustomFields  {
         $this->free_period_unit = $free_period_unit; 
         $this->billing_period_unit = $billing_period_unit;
         $this->status = $status;
-        $this->cancel_reason = $cancel_reason;
+        $this->cancel_reason = $cancel_reason; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -765,7 +765,7 @@ class Subscription  extends SupportsCustomFields  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Subscription\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['cancel_reason']) ? \Chargebee\Resources\Subscription\Enums\CancelReason::tryFromValue($resourceAttributes['cancel_reason']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -777,7 +777,7 @@ class Subscription  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'currency_code' => $this->currency_code,
         'plan_id' => $this->plan_id,

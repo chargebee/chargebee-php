@@ -32,7 +32,7 @@ class TaxOrigin  {
     )
     { 
         $this->country = $country;
-        $this->registration_number = $registration_number;  
+        $this->registration_number = $registration_number;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class TaxOrigin  {
         $returnData = new self( $resourceAttributes['country'] ?? null,
         $resourceAttributes['registration_number'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class TaxOrigin  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['country' => $this->country,
         'registration_number' => $this->registration_number,
         

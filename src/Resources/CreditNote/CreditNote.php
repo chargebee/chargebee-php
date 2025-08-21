@@ -101,12 +101,6 @@ class CreditNote  {
     
     /**
     *
-    * @var ?Einvoice $einvoice
-    */
-    public ?Einvoice $einvoice;
-    
-    /**
-    *
     * @var ?int $sub_total
     */
     public ?int $sub_total;
@@ -149,9 +143,9 @@ class CreditNote  {
     
     /**
     *
-    * @var ?array<Discount> $discounts
+    * @var ?array<LineItemTier> $line_item_tiers
     */
-    public ?array $discounts;
+    public ?array $line_item_tiers;
     
     /**
     *
@@ -161,9 +155,21 @@ class CreditNote  {
     
     /**
     *
-    * @var ?array<LineItemTier> $line_item_tiers
+    * @var ?array<LineItemTax> $line_item_taxes
     */
-    public ?array $line_item_tiers;
+    public ?array $line_item_taxes;
+    
+    /**
+    *
+    * @var ?array<LineItemAddress> $line_item_addresses
+    */
+    public ?array $line_item_addresses;
+    
+    /**
+    *
+    * @var ?array<Discount> $discounts
+    */
+    public ?array $discounts;
     
     /**
     *
@@ -173,9 +179,9 @@ class CreditNote  {
     
     /**
     *
-    * @var ?array<LineItemTax> $line_item_taxes
+    * @var ?TaxOrigin $tax_origin
     */
-    public ?array $line_item_taxes;
+    public ?TaxOrigin $tax_origin;
     
     /**
     *
@@ -239,21 +245,15 @@ class CreditNote  {
     
     /**
     *
+    * @var ?Einvoice $einvoice
+    */
+    public ?Einvoice $einvoice;
+    
+    /**
+    *
     * @var ?SiteDetailsAtCreation $site_details_at_creation
     */
     public ?SiteDetailsAtCreation $site_details_at_creation;
-    
-    /**
-    *
-    * @var ?TaxOrigin $tax_origin
-    */
-    public ?TaxOrigin $tax_origin;
-    
-    /**
-    *
-    * @var ?array<LineItemAddress> $line_item_addresses
-    */
-    public ?array $line_item_addresses;
     
     /**
     *
@@ -288,7 +288,7 @@ class CreditNote  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "einvoice" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "discounts" , "line_item_discounts" , "line_item_tiers" , "taxes" , "line_item_taxes" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "site_details_at_creation" , "tax_origin" , "line_item_addresses"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "einvoice" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -313,7 +313,6 @@ class CreditNote  {
         ?int $generated_at,
         ?int $resource_version,
         ?int $updated_at,
-        ?Einvoice $einvoice,
         ?int $sub_total,
         ?int $sub_total_in_local_currency,
         ?int $total_in_local_currency,
@@ -321,11 +320,13 @@ class CreditNote  {
         ?int $round_off_amount,
         ?int $fractional_correction,
         ?array $line_items,
-        ?array $discounts,
-        ?array $line_item_discounts,
         ?array $line_item_tiers,
-        ?array $taxes,
+        ?array $line_item_discounts,
         ?array $line_item_taxes,
+        ?array $line_item_addresses,
+        ?array $discounts,
+        ?array $taxes,
+        ?TaxOrigin $tax_origin,
         ?array $linked_refunds,
         ?array $allocations,
         ?bool $deleted,
@@ -336,9 +337,8 @@ class CreditNote  {
         ?string $business_entity_id,
         ?ShippingAddress $shipping_address,
         ?BillingAddress $billing_address,
+        ?Einvoice $einvoice,
         ?SiteDetailsAtCreation $site_details_at_creation,
-        ?TaxOrigin $tax_origin,
-        ?array $line_item_addresses,
         ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Resources\CreditNote\Enums\Type $type,
@@ -362,7 +362,6 @@ class CreditNote  {
         $this->generated_at = $generated_at;
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
-        $this->einvoice = $einvoice;
         $this->sub_total = $sub_total;
         $this->sub_total_in_local_currency = $sub_total_in_local_currency;
         $this->total_in_local_currency = $total_in_local_currency;
@@ -370,11 +369,13 @@ class CreditNote  {
         $this->round_off_amount = $round_off_amount;
         $this->fractional_correction = $fractional_correction;
         $this->line_items = $line_items;
-        $this->discounts = $discounts;
-        $this->line_item_discounts = $line_item_discounts;
         $this->line_item_tiers = $line_item_tiers;
-        $this->taxes = $taxes;
+        $this->line_item_discounts = $line_item_discounts;
         $this->line_item_taxes = $line_item_taxes;
+        $this->line_item_addresses = $line_item_addresses;
+        $this->discounts = $discounts;
+        $this->taxes = $taxes;
+        $this->tax_origin = $tax_origin;
         $this->linked_refunds = $linked_refunds;
         $this->allocations = $allocations;
         $this->deleted = $deleted;
@@ -385,14 +386,13 @@ class CreditNote  {
         $this->business_entity_id = $business_entity_id;
         $this->shipping_address = $shipping_address;
         $this->billing_address = $billing_address;
-        $this->site_details_at_creation = $site_details_at_creation;
-        $this->tax_origin = $tax_origin;
-        $this->line_item_addresses = $line_item_addresses; 
+        $this->einvoice = $einvoice;
+        $this->site_details_at_creation = $site_details_at_creation; 
         $this->price_type = $price_type;
         $this->channel = $channel; 
         $this->type = $type;
         $this->reason_code = $reason_code;
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -401,25 +401,29 @@ class CreditNote  {
             $result
         ), $resourceAttributes['line_items'] ?? []);
         
-        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
+        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
             $result
-        ), $resourceAttributes['discounts'] ?? []);
+        ), $resourceAttributes['line_item_tiers'] ?? []);
         
         $line_item_discounts = array_map(fn (array $result): LineItemDiscount =>  LineItemDiscount::from(
             $result
         ), $resourceAttributes['line_item_discounts'] ?? []);
         
-        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
+        $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
             $result
-        ), $resourceAttributes['line_item_tiers'] ?? []);
+        ), $resourceAttributes['line_item_taxes'] ?? []);
+        
+        $line_item_addresses = array_map(fn (array $result): LineItemAddress =>  LineItemAddress::from(
+            $result
+        ), $resourceAttributes['line_item_addresses'] ?? []);
+        
+        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
+            $result
+        ), $resourceAttributes['discounts'] ?? []);
         
         $taxes = array_map(fn (array $result): Tax =>  Tax::from(
             $result
         ), $resourceAttributes['taxes'] ?? []);
-        
-        $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
-            $result
-        ), $resourceAttributes['line_item_taxes'] ?? []);
         
         $linked_refunds = array_map(fn (array $result): LinkedRefund =>  LinkedRefund::from(
             $result
@@ -428,10 +432,6 @@ class CreditNote  {
         $allocations = array_map(fn (array $result): Allocation =>  Allocation::from(
             $result
         ), $resourceAttributes['allocations'] ?? []);
-        
-        $line_item_addresses = array_map(fn (array $result): LineItemAddress =>  LineItemAddress::from(
-            $result
-        ), $resourceAttributes['line_item_addresses'] ?? []);
         
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
@@ -449,7 +449,6 @@ class CreditNote  {
         $resourceAttributes['generated_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
         $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['sub_total_in_local_currency'] ?? null,
         $resourceAttributes['total_in_local_currency'] ?? null,
@@ -457,11 +456,13 @@ class CreditNote  {
         $resourceAttributes['round_off_amount'] ?? null,
         $resourceAttributes['fractional_correction'] ?? null,
         $line_items,
-        $discounts,
-        $line_item_discounts,
         $line_item_tiers,
-        $taxes,
+        $line_item_discounts,
         $line_item_taxes,
+        $line_item_addresses,
+        $discounts,
+        $taxes,
+        isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
         $linked_refunds,
         $allocations,
         $resourceAttributes['deleted'] ?? null,
@@ -472,9 +473,8 @@ class CreditNote  {
         $resourceAttributes['business_entity_id'] ?? null,
         isset($resourceAttributes['shipping_address']) ? ShippingAddress::from($resourceAttributes['shipping_address']) : null,
         isset($resourceAttributes['billing_address']) ? BillingAddress::from($resourceAttributes['billing_address']) : null,
+        isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
         isset($resourceAttributes['site_details_at_creation']) ? SiteDetailsAtCreation::from($resourceAttributes['site_details_at_creation']) : null,
-        isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
-        $line_item_addresses,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
@@ -486,7 +486,7 @@ class CreditNote  {
         isset($resourceAttributes['reason_code']) ? \Chargebee\Resources\CreditNote\Enums\ReasonCode::tryFromValue($resourceAttributes['reason_code']) : null,
         
         isset($resourceAttributes['status']) ? \Chargebee\Resources\CreditNote\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -494,7 +494,7 @@ class CreditNote  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'subscription_id' => $this->subscription_id,
@@ -511,7 +511,6 @@ class CreditNote  {
         'generated_at' => $this->generated_at,
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,
-        
         'sub_total' => $this->sub_total,
         'sub_total_in_local_currency' => $this->sub_total_in_local_currency,
         'total_in_local_currency' => $this->total_in_local_currency,
@@ -526,13 +525,14 @@ class CreditNote  {
         
         
         
+        
+        
         'deleted' => $this->deleted,
         'tax_category' => $this->tax_category,
         'local_currency_exchange_rate' => $this->local_currency_exchange_rate,
         'create_reason_code' => $this->create_reason_code,
         'vat_number_prefix' => $this->vat_number_prefix,
         'business_entity_id' => $this->business_entity_id,
-        
         
         
         
@@ -553,8 +553,8 @@ class CreditNote  {
         });
 
         
-        if($this->einvoice instanceof Einvoice){
-            $data['einvoice'] = $this->einvoice->toArray();
+        if($this->tax_origin instanceof TaxOrigin){
+            $data['tax_origin'] = $this->tax_origin->toArray();
         }
         if($this->shipping_address instanceof ShippingAddress){
             $data['shipping_address'] = $this->shipping_address->toArray();
@@ -562,11 +562,11 @@ class CreditNote  {
         if($this->billing_address instanceof BillingAddress){
             $data['billing_address'] = $this->billing_address->toArray();
         }
+        if($this->einvoice instanceof Einvoice){
+            $data['einvoice'] = $this->einvoice->toArray();
+        }
         if($this->site_details_at_creation instanceof SiteDetailsAtCreation){
             $data['site_details_at_creation'] = $this->site_details_at_creation->toArray();
-        }
-        if($this->tax_origin instanceof TaxOrigin){
-            $data['tax_origin'] = $this->tax_origin->toArray();
         }
         
         if($this->line_items !== []){
@@ -575,10 +575,10 @@ class CreditNote  {
                 $this->line_items
             );
         }
-        if($this->discounts !== []){
-            $data['discounts'] = array_map(
-                fn (Discount $discounts): array => $discounts->toArray(),
-                $this->discounts
+        if($this->line_item_tiers !== []){
+            $data['line_item_tiers'] = array_map(
+                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
+                $this->line_item_tiers
             );
         }
         if($this->line_item_discounts !== []){
@@ -587,22 +587,28 @@ class CreditNote  {
                 $this->line_item_discounts
             );
         }
-        if($this->line_item_tiers !== []){
-            $data['line_item_tiers'] = array_map(
-                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
-                $this->line_item_tiers
+        if($this->line_item_taxes !== []){
+            $data['line_item_taxes'] = array_map(
+                fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
+                $this->line_item_taxes
+            );
+        }
+        if($this->line_item_addresses !== []){
+            $data['line_item_addresses'] = array_map(
+                fn (LineItemAddress $line_item_addresses): array => $line_item_addresses->toArray(),
+                $this->line_item_addresses
+            );
+        }
+        if($this->discounts !== []){
+            $data['discounts'] = array_map(
+                fn (Discount $discounts): array => $discounts->toArray(),
+                $this->discounts
             );
         }
         if($this->taxes !== []){
             $data['taxes'] = array_map(
                 fn (Tax $taxes): array => $taxes->toArray(),
                 $this->taxes
-            );
-        }
-        if($this->line_item_taxes !== []){
-            $data['line_item_taxes'] = array_map(
-                fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
-                $this->line_item_taxes
             );
         }
         if($this->linked_refunds !== []){
@@ -615,12 +621,6 @@ class CreditNote  {
             $data['allocations'] = array_map(
                 fn (Allocation $allocations): array => $allocations->toArray(),
                 $this->allocations
-            );
-        }
-        if($this->line_item_addresses !== []){
-            $data['line_item_addresses'] = array_map(
-                fn (LineItemAddress $line_item_addresses): array => $line_item_addresses->toArray(),
-                $this->line_item_addresses
             );
         }
 

@@ -128,7 +128,7 @@ class ReferralInfo  {
         $this->referrer_reward_type = $referrer_reward_type;
         $this->notify_referral_system = $notify_referral_system;
         $this->destination_url = $destination_url;
-        $this->post_purchase_widget_enabled = $post_purchase_widget_enabled;  
+        $this->post_purchase_widget_enabled = $post_purchase_widget_enabled;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -148,7 +148,7 @@ class ReferralInfo  {
         $resourceAttributes['destination_url'] ?? null,
         $resourceAttributes['post_purchase_widget_enabled'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -156,7 +156,7 @@ class ReferralInfo  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['referral_code' => $this->referral_code,
         'coupon_code' => $this->coupon_code,
         'referrer_id' => $this->referrer_id,

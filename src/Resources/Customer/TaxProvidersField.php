@@ -40,7 +40,7 @@ class TaxProvidersField  {
     { 
         $this->provider_name = $provider_name;
         $this->field_id = $field_id;
-        $this->field_value = $field_value;  
+        $this->field_value = $field_value;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class TaxProvidersField  {
         $resourceAttributes['field_id'] ?? null,
         $resourceAttributes['field_value'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class TaxProvidersField  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['provider_name' => $this->provider_name,
         'field_id' => $this->field_id,
         'field_value' => $this->field_value,

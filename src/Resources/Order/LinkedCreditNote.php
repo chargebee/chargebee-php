@@ -64,7 +64,7 @@ class LinkedCreditNote  {
         $this->id = $id;
         $this->status = $status;
         $this->amount_adjusted = $amount_adjusted;
-        $this->amount_refunded = $amount_refunded;  
+        $this->amount_refunded = $amount_refunded;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class LinkedCreditNote  {
         $resourceAttributes['amount_adjusted'] ?? null,
         $resourceAttributes['amount_refunded'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class LinkedCreditNote  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['amount' => $this->amount,
         'type' => $this->type,
         'id' => $this->id,

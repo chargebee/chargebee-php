@@ -64,7 +64,7 @@ class InvoiceItem  {
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price = $unit_price;
         $this->unit_price_in_decimal = $unit_price_in_decimal;
-        $this->service_period_days = $service_period_days;  
+        $this->service_period_days = $service_period_days;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class InvoiceItem  {
         $resourceAttributes['unit_price_in_decimal'] ?? null,
         $resourceAttributes['service_period_days'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class InvoiceItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'quantity' => $this->quantity,
         'quantity_in_decimal' => $this->quantity_in_decimal,

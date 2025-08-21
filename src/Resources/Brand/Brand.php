@@ -32,7 +32,7 @@ class Brand  {
     )
     { 
         $this->id = $id;
-        $this->name = $name;  
+        $this->name = $name;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class Brand  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['name'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class Brand  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         

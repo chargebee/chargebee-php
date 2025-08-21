@@ -36,6 +36,7 @@ use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
 use Chargebee\Resources\Gift\Gift;
 use Chargebee\Resources\Hierarchy\Hierarchy;
 use Chargebee\Resources\HostedPage\HostedPage;
+use Chargebee\Resources\ImpactedCustomer\ImpactedCustomer;
 use Chargebee\Resources\ImpactedItem\ImpactedItem;
 use Chargebee\Resources\ImpactedItemPrice\ImpactedItemPrice;
 use Chargebee\Resources\ImpactedSubscription\ImpactedSubscription;
@@ -48,6 +49,8 @@ use Chargebee\Resources\ItemFamily\ItemFamily;
 use Chargebee\Resources\ItemPrice\ItemPrice;
 use Chargebee\Resources\Metadata\Metadata;
 use Chargebee\Resources\NonSubscription\NonSubscription;
+use Chargebee\Resources\OmnichannelOneTimeOrder\OmnichannelOneTimeOrder;
+use Chargebee\Resources\OmnichannelOneTimeOrderItem\OmnichannelOneTimeOrderItem;
 use Chargebee\Resources\OmnichannelSubscription\OmnichannelSubscription;
 use Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem;
 use Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\OmnichannelSubscriptionItemScheduledChange;
@@ -78,6 +81,8 @@ use Chargebee\Resources\Rule\Rule;
 use Chargebee\Resources\SiteMigrationDetail\SiteMigrationDetail;
 use Chargebee\Resources\Subscription\Subscription;
 use Chargebee\Resources\SubscriptionEntitlement\SubscriptionEntitlement;
+use Chargebee\Resources\SubscriptionEntitlementsCreatedDetail\SubscriptionEntitlementsCreatedDetail;
+use Chargebee\Resources\SubscriptionEntitlementsUpdatedDetail\SubscriptionEntitlementsUpdatedDetail;
 use Chargebee\Resources\SubscriptionEstimate\SubscriptionEstimate;
 use Chargebee\Resources\TaxWithheld\TaxWithheld;
 use Chargebee\Resources\ThirdPartyPaymentMethod\ThirdPartyPaymentMethod;
@@ -89,6 +94,7 @@ use Chargebee\Resources\Usage\Usage;
 use Chargebee\Resources\UsageEvent\UsageEvent;
 use Chargebee\Resources\UsageFile\UsageFile;
 use Chargebee\Resources\VirtualBankAccount\VirtualBankAccount;
+use Chargebee\Resources\WebhookEndpoint\WebhookEndpoint;
 
 class Content  { 
     /**
@@ -303,6 +309,12 @@ class Content  {
     
     /**
     *
+    * @var ?ImpactedCustomer $impactedcustomer
+    */
+    public ?ImpactedCustomer $impactedcustomer;
+    
+    /**
+    *
     * @var ?ImpactedItem $impacteditem
     */
     public ?ImpactedItem $impacteditem;
@@ -372,6 +384,18 @@ class Content  {
     * @var ?NonSubscription $nonsubscription
     */
     public ?NonSubscription $nonsubscription;
+    
+    /**
+    *
+    * @var ?OmnichannelOneTimeOrder $omnichannelonetimeorder
+    */
+    public ?OmnichannelOneTimeOrder $omnichannelonetimeorder;
+    
+    /**
+    *
+    * @var ?OmnichannelOneTimeOrderItem $omnichannelonetimeorderitem
+    */
+    public ?OmnichannelOneTimeOrderItem $omnichannelonetimeorderitem;
     
     /**
     *
@@ -555,6 +579,18 @@ class Content  {
     
     /**
     *
+    * @var ?SubscriptionEntitlementsCreatedDetail $subscriptionentitlementscreateddetail
+    */
+    public ?SubscriptionEntitlementsCreatedDetail $subscriptionentitlementscreateddetail;
+    
+    /**
+    *
+    * @var ?SubscriptionEntitlementsUpdatedDetail $subscriptionentitlementsupdateddetail
+    */
+    public ?SubscriptionEntitlementsUpdatedDetail $subscriptionentitlementsupdateddetail;
+    
+    /**
+    *
     * @var ?SubscriptionEstimate $subscriptionestimate
     */
     public ?SubscriptionEstimate $subscriptionestimate;
@@ -620,9 +656,15 @@ class Content  {
     public ?VirtualBankAccount $virtualbankaccount;
     
     /**
+    *
+    * @var ?WebhookEndpoint $webhookendpoint
+    */
+    public ?WebhookEndpoint $webhookendpoint;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -666,6 +708,7 @@ class Content  {
         ?Gift $gift,
         ?Hierarchy $hierarchy,
         ?HostedPage $hostedpage,
+        ?ImpactedCustomer $impactedcustomer,
         ?ImpactedItem $impacteditem,
         ?ImpactedItemPrice $impacteditemprice,
         ?ImpactedSubscription $impactedsubscription,
@@ -678,6 +721,8 @@ class Content  {
         ?ItemPrice $itemprice,
         ?Metadata $metadata,
         ?NonSubscription $nonsubscription,
+        ?OmnichannelOneTimeOrder $omnichannelonetimeorder,
+        ?OmnichannelOneTimeOrderItem $omnichannelonetimeorderitem,
         ?OmnichannelSubscription $omnichannelsubscription,
         ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem,
         ?OmnichannelSubscriptionItemScheduledChange $omnichannelsubscriptionitemscheduledchange,
@@ -708,6 +753,8 @@ class Content  {
         ?SiteMigrationDetail $sitemigrationdetail,
         ?Subscription $subscription,
         ?SubscriptionEntitlement $subscriptionentitlement,
+        ?SubscriptionEntitlementsCreatedDetail $subscriptionentitlementscreateddetail,
+        ?SubscriptionEntitlementsUpdatedDetail $subscriptionentitlementsupdateddetail,
         ?SubscriptionEstimate $subscriptionestimate,
         ?TaxWithheld $taxwithheld,
         ?ThirdPartyPaymentMethod $thirdpartypaymentmethod,
@@ -719,6 +766,7 @@ class Content  {
         ?UsageEvent $usageevent,
         ?UsageFile $usagefile,
         ?VirtualBankAccount $virtualbankaccount,
+        ?WebhookEndpoint $webhookendpoint,
     )
     { 
         $this->addon = $addon;
@@ -756,6 +804,7 @@ class Content  {
         $this->gift = $gift;
         $this->hierarchy = $hierarchy;
         $this->hostedpage = $hostedpage;
+        $this->impactedcustomer = $impactedcustomer;
         $this->impacteditem = $impacteditem;
         $this->impacteditemprice = $impacteditemprice;
         $this->impactedsubscription = $impactedsubscription;
@@ -768,6 +817,8 @@ class Content  {
         $this->itemprice = $itemprice;
         $this->metadata = $metadata;
         $this->nonsubscription = $nonsubscription;
+        $this->omnichannelonetimeorder = $omnichannelonetimeorder;
+        $this->omnichannelonetimeorderitem = $omnichannelonetimeorderitem;
         $this->omnichannelsubscription = $omnichannelsubscription;
         $this->omnichannelsubscriptionitem = $omnichannelsubscriptionitem;
         $this->omnichannelsubscriptionitemscheduledchange = $omnichannelsubscriptionitemscheduledchange;
@@ -798,6 +849,8 @@ class Content  {
         $this->sitemigrationdetail = $sitemigrationdetail;
         $this->subscription = $subscription;
         $this->subscriptionentitlement = $subscriptionentitlement;
+        $this->subscriptionentitlementscreateddetail = $subscriptionentitlementscreateddetail;
+        $this->subscriptionentitlementsupdateddetail = $subscriptionentitlementsupdateddetail;
         $this->subscriptionestimate = $subscriptionestimate;
         $this->taxwithheld = $taxwithheld;
         $this->thirdpartypaymentmethod = $thirdpartypaymentmethod;
@@ -808,7 +861,8 @@ class Content  {
         $this->usage = $usage;
         $this->usageevent = $usageevent;
         $this->usagefile = $usagefile;
-        $this->virtualbankaccount = $virtualbankaccount;  
+        $this->virtualbankaccount = $virtualbankaccount;
+        $this->webhookendpoint = $webhookendpoint;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -848,6 +902,7 @@ class Content  {
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
         isset($resourceAttributes['hierarchy']) ? Hierarchy::from($resourceAttributes['hierarchy']) : null,
         isset($resourceAttributes['hosted_page']) ? HostedPage::from($resourceAttributes['hosted_page']) : null,
+        isset($resourceAttributes['impacted_customer']) ? ImpactedCustomer::from($resourceAttributes['impacted_customer']) : null,
         isset($resourceAttributes['impacted_item']) ? ImpactedItem::from($resourceAttributes['impacted_item']) : null,
         isset($resourceAttributes['impacted_item_price']) ? ImpactedItemPrice::from($resourceAttributes['impacted_item_price']) : null,
         isset($resourceAttributes['impacted_subscription']) ? ImpactedSubscription::from($resourceAttributes['impacted_subscription']) : null,
@@ -860,6 +915,8 @@ class Content  {
         isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
         isset($resourceAttributes['non_subscription']) ? NonSubscription::from($resourceAttributes['non_subscription']) : null,
+        isset($resourceAttributes['omnichannel_one_time_order']) ? OmnichannelOneTimeOrder::from($resourceAttributes['omnichannel_one_time_order']) : null,
+        isset($resourceAttributes['omnichannel_one_time_order_item']) ? OmnichannelOneTimeOrderItem::from($resourceAttributes['omnichannel_one_time_order_item']) : null,
         isset($resourceAttributes['omnichannel_subscription']) ? OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']) : null,
         isset($resourceAttributes['omnichannel_subscription_item']) ? OmnichannelSubscriptionItem::from($resourceAttributes['omnichannel_subscription_item']) : null,
         isset($resourceAttributes['omnichannel_subscription_item_scheduled_change']) ? OmnichannelSubscriptionItemScheduledChange::from($resourceAttributes['omnichannel_subscription_item_scheduled_change']) : null,
@@ -890,6 +947,8 @@ class Content  {
         isset($resourceAttributes['site_migration_detail']) ? SiteMigrationDetail::from($resourceAttributes['site_migration_detail']) : null,
         isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
         isset($resourceAttributes['subscription_entitlement']) ? SubscriptionEntitlement::from($resourceAttributes['subscription_entitlement']) : null,
+        isset($resourceAttributes['subscription_entitlements_created_detail']) ? SubscriptionEntitlementsCreatedDetail::from($resourceAttributes['subscription_entitlements_created_detail']) : null,
+        isset($resourceAttributes['subscription_entitlements_updated_detail']) ? SubscriptionEntitlementsUpdatedDetail::from($resourceAttributes['subscription_entitlements_updated_detail']) : null,
         isset($resourceAttributes['subscription_estimate']) ? SubscriptionEstimate::from($resourceAttributes['subscription_estimate']) : null,
         isset($resourceAttributes['tax_withheld']) ? TaxWithheld::from($resourceAttributes['tax_withheld']) : null,
         isset($resourceAttributes['third_party_payment_method']) ? ThirdPartyPaymentMethod::from($resourceAttributes['third_party_payment_method']) : null,
@@ -901,8 +960,9 @@ class Content  {
         isset($resourceAttributes['usage_event']) ? UsageEvent::from($resourceAttributes['usage_event']) : null,
         isset($resourceAttributes['usage_file']) ? UsageFile::from($resourceAttributes['usage_file']) : null,
         isset($resourceAttributes['virtual_bank_account']) ? VirtualBankAccount::from($resourceAttributes['virtual_bank_account']) : null,
+        isset($resourceAttributes['webhook_endpoint']) ? WebhookEndpoint::from($resourceAttributes['webhook_endpoint']) : null,
         
-         
+          
         );
        
         return $returnData;
@@ -910,8 +970,14 @@ class Content  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter([
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1110,6 +1176,9 @@ class Content  {
         if($this->hostedpage instanceof HostedPage){
             $data['hosted_page'] = $this->hostedpage->toArray();
         }
+        if($this->impactedcustomer instanceof ImpactedCustomer){
+            $data['impacted_customer'] = $this->impactedcustomer->toArray();
+        }
         if($this->impacteditem instanceof ImpactedItem){
             $data['impacted_item'] = $this->impacteditem->toArray();
         }
@@ -1145,6 +1214,12 @@ class Content  {
         }
         if($this->nonsubscription instanceof NonSubscription){
             $data['non_subscription'] = $this->nonsubscription->toArray();
+        }
+        if($this->omnichannelonetimeorder instanceof OmnichannelOneTimeOrder){
+            $data['omnichannel_one_time_order'] = $this->omnichannelonetimeorder->toArray();
+        }
+        if($this->omnichannelonetimeorderitem instanceof OmnichannelOneTimeOrderItem){
+            $data['omnichannel_one_time_order_item'] = $this->omnichannelonetimeorderitem->toArray();
         }
         if($this->omnichannelsubscription instanceof OmnichannelSubscription){
             $data['omnichannel_subscription'] = $this->omnichannelsubscription->toArray();
@@ -1236,6 +1311,12 @@ class Content  {
         if($this->subscriptionentitlement instanceof SubscriptionEntitlement){
             $data['subscription_entitlement'] = $this->subscriptionentitlement->toArray();
         }
+        if($this->subscriptionentitlementscreateddetail instanceof SubscriptionEntitlementsCreatedDetail){
+            $data['subscription_entitlements_created_detail'] = $this->subscriptionentitlementscreateddetail->toArray();
+        }
+        if($this->subscriptionentitlementsupdateddetail instanceof SubscriptionEntitlementsUpdatedDetail){
+            $data['subscription_entitlements_updated_detail'] = $this->subscriptionentitlementsupdateddetail->toArray();
+        }
         if($this->subscriptionestimate instanceof SubscriptionEstimate){
             $data['subscription_estimate'] = $this->subscriptionestimate->toArray();
         }
@@ -1268,6 +1349,9 @@ class Content  {
         }
         if($this->virtualbankaccount instanceof VirtualBankAccount){
             $data['virtual_bank_account'] = $this->virtualbankaccount->toArray();
+        }
+        if($this->webhookendpoint instanceof WebhookEndpoint){
+            $data['webhook_endpoint'] = $this->webhookendpoint->toArray();
         }
         
 

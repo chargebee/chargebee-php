@@ -345,7 +345,7 @@ class Quote  extends SupportsCustomFields  {
         $this->total_discount = $total_discount; 
         $this->price_type = $price_type; 
         $this->status = $status;
-        $this->operation_type = $operation_type;
+        $this->operation_type = $operation_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -419,7 +419,7 @@ class Quote  extends SupportsCustomFields  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Quote\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['operation_type']) ? \Chargebee\Resources\Quote\Enums\OperationType::tryFromValue($resourceAttributes['operation_type']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -431,7 +431,7 @@ class Quote  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'po_number' => $this->po_number,

@@ -48,7 +48,7 @@ class LinkedPayment  {
         $this->id = $id;
         $this->status = $status;
         $this->amount = $amount;
-        $this->date = $date;  
+        $this->date = $date;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class LinkedPayment  {
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['date'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class LinkedPayment  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'status' => $this->status,
         'amount' => $this->amount,

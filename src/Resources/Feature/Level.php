@@ -48,7 +48,7 @@ class Level  {
         $this->name = $name;
         $this->value = $value;
         $this->level = $level;
-        $this->is_unlimited = $is_unlimited;  
+        $this->is_unlimited = $is_unlimited;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class Level  {
         $resourceAttributes['level'] ?? null,
         $resourceAttributes['is_unlimited'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class Level  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['name' => $this->name,
         'value' => $this->value,
         'level' => $this->level,

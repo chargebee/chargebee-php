@@ -72,7 +72,7 @@ class Charge  {
         $this->service_period_in_days = $service_period_in_days;
         $this->avalara_sale_type = $avalara_sale_type;
         $this->avalara_transaction_type = $avalara_transaction_type;
-        $this->avalara_service_type = $avalara_service_type;  
+        $this->avalara_service_type = $avalara_service_type;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -85,7 +85,7 @@ class Charge  {
         $resourceAttributes['avalara_transaction_type'] ?? null,
         $resourceAttributes['avalara_service_type'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -93,7 +93,7 @@ class Charge  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['amount' => $this->amount,
         'amount_in_decimal' => $this->amount_in_decimal,
         'description' => $this->description,

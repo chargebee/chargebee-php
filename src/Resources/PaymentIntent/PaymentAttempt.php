@@ -88,7 +88,7 @@ class PaymentAttempt  {
         $this->error_text = $error_text;
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
-        $this->error_detail = $error_detail;  
+        $this->error_detail = $error_detail;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -103,7 +103,7 @@ class PaymentAttempt  {
         $resourceAttributes['modified_at'] ?? null,
         isset($resourceAttributes['error_detail']) ? \Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
         
-         
+          
         );
        
         return $returnData;
@@ -111,7 +111,7 @@ class PaymentAttempt  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'status' => $this->status,
         'payment_method_type' => $this->payment_method_type,

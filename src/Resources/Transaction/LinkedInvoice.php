@@ -64,7 +64,7 @@ class LinkedInvoice  {
         $this->applied_at = $applied_at;
         $this->invoice_date = $invoice_date;
         $this->invoice_total = $invoice_total;
-        $this->invoice_status = $invoice_status;  
+        $this->invoice_status = $invoice_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class LinkedInvoice  {
         $resourceAttributes['invoice_total'] ?? null,
         $resourceAttributes['invoice_status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class LinkedInvoice  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['invoice_id' => $this->invoice_id,
         'applied_amount' => $this->applied_amount,
         'applied_at' => $this->applied_at,

@@ -80,7 +80,7 @@ class ReferralUrl  {
         $this->referral_campaign_id = $referral_campaign_id;
         $this->referral_account_id = $referral_account_id;
         $this->referral_external_campaign_id = $referral_external_campaign_id;
-        $this->referral_system = $referral_system;  
+        $this->referral_system = $referral_system;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -94,7 +94,7 @@ class ReferralUrl  {
         $resourceAttributes['referral_external_campaign_id'] ?? null,
         $resourceAttributes['referral_system'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -102,7 +102,7 @@ class ReferralUrl  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['external_customer_id' => $this->external_customer_id,
         'referral_sharing_url' => $this->referral_sharing_url,
         'created_at' => $this->created_at,

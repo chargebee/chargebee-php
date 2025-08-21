@@ -176,6 +176,7 @@ Interface SubscriptionActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     operation_type?: string,
     *     id?: string,
     *     }>,
@@ -454,8 +455,35 @@ Interface SubscriptionActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#create_a_subscription
     *   @param array{
-    *     customer?: mixed,
-    *     card?: array{
+    *     customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     entity_code?: string,
+    *     exempt_number?: string,
+    *     net_term_days?: int,
+    *     taxjar_exemption_category?: string,
+    *     auto_collection?: string,
+    *     offline_payment_method?: string,
+    *     allow_direct_debit?: bool,
+    *     consolidated_invoicing?: bool,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     entity_identifier_scheme?: string,
+    *     entity_identifier_standard?: string,
+    *     is_einvoice_enabled?: bool,
+    *     einvoicing_method?: string,
+    *     registered_for_gst?: bool,
+    *     business_customer_without_vat_number?: bool,
+    *     exemption_details?: array<mixed>,
+    *     customer_type?: string,
+    *     },
+    * card?: array{
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     tmp_token?: string,
@@ -802,6 +830,7 @@ Interface SubscriptionActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     }>,
     *     charged_items?: array<array{
     *     item_price_id?: string,
@@ -1062,6 +1091,7 @@ Interface SubscriptionActionsInterface
     *     period_unit?: string,
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
+    *     quantity?: int,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -1547,8 +1577,26 @@ Interface SubscriptionActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_a_subscription
     *   @param array{
-    *     customer?: mixed,
-    *     contract_term?: array{
+    *     customer?: array{
+    *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     locale?: string,
+    *     taxability?: string,
+    *     entity_code?: string,
+    *     exempt_number?: string,
+    *     net_term_days?: int,
+    *     taxjar_exemption_category?: string,
+    *     customer_type?: string,
+    *     auto_collection?: string,
+    *     allow_direct_debit?: bool,
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     },
+    * contract_term?: array{
     *     id?: string,
     *     created_at?: int,
     *     contract_start?: int,

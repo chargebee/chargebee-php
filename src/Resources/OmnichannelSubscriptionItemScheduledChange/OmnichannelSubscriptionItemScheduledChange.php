@@ -88,7 +88,7 @@ class OmnichannelSubscriptionItemScheduledChange  {
         $this->resource_version = $resource_version;
         $this->current_state = $current_state;
         $this->scheduled_state = $scheduled_state;  
-        $this->change_type = $change_type;
+        $this->change_type = $change_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -104,7 +104,7 @@ class OmnichannelSubscriptionItemScheduledChange  {
         
          
         isset($resourceAttributes['change_type']) ? \Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\Enums\ChangeType::tryFromValue($resourceAttributes['change_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -112,7 +112,7 @@ class OmnichannelSubscriptionItemScheduledChange  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'omnichannel_subscription_item_id' => $this->omnichannel_subscription_item_id,
         'scheduled_at' => $this->scheduled_at,

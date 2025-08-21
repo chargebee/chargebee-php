@@ -56,7 +56,7 @@ class CouponCode  {
         $this->coupon_id = $coupon_id;
         $this->coupon_set_id = $coupon_set_id;
         $this->coupon_set_name = $coupon_set_name;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -68,7 +68,7 @@ class CouponCode  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\CouponCode\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -76,7 +76,7 @@ class CouponCode  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['code' => $this->code,
         'coupon_id' => $this->coupon_id,
         'coupon_set_id' => $this->coupon_set_id,

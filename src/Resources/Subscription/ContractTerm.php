@@ -112,7 +112,7 @@ class ContractTerm  {
         $this->cancellation_cutoff_period = $cancellation_cutoff_period;
         $this->created_at = $created_at;
         $this->subscription_id = $subscription_id;
-        $this->remaining_billing_cycles = $remaining_billing_cycles;  
+        $this->remaining_billing_cycles = $remaining_billing_cycles;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -130,7 +130,7 @@ class ContractTerm  {
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['remaining_billing_cycles'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -138,7 +138,7 @@ class ContractTerm  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'status' => $this->status,
         'contract_start' => $this->contract_start,

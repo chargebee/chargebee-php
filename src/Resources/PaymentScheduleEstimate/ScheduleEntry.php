@@ -48,7 +48,7 @@ class ScheduleEntry  {
         $this->id = $id;
         $this->date = $date;
         $this->amount = $amount;
-        $this->status = $status;  
+        $this->status = $status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class ScheduleEntry  {
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['status'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class ScheduleEntry  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'date' => $this->date,
         'amount' => $this->amount,

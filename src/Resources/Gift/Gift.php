@@ -104,7 +104,7 @@ class Gift  {
         $this->gifter = $gifter;
         $this->gift_receiver = $gift_receiver;
         $this->gift_timelines = $gift_timelines;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -126,7 +126,7 @@ class Gift  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Gift\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -134,7 +134,7 @@ class Gift  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'scheduled_at' => $this->scheduled_at,
         'auto_claim' => $this->auto_claim,

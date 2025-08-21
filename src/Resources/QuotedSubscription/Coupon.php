@@ -24,14 +24,14 @@ class Coupon  {
         ?string $coupon_id,
     )
     { 
-        $this->coupon_id = $coupon_id;  
+        $this->coupon_id = $coupon_id;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['coupon_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class Coupon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['coupon_id' => $this->coupon_id,
         
         ], function ($value) {

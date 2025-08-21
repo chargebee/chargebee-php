@@ -64,7 +64,7 @@ class Currency  {
         $this->currency_code = $currency_code;
         $this->is_base_currency = $is_base_currency;
         $this->manual_exchange_rate = $manual_exchange_rate;  
-        $this->forex_type = $forex_type;
+        $this->forex_type = $forex_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -77,7 +77,7 @@ class Currency  {
         
          
         isset($resourceAttributes['forex_type']) ? \Chargebee\Resources\Currency\Enums\ForexType::tryFromValue($resourceAttributes['forex_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -85,7 +85,7 @@ class Currency  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'enabled' => $this->enabled,
         'currency_code' => $this->currency_code,

@@ -208,7 +208,7 @@ class PaymentSource  {
         $this->business_entity_id = $business_entity_id; 
         $this->type = $type;
         $this->gateway = $gateway; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -245,7 +245,7 @@ class PaymentSource  {
         isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PaymentSource\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -253,7 +253,7 @@ class PaymentSource  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,

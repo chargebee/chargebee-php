@@ -64,7 +64,7 @@ class InAppSubscription  {
         $this->customer_id = $customer_id;
         $this->plan_id = $plan_id;
         $this->invoice_id = $invoice_id;  
-        $this->store_status = $store_status;
+        $this->store_status = $store_status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -77,7 +77,7 @@ class InAppSubscription  {
         
          
         isset($resourceAttributes['store_status']) ? \Chargebee\Resources\InAppSubscription\Enums\StoreStatus::tryFromValue($resourceAttributes['store_status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -85,7 +85,7 @@ class InAppSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['app_id' => $this->app_id,
         'subscription_id' => $this->subscription_id,
         'customer_id' => $this->customer_id,

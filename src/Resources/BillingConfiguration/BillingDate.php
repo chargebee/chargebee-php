@@ -32,7 +32,7 @@ class BillingDate  {
     )
     { 
         $this->start_date = $start_date;
-        $this->end_date = $end_date;  
+        $this->end_date = $end_date;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class BillingDate  {
         $returnData = new self( $resourceAttributes['start_date'] ?? null,
         $resourceAttributes['end_date'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class BillingDate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['start_date' => $this->start_date,
         'end_date' => $this->end_date,
         

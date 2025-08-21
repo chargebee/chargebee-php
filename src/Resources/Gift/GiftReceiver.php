@@ -56,7 +56,7 @@ class GiftReceiver  {
         $this->subscription_id = $subscription_id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-        $this->email = $email;  
+        $this->email = $email;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class GiftReceiver  {
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class GiftReceiver  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['customer_id' => $this->customer_id,
         'subscription_id' => $this->subscription_id,
         'first_name' => $this->first_name,

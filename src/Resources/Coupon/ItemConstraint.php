@@ -40,7 +40,7 @@ class ItemConstraint  {
     { 
         $this->item_type = $item_type;
         $this->constraint = $constraint;
-        $this->item_price_ids = $item_price_ids;  
+        $this->item_price_ids = $item_price_ids;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class ItemConstraint  {
         $resourceAttributes['constraint'] ?? null,
         $resourceAttributes['item_price_ids'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class ItemConstraint  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_type' => $this->item_type,
         'constraint' => $this->constraint,
         'item_price_ids' => $this->item_price_ids,

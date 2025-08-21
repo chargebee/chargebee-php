@@ -144,7 +144,7 @@ class Address  {
         $this->country = $country;
         $this->zip = $zip;
         $this->subscription_id = $subscription_id; 
-        $this->validation_status = $validation_status; 
+        $this->validation_status = $validation_status;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -167,7 +167,7 @@ class Address  {
         
         
         isset($resourceAttributes['validation_status']) ? \Chargebee\Enums\ValidationStatus::tryFromValue($resourceAttributes['validation_status']) : null,
-         
+          
         );
        
         return $returnData;
@@ -175,7 +175,7 @@ class Address  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['label' => $this->label,
         'first_name' => $this->first_name,
         'last_name' => $this->last_name,

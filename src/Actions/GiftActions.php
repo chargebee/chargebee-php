@@ -251,8 +251,12 @@ final class GiftActions implements GiftActionsInterface
     *     country?: string,
     *     validation_status?: string,
     *     },
-    * subscription?: mixed,
-    *     addons?: array<array{
+    * subscription?: array{
+    *     plan_id?: string,
+    *     plan_quantity?: int,
+    *     plan_quantity_in_decimal?: string,
+    *     },
+    * addons?: array<array{
     *     id?: string,
     *     quantity?: int,
     *     quantity_in_decimal?: string,

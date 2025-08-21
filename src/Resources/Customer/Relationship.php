@@ -40,7 +40,7 @@ class Relationship  {
     { 
         $this->parent_id = $parent_id;
         $this->payment_owner_id = $payment_owner_id;
-        $this->invoice_owner_id = $invoice_owner_id;  
+        $this->invoice_owner_id = $invoice_owner_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class Relationship  {
         $resourceAttributes['payment_owner_id'] ?? null,
         $resourceAttributes['invoice_owner_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class Relationship  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['parent_id' => $this->parent_id,
         'payment_owner_id' => $this->payment_owner_id,
         'invoice_owner_id' => $this->invoice_owner_id,

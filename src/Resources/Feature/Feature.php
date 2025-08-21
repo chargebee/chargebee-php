@@ -97,7 +97,7 @@ class Feature  extends SupportsCustomFields  {
         $this->created_at = $created_at;
         $this->levels = $levels;  
         $this->status = $status;
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -119,7 +119,7 @@ class Feature  extends SupportsCustomFields  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Feature\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
         
         isset($resourceAttributes['type']) ? \Chargebee\Resources\Feature\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -131,7 +131,7 @@ class Feature  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'description' => $this->description,

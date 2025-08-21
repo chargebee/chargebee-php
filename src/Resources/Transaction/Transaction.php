@@ -384,7 +384,7 @@ class Transaction  {
         $this->status = $status;
         $this->fraud_flag = $fraud_flag;
         $this->initiator_type = $initiator_type;
-        $this->authorization_reason = $authorization_reason;
+        $this->authorization_reason = $authorization_reason; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -459,7 +459,7 @@ class Transaction  {
         isset($resourceAttributes['initiator_type']) ? \Chargebee\Resources\Transaction\Enums\InitiatorType::tryFromValue($resourceAttributes['initiator_type']) : null,
         
         isset($resourceAttributes['authorization_reason']) ? \Chargebee\Resources\Transaction\Enums\AuthorizationReason::tryFromValue($resourceAttributes['authorization_reason']) : null,
-        
+         
         );
        
         return $returnData;
@@ -467,7 +467,7 @@ class Transaction  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'customer_id' => $this->customer_id,
         'subscription_id' => $this->subscription_id,

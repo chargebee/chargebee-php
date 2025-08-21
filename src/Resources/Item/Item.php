@@ -249,7 +249,7 @@ class Item  extends SupportsCustomFields  {
         $this->status = $status;
         $this->type = $type;
         $this->item_applicability = $item_applicability;
-        $this->usage_calculation = $usage_calculation;
+        $this->usage_calculation = $usage_calculation; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -297,7 +297,7 @@ class Item  extends SupportsCustomFields  {
         isset($resourceAttributes['item_applicability']) ? \Chargebee\Resources\Item\Enums\ItemApplicability::tryFromValue($resourceAttributes['item_applicability']) : null,
         
         isset($resourceAttributes['usage_calculation']) ? \Chargebee\Resources\Item\Enums\UsageCalculation::tryFromValue($resourceAttributes['usage_calculation']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -309,7 +309,7 @@ class Item  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'external_name' => $this->external_name,

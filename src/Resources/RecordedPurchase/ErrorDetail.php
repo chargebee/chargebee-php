@@ -24,14 +24,14 @@ class ErrorDetail  {
         ?string $error_message,
     )
     { 
-        $this->error_message = $error_message;  
+        $this->error_message = $error_message;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['error_message'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class ErrorDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['error_message' => $this->error_message,
         
         ], function ($value) {

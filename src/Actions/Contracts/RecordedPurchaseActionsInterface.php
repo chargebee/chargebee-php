@@ -29,6 +29,8 @@ Interface RecordedPurchaseActionsInterface
     *     },
     * google_play_store?: array{
     *     purchase_token?: string,
+    *     product_id?: string,
+    *     order_id?: string,
     *     },
     * omnichannel_subscription?: array{
     *     id?: string,

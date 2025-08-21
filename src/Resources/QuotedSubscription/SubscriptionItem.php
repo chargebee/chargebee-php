@@ -216,7 +216,7 @@ class SubscriptionItem  {
         $this->charge_once = $charge_once;
         $this->charge_on_option = $charge_on_option;
         $this->proration_type = $proration_type;
-        $this->usage_accumulation_reset_frequency = $usage_accumulation_reset_frequency;  
+        $this->usage_accumulation_reset_frequency = $usage_accumulation_reset_frequency;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -247,7 +247,7 @@ class SubscriptionItem  {
         $resourceAttributes['proration_type'] ?? null,
         $resourceAttributes['usage_accumulation_reset_frequency'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -255,7 +255,7 @@ class SubscriptionItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'item_type' => $this->item_type,
         'quantity' => $this->quantity,

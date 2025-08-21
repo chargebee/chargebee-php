@@ -40,7 +40,7 @@ class CouponConstraint  {
     { 
         $this->entity_type = $entity_type;
         $this->type = $type;
-        $this->value = $value;  
+        $this->value = $value;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class CouponConstraint  {
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['value'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class CouponConstraint  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['entity_type' => $this->entity_type,
         'type' => $this->type,
         'value' => $this->value,

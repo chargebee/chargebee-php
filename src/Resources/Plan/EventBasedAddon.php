@@ -56,7 +56,7 @@ class EventBasedAddon  {
         $this->quantity = $quantity;
         $this->on_event = $on_event;
         $this->charge_once = $charge_once;
-        $this->quantity_in_decimal = $quantity_in_decimal;  
+        $this->quantity_in_decimal = $quantity_in_decimal;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class EventBasedAddon  {
         $resourceAttributes['charge_once'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class EventBasedAddon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'quantity' => $this->quantity,
         'on_event' => $this->on_event,

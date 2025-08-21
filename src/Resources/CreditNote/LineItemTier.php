@@ -104,7 +104,7 @@ class LineItemTier  {
         $this->quantity_used_in_decimal = $quantity_used_in_decimal;
         $this->unit_amount_in_decimal = $unit_amount_in_decimal;
         $this->pricing_type = $pricing_type;
-        $this->package_size = $package_size;  
+        $this->package_size = $package_size;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -121,7 +121,7 @@ class LineItemTier  {
         $resourceAttributes['pricing_type'] ?? null,
         $resourceAttributes['package_size'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -129,7 +129,7 @@ class LineItemTier  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['line_item_id' => $this->line_item_id,
         'starting_unit' => $this->starting_unit,
         'ending_unit' => $this->ending_unit,

@@ -64,7 +64,7 @@ class Discount  {
         $this->entity_type = $entity_type;
         $this->discount_type = $discount_type;
         $this->entity_id = $entity_id;
-        $this->coupon_set_code = $coupon_set_code;  
+        $this->coupon_set_code = $coupon_set_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class Discount  {
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['coupon_set_code'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class Discount  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['amount' => $this->amount,
         'description' => $this->description,
         'entity_type' => $this->entity_type,

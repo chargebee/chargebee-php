@@ -96,7 +96,7 @@ class ItemTier  {
         $this->price_in_decimal = $price_in_decimal;
         $this->pricing_type = $pricing_type;
         $this->package_size = $package_size;
-        $this->index = $index;  
+        $this->index = $index;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -112,7 +112,7 @@ class ItemTier  {
         $resourceAttributes['package_size'] ?? null,
         $resourceAttributes['index'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -120,7 +120,7 @@ class ItemTier  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'starting_unit' => $this->starting_unit,
         'ending_unit' => $this->ending_unit,

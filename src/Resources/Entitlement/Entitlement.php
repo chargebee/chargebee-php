@@ -72,7 +72,7 @@ class Entitlement  {
         $this->feature_name = $feature_name;
         $this->value = $value;
         $this->name = $name;  
-        $this->entity_type = $entity_type;
+        $this->entity_type = $entity_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -86,7 +86,7 @@ class Entitlement  {
         
          
         isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\Entitlement\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -94,7 +94,7 @@ class Entitlement  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'entity_id' => $this->entity_id,
         'feature_id' => $this->feature_id,

@@ -40,7 +40,7 @@ class UpcomingRenewal  {
     { 
         $this->price_currency = $price_currency;
         $this->price_units = $price_units;
-        $this->price_nanos = $price_nanos;  
+        $this->price_nanos = $price_nanos;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class UpcomingRenewal  {
         $resourceAttributes['price_units'] ?? null,
         $resourceAttributes['price_nanos'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class UpcomingRenewal  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['price_currency' => $this->price_currency,
         'price_units' => $this->price_units,
         'price_nanos' => $this->price_nanos,

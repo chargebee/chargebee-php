@@ -32,7 +32,7 @@ class ChargedItem  {
     )
     { 
         $this->item_price_id = $item_price_id;
-        $this->last_charged_at = $last_charged_at;  
+        $this->last_charged_at = $last_charged_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class ChargedItem  {
         $returnData = new self( $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['last_charged_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class ChargedItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['item_price_id' => $this->item_price_id,
         'last_charged_at' => $this->last_charged_at,
         

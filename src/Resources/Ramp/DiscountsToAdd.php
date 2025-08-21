@@ -112,7 +112,7 @@ class DiscountsToAdd  {
         $this->included_in_mrr = $included_in_mrr;
         $this->apply_on = $apply_on;
         $this->item_price_id = $item_price_id;
-        $this->created_at = $created_at;  
+        $this->created_at = $created_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -130,7 +130,7 @@ class DiscountsToAdd  {
         $resourceAttributes['item_price_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -138,7 +138,7 @@ class DiscountsToAdd  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
         'type' => $this->type,

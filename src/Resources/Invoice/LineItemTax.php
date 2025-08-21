@@ -136,7 +136,7 @@ class LineItemTax  {
         $this->tax_juris_name = $tax_juris_name;
         $this->tax_juris_code = $tax_juris_code;
         $this->tax_amount_in_local_currency = $tax_amount_in_local_currency;
-        $this->local_currency_code = $local_currency_code;  
+        $this->local_currency_code = $local_currency_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -157,7 +157,7 @@ class LineItemTax  {
         $resourceAttributes['tax_amount_in_local_currency'] ?? null,
         $resourceAttributes['local_currency_code'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -165,7 +165,7 @@ class LineItemTax  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['line_item_id' => $this->line_item_id,
         'tax_name' => $this->tax_name,
         'tax_rate' => $this->tax_rate,

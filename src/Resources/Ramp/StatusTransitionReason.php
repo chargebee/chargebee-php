@@ -32,7 +32,7 @@ class StatusTransitionReason  {
     )
     { 
         $this->code = $code;
-        $this->message = $message;  
+        $this->message = $message;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class StatusTransitionReason  {
         $returnData = new self( $resourceAttributes['code'] ?? null,
         $resourceAttributes['message'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class StatusTransitionReason  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['code' => $this->code,
         'message' => $this->message,
         

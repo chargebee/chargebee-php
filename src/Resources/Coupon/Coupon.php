@@ -289,7 +289,7 @@ class Coupon  extends SupportsCustomFields  {
         $this->apply_discount_on = $apply_discount_on;
         $this->apply_on = $apply_on;
         $this->plan_constraint = $plan_constraint;
-        $this->addon_constraint = $addon_constraint;
+        $this->addon_constraint = $addon_constraint; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -349,7 +349,7 @@ class Coupon  extends SupportsCustomFields  {
         isset($resourceAttributes['plan_constraint']) ? \Chargebee\Resources\Coupon\Enums\PlanConstraint::tryFromValue($resourceAttributes['plan_constraint']) : null,
         
         isset($resourceAttributes['addon_constraint']) ? \Chargebee\Resources\Coupon\Enums\AddonConstraint::tryFromValue($resourceAttributes['addon_constraint']) : null,
-        
+         
         );
        foreach ($resourceAttributes as $key => $value) {
             if (!in_array($key, $returnData::$knownFields, true)) {
@@ -361,7 +361,7 @@ class Coupon  extends SupportsCustomFields  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'invoice_name' => $this->invoice_name,

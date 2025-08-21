@@ -136,7 +136,7 @@ class DifferentialPrice  {
         $this->parent_periods = $parent_periods;
         $this->business_entity_id = $business_entity_id;
         $this->deleted = $deleted;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -166,7 +166,7 @@ class DifferentialPrice  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\DifferentialPrice\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -174,7 +174,7 @@ class DifferentialPrice  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'item_price_id' => $this->item_price_id,
         'parent_item_id' => $this->parent_item_id,

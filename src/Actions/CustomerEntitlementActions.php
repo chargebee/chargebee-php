@@ -24,6 +24,7 @@ final class CustomerEntitlementActions implements CustomerEntitlementActionsInte
     *   @param array{
     *     limit?: int,
     *     offset?: string,
+    *     consolidate_entitlements?: bool,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers

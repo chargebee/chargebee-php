@@ -48,7 +48,7 @@ class CustVoucherSource  {
         $this->last4 = $last4;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-        $this->email = $email;  
+        $this->email = $email;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class CustVoucherSource  {
         $resourceAttributes['last_name'] ?? null,
         $resourceAttributes['email'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -66,7 +66,7 @@ class CustVoucherSource  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['last4' => $this->last4,
         'first_name' => $this->first_name,
         'last_name' => $this->last_name,

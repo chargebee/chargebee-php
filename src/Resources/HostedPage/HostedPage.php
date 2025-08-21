@@ -129,7 +129,7 @@ class HostedPage  {
         $this->business_entity_id = $business_entity_id;  
         $this->type = $type;
         $this->state = $state;
-        $this->failure_reason = $failure_reason;
+        $this->failure_reason = $failure_reason; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -152,7 +152,7 @@ class HostedPage  {
         isset($resourceAttributes['state']) ? \Chargebee\Resources\HostedPage\Enums\State::tryFromValue($resourceAttributes['state']) : null,
         
         isset($resourceAttributes['failure_reason']) ? \Chargebee\Resources\HostedPage\Enums\FailureReason::tryFromValue($resourceAttributes['failure_reason']) : null,
-        
+         
         );
        
         return $returnData;
@@ -160,7 +160,7 @@ class HostedPage  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'url' => $this->url,
         'pass_thru_content' => $this->pass_thru_content,

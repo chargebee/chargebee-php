@@ -24,14 +24,14 @@ class Component  {
         ?\Chargebee\Resources\EntitlementOverride\EntitlementOverride $entitlement_overrides,
     )
     { 
-        $this->entitlement_overrides = $entitlement_overrides;  
+        $this->entitlement_overrides = $entitlement_overrides;   
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( isset($resourceAttributes['entitlement_overrides']) ? \Chargebee\Resources\EntitlementOverride\EntitlementOverride::from($resourceAttributes['entitlement_overrides']) : null,
         
-         
+          
         );
        
         return $returnData;
@@ -39,7 +39,7 @@ class Component  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter([
         
         ], function ($value) {

@@ -34,9 +34,15 @@ class QuotedCharge  {
     public ?array $coupons;
     
     /**
+    *
+    * @var ?array<CouponApplicabilityMapping> $coupon_applicability_mappings
+    */
+    public ?array $coupon_applicability_mappings;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "charges" , "addons" , "invoice_items" , "item_tiers" , "coupons"  ];
+    protected static array $knownFields = [ "charges" , "addons" , "invoice_items" , "item_tiers" , "coupons" , "coupon_applicability_mappings"  ];
 
     /**
     * dynamic properties for resources
@@ -50,13 +56,15 @@ class QuotedCharge  {
         ?array $invoice_items,
         ?array $item_tiers,
         ?array $coupons,
+        ?array $coupon_applicability_mappings,
     )
     { 
         $this->charges = $charges;
         $this->addons = $addons;
         $this->invoice_items = $invoice_items;
         $this->item_tiers = $item_tiers;
-        $this->coupons = $coupons;  
+        $this->coupons = $coupons;
+        $this->coupon_applicability_mappings = $coupon_applicability_mappings;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -81,13 +89,18 @@ class QuotedCharge  {
             $result
         ), $resourceAttributes['coupons'] ?? []);
         
+        $coupon_applicability_mappings = array_map(fn (array $result): CouponApplicabilityMapping =>  CouponApplicabilityMapping::from(
+            $result
+        ), $resourceAttributes['coupon_applicability_mappings'] ?? []);
+        
         $returnData = new self( $charges,
         $addons,
         $invoice_items,
         $item_tiers,
         $coupons,
+        $coupon_applicability_mappings,
         
-         
+          
         );
        
         return $returnData;
@@ -95,8 +108,9 @@ class QuotedCharge  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter([
+        
         
         
         
@@ -136,6 +150,12 @@ class QuotedCharge  {
             $data['coupons'] = array_map(
                 fn (Coupon $coupons): array => $coupons->toArray(),
                 $this->coupons
+            );
+        }
+        if($this->coupon_applicability_mappings !== []){
+            $data['coupon_applicability_mappings'] = array_map(
+                fn (CouponApplicabilityMapping $coupon_applicability_mappings): array => $coupon_applicability_mappings->toArray(),
+                $this->coupon_applicability_mappings
             );
         }
 

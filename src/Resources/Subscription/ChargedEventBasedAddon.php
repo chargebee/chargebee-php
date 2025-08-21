@@ -32,7 +32,7 @@ class ChargedEventBasedAddon  {
     )
     { 
         $this->id = $id;
-        $this->last_charged_at = $last_charged_at;  
+        $this->last_charged_at = $last_charged_at;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class ChargedEventBasedAddon  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['last_charged_at'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class ChargedEventBasedAddon  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'last_charged_at' => $this->last_charged_at,
         

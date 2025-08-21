@@ -128,7 +128,7 @@ class GatewayErrorDetail  {
         $this->recommendation_message = $recommendation_message;
         $this->processor_error_code = $processor_error_code;
         $this->processor_error_message = $processor_error_message;
-        $this->error_cause_id = $error_cause_id;  
+        $this->error_cause_id = $error_cause_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -148,7 +148,7 @@ class GatewayErrorDetail  {
         $resourceAttributes['processor_error_message'] ?? null,
         $resourceAttributes['error_cause_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -156,7 +156,7 @@ class GatewayErrorDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['request_id' => $this->request_id,
         'error_category' => $this->error_category,
         'error_code' => $this->error_code,

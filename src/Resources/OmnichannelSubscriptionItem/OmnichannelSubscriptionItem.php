@@ -152,7 +152,7 @@ class OmnichannelSubscriptionItem  {
         $this->status = $status;
         $this->auto_renew_status = $auto_renew_status;
         $this->expiration_reason = $expiration_reason;
-        $this->cancellation_reason = $cancellation_reason;
+        $this->cancellation_reason = $cancellation_reason; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -179,7 +179,7 @@ class OmnichannelSubscriptionItem  {
         isset($resourceAttributes['expiration_reason']) ? \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\ExpirationReason::tryFromValue($resourceAttributes['expiration_reason']) : null,
         
         isset($resourceAttributes['cancellation_reason']) ? \Chargebee\Resources\OmnichannelSubscriptionItem\Enums\CancellationReason::tryFromValue($resourceAttributes['cancellation_reason']) : null,
-        
+         
         );
        
         return $returnData;
@@ -187,7 +187,7 @@ class OmnichannelSubscriptionItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'item_id_at_source' => $this->item_id_at_source,
         'item_parent_id_at_source' => $this->item_parent_id_at_source,

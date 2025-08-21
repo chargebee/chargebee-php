@@ -176,7 +176,7 @@ class PaymentVoucher  {
         $this->linked_invoices = $linked_invoices; 
         $this->payment_voucher_type = $payment_voucher_type;
         $this->gateway = $gateway; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -209,7 +209,7 @@ class PaymentVoucher  {
         isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PaymentVoucher\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -217,7 +217,7 @@ class PaymentVoucher  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'id_at_gateway' => $this->id_at_gateway,
         'expires_at' => $this->expires_at,

@@ -64,7 +64,7 @@ class AccountingDetail  {
         $this->accounting_category1 = $accounting_category1;
         $this->accounting_category2 = $accounting_category2;
         $this->accounting_category3 = $accounting_category3;
-        $this->accounting_category4 = $accounting_category4;  
+        $this->accounting_category4 = $accounting_category4;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class AccountingDetail  {
         $resourceAttributes['accounting_category3'] ?? null,
         $resourceAttributes['accounting_category4'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class AccountingDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['sku' => $this->sku,
         'accounting_code' => $this->accounting_code,
         'accounting_category1' => $this->accounting_category1,

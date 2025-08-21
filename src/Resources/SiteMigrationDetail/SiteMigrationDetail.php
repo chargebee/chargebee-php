@@ -64,7 +64,7 @@ class SiteMigrationDetail  {
         $this->entity_id_at_other_site = $entity_id_at_other_site;
         $this->migrated_at = $migrated_at; 
         $this->entity_type = $entity_type; 
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -78,7 +78,7 @@ class SiteMigrationDetail  {
         isset($resourceAttributes['entity_type']) ? \Chargebee\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\SiteMigrationDetail\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -86,7 +86,7 @@ class SiteMigrationDetail  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['entity_id' => $this->entity_id,
         'other_site_name' => $this->other_site_name,
         'entity_id_at_other_site' => $this->entity_id_at_other_site,

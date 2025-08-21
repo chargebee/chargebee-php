@@ -64,7 +64,7 @@ class Hierarchy  {
         $this->payment_owner_id = $payment_owner_id;
         $this->invoice_owner_id = $invoice_owner_id;
         $this->has_children = $has_children;
-        $this->children_ids = $children_ids;  
+        $this->children_ids = $children_ids;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -76,7 +76,7 @@ class Hierarchy  {
         $resourceAttributes['has_children'] ?? null,
         $resourceAttributes['children_ids'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -84,7 +84,7 @@ class Hierarchy  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['customer_id' => $this->customer_id,
         'parent_id' => $this->parent_id,
         'payment_owner_id' => $this->payment_owner_id,

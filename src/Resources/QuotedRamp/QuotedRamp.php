@@ -56,7 +56,7 @@ class QuotedRamp  {
         $this->line_items = $line_items;
         $this->discounts = $discounts;
         $this->item_tiers = $item_tiers;
-        $this->coupon_applicability_mappings = $coupon_applicability_mappings;  
+        $this->coupon_applicability_mappings = $coupon_applicability_mappings;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -83,7 +83,7 @@ class QuotedRamp  {
         $item_tiers,
         $coupon_applicability_mappings,
         
-         
+          
         );
        
         return $returnData;
@@ -91,7 +91,7 @@ class QuotedRamp  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         
         

@@ -176,7 +176,7 @@ class OrderLineItem  {
         $this->entity_type = $entity_type;
         $this->item_level_discount_amount = $item_level_discount_amount;
         $this->discount_amount = $discount_amount;
-        $this->entity_id = $entity_id;  
+        $this->entity_id = $entity_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -202,7 +202,7 @@ class OrderLineItem  {
         $resourceAttributes['discount_amount'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -210,7 +210,7 @@ class OrderLineItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'invoice_id' => $this->invoice_id,
         'invoice_line_item_id' => $this->invoice_line_item_id,

@@ -200,7 +200,7 @@ class QuotedSubscription  {
         $this->quoted_contract_term = $quoted_contract_term; 
         $this->auto_collection = $auto_collection; 
         $this->billing_period_unit = $billing_period_unit;
-        $this->change_option = $change_option;
+        $this->change_option = $change_option; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -252,7 +252,7 @@ class QuotedSubscription  {
         isset($resourceAttributes['billing_period_unit']) ? \Chargebee\Resources\QuotedSubscription\Enums\BillingPeriodUnit::tryFromValue($resourceAttributes['billing_period_unit']) : null,
         
         isset($resourceAttributes['change_option']) ? \Chargebee\Resources\QuotedSubscription\Enums\ChangeOption::tryFromValue($resourceAttributes['change_option']) : null,
-        
+         
         );
        
         return $returnData;
@@ -260,7 +260,7 @@ class QuotedSubscription  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'plan_id' => $this->plan_id,
         'plan_quantity' => $this->plan_quantity,

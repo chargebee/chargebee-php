@@ -32,7 +32,7 @@ class StatementDescriptor  {
     )
     { 
         $this->id = $id;
-        $this->descriptor = $descriptor;  
+        $this->descriptor = $descriptor;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class StatementDescriptor  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['descriptor'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class StatementDescriptor  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'descriptor' => $this->descriptor,
         

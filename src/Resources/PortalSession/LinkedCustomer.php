@@ -56,7 +56,7 @@ class LinkedCustomer  {
         $this->email = $email;
         $this->has_billing_address = $has_billing_address;
         $this->has_payment_method = $has_payment_method;
-        $this->has_active_subscription = $has_active_subscription;  
+        $this->has_active_subscription = $has_active_subscription;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -67,7 +67,7 @@ class LinkedCustomer  {
         $resourceAttributes['has_payment_method'] ?? null,
         $resourceAttributes['has_active_subscription'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -75,7 +75,7 @@ class LinkedCustomer  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['customer_id' => $this->customer_id,
         'email' => $this->email,
         'has_billing_address' => $this->has_billing_address,

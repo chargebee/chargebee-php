@@ -40,7 +40,7 @@ class ImpactedItem  {
     { 
         $this->count = $count;
         $this->download = $download;
-        $this->items = $items;  
+        $this->items = $items;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -49,7 +49,7 @@ class ImpactedItem  {
         isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
         $resourceAttributes['items'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -57,7 +57,7 @@ class ImpactedItem  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['count' => $this->count,
         
         'items' => $this->items,

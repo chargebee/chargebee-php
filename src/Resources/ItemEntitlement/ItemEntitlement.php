@@ -72,7 +72,7 @@ class ItemEntitlement  {
         $this->feature_name = $feature_name;
         $this->value = $value;
         $this->name = $name;  
-        $this->item_type = $item_type;
+        $this->item_type = $item_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -86,7 +86,7 @@ class ItemEntitlement  {
         
          
         isset($resourceAttributes['item_type']) ? \Chargebee\Resources\ItemEntitlement\Enums\ItemType::tryFromValue($resourceAttributes['item_type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -94,7 +94,7 @@ class ItemEntitlement  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'item_id' => $this->item_id,
         'feature_id' => $this->feature_id,

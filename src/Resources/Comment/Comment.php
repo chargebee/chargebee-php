@@ -35,6 +35,12 @@ class Comment  {
     
     /**
     *
+    * @var ?string $business_entity_id
+    */
+    public ?string $business_entity_id;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\EntityType $entity_type
     */
     public ?\Chargebee\Enums\EntityType $entity_type;
@@ -48,7 +54,7 @@ class Comment  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "added_by" , "notes" , "created_at" , "entity_id"  ];
+    protected static array $knownFields = [ "id" , "added_by" , "notes" , "created_at" , "entity_id" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -62,6 +68,7 @@ class Comment  {
         ?string $notes,
         ?int $created_at,
         ?string $entity_id,
+        ?string $business_entity_id,
         ?\Chargebee\Enums\EntityType $entity_type,
         ?\Chargebee\Resources\Comment\Enums\Type $type,
     )
@@ -70,9 +77,10 @@ class Comment  {
         $this->added_by = $added_by;
         $this->notes = $notes;
         $this->created_at = $created_at;
-        $this->entity_id = $entity_id; 
+        $this->entity_id = $entity_id;
+        $this->business_entity_id = $business_entity_id; 
         $this->entity_type = $entity_type; 
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -82,12 +90,13 @@ class Comment  {
         $resourceAttributes['notes'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
+        $resourceAttributes['business_entity_id'] ?? null,
         
         
         isset($resourceAttributes['entity_type']) ? \Chargebee\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\Comment\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -95,12 +104,13 @@ class Comment  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'added_by' => $this->added_by,
         'notes' => $this->notes,
         'created_at' => $this->created_at,
         'entity_id' => $this->entity_id,
+        'business_entity_id' => $this->business_entity_id,
         
         'entity_type' => $this->entity_type?->value,
         

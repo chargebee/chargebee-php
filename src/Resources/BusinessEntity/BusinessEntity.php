@@ -72,7 +72,7 @@ class BusinessEntity  {
         $this->created_at = $created_at;
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;  
-        $this->status = $status;
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -86,7 +86,7 @@ class BusinessEntity  {
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\BusinessEntity\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
+         
         );
        
         return $returnData;
@@ -94,7 +94,7 @@ class BusinessEntity  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['id' => $this->id,
         'name' => $this->name,
         'deleted' => $this->deleted,

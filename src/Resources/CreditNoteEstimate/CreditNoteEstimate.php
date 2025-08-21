@@ -144,7 +144,7 @@ class CreditNoteEstimate  {
         $this->round_off_amount = $round_off_amount;
         $this->customer_id = $customer_id; 
         $this->price_type = $price_type; 
-        $this->type = $type;
+        $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -192,7 +192,7 @@ class CreditNoteEstimate  {
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\CreditNoteEstimate\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
-        
+         
         );
        
         return $returnData;
@@ -200,7 +200,7 @@ class CreditNoteEstimate  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['reference_invoice_id' => $this->reference_invoice_id,
         'currency_code' => $this->currency_code,
         'sub_total' => $this->sub_total,

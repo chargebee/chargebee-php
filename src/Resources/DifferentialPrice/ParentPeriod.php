@@ -32,7 +32,7 @@ class ParentPeriod  {
     )
     { 
         $this->period_unit = $period_unit;
-        $this->period = $period;  
+        $this->period = $period;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -40,7 +40,7 @@ class ParentPeriod  {
         $returnData = new self( $resourceAttributes['period_unit'] ?? null,
         $resourceAttributes['period'] ?? null,
         
-         
+          
         );
        
         return $returnData;
@@ -48,7 +48,7 @@ class ParentPeriod  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['period_unit' => $this->period_unit,
         'period' => $this->period,
         

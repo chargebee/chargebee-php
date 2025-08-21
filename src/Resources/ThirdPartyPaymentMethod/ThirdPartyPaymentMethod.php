@@ -48,7 +48,7 @@ class ThirdPartyPaymentMethod  {
         $this->gateway_account_id = $gateway_account_id;
         $this->reference_id = $reference_id; 
         $this->type = $type;
-        $this->gateway = $gateway; 
+        $this->gateway = $gateway;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -60,7 +60,7 @@ class ThirdPartyPaymentMethod  {
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
         
         isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
-         
+          
         );
        
         return $returnData;
@@ -68,7 +68,7 @@ class ThirdPartyPaymentMethod  {
 
     public function toArray(): array
     {
-
+        
         $data = array_filter(['gateway_account_id' => $this->gateway_account_id,
         'reference_id' => $this->reference_id,
         
