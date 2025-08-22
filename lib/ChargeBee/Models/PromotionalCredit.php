@@ -22,6 +22,7 @@ class PromotionalCredit extends Model
     'closingBalance',
     'doneBy',
     'createdAt',
+    'businessEntityId',
   ];
 
 

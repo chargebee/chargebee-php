@@ -15,6 +15,8 @@ class QuotedRampItemTier extends Model
     'endingUnitInDecimal',
     'priceInDecimal',
     'rampTierId',
+    'pricingType',
+    'packageSize',
   ];
 
 }

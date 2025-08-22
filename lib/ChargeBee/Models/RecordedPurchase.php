@@ -19,6 +19,7 @@ class RecordedPurchase extends Model
     'createdAt',
     'resourceVersion',
     'linkedOmnichannelSubscriptions',
+    'linkedOmnichannelOneTimeOrders',
     'errorDetail',
   ];
 

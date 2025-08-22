@@ -32,18 +32,18 @@ class UsageFile extends Model
   # OPERATIONS
   #-----------
 
-  public static function upload($params, $env = null, $headers = array())
+  public static function uploadUrl($params, $env = null, $headers = array())
   {
     $jsonKeys = array(
     );
-    return Request::send(Request::POST, Util::encodeURIPath("usage_files","upload"), $params, $env, $headers, "file-ingest", false, $jsonKeys);
+    return Request::send(Request::POST, Util::encodeURIPath("usage_files","upload_url"), $params, $env, $headers, "file-ingest", false, $jsonKeys);
   }
 
-  public static function status($id, $env = null, $headers = array())
+  public static function processingStatus($id, $env = null, $headers = array())
   {
     $jsonKeys = array(
     );
-    return Request::send(Request::GET, Util::encodeURIPath("usage_files",$id,"status"), array(), $env, $headers, "file-ingest", false, $jsonKeys);
+    return Request::send(Request::GET, Util::encodeURIPath("usage_files",$id,"processing_status"), array(), $env, $headers, "file-ingest", false, $jsonKeys);
   }
 
  }
