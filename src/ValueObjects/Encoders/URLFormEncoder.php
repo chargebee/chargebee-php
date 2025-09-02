@@ -25,7 +25,8 @@ class URLFormEncoder implements ParamEncoderInterface
 
         $serialized = [];
         foreach ($value as $k => $v) {
-            $shouldJsonEncode = isset($jsonKeys[$k]) && $jsonKeys[$k] === $level;
+            $camelCaseKey = Util::toCamelCaseFromUnderscore($k);
+            $shouldJsonEncode = isset($jsonKeys[$camelCaseKey]) && $jsonKeys[$camelCaseKey] === $level;
             if ($shouldJsonEncode) {
                 $usK = Util::toUnderscoreFromCamelCase($k);
                 $key = (!is_null($prefix) ? $prefix : '') .

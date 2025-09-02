@@ -48,6 +48,12 @@ class APIRequester
 
     /**
      * Sends the actual HTTP request.
+     * @throws PaymentException
+     * @throws ClientExceptionInterface
+     * @throws OperationFailedException
+     * @throws APIError
+     * @throws InvalidRequestException
+     * @throws \Exception
      */
     private function sendRequest(ChargebeePayload $payload, int $retryCount): ResponseObject
     {
@@ -156,9 +162,12 @@ class APIRequester
         if (method_exists($err, 'getHttpStatusCode')) {
             return $err->getHttpStatusCode();
         }
-        
-        if (method_exists($err, 'getResponse') && method_exists($err->getResponse(), 'getStatusCode')) {
-            return $err->getResponse()->getStatusCode();
+
+        if (method_exists($err, 'getResponse')) {
+            $response = $err->getResponse();
+            if (is_object($response) && method_exists($response, 'getStatusCode')) {
+                return $response->getStatusCode();
+            }
         }
         
         // Fall back to error code, which might not be an HTTP status code
