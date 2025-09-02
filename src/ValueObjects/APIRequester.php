@@ -10,6 +10,7 @@ use Chargebee\Exceptions\PaymentException;
 use Chargebee\RetryConfig;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\HttpClient\HttpClientFactory;
+use Exception;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class APIRequester
@@ -32,11 +33,10 @@ class APIRequester
      * Makes an API request with retry logic.
      *
      * @throws PaymentException
-     * @throws ClientExceptionInterface
      * @throws OperationFailedException
      * @throws APIError
      * @throws InvalidRequestException
-     * @throws \Exception
+     * @throws Exception
      */
     public function makeRequest(ChargebeePayload $payload): ResponseObject
     {
@@ -53,7 +53,7 @@ class APIRequester
      * @throws OperationFailedException
      * @throws APIError
      * @throws InvalidRequestException
-     * @throws \Exception
+     * @throws Exception
      */
     private function sendRequest(ChargebeePayload $payload, int $retryCount): ResponseObject
     {
@@ -77,7 +77,7 @@ class APIRequester
      * @param RetryConfig $retryConfig The retry configuration
      * @param int $retryCount The current retry attempt (0 for initial request)
      * @return ResponseObject The response from the API
-     * @throws \Exception If all retries fail
+     * @throws Exception If all retries fail
      */
     private function withRetry(callable $makeRequest, RetryConfig $retryConfig, int $retryCount = 0): ResponseObject
     {
@@ -107,7 +107,7 @@ class APIRequester
             
             // Retry the request recursively
             return $this->withRetry($makeRequest, $retryConfig, $retryCount + 1);
-        } catch (\Exception $err) {
+        } catch (Exception $err) {
             // Handle generic exceptions
             $statusCode = $this->extractStatusCodeFromException($err);
             
@@ -135,7 +135,7 @@ class APIRequester
     /**
      * Handles rate limit (429) errors with Retry-After header.
      */
-    private function handleRateLimitError(\Exception $err, callable $makeRequest, RetryConfig $retryConfig, int $retryCount): ResponseObject
+    private function handleRateLimitError(Exception $err, callable $makeRequest, RetryConfig $retryConfig, int $retryCount): ResponseObject
     {
         $headers = method_exists($err, 'getHeaders') ? $err->getHeaders() : [];
         $retryAfterHeader = $headers['retry-after'] ?? $headers['Retry-After'] ?? '';
@@ -156,7 +156,7 @@ class APIRequester
     /**
      * Extracts HTTP status code from generic exceptions.
      */
-    private function extractStatusCodeFromException(\Exception $err): int
+    private function extractStatusCodeFromException(Exception $err): int
     {
         // Try various methods to get the status code
         if (method_exists($err, 'getHttpStatusCode')) {
