@@ -19,6 +19,12 @@ use Chargebee\Responses\ExportResponse\ItemPricesExportResponse;
 use Chargebee\Responses\ExportResponse\TransactionsExportResponse;
 use Chargebee\Responses\ExportResponse\ItemsExportResponse;
 use Chargebee\Responses\ExportResponse\DeferredRevenueExportResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface ExportActionsInterface
 {
@@ -131,6 +137,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CustomersExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function customers(array $params = [], array $headers = []): CustomersExportResponse;
 
@@ -188,6 +201,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return AttachedItemsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function attachedItems(array $params = [], array $headers = []): AttachedItemsExportResponse;
 
@@ -303,6 +323,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return TransactionsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function transactions(array $params = [], array $headers = []): TransactionsExportResponse;
 
@@ -343,6 +370,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return DifferentialPricesExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function differentialPrices(array $params = [], array $headers = []): DifferentialPricesExportResponse;
 
@@ -380,6 +414,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ItemFamiliesExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function itemFamilies(array $params = [], array $headers = []): ItemFamiliesExportResponse;
 
@@ -512,6 +553,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return InvoicesExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function invoices(array $params = [], array $headers = []): InvoicesExportResponse;
 
@@ -521,6 +569,13 @@ Interface ExportActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveExportResponse;
 
@@ -572,6 +627,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return PriceVariantsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function priceVariants(array $params = [], array $headers = []): PriceVariantsExportResponse;
 
@@ -658,6 +720,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ItemsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function items(array $params = [], array $headers = []): ItemsExportResponse;
 
@@ -998,6 +1067,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return DeferredRevenueExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function deferredRevenue(array $params, array $headers = []): DeferredRevenueExportResponse;
 
@@ -1338,6 +1414,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return RevenueRecognitionExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function revenueRecognition(array $params, array $headers = []): RevenueRecognitionExportResponse;
 
@@ -1471,6 +1554,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreditNotesExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function creditNotes(array $params = [], array $headers = []): CreditNotesExportResponse;
 
@@ -1540,6 +1630,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CouponsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function coupons(array $params = [], array $headers = []): CouponsExportResponse;
 
@@ -1672,6 +1769,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return OrdersExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function orders(array $params = [], array $headers = []): OrdersExportResponse;
 
@@ -1793,6 +1897,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ItemPricesExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function itemPrices(array $params = [], array $headers = []): ItemPricesExportResponse;
 
@@ -1920,6 +2031,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return SubscriptionsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function subscriptions(array $params = [], array $headers = []): SubscriptionsExportResponse;
 
@@ -2001,6 +2119,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return AddonsExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function addons(array $params = [], array $headers = []): AddonsExportResponse;
 
@@ -2101,6 +2226,13 @@ Interface ExportActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return PlansExportResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function plans(array $params = [], array $headers = []): PlansExportResponse;
 

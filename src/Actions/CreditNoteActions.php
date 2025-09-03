@@ -22,6 +22,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class CreditNoteActions implements CreditNoteActionsInterface
 {
@@ -40,6 +46,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return VoidCreditNoteCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function voidCreditNote(string $id, array $params = [], array $headers = []): VoidCreditNoteCreditNoteResponse
     {
@@ -71,6 +84,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RefundCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function refund(string $id, array $params = [], array $headers = []): RefundCreditNoteResponse
     {
@@ -235,6 +255,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListCreditNoteResponse
     {
@@ -285,6 +312,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateCreditNoteResponse
     {
@@ -323,6 +357,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RecordRefundCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundCreditNoteResponse
     {
@@ -445,6 +486,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ImportCreditNoteCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function importCreditNote(array $params, array $headers = []): ImportCreditNoteCreditNoteResponse
     {
@@ -474,6 +522,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $params = [], array $headers = []): DeleteCreditNoteResponse
     {
@@ -504,6 +559,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreditNotesForCustomerCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function creditNotesForCustomer(string $id, array $params = [], array $headers = []): CreditNotesForCustomerCreditNoteResponse
     {
@@ -530,6 +592,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DownloadEinvoiceCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function downloadEinvoice(string $id, array $headers = []): DownloadEinvoiceCreditNoteResponse
     {
@@ -557,6 +626,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PdfCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function pdf(string $id, array $params = [], array $headers = []): PdfCreditNoteResponse
     {
@@ -584,6 +660,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ResendEinvoiceCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function resendEinvoice(string $id, array $headers = []): ResendEinvoiceCreditNoteResponse
     {
@@ -614,6 +697,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveTaxWithheldRefundCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function removeTaxWithheldRefund(string $id, array $params, array $headers = []): RemoveTaxWithheldRefundCreditNoteResponse
     {
@@ -650,6 +740,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $params = [], array $headers = []): RetrieveCreditNoteResponse
     {
@@ -676,6 +773,13 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SendEinvoiceCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function sendEinvoice(string $id, array $headers = []): SendEinvoiceCreditNoteResponse
     {

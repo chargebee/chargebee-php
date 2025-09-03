@@ -13,6 +13,12 @@ use Chargebee\Responses\OrderResponse\CreateOrderResponse;
 use Chargebee\Responses\OrderResponse\ListOrderResponse;
 use Chargebee\Responses\OrderResponse\AssignOrderNumberOrderResponse;
 use Chargebee\Responses\OrderResponse\DeleteOrderResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface OrderActionsInterface
 {
@@ -113,6 +119,13 @@ Interface OrderActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListOrderResponse;
 
@@ -132,6 +145,13 @@ Interface OrderActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateOrderResponse;
 
@@ -196,6 +216,13 @@ Interface OrderActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ImportOrderOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function importOrder(array $params, array $headers = []): ImportOrderOrderResponse;
 
@@ -205,6 +232,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AssignOrderNumberOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function assignOrderNumber(string $id, array $headers = []): AssignOrderNumberOrderResponse;
 
@@ -221,6 +255,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ResendOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function resend(string $id, array $params = [], array $headers = []): ResendOrderResponse;
 
@@ -232,6 +273,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ReopenOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function reopen(string $id, array $params = [], array $headers = []): ReopenOrderResponse;
 
@@ -244,6 +292,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return OrdersForInvoiceOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function ordersForInvoice(string $id, array $params = [], array $headers = []): OrdersForInvoiceOrderResponse;
 
@@ -261,6 +316,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CancelOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function cancel(string $id, array $params, array $headers = []): CancelOrderResponse;
 
@@ -270,6 +332,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveOrderResponse;
 
@@ -315,6 +384,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateOrderResponse;
 
@@ -324,6 +400,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteOrderResponse;
 
@@ -340,6 +423,13 @@ Interface OrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateRefundableCreditNoteOrderResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createRefundableCreditNote(string $id, array $params, array $headers = []): CreateRefundableCreditNoteOrderResponse;
 

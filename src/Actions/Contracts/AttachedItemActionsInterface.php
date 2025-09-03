@@ -6,6 +6,12 @@ use Chargebee\Responses\AttachedItemResponse\RetrieveAttachedItemResponse;
 use Chargebee\Responses\AttachedItemResponse\DeleteAttachedItemResponse;
 use Chargebee\Responses\AttachedItemResponse\CreateAttachedItemResponse;
 use Chargebee\Responses\AttachedItemResponse\UpdateAttachedItemResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface AttachedItemActionsInterface
 {
@@ -18,6 +24,13 @@ Interface AttachedItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveAttachedItemResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $params, array $headers = []): RetrieveAttachedItemResponse;
 
@@ -35,6 +48,13 @@ Interface AttachedItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateAttachedItemResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateAttachedItemResponse;
 
@@ -85,6 +105,13 @@ Interface AttachedItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ListAttachedItemResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(string $id, array $params = [], array $headers = []): ListAttachedItemResponse;
 
@@ -103,6 +130,13 @@ Interface AttachedItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateAttachedItemResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(string $id, array $params, array $headers = []): CreateAttachedItemResponse;
 
@@ -114,6 +148,13 @@ Interface AttachedItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteAttachedItemResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $params, array $headers = []): DeleteAttachedItemResponse;
 

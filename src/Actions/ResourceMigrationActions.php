@@ -8,6 +8,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class ResourceMigrationActions implements ResourceMigrationActionsInterface
 {
@@ -28,6 +34,13 @@ final class ResourceMigrationActions implements ResourceMigrationActionsInterfac
     *   
     *   @param array<string, string> $headers
     *   @return RetrieveLatestResourceMigrationResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieveLatest(array $params, array $headers = []): RetrieveLatestResourceMigrationResponse
     {

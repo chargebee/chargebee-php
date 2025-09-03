@@ -5,6 +5,12 @@ use Chargebee\Responses\PaymentVoucherResponse\PaymentVouchersForCustomerPayment
 use Chargebee\Responses\PaymentVoucherResponse\RetrievePaymentVoucherResponse;
 use Chargebee\Responses\PaymentVoucherResponse\PaymentVouchersForInvoicePaymentVoucherResponse;
 use Chargebee\Responses\PaymentVoucherResponse\CreatePaymentVoucherResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PaymentVoucherActionsInterface
 {
@@ -28,6 +34,13 @@ Interface PaymentVoucherActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PaymentVouchersForCustomerPaymentVoucherResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function paymentVouchersForCustomer(string $id, array $params = [], array $headers = []): PaymentVouchersForCustomerPaymentVoucherResponse;
 
@@ -50,6 +63,13 @@ Interface PaymentVoucherActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PaymentVouchersForInvoicePaymentVoucherResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function paymentVouchersForInvoice(string $id, array $params = [], array $headers = []): PaymentVouchersForInvoicePaymentVoucherResponse;
 
@@ -59,6 +79,13 @@ Interface PaymentVoucherActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePaymentVoucherResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrievePaymentVoucherResponse;
 
@@ -77,6 +104,13 @@ Interface PaymentVoucherActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreatePaymentVoucherResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreatePaymentVoucherResponse;
 

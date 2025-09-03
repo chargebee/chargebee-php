@@ -5,6 +5,12 @@ use Chargebee\Responses\PortalSessionResponse\CreatePortalSessionResponse;
 use Chargebee\Responses\PortalSessionResponse\RetrievePortalSessionResponse;
 use Chargebee\Responses\PortalSessionResponse\ActivatePortalSessionResponse;
 use Chargebee\Responses\PortalSessionResponse\LogoutPortalSessionResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PortalSessionActionsInterface
 {
@@ -21,6 +27,13 @@ Interface PortalSessionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreatePortalSessionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreatePortalSessionResponse;
 
@@ -32,6 +45,13 @@ Interface PortalSessionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ActivatePortalSessionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function activate(string $id, array $params, array $headers = []): ActivatePortalSessionResponse;
 
@@ -41,6 +61,13 @@ Interface PortalSessionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return LogoutPortalSessionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function logout(string $id, array $headers = []): LogoutPortalSessionResponse;
 
@@ -50,6 +77,13 @@ Interface PortalSessionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePortalSessionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrievePortalSessionResponse;
 

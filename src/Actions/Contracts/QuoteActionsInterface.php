@@ -21,6 +21,12 @@ use Chargebee\Responses\QuoteResponse\UpdateSubscriptionQuoteForItemsQuoteRespon
 use Chargebee\Responses\QuoteResponse\QuoteLineGroupsForQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\EditUpdateSubscriptionQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\ExtendExpiryDateQuoteResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface QuoteActionsInterface
 {
@@ -133,6 +139,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateSubItemsForCustomerQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createSubItemsForCustomerQuote(string $id, array $params, array $headers = []): CreateSubItemsForCustomerQuoteQuoteResponse;
 
@@ -142,6 +155,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveQuoteResponse;
 
@@ -252,6 +272,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditCreateSubCustomerQuoteForItemsQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editCreateSubCustomerQuoteForItems(string $id, array $params, array $headers = []): EditCreateSubCustomerQuoteForItemsQuoteResponse;
 
@@ -264,6 +291,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateStatusQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateStatus(string $id, array $params, array $headers = []): UpdateStatusQuoteResponse;
 
@@ -390,6 +424,13 @@ Interface QuoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return UpdateSubscriptionQuoteForItemsQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateSubscriptionQuoteForItems(array $params, array $headers = []): UpdateSubscriptionQuoteForItemsQuoteResponse;
 
@@ -402,6 +443,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return QuoteLineGroupsForQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function quoteLineGroupsForQuote(string $id, array $params = [], array $headers = []): QuoteLineGroupsForQuoteQuoteResponse;
 
@@ -413,6 +461,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ExtendExpiryDateQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function extendExpiryDate(string $id, array $params, array $headers = []): ExtendExpiryDateQuoteResponse;
 
@@ -501,6 +556,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditForChargeItemsAndChargesQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editForChargeItemsAndCharges(string $id, array $params, array $headers = []): EditForChargeItemsAndChargesQuoteResponse;
 
@@ -625,6 +687,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditUpdateSubscriptionQuoteForItemsQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editUpdateSubscriptionQuoteForItems(string $id, array $params, array $headers = []): EditUpdateSubscriptionQuoteForItemsQuoteResponse;
 
@@ -682,6 +751,13 @@ Interface QuoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListQuoteResponse;
 
@@ -694,6 +770,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PdfQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function pdf(string $id, array $params = [], array $headers = []): PdfQuoteResponse;
 
@@ -714,6 +797,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ConvertQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function convert(string $id, array $params = [], array $headers = []): ConvertQuoteResponse;
 
@@ -804,6 +894,13 @@ Interface QuoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForChargeItemsAndChargesQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createForChargeItemsAndCharges(array $params, array $headers = []): CreateForChargeItemsAndChargesQuoteResponse;
 
@@ -815,6 +912,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $params = [], array $headers = []): DeleteQuoteResponse;
 
@@ -869,6 +973,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditOneTimeQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editOneTimeQuote(string $id, array $params = [], array $headers = []): EditOneTimeQuoteQuoteResponse;
 
@@ -970,6 +1081,13 @@ Interface QuoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return UpdateSubscriptionQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateSubscriptionQuote(array $params, array $headers = []): UpdateSubscriptionQuoteQuoteResponse;
 
@@ -1026,6 +1144,13 @@ Interface QuoteActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForOnetimeChargesQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createForOnetimeCharges(array $params, array $headers = []): CreateForOnetimeChargesQuoteResponse;
 
@@ -1098,6 +1223,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateSubForCustomerQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createSubForCustomerQuote(string $id, array $params, array $headers = []): CreateSubForCustomerQuoteQuoteResponse;
 
@@ -1197,6 +1329,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditUpdateSubscriptionQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editUpdateSubscriptionQuote(string $id, array $params = [], array $headers = []): EditUpdateSubscriptionQuoteQuoteResponse;
 
@@ -1268,6 +1407,13 @@ Interface QuoteActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditCreateSubForCustomerQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function editCreateSubForCustomerQuote(string $id, array $params, array $headers = []): EditCreateSubForCustomerQuoteQuoteResponse;
 

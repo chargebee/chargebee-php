@@ -3,6 +3,12 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\EventResponse\RetrieveEventResponse;
 use Chargebee\Responses\EventResponse\ListEventResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface EventActionsInterface
 {
@@ -53,6 +59,13 @@ Interface EventActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListEventResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListEventResponse;
 
@@ -62,6 +75,13 @@ Interface EventActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveEventResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveEventResponse;
 

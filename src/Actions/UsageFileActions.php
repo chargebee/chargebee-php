@@ -9,6 +9,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class UsageFileActions implements UsageFileActionsInterface
 {
@@ -25,6 +31,13 @@ final class UsageFileActions implements UsageFileActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ProcessingStatusUsageFileResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function processingStatus(string $id, array $headers = []): ProcessingStatusUsageFileResponse
     {
@@ -53,6 +66,13 @@ final class UsageFileActions implements UsageFileActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return UploadUrlUsageFileResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function uploadUrl(array $params, array $headers = []): UploadUrlUsageFileResponse
     {

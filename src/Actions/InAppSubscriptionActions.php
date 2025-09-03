@@ -11,6 +11,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class InAppSubscriptionActions implements InAppSubscriptionActionsInterface
 {
@@ -29,6 +35,13 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveStoreSubsInAppSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieveStoreSubs(string $id, array $params, array $headers = []): RetrieveStoreSubsInAppSubscriptionResponse
     {
@@ -65,6 +78,13 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportReceiptInAppSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function importReceipt(string $id, array $params, array $headers = []): ImportReceiptInAppSubscriptionResponse
     {
@@ -107,6 +127,13 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportSubscriptionInAppSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function importSubscription(string $id, array $params, array $headers = []): ImportSubscriptionInAppSubscriptionResponse
     {
@@ -151,6 +178,13 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ProcessReceiptInAppSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function processReceipt(string $id, array $params, array $headers = []): ProcessReceiptInAppSubscriptionResponse
     {

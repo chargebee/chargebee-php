@@ -10,6 +10,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class BusinessEntityActions implements BusinessEntityActionsInterface
 {
@@ -48,6 +54,13 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return GetTransfersBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function getTransfers(array $params = [], array $headers = []): GetTransfersBusinessEntityResponse
     {
@@ -80,6 +93,13 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateTransfersBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createTransfers(array $params, array $headers = []): CreateTransfersBusinessEntityResponse
     {

@@ -17,6 +17,12 @@ use Chargebee\Responses\PaymentSourceResponse\ExportPaymentSourcePaymentSourceRe
 use Chargebee\Responses\PaymentSourceResponse\CreateUsingPaymentIntentPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\VerifyBankAccountPaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\CreateVoucherPaymentSourcePaymentSourceResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PaymentSourceActionsInterface
 {
@@ -61,6 +67,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateUsingPermanentTokenPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createUsingPermanentToken(array $params, array $headers = []): CreateUsingPermanentTokenPaymentSourceResponse;
 
@@ -70,6 +83,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeletePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeletePaymentSourceResponse;
 
@@ -100,6 +120,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateCardPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createCard(array $params, array $headers = []): CreateCardPaymentSourceResponse;
 
@@ -112,6 +139,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return VerifyBankAccountPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function verifyBankAccount(string $id, array $params, array $headers = []): VerifyBankAccountPaymentSourceResponse;
 
@@ -161,6 +195,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListPaymentSourceResponse;
 
@@ -172,6 +213,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ExportPaymentSourcePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function exportPaymentSource(string $id, array $params, array $headers = []): ExportPaymentSourcePaymentSourceResponse;
 
@@ -194,6 +242,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateUsingPaymentIntentPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createUsingPaymentIntent(array $params, array $headers = []): CreateUsingPaymentIntentPaymentSourceResponse;
 
@@ -203,6 +258,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrievePaymentSourceResponse;
 
@@ -220,6 +282,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateVoucherPaymentSourcePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createVoucherPaymentSource(array $params, array $headers = []): CreateVoucherPaymentSourcePaymentSourceResponse;
 
@@ -237,6 +306,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateUsingTempTokenPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createUsingTempToken(array $params, array $headers = []): CreateUsingTempTokenPaymentSourceResponse;
 
@@ -263,6 +339,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateCardPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateCard(string $id, array $params = [], array $headers = []): UpdateCardPaymentSourceResponse;
 
@@ -274,6 +357,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SwitchGatewayAccountPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function switchGatewayAccount(string $id, array $params, array $headers = []): SwitchGatewayAccountPaymentSourceResponse;
 
@@ -287,6 +377,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateUsingTokenPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createUsingToken(array $params, array $headers = []): CreateUsingTokenPaymentSourceResponse;
 
@@ -296,6 +393,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteLocalPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function deleteLocal(string $id, array $headers = []): DeleteLocalPaymentSourceResponse;
 
@@ -327,6 +431,13 @@ Interface PaymentSourceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateBankAccountPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function createBankAccount(array $params, array $headers = []): CreateBankAccountPaymentSourceResponse;
 
@@ -342,6 +453,13 @@ Interface PaymentSourceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateBankAccountPaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateBankAccount(string $id, array $params = [], array $headers = []): UpdateBankAccountPaymentSourceResponse;
 

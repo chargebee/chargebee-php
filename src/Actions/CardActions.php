@@ -12,6 +12,12 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class CardActions implements CardActionsInterface
 {
@@ -30,6 +36,13 @@ final class CardActions implements CardActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CopyCardForCustomerCardResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function copyCardForCustomer(string $id, array $params, array $headers = []): CopyCardForCustomerCardResponse
     {
@@ -57,6 +70,13 @@ final class CardActions implements CardActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCardResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCardResponse
     {
@@ -85,6 +105,13 @@ final class CardActions implements CardActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SwitchGatewayForCustomerCardResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function switchGatewayForCustomer(string $id, array $params, array $headers = []): SwitchGatewayForCustomerCardResponse
     {
@@ -112,6 +139,13 @@ final class CardActions implements CardActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteCardForCustomerCardResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function deleteCardForCustomer(string $id, array $headers = []): DeleteCardForCustomerCardResponse
     {
@@ -160,6 +194,13 @@ final class CardActions implements CardActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateCardForCustomerCardResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function updateCardForCustomer(string $id, array $params, array $headers = []): UpdateCardForCustomerCardResponse
     {

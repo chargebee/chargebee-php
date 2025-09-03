@@ -8,6 +8,12 @@ use Chargebee\Responses\CouponSetResponse\ListCouponSetResponse;
 use Chargebee\Responses\CouponSetResponse\UpdateCouponSetResponse;
 use Chargebee\Responses\CouponSetResponse\DeleteCouponSetResponse;
 use Chargebee\Responses\CouponSetResponse\DeleteUnusedCouponCodesCouponSetResponse;
+use Exception;
+use Psr\Http\Client\ClientExceptionInterface;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface CouponSetActionsInterface
 {
@@ -69,6 +75,13 @@ Interface CouponSetActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListCouponSetResponse;
 
@@ -83,6 +96,13 @@ Interface CouponSetActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateCouponSetResponse;
 
@@ -95,6 +115,13 @@ Interface CouponSetActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateCouponSetResponse;
 
@@ -104,6 +131,13 @@ Interface CouponSetActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCouponSetResponse;
 
@@ -115,6 +149,13 @@ Interface CouponSetActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddCouponCodesCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function addCouponCodes(string $id, array $params = [], array $headers = []): AddCouponCodesCouponSetResponse;
 
@@ -124,6 +165,13 @@ Interface CouponSetActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteUnusedCouponCodesCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function deleteUnusedCouponCodes(string $id, array $headers = []): DeleteUnusedCouponCodesCouponSetResponse;
 
@@ -133,6 +181,13 @@ Interface CouponSetActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteCouponSetResponse
+    *   @throws PaymentException
+    *   @throws ClientExceptionInterface
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteCouponSetResponse;
 
