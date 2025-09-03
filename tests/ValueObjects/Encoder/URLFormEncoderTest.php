@@ -136,7 +136,7 @@ final class URLFormEncoderTest extends TestCase
 
     /** Should convert params to URL Form Encode with that particular attributes to json string */
     /** first_name=John&last_name=Doe&billing_address={"city":"Walnut","State":"California"} */
-    public function testEncodeParamsWithAttributeAsJsonObjectAndCamelCaseAtSameLevelShouldConvertAttributeToJsonString(): void {
+    public function testEncodeParamsWithAttributeAsJsonObjectAndCamelCaseAtSameLevel(): void {
         $params = [
             "first_name" => "John",
             "last_name" => "Doe",
@@ -155,7 +155,7 @@ final class URLFormEncoderTest extends TestCase
 
     /** Should convert params to URL Form Encode with that particular attributes to json string */
     /** first_name=John&last_name=Doe&billing_address={"city":"Walnut","State":"California"} */
-    public function testEncodeParamsWithAttributeAsJsonStringAndCamelCaseAtSameLevelShouldConvertAttributeToJsonString(): void {
+    public function testEncodeParamsWithAttributeAsJsonStringAndCamelCaseAtSameLevel(): void {
         $params = [
             "first_name" => "John",
             "last_name" => "Doe",
