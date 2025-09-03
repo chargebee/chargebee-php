@@ -51,18 +51,4 @@ class ListWebhookEndpointResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListWebhookEndpointResponseListObject {
-    
-        public WebhookEndpoint $webhook_endpoint;
-    
-public function __construct(
-    WebhookEndpoint $webhook_endpoint,
-){ 
-    $this->webhook_endpoint = $webhook_endpoint;
-
-}
-}
-
 ?>

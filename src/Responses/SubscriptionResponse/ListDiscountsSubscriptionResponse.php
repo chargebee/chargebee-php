@@ -51,18 +51,4 @@ class ListDiscountsSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListDiscountsSubscriptionResponseListObject {
-    
-        public Discount $discount;
-    
-public function __construct(
-    Discount $discount,
-){ 
-    $this->discount = $discount;
-
-}
-}
-
 ?>

@@ -51,18 +51,4 @@ class PaymentsForInvoiceTransactionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class PaymentsForInvoiceTransactionResponseListObject {
-    
-        public Transaction $transaction;
-    
-public function __construct(
-    Transaction $transaction,
-){ 
-    $this->transaction = $transaction;
-
-}
-}
-
 ?>

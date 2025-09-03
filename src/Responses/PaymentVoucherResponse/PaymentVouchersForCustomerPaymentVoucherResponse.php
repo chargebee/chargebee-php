@@ -51,18 +51,4 @@ class PaymentVouchersForCustomerPaymentVoucherResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class PaymentVouchersForCustomerPaymentVoucherResponseListObject {
-    
-        public PaymentVoucher $payment_voucher;
-    
-public function __construct(
-    PaymentVoucher $payment_voucher,
-){ 
-    $this->payment_voucher = $payment_voucher;
-
-}
-}
-
 ?>

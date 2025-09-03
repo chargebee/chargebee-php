@@ -51,18 +51,4 @@ class ContactsForCustomerCustomerResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ContactsForCustomerCustomerResponseListObject {
-    
-        public Contact $contact;
-    
-public function __construct(
-    Contact $contact,
-){ 
-    $this->contact = $contact;
-
-}
-}
-
 ?>

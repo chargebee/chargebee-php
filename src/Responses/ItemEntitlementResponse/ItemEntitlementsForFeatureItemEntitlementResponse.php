@@ -51,18 +51,4 @@ class ItemEntitlementsForFeatureItemEntitlementResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ItemEntitlementsForFeatureItemEntitlementResponseListObject {
-    
-        public ItemEntitlement $item_entitlement;
-    
-public function __construct(
-    ItemEntitlement $item_entitlement,
-){ 
-    $this->item_entitlement = $item_entitlement;
-
-}
-}
-
 ?>

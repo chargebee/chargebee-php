@@ -51,18 +51,4 @@ class ListPromotionalCreditResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListPromotionalCreditResponseListObject {
-    
-        public PromotionalCredit $promotional_credit;
-    
-public function __construct(
-    PromotionalCredit $promotional_credit,
-){ 
-    $this->promotional_credit = $promotional_credit;
-
-}
-}
-
 ?>

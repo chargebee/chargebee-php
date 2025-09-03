@@ -51,18 +51,4 @@ class ListEventResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListEventResponseListObject {
-    
-        public Event $event;
-    
-public function __construct(
-    Event $event,
-){ 
-    $this->event = $event;
-
-}
-}
-
 ?>

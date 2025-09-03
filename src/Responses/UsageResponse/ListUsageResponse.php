@@ -51,18 +51,4 @@ class ListUsageResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListUsageResponseListObject {
-    
-        public Usage $usage;
-    
-public function __construct(
-    Usage $usage,
-){ 
-    $this->usage = $usage;
-
-}
-}
-
 ?>

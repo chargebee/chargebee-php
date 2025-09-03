@@ -51,18 +51,4 @@ class ListRampResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListRampResponseListObject {
-    
-        public Ramp $ramp;
-    
-public function __construct(
-    Ramp $ramp,
-){ 
-    $this->ramp = $ramp;
-
-}
-}
-
 ?>

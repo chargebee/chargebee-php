@@ -51,18 +51,4 @@ class ListPaymentSourceResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListPaymentSourceResponseListObject {
-    
-        public PaymentSource $payment_source;
-    
-public function __construct(
-    PaymentSource $payment_source,
-){ 
-    $this->payment_source = $payment_source;
-
-}
-}
-
 ?>

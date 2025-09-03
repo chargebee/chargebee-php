@@ -51,18 +51,4 @@ class ListOrderResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListOrderResponseListObject {
-    
-        public Order $order;
-    
-public function __construct(
-    Order $order,
-){ 
-    $this->order = $order;
-
-}
-}
-
 ?>
