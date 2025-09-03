@@ -4,7 +4,6 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\AddressResponse\UpdateAddressResponse;
 use Chargebee\Responses\AddressResponse\RetrieveAddressResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -23,12 +22,10 @@ Interface AddressActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveAddressResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(array $params, array $headers = []): RetrieveAddressResponse;
 
@@ -56,12 +53,10 @@ Interface AddressActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateAddressResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(array $params, array $headers = []): UpdateAddressResponse;
 

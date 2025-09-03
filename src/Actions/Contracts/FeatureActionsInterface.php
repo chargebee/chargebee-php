@@ -10,7 +10,6 @@ use Chargebee\Responses\FeatureResponse\UpdateFeatureResponse;
 use Chargebee\Responses\FeatureResponse\ArchiveFeatureResponse;
 use Chargebee\Responses\FeatureResponse\RetrieveFeatureResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -55,12 +54,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return ListFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListFeatureResponse;
 
@@ -83,12 +80,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateFeatureResponse;
 
@@ -99,12 +94,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteFeatureResponse;
 
@@ -115,12 +108,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveFeatureResponse;
 
@@ -141,12 +132,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateFeatureResponse;
 
@@ -157,12 +146,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return ArchiveFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function archive(string $id, array $headers = []): ArchiveFeatureResponse;
 
@@ -173,12 +160,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return ActivateFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function activate(string $id, array $headers = []): ActivateFeatureResponse;
 
@@ -189,12 +174,10 @@ Interface FeatureActionsInterface
     *   @param array<string, string> $headers
     *   @return ReactivateFeatureResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function reactivate(string $id, array $headers = []): ReactivateFeatureResponse;
 

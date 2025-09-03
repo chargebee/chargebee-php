@@ -35,7 +35,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -59,12 +58,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $params = [], array $headers = []): DeleteCustomerResponse
     {
@@ -99,12 +96,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return AddPromotionalCreditsCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function addPromotionalCredits(string $id, array $params, array $headers = []): AddPromotionalCreditsCustomerResponse
     {
@@ -152,12 +147,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return RelationshipsCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function relationships(string $id, array $params = [], array $headers = []): RelationshipsCustomerResponse
     {
@@ -186,12 +179,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteRelationshipCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteRelationship(string $id, array $headers = []): DeleteRelationshipCustomerResponse
     {
@@ -223,12 +214,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteContactCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteContact(string $id, array $params, array $headers = []): DeleteContactCustomerResponse
     {
@@ -260,12 +249,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return AssignPaymentRoleCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function assignPaymentRole(string $id, array $params, array $headers = []): AssignPaymentRoleCustomerResponse
     {
@@ -297,12 +284,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return MoveCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function move(array $params, array $headers = []): MoveCustomerResponse
     {
@@ -333,12 +318,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return HierarchyCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function hierarchy(string $id, array $params, array $headers = []): HierarchyCustomerResponse
     {
@@ -376,12 +359,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdatePaymentMethodCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updatePaymentMethod(string $id, array $params, array $headers = []): UpdatePaymentMethodCustomerResponse
     {
@@ -411,12 +392,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCustomerResponse
     {
@@ -472,12 +451,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateCustomerResponse
     {
@@ -512,12 +489,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return ListHierarchyDetailCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function listHierarchyDetail(string $id, array $params, array $headers = []): ListHierarchyDetailCustomerResponse
     {
@@ -551,12 +526,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return ChangeBillingDateCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function changeBillingDate(string $id, array $params = [], array $headers = []): ChangeBillingDateCustomerResponse
     {
@@ -689,12 +662,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return ListCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListCustomerResponse
     {
@@ -842,12 +813,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params = [], array $headers = []): CreateCustomerResponse
     {
@@ -892,12 +861,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return AddContactCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function addContact(string $id, array $params, array $headers = []): AddContactCustomerResponse
     {
@@ -929,12 +896,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return ContactsForCustomerCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function contactsForCustomer(string $id, array $params = [], array $headers = []): ContactsForCustomerCustomerResponse
     {
@@ -968,12 +933,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return DeductPromotionalCreditsCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deductPromotionalCredits(string $id, array $params, array $headers = []): DeductPromotionalCreditsCustomerResponse
     {
@@ -1002,12 +965,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return ClearPersonalDataCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function clearPersonalData(string $id, array $headers = []): ClearPersonalDataCustomerResponse
     {
@@ -1038,12 +999,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return MergeCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function merge(array $params, array $headers = []): MergeCustomerResponse
     {
@@ -1117,12 +1076,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return CollectPaymentCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function collectPayment(string $id, array $params, array $headers = []): CollectPaymentCustomerResponse
     {
@@ -1163,12 +1120,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return RecordExcessPaymentCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function recordExcessPayment(string $id, array $params, array $headers = []): RecordExcessPaymentCustomerResponse
     {
@@ -1203,12 +1158,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return SetPromotionalCreditsCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function setPromotionalCredits(string $id, array $params, array $headers = []): SetPromotionalCreditsCustomerResponse
     {
@@ -1249,12 +1202,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateContactCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateContact(string $id, array $params, array $headers = []): UpdateContactCustomerResponse
     {
@@ -1299,12 +1250,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateHierarchySettingsCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateHierarchySettings(string $id, array $params = [], array $headers = []): UpdateHierarchySettingsCustomerResponse
     {
@@ -1370,12 +1319,10 @@ final class CustomerActions implements CustomerActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateBillingInfoCustomerResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateBillingInfo(string $id, array $params = [], array $headers = []): UpdateBillingInfoCustomerResponse
     {

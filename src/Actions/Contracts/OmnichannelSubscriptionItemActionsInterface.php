@@ -3,7 +3,6 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\OmnichannelSubscriptionItemResponse\ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -22,12 +21,10 @@ Interface OmnichannelSubscriptionItemActionsInterface
     *   @param array<string, string> $headers
     *   @return ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function listOmniSubItemScheduleChanges(string $id, array $params = [], array $headers = []): ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse;
 

@@ -9,7 +9,6 @@ use Chargebee\Responses\VirtualBankAccountResponse\ListVirtualBankAccountRespons
 use Chargebee\Responses\VirtualBankAccountResponse\CreateVirtualBankAccountResponse;
 use Chargebee\Responses\VirtualBankAccountResponse\DeleteLocalVirtualBankAccountResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -25,12 +24,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteLocalVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteLocal(string $id, array $headers = []): DeleteLocalVirtualBankAccountResponse;
 
@@ -41,12 +38,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteVirtualBankAccountResponse;
 
@@ -79,12 +74,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return ListVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListVirtualBankAccountResponse;
 
@@ -99,12 +92,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateVirtualBankAccountResponse;
 
@@ -115,12 +106,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return SyncFundVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function syncFund(string $id, array $headers = []): SyncFundVirtualBankAccountResponse;
 
@@ -131,12 +120,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveVirtualBankAccountResponse;
 
@@ -151,12 +138,10 @@ Interface VirtualBankAccountActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateUsingPermanentTokenVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createUsingPermanentToken(array $params, array $headers = []): CreateUsingPermanentTokenVirtualBankAccountResponse;
 

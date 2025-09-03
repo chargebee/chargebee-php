@@ -14,7 +14,6 @@ use Chargebee\Responses\TransactionResponse\VoidTransactionTransactionResponse;
 use Chargebee\Responses\TransactionResponse\SyncTransactionTransactionResponse;
 use Chargebee\Responses\TransactionResponse\RetrieveTransactionResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -141,12 +140,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return ListTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListTransactionResponse;
 
@@ -161,12 +158,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return ReconcileTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function reconcile(string $id, array $params = [], array $headers = []): ReconcileTransactionResponse;
 
@@ -177,12 +172,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveTransactionResponse;
 
@@ -196,12 +189,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return RefundTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function refund(string $id, array $params = [], array $headers = []): RefundTransactionResponse;
 
@@ -215,12 +206,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return TransactionsForCustomerTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function transactionsForCustomer(string $id, array $params = [], array $headers = []): TransactionsForCustomerTransactionResponse;
 
@@ -238,12 +227,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return RecordRefundTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundTransactionResponse;
 
@@ -257,12 +244,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return TransactionsForSubscriptionTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function transactionsForSubscription(string $id, array $params = [], array $headers = []): TransactionsForSubscriptionTransactionResponse;
 
@@ -273,12 +258,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return VoidTransactionTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function voidTransaction(string $id, array $headers = []): VoidTransactionTransactionResponse;
 
@@ -289,12 +272,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return SyncTransactionTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function syncTransaction(string $id, array $headers = []): SyncTransactionTransactionResponse;
 
@@ -310,12 +291,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateAuthorizationTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createAuthorization(array $params, array $headers = []): CreateAuthorizationTransactionResponse;
 
@@ -329,12 +308,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return PaymentsForInvoiceTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function paymentsForInvoice(string $id, array $params = [], array $headers = []): PaymentsForInvoiceTransactionResponse;
 
@@ -347,12 +324,10 @@ Interface TransactionActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteOfflineTransactionTransactionResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteOfflineTransaction(string $id, array $params = [], array $headers = []): DeleteOfflineTransactionTransactionResponse;
 

@@ -7,7 +7,6 @@ use Chargebee\Responses\PriceVariantResponse\UpdatePriceVariantResponse;
 use Chargebee\Responses\PriceVariantResponse\DeletePriceVariantResponse;
 use Chargebee\Responses\PriceVariantResponse\RetrievePriceVariantResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -23,12 +22,10 @@ Interface PriceVariantActionsInterface
     *   @param array<string, string> $headers
     *   @return DeletePriceVariantResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeletePriceVariantResponse;
 
@@ -85,12 +82,10 @@ Interface PriceVariantActionsInterface
     *   @param array<string, string> $headers
     *   @return ListPriceVariantResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListPriceVariantResponse;
 
@@ -112,12 +107,10 @@ Interface PriceVariantActionsInterface
     *   @param array<string, string> $headers
     *   @return CreatePriceVariantResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreatePriceVariantResponse;
 
@@ -128,12 +121,10 @@ Interface PriceVariantActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrievePriceVariantResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrievePriceVariantResponse;
 
@@ -154,12 +145,10 @@ Interface PriceVariantActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdatePriceVariantResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdatePriceVariantResponse;
 

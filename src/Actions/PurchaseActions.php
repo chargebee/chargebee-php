@@ -10,7 +10,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -110,12 +109,10 @@ final class PurchaseActions implements PurchaseActionsInterface
     *   @param array<string, string> $headers
     *   @return CreatePurchaseResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreatePurchaseResponse
     {
@@ -222,12 +219,10 @@ final class PurchaseActions implements PurchaseActionsInterface
     *   @param array<string, string> $headers
     *   @return EstimatePurchaseResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function estimate(array $params, array $headers = []): EstimatePurchaseResponse
     {

@@ -28,7 +28,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -55,12 +54,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return RenewalEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function renewalEstimate(string $id, array $params = [], array $headers = []): RenewalEstimateEstimateResponse
     {
@@ -184,12 +181,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateSubItemEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createSubItemEstimate(array $params, array $headers = []): CreateSubItemEstimateEstimateResponse
     {
@@ -224,12 +219,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return PaymentSchedulesEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function paymentSchedules(array $params, array $headers = []): PaymentSchedulesEstimateResponse
     {
@@ -277,12 +270,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CancelSubscriptionForItemsEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function cancelSubscriptionForItems(string $id, array $params = [], array $headers = []): CancelSubscriptionForItemsEstimateResponse
     {
@@ -317,12 +308,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return ResumeSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function resumeSubscription(string $id, array $params = [], array $headers = []): ResumeSubscriptionEstimateResponse
     {
@@ -443,12 +432,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateInvoiceForItemsEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createInvoiceForItems(array $params, array $headers = []): CreateInvoiceForItemsEstimateResponse
     {
@@ -527,12 +514,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return GiftSubscriptionForItemsEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function giftSubscriptionForItems(array $params, array $headers = []): GiftSubscriptionForItemsEstimateResponse
     {
@@ -663,12 +648,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateSubscriptionForItemsEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateSubscriptionForItems(array $params, array $headers = []): UpdateSubscriptionForItemsEstimateResponse
     {
@@ -697,12 +680,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return UpcomingInvoicesEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function upcomingInvoicesEstimate(string $id, array $headers = []): UpcomingInvoicesEstimateEstimateResponse
     {
@@ -734,12 +715,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return RegenerateInvoiceEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function regenerateInvoiceEstimate(string $id, array $params = [], array $headers = []): RegenerateInvoiceEstimateEstimateResponse
     {
@@ -852,12 +831,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateSubItemForCustomerEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createSubItemForCustomerEstimate(string $id, array $params, array $headers = []): CreateSubItemForCustomerEstimateEstimateResponse
     {
@@ -890,12 +867,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return ChangeTermEndEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function changeTermEnd(string $id, array $params, array $headers = []): ChangeTermEndEstimateResponse
     {
@@ -932,12 +907,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return PauseSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function pauseSubscription(string $id, array $params = [], array $headers = []): PauseSubscriptionEstimateResponse
     {
@@ -980,12 +953,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return AdvanceInvoiceEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function advanceInvoiceEstimate(string $id, array $params = [], array $headers = []): AdvanceInvoiceEstimateEstimateResponse
     {
@@ -1097,12 +1068,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateSubscription(array $params, array $headers = []): UpdateSubscriptionEstimateResponse
     {
@@ -1186,12 +1155,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return GiftSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function giftSubscription(array $params, array $headers = []): GiftSubscriptionEstimateResponse
     {
@@ -1280,12 +1247,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateSubForCustomerEstimateEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createSubForCustomerEstimate(string $id, array $params, array $headers = []): CreateSubForCustomerEstimateEstimateResponse
     {
@@ -1398,12 +1363,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createSubscription(array $params, array $headers = []): CreateSubscriptionEstimateResponse
     {
@@ -1497,12 +1460,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateInvoiceEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createInvoice(array $params = [], array $headers = []): CreateInvoiceEstimateResponse
     {
@@ -1548,12 +1509,10 @@ final class EstimateActions implements EstimateActionsInterface
     *   @param array<string, string> $headers
     *   @return CancelSubscriptionEstimateResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function cancelSubscription(string $id, array $params = [], array $headers = []): CancelSubscriptionEstimateResponse
     {

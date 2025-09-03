@@ -6,7 +6,6 @@ use Chargebee\Responses\CommentResponse\RetrieveCommentResponse;
 use Chargebee\Responses\CommentResponse\DeleteCommentResponse;
 use Chargebee\Responses\CommentResponse\CreateCommentResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -22,12 +21,10 @@ Interface CommentActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteCommentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteCommentResponse;
 
@@ -38,12 +35,10 @@ Interface CommentActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveCommentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCommentResponse;
 
@@ -69,12 +64,10 @@ Interface CommentActionsInterface
     *   @param array<string, string> $headers
     *   @return ListCommentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListCommentResponse;
 
@@ -90,12 +83,10 @@ Interface CommentActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateCommentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateCommentResponse;
 

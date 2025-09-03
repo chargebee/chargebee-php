@@ -7,7 +7,6 @@ use Chargebee\Responses\DifferentialPriceResponse\ListDifferentialPriceResponse;
 use Chargebee\Responses\DifferentialPriceResponse\RetrieveDifferentialPriceResponse;
 use Chargebee\Responses\DifferentialPriceResponse\DeleteDifferentialPriceResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -25,12 +24,10 @@ Interface DifferentialPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteDifferentialPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $params, array $headers = []): DeleteDifferentialPriceResponse;
 
@@ -60,12 +57,10 @@ Interface DifferentialPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateDifferentialPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(string $id, array $params, array $headers = []): CreateDifferentialPriceResponse;
 
@@ -107,12 +102,10 @@ Interface DifferentialPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return ListDifferentialPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListDifferentialPriceResponse;
 
@@ -125,12 +118,10 @@ Interface DifferentialPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveDifferentialPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $params, array $headers = []): RetrieveDifferentialPriceResponse;
 
@@ -159,12 +150,10 @@ Interface DifferentialPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateDifferentialPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateDifferentialPriceResponse;
 

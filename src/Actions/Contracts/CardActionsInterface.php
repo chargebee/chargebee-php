@@ -7,7 +7,6 @@ use Chargebee\Responses\CardResponse\SwitchGatewayForCustomerCardResponse;
 use Chargebee\Responses\CardResponse\DeleteCardForCustomerCardResponse;
 use Chargebee\Responses\CardResponse\UpdateCardForCustomerCardResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -25,12 +24,10 @@ Interface CardActionsInterface
     *   @param array<string, string> $headers
     *   @return CopyCardForCustomerCardResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function copyCardForCustomer(string $id, array $params, array $headers = []): CopyCardForCustomerCardResponse;
 
@@ -41,12 +38,10 @@ Interface CardActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveCardResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCardResponse;
 
@@ -60,12 +55,10 @@ Interface CardActionsInterface
     *   @param array<string, string> $headers
     *   @return SwitchGatewayForCustomerCardResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function switchGatewayForCustomer(string $id, array $params, array $headers = []): SwitchGatewayForCustomerCardResponse;
 
@@ -76,12 +69,10 @@ Interface CardActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteCardForCustomerCardResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteCardForCustomer(string $id, array $headers = []): DeleteCardForCustomerCardResponse;
 
@@ -114,12 +105,10 @@ Interface CardActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateCardForCustomerCardResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateCardForCustomer(string $id, array $params, array $headers = []): UpdateCardForCustomerCardResponse;
 

@@ -9,7 +9,6 @@ use Chargebee\Responses\GiftResponse\RetrieveGiftResponse;
 use Chargebee\Responses\GiftResponse\CancelGiftResponse;
 use Chargebee\Responses\GiftResponse\CreateGiftResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -73,12 +72,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateForItemsGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createForItems(array $params, array $headers = []): CreateForItemsGiftResponse;
 
@@ -89,12 +86,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return CancelGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function cancel(string $id, array $headers = []): CancelGiftResponse;
 
@@ -108,12 +103,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateGiftGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateGift(string $id, array $params, array $headers = []): UpdateGiftGiftResponse;
 
@@ -152,12 +145,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return ListGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListGiftResponse;
 
@@ -221,12 +212,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateGiftResponse;
 
@@ -237,12 +226,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveGiftResponse;
 
@@ -253,12 +240,10 @@ Interface GiftActionsInterface
     *   @param array<string, string> $headers
     *   @return ClaimGiftResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function claim(string $id, array $headers = []): ClaimGiftResponse;
 

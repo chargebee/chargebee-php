@@ -31,7 +31,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -168,12 +167,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutOneTimeForItemsHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutOneTimeForItems(array $params, array $headers = []): CheckoutOneTimeForItemsHostedPageResponse
     {
@@ -217,12 +214,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdatePaymentMethodHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updatePaymentMethod(array $params, array $headers = []): UpdatePaymentMethodHostedPageResponse
     {
@@ -266,12 +261,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateCardHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function updateCard(array $params, array $headers = []): UpdateCardHostedPageResponse
     {
@@ -306,12 +299,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return ExtendSubscriptionHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function extendSubscription(array $params, array $headers = []): ExtendSubscriptionHostedPageResponse
     {
@@ -344,12 +335,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return EventsHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function events(array $params, array $headers = []): EventsHostedPageResponse
     {
@@ -391,12 +380,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutGiftForItemsHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutGiftForItems(array $params = [], array $headers = []): CheckoutGiftForItemsHostedPageResponse
     {
@@ -453,12 +440,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return ListHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListHostedPageResponse
     {
@@ -493,12 +478,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return ViewVoucherHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function viewVoucher(array $params, array $headers = []): ViewVoucherHostedPageResponse
     {
@@ -537,12 +520,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CollectNowHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function collectNow(array $params, array $headers = []): CollectNowHostedPageResponse
     {
@@ -577,12 +558,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return AcceptQuoteHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function acceptQuote(array $params, array $headers = []): AcceptQuoteHostedPageResponse
     {
@@ -733,12 +712,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutNewForItemsHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutNewForItems(array $params, array $headers = []): CheckoutNewForItemsHostedPageResponse
     {
@@ -775,12 +752,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return ClaimGiftHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function claimGift(array $params, array $headers = []): ClaimGiftHostedPageResponse
     {
@@ -899,12 +874,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutExistingForItemsHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutExistingForItems(array $params, array $headers = []): CheckoutExistingForItemsHostedPageResponse
     {
@@ -940,12 +913,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return PreCancelHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function preCancel(array $params, array $headers = []): PreCancelHostedPageResponse
     {
@@ -974,12 +945,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return AcknowledgeHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function acknowledge(string $id, array $headers = []): AcknowledgeHostedPageResponse
     {
@@ -1009,12 +978,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveAgreementPdfHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieveAgreementPdf(array $params, array $headers = []): RetrieveAgreementPdfHostedPageResponse
     {
@@ -1043,12 +1010,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveHostedPageResponse
     {
@@ -1084,12 +1049,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return ManagePaymentSourcesHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function managePaymentSources(array $params, array $headers = []): ManagePaymentSourcesHostedPageResponse
     {
@@ -1204,12 +1167,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutOneTimeHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutOneTime(array $params = [], array $headers = []): CheckoutOneTimeHostedPageResponse
     {
@@ -1339,12 +1300,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutNewHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutNew(array $params, array $headers = []): CheckoutNewHostedPageResponse
     {
@@ -1390,12 +1349,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutGiftHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutGift(array $params, array $headers = []): CheckoutGiftHostedPageResponse
     {
@@ -1489,12 +1446,10 @@ final class HostedPageActions implements HostedPageActionsInterface
     *   @param array<string, string> $headers
     *   @return CheckoutExistingHostedPageResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function checkoutExisting(array $params, array $headers = []): CheckoutExistingHostedPageResponse
     {

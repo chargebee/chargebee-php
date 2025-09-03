@@ -10,7 +10,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -32,12 +31,10 @@ final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveRecordedPurchaseResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveRecordedPurchaseResponse
     {
@@ -82,12 +79,10 @@ final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateRecordedPurchaseResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateRecordedPurchaseResponse
     {

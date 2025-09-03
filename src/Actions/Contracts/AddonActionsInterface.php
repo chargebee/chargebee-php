@@ -9,7 +9,6 @@ use Chargebee\Responses\AddonResponse\UnarchiveAddonResponse;
 use Chargebee\Responses\AddonResponse\CreateAddonResponse;
 use Chargebee\Responses\AddonResponse\DeleteAddonResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -30,12 +29,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return CopyAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function copy(array $params, array $headers = []): CopyAddonResponse;
 
@@ -46,12 +43,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return UnarchiveAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function unarchive(string $id, array $headers = []): UnarchiveAddonResponse;
 
@@ -62,12 +57,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveAddonResponse;
 
@@ -128,12 +121,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateAddonResponse;
 
@@ -229,12 +220,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return ListAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListAddonResponse;
 
@@ -297,12 +286,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateAddonResponse;
 
@@ -313,12 +300,10 @@ Interface AddonActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteAddonResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteAddonResponse;
 

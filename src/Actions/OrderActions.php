@@ -21,7 +21,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -133,12 +132,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return ListOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListOrderResponse
     {
@@ -176,12 +173,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateOrderResponse
     {
@@ -265,12 +260,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return ImportOrderOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function importOrder(array $params, array $headers = []): ImportOrderOrderResponse
     {
@@ -299,12 +292,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return AssignOrderNumberOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function assignOrderNumber(string $id, array $headers = []): AssignOrderNumberOrderResponse
     {
@@ -339,12 +330,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return ResendOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function resend(string $id, array $params = [], array $headers = []): ResendOrderResponse
     {
@@ -375,12 +364,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return ReopenOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function reopen(string $id, array $params = [], array $headers = []): ReopenOrderResponse
     {
@@ -412,12 +399,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return OrdersForInvoiceOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function ordersForInvoice(string $id, array $params = [], array $headers = []): OrdersForInvoiceOrderResponse
     {
@@ -453,12 +438,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return CancelOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function cancel(string $id, array $params, array $headers = []): CancelOrderResponse
     {
@@ -487,12 +470,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveOrderResponse
     {
@@ -555,12 +536,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateOrderResponse
     {
@@ -589,12 +568,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteOrderResponse
     {
@@ -629,12 +606,10 @@ final class OrderActions implements OrderActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateRefundableCreditNoteOrderResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createRefundableCreditNote(string $id, array $params, array $headers = []): CreateRefundableCreditNoteOrderResponse
     {

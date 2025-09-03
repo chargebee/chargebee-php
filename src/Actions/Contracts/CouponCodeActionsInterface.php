@@ -6,7 +6,6 @@ use Chargebee\Responses\CouponCodeResponse\CreateCouponCodeResponse;
 use Chargebee\Responses\CouponCodeResponse\RetrieveCouponCodeResponse;
 use Chargebee\Responses\CouponCodeResponse\ArchiveCouponCodeResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -50,12 +49,10 @@ Interface CouponCodeActionsInterface
     *   @param array<string, string> $headers
     *   @return ListCouponCodeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListCouponCodeResponse;
 
@@ -70,12 +67,10 @@ Interface CouponCodeActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateCouponCodeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateCouponCodeResponse;
 
@@ -86,12 +81,10 @@ Interface CouponCodeActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveCouponCodeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveCouponCodeResponse;
 
@@ -102,12 +95,10 @@ Interface CouponCodeActionsInterface
     *   @param array<string, string> $headers
     *   @return ArchiveCouponCodeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function archive(string $id, array $headers = []): ArchiveCouponCodeResponse;
 

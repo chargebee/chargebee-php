@@ -9,7 +9,6 @@ use Chargebee\Responses\ItemPriceResponse\RetrieveItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\FindApplicableItemPricesItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\ListItemPriceResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -32,12 +31,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return FindApplicableItemsItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse;
 
@@ -48,12 +45,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveItemPriceResponse;
 
@@ -123,12 +118,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateItemPriceResponse;
 
@@ -139,12 +132,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteItemPriceResponse;
 
@@ -163,12 +154,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return FindApplicableItemPricesItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function findApplicableItemPrices(string $id, array $params = [], array $headers = []): FindApplicableItemPricesItemPriceResponse;
 
@@ -295,12 +284,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return ListItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListItemPriceResponse;
 
@@ -372,12 +359,10 @@ Interface ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateItemPriceResponse;
 

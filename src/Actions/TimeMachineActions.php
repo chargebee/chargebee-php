@@ -11,7 +11,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -33,12 +32,10 @@ final class TimeMachineActions implements TimeMachineActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveTimeMachineResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveTimeMachineResponse
     {
@@ -67,12 +64,10 @@ final class TimeMachineActions implements TimeMachineActionsInterface
     *   @param array<string, string> $headers
     *   @return TravelForwardTimeMachineResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function travelForward(string $id, array $params = [], array $headers = []): TravelForwardTimeMachineResponse
     {
@@ -103,12 +98,10 @@ final class TimeMachineActions implements TimeMachineActionsInterface
     *   @param array<string, string> $headers
     *   @return StartAfreshTimeMachineResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function startAfresh(string $id, array $params = [], array $headers = []): StartAfreshTimeMachineResponse
     {

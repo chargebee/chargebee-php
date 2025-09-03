@@ -16,7 +16,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -38,12 +37,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return DeleteLocalVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function deleteLocal(string $id, array $headers = []): DeleteLocalVirtualBankAccountResponse
     {
@@ -71,12 +68,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return DeleteVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteVirtualBankAccountResponse
     {
@@ -126,12 +121,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return ListVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListVirtualBankAccountResponse
     {
@@ -163,12 +156,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return CreateVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateVirtualBankAccountResponse
     {
@@ -197,12 +188,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return SyncFundVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function syncFund(string $id, array $headers = []): SyncFundVirtualBankAccountResponse
     {
@@ -230,12 +219,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return RetrieveVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveVirtualBankAccountResponse
     {
@@ -266,12 +253,10 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array<string, string> $headers
     *   @return CreateUsingPermanentTokenVirtualBankAccountResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createUsingPermanentToken(array $params, array $headers = []): CreateUsingPermanentTokenVirtualBankAccountResponse
     {

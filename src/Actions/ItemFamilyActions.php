@@ -14,7 +14,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -36,12 +35,10 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteItemFamilyResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteItemFamilyResponse
     {
@@ -97,12 +94,10 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     *   @param array<string, string> $headers
     *   @return ListItemFamilyResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListItemFamilyResponse
     {
@@ -135,12 +130,10 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateItemFamilyResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateItemFamilyResponse
     {
@@ -169,12 +162,10 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveItemFamilyResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveItemFamilyResponse
     {
@@ -204,12 +195,10 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateItemFamilyResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateItemFamilyResponse
     {

@@ -5,7 +5,6 @@ use Chargebee\Responses\PaymentIntentResponse\UpdatePaymentIntentResponse;
 use Chargebee\Responses\PaymentIntentResponse\RetrievePaymentIntentResponse;
 use Chargebee\Responses\PaymentIntentResponse\CreatePaymentIntentResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -21,12 +20,10 @@ Interface PaymentIntentActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrievePaymentIntentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrievePaymentIntentResponse;
 
@@ -44,12 +41,10 @@ Interface PaymentIntentActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdatePaymentIntentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params = [], array $headers = []): UpdatePaymentIntentResponse;
 
@@ -70,12 +65,10 @@ Interface PaymentIntentActionsInterface
     *   @param array<string, string> $headers
     *   @return CreatePaymentIntentResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreatePaymentIntentResponse;
 

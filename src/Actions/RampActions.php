@@ -14,7 +14,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -36,12 +35,10 @@ final class RampActions implements RampActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveRampResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveRampResponse
     {
@@ -117,12 +114,10 @@ final class RampActions implements RampActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateForSubscriptionRampResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createForSubscription(string $id, array $params, array $headers = []): CreateForSubscriptionRampResponse
     {
@@ -179,12 +174,10 @@ final class RampActions implements RampActionsInterface
     *   @param array<string, string> $headers
     *   @return ListRampResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params, array $headers = []): ListRampResponse
     {
@@ -261,12 +254,10 @@ final class RampActions implements RampActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateRampResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateRampResponse
     {
@@ -295,12 +286,10 @@ final class RampActions implements RampActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteRampResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteRampResponse
     {

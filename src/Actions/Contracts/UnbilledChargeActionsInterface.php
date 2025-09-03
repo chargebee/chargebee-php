@@ -8,7 +8,6 @@ use Chargebee\Responses\UnbilledChargeResponse\InvoiceNowEstimateUnbilledChargeR
 use Chargebee\Responses\UnbilledChargeResponse\InvoiceUnbilledChargesUnbilledChargeResponse;
 use Chargebee\Responses\UnbilledChargeResponse\CreateUnbilledChargeUnbilledChargeResponse;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -24,12 +23,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteUnbilledChargeResponse;
 
@@ -43,12 +40,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return InvoiceNowEstimateUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function invoiceNowEstimate(array $params = [], array $headers = []): InvoiceNowEstimateUnbilledChargeResponse;
 
@@ -62,12 +57,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return InvoiceUnbilledChargesUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function invoiceUnbilledCharges(array $params = [], array $headers = []): InvoiceUnbilledChargesUnbilledChargeResponse;
 
@@ -99,12 +92,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return ListUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListUnbilledChargeResponse;
 
@@ -158,12 +149,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateUnbilledChargeResponse;
 
@@ -206,12 +195,10 @@ Interface UnbilledChargeActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateUnbilledChargeUnbilledChargeResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function createUnbilledCharge(array $params, array $headers = []): CreateUnbilledChargeUnbilledChargeResponse;
 

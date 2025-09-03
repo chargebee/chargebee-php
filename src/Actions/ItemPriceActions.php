@@ -16,7 +16,6 @@ use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
 use Exception;
-use Psr\Http\Client\ClientExceptionInterface;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
@@ -45,12 +44,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return FindApplicableItemsItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse
     {
@@ -78,12 +75,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return RetrieveItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function retrieve(string $id, array $headers = []): RetrieveItemPriceResponse
     {
@@ -169,12 +164,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return UpdateItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function update(string $id, array $params, array $headers = []): UpdateItemPriceResponse
     {
@@ -204,12 +197,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return DeleteItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function delete(string $id, array $headers = []): DeleteItemPriceResponse
     {
@@ -245,12 +236,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return FindApplicableItemPricesItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function findApplicableItemPrices(string $id, array $params = [], array $headers = []): FindApplicableItemPricesItemPriceResponse
     {
@@ -394,12 +383,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return ListItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function all(array $params = [], array $headers = []): ListItemPriceResponse
     {
@@ -488,12 +475,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @param array<string, string> $headers
     *   @return CreateItemPriceResponse
     *   @throws PaymentException
-    *   @throws ClientExceptionInterface
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
-    *   @throws ClientExceptionInterface
     */
     public function create(array $params, array $headers = []): CreateItemPriceResponse
     {
