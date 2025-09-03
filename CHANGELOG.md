@@ -1,3 +1,16 @@
+### v4.8.1 (2025-09-03)
+
+### Bug Fixes:
+
+* Fixed an issue where `method_exists` failed on `null` objects, which caused errors when extracting status codes. (Resolves #102)
+* Corrected parameter parsing: action JSON keys use `camelCase`, but the parser did not account for this, leading to incorrect comparisons. (Resolves #97)
+
+### PHPDocs Improvements:
+* Added `@throws` annotations in PHPDocs for all relevant exceptions.
+
+### Dev Improvements:
+* Added unit tests form url for encoder. 
+
 ### v4.8.0 (2025-08-19) 
 * * * 
 
