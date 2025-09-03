@@ -10,6 +10,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class EntitlementActions implements EntitlementActionsInterface
 {
@@ -26,16 +31,16 @@ final class EntitlementActions implements EntitlementActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     feature_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * entity_type?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * entity_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * include_drafts?: bool,
     *     embed?: string,
@@ -43,6 +48,11 @@ final class EntitlementActions implements EntitlementActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListEntitlementResponse
     {
@@ -79,6 +89,11 @@ final class EntitlementActions implements EntitlementActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateEntitlementResponse
     {

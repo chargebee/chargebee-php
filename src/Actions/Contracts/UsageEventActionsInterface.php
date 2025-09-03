@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\UsageEventResponse\BatchIngestUsageEventResponse;
 use Chargebee\Responses\UsageEventResponse\CreateUsageEventResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface UsageEventActionsInterface
 {
@@ -18,6 +23,11 @@ Interface UsageEventActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateUsageEventResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateUsageEventResponse;
 
@@ -34,6 +44,11 @@ Interface UsageEventActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return BatchIngestUsageEventResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function batchIngest(array $params, array $headers = []): BatchIngestUsageEventResponse;
 

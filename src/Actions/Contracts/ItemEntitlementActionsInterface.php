@@ -5,6 +5,11 @@ use Chargebee\Responses\ItemEntitlementResponse\ItemEntitlementsForItemItemEntit
 use Chargebee\Responses\ItemEntitlementResponse\UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponse;
 use Chargebee\Responses\ItemEntitlementResponse\AddItemEntitlementsItemEntitlementResponse;
 use Chargebee\Responses\ItemEntitlementResponse\ItemEntitlementsForFeatureItemEntitlementResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface ItemEntitlementActionsInterface
 {
@@ -19,6 +24,11 @@ Interface ItemEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ItemEntitlementsForFeatureItemEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function itemEntitlementsForFeature(string $id, array $params = [], array $headers = []): ItemEntitlementsForFeatureItemEntitlementResponse;
 
@@ -35,6 +45,11 @@ Interface ItemEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddItemEntitlementsItemEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addItemEntitlements(string $id, array $params, array $headers = []): AddItemEntitlementsItemEntitlementResponse;
 
@@ -49,6 +64,11 @@ Interface ItemEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ItemEntitlementsForItemItemEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function itemEntitlementsForItem(string $id, array $params = [], array $headers = []): ItemEntitlementsForItemItemEntitlementResponse;
 
@@ -64,6 +84,11 @@ Interface ItemEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function upsertOrRemoveItemEntitlementsForItem(string $id, array $params, array $headers = []): UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponse;
 

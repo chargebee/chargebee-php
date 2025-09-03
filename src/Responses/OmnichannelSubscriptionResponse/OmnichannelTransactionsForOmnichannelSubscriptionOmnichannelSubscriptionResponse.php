@@ -51,18 +51,4 @@ class OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionRe
         return $data;
     }
 }
-
-
-class OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponseListObject {
-    
-        public OmnichannelTransaction $omnichannel_transaction;
-    
-public function __construct(
-    OmnichannelTransaction $omnichannel_transaction,
-){ 
-    $this->omnichannel_transaction = $omnichannel_transaction;
-
-}
-}
-
 ?>

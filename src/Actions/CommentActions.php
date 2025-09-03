@@ -12,6 +12,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class CommentActions implements CommentActionsInterface
 {
@@ -28,6 +33,11 @@ final class CommentActions implements CommentActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteCommentResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteCommentResponse
     {
@@ -54,6 +64,11 @@ final class CommentActions implements CommentActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCommentResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveCommentResponse
     {
@@ -94,6 +109,11 @@ final class CommentActions implements CommentActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListCommentResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListCommentResponse
     {
@@ -125,6 +145,11 @@ final class CommentActions implements CommentActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateCommentResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateCommentResponse
     {

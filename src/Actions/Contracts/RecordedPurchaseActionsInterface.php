@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\RecordedPurchaseResponse\RetrieveRecordedPurchaseResponse;
 use Chargebee\Responses\RecordedPurchaseResponse\CreateRecordedPurchaseResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface RecordedPurchaseActionsInterface
 {
@@ -13,6 +18,11 @@ Interface RecordedPurchaseActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveRecordedPurchaseResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveRecordedPurchaseResponse;
 
@@ -40,6 +50,11 @@ Interface RecordedPurchaseActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateRecordedPurchaseResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateRecordedPurchaseResponse;
 

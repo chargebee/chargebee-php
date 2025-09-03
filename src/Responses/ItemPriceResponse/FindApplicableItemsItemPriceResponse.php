@@ -51,18 +51,4 @@ class FindApplicableItemsItemPriceResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class FindApplicableItemsItemPriceResponseListObject {
-    
-        public Item $item;
-    
-public function __construct(
-    Item $item,
-){ 
-    $this->item = $item;
-
-}
-}
-
 ?>

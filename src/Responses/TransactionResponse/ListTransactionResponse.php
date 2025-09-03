@@ -51,18 +51,4 @@ class ListTransactionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListTransactionResponseListObject {
-    
-        public Transaction $transaction;
-    
-public function __construct(
-    Transaction $transaction,
-){ 
-    $this->transaction = $transaction;
-
-}
-}
-
 ?>

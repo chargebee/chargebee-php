@@ -51,18 +51,4 @@ class ListHostedPageResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListHostedPageResponseListObject {
-    
-        public HostedPage $hosted_page;
-    
-public function __construct(
-    HostedPage $hosted_page,
-){ 
-    $this->hosted_page = $hosted_page;
-
-}
-}
-
 ?>

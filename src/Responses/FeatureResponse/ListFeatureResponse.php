@@ -51,18 +51,4 @@ class ListFeatureResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListFeatureResponseListObject {
-    
-        public Feature $feature;
-    
-public function __construct(
-    Feature $feature,
-){ 
-    $this->feature = $feature;
-
-}
-}
-
 ?>

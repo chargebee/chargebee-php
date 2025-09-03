@@ -51,18 +51,4 @@ class ListHierarchyDetailCustomerResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListHierarchyDetailCustomerResponseListObject {
-    
-        public Hierarchy $hierarchies;
-    
-public function __construct(
-    Hierarchy $hierarchies,
-){ 
-    $this->hierarchies = $hierarchies;
-
-}
-}
-
 ?>

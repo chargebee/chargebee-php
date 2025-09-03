@@ -9,6 +9,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class OmnichannelSubscriptionItemActions implements OmnichannelSubscriptionItemActionsInterface
 {
@@ -28,6 +33,11 @@ final class OmnichannelSubscriptionItemActions implements OmnichannelSubscriptio
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function listOmniSubItemScheduleChanges(string $id, array $params = [], array $headers = []): ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse
     {

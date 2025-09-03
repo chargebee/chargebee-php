@@ -20,6 +20,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class TransactionActions implements TransactionActionsInterface
 {
@@ -147,6 +152,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListTransactionResponse
     {
@@ -177,6 +187,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ReconcileTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function reconcile(string $id, array $params = [], array $headers = []): ReconcileTransactionResponse
     {
@@ -204,6 +219,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveTransactionResponse
     {
@@ -232,6 +252,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RefundTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function refund(string $id, array $params = [], array $headers = []): RefundTransactionResponse
     {
@@ -262,6 +287,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return TransactionsForCustomerTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function transactionsForCustomer(string $id, array $params = [], array $headers = []): TransactionsForCustomerTransactionResponse
     {
@@ -295,6 +325,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RecordRefundTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundTransactionResponse
     {
@@ -325,6 +360,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return TransactionsForSubscriptionTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function transactionsForSubscription(string $id, array $params = [], array $headers = []): TransactionsForSubscriptionTransactionResponse
     {
@@ -351,6 +391,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return VoidTransactionTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function voidTransaction(string $id, array $headers = []): VoidTransactionTransactionResponse
     {
@@ -377,6 +422,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SyncTransactionTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function syncTransaction(string $id, array $headers = []): SyncTransactionTransactionResponse
     {
@@ -408,6 +458,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateAuthorizationTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createAuthorization(array $params, array $headers = []): CreateAuthorizationTransactionResponse
     {
@@ -438,6 +493,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PaymentsForInvoiceTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function paymentsForInvoice(string $id, array $params = [], array $headers = []): PaymentsForInvoiceTransactionResponse
     {
@@ -466,6 +526,11 @@ final class TransactionActions implements TransactionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteOfflineTransactionTransactionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function deleteOfflineTransaction(string $id, array $params = [], array $headers = []): DeleteOfflineTransactionTransactionResponse
     {

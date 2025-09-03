@@ -6,6 +6,11 @@ use Chargebee\Responses\RampResponse\RetrieveRampResponse;
 use Chargebee\Responses\RampResponse\UpdateRampResponse;
 use Chargebee\Responses\RampResponse\ListRampResponse;
 use Chargebee\Responses\RampResponse\CreateForSubscriptionRampResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface RampActionsInterface
 {
@@ -16,6 +21,11 @@ Interface RampActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveRampResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveRampResponse;
 
@@ -74,6 +84,11 @@ Interface RampActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateForSubscriptionRampResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForSubscription(string $id, array $params, array $headers = []): CreateForSubscriptionRampResponse;
 
@@ -84,12 +99,12 @@ Interface RampActionsInterface
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * subscription_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,
@@ -111,6 +126,11 @@ Interface RampActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListRampResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params, array $headers = []): ListRampResponse;
 
@@ -169,6 +189,11 @@ Interface RampActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateRampResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params, array $headers = []): UpdateRampResponse;
 
@@ -178,6 +203,11 @@ Interface RampActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteRampResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteRampResponse;
 

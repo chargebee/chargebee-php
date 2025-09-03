@@ -13,6 +13,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class WebhookEndpointActions implements WebhookEndpointActionsInterface
 {
@@ -29,6 +34,11 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteWebhookEndpointResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteWebhookEndpointResponse
     {
@@ -55,6 +65,11 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveWebhookEndpointResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveWebhookEndpointResponse
     {
@@ -90,6 +105,11 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateWebhookEndpointResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateWebhookEndpointResponse
     {
@@ -120,6 +140,11 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListWebhookEndpointResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListWebhookEndpointResponse
     {
@@ -157,6 +182,11 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateWebhookEndpointResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateWebhookEndpointResponse
     {

@@ -8,6 +8,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class NonSubscriptionActions implements NonSubscriptionActionsInterface
 {
@@ -40,6 +45,11 @@ final class NonSubscriptionActions implements NonSubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ProcessReceiptNonSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function processReceipt(string $id, array $params, array $headers = []): ProcessReceiptNonSubscriptionResponse
     {

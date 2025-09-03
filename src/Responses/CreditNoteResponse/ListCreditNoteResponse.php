@@ -51,18 +51,4 @@ class ListCreditNoteResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCreditNoteResponseListObject {
-    
-        public CreditNote $credit_note;
-    
-public function __construct(
-    CreditNote $credit_note,
-){ 
-    $this->credit_note = $credit_note;
-
-}
-}
-
 ?>

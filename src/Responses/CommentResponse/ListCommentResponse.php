@@ -51,18 +51,4 @@ class ListCommentResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCommentResponseListObject {
-    
-        public Comment $comment;
-    
-public function __construct(
-    Comment $comment,
-){ 
-    $this->comment = $comment;
-
-}
-}
-
 ?>

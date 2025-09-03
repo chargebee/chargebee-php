@@ -48,6 +48,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class InvoiceActions implements InvoiceActionsInterface
 {
@@ -68,6 +73,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteLineItemsInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function deleteLineItems(string $id, array $params = [], array $headers = []): DeleteLineItemsInvoiceResponse
     {
@@ -99,6 +109,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveCreditNoteInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeCreditNote(string $id, array $params, array $headers = []): RemoveCreditNoteInvoiceResponse
     {
@@ -130,6 +145,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemovePaymentInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removePayment(string $id, array $params, array $headers = []): RemovePaymentInvoiceResponse
     {
@@ -159,6 +179,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return StopDunningInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function stopDunning(string $id, array $params = [], array $headers = []): StopDunningInvoiceResponse
     {
@@ -192,6 +217,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ApplyPaymentsInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function applyPayments(string $id, array $params = [], array $headers = []): ApplyPaymentsInvoiceResponse
     {
@@ -222,6 +252,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ApplyPaymentScheduleSchemeInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function applyPaymentScheduleScheme(string $id, array $params, array $headers = []): ApplyPaymentScheduleSchemeInvoiceResponse
     {
@@ -252,6 +287,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return VoidInvoiceInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function voidInvoice(string $id, array $params = [], array $headers = []): VoidInvoiceInvoiceResponse
     {
@@ -294,6 +334,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddChargeInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addCharge(string $id, array $params, array $headers = []): AddChargeInvoiceResponse
     {
@@ -321,6 +366,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SendEinvoiceInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function sendEinvoice(string $id, array $headers = []): SendEinvoiceInvoiceResponse
     {
@@ -347,6 +397,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PaymentSchedulesInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function paymentSchedules(string $id, array $headers = []): PaymentSchedulesInvoiceResponse
     {
@@ -374,6 +429,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return WriteOffInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function writeOff(string $id, array $params = [], array $headers = []): WriteOffInvoiceResponse
     {
@@ -423,6 +483,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddChargeItemInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addChargeItem(string $id, array $params, array $headers = []): AddChargeItemInvoiceResponse
     {
@@ -453,6 +518,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PauseDunningInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function pauseDunning(string $id, array $params, array $headers = []): PauseDunningInvoiceResponse
     {
@@ -630,6 +700,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListInvoiceResponse
     {
@@ -783,6 +858,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params = [], array $headers = []): CreateInvoiceResponse
     {
@@ -821,6 +901,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CloseInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function close(string $id, array $params = [], array $headers = []): CloseInvoiceResponse
     {
@@ -853,6 +938,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ApplyCreditsInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function applyCredits(string $id, array $params = [], array $headers = []): ApplyCreditsInvoiceResponse
     {
@@ -889,6 +979,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $params = [], array $headers = []): RetrieveInvoiceResponse
     {
@@ -942,6 +1037,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForChargeItemInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForChargeItem(array $params, array $headers = []): CreateForChargeItemInvoiceResponse
     {
@@ -1114,6 +1214,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForChargeItemsAndChargesInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForChargeItemsAndCharges(array $params, array $headers = []): CreateForChargeItemsAndChargesInvoiceResponse
     {
@@ -1183,6 +1288,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateDetailsInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function updateDetails(string $id, array $params = [], array $headers = []): UpdateDetailsInvoiceResponse
     {
@@ -1213,6 +1323,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return InvoicesForCustomerInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function invoicesForCustomer(string $id, array $params = [], array $headers = []): InvoicesForCustomerInvoiceResponse
     {
@@ -1252,6 +1367,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RecordPaymentInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function recordPayment(string $id, array $params, array $headers = []): RecordPaymentInvoiceResponse
     {
@@ -1281,6 +1401,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $params = [], array $headers = []): DeleteInvoiceResponse
     {
@@ -1466,6 +1591,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ImportInvoiceInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importInvoice(array $params, array $headers = []): ImportInvoiceInvoiceResponse
     {
@@ -1495,6 +1625,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ResumeDunningInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function resumeDunning(string $id, array $params = [], array $headers = []): ResumeDunningInvoiceResponse
     {
@@ -1529,6 +1664,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RecordTaxWithheldInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function recordTaxWithheld(string $id, array $params, array $headers = []): RecordTaxWithheldInvoiceResponse
     {
@@ -1556,6 +1696,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ResendEinvoiceInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function resendEinvoice(string $id, array $headers = []): ResendEinvoiceInvoiceResponse
     {
@@ -1586,6 +1731,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveTaxWithheldInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeTaxWithheld(string $id, array $params, array $headers = []): RemoveTaxWithheldInvoiceResponse
     {
@@ -1614,18 +1764,23 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         is?: string,
-    *             in?: string,
+    *         in?: string,
+    *             is?: string,
     *             },
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return ListPaymentReferenceNumbersInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function listPaymentReferenceNumbers(array $params = [], array $headers = []): ListPaymentReferenceNumbersInvoiceResponse
     {
@@ -1658,6 +1813,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CollectPaymentInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function collectPayment(string $id, array $params = [], array $headers = []): CollectPaymentInvoiceResponse
     {
@@ -1685,6 +1845,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SyncUsagesInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function syncUsages(string $id, array $headers = []): SyncUsagesInvoiceResponse
     {
@@ -1719,6 +1884,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RefundInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function refund(string $id, array $params = [], array $headers = []): RefundInvoiceResponse
     {
@@ -1760,6 +1930,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RecordRefundInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundInvoiceResponse
     {
@@ -1789,6 +1964,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PdfInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function pdf(string $id, array $params = [], array $headers = []): PdfInvoiceResponse
     {
@@ -1819,6 +1999,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return InvoicesForSubscriptionInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function invoicesForSubscription(string $id, array $params = [], array $headers = []): InvoicesForSubscriptionInvoiceResponse
     {
@@ -1845,6 +2030,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DownloadEinvoiceInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function downloadEinvoice(string $id, array $headers = []): DownloadEinvoiceInvoiceResponse
     {
@@ -1886,6 +2076,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ChargeAddonInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function chargeAddon(array $params, array $headers = []): ChargeAddonInvoiceResponse
     {
@@ -1925,6 +2120,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddAddonChargeInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addAddonCharge(string $id, array $params, array $headers = []): AddAddonChargeInvoiceResponse
     {
@@ -1975,6 +2175,11 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ChargeInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function charge(array $params, array $headers = []): ChargeInvoiceResponse
     {

@@ -2,6 +2,11 @@
 namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\ResourceMigrationResponse\RetrieveLatestResourceMigrationResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface ResourceMigrationActionsInterface
 {
@@ -16,6 +21,11 @@ Interface ResourceMigrationActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return RetrieveLatestResourceMigrationResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieveLatest(array $params, array $headers = []): RetrieveLatestResourceMigrationResponse;
 

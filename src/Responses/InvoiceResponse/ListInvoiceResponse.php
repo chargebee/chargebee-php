@@ -51,18 +51,4 @@ class ListInvoiceResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListInvoiceResponseListObject {
-    
-        public Invoice $invoice;
-    
-public function __construct(
-    Invoice $invoice,
-){ 
-    $this->invoice = $invoice;
-
-}
-}
-
 ?>

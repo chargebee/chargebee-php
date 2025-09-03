@@ -6,6 +6,11 @@ use Chargebee\Responses\PromotionalCreditResponse\AddPromotionalCreditResponse;
 use Chargebee\Responses\PromotionalCreditResponse\ListPromotionalCreditResponse;
 use Chargebee\Responses\PromotionalCreditResponse\DeductPromotionalCreditResponse;
 use Chargebee\Responses\PromotionalCreditResponse\SetPromotionalCreditResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PromotionalCreditActionsInterface
 {
@@ -16,6 +21,11 @@ Interface PromotionalCreditActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePromotionalCreditResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrievePromotionalCreditResponse;
 
@@ -50,6 +60,11 @@ Interface PromotionalCreditActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListPromotionalCreditResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListPromotionalCreditResponse;
 
@@ -67,6 +82,11 @@ Interface PromotionalCreditActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return DeductPromotionalCreditResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function deduct(array $params, array $headers = []): DeductPromotionalCreditResponse;
 
@@ -84,6 +104,11 @@ Interface PromotionalCreditActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return SetPromotionalCreditResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function set(array $params, array $headers = []): SetPromotionalCreditResponse;
 
@@ -101,6 +126,11 @@ Interface PromotionalCreditActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return AddPromotionalCreditResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function add(array $params, array $headers = []): AddPromotionalCreditResponse;
 

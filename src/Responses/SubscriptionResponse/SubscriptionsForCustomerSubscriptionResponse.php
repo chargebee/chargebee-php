@@ -51,18 +51,4 @@ class SubscriptionsForCustomerSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class SubscriptionsForCustomerSubscriptionResponseListObject {
-    
-        public Subscription $subscription;
-    
-public function __construct(
-    Subscription $subscription,
-){ 
-    $this->subscription = $subscription;
-
-}
-}
-
 ?>

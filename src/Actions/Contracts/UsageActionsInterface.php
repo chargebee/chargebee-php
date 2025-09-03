@@ -6,6 +6,11 @@ use Chargebee\Responses\UsageResponse\CreateUsageResponse;
 use Chargebee\Responses\UsageResponse\ListUsageResponse;
 use Chargebee\Responses\UsageResponse\PdfUsageResponse;
 use Chargebee\Responses\UsageResponse\DeleteUsageResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface UsageActionsInterface
 {
@@ -21,6 +26,11 @@ Interface UsageActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return PdfUsageResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function pdf(array $params, array $headers = []): PdfUsageResponse;
 
@@ -32,6 +42,11 @@ Interface UsageActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveUsageResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $params, array $headers = []): RetrieveUsageResponse;
 
@@ -48,6 +63,11 @@ Interface UsageActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateUsageResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(string $id, array $params, array $headers = []): CreateUsageResponse;
 
@@ -59,6 +79,11 @@ Interface UsageActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteUsageResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $params, array $headers = []): DeleteUsageResponse;
 
@@ -114,6 +139,11 @@ Interface UsageActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListUsageResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListUsageResponse;
 

@@ -51,18 +51,4 @@ class ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponse extends 
         return $data;
     }
 }
-
-
-class ListOmniSubItemScheduleChangesOmnichannelSubscriptionItemResponseListObject {
-    
-        public OmnichannelSubscriptionItemScheduledChange $omnichannel_subscription_item_scheduled_change;
-    
-public function __construct(
-    OmnichannelSubscriptionItemScheduledChange $omnichannel_subscription_item_scheduled_change,
-){ 
-    $this->omnichannel_subscription_item_scheduled_change = $omnichannel_subscription_item_scheduled_change;
-
-}
-}
-
 ?>

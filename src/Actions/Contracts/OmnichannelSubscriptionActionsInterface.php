@@ -4,6 +4,11 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\RetrieveOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\ListOmnichannelSubscriptionResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface OmnichannelSubscriptionActionsInterface
 {
@@ -14,6 +19,11 @@ Interface OmnichannelSubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveOmnichannelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveOmnichannelSubscriptionResponse;
 
@@ -26,6 +36,11 @@ Interface OmnichannelSubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function omnichannelTransactionsForOmnichannelSubscription(string $id, array $params = [], array $headers = []): OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 
@@ -49,6 +64,11 @@ Interface OmnichannelSubscriptionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListOmnichannelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListOmnichannelSubscriptionResponse;
 

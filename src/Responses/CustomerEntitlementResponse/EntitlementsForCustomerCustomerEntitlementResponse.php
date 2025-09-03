@@ -51,18 +51,4 @@ class EntitlementsForCustomerCustomerEntitlementResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class EntitlementsForCustomerCustomerEntitlementResponseListObject {
-    
-        public CustomerEntitlement $customer_entitlement;
-    
-public function __construct(
-    CustomerEntitlement $customer_entitlement,
-){ 
-    $this->customer_entitlement = $customer_entitlement;
-
-}
-}
-
 ?>

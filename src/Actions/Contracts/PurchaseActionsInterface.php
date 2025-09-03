@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\PurchaseResponse\CreatePurchaseResponse;
 use Chargebee\Responses\PurchaseResponse\EstimatePurchaseResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PurchaseActionsInterface
 {
@@ -91,6 +96,11 @@ Interface PurchaseActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreatePurchaseResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreatePurchaseResponse;
 
@@ -176,6 +186,11 @@ Interface PurchaseActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return EstimatePurchaseResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function estimate(array $params, array $headers = []): EstimatePurchaseResponse;
 

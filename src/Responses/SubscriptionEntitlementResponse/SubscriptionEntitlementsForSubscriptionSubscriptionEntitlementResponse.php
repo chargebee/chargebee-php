@@ -51,18 +51,4 @@ class SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponse ext
         return $data;
     }
 }
-
-
-class SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponseListObject {
-    
-        public SubscriptionEntitlement $subscription_entitlement;
-    
-public function __construct(
-    SubscriptionEntitlement $subscription_entitlement,
-){ 
-    $this->subscription_entitlement = $subscription_entitlement;
-
-}
-}
-
 ?>

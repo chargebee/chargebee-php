@@ -13,6 +13,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class ItemActions implements ItemActionsInterface
 {
@@ -118,6 +123,11 @@ final class ItemActions implements ItemActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListItemResponse
     {
@@ -175,6 +185,11 @@ final class ItemActions implements ItemActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateItemResponse
     {
@@ -203,6 +218,11 @@ final class ItemActions implements ItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteItemResponse
     {
@@ -229,6 +249,11 @@ final class ItemActions implements ItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveItemResponse
     {
@@ -291,6 +316,11 @@ final class ItemActions implements ItemActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateItemResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateItemResponse
     {

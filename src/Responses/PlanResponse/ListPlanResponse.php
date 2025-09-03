@@ -51,18 +51,4 @@ class ListPlanResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListPlanResponseListObject {
-    
-        public Plan $plan;
-    
-public function __construct(
-    Plan $plan,
-){ 
-    $this->plan = $plan;
-
-}
-}
-
 ?>

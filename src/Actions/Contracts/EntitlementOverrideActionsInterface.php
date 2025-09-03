@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\EntitlementOverrideResponse\AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 use Chargebee\Responses\EntitlementOverrideResponse\ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface EntitlementOverrideActionsInterface
 {
@@ -19,6 +24,11 @@ Interface EntitlementOverrideActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function listEntitlementOverrideForSubscription(string $id, array $params = [], array $headers = []): ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 
@@ -36,6 +46,11 @@ Interface EntitlementOverrideActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addEntitlementOverrideForSubscription(string $id, array $params, array $headers = []): AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 

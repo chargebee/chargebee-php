@@ -4,6 +4,11 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\DeletePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\RetrievePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\CreatePaymentScheduleSchemeResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PaymentScheduleSchemeActionsInterface
 {
@@ -14,6 +19,11 @@ Interface PaymentScheduleSchemeActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePaymentScheduleSchemeResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrievePaymentScheduleSchemeResponse;
 
@@ -32,6 +42,11 @@ Interface PaymentScheduleSchemeActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreatePaymentScheduleSchemeResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreatePaymentScheduleSchemeResponse;
 
@@ -41,6 +56,11 @@ Interface PaymentScheduleSchemeActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeletePaymentScheduleSchemeResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeletePaymentScheduleSchemeResponse;
 

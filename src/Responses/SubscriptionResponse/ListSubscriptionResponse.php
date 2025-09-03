@@ -57,30 +57,4 @@ class ListSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListSubscriptionResponseListObject {
-    
-        public Subscription $subscription;
-    
-        public Customer $customer;
-    
-        public ?Card $card;
-    
-public function __construct(
-    Subscription $subscription,
-
-    Customer $customer,
-
-    ?Card $card,
-){ 
-    $this->subscription = $subscription;
-
-    $this->customer = $customer;
-
-    $this->card = $card;
-
-}
-}
-
 ?>

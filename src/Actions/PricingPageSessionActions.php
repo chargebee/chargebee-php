@@ -9,6 +9,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class PricingPageSessionActions implements PricingPageSessionActionsInterface
 {
@@ -45,6 +50,11 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     *   
     *   @param array<string, string> $headers
     *   @return CreateForExistingSubscriptionPricingPageSessionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForExistingSubscription(array $params, array $headers = []): CreateForExistingSubscriptionPricingPageSessionResponse
     {
@@ -134,6 +144,11 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     *   
     *   @param array<string, string> $headers
     *   @return CreateForNewSubscriptionPricingPageSessionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForNewSubscription(array $params, array $headers = []): CreateForNewSubscriptionPricingPageSessionResponse
     {

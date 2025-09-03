@@ -51,18 +51,4 @@ class ListEntitlementResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListEntitlementResponseListObject {
-    
-        public Entitlement $entitlement;
-    
-public function __construct(
-    Entitlement $entitlement,
-){ 
-    $this->entitlement = $entitlement;
-
-}
-}
-
 ?>

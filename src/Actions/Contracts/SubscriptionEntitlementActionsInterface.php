@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\SubscriptionEntitlementResponse\SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponse;
 use Chargebee\Responses\SubscriptionEntitlementResponse\SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface SubscriptionEntitlementActionsInterface
 {
@@ -18,6 +23,11 @@ Interface SubscriptionEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function setSubscriptionEntitlementAvailability(string $id, array $params, array $headers = []): SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponse;
 
@@ -33,6 +43,11 @@ Interface SubscriptionEntitlementActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function subscriptionEntitlementsForSubscription(string $id, array $params = [], array $headers = []): SubscriptionEntitlementsForSubscriptionSubscriptionEntitlementResponse;
 

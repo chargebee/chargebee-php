@@ -51,18 +51,4 @@ class ListUnbilledChargeResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListUnbilledChargeResponseListObject {
-    
-        public UnbilledCharge $unbilled_charge;
-    
-public function __construct(
-    UnbilledCharge $unbilled_charge,
-){ 
-    $this->unbilled_charge = $unbilled_charge;
-
-}
-}
-
 ?>

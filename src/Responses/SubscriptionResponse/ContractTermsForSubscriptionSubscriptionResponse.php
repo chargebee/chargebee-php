@@ -51,18 +51,4 @@ class ContractTermsForSubscriptionSubscriptionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ContractTermsForSubscriptionSubscriptionResponseListObject {
-    
-        public ContractTerm $contract_term;
-    
-public function __construct(
-    ContractTerm $contract_term,
-){ 
-    $this->contract_term = $contract_term;
-
-}
-}
-
 ?>

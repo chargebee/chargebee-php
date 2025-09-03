@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\OmnichannelOneTimeOrderResponse\RetrieveOmnichannelOneTimeOrderResponse;
 use Chargebee\Responses\OmnichannelOneTimeOrderResponse\ListOmnichannelOneTimeOrderResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface OmnichannelOneTimeOrderActionsInterface
 {
@@ -27,6 +32,11 @@ Interface OmnichannelOneTimeOrderActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListOmnichannelOneTimeOrderResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListOmnichannelOneTimeOrderResponse;
 
@@ -36,6 +46,11 @@ Interface OmnichannelOneTimeOrderActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveOmnichannelOneTimeOrderResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveOmnichannelOneTimeOrderResponse;
 

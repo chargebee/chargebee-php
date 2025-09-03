@@ -51,18 +51,4 @@ class ListCouponCodeResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class ListCouponCodeResponseListObject {
-    
-        public CouponCode $coupon_code;
-    
-public function __construct(
-    CouponCode $coupon_code,
-){ 
-    $this->coupon_code = $coupon_code;
-
-}
-}
-
 ?>

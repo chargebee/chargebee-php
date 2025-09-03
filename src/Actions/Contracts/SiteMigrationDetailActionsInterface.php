@@ -2,6 +2,11 @@
 namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\SiteMigrationDetailResponse\ListSiteMigrationDetailResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface SiteMigrationDetailActionsInterface
 {
@@ -42,6 +47,11 @@ Interface SiteMigrationDetailActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListSiteMigrationDetailResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListSiteMigrationDetailResponse;
 

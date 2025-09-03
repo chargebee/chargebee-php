@@ -7,6 +7,11 @@ use Chargebee\Responses\CurrencyResponse\AddScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\RetrieveCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\RemoveScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\UpdateCurrencyResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface CurrencyActionsInterface
 {
@@ -20,6 +25,11 @@ Interface CurrencyActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddScheduleCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addSchedule(string $id, array $params, array $headers = []): AddScheduleCurrencyResponse;
 
@@ -33,6 +43,11 @@ Interface CurrencyActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateCurrencyResponse;
 
@@ -42,6 +57,11 @@ Interface CurrencyActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveCurrencyResponse;
 
@@ -54,6 +74,11 @@ Interface CurrencyActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params, array $headers = []): UpdateCurrencyResponse;
 
@@ -63,6 +88,11 @@ Interface CurrencyActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveScheduleCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeSchedule(string $id, array $headers = []): RemoveScheduleCurrencyResponse;
 
@@ -72,6 +102,11 @@ Interface CurrencyActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListCurrencyResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $headers = []): ListCurrencyResponse;
 

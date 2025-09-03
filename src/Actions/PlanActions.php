@@ -15,6 +15,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class PlanActions implements PlanActionsInterface
 {
@@ -31,6 +36,11 @@ final class PlanActions implements PlanActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UnarchivePlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function unarchive(string $id, array $headers = []): UnarchivePlanResponse
     {
@@ -57,6 +67,11 @@ final class PlanActions implements PlanActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeletePlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeletePlanResponse
     {
@@ -88,6 +103,11 @@ final class PlanActions implements PlanActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CopyPlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function copy(array $params, array $headers = []): CopyPlanResponse
     {
@@ -219,6 +239,11 @@ final class PlanActions implements PlanActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListPlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListPlanResponse
     {
@@ -323,6 +348,11 @@ final class PlanActions implements PlanActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreatePlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreatePlanResponse
     {
@@ -351,6 +381,11 @@ final class PlanActions implements PlanActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrievePlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrievePlanResponse
     {
@@ -450,6 +485,11 @@ final class PlanActions implements PlanActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdatePlanResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params, array $headers = []): UpdatePlanResponse
     {

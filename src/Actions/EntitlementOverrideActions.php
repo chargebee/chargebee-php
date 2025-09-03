@@ -10,6 +10,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class EntitlementOverrideActions implements EntitlementOverrideActionsInterface
 {
@@ -32,6 +37,11 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function listEntitlementOverrideForSubscription(string $id, array $params = [], array $headers = []): ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse
     {
@@ -66,6 +76,11 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addEntitlementOverrideForSubscription(string $id, array $params, array $headers = []): AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse
     {

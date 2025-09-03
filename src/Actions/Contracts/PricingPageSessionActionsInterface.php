@@ -3,6 +3,11 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\PricingPageSessionResponse\CreateForNewSubscriptionPricingPageSessionResponse;
 use Chargebee\Responses\PricingPageSessionResponse\CreateForExistingSubscriptionPricingPageSessionResponse;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 Interface PricingPageSessionActionsInterface
 {
@@ -33,6 +38,11 @@ Interface PricingPageSessionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForExistingSubscriptionPricingPageSessionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForExistingSubscription(array $params, array $headers = []): CreateForExistingSubscriptionPricingPageSessionResponse;
 
@@ -104,6 +114,11 @@ Interface PricingPageSessionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForNewSubscriptionPricingPageSessionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForNewSubscription(array $params, array $headers = []): CreateForNewSubscriptionPricingPageSessionResponse;
 

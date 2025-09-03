@@ -16,6 +16,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class FeatureActions implements FeatureActionsInterface
 {
@@ -61,6 +66,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListFeatureResponse
     {
@@ -99,6 +109,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateFeatureResponse
     {
@@ -126,6 +141,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteFeatureResponse
     {
@@ -152,6 +172,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveFeatureResponse
     {
@@ -187,6 +212,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateFeatureResponse
     {
@@ -214,6 +244,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ArchiveFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function archive(string $id, array $headers = []): ArchiveFeatureResponse
     {
@@ -240,6 +275,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ActivateFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function activate(string $id, array $headers = []): ActivateFeatureResponse
     {
@@ -266,6 +306,11 @@ final class FeatureActions implements FeatureActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ReactivateFeatureResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function reactivate(string $id, array $headers = []): ReactivateFeatureResponse
     {

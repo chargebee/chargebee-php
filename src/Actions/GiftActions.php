@@ -15,6 +15,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class GiftActions implements GiftActionsInterface
 {
@@ -79,6 +84,11 @@ final class GiftActions implements GiftActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateForItemsGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForItems(array $params, array $headers = []): CreateForItemsGiftResponse
     {
@@ -107,6 +117,11 @@ final class GiftActions implements GiftActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CancelGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function cancel(string $id, array $headers = []): CancelGiftResponse
     {
@@ -136,6 +151,11 @@ final class GiftActions implements GiftActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateGiftGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function updateGift(string $id, array $params, array $headers = []): UpdateGiftGiftResponse
     {
@@ -191,6 +211,11 @@ final class GiftActions implements GiftActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListGiftResponse
     {
@@ -270,6 +295,11 @@ final class GiftActions implements GiftActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateGiftResponse
     {
@@ -298,6 +328,11 @@ final class GiftActions implements GiftActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveGiftResponse
     {
@@ -323,6 +358,11 @@ final class GiftActions implements GiftActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ClaimGiftResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function claim(string $id, array $headers = []): ClaimGiftResponse
     {

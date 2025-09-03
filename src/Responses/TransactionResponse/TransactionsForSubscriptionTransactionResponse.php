@@ -51,18 +51,4 @@ class TransactionsForSubscriptionTransactionResponse extends ResponseBase {
         return $data;
     }
 }
-
-
-class TransactionsForSubscriptionTransactionResponseListObject {
-    
-        public Transaction $transaction;
-    
-public function __construct(
-    Transaction $transaction,
-){ 
-    $this->transaction = $transaction;
-
-}
-}
-
 ?>

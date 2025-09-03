@@ -45,6 +45,11 @@ use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
 use Chargebee\HttpClient\HttpClientFactory;
 use Chargebee\Environment;
+use Exception;
+use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Exceptions\APIError;
+use Chargebee\Exceptions\InvalidRequestException;
 
 final class SubscriptionActions implements SubscriptionActionsInterface
 {
@@ -65,6 +70,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveAdvanceInvoiceScheduleSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeAdvanceInvoiceSchedule(string $id, array $params = [], array $headers = []): RemoveAdvanceInvoiceScheduleSubscriptionResponse
     {
@@ -266,6 +276,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateForItemsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function updateForItems(string $id, array $params, array $headers = []): UpdateForItemsSubscriptionResponse
     {
@@ -297,6 +312,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveCouponsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeCoupons(string $id, array $params = [], array $headers = []): RemoveCouponsSubscriptionResponse
     {
@@ -339,6 +359,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ResumeSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function resume(string $id, array $params = [], array $headers = []): ResumeSubscriptionResponse
     {
@@ -386,6 +411,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CancelForItemsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function cancelForItems(string $id, array $params = [], array $headers = []): CancelForItemsSubscriptionResponse
     {
@@ -418,6 +448,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RegenerateInvoiceSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function regenerateInvoice(string $id, array $params = [], array $headers = []): RegenerateInvoiceSubscriptionResponse
     {
@@ -573,6 +608,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ListSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function all(array $params = [], array $headers = []): ListSubscriptionResponse
     {
@@ -791,6 +831,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return CreateSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateSubscriptionResponse
     {
@@ -825,6 +870,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return MoveSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function move(string $id, array $params, array $headers = []): MoveSubscriptionResponse
     {
@@ -855,6 +905,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return SubscriptionsForCustomerSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function subscriptionsForCustomer(string $id, array $params = [], array $headers = []): SubscriptionsForCustomerSubscriptionResponse
     {
@@ -968,6 +1023,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateForCustomerSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createForCustomer(string $id, array $params, array $headers = []): CreateForCustomerSubscriptionResponse
     {
@@ -1100,6 +1160,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportForItemsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importForItems(string $id, array $params, array $headers = []): ImportForItemsSubscriptionResponse
     {
@@ -1128,6 +1193,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveAdvanceInvoiceScheduleSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieveAdvanceInvoiceSchedule(string $id, array $headers = []): RetrieveAdvanceInvoiceScheduleSubscriptionResponse
     {
@@ -1160,6 +1230,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveScheduledCancellationSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeScheduledCancellation(string $id, array $params = [], array $headers = []): RemoveScheduledCancellationSubscriptionResponse
     {
@@ -1187,6 +1262,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveWithScheduledChangesSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieveWithScheduledChanges(string $id, array $headers = []): RetrieveWithScheduledChangesSubscriptionResponse
     {
@@ -1239,6 +1319,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ReactivateSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function reactivate(string $id, array $params = [], array $headers = []): ReactivateSubscriptionResponse
     {
@@ -1281,6 +1366,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ChargeFutureRenewalsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function chargeFutureRenewals(string $id, array $params = [], array $headers = []): ChargeFutureRenewalsSubscriptionResponse
     {
@@ -1317,6 +1407,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return AddChargeAtTermEndSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function addChargeAtTermEnd(string $id, array $params, array $headers = []): AddChargeAtTermEndSubscriptionResponse
     {
@@ -1344,6 +1439,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveScheduledChangesSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeScheduledChanges(string $id, array $headers = []): RemoveScheduledChangesSubscriptionResponse
     {
@@ -1374,6 +1474,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ChangeTermEndSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function changeTermEnd(string $id, array $params, array $headers = []): ChangeTermEndSubscriptionResponse
     {
@@ -1401,6 +1506,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return DeleteSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function delete(string $id, array $headers = []): DeleteSubscriptionResponse
     {
@@ -1535,6 +1645,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CreateWithItemsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function createWithItems(string $id, array $params, array $headers = []): CreateWithItemsSubscriptionResponse
     {
@@ -1600,6 +1715,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportUnbilledChargesSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importUnbilledCharges(string $id, array $params, array $headers = []): ImportUnbilledChargesSubscriptionResponse
     {
@@ -1627,6 +1747,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveScheduledResumptionSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeScheduledResumption(string $id, array $headers = []): RemoveScheduledResumptionSubscriptionResponse
     {
@@ -1653,6 +1778,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrieveSubscriptionResponse
     {
@@ -1828,6 +1958,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpdateSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function update(string $id, array $params = [], array $headers = []): UpdateSubscriptionResponse
     {
@@ -1873,6 +2008,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportContractTermSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importContractTerm(string $id, array $params = [], array $headers = []): ImportContractTermSubscriptionResponse
     {
@@ -1903,6 +2043,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return OverrideBillingProfileSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function overrideBillingProfile(string $id, array $params = [], array $headers = []): OverrideBillingProfileSubscriptionResponse
     {
@@ -1930,6 +2075,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RemoveScheduledPauseSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function removeScheduledPause(string $id, array $headers = []): RemoveScheduledPauseSubscriptionResponse
     {
@@ -1970,6 +2120,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditAdvanceInvoiceScheduleSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function editAdvanceInvoiceSchedule(string $id, array $params = [], array $headers = []): EditAdvanceInvoiceScheduleSubscriptionResponse
     {
@@ -2000,6 +2155,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ListDiscountsSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function listDiscounts(string $id, array $params = [], array $headers = []): ListDiscountsSubscriptionResponse
     {
@@ -2033,6 +2193,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ContractTermsForSubscriptionSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function contractTermsForSubscription(string $id, array $params = [], array $headers = []): ContractTermsForSubscriptionSubscriptionResponse
     {
@@ -2066,6 +2231,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return PauseSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function pause(string $id, array $params = [], array $headers = []): PauseSubscriptionResponse
     {
@@ -2179,6 +2349,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ImportForCustomerSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importForCustomer(string $id, array $params, array $headers = []): ImportForCustomerSubscriptionResponse
     {
@@ -2357,6 +2532,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   
     *   @param array<string, string> $headers
     *   @return ImportSubscriptionSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function importSubscription(array $params, array $headers = []): ImportSubscriptionSubscriptionResponse
     {
@@ -2403,6 +2583,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return CancelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function cancel(string $id, array $params = [], array $headers = []): CancelSubscriptionResponse
     {
@@ -2438,6 +2623,11 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return ChargeAddonAtTermEndSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
     */
     public function chargeAddonAtTermEnd(string $id, array $params, array $headers = []): ChargeAddonAtTermEndSubscriptionResponse
     {
