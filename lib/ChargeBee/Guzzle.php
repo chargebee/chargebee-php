@@ -9,6 +9,7 @@ use ChargeBee\ChargeBee\Exceptions\PaymentException;
 use ChargeBee\ChargeBee\Exceptions\OperationFailedException;
 use ChargeBee\ChargeBee\Exceptions\InvalidRequestException;
 use ChargeBee\ChargeBee\Exceptions\APIError;
+use ChargeBee\ChargeBee\Exceptions\UbbBatchIngestionInvalidRequestException;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -142,6 +143,8 @@ class Guzzle
             throw new OperationFailedException($httpCode, $respJson, $responseHeaders);
         } elseif ($type == "invalid_request") {
             throw new InvalidRequestException($httpCode, $respJson, $responseHeaders);
+        } elseif ($type == "ubb_batch_ingestion_invalid_request") { 
+            throw new UbbBatchIngestionInvalidRequestException($httpCode, $respJson, $responseHeaders);
         } else {
             throw new APIError($httpCode, $respJson, $responseHeaders);
         }
