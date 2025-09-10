@@ -5,6 +5,8 @@ use Chargebee\Exceptions\APIError;
 use Chargebee\Exceptions\InvalidRequestException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\PaymentException;
+use Chargebee\Exceptions\UbbBatchIngestionInvalidRequestException;
+
 use Exception;
 
 class ResponseObject
@@ -66,6 +68,8 @@ class ResponseObject
             throw new OperationFailedException($httpCode, $respJson, $responseHeaders);
         } elseif ($type == "invalid_request") {
             throw new InvalidRequestException($httpCode, $respJson, $responseHeaders);
+        } elseif ($type == "ubb_batch_ingestion_invalid_request") {
+            throw new UbbBatchIngestionInvalidRequestException($httpCode, $respJson, $responseHeaders);
         } else {
             throw new APIError($httpCode, $respJson, $responseHeaders);
         }
