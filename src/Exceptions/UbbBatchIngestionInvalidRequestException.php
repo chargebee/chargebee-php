@@ -11,8 +11,8 @@ class UbbBatchIngestionInvalidRequestException extends APIError
     
     public function __construct($httpStatusCode, $jsonObject, $responseHeaders){
         parent::__construct($httpStatusCode, $jsonObject, $responseHeaders);
-        $this->batchId = isset($jsonObject['batch_id']) ? $jsonObject['batch_id'] : null; 
-        $this->failedEvents = isset($jsonObject['failed_events']) ? $jsonObject['failed_events'] : null; 
+        $this->batchId = $jsonObject['batch_id'] ?? null; 
+        $this->failedEvents = $jsonObject['failed_events'] ?? null; 
     }
     
     public function getBatchId()
