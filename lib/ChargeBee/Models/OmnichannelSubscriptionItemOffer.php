@@ -6,22 +6,25 @@ use ChargeBee\ChargeBee\Model;
 use ChargeBee\ChargeBee\Request;
 use ChargeBee\ChargeBee\Util;
 
-class OmnichannelTransaction extends Model
+class OmnichannelSubscriptionItemOffer extends Model
 {
 
   protected $allowed = [
     'id',
-    'idAtSource',
-    'appId',
+    'offerIdAtSource',
+    'category',
+    'categoryAtSource',
+    'type',
+    'typeAtSource',
+    'discountType',
+    'duration',
+    'percentage',
     'priceCurrency',
     'priceUnits',
     'priceNanos',
-    'type',
-    'transactedAt',
-    'createdAt',
+    'offerTermStart',
+    'offerTermEnd',
     'resourceVersion',
-    'linkedOmnichannelSubscriptions',
-    'linkedOmnichannelOneTimeOrders',
   ];
 
 

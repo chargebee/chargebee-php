@@ -25,6 +25,7 @@ class OmnichannelSubscriptionItem extends Model
     'resumesAt',
     'hasScheduledChanges',
     'resourceVersion',
+    'omnichannelSubscriptionItemOffers',
     'upcomingRenewal',
     'linkedItem',
   ];

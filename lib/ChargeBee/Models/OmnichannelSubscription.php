@@ -47,6 +47,13 @@ class OmnichannelSubscription extends Model
     return Request::send(Request::GET, Util::encodeURIPath("omnichannel_subscriptions",$id,"omnichannel_transactions"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
+  public static function move($id, $params, $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("omnichannel_subscriptions",$id,"move"), $params, $env, $headers, null, false, $jsonKeys);
+  }
+
  }
 
 ?>

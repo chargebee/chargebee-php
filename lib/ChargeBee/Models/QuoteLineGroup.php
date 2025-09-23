@@ -20,10 +20,10 @@ class QuoteLineGroup extends Model
     'chargeEvent',
     'billingCycleNumber',
     'lineItems',
-    'discounts',
     'lineItemDiscounts',
-    'taxes',
     'lineItemTaxes',
+    'discounts',
+    'taxes',
   ];
 
 

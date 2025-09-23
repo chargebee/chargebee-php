@@ -21,7 +21,6 @@ class SubscriptionEstimateShippingAddress extends Model
     'country',
     'zip',
     'validationStatus',
-    'index',
   ];
 
 }

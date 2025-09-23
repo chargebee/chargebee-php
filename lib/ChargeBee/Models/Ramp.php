@@ -26,6 +26,7 @@ class Ramp extends Model
     'itemsToRemove',
     'couponsToRemove',
     'discountsToRemove',
+    'contractTerm',
     'deleted',
     'statusTransitionReason',
   ];

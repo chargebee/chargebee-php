@@ -21,7 +21,6 @@ class QuoteShippingAddress extends Model
     'country',
     'zip',
     'validationStatus',
-    'index',
   ];
 
 }

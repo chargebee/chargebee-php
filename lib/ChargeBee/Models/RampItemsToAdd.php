@@ -20,6 +20,9 @@ class RampItemsToAdd extends Model
     'billingCycles',
     'servicePeriodDays',
     'meteredQuantity',
+    'chargeOnce',
+    'chargeOnOption',
+    'chargeOnEvent',
   ];
 
 }
