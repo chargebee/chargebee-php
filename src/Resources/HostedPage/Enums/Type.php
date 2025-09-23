@@ -12,6 +12,7 @@ enum Type : string {
     case CHECKOUT_ONE_TIME = "checkout_one_time";
     case PRE_CANCEL = "pre_cancel";
     case VIEW_VOUCHER = "view_voucher";
+    case ACCEPT_QUOTE = "accept_quote";
     case CHECKOUT_GIFT = "checkout_gift";
     case CLAIM_GIFT = "claim_gift";
     /*

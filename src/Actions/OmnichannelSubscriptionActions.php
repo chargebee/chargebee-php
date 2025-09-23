@@ -5,6 +5,7 @@ use Chargebee\Responses\OmnichannelSubscriptionResponse\RetrieveOmnichannelSubsc
 use Chargebee\Responses\OmnichannelSubscriptionResponse\OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\ListOmnichannelSubscriptionResponse;
 use Chargebee\Actions\Contracts\OmnichannelSubscriptionActionsInterface;
+use Chargebee\Responses\OmnichannelSubscriptionResponse\MoveOmnichannelSubscriptionResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
@@ -24,6 +25,40 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
     public function __construct(HttpClientFactory $httpClientFactory, Environment $env){
        $this->httpClientFactory = $httpClientFactory;
        $this->env = $env;
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#move_an_omnichannel_subscription
+    *   @param array{
+    *     to_customer_id?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return MoveOmnichannelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function move(string $id, array $params, array $headers = []): MoveOmnichannelSubscriptionResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["omnichannel_subscriptions",$id,"move"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return MoveOmnichannelSubscriptionResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

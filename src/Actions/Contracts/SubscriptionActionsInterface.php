@@ -1230,6 +1230,7 @@ Interface SubscriptionActionsInterface
     *     auto_collection?: string,
     *     terms_to_charge?: int,
     *     billing_alignment_mode?: string,
+    *     offline_payment_method?: string,
     *     po_number?: string,
     *     coupon_ids?: array<string>,
     * payment_source_id?: string,

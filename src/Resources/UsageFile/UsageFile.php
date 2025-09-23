@@ -83,6 +83,18 @@ class UsageFile  {
     
     /**
     *
+    * @var ?string $error_file_path
+    */
+    public ?string $error_file_path;
+    
+    /**
+    *
+    * @var ?string $error_file_url
+    */
+    public ?string $error_file_url;
+    
+    /**
+    *
     * @var ?UploadDetail $upload_details
     */
     public ?UploadDetail $upload_details;
@@ -96,7 +108,7 @@ class UsageFile  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "mime_type" , "error_code" , "error_reason" , "total_records_count" , "processed_records_count" , "failed_records_count" , "file_size_in_bytes" , "processing_started_at" , "processing_completed_at" , "uploaded_by" , "uploaded_at" , "upload_details"  ];
+    protected static array $knownFields = [ "id" , "name" , "mime_type" , "error_code" , "error_reason" , "total_records_count" , "processed_records_count" , "failed_records_count" , "file_size_in_bytes" , "processing_started_at" , "processing_completed_at" , "uploaded_by" , "uploaded_at" , "error_file_path" , "error_file_url" , "upload_details"  ];
 
     /**
     * dynamic properties for resources
@@ -118,6 +130,8 @@ class UsageFile  {
         ?int $processing_completed_at,
         ?string $uploaded_by,
         ?int $uploaded_at,
+        ?string $error_file_path,
+        ?string $error_file_url,
         ?UploadDetail $upload_details,
         ?\Chargebee\Resources\UsageFile\Enums\Status $status,
     )
@@ -135,6 +149,8 @@ class UsageFile  {
         $this->processing_completed_at = $processing_completed_at;
         $this->uploaded_by = $uploaded_by;
         $this->uploaded_at = $uploaded_at;
+        $this->error_file_path = $error_file_path;
+        $this->error_file_url = $error_file_url;
         $this->upload_details = $upload_details;  
         $this->status = $status; 
     }
@@ -154,6 +170,8 @@ class UsageFile  {
         $resourceAttributes['processing_completed_at'] ?? null,
         $resourceAttributes['uploaded_by'] ?? null,
         $resourceAttributes['uploaded_at'] ?? null,
+        $resourceAttributes['error_file_path'] ?? null,
+        $resourceAttributes['error_file_url'] ?? null,
         isset($resourceAttributes['upload_details']) ? UploadDetail::from($resourceAttributes['upload_details']) : null,
         
          
@@ -180,6 +198,8 @@ class UsageFile  {
         'processing_completed_at' => $this->processing_completed_at,
         'uploaded_by' => $this->uploaded_by,
         'uploaded_at' => $this->uploaded_at,
+        'error_file_path' => $this->error_file_path,
+        'error_file_url' => $this->error_file_url,
         
         
         'status' => $this->status?->value,

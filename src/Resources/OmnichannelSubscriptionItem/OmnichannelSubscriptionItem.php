@@ -71,6 +71,12 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?array<\Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer> $omnichannel_subscription_item_offers
+    */
+    public ?array $omnichannel_subscription_item_offers;
+    
+    /**
+    *
     * @var ?UpcomingRenewal $upcoming_renewal
     */
     public ?UpcomingRenewal $upcoming_renewal;
@@ -108,7 +114,7 @@ class OmnichannelSubscriptionItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "resource_version" , "upcoming_renewal" , "linked_item"  ];
+    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "resource_version" , "omnichannel_subscription_item_offers" , "upcoming_renewal" , "linked_item"  ];
 
     /**
     * dynamic properties for resources
@@ -128,6 +134,7 @@ class OmnichannelSubscriptionItem  {
         ?int $resumes_at,
         ?bool $has_scheduled_changes,
         ?int $resource_version,
+        ?array $omnichannel_subscription_item_offers,
         ?UpcomingRenewal $upcoming_renewal,
         ?LinkedItem $linked_item,
         ?\Chargebee\Resources\OmnichannelSubscriptionItem\Enums\Status $status,
@@ -147,6 +154,7 @@ class OmnichannelSubscriptionItem  {
         $this->resumes_at = $resumes_at;
         $this->has_scheduled_changes = $has_scheduled_changes;
         $this->resource_version = $resource_version;
+        $this->omnichannel_subscription_item_offers = $omnichannel_subscription_item_offers;
         $this->upcoming_renewal = $upcoming_renewal;
         $this->linked_item = $linked_item;  
         $this->status = $status;
@@ -157,6 +165,10 @@ class OmnichannelSubscriptionItem  {
 
     public static function from(array $resourceAttributes): self
     { 
+        $omnichannel_subscription_item_offers = array_map(fn (array $result): \Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer =>  \Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer::from(
+            $result
+        ), $resourceAttributes['omnichannel_subscription_item_offers'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['item_id_at_source'] ?? null,
         $resourceAttributes['item_parent_id_at_source'] ?? null,
@@ -168,6 +180,7 @@ class OmnichannelSubscriptionItem  {
         $resourceAttributes['resumes_at'] ?? null,
         $resourceAttributes['has_scheduled_changes'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
+        $omnichannel_subscription_item_offers,
         isset($resourceAttributes['upcoming_renewal']) ? UpcomingRenewal::from($resourceAttributes['upcoming_renewal']) : null,
         isset($resourceAttributes['linked_item']) ? LinkedItem::from($resourceAttributes['linked_item']) : null,
         
@@ -202,6 +215,7 @@ class OmnichannelSubscriptionItem  {
         
         
         
+        
         'status' => $this->status?->value,
         
         'auto_renew_status' => $this->auto_renew_status?->value,
@@ -222,6 +236,12 @@ class OmnichannelSubscriptionItem  {
             $data['linked_item'] = $this->linked_item->toArray();
         }
         
+        if($this->omnichannel_subscription_item_offers !== []){
+            $data['omnichannel_subscription_item_offers'] = array_map(
+                fn (\Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer $omnichannel_subscription_item_offers): array => $omnichannel_subscription_item_offers->toArray(),
+                $this->omnichannel_subscription_item_offers
+            );
+        }
 
         
         return $data;

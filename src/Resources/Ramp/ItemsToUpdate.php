@@ -82,9 +82,27 @@ class ItemsToUpdate  {
     public ?string $metered_quantity;
     
     /**
+    *
+    * @var ?bool $charge_once
+    */
+    public ?bool $charge_once;
+    
+    /**
+    *
+    * @var ?string $charge_on_option
+    */
+    public ?string $charge_on_option;
+    
+    /**
+    *
+    * @var ?string $charge_on_event
+    */
+    public ?string $charge_on_event;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity"  ];
+    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity" , "charge_once" , "charge_on_option" , "charge_on_event"  ];
 
     /**
     * dynamic properties for resources
@@ -106,6 +124,9 @@ class ItemsToUpdate  {
         ?int $billing_cycles,
         ?int $service_period_days,
         ?string $metered_quantity,
+        ?bool $charge_once,
+        ?string $charge_on_option,
+        ?string $charge_on_event,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -120,7 +141,10 @@ class ItemsToUpdate  {
         $this->free_quantity_in_decimal = $free_quantity_in_decimal;
         $this->billing_cycles = $billing_cycles;
         $this->service_period_days = $service_period_days;
-        $this->metered_quantity = $metered_quantity;   
+        $this->metered_quantity = $metered_quantity;
+        $this->charge_once = $charge_once;
+        $this->charge_on_option = $charge_on_option;
+        $this->charge_on_event = $charge_on_event;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -138,6 +162,9 @@ class ItemsToUpdate  {
         $resourceAttributes['billing_cycles'] ?? null,
         $resourceAttributes['service_period_days'] ?? null,
         $resourceAttributes['metered_quantity'] ?? null,
+        $resourceAttributes['charge_once'] ?? null,
+        $resourceAttributes['charge_on_option'] ?? null,
+        $resourceAttributes['charge_on_event'] ?? null,
         
           
         );
@@ -161,6 +188,9 @@ class ItemsToUpdate  {
         'billing_cycles' => $this->billing_cycles,
         'service_period_days' => $this->service_period_days,
         'metered_quantity' => $this->metered_quantity,
+        'charge_once' => $this->charge_once,
+        'charge_on_option' => $this->charge_on_option,
+        'charge_on_event' => $this->charge_on_event,
         
         ], function ($value) {
             return $value !== null;

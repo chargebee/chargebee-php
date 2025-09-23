@@ -27,8 +27,8 @@ class ResponseObject
      */
     public function __construct($response, $httpCode, $responseHeaders)
     {
-        $respJson = json_decode($response, true); // json parsing error might not get caught properly;
-        if (!$respJson) {
+        $respJson = $httpCode===204 ? [] : json_decode($response, true); // json parsing error might not get caught properly;
+        if (!$httpCode === 204 && !$respJson) {
             if (strpos($response, '503') !== false)
                 throw new Exception("Sorry, the server is currently unable to handle the request due to a temporary overload or scheduled maintenance. Please retry after sometime. \n type: internal_temporary_error, \n http_status_code: 503, \n error_code: internal_temporary_error");
             else if (strpos($response, '504') !== false)

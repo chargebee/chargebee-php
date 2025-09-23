@@ -59,6 +59,18 @@ class OmnichannelTransaction  {
     
     /**
     *
+    * @var ?array<LinkedOmnichannelSubscription> $linked_omnichannel_subscriptions
+    */
+    public ?array $linked_omnichannel_subscriptions;
+    
+    /**
+    *
+    * @var ?array<LinkedOmnichannelOneTimeOrder> $linked_omnichannel_one_time_orders
+    */
+    public ?array $linked_omnichannel_one_time_orders;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type
     */
     public ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type;
@@ -66,7 +78,7 @@ class OmnichannelTransaction  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "price_currency" , "price_units" , "price_nanos" , "transacted_at" , "created_at" , "resource_version"  ];
+    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "price_currency" , "price_units" , "price_nanos" , "transacted_at" , "created_at" , "resource_version" , "linked_omnichannel_subscriptions" , "linked_omnichannel_one_time_orders"  ];
 
     /**
     * dynamic properties for resources
@@ -84,6 +96,8 @@ class OmnichannelTransaction  {
         ?int $transacted_at,
         ?int $created_at,
         ?int $resource_version,
+        ?array $linked_omnichannel_subscriptions,
+        ?array $linked_omnichannel_one_time_orders,
         ?\Chargebee\Resources\OmnichannelTransaction\Enums\Type $type,
     )
     { 
@@ -95,12 +109,22 @@ class OmnichannelTransaction  {
         $this->price_nanos = $price_nanos;
         $this->transacted_at = $transacted_at;
         $this->created_at = $created_at;
-        $this->resource_version = $resource_version;  
+        $this->resource_version = $resource_version;
+        $this->linked_omnichannel_subscriptions = $linked_omnichannel_subscriptions;
+        $this->linked_omnichannel_one_time_orders = $linked_omnichannel_one_time_orders;  
         $this->type = $type; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
+        $linked_omnichannel_subscriptions = array_map(fn (array $result): LinkedOmnichannelSubscription =>  LinkedOmnichannelSubscription::from(
+            $result
+        ), $resourceAttributes['linked_omnichannel_subscriptions'] ?? []);
+        
+        $linked_omnichannel_one_time_orders = array_map(fn (array $result): LinkedOmnichannelOneTimeOrder =>  LinkedOmnichannelOneTimeOrder::from(
+            $result
+        ), $resourceAttributes['linked_omnichannel_one_time_orders'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['id_at_source'] ?? null,
         $resourceAttributes['app_id'] ?? null,
@@ -110,6 +134,8 @@ class OmnichannelTransaction  {
         $resourceAttributes['transacted_at'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
+        $linked_omnichannel_subscriptions,
+        $linked_omnichannel_one_time_orders,
         
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\OmnichannelTransaction\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
@@ -132,6 +158,8 @@ class OmnichannelTransaction  {
         'created_at' => $this->created_at,
         'resource_version' => $this->resource_version,
         
+        
+        
         'type' => $this->type?->value,
         
         ], function ($value) {
@@ -140,6 +168,18 @@ class OmnichannelTransaction  {
 
         
         
+        if($this->linked_omnichannel_subscriptions !== []){
+            $data['linked_omnichannel_subscriptions'] = array_map(
+                fn (LinkedOmnichannelSubscription $linked_omnichannel_subscriptions): array => $linked_omnichannel_subscriptions->toArray(),
+                $this->linked_omnichannel_subscriptions
+            );
+        }
+        if($this->linked_omnichannel_one_time_orders !== []){
+            $data['linked_omnichannel_one_time_orders'] = array_map(
+                fn (LinkedOmnichannelOneTimeOrder $linked_omnichannel_one_time_orders): array => $linked_omnichannel_one_time_orders->toArray(),
+                $this->linked_omnichannel_one_time_orders
+            );
+        }
 
         
         return $data;

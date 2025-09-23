@@ -2,7 +2,8 @@
 
 namespace Chargebee\Resources\Invoice;
 
-class Invoice  { 
+use Chargebee\ValueObjects\SupportsCustomFields;
+class Invoice  extends SupportsCustomFields  { 
     /**
     *
     * @var ?string $id
@@ -700,7 +701,11 @@ class Invoice  {
         isset($resourceAttributes['dunning_status']) ? \Chargebee\Resources\Invoice\Enums\DunningStatus::tryFromValue($resourceAttributes['dunning_status']) : null,
          
         );
-       
+       foreach ($resourceAttributes as $key => $value) {
+            if (!in_array($key, $returnData::$knownFields, true)) {
+                $returnData->__set($key, $value);
+            }
+        } 
         return $returnData;
     }
 
@@ -895,7 +900,11 @@ class Invoice  {
             );
         }
 
-        
+        foreach($this->_data as $keys => $value){
+            if (!in_array($keys, $this::$knownFields)) {
+                $data[$keys] = $value;
+            }
+        } 
         return $data;
     }
 }

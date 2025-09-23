@@ -40,9 +40,15 @@ class Balance  {
     public ?string $balance_currency_code;
     
     /**
+    *
+    * @var ?string $business_entity_id
+    */
+    public ?string $business_entity_id;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "promotional_credits" , "excess_payments" , "refundable_credits" , "unbilled_charges" , "currency_code" , "balance_currency_code"  ];
+    protected static array $knownFields = [ "promotional_credits" , "excess_payments" , "refundable_credits" , "unbilled_charges" , "currency_code" , "balance_currency_code" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -57,6 +63,7 @@ class Balance  {
         ?int $unbilled_charges,
         ?string $currency_code,
         ?string $balance_currency_code,
+        ?string $business_entity_id,
     )
     { 
         $this->promotional_credits = $promotional_credits;
@@ -64,7 +71,8 @@ class Balance  {
         $this->refundable_credits = $refundable_credits;
         $this->unbilled_charges = $unbilled_charges;
         $this->currency_code = $currency_code;
-        $this->balance_currency_code = $balance_currency_code;   
+        $this->balance_currency_code = $balance_currency_code;
+        $this->business_entity_id = $business_entity_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -75,6 +83,7 @@ class Balance  {
         $resourceAttributes['unbilled_charges'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['balance_currency_code'] ?? null,
+        $resourceAttributes['business_entity_id'] ?? null,
         
           
         );
@@ -91,6 +100,7 @@ class Balance  {
         'unbilled_charges' => $this->unbilled_charges,
         'currency_code' => $this->currency_code,
         'balance_currency_code' => $this->balance_currency_code,
+        'business_entity_id' => $this->business_entity_id,
         
         ], function ($value) {
             return $value !== null;

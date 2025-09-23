@@ -59,27 +59,27 @@ class QuoteLineGroup  {
     
     /**
     *
-    * @var ?array<Discount> $discounts
-    */
-    public ?array $discounts;
-    
-    /**
-    *
     * @var ?array<LineItemDiscount> $line_item_discounts
     */
     public ?array $line_item_discounts;
     
     /**
     *
-    * @var ?array<Tax> $taxes
-    */
-    public ?array $taxes;
-    
-    /**
-    *
     * @var ?array<LineItemTax> $line_item_taxes
     */
     public ?array $line_item_taxes;
+    
+    /**
+    *
+    * @var ?array<Discount> $discounts
+    */
+    public ?array $discounts;
+    
+    /**
+    *
+    * @var ?array<Tax> $taxes
+    */
+    public ?array $taxes;
     
     /**
     *
@@ -90,7 +90,7 @@ class QuoteLineGroup  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "version" , "id" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "billing_cycle_number" , "line_items" , "discounts" , "line_item_discounts" , "taxes" , "line_item_taxes"  ];
+    protected static array $knownFields = [ "version" , "id" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "billing_cycle_number" , "line_items" , "line_item_discounts" , "line_item_taxes" , "discounts" , "taxes"  ];
 
     /**
     * dynamic properties for resources
@@ -108,10 +108,10 @@ class QuoteLineGroup  {
         ?int $amount_due,
         ?int $billing_cycle_number,
         ?array $line_items,
-        ?array $discounts,
         ?array $line_item_discounts,
-        ?array $taxes,
         ?array $line_item_taxes,
+        ?array $discounts,
+        ?array $taxes,
         ?\Chargebee\Resources\QuoteLineGroup\Enums\ChargeEvent $charge_event,
     )
     { 
@@ -124,10 +124,10 @@ class QuoteLineGroup  {
         $this->amount_due = $amount_due;
         $this->billing_cycle_number = $billing_cycle_number;
         $this->line_items = $line_items;
-        $this->discounts = $discounts;
         $this->line_item_discounts = $line_item_discounts;
-        $this->taxes = $taxes;
-        $this->line_item_taxes = $line_item_taxes;  
+        $this->line_item_taxes = $line_item_taxes;
+        $this->discounts = $discounts;
+        $this->taxes = $taxes;  
         $this->charge_event = $charge_event; 
     }
 
@@ -137,21 +137,21 @@ class QuoteLineGroup  {
             $result
         ), $resourceAttributes['line_items'] ?? []);
         
-        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
-            $result
-        ), $resourceAttributes['discounts'] ?? []);
-        
         $line_item_discounts = array_map(fn (array $result): LineItemDiscount =>  LineItemDiscount::from(
             $result
         ), $resourceAttributes['line_item_discounts'] ?? []);
         
-        $taxes = array_map(fn (array $result): Tax =>  Tax::from(
-            $result
-        ), $resourceAttributes['taxes'] ?? []);
-        
         $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
             $result
         ), $resourceAttributes['line_item_taxes'] ?? []);
+        
+        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
+            $result
+        ), $resourceAttributes['discounts'] ?? []);
+        
+        $taxes = array_map(fn (array $result): Tax =>  Tax::from(
+            $result
+        ), $resourceAttributes['taxes'] ?? []);
         
         $returnData = new self( $resourceAttributes['version'] ?? null,
         $resourceAttributes['id'] ?? null,
@@ -162,10 +162,10 @@ class QuoteLineGroup  {
         $resourceAttributes['amount_due'] ?? null,
         $resourceAttributes['billing_cycle_number'] ?? null,
         $line_items,
-        $discounts,
         $line_item_discounts,
-        $taxes,
         $line_item_taxes,
+        $discounts,
+        $taxes,
         
          
         isset($resourceAttributes['charge_event']) ? \Chargebee\Resources\QuoteLineGroup\Enums\ChargeEvent::tryFromValue($resourceAttributes['charge_event']) : null,
@@ -206,28 +206,28 @@ class QuoteLineGroup  {
                 $this->line_items
             );
         }
-        if($this->discounts !== []){
-            $data['discounts'] = array_map(
-                fn (Discount $discounts): array => $discounts->toArray(),
-                $this->discounts
-            );
-        }
         if($this->line_item_discounts !== []){
             $data['line_item_discounts'] = array_map(
                 fn (LineItemDiscount $line_item_discounts): array => $line_item_discounts->toArray(),
                 $this->line_item_discounts
             );
         }
-        if($this->taxes !== []){
-            $data['taxes'] = array_map(
-                fn (Tax $taxes): array => $taxes->toArray(),
-                $this->taxes
-            );
-        }
         if($this->line_item_taxes !== []){
             $data['line_item_taxes'] = array_map(
                 fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
                 $this->line_item_taxes
+            );
+        }
+        if($this->discounts !== []){
+            $data['discounts'] = array_map(
+                fn (Discount $discounts): array => $discounts->toArray(),
+                $this->discounts
+            );
+        }
+        if($this->taxes !== []){
+            $data['taxes'] = array_map(
+                fn (Tax $taxes): array => $taxes->toArray(),
+                $this->taxes
             );
         }
 

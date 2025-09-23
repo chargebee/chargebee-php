@@ -1,3 +1,58 @@
+### v4.10.0 (2025-09-23)
+
+### New Resources: 
+* PersonalizedOffer has been added.
+* OfferFulfillment has been added. 
+* OfferEvent has been added. 
+* OmnichannelSubscriptionItemOffer has been added.
+
+### New Attributes: 
+* business_entity_id has been added to Customer#Balance.
+* processor_advice_code has been added to GatewayErrorDetail.
+* processor_advice_code has been added to Transaction#GatewayErrorDetail.
+* omnichannel_subscription_item_offers has been added to OmnichannelSubscriptionItem.
+* linked_omnichannel_subscriptions has been added to OmnichannelTransaction.
+* linked_omnichannel_one_time_orders has been added to OmnichannelTransaction.
+* contract_term has been added to Ramp.
+* charge_once has been added to Ramp#ItemsToAdd.
+* charge_on_option has been added to Ramp#ItemsToAdd.
+* charge_on_event has been added to Ramp#ItemsToAdd.
+* charge_once has been added to Ramp#ItemsToUpdate.
+* charge_on_option has been added to Ramp#ItemsToUpdate.
+* charge_on_event has been added to Ramp#ItemsToUpdate.
+* error_file_path has been added to UsageFile.
+* error_file_url has been added to UsageFile.
+
+### New Endpoint: 
+* move has been added to OmnichannelSubscription.
+
+### New Parameters: 
+* offline_payment_method has been added to Estimate#CreateSubItemEstimateRequest.
+* offline_payment_method has been added to Estimate#CreateSubItemForCustomerEstimateRequest.
+* offline_payment_method has been added to HostedPage#CheckoutNewForItemsRequest.
+* offline_payment_method has been added to Quote#SubscriptionCreateSubItemsForCustomerQuoteRequest.
+* offline_payment_method has been added to Quote#SubscriptionEditCreateSubCustomerQuoteForItemsRequest.
+* contract_term has been added to Ramp#CreateForSubscriptionRequest.
+* items_to_add has been added to Ramp#CreateForSubscriptionRequest.
+* items_to_update has been added to Ramp#CreateForSubscriptionRequest.
+* contract_term has been added to Ramp#UpdateRequest.
+* items_to_add has been added to Ramp#UpdateRequest.
+* items_to_update has been added to Ramp#UpdateRequest.
+
+### New Enums: 
+* DUNNING_UPDATED has been added EventType.
+* OMNICHANNEL_SUBSCRIPTION_MOVED_IN has been added to EventType.
+
+
+### Bug Fixes: 
+* currency list action has been marked as ListRequest. 
+* index has been removed from CreditNote#ShippingAddress.
+* index has been removed from Invoice#ShippingAddress
+* index has been removed from Order#ShippingAddress.
+* index has been removed from Quote#ShippingAddress.
+* index has been removed from SubscriptionEstimate#ShippingAddress.
+* index has been removed from Subscription#ShippingAddress.
+
 ### v4.9.0 (2025-09-03)
 
 ### Bug Fixes:

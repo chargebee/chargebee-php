@@ -32,7 +32,12 @@ Interface RampActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#create_a_ramp
     *   @param array{
-    *     items_to_add?: array<array{
+    *     contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     renewal_billing_cycles?: int,
+    *     },
+    * items_to_add?: array<array{
     *     item_price_id?: string,
     *     quantity?: int,
     *     quantity_in_decimal?: string,
@@ -40,6 +45,9 @@ Interface RampActionsInterface
     *     unit_price_in_decimal?: string,
     *     billing_cycles?: int,
     *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     charge_on_option?: string,
     *     }>,
     *     items_to_update?: array<array{
     *     item_price_id?: string,
@@ -49,6 +57,9 @@ Interface RampActionsInterface
     *     unit_price_in_decimal?: string,
     *     billing_cycles?: int,
     *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     charge_on_option?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -137,7 +148,12 @@ Interface RampActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#update_a_subscription_ramp
     *   @param array{
-    *     items_to_add?: array<array{
+    *     contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     renewal_billing_cycles?: int,
+    *     },
+    * items_to_add?: array<array{
     *     item_price_id?: string,
     *     quantity?: int,
     *     quantity_in_decimal?: string,
@@ -145,6 +161,9 @@ Interface RampActionsInterface
     *     unit_price_in_decimal?: string,
     *     billing_cycles?: int,
     *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     charge_on_option?: string,
     *     }>,
     *     items_to_update?: array<array{
     *     item_price_id?: string,
@@ -154,6 +173,9 @@ Interface RampActionsInterface
     *     unit_price_in_decimal?: string,
     *     billing_cycles?: int,
     *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     charge_on_option?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,

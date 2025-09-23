@@ -95,6 +95,12 @@ class Ramp  {
     
     /**
     *
+    * @var ?ContractTerm $contract_term
+    */
+    public ?ContractTerm $contract_term;
+    
+    /**
+    *
     * @var ?bool $deleted
     */
     public ?bool $deleted;
@@ -114,7 +120,7 @@ class Ramp  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "description" , "subscription_id" , "effective_from" , "created_at" , "resource_version" , "updated_at" , "items_to_add" , "items_to_update" , "coupons_to_add" , "discounts_to_add" , "item_tiers" , "items_to_remove" , "coupons_to_remove" , "discounts_to_remove" , "deleted" , "status_transition_reason"  ];
+    protected static array $knownFields = [ "id" , "description" , "subscription_id" , "effective_from" , "created_at" , "resource_version" , "updated_at" , "items_to_add" , "items_to_update" , "coupons_to_add" , "discounts_to_add" , "item_tiers" , "items_to_remove" , "coupons_to_remove" , "discounts_to_remove" , "contract_term" , "deleted" , "status_transition_reason"  ];
 
     /**
     * dynamic properties for resources
@@ -138,6 +144,7 @@ class Ramp  {
         ?array $items_to_remove,
         ?array $coupons_to_remove,
         ?array $discounts_to_remove,
+        ?ContractTerm $contract_term,
         ?bool $deleted,
         ?StatusTransitionReason $status_transition_reason,
         ?\Chargebee\Resources\Ramp\Enums\Status $status,
@@ -158,6 +165,7 @@ class Ramp  {
         $this->items_to_remove = $items_to_remove;
         $this->coupons_to_remove = $coupons_to_remove;
         $this->discounts_to_remove = $discounts_to_remove;
+        $this->contract_term = $contract_term;
         $this->deleted = $deleted;
         $this->status_transition_reason = $status_transition_reason;  
         $this->status = $status; 
@@ -200,6 +208,7 @@ class Ramp  {
         $resourceAttributes['items_to_remove'] ?? null,
         $resourceAttributes['coupons_to_remove'] ?? null,
         $resourceAttributes['discounts_to_remove'] ?? null,
+        isset($resourceAttributes['contract_term']) ? ContractTerm::from($resourceAttributes['contract_term']) : null,
         $resourceAttributes['deleted'] ?? null,
         isset($resourceAttributes['status_transition_reason']) ? StatusTransitionReason::from($resourceAttributes['status_transition_reason']) : null,
         
@@ -229,6 +238,7 @@ class Ramp  {
         'items_to_remove' => $this->items_to_remove,
         'coupons_to_remove' => $this->coupons_to_remove,
         'discounts_to_remove' => $this->discounts_to_remove,
+        
         'deleted' => $this->deleted,
         
         
@@ -239,6 +249,9 @@ class Ramp  {
         });
 
         
+        if($this->contract_term instanceof ContractTerm){
+            $data['contract_term'] = $this->contract_term->toArray();
+        }
         if($this->status_transition_reason instanceof StatusTransitionReason){
             $data['status_transition_reason'] = $this->status_transition_reason->toArray();
         }

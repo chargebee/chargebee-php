@@ -2,7 +2,8 @@
 
 namespace Chargebee\Resources\CreditNote;
 
-class CreditNote  { 
+use Chargebee\ValueObjects\SupportsCustomFields;
+class CreditNote  extends SupportsCustomFields  { 
     /**
     *
     * @var ?string $id
@@ -488,7 +489,11 @@ class CreditNote  {
         isset($resourceAttributes['status']) ? \Chargebee\Resources\CreditNote\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
          
         );
-       
+       foreach ($resourceAttributes as $key => $value) {
+            if (!in_array($key, $returnData::$knownFields, true)) {
+                $returnData->__set($key, $value);
+            }
+        } 
         return $returnData;
     }
 
@@ -624,7 +629,11 @@ class CreditNote  {
             );
         }
 
-        
+        foreach($this->_data as $keys => $value){
+            if (!in_array($keys, $this::$knownFields)) {
+                $data[$keys] = $value;
+            }
+        } 
         return $data;
     }
 }

@@ -47,9 +47,9 @@ class OmnichannelSubscription  {
     
     /**
     *
-    * @var ?OmnichannelTransaction $initial_purchase_transaction
+    * @var ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $initial_purchase_transaction
     */
-    public ?OmnichannelTransaction $initial_purchase_transaction;
+    public ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $initial_purchase_transaction;
     
     /**
     *
@@ -76,7 +76,7 @@ class OmnichannelSubscription  {
         ?int $created_at,
         ?int $resource_version,
         ?array $omnichannel_subscription_items,
-        ?OmnichannelTransaction $initial_purchase_transaction,
+        ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $initial_purchase_transaction,
         ?\Chargebee\Resources\OmnichannelSubscription\Enums\Source $source,
     )
     { 
@@ -104,7 +104,7 @@ class OmnichannelSubscription  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $omnichannel_subscription_items,
-        isset($resourceAttributes['initial_purchase_transaction']) ? OmnichannelTransaction::from($resourceAttributes['initial_purchase_transaction']) : null,
+        isset($resourceAttributes['initial_purchase_transaction']) ? \Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction::from($resourceAttributes['initial_purchase_transaction']) : null,
         
          
         isset($resourceAttributes['source']) ? \Chargebee\Resources\OmnichannelSubscription\Enums\Source::tryFromValue($resourceAttributes['source']) : null,
@@ -133,7 +133,7 @@ class OmnichannelSubscription  {
         });
 
         
-        if($this->initial_purchase_transaction instanceof OmnichannelTransaction){
+        if($this->initial_purchase_transaction instanceof \Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction){
             $data['initial_purchase_transaction'] = $this->initial_purchase_transaction->toArray();
         }
         
