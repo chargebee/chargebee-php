@@ -132,9 +132,9 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?array<Discount> $discounts
+    * @var ?array<LineItemTier> $line_item_tiers
     */
-    public ?array $discounts;
+    public ?array $line_item_tiers;
     
     /**
     *
@@ -144,21 +144,21 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
-    * @var ?array<Tax> $taxes
-    */
-    public ?array $taxes;
-    
-    /**
-    *
     * @var ?array<LineItemTax> $line_item_taxes
     */
     public ?array $line_item_taxes;
     
     /**
     *
-    * @var ?array<LineItemTier> $line_item_tiers
+    * @var ?array<Discount> $discounts
     */
-    public ?array $line_item_tiers;
+    public ?array $discounts;
+    
+    /**
+    *
+    * @var ?array<Tax> $taxes
+    */
+    public ?array $taxes;
     
     /**
     *
@@ -253,7 +253,7 @@ class Quote  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "po_number" , "customer_id" , "subscription_id" , "invoice_id" , "vat_number" , "valid_till" , "date" , "total_payable" , "charge_on_acceptance" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "version" , "resource_version" , "updated_at" , "vat_number_prefix" , "line_items" , "discounts" , "line_item_discounts" , "taxes" , "line_item_taxes" , "line_item_tiers" , "tax_category" , "currency_code" , "notes" , "shipping_address" , "billing_address" , "contract_term_start" , "contract_term_end" , "contract_term_termination_fee" , "business_entity_id" , "deleted" , "total_contract_value" , "total_discount"  ];
+    protected static array $knownFields = [ "id" , "name" , "po_number" , "customer_id" , "subscription_id" , "invoice_id" , "vat_number" , "valid_till" , "date" , "total_payable" , "charge_on_acceptance" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "version" , "resource_version" , "updated_at" , "vat_number_prefix" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "discounts" , "taxes" , "tax_category" , "currency_code" , "notes" , "shipping_address" , "billing_address" , "contract_term_start" , "contract_term_end" , "contract_term_termination_fee" , "business_entity_id" , "deleted" , "total_contract_value" , "total_discount"  ];
 
     /**
     * dynamic properties for resources
@@ -283,11 +283,11 @@ class Quote  extends SupportsCustomFields  {
         ?int $updated_at,
         ?string $vat_number_prefix,
         ?array $line_items,
-        ?array $discounts,
-        ?array $line_item_discounts,
-        ?array $taxes,
-        ?array $line_item_taxes,
         ?array $line_item_tiers,
+        ?array $line_item_discounts,
+        ?array $line_item_taxes,
+        ?array $discounts,
+        ?array $taxes,
         ?string $tax_category,
         ?string $currency_code,
         mixed $notes,
@@ -326,11 +326,11 @@ class Quote  extends SupportsCustomFields  {
         $this->updated_at = $updated_at;
         $this->vat_number_prefix = $vat_number_prefix;
         $this->line_items = $line_items;
-        $this->discounts = $discounts;
-        $this->line_item_discounts = $line_item_discounts;
-        $this->taxes = $taxes;
-        $this->line_item_taxes = $line_item_taxes;
         $this->line_item_tiers = $line_item_tiers;
+        $this->line_item_discounts = $line_item_discounts;
+        $this->line_item_taxes = $line_item_taxes;
+        $this->discounts = $discounts;
+        $this->taxes = $taxes;
         $this->tax_category = $tax_category;
         $this->currency_code = $currency_code;
         $this->notes = $notes;
@@ -354,25 +354,25 @@ class Quote  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['line_items'] ?? []);
         
-        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
+        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
             $result
-        ), $resourceAttributes['discounts'] ?? []);
+        ), $resourceAttributes['line_item_tiers'] ?? []);
         
         $line_item_discounts = array_map(fn (array $result): LineItemDiscount =>  LineItemDiscount::from(
             $result
         ), $resourceAttributes['line_item_discounts'] ?? []);
         
-        $taxes = array_map(fn (array $result): Tax =>  Tax::from(
-            $result
-        ), $resourceAttributes['taxes'] ?? []);
-        
         $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
             $result
         ), $resourceAttributes['line_item_taxes'] ?? []);
         
-        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
+        $discounts = array_map(fn (array $result): Discount =>  Discount::from(
             $result
-        ), $resourceAttributes['line_item_tiers'] ?? []);
+        ), $resourceAttributes['discounts'] ?? []);
+        
+        $taxes = array_map(fn (array $result): Tax =>  Tax::from(
+            $result
+        ), $resourceAttributes['taxes'] ?? []);
         
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['name'] ?? null,
@@ -395,11 +395,11 @@ class Quote  extends SupportsCustomFields  {
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['vat_number_prefix'] ?? null,
         $line_items,
-        $discounts,
-        $line_item_discounts,
-        $taxes,
-        $line_item_taxes,
         $line_item_tiers,
+        $line_item_discounts,
+        $line_item_taxes,
+        $discounts,
+        $taxes,
         $resourceAttributes['tax_category'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['notes'] ?? null,
@@ -495,10 +495,10 @@ class Quote  extends SupportsCustomFields  {
                 $this->line_items
             );
         }
-        if($this->discounts !== []){
-            $data['discounts'] = array_map(
-                fn (Discount $discounts): array => $discounts->toArray(),
-                $this->discounts
+        if($this->line_item_tiers !== []){
+            $data['line_item_tiers'] = array_map(
+                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
+                $this->line_item_tiers
             );
         }
         if($this->line_item_discounts !== []){
@@ -507,22 +507,22 @@ class Quote  extends SupportsCustomFields  {
                 $this->line_item_discounts
             );
         }
-        if($this->taxes !== []){
-            $data['taxes'] = array_map(
-                fn (Tax $taxes): array => $taxes->toArray(),
-                $this->taxes
-            );
-        }
         if($this->line_item_taxes !== []){
             $data['line_item_taxes'] = array_map(
                 fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
                 $this->line_item_taxes
             );
         }
-        if($this->line_item_tiers !== []){
-            $data['line_item_tiers'] = array_map(
-                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
-                $this->line_item_tiers
+        if($this->discounts !== []){
+            $data['discounts'] = array_map(
+                fn (Discount $discounts): array => $discounts->toArray(),
+                $this->discounts
+            );
+        }
+        if($this->taxes !== []){
+            $data['taxes'] = array_map(
+                fn (Tax $taxes): array => $taxes->toArray(),
+                $this->taxes
             );
         }
 

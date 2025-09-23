@@ -4,6 +4,7 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\RetrieveOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 use Chargebee\Responses\OmnichannelSubscriptionResponse\ListOmnichannelSubscriptionResponse;
+use Chargebee\Responses\OmnichannelSubscriptionResponse\MoveOmnichannelSubscriptionResponse;
 use Exception;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
@@ -12,6 +13,22 @@ use Chargebee\Exceptions\InvalidRequestException;
 
 Interface OmnichannelSubscriptionActionsInterface
 {
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#move_an_omnichannel_subscription
+    *   @param array{
+    *     to_customer_id?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return MoveOmnichannelSubscriptionResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function move(string $id, array $params, array $headers = []): MoveOmnichannelSubscriptionResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#retrieve_an_omnichannel_subscription

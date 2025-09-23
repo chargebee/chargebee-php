@@ -47,21 +47,9 @@ class CreditNoteEstimate  {
     
     /**
     *
-    * @var ?array<Discount> $discounts
+    * @var ?array<LineItemTier> $line_item_tiers
     */
-    public ?array $discounts;
-    
-    /**
-    *
-    * @var ?array<Tax> $taxes
-    */
-    public ?array $taxes;
-    
-    /**
-    *
-    * @var ?array<LineItemTax> $line_item_taxes
-    */
-    public ?array $line_item_taxes;
+    public ?array $line_item_tiers;
     
     /**
     *
@@ -71,9 +59,21 @@ class CreditNoteEstimate  {
     
     /**
     *
-    * @var ?array<LineItemTier> $line_item_tiers
+    * @var ?array<LineItemTax> $line_item_taxes
     */
-    public ?array $line_item_tiers;
+    public ?array $line_item_taxes;
+    
+    /**
+    *
+    * @var ?array<Discount> $discounts
+    */
+    public ?array $discounts;
+    
+    /**
+    *
+    * @var ?array<Tax> $taxes
+    */
+    public ?array $taxes;
     
     /**
     *
@@ -102,7 +102,7 @@ class CreditNoteEstimate  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "reference_invoice_id" , "currency_code" , "sub_total" , "total" , "amount_allocated" , "amount_available" , "line_items" , "discounts" , "taxes" , "line_item_taxes" , "line_item_discounts" , "line_item_tiers" , "round_off_amount" , "customer_id"  ];
+    protected static array $knownFields = [ "reference_invoice_id" , "currency_code" , "sub_total" , "total" , "amount_allocated" , "amount_available" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "discounts" , "taxes" , "round_off_amount" , "customer_id"  ];
 
     /**
     * dynamic properties for resources
@@ -118,11 +118,11 @@ class CreditNoteEstimate  {
         ?int $amount_allocated,
         ?int $amount_available,
         ?array $line_items,
+        ?array $line_item_tiers,
+        ?array $line_item_discounts,
+        ?array $line_item_taxes,
         ?array $discounts,
         ?array $taxes,
-        ?array $line_item_taxes,
-        ?array $line_item_discounts,
-        ?array $line_item_tiers,
         ?int $round_off_amount,
         ?string $customer_id,
         ?\Chargebee\Enums\PriceType $price_type,
@@ -136,11 +136,11 @@ class CreditNoteEstimate  {
         $this->amount_allocated = $amount_allocated;
         $this->amount_available = $amount_available;
         $this->line_items = $line_items;
+        $this->line_item_tiers = $line_item_tiers;
+        $this->line_item_discounts = $line_item_discounts;
+        $this->line_item_taxes = $line_item_taxes;
         $this->discounts = $discounts;
         $this->taxes = $taxes;
-        $this->line_item_taxes = $line_item_taxes;
-        $this->line_item_discounts = $line_item_discounts;
-        $this->line_item_tiers = $line_item_tiers;
         $this->round_off_amount = $round_off_amount;
         $this->customer_id = $customer_id; 
         $this->price_type = $price_type; 
@@ -153,6 +153,18 @@ class CreditNoteEstimate  {
             $result
         ), $resourceAttributes['line_items'] ?? []);
         
+        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
+            $result
+        ), $resourceAttributes['line_item_tiers'] ?? []);
+        
+        $line_item_discounts = array_map(fn (array $result): LineItemDiscount =>  LineItemDiscount::from(
+            $result
+        ), $resourceAttributes['line_item_discounts'] ?? []);
+        
+        $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
+            $result
+        ), $resourceAttributes['line_item_taxes'] ?? []);
+        
         $discounts = array_map(fn (array $result): Discount =>  Discount::from(
             $result
         ), $resourceAttributes['discounts'] ?? []);
@@ -161,18 +173,6 @@ class CreditNoteEstimate  {
             $result
         ), $resourceAttributes['taxes'] ?? []);
         
-        $line_item_taxes = array_map(fn (array $result): LineItemTax =>  LineItemTax::from(
-            $result
-        ), $resourceAttributes['line_item_taxes'] ?? []);
-        
-        $line_item_discounts = array_map(fn (array $result): LineItemDiscount =>  LineItemDiscount::from(
-            $result
-        ), $resourceAttributes['line_item_discounts'] ?? []);
-        
-        $line_item_tiers = array_map(fn (array $result): LineItemTier =>  LineItemTier::from(
-            $result
-        ), $resourceAttributes['line_item_tiers'] ?? []);
-        
         $returnData = new self( $resourceAttributes['reference_invoice_id'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['sub_total'] ?? null,
@@ -180,11 +180,11 @@ class CreditNoteEstimate  {
         $resourceAttributes['amount_allocated'] ?? null,
         $resourceAttributes['amount_available'] ?? null,
         $line_items,
+        $line_item_tiers,
+        $line_item_discounts,
+        $line_item_taxes,
         $discounts,
         $taxes,
-        $line_item_taxes,
-        $line_item_discounts,
-        $line_item_tiers,
         $resourceAttributes['round_off_amount'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         
@@ -232,6 +232,24 @@ class CreditNoteEstimate  {
                 $this->line_items
             );
         }
+        if($this->line_item_tiers !== []){
+            $data['line_item_tiers'] = array_map(
+                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
+                $this->line_item_tiers
+            );
+        }
+        if($this->line_item_discounts !== []){
+            $data['line_item_discounts'] = array_map(
+                fn (LineItemDiscount $line_item_discounts): array => $line_item_discounts->toArray(),
+                $this->line_item_discounts
+            );
+        }
+        if($this->line_item_taxes !== []){
+            $data['line_item_taxes'] = array_map(
+                fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
+                $this->line_item_taxes
+            );
+        }
         if($this->discounts !== []){
             $data['discounts'] = array_map(
                 fn (Discount $discounts): array => $discounts->toArray(),
@@ -242,24 +260,6 @@ class CreditNoteEstimate  {
             $data['taxes'] = array_map(
                 fn (Tax $taxes): array => $taxes->toArray(),
                 $this->taxes
-            );
-        }
-        if($this->line_item_taxes !== []){
-            $data['line_item_taxes'] = array_map(
-                fn (LineItemTax $line_item_taxes): array => $line_item_taxes->toArray(),
-                $this->line_item_taxes
-            );
-        }
-        if($this->line_item_discounts !== []){
-            $data['line_item_discounts'] = array_map(
-                fn (LineItemDiscount $line_item_discounts): array => $line_item_discounts->toArray(),
-                $this->line_item_discounts
-            );
-        }
-        if($this->line_item_tiers !== []){
-            $data['line_item_tiers'] = array_map(
-                fn (LineItemTier $line_item_tiers): array => $line_item_tiers->toArray(),
-                $this->line_item_tiers
             );
         }
 

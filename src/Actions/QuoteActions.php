@@ -52,6 +52,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     trial_end?: int,
     *     setup_fee?: int,
     *     start_date?: int,
+    *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * shipping_address?: array{
@@ -216,6 +217,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     trial_end?: int,
     *     setup_fee?: int,
     *     start_date?: int,
+    *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
     *     },
     * shipping_address?: array{

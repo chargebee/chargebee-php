@@ -8,6 +8,7 @@ use Chargebee\Responses\CurrencyResponse\AddScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\RetrieveCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\RemoveScheduleCurrencyResponse;
 use Chargebee\Responses\CurrencyResponse\UpdateCurrencyResponse;
+use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
@@ -197,7 +198,10 @@ final class CurrencyActions implements CurrencyActionsInterface
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#list_currencies
-    *   
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return ListCurrencyResponse
@@ -207,7 +211,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function all(array $headers = []): ListCurrencyResponse
+    public function all(array $params = [], array $headers = []): ListCurrencyResponse
     {
         $jsonKeys = [
         ];
@@ -215,10 +219,11 @@ final class CurrencyActions implements CurrencyActionsInterface
         ->withEnvironment($this->env)
         ->withHttpMethod("get")
         ->withUriPaths(["currencies","list"])
-        ->withParamEncoder( new URLFormEncoder())
+        ->withParamEncoder(new ListParamEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withParams($params)
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

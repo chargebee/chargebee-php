@@ -60,6 +60,10 @@ use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
 use Chargebee\Actions\ItemPriceActions;
 use Chargebee\Actions\Contracts\NonSubscriptionActionsInterface;
 use Chargebee\Actions\NonSubscriptionActions;
+use Chargebee\Actions\Contracts\OfferEventActionsInterface;
+use Chargebee\Actions\OfferEventActions;
+use Chargebee\Actions\Contracts\OfferFulfillmentActionsInterface;
+use Chargebee\Actions\OfferFulfillmentActions;
 use Chargebee\Actions\Contracts\OmnichannelOneTimeOrderActionsInterface;
 use Chargebee\Actions\OmnichannelOneTimeOrderActions;
 use Chargebee\Actions\Contracts\OmnichannelSubscriptionActionsInterface;
@@ -76,6 +80,8 @@ use Chargebee\Actions\Contracts\PaymentSourceActionsInterface;
 use Chargebee\Actions\PaymentSourceActions;
 use Chargebee\Actions\Contracts\PaymentVoucherActionsInterface;
 use Chargebee\Actions\PaymentVoucherActions;
+use Chargebee\Actions\Contracts\PersonalizedOfferActionsInterface;
+use Chargebee\Actions\PersonalizedOfferActions;
 use Chargebee\Actions\Contracts\PlanActionsInterface;
 use Chargebee\Actions\PlanActions;
 use Chargebee\Actions\Contracts\PortalSessionActionsInterface;
@@ -297,6 +303,14 @@ class ChargebeeClient {
         return new NonSubscriptionActions($this->httpClientFactory, $this->env);
     }
 
+    public function offerEvent() :OfferEventActionsInterface {
+        return new OfferEventActions($this->httpClientFactory, $this->env);
+    }
+
+    public function offerFulfillment() :OfferFulfillmentActionsInterface {
+        return new OfferFulfillmentActions($this->httpClientFactory, $this->env);
+    }
+
     public function omnichannelOneTimeOrder() :OmnichannelOneTimeOrderActionsInterface {
         return new OmnichannelOneTimeOrderActions($this->httpClientFactory, $this->env);
     }
@@ -327,6 +341,10 @@ class ChargebeeClient {
 
     public function paymentVoucher() :PaymentVoucherActionsInterface {
         return new PaymentVoucherActions($this->httpClientFactory, $this->env);
+    }
+
+    public function personalizedOffer() :PersonalizedOfferActionsInterface {
+        return new PersonalizedOfferActions($this->httpClientFactory, $this->env);
     }
 
     public function plan() :PlanActionsInterface {

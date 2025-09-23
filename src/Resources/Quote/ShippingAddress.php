@@ -88,15 +88,9 @@ class ShippingAddress  {
     public ?string $validation_status;
     
     /**
-    *
-    * @var ?int $index
-    */
-    public ?int $index;
-    
-    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "first_name" , "last_name" , "email" , "company" , "phone" , "line1" , "line2" , "line3" , "city" , "state_code" , "state" , "country" , "zip" , "validation_status" , "index"  ];
+    protected static array $knownFields = [ "first_name" , "last_name" , "email" , "company" , "phone" , "line1" , "line2" , "line3" , "city" , "state_code" , "state" , "country" , "zip" , "validation_status"  ];
 
     /**
     * dynamic properties for resources
@@ -119,7 +113,6 @@ class ShippingAddress  {
         ?string $country,
         ?string $zip,
         ?string $validation_status,
-        ?int $index,
     )
     { 
         $this->first_name = $first_name;
@@ -135,8 +128,7 @@ class ShippingAddress  {
         $this->state = $state;
         $this->country = $country;
         $this->zip = $zip;
-        $this->validation_status = $validation_status;
-        $this->index = $index;   
+        $this->validation_status = $validation_status;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -155,7 +147,6 @@ class ShippingAddress  {
         $resourceAttributes['country'] ?? null,
         $resourceAttributes['zip'] ?? null,
         $resourceAttributes['validation_status'] ?? null,
-        $resourceAttributes['index'] ?? null,
         
           
         );
@@ -180,7 +171,6 @@ class ShippingAddress  {
         'country' => $this->country,
         'zip' => $this->zip,
         'validation_status' => $this->validation_status,
-        'index' => $this->index,
         
         ], function ($value) {
             return $value !== null;

@@ -88,9 +88,15 @@ class GatewayErrorDetail  {
     public ?string $error_cause_id;
     
     /**
+    *
+    * @var ?string $processor_advice_code
+    */
+    public ?string $processor_advice_code;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "request_id" , "error_category" , "error_code" , "error_message" , "decline_code" , "decline_message" , "network_error_code" , "network_error_message" , "error_field" , "recommendation_code" , "recommendation_message" , "processor_error_code" , "processor_error_message" , "error_cause_id"  ];
+    protected static array $knownFields = [ "request_id" , "error_category" , "error_code" , "error_message" , "decline_code" , "decline_message" , "network_error_code" , "network_error_message" , "error_field" , "recommendation_code" , "recommendation_message" , "processor_error_code" , "processor_error_message" , "error_cause_id" , "processor_advice_code"  ];
 
     /**
     * dynamic properties for resources
@@ -113,6 +119,7 @@ class GatewayErrorDetail  {
         ?string $processor_error_code,
         ?string $processor_error_message,
         ?string $error_cause_id,
+        ?string $processor_advice_code,
     )
     { 
         $this->request_id = $request_id;
@@ -128,7 +135,8 @@ class GatewayErrorDetail  {
         $this->recommendation_message = $recommendation_message;
         $this->processor_error_code = $processor_error_code;
         $this->processor_error_message = $processor_error_message;
-        $this->error_cause_id = $error_cause_id;   
+        $this->error_cause_id = $error_cause_id;
+        $this->processor_advice_code = $processor_advice_code;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -147,6 +155,7 @@ class GatewayErrorDetail  {
         $resourceAttributes['processor_error_code'] ?? null,
         $resourceAttributes['processor_error_message'] ?? null,
         $resourceAttributes['error_cause_id'] ?? null,
+        $resourceAttributes['processor_advice_code'] ?? null,
         
           
         );
@@ -171,6 +180,7 @@ class GatewayErrorDetail  {
         'processor_error_code' => $this->processor_error_code,
         'processor_error_message' => $this->processor_error_message,
         'error_cause_id' => $this->error_cause_id,
+        'processor_advice_code' => $this->processor_advice_code,
         
         ], function ($value) {
             return $value !== null;

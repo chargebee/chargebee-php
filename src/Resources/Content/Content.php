@@ -49,10 +49,13 @@ use Chargebee\Resources\ItemFamily\ItemFamily;
 use Chargebee\Resources\ItemPrice\ItemPrice;
 use Chargebee\Resources\Metadata\Metadata;
 use Chargebee\Resources\NonSubscription\NonSubscription;
+use Chargebee\Resources\OfferEvent\OfferEvent;
+use Chargebee\Resources\OfferFulfillment\OfferFulfillment;
 use Chargebee\Resources\OmnichannelOneTimeOrder\OmnichannelOneTimeOrder;
 use Chargebee\Resources\OmnichannelOneTimeOrderItem\OmnichannelOneTimeOrderItem;
 use Chargebee\Resources\OmnichannelSubscription\OmnichannelSubscription;
 use Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem;
+use Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer;
 use Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\OmnichannelSubscriptionItemScheduledChange;
 use Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction;
 use Chargebee\Resources\Order\Order;
@@ -63,6 +66,7 @@ use Chargebee\Resources\PaymentScheduleEstimate\PaymentScheduleEstimate;
 use Chargebee\Resources\PaymentScheduleScheme\PaymentScheduleScheme;
 use Chargebee\Resources\PaymentSource\PaymentSource;
 use Chargebee\Resources\PaymentVoucher\PaymentVoucher;
+use Chargebee\Resources\PersonalizedOffer\PersonalizedOffer;
 use Chargebee\Resources\Plan\Plan;
 use Chargebee\Resources\PortalSession\PortalSession;
 use Chargebee\Resources\PriceVariant\PriceVariant;
@@ -387,6 +391,18 @@ class Content  {
     
     /**
     *
+    * @var ?OfferEvent $offerevent
+    */
+    public ?OfferEvent $offerevent;
+    
+    /**
+    *
+    * @var ?OfferFulfillment $offerfulfillment
+    */
+    public ?OfferFulfillment $offerfulfillment;
+    
+    /**
+    *
     * @var ?OmnichannelOneTimeOrder $omnichannelonetimeorder
     */
     public ?OmnichannelOneTimeOrder $omnichannelonetimeorder;
@@ -408,6 +424,12 @@ class Content  {
     * @var ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem
     */
     public ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem;
+    
+    /**
+    *
+    * @var ?OmnichannelSubscriptionItemOffer $omnichannelsubscriptionitemoffer
+    */
+    public ?OmnichannelSubscriptionItemOffer $omnichannelsubscriptionitemoffer;
     
     /**
     *
@@ -468,6 +490,12 @@ class Content  {
     * @var ?PaymentVoucher $paymentvoucher
     */
     public ?PaymentVoucher $paymentvoucher;
+    
+    /**
+    *
+    * @var ?PersonalizedOffer $personalizedoffer
+    */
+    public ?PersonalizedOffer $personalizedoffer;
     
     /**
     *
@@ -664,7 +692,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_event" , "usage_file" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -721,10 +749,13 @@ class Content  {
         ?ItemPrice $itemprice,
         ?Metadata $metadata,
         ?NonSubscription $nonsubscription,
+        ?OfferEvent $offerevent,
+        ?OfferFulfillment $offerfulfillment,
         ?OmnichannelOneTimeOrder $omnichannelonetimeorder,
         ?OmnichannelOneTimeOrderItem $omnichannelonetimeorderitem,
         ?OmnichannelSubscription $omnichannelsubscription,
         ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem,
+        ?OmnichannelSubscriptionItemOffer $omnichannelsubscriptionitemoffer,
         ?OmnichannelSubscriptionItemScheduledChange $omnichannelsubscriptionitemscheduledchange,
         ?OmnichannelTransaction $omnichanneltransaction,
         ?Order $order,
@@ -735,6 +766,7 @@ class Content  {
         ?PaymentScheduleScheme $paymentschedulescheme,
         ?PaymentSource $paymentsource,
         ?PaymentVoucher $paymentvoucher,
+        ?PersonalizedOffer $personalizedoffer,
         ?Plan $plan,
         ?PortalSession $portalsession,
         ?PriceVariant $pricevariant,
@@ -817,10 +849,13 @@ class Content  {
         $this->itemprice = $itemprice;
         $this->metadata = $metadata;
         $this->nonsubscription = $nonsubscription;
+        $this->offerevent = $offerevent;
+        $this->offerfulfillment = $offerfulfillment;
         $this->omnichannelonetimeorder = $omnichannelonetimeorder;
         $this->omnichannelonetimeorderitem = $omnichannelonetimeorderitem;
         $this->omnichannelsubscription = $omnichannelsubscription;
         $this->omnichannelsubscriptionitem = $omnichannelsubscriptionitem;
+        $this->omnichannelsubscriptionitemoffer = $omnichannelsubscriptionitemoffer;
         $this->omnichannelsubscriptionitemscheduledchange = $omnichannelsubscriptionitemscheduledchange;
         $this->omnichanneltransaction = $omnichanneltransaction;
         $this->order = $order;
@@ -831,6 +866,7 @@ class Content  {
         $this->paymentschedulescheme = $paymentschedulescheme;
         $this->paymentsource = $paymentsource;
         $this->paymentvoucher = $paymentvoucher;
+        $this->personalizedoffer = $personalizedoffer;
         $this->plan = $plan;
         $this->portalsession = $portalsession;
         $this->pricevariant = $pricevariant;
@@ -915,10 +951,13 @@ class Content  {
         isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
         isset($resourceAttributes['non_subscription']) ? NonSubscription::from($resourceAttributes['non_subscription']) : null,
+        isset($resourceAttributes['offer_event']) ? OfferEvent::from($resourceAttributes['offer_event']) : null,
+        isset($resourceAttributes['offer_fulfillment']) ? OfferFulfillment::from($resourceAttributes['offer_fulfillment']) : null,
         isset($resourceAttributes['omnichannel_one_time_order']) ? OmnichannelOneTimeOrder::from($resourceAttributes['omnichannel_one_time_order']) : null,
         isset($resourceAttributes['omnichannel_one_time_order_item']) ? OmnichannelOneTimeOrderItem::from($resourceAttributes['omnichannel_one_time_order_item']) : null,
         isset($resourceAttributes['omnichannel_subscription']) ? OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']) : null,
         isset($resourceAttributes['omnichannel_subscription_item']) ? OmnichannelSubscriptionItem::from($resourceAttributes['omnichannel_subscription_item']) : null,
+        isset($resourceAttributes['omnichannel_subscription_item_offer']) ? OmnichannelSubscriptionItemOffer::from($resourceAttributes['omnichannel_subscription_item_offer']) : null,
         isset($resourceAttributes['omnichannel_subscription_item_scheduled_change']) ? OmnichannelSubscriptionItemScheduledChange::from($resourceAttributes['omnichannel_subscription_item_scheduled_change']) : null,
         isset($resourceAttributes['omnichannel_transaction']) ? OmnichannelTransaction::from($resourceAttributes['omnichannel_transaction']) : null,
         isset($resourceAttributes['order']) ? Order::from($resourceAttributes['order']) : null,
@@ -929,6 +968,7 @@ class Content  {
         isset($resourceAttributes['payment_schedule_scheme']) ? PaymentScheduleScheme::from($resourceAttributes['payment_schedule_scheme']) : null,
         isset($resourceAttributes['payment_source']) ? PaymentSource::from($resourceAttributes['payment_source']) : null,
         isset($resourceAttributes['payment_voucher']) ? PaymentVoucher::from($resourceAttributes['payment_voucher']) : null,
+        isset($resourceAttributes['personalized_offer']) ? PersonalizedOffer::from($resourceAttributes['personalized_offer']) : null,
         isset($resourceAttributes['plan']) ? Plan::from($resourceAttributes['plan']) : null,
         isset($resourceAttributes['portal_session']) ? PortalSession::from($resourceAttributes['portal_session']) : null,
         isset($resourceAttributes['price_variant']) ? PriceVariant::from($resourceAttributes['price_variant']) : null,
@@ -972,6 +1012,10 @@ class Content  {
     {
         
         $data = array_filter([
+        
+        
+        
+        
         
         
         
@@ -1215,6 +1259,12 @@ class Content  {
         if($this->nonsubscription instanceof NonSubscription){
             $data['non_subscription'] = $this->nonsubscription->toArray();
         }
+        if($this->offerevent instanceof OfferEvent){
+            $data['offer_event'] = $this->offerevent->toArray();
+        }
+        if($this->offerfulfillment instanceof OfferFulfillment){
+            $data['offer_fulfillment'] = $this->offerfulfillment->toArray();
+        }
         if($this->omnichannelonetimeorder instanceof OmnichannelOneTimeOrder){
             $data['omnichannel_one_time_order'] = $this->omnichannelonetimeorder->toArray();
         }
@@ -1226,6 +1276,9 @@ class Content  {
         }
         if($this->omnichannelsubscriptionitem instanceof OmnichannelSubscriptionItem){
             $data['omnichannel_subscription_item'] = $this->omnichannelsubscriptionitem->toArray();
+        }
+        if($this->omnichannelsubscriptionitemoffer instanceof OmnichannelSubscriptionItemOffer){
+            $data['omnichannel_subscription_item_offer'] = $this->omnichannelsubscriptionitemoffer->toArray();
         }
         if($this->omnichannelsubscriptionitemscheduledchange instanceof OmnichannelSubscriptionItemScheduledChange){
             $data['omnichannel_subscription_item_scheduled_change'] = $this->omnichannelsubscriptionitemscheduledchange->toArray();
@@ -1256,6 +1309,9 @@ class Content  {
         }
         if($this->paymentvoucher instanceof PaymentVoucher){
             $data['payment_voucher'] = $this->paymentvoucher->toArray();
+        }
+        if($this->personalizedoffer instanceof PersonalizedOffer){
+            $data['personalized_offer'] = $this->personalizedoffer->toArray();
         }
         if($this->plan instanceof Plan){
             $data['plan'] = $this->plan->toArray();

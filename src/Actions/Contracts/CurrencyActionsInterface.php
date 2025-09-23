@@ -98,7 +98,10 @@ Interface CurrencyActionsInterface
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#list_currencies
-    *   
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return ListCurrencyResponse
@@ -108,7 +111,7 @@ Interface CurrencyActionsInterface
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function all(array $headers = []): ListCurrencyResponse;
+    public function all(array $params = [], array $headers = []): ListCurrencyResponse;
 
 }
 ?>

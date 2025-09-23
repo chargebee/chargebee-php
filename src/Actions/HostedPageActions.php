@@ -593,6 +593,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     start_date?: int,
     *     coupon?: string,
     *     auto_collection?: string,
+    *     offline_payment_method?: string,
     *     invoice_notes?: string,
     *     po_number?: string,
     *     contract_term_billing_cycle_on_renewal?: int,

@@ -53,9 +53,9 @@ class OmnichannelOneTimeOrder  {
     
     /**
     *
-    * @var ?OmnichannelTransaction $purchase_transaction
+    * @var ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $purchase_transaction
     */
-    public ?OmnichannelTransaction $purchase_transaction;
+    public ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $purchase_transaction;
     
     /**
     *
@@ -83,7 +83,7 @@ class OmnichannelOneTimeOrder  {
         ?int $created_at,
         ?int $resource_version,
         ?array $omnichannel_one_time_order_items,
-        ?OmnichannelTransaction $purchase_transaction,
+        ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $purchase_transaction,
         ?\Chargebee\Resources\OmnichannelOneTimeOrder\Enums\Source $source,
     )
     { 
@@ -113,7 +113,7 @@ class OmnichannelOneTimeOrder  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $omnichannel_one_time_order_items,
-        isset($resourceAttributes['purchase_transaction']) ? OmnichannelTransaction::from($resourceAttributes['purchase_transaction']) : null,
+        isset($resourceAttributes['purchase_transaction']) ? \Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction::from($resourceAttributes['purchase_transaction']) : null,
         
          
         isset($resourceAttributes['source']) ? \Chargebee\Resources\OmnichannelOneTimeOrder\Enums\Source::tryFromValue($resourceAttributes['source']) : null,
@@ -143,7 +143,7 @@ class OmnichannelOneTimeOrder  {
         });
 
         
-        if($this->purchase_transaction instanceof OmnichannelTransaction){
+        if($this->purchase_transaction instanceof \Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction){
             $data['purchase_transaction'] = $this->purchase_transaction->toArray();
         }
         

@@ -8,37 +8,46 @@ use Chargebee\ValueObjects\ResponseBase;
 class ListCurrencyResponse extends ResponseBase { 
     /**
     *
-    * @var ?Currency $currency
+    * @var array<ListCurrencyResponseListObject> $list
     */
-    public ?Currency $currency;
+    public array $list;
+    
+    /**
+    *
+    * @var ?string $next_offset
+    */
+    public ?string $next_offset;
     
 
     private function __construct(
-        ?Currency $currency,
+        array $list,
+        ?string $next_offset,
         array $responseHeaders=[],
         array $rawResponse=[]
     )
     {
         parent::__construct($responseHeaders, $rawResponse);
-        $this->currency = $currency;
+        $this->list = $list;
+        $this->next_offset = $next_offset;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
-        return new self(
-            isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
-             $headers, $resourceAttributes);
+            $list = array_map(function (array $result): ListCurrencyResponseListObject {
+                return new ListCurrencyResponseListObject(
+                    isset($result['currency']) ? Currency::from($result['currency']) : null,
+                );}, $resourceAttributes['list'] ?? []);
+        
+        return new self($list,
+            $resourceAttributes['next_offset'] ?? null, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
+        $data = array_filter([
+            'list' => $this->list,
+            'next_offset' => $this->next_offset,
         ]);
-         
-        if($this->currency instanceof Currency){
-            $data['currency'] = $this->currency->toArray();
-        } 
-
         return $data;
     }
 }

@@ -72,6 +72,7 @@ enum EventType : string {
     case TRANSACTION_DELETED = "transaction_deleted";
     case PAYMENT_SUCCEEDED = "payment_succeeded";
     case PAYMENT_FAILED = "payment_failed";
+    case DUNNING_UPDATED = "dunning_updated";
     case PAYMENT_REFUNDED = "payment_refunded";
     case PAYMENT_INITIATED = "payment_initiated";
     case REFUND_INITIATED = "refund_initiated";
@@ -209,6 +210,7 @@ enum EventType : string {
     case OMNICHANNEL_ONE_TIME_ORDER_ITEM_CANCELLED = "omnichannel_one_time_order_item_cancelled";
     case USAGE_FILE_INGESTED = "usage_file_ingested";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_PAUSE_SCHEDULED = "omnichannel_subscription_item_pause_scheduled";
+    case OMNICHANNEL_SUBSCRIPTION_MOVED_IN = "omnichannel_subscription_moved_in";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";
