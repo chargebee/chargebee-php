@@ -23,11 +23,11 @@ class Currency extends Model
   # OPERATIONS
   #-----------
 
-  public static function all($env = null, $headers = array())
+  public static function all($params = array(), $env = null, $headers = array())
   {
     $jsonKeys = array(
     );
-    return Request::sendListRequest(Request::GET, Util::encodeURIPath("currencies","list"), array(), $env, $headers, null, false, $jsonKeys);
+    return Request::sendListRequest(Request::GET, Util::encodeURIPath("currencies","list"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
   public static function retrieve($id, $env = null, $headers = array())

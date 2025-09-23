@@ -21,6 +21,7 @@ class TransactionGatewayErrorDetail extends Model
     'processorErrorCode',
     'processorErrorMessage',
     'errorCauseId',
+    'processorAdviceCode',
   ];
 
 }

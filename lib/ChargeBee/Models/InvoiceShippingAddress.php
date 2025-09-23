@@ -21,7 +21,6 @@ class InvoiceShippingAddress extends Model
     'country',
     'zip',
     'validationStatus',
-    'index',
   ];
 
 }

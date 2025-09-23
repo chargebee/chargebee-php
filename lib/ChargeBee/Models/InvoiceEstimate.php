@@ -19,15 +19,15 @@ class InvoiceEstimate extends Model
     'amountPaid',
     'amountDue',
     'lineItems',
+    'lineItemTiers',
+    'lineItemDiscounts',
+    'lineItemTaxes',
+    'lineItemCredits',
+    'lineItemAddresses',
     'discounts',
     'taxes',
-    'lineItemTaxes',
-    'lineItemTiers',
-    'lineItemCredits',
-    'lineItemDiscounts',
     'roundOffAmount',
     'customerId',
-    'lineItemAddresses',
   ];
 
 

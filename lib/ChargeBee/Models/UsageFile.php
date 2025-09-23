@@ -24,6 +24,8 @@ class UsageFile extends Model
     'processingCompletedAt',
     'uploadedBy',
     'uploadedAt',
+    'errorFilePath',
+    'errorFileUrl',
     'uploadDetails',
   ];
 
