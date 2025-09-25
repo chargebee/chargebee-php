@@ -151,10 +151,10 @@ class ChargebeeClient {
     public function __construct($options, ?HttpClientFactory $httpClient=null)
     {
         if (!is_array($options)) {
-            throw new \Exception('$option must be of type array!');
+            throw new \Exception('$options must be of type array!');
         }
         if (!isset($options["apiKey"]) && !isset($options["site"])) {
-            throw new \Exception('$option must contain apiKey or site.');
+            throw new \Exception('$options must contain apiKey and site.');
         }
         $env = new Environment($options["site"], $options["apiKey"]);
         if (isset($options["chargebeeDomain"])) {
