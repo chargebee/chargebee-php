@@ -137,7 +137,7 @@ class ChargebeeClient {
      * @param array{
      *      apiKey: string,
      *      site: string,
-     *      httpScheme: 'http' | 'https',
+     *      httpScheme?: 'http' | 'https',
      *      chargebeeDomain?: string,
      *      connectTimeoutInMillis?: float,
      *      requestTimeoutInMillis?: float,
