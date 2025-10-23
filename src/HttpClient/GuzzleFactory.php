@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Uri;
 class GuzzleFactory implements HttpClientFactory
 {
     private $options;
-    private $conntectTimeoutInSecs;
+    private $connectTimeoutInSecs;
     private $requestTimeoutInSecs;
 
     /*
@@ -18,9 +18,9 @@ class GuzzleFactory implements HttpClientFactory
      * @param float $connectTimeoutInSecs
      * @param float $requestTimeoutInSecs
      */
-    public function __construct($conntectTimeoutInSecs, $requestTimeoutInSecs, $options = [])
+    public function __construct($connectTimeoutInSecs, $requestTimeoutInSecs, $options = [])
     {
-        $this->conntectTimeoutInSecs = $conntectTimeoutInSecs;
+        $this->connectTimeoutInSecs = $connectTimeoutInSecs;
         $this->requestTimeoutInSecs = $requestTimeoutInSecs;
         $this->options = $options;
     }
@@ -32,7 +32,7 @@ class GuzzleFactory implements HttpClientFactory
                 [
                     'allow_redirects' => true,
                     'http_errors' => false,
-                    'connect_timeout' => $this->conntectTimeoutInSecs,
+                    'connect_timeout' => $this->connectTimeoutInSecs,
                     'timeout' => $this->requestTimeoutInSecs,
                 ],
                 $this->options
