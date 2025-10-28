@@ -9,6 +9,7 @@ class InvoiceEstimateDiscount extends Model
   protected $allowed = [
     'amount',
     'description',
+    'lineItemId',
     'entityType',
     'discountType',
     'entityId',

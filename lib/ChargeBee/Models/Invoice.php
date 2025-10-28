@@ -61,6 +61,7 @@ class Invoice extends Model
     'taxes',
     'taxOrigin',
     'linkedPayments',
+    'referenceTransactions',
     'dunningAttempts',
     'appliedCredits',
     'adjustmentCreditNotes',
