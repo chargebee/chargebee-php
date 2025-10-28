@@ -211,6 +211,7 @@ enum EventType : string {
     case USAGE_FILE_INGESTED = "usage_file_ingested";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_PAUSE_SCHEDULED = "omnichannel_subscription_item_pause_scheduled";
     case OMNICHANNEL_SUBSCRIPTION_MOVED_IN = "omnichannel_subscription_moved_in";
+    case OMNICHANNEL_TRANSACTION_CREATED = "omnichannel_transaction_created";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";

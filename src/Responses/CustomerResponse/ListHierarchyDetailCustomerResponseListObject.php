@@ -5,10 +5,10 @@ use Chargebee\Resources\Hierarchy\Hierarchy;
 
 class ListHierarchyDetailCustomerResponseListObject
 { 
-    public Hierarchy $hierarchies;
+    public Hierarchy $hierarchy;
     public function __construct(
-        Hierarchy $hierarchies,
+        Hierarchy $hierarchy,
     ) { 
-        $this->hierarchies = $hierarchies;
+        $this->hierarchy = $hierarchy;
     }
 }

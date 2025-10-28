@@ -8,37 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class AddEntitlementOverrideForSubscriptionEntitlementOverrideResponse extends ResponseBase { 
     /**
     *
-    * @var ?EntitlementOverride $entitlement_override
+    * @var array<AddEntitlementOverrideForSubscriptionEntitlementOverrideResponseListObject> $list
     */
-    public ?EntitlementOverride $entitlement_override;
+    public array $list;
     
 
     private function __construct(
-        ?EntitlementOverride $entitlement_override,
+        array $list,
         array $responseHeaders=[],
         array $rawResponse=[]
     )
     {
         parent::__construct($responseHeaders, $rawResponse);
-        $this->entitlement_override = $entitlement_override;
+        $this->list = $list;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
-        return new self(
-            isset($resourceAttributes['entitlement_override']) ? EntitlementOverride::from($resourceAttributes['entitlement_override']) : null,
-             $headers, $resourceAttributes);
+            $list = array_map(function (array $result): AddEntitlementOverrideForSubscriptionEntitlementOverrideResponseListObject {
+                return new AddEntitlementOverrideForSubscriptionEntitlementOverrideResponseListObject(
+                    isset($result['entitlement_override']) ? EntitlementOverride::from($result['entitlement_override']) : null,
+                );}, $resourceAttributes['list'] ?? []);
+        
+        return new self($list, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
+        $data = array_filter([
+            'list' => $this->list,
         ]);
-         
-        if($this->entitlement_override instanceof EntitlementOverride){
-            $data['entitlement_override'] = $this->entitlement_override->toArray();
-        } 
-
         return $data;
     }
 }

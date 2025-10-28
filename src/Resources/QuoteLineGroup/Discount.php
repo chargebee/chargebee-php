@@ -17,6 +17,12 @@ class Discount  {
     
     /**
     *
+    * @var ?string $line_item_id
+    */
+    public ?string $line_item_id;
+    
+    /**
+    *
     * @var ?string $entity_type
     */
     public ?string $entity_type;
@@ -42,7 +48,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "amount" , "description" , "entity_type" , "discount_type" , "entity_id" , "coupon_set_code"  ];
+    protected static array $knownFields = [ "amount" , "description" , "line_item_id" , "entity_type" , "discount_type" , "entity_id" , "coupon_set_code"  ];
 
     /**
     * dynamic properties for resources
@@ -53,6 +59,7 @@ class Discount  {
     private function __construct(
         ?int $amount,
         ?string $description,
+        ?string $line_item_id,
         ?string $entity_type,
         ?string $discount_type,
         ?string $entity_id,
@@ -61,6 +68,7 @@ class Discount  {
     { 
         $this->amount = $amount;
         $this->description = $description;
+        $this->line_item_id = $line_item_id;
         $this->entity_type = $entity_type;
         $this->discount_type = $discount_type;
         $this->entity_id = $entity_id;
@@ -71,6 +79,7 @@ class Discount  {
     { 
         $returnData = new self( $resourceAttributes['amount'] ?? null,
         $resourceAttributes['description'] ?? null,
+        $resourceAttributes['line_item_id'] ?? null,
         $resourceAttributes['entity_type'] ?? null,
         $resourceAttributes['discount_type'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
@@ -87,6 +96,7 @@ class Discount  {
         
         $data = array_filter(['amount' => $this->amount,
         'description' => $this->description,
+        'line_item_id' => $this->line_item_id,
         'entity_type' => $this->entity_type,
         'discount_type' => $this->discount_type,
         'entity_id' => $this->entity_id,

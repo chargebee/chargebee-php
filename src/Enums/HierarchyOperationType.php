@@ -10,6 +10,10 @@ enum HierarchyOperationType : string {
     * @depcreated
     */
     case SUBORDINATES_WITH_UNBILLED_CHARGES_PAYABLE_BY_PARENT = "subordinates_with_unbilled_charges_payable_by_parent";
+    /*
+    * @depcreated
+    */
+    case IMMEDIATE_CHILDREN = "immediate_children";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

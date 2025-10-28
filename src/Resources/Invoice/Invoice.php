@@ -294,6 +294,12 @@ class Invoice  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?array<ReferenceTransaction> $reference_transactions
+    */
+    public ?array $reference_transactions;
+    
+    /**
+    *
     * @var ?array<DunningAttempt> $dunning_attempts
     */
     public ?array $dunning_attempts;
@@ -415,7 +421,7 @@ class Invoice  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "site_details_at_creation"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "reference_transactions" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -472,6 +478,7 @@ class Invoice  extends SupportsCustomFields  {
         ?array $taxes,
         ?TaxOrigin $tax_origin,
         ?array $linked_payments,
+        ?array $reference_transactions,
         ?array $dunning_attempts,
         ?array $applied_credits,
         ?array $adjustment_credit_notes,
@@ -542,6 +549,7 @@ class Invoice  extends SupportsCustomFields  {
         $this->taxes = $taxes;
         $this->tax_origin = $tax_origin;
         $this->linked_payments = $linked_payments;
+        $this->reference_transactions = $reference_transactions;
         $this->dunning_attempts = $dunning_attempts;
         $this->applied_credits = $applied_credits;
         $this->adjustment_credit_notes = $adjustment_credit_notes;
@@ -601,6 +609,10 @@ class Invoice  extends SupportsCustomFields  {
         $linked_payments = array_map(fn (array $result): LinkedPayment =>  LinkedPayment::from(
             $result
         ), $resourceAttributes['linked_payments'] ?? []);
+        
+        $reference_transactions = array_map(fn (array $result): ReferenceTransaction =>  ReferenceTransaction::from(
+            $result
+        ), $resourceAttributes['reference_transactions'] ?? []);
         
         $dunning_attempts = array_map(fn (array $result): DunningAttempt =>  DunningAttempt::from(
             $result
@@ -674,6 +686,7 @@ class Invoice  extends SupportsCustomFields  {
         $taxes,
         isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
         $linked_payments,
+        $reference_transactions,
         $dunning_attempts,
         $applied_credits,
         $adjustment_credit_notes,
@@ -750,6 +763,7 @@ class Invoice  extends SupportsCustomFields  {
         'expected_payment_date' => $this->expected_payment_date,
         'amount_to_collect' => $this->amount_to_collect,
         'round_off_amount' => $this->round_off_amount,
+        
         
         
         
@@ -861,6 +875,12 @@ class Invoice  extends SupportsCustomFields  {
             $data['linked_payments'] = array_map(
                 fn (LinkedPayment $linked_payments): array => $linked_payments->toArray(),
                 $this->linked_payments
+            );
+        }
+        if($this->reference_transactions !== []){
+            $data['reference_transactions'] = array_map(
+                fn (ReferenceTransaction $reference_transactions): array => $reference_transactions->toArray(),
+                $this->reference_transactions
             );
         }
         if($this->dunning_attempts !== []){
