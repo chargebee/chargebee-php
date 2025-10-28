@@ -180,6 +180,7 @@ class Result
 			'taxes' => Models\InvoiceTax::class, 
 			'tax_origin' => Models\InvoiceTaxOrigin::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
+			'reference_transactions' => Models\InvoiceReferenceTransaction::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 
 			'applied_credits' => Models\InvoiceAppliedCredit::class, 
 			'adjustment_credit_notes' => Models\InvoiceAdjustmentCreditNote::class, 
@@ -565,7 +566,8 @@ class Result
     {
         $payment_intent = $this->_get('payment_intent', Models\PaymentIntent::class, 
         array( 
-			'payment_attempt' => Models\PaymentIntentPaymentAttempt::class
+			'payment_attempt' => Models\PaymentIntentPaymentAttempt::class, 
+			'payment_attempts' => Models\PaymentIntentPaymentAttempt::class
 		));
         return $payment_intent;
     }
@@ -984,6 +986,7 @@ class Result
 			'taxes' => Models\InvoiceTax::class, 
 			'tax_origin' => Models\InvoiceTaxOrigin::class, 
 			'linked_payments' => Models\InvoiceLinkedPayment::class, 
+			'reference_transactions' => Models\InvoiceReferenceTransaction::class, 
 			'dunning_attempts' => Models\InvoiceDunningAttempt::class, 
 			'applied_credits' => Models\InvoiceAppliedCredit::class, 
 			'adjustment_credit_notes' => Models\InvoiceAdjustmentCreditNote::class, 

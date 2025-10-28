@@ -1,3 +1,29 @@
+### v3.49.0 (2025-10-28) 
+* * * 
+
+### New Attributes: 
+* reference_transactions has been added to Invoice.
+* payment_attempts[] has been added to PaymentIntent.
+* checkout_details has been added to PaymentIntent#PaymentAttempt.
+* line_item_id has been added to CreditNoteEstimate#Discount.
+* line_item_id has been added to CreditNote#Discount.
+* line_item_id has been added to InvoiceEstimate#Discount.
+* line_item_id has been added to Invoice#Discount.
+* line_item_id has been added to InvoiceEstimate#Discount.
+* line_item_id has been added to Quote#Discount.
+* line_item_id has been added to QuoteLineGroup#Discount.
+
+### Modified Attributes: 
+* omnichannel_subscription_item_offers has been made optional attribute from required attribute.
+
+### New Input Parameters: 
+* discount[line_item_id] has been added to CreditNote#ImportCreditNoteRequest.
+* discount[line_item_id] has been added to CreditNote#ImportInvoiceRequest.
+
+### New Enums: 
+* OMNICHANNEL_TRANSACTION_CREATED has been added to EventTypeEnum.
+* DEUTSCHE_BANK has been added to Gateway.
+
 ### v3.48.0 (2025-09-23) 
 * * * 
 ### New Resources: 
