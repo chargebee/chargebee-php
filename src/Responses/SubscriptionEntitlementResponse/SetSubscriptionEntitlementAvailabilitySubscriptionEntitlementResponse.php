@@ -8,37 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponse extends ResponseBase { 
     /**
     *
-    * @var ?SubscriptionEntitlement $subscription_entitlement
+    * @var array<SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponseListObject> $list
     */
-    public ?SubscriptionEntitlement $subscription_entitlement;
+    public array $list;
     
 
     private function __construct(
-        ?SubscriptionEntitlement $subscription_entitlement,
+        array $list,
         array $responseHeaders=[],
         array $rawResponse=[]
     )
     {
         parent::__construct($responseHeaders, $rawResponse);
-        $this->subscription_entitlement = $subscription_entitlement;
+        $this->list = $list;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
-        return new self(
-            isset($resourceAttributes['subscription_entitlement']) ? SubscriptionEntitlement::from($resourceAttributes['subscription_entitlement']) : null,
-             $headers, $resourceAttributes);
+            $list = array_map(function (array $result): SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponseListObject {
+                return new SetSubscriptionEntitlementAvailabilitySubscriptionEntitlementResponseListObject(
+                    isset($result['subscription_entitlement']) ? SubscriptionEntitlement::from($result['subscription_entitlement']) : null,
+                );}, $resourceAttributes['list'] ?? []);
+        
+        return new self($list, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
+        $data = array_filter([
+            'list' => $this->list,
         ]);
-         
-        if($this->subscription_entitlement instanceof SubscriptionEntitlement){
-            $data['subscription_entitlement'] = $this->subscription_entitlement->toArray();
-        } 
-
         return $data;
     }
 }

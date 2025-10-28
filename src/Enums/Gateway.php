@@ -56,6 +56,7 @@ enum Gateway : string {
     case SOLIDGATE = "solidgate";
     case PAYSTACK = "paystack";
     case JP_MORGAN = "jp_morgan";
+    case DEUTSCHE_BANK = "deutsche_bank";
     case GOCARDLESS = "gocardless";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";

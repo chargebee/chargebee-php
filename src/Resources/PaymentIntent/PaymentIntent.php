@@ -95,6 +95,12 @@ class PaymentIntent  {
     
     /**
     *
+    * @var ?array<PaymentAttempt> $payment_attempts
+    */
+    public ?array $payment_attempts;
+    
+    /**
+    *
     * @var ?string $business_entity_id
     */
     public ?string $business_entity_id;
@@ -114,7 +120,7 @@ class PaymentIntent  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "customer_id" , "gateway" , "active_payment_attempt" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -138,6 +144,7 @@ class PaymentIntent  {
         ?string $customer_id,
         ?string $gateway,
         ?PaymentAttempt $active_payment_attempt,
+        ?array $payment_attempts,
         ?string $business_entity_id,
         ?\Chargebee\Resources\PaymentIntent\Enums\Status $status,
         ?\Chargebee\Resources\PaymentIntent\Enums\PaymentMethodType $payment_method_type,
@@ -158,6 +165,7 @@ class PaymentIntent  {
         $this->customer_id = $customer_id;
         $this->gateway = $gateway;
         $this->active_payment_attempt = $active_payment_attempt;
+        $this->payment_attempts = $payment_attempts;
         $this->business_entity_id = $business_entity_id;  
         $this->status = $status;
         $this->payment_method_type = $payment_method_type; 
@@ -165,6 +173,10 @@ class PaymentIntent  {
 
     public static function from(array $resourceAttributes): self
     { 
+        $payment_attempts = array_map(fn (array $result): PaymentAttempt =>  PaymentAttempt::from(
+            $result
+        ), $resourceAttributes['payment_attempts'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['amount'] ?? null,
@@ -180,6 +192,7 @@ class PaymentIntent  {
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['gateway'] ?? null,
         isset($resourceAttributes['active_payment_attempt']) ? PaymentAttempt::from($resourceAttributes['active_payment_attempt']) : null,
+        $payment_attempts,
         $resourceAttributes['business_entity_id'] ?? null,
         
          
@@ -210,6 +223,7 @@ class PaymentIntent  {
         'customer_id' => $this->customer_id,
         'gateway' => $this->gateway,
         
+        
         'business_entity_id' => $this->business_entity_id,
         
         'status' => $this->status?->value,
@@ -225,6 +239,12 @@ class PaymentIntent  {
             $data['active_payment_attempt'] = $this->active_payment_attempt->toArray();
         }
         
+        if($this->payment_attempts !== []){
+            $data['payment_attempts'] = array_map(
+                fn (PaymentAttempt $payment_attempts): array => $payment_attempts->toArray(),
+                $this->payment_attempts
+            );
+        }
 
         
         return $data;

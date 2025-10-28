@@ -35,7 +35,7 @@ class ListHierarchyDetailCustomerResponse extends ResponseBase {
     {
             $list = array_map(function (array $result): ListHierarchyDetailCustomerResponseListObject {
                 return new ListHierarchyDetailCustomerResponseListObject(
-                    isset($result['hierarchies']) ? Hierarchy::from($result['hierarchies']) : null,
+                    isset($result['hierarchy']) ? Hierarchy::from($result['hierarchy']) : null,
                 );}, $resourceAttributes['list'] ?? []);
         
         return new self($list,

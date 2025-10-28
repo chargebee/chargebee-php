@@ -41,6 +41,12 @@ class PaymentAttempt  {
     
     /**
     *
+    * @var ?string $checkout_details
+    */
+    public ?string $checkout_details;
+    
+    /**
+    *
     * @var ?int $created_at
     */
     public ?int $created_at;
@@ -60,7 +66,7 @@ class PaymentAttempt  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "status" , "payment_method_type" , "id_at_gateway" , "error_code" , "error_text" , "created_at" , "modified_at" , "error_detail"  ];
+    protected static array $knownFields = [ "id" , "status" , "payment_method_type" , "id_at_gateway" , "error_code" , "error_text" , "checkout_details" , "created_at" , "modified_at" , "error_detail"  ];
 
     /**
     * dynamic properties for resources
@@ -75,6 +81,7 @@ class PaymentAttempt  {
         ?string $id_at_gateway,
         ?string $error_code,
         ?string $error_text,
+        ?string $checkout_details,
         ?int $created_at,
         ?int $modified_at,
         ?\Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail $error_detail,
@@ -86,6 +93,7 @@ class PaymentAttempt  {
         $this->id_at_gateway = $id_at_gateway;
         $this->error_code = $error_code;
         $this->error_text = $error_text;
+        $this->checkout_details = $checkout_details;
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
         $this->error_detail = $error_detail;   
@@ -99,6 +107,7 @@ class PaymentAttempt  {
         $resourceAttributes['id_at_gateway'] ?? null,
         $resourceAttributes['error_code'] ?? null,
         $resourceAttributes['error_text'] ?? null,
+        $resourceAttributes['checkout_details'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
         isset($resourceAttributes['error_detail']) ? \Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
@@ -118,6 +127,7 @@ class PaymentAttempt  {
         'id_at_gateway' => $this->id_at_gateway,
         'error_code' => $this->error_code,
         'error_text' => $this->error_text,
+        'checkout_details' => $this->checkout_details,
         'created_at' => $this->created_at,
         'modified_at' => $this->modified_at,
         
