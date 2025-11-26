@@ -31,6 +31,7 @@ class CreditNote extends Model
     'resourceVersion',
     'updatedAt',
     'channel',
+    'lineItemsNextOffset',
     'subTotal',
     'subTotalInLocalCurrency',
     'totalInLocalCurrency',

@@ -1,3 +1,43 @@
+### v3.50.0 (2025-11-26)
+* * * 
+
+### New Resources: 
+* Einvoice has been added.
+* QuotedDeltaRamp has been added. 
+
+### New Attributes: 
+* line_items_next_offset has been added to CreditNote.
+* line_items_next_offset has been added to Invoice.
+* credit_lines has been added to SalesOrder.
+* billable_unit_price has been added to SalesOrder#LineItem.
+* billable_quantity has been added to SalesOrder#LineItem.
+* billable_amount has been added to SalesOrder#LineItem.
+
+### New Endpoint: 
+* move has been added to ItemPrice.
+
+### New Parameters: 
+* line_items_limit has been added to CreditNote#RetrieveRequest.
+* line_items_offset has been added to CreditNote#RetrieveRequest.
+* line_items_limit has been added to Invoice#RetrieveRequest.
+* line_items_offset has been added to Invoice#RetrieveRequest.
+* item_tiers has been added to Estimate#GiftSubscriptionForItemsRequest.
+* unit_price has been added to Estimate#SubscriptionItems#GiftSubscriptionForItemsRequest.
+* unit_price_in_decimal has been added to Estimate#SubscriptionItems#GiftSubscriptionForItemsRequest.
+* item_tiers has been added to Gift#CreateForItemsRequest.
+* meta_data has been added to Gift#CreateForItemsRequest.
+* unit_price has been added to Gift#SubscriptionItems#CreateForItemsRequest.
+* unit_price_in_decimal has been added to Gift#SubscriptionItems#CreateForItemsRequest.
+* item_tiers has been added to HostedPage#CheckoutGiftForItemsRequest.
+* unit_price has been added to HostedPage#SubscriptionItems#CheckoutGiftForItemsRequest.
+* unit_price_in_decimal has been added to HostedPage#SubscriptionItems#CheckoutGiftForItemsRequest.
+* auto_select_local_currency has been added to PricingPageSession#CreateForNewSubscriptionRequest.
+
+### New Enums: 
+* EZIDEBIT has been added to GatewayEnum.
+* BUSINESS_RULE has been added to EntityTypeEnum.
+* RULESET has been added to EntityTypeEnum.
+
 ### v3.49.0 (2025-10-28) 
 * * * 
 

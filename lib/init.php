@@ -86,6 +86,7 @@ require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceParentPeriod.php
 require(dirname(__FILE__) . '/ChargeBee/Models/DifferentialPriceTier.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Discount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Download.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/Einvoice.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Entitlement.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/EntitlementOverride.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/Estimate.php');
@@ -241,6 +242,8 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeCoupon.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeCouponApplicabilityMapping.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeInvoiceItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedChargeItemTier.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedDeltaRamp.php');
+require(dirname(__FILE__) . '/ChargeBee/Models/QuotedDeltaRampLineItem.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRamp.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampCouponApplicabilityMapping.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuotedRampDiscount.php');
