@@ -74,13 +74,25 @@ final class GiftActions implements GiftActionsInterface
     *     item_price_id?: string,
     *     quantity?: int,
     *     quantity_in_decimal?: string,
+    *     unit_price?: int,
+    *     unit_price_in_decimal?: string,
+    *     }>,
+    *     item_tiers?: array<array{
+    *     item_price_id?: string,
+    *     starting_unit?: int,
+    *     ending_unit?: int,
+    *     price?: int,
+    *     starting_unit_in_decimal?: string,
+    *     ending_unit_in_decimal?: string,
+    *     price_in_decimal?: string,
     *     }>,
     *     scheduled_at?: int,
     *     auto_claim?: bool,
     *     no_expiry?: bool,
     *     claim_expiry_date?: int,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * meta_data?: mixed,
+    *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return CreateForItemsGiftResponse
@@ -93,6 +105,7 @@ final class GiftActions implements GiftActionsInterface
     public function createForItems(array $params, array $headers = []): CreateForItemsGiftResponse
     {
         $jsonKeys = [
+            "metaData" => 0,
             "additionalInformation" => 1,
         ];
         $payload = ChargebeePayload::builder()

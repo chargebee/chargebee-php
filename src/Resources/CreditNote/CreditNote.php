@@ -102,6 +102,12 @@ class CreditNote  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?string $line_items_next_offset
+    */
+    public ?string $line_items_next_offset;
+    
+    /**
+    *
     * @var ?int $sub_total
     */
     public ?int $sub_total;
@@ -289,7 +295,7 @@ class CreditNote  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "einvoice" , "site_details_at_creation"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "einvoice" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -314,6 +320,7 @@ class CreditNote  extends SupportsCustomFields  {
         ?int $generated_at,
         ?int $resource_version,
         ?int $updated_at,
+        ?string $line_items_next_offset,
         ?int $sub_total,
         ?int $sub_total_in_local_currency,
         ?int $total_in_local_currency,
@@ -363,6 +370,7 @@ class CreditNote  extends SupportsCustomFields  {
         $this->generated_at = $generated_at;
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
+        $this->line_items_next_offset = $line_items_next_offset;
         $this->sub_total = $sub_total;
         $this->sub_total_in_local_currency = $sub_total_in_local_currency;
         $this->total_in_local_currency = $total_in_local_currency;
@@ -450,6 +458,7 @@ class CreditNote  extends SupportsCustomFields  {
         $resourceAttributes['generated_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
+        $resourceAttributes['line_items_next_offset'] ?? null,
         $resourceAttributes['sub_total'] ?? null,
         $resourceAttributes['sub_total_in_local_currency'] ?? null,
         $resourceAttributes['total_in_local_currency'] ?? null,
@@ -516,6 +525,7 @@ class CreditNote  extends SupportsCustomFields  {
         'generated_at' => $this->generated_at,
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,
+        'line_items_next_offset' => $this->line_items_next_offset,
         'sub_total' => $this->sub_total,
         'sub_total_in_local_currency' => $this->sub_total_in_local_currency,
         'total_in_local_currency' => $this->total_in_local_currency,

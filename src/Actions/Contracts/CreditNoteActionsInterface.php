@@ -3,8 +3,8 @@ namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\CreditNoteResponse\ResendEinvoiceCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\SendEinvoiceCreditNoteResponse;
-use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ImportCreditNoteCreditNoteResponse;
+use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\VoidCreditNoteCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\CreateCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\DownloadEinvoiceCreditNoteResponse;
@@ -23,6 +23,204 @@ use Chargebee\Exceptions\InvalidRequestException;
 
 Interface CreditNoteActionsInterface
 {
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#record_refund_for_a_credit_note
+    *   @param array{
+    *     transaction?: array{
+    *     id?: string,
+    *     amount?: int,
+    *     payment_method?: string,
+    *     reference_number?: string,
+    *     custom_payment_method_id?: string,
+    *     date?: int,
+    *     },
+    * refund_reason_code?: string,
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return RecordRefundCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function recordRefund(string $id, array $params, array $headers = []): RecordRefundCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#import_credit_note
+    *   @param array{
+    *     line_items?: array<array{
+    *     reference_line_item_id?: string,
+    *     id?: string,
+    *     date_from?: int,
+    *     date_to?: int,
+    *     subscription_id?: string,
+    *     description?: string,
+    *     unit_amount?: int,
+    *     quantity?: int,
+    *     amount?: int,
+    *     unit_amount_in_decimal?: string,
+    *     quantity_in_decimal?: string,
+    *     amount_in_decimal?: string,
+    *     entity_type?: string,
+    *     entity_id?: string,
+    *     item_level_discount1_entity_id?: string,
+    *     item_level_discount1_amount?: int,
+    *     item_level_discount2_entity_id?: string,
+    *     item_level_discount2_amount?: int,
+    *     tax1_name?: string,
+    *     tax1_amount?: int,
+    *     tax2_name?: string,
+    *     tax2_amount?: int,
+    *     tax3_name?: string,
+    *     tax3_amount?: int,
+    *     tax4_name?: string,
+    *     tax4_amount?: int,
+    *     tax5_name?: string,
+    *     tax5_amount?: int,
+    *     tax6_name?: string,
+    *     tax6_amount?: int,
+    *     tax7_name?: string,
+    *     tax7_amount?: int,
+    *     tax8_name?: string,
+    *     tax8_amount?: int,
+    *     tax9_name?: string,
+    *     tax9_amount?: int,
+    *     tax10_name?: string,
+    *     tax10_amount?: int,
+    *     }>,
+    *     line_item_tiers?: array<array{
+    *     line_item_id?: string,
+    *     starting_unit?: int,
+    *     ending_unit?: int,
+    *     quantity_used?: int,
+    *     unit_amount?: int,
+    *     starting_unit_in_decimal?: string,
+    *     ending_unit_in_decimal?: string,
+    *     quantity_used_in_decimal?: string,
+    *     unit_amount_in_decimal?: string,
+    *     }>,
+    *     discounts?: array<array{
+    *     line_item_id?: string,
+    *     entity_type?: string,
+    *     entity_id?: string,
+    *     description?: string,
+    *     amount?: int,
+    *     }>,
+    *     taxes?: array<array{
+    *     name?: string,
+    *     rate?: float,
+    *     amount?: int,
+    *     description?: string,
+    *     juris_type?: string,
+    *     juris_name?: string,
+    *     juris_code?: string,
+    *     }>,
+    *     allocations?: array<array{
+    *     invoice_id?: string,
+    *     allocated_amount?: int,
+    *     allocated_at?: int,
+    *     }>,
+    *     linked_refunds?: array<array{
+    *     id?: string,
+    *     amount?: int,
+    *     payment_method?: string,
+    *     date?: int,
+    *     reference_number?: string,
+    *     }>,
+    *     id?: string,
+    *     customer_id?: string,
+    *     subscription_id?: string,
+    *     reference_invoice_id?: string,
+    *     type?: string,
+    *     currency_code?: string,
+    *     create_reason_code?: string,
+    *     date?: int,
+    *     status?: string,
+    *     total?: int,
+    *     refunded_at?: int,
+    *     voided_at?: int,
+    *     sub_total?: int,
+    *     round_off_amount?: int,
+    *     fractional_correction?: int,
+    *     vat_number_prefix?: string,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return ImportCreditNoteCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function importCreditNote(array $params, array $headers = []): ImportCreditNoteCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#delete_a_credit_note
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return DeleteCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function delete(string $id, array $params = [], array $headers = []): DeleteCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes_for_a_customer
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return CreditNotesForCustomerCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function creditNotesForCustomer(string $id, array $params = [], array $headers = []): CreditNotesForCustomerCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_credit_note_as_pdf
+    *   @param array{
+    *     disposition_type?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return PdfCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function pdf(string $id, array $params = [], array $headers = []): PdfCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#send_an_einvoice_for_credit_notes
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendEinvoiceCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendEinvoice(string $id, array $headers = []): SendEinvoiceCreditNoteResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#void_a_credit_note
@@ -248,174 +446,6 @@ Interface CreditNoteActionsInterface
     public function create(array $params, array $headers = []): CreateCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#record_refund_for_a_credit_note
-    *   @param array{
-    *     transaction?: array{
-    *     id?: string,
-    *     amount?: int,
-    *     payment_method?: string,
-    *     reference_number?: string,
-    *     custom_payment_method_id?: string,
-    *     date?: int,
-    *     },
-    * refund_reason_code?: string,
-    *     comment?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return RecordRefundCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function recordRefund(string $id, array $params, array $headers = []): RecordRefundCreditNoteResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#import_credit_note
-    *   @param array{
-    *     line_items?: array<array{
-    *     reference_line_item_id?: string,
-    *     id?: string,
-    *     date_from?: int,
-    *     date_to?: int,
-    *     subscription_id?: string,
-    *     description?: string,
-    *     unit_amount?: int,
-    *     quantity?: int,
-    *     amount?: int,
-    *     unit_amount_in_decimal?: string,
-    *     quantity_in_decimal?: string,
-    *     amount_in_decimal?: string,
-    *     entity_type?: string,
-    *     entity_id?: string,
-    *     item_level_discount1_entity_id?: string,
-    *     item_level_discount1_amount?: int,
-    *     item_level_discount2_entity_id?: string,
-    *     item_level_discount2_amount?: int,
-    *     tax1_name?: string,
-    *     tax1_amount?: int,
-    *     tax2_name?: string,
-    *     tax2_amount?: int,
-    *     tax3_name?: string,
-    *     tax3_amount?: int,
-    *     tax4_name?: string,
-    *     tax4_amount?: int,
-    *     tax5_name?: string,
-    *     tax5_amount?: int,
-    *     tax6_name?: string,
-    *     tax6_amount?: int,
-    *     tax7_name?: string,
-    *     tax7_amount?: int,
-    *     tax8_name?: string,
-    *     tax8_amount?: int,
-    *     tax9_name?: string,
-    *     tax9_amount?: int,
-    *     tax10_name?: string,
-    *     tax10_amount?: int,
-    *     }>,
-    *     line_item_tiers?: array<array{
-    *     line_item_id?: string,
-    *     starting_unit?: int,
-    *     ending_unit?: int,
-    *     quantity_used?: int,
-    *     unit_amount?: int,
-    *     starting_unit_in_decimal?: string,
-    *     ending_unit_in_decimal?: string,
-    *     quantity_used_in_decimal?: string,
-    *     unit_amount_in_decimal?: string,
-    *     }>,
-    *     discounts?: array<array{
-    *     line_item_id?: string,
-    *     entity_type?: string,
-    *     entity_id?: string,
-    *     description?: string,
-    *     amount?: int,
-    *     }>,
-    *     taxes?: array<array{
-    *     name?: string,
-    *     rate?: float,
-    *     amount?: int,
-    *     description?: string,
-    *     juris_type?: string,
-    *     juris_name?: string,
-    *     juris_code?: string,
-    *     }>,
-    *     allocations?: array<array{
-    *     invoice_id?: string,
-    *     allocated_amount?: int,
-    *     allocated_at?: int,
-    *     }>,
-    *     linked_refunds?: array<array{
-    *     id?: string,
-    *     amount?: int,
-    *     payment_method?: string,
-    *     date?: int,
-    *     reference_number?: string,
-    *     }>,
-    *     id?: string,
-    *     customer_id?: string,
-    *     subscription_id?: string,
-    *     reference_invoice_id?: string,
-    *     type?: string,
-    *     currency_code?: string,
-    *     create_reason_code?: string,
-    *     date?: int,
-    *     status?: string,
-    *     total?: int,
-    *     refunded_at?: int,
-    *     voided_at?: int,
-    *     sub_total?: int,
-    *     round_off_amount?: int,
-    *     fractional_correction?: int,
-    *     vat_number_prefix?: string,
-    *     } $params Description of the parameters
-    *   
-    *   @param array<string, string> $headers
-    *   @return ImportCreditNoteCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function importCreditNote(array $params, array $headers = []): ImportCreditNoteCreditNoteResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#delete_a_credit_note
-    *   @param array{
-    *     comment?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function delete(string $id, array $params = [], array $headers = []): DeleteCreditNoteResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes_for_a_customer
-    *   @param array{
-    *     limit?: int,
-    *     offset?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return CreditNotesForCustomerCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function creditNotesForCustomer(string $id, array $params = [], array $headers = []): CreditNotesForCustomerCreditNoteResponse;
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#download_e-invoice_for_credit_note
     *   
     *   @param string $id  
@@ -428,22 +458,6 @@ Interface CreditNoteActionsInterface
     *   @throws Exception
     */
     public function downloadEinvoice(string $id, array $headers = []): DownloadEinvoiceCreditNoteResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_credit_note_as_pdf
-    *   @param array{
-    *     disposition_type?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return PdfCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function pdf(string $id, array $params = [], array $headers = []): PdfCreditNoteResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#resend_failed_einvoice_in_credit_notes
@@ -488,7 +502,9 @@ Interface CreditNoteActionsInterface
     *         is?: string,
     *             },
     *     },
-    * } $params Description of the parameters
+    * line_items_limit?: int,
+    *     line_items_offset?: string,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveCreditNoteResponse
@@ -499,20 +515,6 @@ Interface CreditNoteActionsInterface
     *   @throws Exception
     */
     public function retrieve(string $id, array $params = [], array $headers = []): RetrieveCreditNoteResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#send_an_einvoice_for_credit_notes
-    *   
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return SendEinvoiceCreditNoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function sendEinvoice(string $id, array $headers = []): SendEinvoiceCreditNoteResponse;
 
 }
 ?>

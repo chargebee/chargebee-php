@@ -110,6 +110,7 @@ Interface PricingPageSessionActionsInterface
     *     }>,
     *     redirect_url?: string,
     *     business_entity_id?: string,
+    *     auto_select_local_currency?: bool,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
