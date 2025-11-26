@@ -42,6 +42,7 @@ class Invoice extends Model
     'voidedAt',
     'resourceVersion',
     'updatedAt',
+    'lineItemsNextOffset',
     'firstInvoice',
     'newSalesAmount',
     'hasAdvanceCharges',

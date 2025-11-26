@@ -211,6 +211,12 @@ class Result
         return $payment_schedule;
     }
 
+    public function einvoice() 
+    {
+        $einvoice = $this->_get('einvoice', Models\Einvoice::class);
+        return $einvoice;
+    }
+
     public function taxWithheld() 
     {
         $tax_withheld = $this->_get('tax_withheld', Models\TaxWithheld::class);
@@ -423,6 +429,15 @@ class Result
 			'coupon_applicability_mappings' => Models\QuotedRampCouponApplicabilityMapping::class
 		));
         return $quoted_ramp;
+    }
+
+    public function quotedDeltaRamp() 
+    {
+        $quoted_delta_ramp = $this->_get('quoted_delta_ramp', Models\QuotedDeltaRamp::class, 
+        array( 
+			'line_items' => Models\QuotedDeltaRampLineItem::class
+		));
+        return $quoted_delta_ramp;
     }
 
     public function billingConfiguration() 

@@ -111,6 +111,13 @@ class ItemPrice extends Model
     return Request::send(Request::GET, Util::encodeURIPath("item_prices",$id,"applicable_item_prices"), $params, $env, $headers, null, false, $jsonKeys);
   }
 
+  public static function moveItemPrice($id, $params, $env = null, $headers = array())
+  {
+    $jsonKeys = array(
+    );
+    return Request::send(Request::POST, Util::encodeURIPath("item_prices",$id,"move"), $params, $env, $headers, null, false, $jsonKeys);
+  }
+
  }
 
 ?>
