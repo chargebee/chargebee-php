@@ -975,7 +975,9 @@ final class InvoiceActions implements InvoiceActionsInterface
     *         is?: string,
     *             },
     *     },
-    * } $params Description of the parameters
+    * line_items_limit?: int,
+    *     line_items_offset?: string,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveInvoiceResponse

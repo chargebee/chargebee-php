@@ -8,6 +8,7 @@ use Chargebee\Responses\ItemPriceResponse\UpdateItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\RetrieveItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\FindApplicableItemPricesItemPriceResponse;
 use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
+use Chargebee\Responses\ItemPriceResponse\MoveItemPriceItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\ListItemPriceResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
@@ -66,6 +67,40 @@ final class ItemPriceActions implements ItemPriceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return FindApplicableItemsItemPriceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#moves_an_item_price_to_a_different_parent_item
+    *   @param array{
+    *     destination_item_id?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return MoveItemPriceItemPriceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function moveItemPrice(string $id, array $params, array $headers = []): MoveItemPriceItemPriceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["item_prices",$id,"move"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return MoveItemPriceItemPriceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -347,8 +382,8 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *     between?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

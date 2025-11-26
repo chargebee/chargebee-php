@@ -33,7 +33,7 @@ Interface EntitlementOverrideActionsInterface
     public function listEntitlementOverrideForSubscription(string $id, array $params = [], array $headers = []): ListEntitlementOverrideForSubscriptionEntitlementOverrideResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides?lang=php#upsert/remove_entitlement_overrides_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides?lang=php#upsert_or_remove_entitlement_overrides_for_a_subscription
     *   @param array{
     *     entitlement_overrides?: array<array{
     *     feature_id?: string,

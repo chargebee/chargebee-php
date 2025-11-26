@@ -26,7 +26,7 @@ final class SubscriptionEntitlementActions implements SubscriptionEntitlementAct
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements?lang=php#enable/disable_subscription_entitlements
+    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements?lang=php#enable_or_disable_subscription_entitlements
     *   @param array{
     *     subscription_entitlements?: array<array{
     *     feature_id?: string,
