@@ -1,3 +1,9 @@
+### v4.12.1 (2025-12-15)
+* * * 
+
+### Bug Fixes: 
+* Fix empty json attributes arrays being sent incorrectly; now encoder encodes empty json attribute[] as {} using JSON_FORCE_OBJECT.(resolves #115)
+
 ### v4.12.0 (2025-11-26)
 * * * 
 
