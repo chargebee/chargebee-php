@@ -32,7 +32,7 @@ class URLFormEncoder implements ParamEncoderInterface
                 $key = (!is_null($prefix) ? $prefix : '') .
                     (!is_null($prefix) ? '[' . $usK . ']' : $usK) .
                     (!is_null($idx) ? '[' . $idx . ']' : '');
-                $serialized[$key] = is_string($v)?$v:json_encode($v);
+                $serialized[$key] = is_string($v)?$v:json_encode($v, JSON_FORCE_OBJECT);
             } else if (is_array($v) && !is_int($k)) {
                 $tempPrefix = (!is_null($prefix)) ? $prefix . '[' . Util::toUnderscoreFromCamelCase($k) . ']' : Util::toUnderscoreFromCamelCase($k);
                 $serialized = array_merge($serialized, self::serialize($v, $tempPrefix, null, $jsonKeys, $level + 1));

@@ -171,4 +171,22 @@ final class URLFormEncoderTest extends TestCase
         $this->assertIsString($encoded);
         $this->assertSame("first_name=John&last_name=Doe&billing_address=%7B%22city%22%3A%22Walnut%22%2C%22State%22%3A%22California%22%7D", $encoded);
     }
+
+
+    /** Convert params to URL-form encoding. Do not transform empty arrays into associative arrays; convert them to an empty object {} instead. */
+    /** first_name=John&last_name=Doe&meta_data={}*/
+    public function testEncodeParamsWithAEmptyJsonAttribute(): void {
+        $params = [
+            "first_name" => "John",
+            "last_name" => "Doe",
+            "meta_data" =>  [
+            ]
+        ];
+        $json_keys = [
+            "metaData" => 0
+        ];
+        $encoded = URLFormEncoder::encode($params, $json_keys);
+        $this->assertIsString($encoded);
+        $this->assertSame("first_name=John&last_name=Doe&meta_data=%7B%7D", $encoded);
+    }
 }

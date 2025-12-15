@@ -14,7 +14,7 @@ class JsonParamEncoder implements ParamEncoderInterface
 
     public static function encode(array $params, array $jsonKeys = []): string
     {
-        return json_encode(self::formatJsonKeysAsSnakeCase($params));
+        return json_encode(self::formatJsonKeysAsSnakeCase($params), JSON_FORCE_OBJECT);
     }
 
     public static function formatJsonKeysAsSnakeCase($value, $maxDepth = 1000, $currentDepth = 0): array
