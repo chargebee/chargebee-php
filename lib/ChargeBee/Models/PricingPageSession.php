@@ -24,6 +24,7 @@ class PricingPageSession extends Model
   public static function createForNewSubscription($params, $env = null, $headers = array())
   {
     $jsonKeys = array(
+        "custom" => 0,
     );
     return Request::send(Request::POST, Util::encodeURIPath("pricing_page_sessions","create_for_new_subscription"), $params, $env, $headers, null, false, $jsonKeys);
   }
@@ -31,6 +32,7 @@ class PricingPageSession extends Model
   public static function createForExistingSubscription($params, $env = null, $headers = array())
   {
     $jsonKeys = array(
+        "custom" => 0,
     );
     return Request::send(Request::POST, Util::encodeURIPath("pricing_page_sessions","create_for_existing_subscription"), $params, $env, $headers, null, false, $jsonKeys);
   }
