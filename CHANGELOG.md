@@ -1,3 +1,25 @@
+### v3.51.0 (2025-12-30)
+* * * 
+
+### New Attributes: 
+* retry_engine has been added to Invoice#DunningAttempt.
+
+### New Endpoint: 
+* move action has been added to ItemPrice.
+
+### New Parameters: 
+* exclude_tax_type has been added to Estimate#RenewalEstimateInputParam.
+* variant_id has been added to ItemPrice#MoveInputParam.
+* custom has been added to PricingPageSession#CreateForNewSubscriptionInputParam.
+* custom has been added to PricingPageSession#CreateForExistingSubscriptionInputParam.
+
+### New Enums: 
+* ELECTRONIC_PAYMENT_STANDARD has been added to PaymentMethodTypeEnum.
+* KBC_PAYMENT_BUTTON has been added to PaymentMethodTypeEnum.
+* PAY_BY_BANK has been added to PaymentMethodTypeEnum.
+* TRUSTLY has been added to PaymentMethodTypeEnum.
+* STABLECOIN has been added to PaymentMethodTypeEnum.
+
 ### v3.50.0 (2025-11-26)
 * * * 
 
