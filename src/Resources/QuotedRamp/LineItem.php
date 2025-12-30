@@ -28,7 +28,7 @@ class LineItem  {
     public ?string $quantity_in_decimal;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $metered_quantity
     */
     public ?string $metered_quantity;

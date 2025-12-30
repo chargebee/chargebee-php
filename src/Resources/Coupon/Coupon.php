@@ -47,7 +47,7 @@ class Coupon  extends SupportsCustomFields  {
     public ?string $currency_code;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?int $duration_month
     */
     public ?int $duration_month;

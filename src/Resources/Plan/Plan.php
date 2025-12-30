@@ -65,7 +65,7 @@ class Plan  extends SupportsCustomFields  {
     public ?int $setup_cost;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?float $downgrade_penalty
     */
     public ?float $downgrade_penalty;

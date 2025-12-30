@@ -58,7 +58,7 @@ class SubscriptionEntitlement  {
     public ?bool $is_enabled;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?int $effective_from
     */
     public ?int $effective_from;

@@ -46,6 +46,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     *     label?: string,
     *     }>,
     *     redirect_url?: string,
+    *     custom?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -59,6 +60,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     public function createForExistingSubscription(array $params, array $headers = []): CreateForExistingSubscriptionPricingPageSessionResponse
     {
         $jsonKeys = [
+            "custom" => 0,
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
@@ -141,6 +143,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     *     redirect_url?: string,
     *     business_entity_id?: string,
     *     auto_select_local_currency?: bool,
+    *     custom?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -154,6 +157,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     public function createForNewSubscription(array $params, array $headers = []): CreateForNewSubscriptionPricingPageSessionResponse
     {
         $jsonKeys = [
+            "custom" => 0,
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)

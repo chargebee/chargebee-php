@@ -52,7 +52,7 @@ class PaymentScheduleScheme  {
     public ?int $updated_at;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?array<PreferredSchedule> $preferred_schedules
     */
     public ?array $preferred_schedules;

@@ -722,6 +722,7 @@ Interface SubscriptionActionsInterface
     *     offset?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return SubscriptionsForCustomerSubscriptionResponse
     *   @throws PaymentException

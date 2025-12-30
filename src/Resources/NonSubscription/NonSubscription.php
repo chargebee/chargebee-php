@@ -4,7 +4,7 @@ namespace Chargebee\Resources\NonSubscription;
 
 class NonSubscription  { 
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $app_id
     */
     public ?string $app_id;

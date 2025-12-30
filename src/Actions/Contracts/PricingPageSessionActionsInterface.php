@@ -34,6 +34,7 @@ Interface PricingPageSessionActionsInterface
     *     label?: string,
     *     }>,
     *     redirect_url?: string,
+    *     custom?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -111,6 +112,7 @@ Interface PricingPageSessionActionsInterface
     *     redirect_url?: string,
     *     business_entity_id?: string,
     *     auto_select_local_currency?: bool,
+    *     custom?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

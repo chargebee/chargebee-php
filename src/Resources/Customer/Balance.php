@@ -34,7 +34,7 @@ class Balance  {
     public ?string $currency_code;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $balance_currency_code
     */
     public ?string $balance_currency_code;

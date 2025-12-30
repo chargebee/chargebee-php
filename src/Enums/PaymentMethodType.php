@@ -28,6 +28,11 @@ enum PaymentMethodType : string {
     case KLARNA_PAY_NOW = "klarna_pay_now";
     case ONLINE_BANKING_POLAND = "online_banking_poland";
     case PAYCONIQ_BY_BANCONTACT = "payconiq_by_bancontact";
+    case ELECTRONIC_PAYMENT_STANDARD = "electronic_payment_standard";
+    case KBC_PAYMENT_BUTTON = "kbc_payment_button";
+    case PAY_BY_BANK = "pay_by_bank";
+    case TRUSTLY = "trustly";
+    case STABLECOIN = "stablecoin";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

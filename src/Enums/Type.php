@@ -28,6 +28,11 @@ enum Type : string {
     case KLARNA_PAY_NOW = "klarna_pay_now";
     case ONLINE_BANKING_POLAND = "online_banking_poland";
     case PAYCONIQ_BY_BANCONTACT = "payconiq_by_bancontact";
+    case ELECTRONIC_PAYMENT_STANDARD = "electronic_payment_standard";
+    case KBC_PAYMENT_BUTTON = "kbc_payment_button";
+    case PAY_BY_BANK = "pay_by_bank";
+    case TRUSTLY = "trustly";
+    case STABLECOIN = "stablecoin";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";

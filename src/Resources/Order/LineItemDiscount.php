@@ -16,7 +16,7 @@ class LineItemDiscount  {
     public ?string $discount_type;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $coupon_id
     */
     public ?string $coupon_id;

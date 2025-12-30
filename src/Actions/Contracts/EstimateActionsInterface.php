@@ -37,6 +37,7 @@ Interface EstimateActionsInterface
     *     use_existing_balances?: bool,
     *     ignore_scheduled_cancellation?: bool,
     *     ignore_scheduled_changes?: bool,
+    *     exclude_tax_type?: string,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers

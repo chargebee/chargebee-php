@@ -28,13 +28,13 @@ class SubscriptionItem  {
     public ?string $quantity_in_decimal;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $metered_quantity
     */
     public ?string $metered_quantity;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?int $last_calculated_at
     */
     public ?int $last_calculated_at;

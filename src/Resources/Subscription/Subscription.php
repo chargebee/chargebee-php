@@ -293,7 +293,7 @@ class Subscription  extends SupportsCustomFields  {
     public ?int $mrr;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?int $arr
     */
     public ?int $arr;
@@ -329,7 +329,7 @@ class Subscription  extends SupportsCustomFields  {
     public ?array $charged_event_based_addons;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $coupon
     */
     public ?string $coupon;
