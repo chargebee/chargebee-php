@@ -73,8 +73,10 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#moves_an_item_price_to_a_different_parent_item
     *   @param array{
     *     destination_item_id?: string,
+    *     variant_id?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return MoveItemPriceItemPriceResponse
     *   @throws PaymentException

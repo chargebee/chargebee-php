@@ -703,6 +703,7 @@ Interface InvoiceActionsInterface
     *     invoice_date?: int,
     *     } $params Description of the parameters
     *   
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return CreateForChargeItemInvoiceResponse
     *   @throws PaymentException
@@ -933,6 +934,7 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return InvoicesForCustomerInvoiceResponse
     *   @throws PaymentException
@@ -1235,13 +1237,13 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         in?: string,
-    *             is?: string,
+    *         is?: string,
+    *             in?: string,
     *             },
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   
@@ -1362,6 +1364,7 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return InvoicesForSubscriptionInvoiceResponse
     *   @throws PaymentException

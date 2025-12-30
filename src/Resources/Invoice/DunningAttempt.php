@@ -40,9 +40,15 @@ class DunningAttempt  {
     public ?int $txn_amount;
     
     /**
+    *
+    * @var ?string $retry_engine
+    */
+    public ?string $retry_engine;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "attempt" , "transaction_id" , "dunning_type" , "created_at" , "txn_status" , "txn_amount"  ];
+    protected static array $knownFields = [ "attempt" , "transaction_id" , "dunning_type" , "created_at" , "txn_status" , "txn_amount" , "retry_engine"  ];
 
     /**
     * dynamic properties for resources
@@ -57,6 +63,7 @@ class DunningAttempt  {
         ?int $created_at,
         ?string $txn_status,
         ?int $txn_amount,
+        ?string $retry_engine,
     )
     { 
         $this->attempt = $attempt;
@@ -64,7 +71,8 @@ class DunningAttempt  {
         $this->dunning_type = $dunning_type;
         $this->created_at = $created_at;
         $this->txn_status = $txn_status;
-        $this->txn_amount = $txn_amount;   
+        $this->txn_amount = $txn_amount;
+        $this->retry_engine = $retry_engine;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -75,6 +83,7 @@ class DunningAttempt  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['txn_status'] ?? null,
         $resourceAttributes['txn_amount'] ?? null,
+        $resourceAttributes['retry_engine'] ?? null,
         
           
         );
@@ -91,6 +100,7 @@ class DunningAttempt  {
         'created_at' => $this->created_at,
         'txn_status' => $this->txn_status,
         'txn_amount' => $this->txn_amount,
+        'retry_engine' => $this->retry_engine,
         
         ], function ($value) {
             return $value !== null;

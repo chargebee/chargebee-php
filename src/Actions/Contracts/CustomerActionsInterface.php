@@ -62,6 +62,7 @@ Interface CustomerActionsInterface
     *     reference?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return AddPromotionalCreditsCustomerResponse
     *   @throws PaymentException
@@ -611,6 +612,7 @@ Interface CustomerActionsInterface
     *     reference?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return DeductPromotionalCreditsCustomerResponse
     *   @throws PaymentException
@@ -746,6 +748,7 @@ Interface CustomerActionsInterface
     *     reference?: string,
     *     } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return SetPromotionalCreditsCustomerResponse
     *   @throws PaymentException

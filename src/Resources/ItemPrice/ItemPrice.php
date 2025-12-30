@@ -167,13 +167,13 @@ class ItemPrice  extends SupportsCustomFields  {
     public mixed $metadata;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?bool $archivable
     */
     public ?bool $archivable;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $parent_item_id
     */
     public ?string $parent_item_id;

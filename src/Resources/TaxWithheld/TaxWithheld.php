@@ -10,7 +10,7 @@ class TaxWithheld  {
     public ?string $id;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $user
     */
     public ?string $user;
@@ -34,7 +34,7 @@ class TaxWithheld  {
     public ?int $date;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $currency_code
     */
     public ?string $currency_code;
@@ -58,7 +58,7 @@ class TaxWithheld  {
     public ?int $updated_at;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?float $exchange_rate
     */
     public ?float $exchange_rate;

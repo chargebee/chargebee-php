@@ -64,6 +64,7 @@ Interface CouponCodeActionsInterface
     *     code?: string,
     *     } $params Description of the parameters
     *   
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return CreateCouponCodeResponse
     *   @throws PaymentException

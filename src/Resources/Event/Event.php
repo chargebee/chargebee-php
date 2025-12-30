@@ -23,7 +23,7 @@ class Event  {
     public ?string $user;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $webhook_failure_reason
     */
     public ?string $webhook_failure_reason;

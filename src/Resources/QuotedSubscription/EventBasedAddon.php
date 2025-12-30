@@ -22,7 +22,7 @@ class EventBasedAddon  {
     public ?int $unit_price;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?int $service_period_in_days
     */
     public ?int $service_period_in_days;
