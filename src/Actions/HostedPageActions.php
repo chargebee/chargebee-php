@@ -878,6 +878,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     *     force_term_reset?: bool,
     *     change_option?: string,
     *     changes_scheduled_at?: int,
+    *     invoice_usages?: bool,
     *     redirect_url?: string,
     *     cancel_url?: string,
     *     pass_thru_content?: string,

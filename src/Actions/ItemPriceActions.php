@@ -384,8 +384,8 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *     between?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is?: mixed,
     *     is_present?: mixed,
+    *     is?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
