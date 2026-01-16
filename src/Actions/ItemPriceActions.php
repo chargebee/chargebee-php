@@ -8,7 +8,6 @@ use Chargebee\Responses\ItemPriceResponse\UpdateItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\RetrieveItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\FindApplicableItemPricesItemPriceResponse;
 use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
-use Chargebee\Responses\ItemPriceResponse\MoveItemPriceItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\ListItemPriceResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
@@ -29,80 +28,6 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     public function __construct(HttpClientFactory $httpClientFactory, Environment $env){
        $this->httpClientFactory = $httpClientFactory;
        $this->env = $env;
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_items_for_a_plan-item_price
-    *   @param array{
-    *     limit?: int,
-    *     offset?: string,
-    *     sort_by?: array{
-    *     asc?: string,
-    *     desc?: string,
-    *     },
-    * } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return FindApplicableItemsItemPriceResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["item_prices",$id,"applicable_items"])
-        ->withParamEncoder(new ListParamEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return FindApplicableItemsItemPriceResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#moves_an_item_price_to_a_different_parent_item
-    *   @param array{
-    *     destination_item_id?: string,
-    *     variant_id?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @deprecated This method is deprecated and will be removed in a future version.
-    *   @param array<string, string> $headers
-    *   @return MoveItemPriceItemPriceResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function moveItemPrice(string $id, array $params, array $headers = []): MoveItemPriceItemPriceResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["item_prices",$id,"move"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return MoveItemPriceItemPriceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -298,6 +223,44 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_items_for_a_plan-item_price
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     sort_by?: array{
+    *     asc?: string,
+    *     desc?: string,
+    *     },
+    * } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return FindApplicableItemsItemPriceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["item_prices",$id,"applicable_items"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return FindApplicableItemsItemPriceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_item_prices
     *   @param array{
     *     limit?: int,
@@ -384,8 +347,8 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     *     between?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

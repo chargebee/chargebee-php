@@ -395,8 +395,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -602,8 +602,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -693,8 +693,8 @@ Interface ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -1601,6 +1601,10 @@ Interface ExportActionsInterface
     *     in?: mixed,
     *     not_in?: mixed,
     *     },
+    * applicable_item_price_ids?: array{
+    *     is?: mixed,
+    *     in?: mixed,
+    *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -1858,8 +1862,8 @@ Interface ExportActionsInterface
     *     not_in?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
