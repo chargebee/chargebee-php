@@ -7,7 +7,6 @@ use Chargebee\Responses\ItemPriceResponse\DeleteItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\UpdateItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\RetrieveItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\FindApplicableItemPricesItemPriceResponse;
-use Chargebee\Responses\ItemPriceResponse\MoveItemPriceItemPriceResponse;
 use Chargebee\Responses\ItemPriceResponse\ListItemPriceResponse;
 use Exception;
 use Chargebee\Exceptions\PaymentException;
@@ -17,45 +16,6 @@ use Chargebee\Exceptions\InvalidRequestException;
 
 Interface ItemPriceActionsInterface
 {
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_items_for_a_plan-item_price
-    *   @param array{
-    *     limit?: int,
-    *     offset?: string,
-    *     sort_by?: array{
-    *     asc?: string,
-    *     desc?: string,
-    *     },
-    * } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return FindApplicableItemsItemPriceResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse;
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#moves_an_item_price_to_a_different_parent_item
-    *   @param array{
-    *     destination_item_id?: string,
-    *     variant_id?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @deprecated This method is deprecated and will be removed in a future version.
-    *   @param array<string, string> $headers
-    *   @return MoveItemPriceItemPriceResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function moveItemPrice(string $id, array $params, array $headers = []): MoveItemPriceItemPriceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#retrieve_an_item_price
@@ -181,6 +141,27 @@ Interface ItemPriceActionsInterface
     public function findApplicableItemPrices(string $id, array $params = [], array $headers = []): FindApplicableItemPricesItemPriceResponse;
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_items_for_a_plan-item_price
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     sort_by?: array{
+    *     asc?: string,
+    *     desc?: string,
+    *     },
+    * } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return FindApplicableItemsItemPriceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function findApplicableItems(string $id, array $params = [], array $headers = []): FindApplicableItemsItemPriceResponse;
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_item_prices
     *   @param array{
     *     limit?: int,
@@ -267,8 +248,8 @@ Interface ItemPriceActionsInterface
     *     between?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
