@@ -191,6 +191,7 @@ final class URLFormEncoderTest extends TestCase
     }
 
     /** Convert params to URL-form encoding. Do not transform json arrays to array based indexing. it should not ItemPriceId { "0" => "some_price_id"}  */
+    /** id=foo&name=foo&discount_percentage=10&apply_on=each_specified_item&item_constraints[constraint][0]=specific&item_constraints[item_type][0]=plan&item_constraints[item_price_ids][0]=["some_price_id"] */
     public function testEncodeParamsShouldNotUseArrayBasedIndexingForJsonArray(): void
     {
         $params = [
