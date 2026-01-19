@@ -1,3 +1,10 @@
+### v4.15.1 (2026-01-19)
+* * * 
+
+### Regression Bug Fixes:
+* Fix list fields to accept JSON objects with explicit numeric keys. [Reference](https://github.com/chargebee/chargebee-php/pull/116#issuecomment-3715071348).
+* Add `PHPUnit` test case coverage workflow on pull request.
+
 ### v4.15.0 (2026-01-16)
 * * * 
 

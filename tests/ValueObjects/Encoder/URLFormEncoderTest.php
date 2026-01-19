@@ -189,4 +189,31 @@ final class URLFormEncoderTest extends TestCase
         $this->assertIsString($encoded);
         $this->assertSame("first_name=John&last_name=Doe&meta_data=%7B%7D", $encoded);
     }
+
+    /** Convert params to URL-form encoding. Do not transform json arrays to array based indexing. it should not ItemPriceId { "0" => "some_price_id"}  */
+    public function testEncodeParamsShouldNotUseArrayBasedIndexingForJsonArray(): void
+    {
+        $params = [
+            'id' => 'foo',
+            'name' => 'foo',
+            'discount_percentage' => 10.0,
+            'apply_on' => 'each_specified_item',
+            'item_constraints' => [
+                [
+                    'constraint' => 'specific',
+                    'item_type' => 'plan',
+                    'item_price_ids' => [
+                        'some_price_id',
+                    ],
+                ],
+            ],
+        ];
+
+        $json_keys = [
+            "itemPriceIds" => 1
+        ];
+        $encoded = URLFormEncoder::encode($params, $json_keys);
+        $this->assertIsString($encoded);
+        $this->assertSame("id=foo&name=foo&discount_percentage=10&apply_on=each_specified_item&item_constraints%5Bconstraint%5D%5B0%5D=specific&item_constraints%5Bitem_type%5D%5B0%5D=plan&item_constraints%5Bitem_price_ids%5D%5B0%5D=%5B%22some_price_id%22%5D", $encoded);
+    }
 }
