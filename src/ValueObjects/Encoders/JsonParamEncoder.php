@@ -14,7 +14,9 @@ class JsonParamEncoder implements ParamEncoderInterface
 
     public static function encode(array $params, array $jsonKeys = []): string
     {
-        return json_encode(self::formatJsonKeysAsSnakeCase($params), JSON_FORCE_OBJECT);
+        $params = self::formatJsonKeysAsSnakeCase($params);
+        $params = self::convertEmptyArraysToObjects($params);
+        return json_encode($params);
     }
 
     public static function formatJsonKeysAsSnakeCase($value, $maxDepth = 1000, $currentDepth = 0): array
@@ -38,6 +40,19 @@ class JsonParamEncoder implements ParamEncoderInterface
             }
         }
         return $serialized;
+    }
+
+    private static function convertEmptyArraysToObjects($data)
+    {
+        if (!is_array($data)) {
+            return $data;
+        }
+        
+        if ($data === []) {
+            return new \stdClass();
+        }
+        
+        return array_map(fn($v) => is_array($v) ? self::convertEmptyArraysToObjects($v) : $v, $data);
     }
 
 }
