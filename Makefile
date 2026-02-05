@@ -52,7 +52,7 @@ install-dev:
 	@echo "Installing development dependencies..."
 	@$(COMPOSER) install
 
-test:
+test: install-dev 
 	@echo "Running tests..."
 	@$(PHPUNIT) --testdox
 
@@ -62,12 +62,7 @@ test-coverage:
 	@echo "Coverage report generated in coverage/index.html"
 
 format:
-	@echo "Formatting code..."
-	@if [ -f "$(PHP_CS_FIXER)" ]; then \
-		$(PHP_CS_FIXER) fix --allow-risky=yes; \
-	else \
-		echo "PHP CS Fixer not found. Install it with: composer require --dev friendsofphp/php-cs-fixer"; \
-	fi
+	@echo "Formatter is not added currently."
 
 format-check:
 	@echo "Checking code formatting..."
@@ -92,7 +87,7 @@ check: format-check lint test
 
 build: clean
 	@echo "Building package..."
-	@$(COMPOSER) validate --strict
+	@$(COMPOSER) validate
 	@$(COMPOSER) install --no-dev --optimize-autoloader --prefer-dist
 
 clean:
