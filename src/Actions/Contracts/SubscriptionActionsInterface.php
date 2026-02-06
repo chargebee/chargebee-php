@@ -48,7 +48,7 @@ Interface SubscriptionActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_an_advance_invoice_schedules
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-an-advance-invoice-schedules?lang=php-v4
     *   @param array{
     *     specific_dates_schedule?: array<array{
     *     id?: string,
@@ -66,7 +66,7 @@ Interface SubscriptionActionsInterface
     public function removeAdvanceInvoiceSchedule(string $id, array $params = [], array $headers = []): RemoveAdvanceInvoiceScheduleSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#update_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/update-subscription-for-items?lang=php-v4
     *   @param array{
     *     card?: array{
     *     gateway?: string,
@@ -254,7 +254,7 @@ Interface SubscriptionActionsInterface
     public function updateForItems(string $id, array $params, array $headers = []): UpdateForItemsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_coupons
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-coupons?lang=php-v4
     *   @param array{
     *     coupon_ids?: array<string>,
     * } $params Description of the parameters
@@ -270,7 +270,7 @@ Interface SubscriptionActionsInterface
     public function removeCoupons(string $id, array $params = [], array $headers = []): RemoveCouponsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#resume_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/resume-a-subscription?lang=php-v4
     *   @param array{
     *     payment_intent?: array{
     *     id?: string,
@@ -299,7 +299,7 @@ Interface SubscriptionActionsInterface
     public function resume(string $id, array $params = [], array $headers = []): ResumeSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#cancel_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/cancel-subscription-for-items?lang=php-v4
     *   @param array{
     *     cancel_option?: string,
     *     end_of_term?: bool,
@@ -319,6 +319,7 @@ Interface SubscriptionActionsInterface
     *     service_period_days?: int,
     *     }>,
     *     cancel_reason_code?: string,
+    *     decommissioned?: bool,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -332,7 +333,7 @@ Interface SubscriptionActionsInterface
     public function cancelForItems(string $id, array $params = [], array $headers = []): CancelForItemsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#regenerate_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/regenerate-an-invoice?lang=php-v4
     *   @param array{
     *     date_from?: int,
     *     date_to?: int,
@@ -351,7 +352,7 @@ Interface SubscriptionActionsInterface
     public function regenerateInvoice(string $id, array $params = [], array $headers = []): RegenerateInvoiceSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#list_subscriptions
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/list-subscriptions?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -493,7 +494,7 @@ Interface SubscriptionActionsInterface
     public function all(array $params = [], array $headers = []): ListSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#create_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/create-a-subscription?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -699,7 +700,7 @@ Interface SubscriptionActionsInterface
     public function create(array $params, array $headers = []): CreateSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#move_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/move-a-subscription?lang=php-v4
     *   @param array{
     *     to_customer_id?: string,
     *     copy_payment_source?: bool,
@@ -716,7 +717,7 @@ Interface SubscriptionActionsInterface
     public function move(string $id, array $params, array $headers = []): MoveSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#list_subscriptions_for_a_customer
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -734,7 +735,7 @@ Interface SubscriptionActionsInterface
     public function subscriptionsForCustomer(string $id, array $params = [], array $headers = []): SubscriptionsForCustomerSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#create_subscription_for_customer
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/create-subscription-for-customer?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -835,7 +836,7 @@ Interface SubscriptionActionsInterface
     public function createForCustomer(string $id, array $params, array $headers = []): CreateForCustomerSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/import-subscription-for-items?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     id?: string,
@@ -952,7 +953,7 @@ Interface SubscriptionActionsInterface
     public function importForItems(string $id, array $params, array $headers = []): ImportForItemsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#retrieve_advance_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/retrieve-advance-invoice?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -966,7 +967,7 @@ Interface SubscriptionActionsInterface
     public function retrieveAdvanceInvoiceSchedule(string $id, array $headers = []): RetrieveAdvanceInvoiceScheduleSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_scheduled_cancellation
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-scheduled-cancellation?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     action_at_term_end?: string,
@@ -987,7 +988,7 @@ Interface SubscriptionActionsInterface
     public function removeScheduledCancellation(string $id, array $params = [], array $headers = []): RemoveScheduledCancellationSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#retrieve_with_scheduled_changes
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/retrieve-with-scheduled-changes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1001,7 +1002,7 @@ Interface SubscriptionActionsInterface
     public function retrieveWithScheduledChanges(string $id, array $headers = []): RetrieveWithScheduledChangesSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#reactivate_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/reactivate-a-subscription?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     action_at_term_end?: string,
@@ -1042,7 +1043,7 @@ Interface SubscriptionActionsInterface
     public function reactivate(string $id, array $params = [], array $headers = []): ReactivateSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#charge_future_renewals
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/charge-future-renewals?lang=php-v4
     *   @param array{
     *     fixed_interval_schedule?: array{
     *     number_of_occurrences?: int,
@@ -1070,7 +1071,7 @@ Interface SubscriptionActionsInterface
     public function chargeFutureRenewals(string $id, array $params = [], array $headers = []): ChargeFutureRenewalsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#add_charge_at_term_end
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/add-charge-at-term-end?lang=php-v4
     *   @param array{
     *     amount?: int,
     *     description?: string,
@@ -1093,7 +1094,7 @@ Interface SubscriptionActionsInterface
     public function addChargeAtTermEnd(string $id, array $params, array $headers = []): AddChargeAtTermEndSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_scheduled_changes
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-scheduled-changes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1107,7 +1108,7 @@ Interface SubscriptionActionsInterface
     public function removeScheduledChanges(string $id, array $headers = []): RemoveScheduledChangesSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#change_term_end
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/change-term-end?lang=php-v4
     *   @param array{
     *     term_ends_at?: int,
     *     prorate?: bool,
@@ -1125,7 +1126,7 @@ Interface SubscriptionActionsInterface
     public function changeTermEnd(string $id, array $params, array $headers = []): ChangeTermEndSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#delete_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/delete-a-subscription?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1139,7 +1140,7 @@ Interface SubscriptionActionsInterface
     public function delete(string $id, array $headers = []): DeleteSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#create_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/create-subscription-for-items?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -1262,7 +1263,7 @@ Interface SubscriptionActionsInterface
     public function createWithItems(string $id, array $params, array $headers = []): CreateWithItemsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_unbilled_charges
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/import-unbilled-charges?lang=php-v4
     *   @param array{
     *     unbilled_charges?: array<array{
     *     id?: string,
@@ -1312,7 +1313,7 @@ Interface SubscriptionActionsInterface
     public function importUnbilledCharges(string $id, array $params, array $headers = []): ImportUnbilledChargesSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_scheduled_resumption
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-scheduled-resumption?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1326,7 +1327,7 @@ Interface SubscriptionActionsInterface
     public function removeScheduledResumption(string $id, array $headers = []): RemoveScheduledResumptionSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#retrieve_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/retrieve-a-subscription?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1340,7 +1341,7 @@ Interface SubscriptionActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#update_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/update-a-subscription?lang=php-v4
     *   @param array{
     *     card?: array{
     *     gateway?: string,
@@ -1504,7 +1505,7 @@ Interface SubscriptionActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_contract_term
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/import-contract-term?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     id?: string,
@@ -1534,7 +1535,7 @@ Interface SubscriptionActionsInterface
     public function importContractTerm(string $id, array $params = [], array $headers = []): ImportContractTermSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#override_billing_profile
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/override-billing-profile?lang=php-v4
     *   @param array{
     *     payment_source_id?: string,
     *     auto_collection?: string,
@@ -1551,7 +1552,7 @@ Interface SubscriptionActionsInterface
     public function overrideBillingProfile(string $id, array $params = [], array $headers = []): OverrideBillingProfileSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#remove_scheduled_pause
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/remove-scheduled-pause?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1565,7 +1566,7 @@ Interface SubscriptionActionsInterface
     public function removeScheduledPause(string $id, array $headers = []): RemoveScheduledPauseSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#edit_advance_invoice_schedule
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/edit-advance-invoice-schedule?lang=php-v4
     *   @param array{
     *     fixed_interval_schedule?: array{
     *     number_of_occurrences?: int,
@@ -1593,7 +1594,7 @@ Interface SubscriptionActionsInterface
     public function editAdvanceInvoiceSchedule(string $id, array $params = [], array $headers = []): EditAdvanceInvoiceScheduleSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#list_discounts_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/list-discounts-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -1610,7 +1611,7 @@ Interface SubscriptionActionsInterface
     public function listDiscounts(string $id, array $params = [], array $headers = []): ListDiscountsSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#list_contract_terms_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/list-contract-terms-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -1631,7 +1632,7 @@ Interface SubscriptionActionsInterface
     public function contractTermsForSubscription(string $id, array $params = [], array $headers = []): ContractTermsForSubscriptionSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#pause_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/pause-a-subscription?lang=php-v4
     *   @param array{
     *     pause_option?: string,
     *     pause_date?: int,
@@ -1652,7 +1653,7 @@ Interface SubscriptionActionsInterface
     public function pause(string $id, array $params = [], array $headers = []): PauseSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_subscription_for_customer
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/import-subscription-for-customer?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     id?: string,
@@ -1752,7 +1753,7 @@ Interface SubscriptionActionsInterface
     public function importForCustomer(string $id, array $params, array $headers = []): ImportForCustomerSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#import_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/import-a-subscription?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -1916,7 +1917,7 @@ Interface SubscriptionActionsInterface
     public function importSubscription(array $params, array $headers = []): ImportSubscriptionSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#cancel_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/cancel-a-subscription?lang=php-v4
     *   @param array{
     *     cancel_option?: string,
     *     end_of_term?: bool,
@@ -1947,7 +1948,7 @@ Interface SubscriptionActionsInterface
     public function cancel(string $id, array $params = [], array $headers = []): CancelSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscriptions?lang=php#charge_addon_at_term_end
+    *   @see https://apidocs.chargebee.com/docs/api/subscriptions/charge-addon-at-term-end?lang=php-v4
     *   @param array{
     *     addon_id?: string,
     *     addon_quantity?: int,

@@ -43,7 +43,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#subscription_renewal_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/subscription-renewal-estimate?lang=php-v4
     *   @param array{
     *     include_delayed_charges?: bool,
     *     use_existing_balances?: bool,
@@ -80,7 +80,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#estimate_for_creating_a_customer_and_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/estimate-for-creating-a-customer-and-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -210,7 +210,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#estimates_for_payment_schedules
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/estimates-for-payment-schedules?lang=php-v4
     *   @param array{
     *     scheme_id?: string,
     *     amount?: int,
@@ -247,7 +247,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#cancel_subscription_for_items_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/cancel-subscription-for-items-estimate?lang=php-v4
     *   @param array{
     *     cancel_option?: string,
     *     end_of_term?: bool,
@@ -298,7 +298,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#resume_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/resume-subscription-estimate?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     resume_date?: int,
@@ -336,7 +336,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#create_invoice_for_items_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     customer_id?: string,
@@ -460,7 +460,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#gift_subscription_estimate_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/gift-subscription-estimate-for-items?lang=php-v4
     *   @param array{
     *     gift?: array{
     *     scheduled_at?: int,
@@ -554,7 +554,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#estimate_for_updating_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/estimate-for-updating-a-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -687,7 +687,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#upcoming_invoices_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/upcoming-invoices-estimate?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -717,7 +717,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#regenerate_invoice_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/regenerate-invoice-estimate?lang=php-v4
     *   @param array{
     *     date_from?: int,
     *     date_to?: int,
@@ -754,7 +754,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#estimate_for_creating_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/estimate-for-creating-a-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -871,7 +871,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#subscription_change_term_end_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/subscription-change-term-end-estimate?lang=php-v4
     *   @param array{
     *     term_ends_at?: int,
     *     prorate?: bool,
@@ -907,7 +907,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#pause_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/pause-subscription-estimate?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     pause_date?: int,
@@ -947,7 +947,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#advance_invoice_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/advance-invoice-estimate?lang=php-v4
     *   @param array{
     *     fixed_interval_schedule?: array{
     *     number_of_occurrences?: int,
@@ -993,7 +993,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#update_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/update-subscription-estimate?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -1108,7 +1108,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#gift_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/gift-subscription-estimate?lang=php-v4
     *   @param array{
     *     gift?: array{
     *     scheduled_at?: int,
@@ -1196,7 +1196,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#create_subscription_for_a_customer_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/create-subscription-for-a-customer-estimate?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -1286,7 +1286,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#create_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/create-subscription-estimate?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -1404,7 +1404,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#create_invoice_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/create-invoice-estimate?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     customer_id?: string,
@@ -1500,7 +1500,7 @@ final class EstimateActions implements EstimateActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/estimates?lang=php#cancel_subscription_estimate
+    *   @see https://apidocs.chargebee.com/docs/api/estimates/cancel-subscription-estimate?lang=php-v4
     *   @param array{
     *     cancel_option?: string,
     *     end_of_term?: bool,

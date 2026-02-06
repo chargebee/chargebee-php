@@ -27,7 +27,7 @@ final class PortalSessionActions implements PortalSessionActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions?lang=php#create_a_portal_session
+    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions/create-a-portal-session?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -65,7 +65,7 @@ final class PortalSessionActions implements PortalSessionActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions?lang=php#activate_a_portal_session
+    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions/activate-a-portal-session?lang=php-v4
     *   @param array{
     *     token?: string,
     *     } $params Description of the parameters
@@ -99,7 +99,7 @@ final class PortalSessionActions implements PortalSessionActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions?lang=php#logout_a_portal_session
+    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions/logout-a-portal-session?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -130,7 +130,7 @@ final class PortalSessionActions implements PortalSessionActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions?lang=php#retrieve_a_portal_session
+    *   @see https://apidocs.chargebee.com/docs/api/portal_sessions/retrieve-a-portal-session?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

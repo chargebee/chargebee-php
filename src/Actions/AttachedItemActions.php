@@ -29,7 +29,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#retrieve_an_attached_item_
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/retrieve-an-attached-item-?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     } $params Description of the parameters
@@ -62,7 +62,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#update_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/update-an-attached-item?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     type?: string,
@@ -102,7 +102,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#list_attached_items
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/list-attached-items?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -174,7 +174,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#create_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/create-an-attached-item?lang=php-v4
     *   @param array{
     *     item_id?: string,
     *     type?: string,
@@ -215,7 +215,7 @@ final class AttachedItemActions implements AttachedItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#delete_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/delete-an-attached-item?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     } $params Description of the parameters

@@ -31,7 +31,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#retrieve_an_item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/retrieve-an-item-price?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -61,7 +61,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#update_an_item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/update-an-item-price?lang=php-v4
     *   @param array{
     *     tax_detail?: array{
     *     tax_profile_id?: string,
@@ -153,7 +153,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#delete_an_item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/delete-an-item-price?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -184,7 +184,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_item_prices_for_a_plan-item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/list-applicable-item-prices-for-a-plan-item-price?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -223,7 +223,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_applicable_items_for_a_plan-item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/list-applicable-items-for-a-plan-item-price?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -261,7 +261,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#list_item_prices
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/list-item-prices?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -408,7 +408,7 @@ final class ItemPriceActions implements ItemPriceActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_prices?lang=php#create_an_item_price
+    *   @see https://apidocs.chargebee.com/docs/api/item_prices/create-an-item-price?lang=php-v4
     *   @param array{
     *     tax_detail?: array{
     *     tax_profile_id?: string,

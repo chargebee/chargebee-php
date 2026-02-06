@@ -12,7 +12,7 @@ Interface SiteMigrationDetailActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/site_migration_details?lang=php#list_site_migration_details
+    *   @see https://apidocs.chargebee.com/docs/api/site_migration_details/list-site-migration-details?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

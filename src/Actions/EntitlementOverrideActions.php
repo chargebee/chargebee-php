@@ -26,7 +26,7 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides?lang=php#list_entitlement_overrides_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides/list-entitlement-overrides-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -63,13 +63,16 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides?lang=php#upsert_or_remove_entitlement_overrides_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription?lang=php-v4
     *   @param array{
     *     entitlement_overrides?: array<array{
     *     feature_id?: string,
+    *     entity_id?: string,
+    *     entity_type?: string,
     *     value?: string,
     *     expires_at?: int,
     *     effective_from?: int,
+    *     is_enabled?: bool,
     *     }>,
     *     action?: string,
     *     } $params Description of the parameters

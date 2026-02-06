@@ -23,7 +23,7 @@ Interface TransactionActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#list_transactions
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/list-transactions?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -148,7 +148,7 @@ Interface TransactionActionsInterface
     public function all(array $params = [], array $headers = []): ListTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#reconcile_transaction
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/reconcile-transaction?lang=php-v4
     *   @param array{
     *     id_at_gateway?: string,
     *     customer_id?: string,
@@ -166,7 +166,7 @@ Interface TransactionActionsInterface
     public function reconcile(string $id, array $params = [], array $headers = []): ReconcileTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#retrieve_a_transaction
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/retrieve-a-transaction?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -180,7 +180,7 @@ Interface TransactionActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#refund_a_payment
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/refund-a-payment?lang=php-v4
     *   @param array{
     *     amount?: int,
     *     comment?: string,
@@ -197,7 +197,7 @@ Interface TransactionActionsInterface
     public function refund(string $id, array $params = [], array $headers = []): RefundTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#list_transactions_for_a_customer
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -215,7 +215,7 @@ Interface TransactionActionsInterface
     public function transactionsForCustomer(string $id, array $params = [], array $headers = []): TransactionsForCustomerTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#record_an_offline_refund
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/record-an-offline-refund?lang=php-v4
     *   @param array{
     *     amount?: int,
     *     payment_method?: string,
@@ -236,7 +236,7 @@ Interface TransactionActionsInterface
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#list_transactions_for_a_subscription
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -254,7 +254,7 @@ Interface TransactionActionsInterface
     public function transactionsForSubscription(string $id, array $params = [], array $headers = []): TransactionsForSubscriptionTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#void_an_authorization_transaction
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/void-an-authorization-transaction?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -268,7 +268,7 @@ Interface TransactionActionsInterface
     public function voidTransaction(string $id, array $headers = []): VoidTransactionTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#sync_transaction_status
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/sync-transaction-status?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -282,7 +282,7 @@ Interface TransactionActionsInterface
     public function syncTransaction(string $id, array $headers = []): SyncTransactionTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#create_an_authorization_payment
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/create-an-authorization-payment?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     payment_source_id?: string,
@@ -301,7 +301,7 @@ Interface TransactionActionsInterface
     public function createAuthorization(array $params, array $headers = []): CreateAuthorizationTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#list_payments_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/list-payments-for-an-invoice?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -318,7 +318,7 @@ Interface TransactionActionsInterface
     public function paymentsForInvoice(string $id, array $params = [], array $headers = []): PaymentsForInvoiceTransactionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/transactions?lang=php#delete_an_offline_transaction
+    *   @see https://apidocs.chargebee.com/docs/api/transactions/delete-an-offline-transaction?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters

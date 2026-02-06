@@ -426,6 +426,12 @@ class Subscription  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?bool $decommissioned
+    */
+    public ?bool $decommissioned;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\AutoCollection $auto_collection
     */
     public ?\Chargebee\Enums\AutoCollection $auto_collection;
@@ -475,7 +481,7 @@ class Subscription  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "currency_code" , "plan_id" , "plan_quantity" , "plan_unit_price" , "setup_fee" , "billing_period" , "start_date" , "trial_end" , "remaining_billing_cycles" , "po_number" , "plan_quantity_in_decimal" , "plan_unit_price_in_decimal" , "customer_id" , "plan_amount" , "plan_free_quantity" , "trial_start" , "current_term_start" , "current_term_end" , "next_billing_at" , "created_at" , "started_at" , "activated_at" , "gift_id" , "contract_term_billing_cycle_on_renewal" , "override_relationship" , "pause_date" , "resume_date" , "cancelled_at" , "affiliate_token" , "created_from_ip" , "resource_version" , "updated_at" , "has_scheduled_advance_invoices" , "has_scheduled_changes" , "payment_source_id" , "plan_free_quantity_in_decimal" , "plan_amount_in_decimal" , "cancel_schedule_created_at" , "net_term_days" , "active_id" , "subscription_items" , "item_tiers" , "charged_items" , "due_invoices_count" , "due_since" , "total_dues" , "mrr" , "arr" , "exchange_rate" , "base_currency_code" , "addons" , "event_based_addons" , "charged_event_based_addons" , "coupon" , "coupons" , "shipping_address" , "referral_info" , "billing_override" , "invoice_notes" , "meta_data" , "deleted" , "changes_scheduled_at" , "contract_term" , "cancel_reason_code" , "free_period" , "create_pending_invoices" , "auto_close_invoices" , "discounts" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "currency_code" , "plan_id" , "plan_quantity" , "plan_unit_price" , "setup_fee" , "billing_period" , "start_date" , "trial_end" , "remaining_billing_cycles" , "po_number" , "plan_quantity_in_decimal" , "plan_unit_price_in_decimal" , "customer_id" , "plan_amount" , "plan_free_quantity" , "trial_start" , "current_term_start" , "current_term_end" , "next_billing_at" , "created_at" , "started_at" , "activated_at" , "gift_id" , "contract_term_billing_cycle_on_renewal" , "override_relationship" , "pause_date" , "resume_date" , "cancelled_at" , "affiliate_token" , "created_from_ip" , "resource_version" , "updated_at" , "has_scheduled_advance_invoices" , "has_scheduled_changes" , "payment_source_id" , "plan_free_quantity_in_decimal" , "plan_amount_in_decimal" , "cancel_schedule_created_at" , "net_term_days" , "active_id" , "subscription_items" , "item_tiers" , "charged_items" , "due_invoices_count" , "due_since" , "total_dues" , "mrr" , "arr" , "exchange_rate" , "base_currency_code" , "addons" , "event_based_addons" , "charged_event_based_addons" , "coupon" , "coupons" , "shipping_address" , "referral_info" , "billing_override" , "invoice_notes" , "meta_data" , "deleted" , "changes_scheduled_at" , "contract_term" , "cancel_reason_code" , "free_period" , "create_pending_invoices" , "auto_close_invoices" , "discounts" , "business_entity_id" , "decommissioned"  ];
 
     /**
     * dynamic properties for resources
@@ -554,6 +560,7 @@ class Subscription  extends SupportsCustomFields  {
         ?bool $auto_close_invoices,
         ?array $discounts,
         ?string $business_entity_id,
+        ?bool $decommissioned,
         ?\Chargebee\Enums\AutoCollection $auto_collection,
         ?\Chargebee\Enums\TrialEndAction $trial_end_action,
         ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method,
@@ -633,7 +640,8 @@ class Subscription  extends SupportsCustomFields  {
         $this->create_pending_invoices = $create_pending_invoices;
         $this->auto_close_invoices = $auto_close_invoices;
         $this->discounts = $discounts;
-        $this->business_entity_id = $business_entity_id; 
+        $this->business_entity_id = $business_entity_id;
+        $this->decommissioned = $decommissioned; 
         $this->auto_collection = $auto_collection;
         $this->trial_end_action = $trial_end_action;
         $this->offline_payment_method = $offline_payment_method;
@@ -748,6 +756,7 @@ class Subscription  extends SupportsCustomFields  {
         $resourceAttributes['auto_close_invoices'] ?? null,
         $discounts,
         $resourceAttributes['business_entity_id'] ?? null,
+        $resourceAttributes['decommissioned'] ?? null,
         
         
         isset($resourceAttributes['auto_collection']) ? \Chargebee\Enums\AutoCollection::tryFromValue($resourceAttributes['auto_collection']) : null,
@@ -848,6 +857,7 @@ class Subscription  extends SupportsCustomFields  {
         'auto_close_invoices' => $this->auto_close_invoices,
         
         'business_entity_id' => $this->business_entity_id,
+        'decommissioned' => $this->decommissioned,
         
         'auto_collection' => $this->auto_collection?->value,
         

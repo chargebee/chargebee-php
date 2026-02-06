@@ -30,7 +30,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#add_schedule
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/add-schedule?lang=php-v4
     *   @param array{
     *     manual_exchange_rate?: string,
     *     schedule_at?: int,
@@ -65,7 +65,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#add_a_new_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/add-a-new-currency?lang=php-v4
     *   @param array{
     *     currency_code?: string,
     *     forex_type?: string,
@@ -101,7 +101,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#retrieve_a_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/retrieve-a-currency?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -131,7 +131,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#update_a_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/update-a-currency?lang=php-v4
     *   @param array{
     *     forex_type?: string,
     *     manual_exchange_rate?: string,
@@ -166,7 +166,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#remove_schedule
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/remove-schedule?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -197,7 +197,7 @@ final class CurrencyActions implements CurrencyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#list_currencies
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/list-currencies?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

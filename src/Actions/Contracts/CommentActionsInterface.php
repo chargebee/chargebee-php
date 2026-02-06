@@ -15,7 +15,7 @@ Interface CommentActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/comments?lang=php#delete_a_comment
+    *   @see https://apidocs.chargebee.com/docs/api/comments/delete-a-comment?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -29,7 +29,7 @@ Interface CommentActionsInterface
     public function delete(string $id, array $headers = []): DeleteCommentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/comments?lang=php#retrieve_a_comment
+    *   @see https://apidocs.chargebee.com/docs/api/comments/retrieve-a-comment?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -43,7 +43,7 @@ Interface CommentActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveCommentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/comments?lang=php#list_comments
+    *   @see https://apidocs.chargebee.com/docs/api/comments/list-comments?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -72,7 +72,7 @@ Interface CommentActionsInterface
     public function all(array $params = [], array $headers = []): ListCommentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/comments?lang=php#create_a_comment
+    *   @see https://apidocs.chargebee.com/docs/api/comments/create-a-comment?lang=php-v4
     *   @param array{
     *     entity_type?: string,
     *     entity_id?: string,

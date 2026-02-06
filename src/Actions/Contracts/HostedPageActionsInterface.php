@@ -33,7 +33,7 @@ Interface HostedPageActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_charge-items_and_one-time_charges
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-charge-items-and-one-time-charges?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -162,7 +162,7 @@ Interface HostedPageActionsInterface
     public function checkoutOneTimeForItems(array $params, array $headers = []): CheckoutOneTimeForItemsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#update_payment_method
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/update-payment-method?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -191,7 +191,7 @@ Interface HostedPageActionsInterface
     public function updatePaymentMethod(array $params, array $headers = []): UpdatePaymentMethodHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#update_card
+    *   
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -221,7 +221,7 @@ Interface HostedPageActionsInterface
     public function updateCard(array $params, array $headers = []): UpdateCardHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#extend_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/extend-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -241,7 +241,7 @@ Interface HostedPageActionsInterface
     public function extendSubscription(array $params, array $headers = []): ExtendSubscriptionHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#notify_an_event
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/notify-an-event?lang=php-v4
     *   @param array{
     *     event_name?: string,
     *     occurred_at?: int,
@@ -259,7 +259,7 @@ Interface HostedPageActionsInterface
     public function events(array $params, array $headers = []): EventsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_gift_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-gift-subscription-for-items?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -296,7 +296,7 @@ Interface HostedPageActionsInterface
     public function checkoutGiftForItems(array $params = [], array $headers = []): CheckoutGiftForItemsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#list_hosted_pages
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/list-hosted-pages?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -338,7 +338,7 @@ Interface HostedPageActionsInterface
     public function all(array $params = [], array $headers = []): ListHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_a_hosted_page_to_view_boleto_vouchers
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/create-a-hosted-page-to-view-boleto-vouchers?lang=php-v4
     *   @param array{
     *     payment_voucher?: array{
     *     id?: string,
@@ -359,7 +359,7 @@ Interface HostedPageActionsInterface
     public function viewVoucher(array $params, array $headers = []): ViewVoucherHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#collect_now
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/collect-now?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -370,6 +370,7 @@ Interface HostedPageActionsInterface
     *     },
     * redirect_url?: string,
     *     currency_code?: string,
+    *     payment_method_save_policy?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -383,7 +384,7 @@ Interface HostedPageActionsInterface
     public function collectNow(array $params, array $headers = []): CollectNowHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#accept_a_quote
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/accept-a-quote?lang=php-v4
     *   @param array{
     *     quote?: array{
     *     id?: string,
@@ -403,7 +404,7 @@ Interface HostedPageActionsInterface
     public function acceptQuote(array $params, array $headers = []): AcceptQuoteHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_checkout_for_a_new_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/create-checkout-for-a-new-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -540,7 +541,7 @@ Interface HostedPageActionsInterface
     public function checkoutNewForItems(array $params, array $headers = []): CheckoutNewForItemsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#claim_a_gift_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/claim-a-gift-subscription?lang=php-v4
     *   @param array{
     *     gift?: array{
     *     id?: string,
@@ -562,7 +563,7 @@ Interface HostedPageActionsInterface
     public function claimGift(array $params, array $headers = []): ClaimGiftHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_checkout_to_update_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/create-checkout-to-update-a-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -667,7 +668,7 @@ Interface HostedPageActionsInterface
     public function checkoutExistingForItems(array $params, array $headers = []): CheckoutExistingForItemsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#create_a_pre-cancel_hosted_page
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/create-a-pre-cancel-hosted-page?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -688,7 +689,7 @@ Interface HostedPageActionsInterface
     public function preCancel(array $params, array $headers = []): PreCancelHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#acknowledge_a_hosted_page
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/acknowledge-a-hosted-page?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -702,7 +703,7 @@ Interface HostedPageActionsInterface
     public function acknowledge(string $id, array $headers = []): AcknowledgeHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#retrieve_direct_debit_agreement_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/retrieve-direct-debit-agreement-pdf?lang=php-v4
     *   @param array{
     *     payment_source_id?: string,
     *     } $params Description of the parameters
@@ -718,7 +719,7 @@ Interface HostedPageActionsInterface
     public function retrieveAgreementPdf(array $params, array $headers = []): RetrieveAgreementPdfHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#retrieve_a_hosted_page
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/retrieve-a-hosted-page?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -732,7 +733,7 @@ Interface HostedPageActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#manage_payment_sources
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/manage-payment-sources?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -755,7 +756,7 @@ Interface HostedPageActionsInterface
     public function managePaymentSources(array $params, array $headers = []): ManagePaymentSourcesHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_one-time_payments
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-one-time-payments?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -855,7 +856,7 @@ Interface HostedPageActionsInterface
     public function checkoutOneTime(array $params = [], array $headers = []): CheckoutOneTimeHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_new_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-new-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -970,7 +971,7 @@ Interface HostedPageActionsInterface
     public function checkoutNew(array $params, array $headers = []): CheckoutNewHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_gift_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-gift-subscription?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -1001,7 +1002,7 @@ Interface HostedPageActionsInterface
     public function checkoutGift(array $params, array $headers = []): CheckoutGiftHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages?lang=php#checkout_existing_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-existing-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,

@@ -59,6 +59,7 @@ enum Gateway : string {
     case DEUTSCHE_BANK = "deutsche_bank";
     case EZIDEBIT = "ezidebit";
     case TWIKEY = "twikey";
+    case TEMPUS = "tempus";
     case GOCARDLESS = "gocardless";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";

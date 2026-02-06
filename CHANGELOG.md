@@ -1,3 +1,46 @@
+### v4.16.0 (2026-02-06)
+* * *
+### New Attributes:
+- [`subscription_id`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/entitlement-override-object#subscription_id) has been added to [`EntitlementOverride`](https://apidocs.chargebee.com/docs/api/entitlement_overrides).
+- [`is_enabled`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/entitlement-override-object#is_enabled) has been added to [`EntitlementOverride`](https://apidocs.chargebee.com/docs/api/entitlement_overrides).
+- [`decommissioned`](https://apidocs.chargebee.com/docs/api/subscriptions/subscription-object#decommissioned) has been added to [`Subscription`](https://apidocs.chargebee.com/docs/api/subscriptions).
+
+
+### New Parameters:
+- [`omnichannel_subscription_item`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#omnichannel_subscription_item) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`entitlement_overrides.entity_id`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription#entitlement_overrides_entity_id) has been added as request body parameter to [`upsert_or_remove_entitlement_overrides_for_a_subscription`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription) in [`EntitlementOverride`](https://apidocs.chargebee.com/docs/api/entitlement_overrides).
+- [`entitlement_overrides.entity_type`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription#entitlement_overrides_entity_type) has been added as request body parameter to [`upsert_or_remove_entitlement_overrides_for_a_subscription`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription) in [`EntitlementOverride`](https://apidocs.chargebee.com/docs/api/entitlement_overrides).
+- [`entitlement_overrides.is_enabled`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription#entitlement_overrides_is_enabled) has been added as request body parameter to [`upsert_or_remove_entitlement_overrides_for_a_subscription`](https://apidocs.chargebee.com/docs/api/entitlement_overrides/upsert-or-remove-entitlement-overrides-for-a-subscription) in [`EntitlementOverride`](https://apidocs.chargebee.com/docs/api/entitlement_overrides).
+- [`payment_method_save_policy`](https://apidocs.chargebee.com/docs/api/hosted_pages/collect-now#payment_method_save_policy) has been added as request body parameter to [`collect_now`](https://apidocs.chargebee.com/docs/api/hosted_pages/collect-now) in [`HostedPage`](https://apidocs.chargebee.com/docs/api/hosted_pages).
+- [`decommissioned`](https://apidocs.chargebee.com/docs/api/subscriptions/cancel-subscription-for-items#decommissioned) has been added as request body parameter to [`cancel_subscription_for_items`](https://apidocs.chargebee.com/docs/api/subscriptions/cancel-subscription-for-items) in [`Subscription`](https://apidocs.chargebee.com/docs/api/subscriptions).
+
+
+### Parameter Updates:
+- [`pricing_page`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription#pricing_page) has been changed from required to optional in [`create_pricing_page_for_existing_subscription`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription) of [`PricingPageSession`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions).
+
+
+### New Events:
+- [`payment_due_reminder`](https://apidocs.chargebee.com/docs/api/events/webhook/payment_due_reminder) has been added.
+
+
+### New Enums:
+- `charge` has been added as a new value enum `EntityType`.
+- `payment_due_reminder` has been added as a new value enum `EventType`.
+- `tempus` has been added as a new value enum `Gateway`.
+- `kakao_pay`, `naver_pay`, `revolut_pay`, and `cash_app_pay` have been added as new values enum `PaymentMethod`.
+- `always`, `ask`, and `never` have been added as new values enum `PaymentMethodSavePolicy`.
+- `kakao_pay`, `naver_pay`, `revolut_pay`, and `cash_app_pay` have been added as new values enum `PaymentMethodType`.
+- `kakao_pay`, `naver_pay`, `revolut_pay`, and `cash_app_pay` have been added as new values enum `Type`.
+- `accepted`, `rejected`, `message_acknowledgement`, `in_process`, `under_query`, `conditionally_accepted`, and `paid` have been added as new values to enum attribute [`einvoice.status`](https://apidocs.chargebee.com/docs/api/credit_notes/credit-note-object#einvoice_status) in [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- `accepted`, `rejected`, `message_acknowledgement`, `in_process`, `under_query`, `conditionally_accepted`, and `paid` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/einvoices/einvoice-object#status) in [`Einvoice`](https://apidocs.chargebee.com/docs/api/einvoices).
+- `accepted`, `rejected`, `message_acknowledgement`, `in_process`, `under_query`, `conditionally_accepted`, and `paid` have been added as new values to enum attribute [`einvoice.status`](https://apidocs.chargebee.com/docs/api/invoices/invoice-object#einvoice_status) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- `kakao_pay`, `naver_pay`, `revolut_pay`, `cash_app_pay`, `wechat_pay`, and `alipay` have been added as new values to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `kakao_pay`, `naver_pay`, `revolut_pay`, `cash_app_pay`, `wechat_pay`, and `alipay` have been added as new values to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `kakao_pay`, `naver_pay`, `revolut_pay`, `cash_app_pay`, `wechat_pay`, and `alipay` have been added as new values to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `kakao_pay`, `naver_pay`, `revolut_pay`, `cash_app_pay`, `wechat_pay`, and `alipay` have been added as new values to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+
+
+
 ### v4.15.1 (2026-01-19)
 * * * 
 

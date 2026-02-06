@@ -31,7 +31,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#create_a_gift_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/create-a-gift-subscription-for-items?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -125,7 +125,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#cancel_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/cancel-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -156,7 +156,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#update_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/update-a-gift?lang=php-v4
     *   @param array{
     *     scheduled_at?: int,
     *     comment?: string,
@@ -191,7 +191,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#list_gifts
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/list-gifts?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -250,7 +250,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#create_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/create-a-gift?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -336,7 +336,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#retrieve_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/retrieve-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -366,7 +366,7 @@ final class GiftActions implements GiftActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#claim_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/claim-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

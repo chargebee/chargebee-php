@@ -51,7 +51,7 @@ Interface InvoiceActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#delete_line_items
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/delete-line-items?lang=php-v4
     *   @param array{
     *     line_items?: array<array{
     *     id?: string,
@@ -69,7 +69,7 @@ Interface InvoiceActionsInterface
     public function deleteLineItems(string $id, array $params = [], array $headers = []): DeleteLineItemsInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#remove_credit_note_from_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/remove-credit-note-from-an-invoice?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     id?: string,
@@ -87,7 +87,7 @@ Interface InvoiceActionsInterface
     public function removeCreditNote(string $id, array $params, array $headers = []): RemoveCreditNoteInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#remove_payment_from_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/remove-payment-from-an-invoice?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     id?: string,
@@ -105,7 +105,7 @@ Interface InvoiceActionsInterface
     public function removePayment(string $id, array $params, array $headers = []): RemovePaymentInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#stop_dunning_for_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/stop-dunning-for-invoice?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -121,7 +121,7 @@ Interface InvoiceActionsInterface
     public function stopDunning(string $id, array $params = [], array $headers = []): StopDunningInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#apply_payments_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/apply-payments-for-an-invoice?lang=php-v4
     *   @param array{
     *     transactions?: array<array{
     *     id?: string,
@@ -141,7 +141,7 @@ Interface InvoiceActionsInterface
     public function applyPayments(string $id, array $params = [], array $headers = []): ApplyPaymentsInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#apply_payment_schedule_scheme_to_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/apply-payment-schedule-scheme-to-an-invoice?lang=php-v4
     *   @param array{
     *     scheme_id?: string,
     *     amount?: int,
@@ -158,7 +158,7 @@ Interface InvoiceActionsInterface
     public function applyPaymentScheduleScheme(string $id, array $params, array $headers = []): ApplyPaymentScheduleSchemeInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#void_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/void-an-invoice?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     void_reason_code?: string,
@@ -175,7 +175,7 @@ Interface InvoiceActionsInterface
     public function voidInvoice(string $id, array $params = [], array $headers = []): VoidInvoiceInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#add_one-time_charge_to_a_pending_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/add-one-time-charge-to-a-pending-invoice?lang=php-v4
     *   @param array{
     *     line_item?: array{
     *     date_from?: int,
@@ -204,7 +204,7 @@ Interface InvoiceActionsInterface
     public function addCharge(string $id, array $params, array $headers = []): AddChargeInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#send_an_einvoice_for_invoices
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/send-an-einvoice-for-invoices?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -218,7 +218,7 @@ Interface InvoiceActionsInterface
     public function sendEinvoice(string $id, array $headers = []): SendEinvoiceInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#retrieve_payment_schedules_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/retrieve-payment-schedules-for-an-invoice?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -232,7 +232,7 @@ Interface InvoiceActionsInterface
     public function paymentSchedules(string $id, array $headers = []): PaymentSchedulesInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#write_off_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/write-off-an-invoice?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -248,7 +248,7 @@ Interface InvoiceActionsInterface
     public function writeOff(string $id, array $params = [], array $headers = []): WriteOffInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#add_a_charge-item_to_a_pending_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/add-a-charge-item-to-a-pending-invoice?lang=php-v4
     *   @param array{
     *     item_price?: array{
     *     item_price_id?: string,
@@ -284,7 +284,7 @@ Interface InvoiceActionsInterface
     public function addChargeItem(string $id, array $params, array $headers = []): AddChargeItemInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#pause_dunning_for_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/pause-dunning-for-invoice?lang=php-v4
     *   @param array{
     *     expected_payment_date?: int,
     *     comment?: string,
@@ -301,7 +301,7 @@ Interface InvoiceActionsInterface
     public function pauseDunning(string $id, array $params, array $headers = []): PauseDunningInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#list_invoices
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/list-invoices?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -465,7 +465,7 @@ Interface InvoiceActionsInterface
     public function all(array $params = [], array $headers = []): ListInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#create_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/create-an-invoice?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -606,7 +606,7 @@ Interface InvoiceActionsInterface
     public function create(array $params = [], array $headers = []): CreateInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#close_a_pending_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/close-a-pending-invoice?lang=php-v4
     *   @param array{
     *     notes_to_remove?: array<array{
     *     entity_type?: string,
@@ -629,7 +629,7 @@ Interface InvoiceActionsInterface
     public function close(string $id, array $params = [], array $headers = []): CloseInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#apply_credits_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/apply-credits-for-an-invoice?lang=php-v4
     *   @param array{
     *     credit_notes?: array<array{
     *     id?: string,
@@ -648,7 +648,7 @@ Interface InvoiceActionsInterface
     public function applyCredits(string $id, array $params = [], array $headers = []): ApplyCreditsInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#retrieve_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/retrieve-an-invoice?lang=php-v4
     *   @param array{
     *     line_item?: array{
     *     subscription_id?: array{
@@ -673,7 +673,7 @@ Interface InvoiceActionsInterface
     public function retrieve(string $id, array $params = [], array $headers = []): RetrieveInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#create_invoice_for_a_charge-item
+    *   
     *   @param array{
     *     item_price?: array{
     *     item_price_id?: string,
@@ -715,7 +715,7 @@ Interface InvoiceActionsInterface
     public function createForChargeItem(array $params, array $headers = []): CreateForChargeItemInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#create_invoice_for_items_and_one-time_charges
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -874,7 +874,7 @@ Interface InvoiceActionsInterface
     public function createForChargeItemsAndCharges(array $params, array $headers = []): CreateForChargeItemsAndChargesInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#update_invoice_details
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/update-invoice-details?lang=php-v4
     *   @param array{
     *     billing_address?: array{
     *     first_name?: string,
@@ -928,7 +928,7 @@ Interface InvoiceActionsInterface
     public function updateDetails(string $id, array $params = [], array $headers = []): UpdateDetailsInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#list_invoices_for_a_customer
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -946,7 +946,7 @@ Interface InvoiceActionsInterface
     public function invoicesForCustomer(string $id, array $params = [], array $headers = []): InvoicesForCustomerInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#record_an_invoice_payment
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/record-an-invoice-payment?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     amount?: int,
@@ -973,7 +973,7 @@ Interface InvoiceActionsInterface
     public function recordPayment(string $id, array $params, array $headers = []): RecordPaymentInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#delete_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/delete-an-invoice?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -989,7 +989,7 @@ Interface InvoiceActionsInterface
     public function delete(string $id, array $params = [], array $headers = []): DeleteInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#import_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/import-invoice?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     id?: string,
@@ -1162,7 +1162,7 @@ Interface InvoiceActionsInterface
     public function importInvoice(array $params, array $headers = []): ImportInvoiceInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#resume_dunning_for_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/resume-dunning-for-invoice?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -1178,7 +1178,7 @@ Interface InvoiceActionsInterface
     public function resumeDunning(string $id, array $params = [], array $headers = []): ResumeDunningInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#record_tax_withheld_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/record-tax-withheld-for-an-invoice?lang=php-v4
     *   @param array{
     *     tax_withheld?: array{
     *     amount?: int,
@@ -1199,7 +1199,7 @@ Interface InvoiceActionsInterface
     public function recordTaxWithheld(string $id, array $params, array $headers = []): RecordTaxWithheldInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#resend_failed_einvoice_in_invoices
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/resend-failed-einvoice-in-invoices?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1213,7 +1213,7 @@ Interface InvoiceActionsInterface
     public function resendEinvoice(string $id, array $headers = []): ResendEinvoiceInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#remove_tax_withheld_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/remove-tax-withheld-for-an-invoice?lang=php-v4
     *   @param array{
     *     tax_withheld?: array{
     *     id?: string,
@@ -1231,7 +1231,7 @@ Interface InvoiceActionsInterface
     public function removeTaxWithheld(string $id, array $params, array $headers = []): RemoveTaxWithheldInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#list_payment_reference_numbers
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/list-payment-reference-numbers?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -1258,7 +1258,7 @@ Interface InvoiceActionsInterface
     public function listPaymentReferenceNumbers(array $params = [], array $headers = []): ListPaymentReferenceNumbersInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#collect_payment_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/collect-payment-for-an-invoice?lang=php-v4
     *   @param array{
     *     amount?: int,
     *     authorization_transaction_id?: string,
@@ -1278,7 +1278,7 @@ Interface InvoiceActionsInterface
     public function collectPayment(string $id, array $params = [], array $headers = []): CollectPaymentInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#sync_usages
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/sync-usages?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1292,7 +1292,7 @@ Interface InvoiceActionsInterface
     public function syncUsages(string $id, array $headers = []): SyncUsagesInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#refund_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/refund-an-invoice?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     reason_code?: string,
@@ -1314,7 +1314,7 @@ Interface InvoiceActionsInterface
     public function refund(string $id, array $params = [], array $headers = []): RefundInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#record_refund_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/record-refund-for-an-invoice?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     amount?: int,
@@ -1342,7 +1342,7 @@ Interface InvoiceActionsInterface
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#retrieve_invoice_as_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/retrieve-invoice-as-pdf?lang=php-v4
     *   @param array{
     *     disposition_type?: string,
     *     } $params Description of the parameters
@@ -1358,7 +1358,7 @@ Interface InvoiceActionsInterface
     public function pdf(string $id, array $params = [], array $headers = []): PdfInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#list_invoices_for_a_subscription
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -1376,7 +1376,7 @@ Interface InvoiceActionsInterface
     public function invoicesForSubscription(string $id, array $params = [], array $headers = []): InvoicesForSubscriptionInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#download_e-invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/download-e-invoice?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -1390,7 +1390,7 @@ Interface InvoiceActionsInterface
     public function downloadEinvoice(string $id, array $headers = []): DownloadEinvoiceInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#create_invoice_for_a_non-recurring_addon
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-a-non-recurring-addon?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     subscription_id?: string,
@@ -1420,7 +1420,7 @@ Interface InvoiceActionsInterface
     public function chargeAddon(array $params, array $headers = []): ChargeAddonInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#add_non-recurring_addon_to_a_pending_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/add-non-recurring-addon-to-a-pending-invoice?lang=php-v4
     *   @param array{
     *     line_item?: array{
     *     date_from?: int,
@@ -1446,7 +1446,7 @@ Interface InvoiceActionsInterface
     public function addAddonCharge(string $id, array $params, array $headers = []): AddAddonChargeInvoiceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/invoices?lang=php#create_invoice_for_a_one-time_charge
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-a-one-time-charge?lang=php-v4
     *   @param array{
     *     tax_providers_fields?: array<array{
     *     provider_name?: string,

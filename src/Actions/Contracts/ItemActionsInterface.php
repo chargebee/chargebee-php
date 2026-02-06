@@ -16,7 +16,7 @@ Interface ItemActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#list_items
+    *   @see https://apidocs.chargebee.com/docs/api/items/list-items?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -119,7 +119,7 @@ Interface ItemActionsInterface
     public function all(array $params = [], array $headers = []): ListItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#create_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/create-an-item?lang=php-v4
     *   @param array{
     *     bundle_configuration?: array{
     *     type?: string,
@@ -164,7 +164,7 @@ Interface ItemActionsInterface
     public function create(array $params, array $headers = []): CreateItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#delete_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/delete-an-item?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -178,7 +178,7 @@ Interface ItemActionsInterface
     public function delete(string $id, array $headers = []): DeleteItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#retrieve_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/retrieve-an-item?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -192,7 +192,7 @@ Interface ItemActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#update_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/update-an-item?lang=php-v4
     *   @param array{
     *     bundle_configuration?: array{
     *     type?: string,

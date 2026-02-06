@@ -12,7 +12,7 @@ Interface PersonalizedOfferActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/personalized_offers?lang=php#list_personalized_offers
+    *   @see https://apidocs.chargebee.com/docs/api/personalized_offers/list-personalized-offers?lang=php-v4
     *   @param array{
     *     request_context?: array{
     *     user_agent?: string,

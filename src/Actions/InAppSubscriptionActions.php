@@ -27,7 +27,7 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions?lang=php#retrieve_store_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions/retrieve-store-subscription?lang=php-v4
     *   @param array{
     *     receipt?: string,
     *     } $params Description of the parameters
@@ -61,7 +61,7 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions?lang=php#import_receipt
+    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions/import-receipt?lang=php-v4
     *   @param array{
     *     product?: array{
     *     currency_code?: string,
@@ -102,7 +102,7 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions?lang=php#import_subscription_without_receipt
+    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions/import-subscription-without-receipt?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -149,7 +149,7 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions?lang=php#process_purchase_command
+    *   @see https://apidocs.chargebee.com/docs/api/in_app_subscriptions/process-purchase-command?lang=php-v4
     *   @param array{
     *     product?: array{
     *     id?: string,

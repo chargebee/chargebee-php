@@ -67,6 +67,7 @@ enum EventType : string {
     case PAYMENT_SCHEDULE_SCHEME_DELETED = "payment_schedule_scheme_deleted";
     case SUBSCRIPTION_RENEWAL_REMINDER = "subscription_renewal_reminder";
     case ADD_USAGES_REMINDER = "add_usages_reminder";
+    case PAYMENT_DUE_REMINDER = "payment_due_reminder";
     case TRANSACTION_CREATED = "transaction_created";
     case TRANSACTION_UPDATED = "transaction_updated";
     case TRANSACTION_DELETED = "transaction_deleted";

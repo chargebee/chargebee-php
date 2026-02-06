@@ -41,7 +41,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_customers
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-customers?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: array{
@@ -175,7 +175,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_attached_items
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-attached-items?lang=php-v4
     *   @param array{
     *     attached_item?: array{
     *     id?: array{
@@ -255,7 +255,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_transactions
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-transactions?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     id?: array{
@@ -393,7 +393,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_differential_price
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-differential-price?lang=php-v4
     *   @param array{
     *     differential_price?: array{
     *     item_price_id?: array{
@@ -456,7 +456,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_item_families
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-item-families?lang=php-v4
     *   @param array{
     *     item_family?: array{
     *     id?: array{
@@ -516,7 +516,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_invoices
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-invoices?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     id?: array{
@@ -671,7 +671,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#retrieve_an_export
+    *   @see https://apidocs.chargebee.com/docs/api/exports/retrieve-an-export?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -701,7 +701,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_price_variants
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-price-variants?lang=php-v4
     *   @param array{
     *     price_variant?: array{
     *     id?: array{
@@ -775,7 +775,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_items
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-items?lang=php-v4
     *   @param array{
     *     item?: array{
     *     id?: array{
@@ -884,7 +884,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_deferred_revenue_reports
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-deferred-revenue-reports?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     id?: array{
@@ -1247,7 +1247,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_revenue_recognition_reports
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-revenue-recognition-reports?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     id?: array{
@@ -1610,7 +1610,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-credit-notes?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     id?: array{
@@ -1766,7 +1766,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_coupons
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-coupons?lang=php-v4
     *   @param array{
     *     coupon?: array{
     *     id?: array{
@@ -1862,7 +1862,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_orders
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-orders?lang=php-v4
     *   @param array{
     *     order?: array{
     *     id?: array{
@@ -2017,7 +2017,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_item_prices
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-item-prices?lang=php-v4
     *   @param array{
     *     item_price?: array{
     *     id?: array{
@@ -2161,7 +2161,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_subscriptions
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-subscriptions?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: array{
@@ -2311,7 +2311,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_addons
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-addons?lang=php-v4
     *   @param array{
     *     addon?: array{
     *     id?: array{
@@ -2415,7 +2415,7 @@ final class ExportActions implements ExportActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/exports?lang=php#export_plans
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-plans?lang=php-v4
     *   @param array{
     *     plan?: array{
     *     id?: array{

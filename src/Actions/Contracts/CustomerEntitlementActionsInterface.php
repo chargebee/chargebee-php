@@ -12,7 +12,7 @@ Interface CustomerEntitlementActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customer_entitlements?lang=php#list_customer_entitlements
+    *   @see https://apidocs.chargebee.com/docs/api/customer_entitlements/list-customer-entitlements?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

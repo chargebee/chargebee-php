@@ -29,7 +29,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits?lang=php#retrieve_a_promotional_credit
+    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits/retrieve-a-promotional-credit?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -59,7 +59,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits?lang=php#list_promotional_credits
+    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits/list-promotional-credits?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -115,7 +115,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits?lang=php#deduct_promotional_credits
+    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits/deduct-promotional-credits?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     amount?: int,
@@ -155,7 +155,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits?lang=php#set_promotional_credits
+    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits/set-promotional-credits?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     amount?: int,
@@ -195,7 +195,7 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits?lang=php#add_promotional_credits
+    *   @see https://apidocs.chargebee.com/docs/api/promotional_credits/add-promotional-credits?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     amount?: int,

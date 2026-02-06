@@ -31,7 +31,7 @@ Interface QuoteActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_a_quote_for_a_new_subscription_items
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -148,7 +148,7 @@ Interface QuoteActionsInterface
     public function createSubItemsForCustomerQuote(string $id, array $params, array $headers = []): CreateSubItemsForCustomerQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#retrieve_a_quote
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-a-quote?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -162,7 +162,7 @@ Interface QuoteActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_create_subscription_quote_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -278,7 +278,7 @@ Interface QuoteActionsInterface
     public function editCreateSubCustomerQuoteForItems(string $id, array $params, array $headers = []): EditCreateSubCustomerQuoteForItemsQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#update_quote_status
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/update-quote-status?lang=php-v4
     *   @param array{
     *     status?: string,
     *     comment?: string,
@@ -295,7 +295,7 @@ Interface QuoteActionsInterface
     public function updateStatus(string $id, array $params, array $headers = []): UpdateStatusQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_a_quote_for_update_subscription_items
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-update-subscription-items?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -426,7 +426,7 @@ Interface QuoteActionsInterface
     public function updateSubscriptionQuoteForItems(array $params, array $headers = []): UpdateSubscriptionQuoteForItemsQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#list_quote_line_groups
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/list-quote-line-groups?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -443,7 +443,7 @@ Interface QuoteActionsInterface
     public function quoteLineGroupsForQuote(string $id, array $params = [], array $headers = []): QuoteLineGroupsForQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#extend_expiry_date
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/extend-expiry-date?lang=php-v4
     *   @param array{
     *     valid_till?: int,
     *     } $params Description of the parameters
@@ -459,7 +459,7 @@ Interface QuoteActionsInterface
     public function extendExpiryDate(string $id, array $params, array $headers = []): ExtendExpiryDateQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_charge_items_and_charges
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-charge-items-and-charges?lang=php-v4
     *   @param array{
     *     billing_address?: array{
     *     first_name?: string,
@@ -552,7 +552,7 @@ Interface QuoteActionsInterface
     public function editForChargeItemsAndCharges(string $id, array $params, array $headers = []): EditForChargeItemsAndChargesQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_update_subscription_quote_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-update-subscription-quote-for-items?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     setup_fee?: int,
@@ -681,7 +681,7 @@ Interface QuoteActionsInterface
     public function editUpdateSubscriptionQuoteForItems(string $id, array $params, array $headers = []): EditUpdateSubscriptionQuoteForItemsQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#list_quotes
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/list-quotes?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -743,7 +743,7 @@ Interface QuoteActionsInterface
     public function all(array $params = [], array $headers = []): ListQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#retrieve_quote_as_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-quote-as-pdf?lang=php-v4
     *   @param array{
     *     consolidated_view?: bool,
     *     disposition_type?: string,
@@ -760,7 +760,7 @@ Interface QuoteActionsInterface
     public function pdf(string $id, array $params = [], array $headers = []): PdfQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#convert_a_quote
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/convert-a-quote?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -785,7 +785,7 @@ Interface QuoteActionsInterface
     public function convert(string $id, array $params = [], array $headers = []): ConvertQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_a_quote_for_charge_and_charge_items
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-charge-and-charge-items?lang=php-v4
     *   @param array{
     *     billing_address?: array{
     *     first_name?: string,
@@ -880,7 +880,7 @@ Interface QuoteActionsInterface
     public function createForChargeItemsAndCharges(array $params, array $headers = []): CreateForChargeItemsAndChargesQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#delete_a_quote
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/delete-a-quote?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -896,7 +896,7 @@ Interface QuoteActionsInterface
     public function delete(string $id, array $params = [], array $headers = []): DeleteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_one-time_charges
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-one-time-charges?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -955,7 +955,7 @@ Interface QuoteActionsInterface
     public function editOneTimeQuote(string $id, array $params = [], array $headers = []): EditOneTimeQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_quote_for_updating_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-quote-for-updating-a-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -1061,7 +1061,7 @@ Interface QuoteActionsInterface
     public function updateSubscriptionQuote(array $params, array $headers = []): UpdateSubscriptionQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_quote_for_one-time_charges
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-quote-for-one-time-charges?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -1122,7 +1122,7 @@ Interface QuoteActionsInterface
     public function createForOnetimeCharges(array $params, array $headers = []): CreateForOnetimeChargesQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#create_quote_for_a_new_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-quote-for-a-new-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,
@@ -1199,7 +1199,7 @@ Interface QuoteActionsInterface
     public function createSubForCustomerQuote(string $id, array $params, array $headers = []): CreateSubForCustomerQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_updating_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-updating-a-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     plan_id?: string,
@@ -1303,7 +1303,7 @@ Interface QuoteActionsInterface
     public function editUpdateSubscriptionQuote(string $id, array $params = [], array $headers = []): EditUpdateSubscriptionQuoteQuoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes?lang=php#edit_quote_for_a_new_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-a-new-subscription?lang=php-v4
     *   @param array{
     *     subscription?: array{
     *     id?: string,

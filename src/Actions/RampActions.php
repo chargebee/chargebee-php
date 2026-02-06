@@ -29,7 +29,7 @@ final class RampActions implements RampActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#retrieve_a_ramp
+    *   @see https://apidocs.chargebee.com/docs/api/ramps/retrieve-a-ramp?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -59,7 +59,7 @@ final class RampActions implements RampActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#create_a_ramp
+    *   @see https://apidocs.chargebee.com/docs/api/ramps/create-a-ramp?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     action_at_term_end?: string,
@@ -151,7 +151,7 @@ final class RampActions implements RampActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#list_ramps
+    *   @see https://apidocs.chargebee.com/docs/api/ramps/list-ramps?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -210,7 +210,7 @@ final class RampActions implements RampActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#update_a_subscription_ramp
+    *   @see https://apidocs.chargebee.com/docs/api/ramps/update-a-subscription-ramp?lang=php-v4
     *   @param array{
     *     contract_term?: array{
     *     action_at_term_end?: string,
@@ -302,7 +302,7 @@ final class RampActions implements RampActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/ramps?lang=php#delete_a_ramp
+    *   @see https://apidocs.chargebee.com/docs/api/ramps/delete-a-ramp?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

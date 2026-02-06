@@ -31,7 +31,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#unarchive_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/unarchive-a-plan?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -62,7 +62,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#delete_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/delete-a-plan?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -93,7 +93,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#copy_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/copy-a-plan?lang=php-v4
     *   @param array{
     *     from_site?: string,
     *     id_at_from_site?: string,
@@ -130,7 +130,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#list_plans
+    *   @see https://apidocs.chargebee.com/docs/api/plans/list-plans?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -265,7 +265,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#create_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/create-a-plan?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,
@@ -376,7 +376,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#retrieve_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/retrieve-a-plan?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -406,7 +406,7 @@ final class PlanActions implements PlanActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/plans?lang=php#update_a_plan
+    *   @see https://apidocs.chargebee.com/docs/api/plans/update-a-plan?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,

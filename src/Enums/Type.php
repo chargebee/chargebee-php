@@ -33,6 +33,10 @@ enum Type : string {
     case PAY_BY_BANK = "pay_by_bank";
     case TRUSTLY = "trustly";
     case STABLECOIN = "stablecoin";
+    case KAKAO_PAY = "kakao_pay";
+    case NAVER_PAY = "naver_pay";
+    case REVOLUT_PAY = "revolut_pay";
+    case CASH_APP_PAY = "cash_app_pay";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";

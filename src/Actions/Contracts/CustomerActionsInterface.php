@@ -37,7 +37,7 @@ Interface CustomerActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#delete_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/delete-a-customer?lang=php-v4
     *   @param array{
     *     delete_payment_method?: bool,
     *     } $params Description of the parameters
@@ -53,7 +53,7 @@ Interface CustomerActionsInterface
     public function delete(string $id, array $params = [], array $headers = []): DeleteCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#add_promotional_credits_to_a_customer
+    *   
     *   @param array{
     *     amount?: int,
     *     currency_code?: string,
@@ -74,7 +74,7 @@ Interface CustomerActionsInterface
     public function addPromotionalCredits(string $id, array $params, array $headers = []): AddPromotionalCreditsCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#link_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/link-a-customer?lang=php-v4
     *   @param array{
     *     parent_account_access?: array{
     *     portal_edit_child_subscriptions?: string,
@@ -107,7 +107,7 @@ Interface CustomerActionsInterface
     public function relationships(string $id, array $params = [], array $headers = []): RelationshipsCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#delink_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/delink-a-customer?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -121,7 +121,7 @@ Interface CustomerActionsInterface
     public function deleteRelationship(string $id, array $headers = []): DeleteRelationshipCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#delete_contacts_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/delete-contacts-for-a-customer?lang=php-v4
     *   @param array{
     *     contact?: array{
     *     id?: string,
@@ -139,7 +139,7 @@ Interface CustomerActionsInterface
     public function deleteContact(string $id, array $params, array $headers = []): DeleteContactCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#assign_payment_role
+    *   @see https://apidocs.chargebee.com/docs/api/customers/assign-payment-role?lang=php-v4
     *   @param array{
     *     payment_source_id?: string,
     *     role?: string,
@@ -156,7 +156,7 @@ Interface CustomerActionsInterface
     public function assignPaymentRole(string $id, array $params, array $headers = []): AssignPaymentRoleCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#move_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/move-a-customer?lang=php-v4
     *   @param array{
     *     id_at_from_site?: string,
     *     from_site?: string,
@@ -173,7 +173,7 @@ Interface CustomerActionsInterface
     public function move(array $params, array $headers = []): MoveCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#get_hierarchy
+    *   @see https://apidocs.chargebee.com/docs/api/customers/get-hierarchy?lang=php-v4
     *   @param array{
     *     hierarchy_operation_type?: string,
     *     } $params Description of the parameters
@@ -189,7 +189,7 @@ Interface CustomerActionsInterface
     public function hierarchy(string $id, array $params, array $headers = []): HierarchyCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#update_payment_method_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-payment-method-for-a-customer?lang=php-v4
     *   @param array{
     *     payment_method?: array{
     *     type?: string,
@@ -213,7 +213,7 @@ Interface CustomerActionsInterface
     public function updatePaymentMethod(string $id, array $params, array $headers = []): UpdatePaymentMethodCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#retrieve_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/retrieve-a-customer?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -227,7 +227,7 @@ Interface CustomerActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#update_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-a-customer?lang=php-v4
     *   @param array{
     *     tax_providers_fields?: array<array{
     *     provider_name?: string,
@@ -270,7 +270,7 @@ Interface CustomerActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#list_hierarchy_details
+    *   @see https://apidocs.chargebee.com/docs/api/customers/list-hierarchy-details?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -288,7 +288,7 @@ Interface CustomerActionsInterface
     public function listHierarchyDetail(string $id, array $params, array $headers = []): ListHierarchyDetailCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#change_billing_date
+    *   @see https://apidocs.chargebee.com/docs/api/customers/change-billing-date?lang=php-v4
     *   @param array{
     *     billing_date?: int,
     *     billing_month?: int,
@@ -308,7 +308,7 @@ Interface CustomerActionsInterface
     public function changeBillingDate(string $id, array $params = [], array $headers = []): ChangeBillingDateCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#list_customers
+    *   @see https://apidocs.chargebee.com/docs/api/customers/list-customers?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -426,7 +426,7 @@ Interface CustomerActionsInterface
     public function all(array $params = [], array $headers = []): ListCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#create_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/create-a-customer?lang=php-v4
     *   @param array{
     *     card?: array{
     *     gateway?: string,
@@ -560,7 +560,7 @@ Interface CustomerActionsInterface
     public function create(array $params = [], array $headers = []): CreateCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#add_contacts_to_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/add-contacts-to-a-customer?lang=php-v4
     *   @param array{
     *     contact?: array{
     *     id?: string,
@@ -586,7 +586,7 @@ Interface CustomerActionsInterface
     public function addContact(string $id, array $params, array $headers = []): AddContactCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#list_of_contacts_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/list-of-contacts-for-a-customer?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -603,7 +603,7 @@ Interface CustomerActionsInterface
     public function contactsForCustomer(string $id, array $params = [], array $headers = []): ContactsForCustomerCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#deduct_promotional_credits_for_a_customer
+    *   
     *   @param array{
     *     amount?: int,
     *     currency_code?: string,
@@ -624,7 +624,7 @@ Interface CustomerActionsInterface
     public function deductPromotionalCredits(string $id, array $params, array $headers = []): DeductPromotionalCreditsCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#clear_personal_data_of_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/clear-personal-data-of-a-customer?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -638,7 +638,7 @@ Interface CustomerActionsInterface
     public function clearPersonalData(string $id, array $headers = []): ClearPersonalDataCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#merge_customers
+    *   @see https://apidocs.chargebee.com/docs/api/customers/merge-customers?lang=php-v4
     *   @param array{
     *     from_customer_id?: string,
     *     to_customer_id?: string,
@@ -655,7 +655,7 @@ Interface CustomerActionsInterface
     public function merge(array $params, array $headers = []): MergeCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#collect_payment_for_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/collect-payment-for-customer?lang=php-v4
     *   @param array{
     *     payment_method?: array{
     *     type?: string,
@@ -714,7 +714,7 @@ Interface CustomerActionsInterface
     public function collectPayment(string $id, array $params, array $headers = []): CollectPaymentCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#record_an_excess_payment_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/record-an-excess-payment-for-a-customer?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     id?: string,
@@ -739,7 +739,7 @@ Interface CustomerActionsInterface
     public function recordExcessPayment(string $id, array $params, array $headers = []): RecordExcessPaymentCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#set_promotional_credits_for_a_customer
+    *   
     *   @param array{
     *     amount?: int,
     *     currency_code?: string,
@@ -760,7 +760,7 @@ Interface CustomerActionsInterface
     public function setPromotionalCredits(string $id, array $params, array $headers = []): SetPromotionalCreditsCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#update_contacts_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-contacts-for-a-customer?lang=php-v4
     *   @param array{
     *     contact?: array{
     *     id?: string,
@@ -786,7 +786,7 @@ Interface CustomerActionsInterface
     public function updateContact(string $id, array $params, array $headers = []): UpdateContactCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#update_hierarchy_access_settings_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-hierarchy-access-settings-for-a-customer?lang=php-v4
     *   @param array{
     *     parent_account_access?: array{
     *     portal_edit_child_subscriptions?: string,
@@ -816,7 +816,7 @@ Interface CustomerActionsInterface
     public function updateHierarchySettings(string $id, array $params = [], array $headers = []): UpdateHierarchySettingsCustomerResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers?lang=php#update_billing_info_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-billing-info-for-a-customer?lang=php-v4
     *   @param array{
     *     billing_address?: array{
     *     first_name?: string,

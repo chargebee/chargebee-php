@@ -15,7 +15,7 @@ Interface ItemEntitlementActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements?lang=php#list_item_entitlements_for_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements/list-item-entitlements-for-a-feature?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -33,7 +33,7 @@ Interface ItemEntitlementActionsInterface
     public function itemEntitlementsForFeature(string $id, array $params = [], array $headers = []): ItemEntitlementsForFeatureItemEntitlementResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements?lang=php#upsert_or_remove_item_entitlements_for_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements/upsert-or-remove-item-entitlements-for-a-feature?lang=php-v4
     *   @param array{
     *     item_entitlements?: array<array{
     *     item_id?: string,
@@ -54,7 +54,7 @@ Interface ItemEntitlementActionsInterface
     public function addItemEntitlements(string $id, array $params, array $headers = []): AddItemEntitlementsItemEntitlementResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements?lang=php#list_item_entitlements_for_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements/list-item-entitlements-for-an-item?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -73,7 +73,7 @@ Interface ItemEntitlementActionsInterface
     public function itemEntitlementsForItem(string $id, array $params = [], array $headers = []): ItemEntitlementsForItemItemEntitlementResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements?lang=php#upsert_or_remove_item_entitlements_for_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/item_entitlements/upsert-or-remove-item-entitlements-for-an-item?lang=php-v4
     *   @param array{
     *     item_entitlements?: array<array{
     *     feature_id?: string,

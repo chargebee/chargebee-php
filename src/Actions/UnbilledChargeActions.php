@@ -30,7 +30,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#delete_an_unbilled_charge
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/delete-an-unbilled-charge?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -61,7 +61,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#create_an_estimate_for_unbilled_charges
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/create-an-estimate-for-unbilled-charges?lang=php-v4
     *   @param array{
     *     subscription_id?: string,
     *     customer_id?: string,
@@ -96,7 +96,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#create_an_invoice_for_unbilled_charges
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/create-an-invoice-for-unbilled-charges?lang=php-v4
     *   @param array{
     *     subscription_id?: string,
     *     customer_id?: string,
@@ -131,7 +131,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#list_unbilled_charges
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/list-unbilled-charges?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -183,7 +183,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#create_unbilled_charges_for_item_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/create-unbilled-charges-for-item-subscription?lang=php-v4
     *   @param array{
     *     item_prices?: array<array{
     *     item_price_id?: string,
@@ -258,7 +258,7 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges?lang=php#create_unbilled_charges_for_a_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/unbilled_charges/create-unbilled-charges-for-a-subscription?lang=php-v4
     *   @param array{
     *     addons?: array<array{
     *     id?: string,

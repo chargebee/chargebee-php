@@ -26,7 +26,7 @@ final class SubscriptionEntitlementActions implements SubscriptionEntitlementAct
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements?lang=php#enable_or_disable_subscription_entitlements
+    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements/enable-or-disable-subscription-entitlements?lang=php-v4
     *   @param array{
     *     subscription_entitlements?: array<array{
     *     feature_id?: string,
@@ -63,7 +63,7 @@ final class SubscriptionEntitlementActions implements SubscriptionEntitlementAct
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements?lang=php#list_subscription_entitlements
+    *   @see https://apidocs.chargebee.com/docs/api/subscription_entitlements/list-subscription-entitlements?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

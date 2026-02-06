@@ -18,7 +18,7 @@ Interface AddonActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#copy_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/copy-an-addon?lang=php-v4
     *   @param array{
     *     from_site?: string,
     *     id_at_from_site?: string,
@@ -37,7 +37,7 @@ Interface AddonActionsInterface
     public function copy(array $params, array $headers = []): CopyAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#unarchive_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/unarchive-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -51,7 +51,7 @@ Interface AddonActionsInterface
     public function unarchive(string $id, array $headers = []): UnarchiveAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#retrieve_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/retrieve-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -65,7 +65,7 @@ Interface AddonActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#update_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/update-an-addon?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,
@@ -129,7 +129,7 @@ Interface AddonActionsInterface
     public function update(string $id, array $params, array $headers = []): UpdateAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#list_addons
+    *   @see https://apidocs.chargebee.com/docs/api/addons/list-addons?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -228,7 +228,7 @@ Interface AddonActionsInterface
     public function all(array $params = [], array $headers = []): ListAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#create_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/create-an-addon?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,
@@ -294,7 +294,7 @@ Interface AddonActionsInterface
     public function create(array $params, array $headers = []): CreateAddonResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#delete_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/delete-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

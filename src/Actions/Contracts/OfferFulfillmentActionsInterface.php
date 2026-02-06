@@ -14,7 +14,7 @@ Interface OfferFulfillmentActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#create_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/create-an-offer-fulfillment?lang=php-v4
     *   @param array{
     *     personalized_offer_id?: string,
     *     option_id?: string,
@@ -31,7 +31,7 @@ Interface OfferFulfillmentActionsInterface
     public function offerFulfillments(array $params, array $headers = []): OfferFulfillmentsOfferFulfillmentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#retrieve_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/retrieve-an-offer-fulfillment?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -45,7 +45,7 @@ Interface OfferFulfillmentActionsInterface
     public function offerFulfillmentsGet(string $id, array $headers = []): OfferFulfillmentsGetOfferFulfillmentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#update_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/update-an-offer-fulfillment?lang=php-v4
     *   @param array{
     *     id?: string,
     *     status?: string,

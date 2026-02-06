@@ -25,7 +25,7 @@ Interface CreditNoteActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#record_refund_for_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/record-refund-for-a-credit-note?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     id?: string,
@@ -50,7 +50,7 @@ Interface CreditNoteActionsInterface
     public function recordRefund(string $id, array $params, array $headers = []): RecordRefundCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#import_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/import-credit-note?lang=php-v4
     *   @param array{
     *     line_items?: array<array{
     *     reference_line_item_id?: string,
@@ -160,7 +160,7 @@ Interface CreditNoteActionsInterface
     public function importCreditNote(array $params, array $headers = []): ImportCreditNoteCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#delete_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/delete-a-credit-note?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -176,7 +176,7 @@ Interface CreditNoteActionsInterface
     public function delete(string $id, array $params = [], array $headers = []): DeleteCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes_for_a_customer
+    *   
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -194,7 +194,7 @@ Interface CreditNoteActionsInterface
     public function creditNotesForCustomer(string $id, array $params = [], array $headers = []): CreditNotesForCustomerCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_credit_note_as_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/retrieve-credit-note-as-pdf?lang=php-v4
     *   @param array{
     *     disposition_type?: string,
     *     } $params Description of the parameters
@@ -210,7 +210,7 @@ Interface CreditNoteActionsInterface
     public function pdf(string $id, array $params = [], array $headers = []): PdfCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#send_an_einvoice_for_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/send-an-einvoice-for-credit-notes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -224,7 +224,7 @@ Interface CreditNoteActionsInterface
     public function sendEinvoice(string $id, array $headers = []): SendEinvoiceCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#void_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/void-a-credit-note?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -240,7 +240,7 @@ Interface CreditNoteActionsInterface
     public function voidCreditNote(string $id, array $params = [], array $headers = []): VoidCreditNoteCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#refund_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/refund-a-credit-note?lang=php-v4
     *   @param array{
     *     refund_amount?: int,
     *     customer_notes?: string,
@@ -258,7 +258,7 @@ Interface CreditNoteActionsInterface
     public function refund(string $id, array $params = [], array $headers = []): RefundCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/list-credit-notes?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -409,7 +409,7 @@ Interface CreditNoteActionsInterface
     public function all(array $params = [], array $headers = []): ListCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#create_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/create-credit-note?lang=php-v4
     *   @param array{
     *     line_items?: array<array{
     *     reference_line_item_id?: string,
@@ -447,7 +447,7 @@ Interface CreditNoteActionsInterface
     public function create(array $params, array $headers = []): CreateCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#download_e-invoice_for_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/download-e-invoice-for-credit-note?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -461,7 +461,7 @@ Interface CreditNoteActionsInterface
     public function downloadEinvoice(string $id, array $headers = []): DownloadEinvoiceCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#resend_failed_einvoice_in_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/resend-failed-einvoice-in-credit-notes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -475,7 +475,7 @@ Interface CreditNoteActionsInterface
     public function resendEinvoice(string $id, array $headers = []): ResendEinvoiceCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#remove_tax_withheld_refunds_from_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/remove-tax-withheld-refunds-from-a-credit-note?lang=php-v4
     *   @param array{
     *     tax_withheld?: array{
     *     id?: string,
@@ -493,7 +493,7 @@ Interface CreditNoteActionsInterface
     public function removeTaxWithheldRefund(string $id, array $params, array $headers = []): RemoveTaxWithheldRefundCreditNoteResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/retrieve-a-credit-note?lang=php-v4
     *   @param array{
     *     line_item?: array{
     *     subscription_id?: array{

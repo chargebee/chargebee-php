@@ -16,7 +16,7 @@ Interface WebhookEndpointActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#delete_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/delete-a-webhook-endpoint?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -30,7 +30,7 @@ Interface WebhookEndpointActionsInterface
     public function delete(string $id, array $headers = []): DeleteWebhookEndpointResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#retrieve_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/retrieve-a-webhook-endpoint?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -44,7 +44,7 @@ Interface WebhookEndpointActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveWebhookEndpointResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#update_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/update-a-webhook-endpoint?lang=php-v4
     *   @param array{
     *     name?: string,
     *     api_version?: string,
@@ -68,7 +68,7 @@ Interface WebhookEndpointActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateWebhookEndpointResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#list_webhook_endpoints
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/list-webhook-endpoints?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -85,7 +85,7 @@ Interface WebhookEndpointActionsInterface
     public function all(array $params = [], array $headers = []): ListWebhookEndpointResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#create_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/create-a-webhook-endpoint?lang=php-v4
     *   @param array{
     *     name?: string,
     *     api_version?: string,

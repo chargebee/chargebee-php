@@ -27,7 +27,7 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#create_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/create-an-offer-fulfillment?lang=php-v4
     *   @param array{
     *     personalized_offer_id?: string,
     *     option_id?: string,
@@ -63,7 +63,7 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#retrieve_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/retrieve-an-offer-fulfillment?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -94,7 +94,7 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments?lang=php#update_an_offer_fulfillment
+    *   @see https://apidocs.chargebee.com/docs/api/offer_fulfillments/update-an-offer-fulfillment?lang=php-v4
     *   @param array{
     *     id?: string,
     *     status?: string,

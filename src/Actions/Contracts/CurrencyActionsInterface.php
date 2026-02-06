@@ -17,7 +17,7 @@ Interface CurrencyActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#add_schedule
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/add-schedule?lang=php-v4
     *   @param array{
     *     manual_exchange_rate?: string,
     *     schedule_at?: int,
@@ -34,7 +34,7 @@ Interface CurrencyActionsInterface
     public function addSchedule(string $id, array $params, array $headers = []): AddScheduleCurrencyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#add_a_new_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/add-a-new-currency?lang=php-v4
     *   @param array{
     *     currency_code?: string,
     *     forex_type?: string,
@@ -52,7 +52,7 @@ Interface CurrencyActionsInterface
     public function create(array $params, array $headers = []): CreateCurrencyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#retrieve_a_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/retrieve-a-currency?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -66,7 +66,7 @@ Interface CurrencyActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveCurrencyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#update_a_currency
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/update-a-currency?lang=php-v4
     *   @param array{
     *     forex_type?: string,
     *     manual_exchange_rate?: string,
@@ -83,7 +83,7 @@ Interface CurrencyActionsInterface
     public function update(string $id, array $params, array $headers = []): UpdateCurrencyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#remove_schedule
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/remove-schedule?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -97,7 +97,7 @@ Interface CurrencyActionsInterface
     public function removeSchedule(string $id, array $headers = []): RemoveScheduleCurrencyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/currencies?lang=php#list_currencies
+    *   @see https://apidocs.chargebee.com/docs/api/currencies/list-currencies?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

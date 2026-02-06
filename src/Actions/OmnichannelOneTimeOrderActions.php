@@ -26,7 +26,7 @@ final class OmnichannelOneTimeOrderActions implements OmnichannelOneTimeOrderAct
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_one_time_orders?lang=php#list_omnichannel_one_time_orders
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_one_time_orders/list-omnichannel-one-time-orders?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -71,7 +71,7 @@ final class OmnichannelOneTimeOrderActions implements OmnichannelOneTimeOrderAct
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_one_time_orders?lang=php#retrieve_an_omnichannel_one_time_order
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_one_time_orders/retrieve-an-omnichannel-one-time-order?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

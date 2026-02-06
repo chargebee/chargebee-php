@@ -13,7 +13,7 @@ Interface UsageFileActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usage_files?lang=php#get_uploaded_file_processing_status
+    *   @see https://apidocs.chargebee.com/docs/api/usage_files/get-uploaded-file-processing-status?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -27,7 +27,7 @@ Interface UsageFileActionsInterface
     public function processingStatus(string $id, array $headers = []): ProcessingStatusUsageFileResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usage_files?lang=php#get_usages_file_upload_url
+    *   @see https://apidocs.chargebee.com/docs/api/usage_files/get-usages-file-upload-url?lang=php-v4
     *   @param array{
     *     file_name?: string,
     *     mime_type?: string,

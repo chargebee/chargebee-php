@@ -15,7 +15,7 @@ Interface OmnichannelSubscriptionActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#move_an_omnichannel_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/move-an-omnichannel-subscription?lang=php-v4
     *   @param array{
     *     to_customer_id?: string,
     *     } $params Description of the parameters
@@ -31,7 +31,7 @@ Interface OmnichannelSubscriptionActionsInterface
     public function move(string $id, array $params, array $headers = []): MoveOmnichannelSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#retrieve_an_omnichannel_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/retrieve-an-omnichannel-subscription?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -45,7 +45,7 @@ Interface OmnichannelSubscriptionActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveOmnichannelSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#list_omnichannel_transactions_of_an_omnichannel_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-transactions-of-an-omnichannel-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -62,11 +62,24 @@ Interface OmnichannelSubscriptionActionsInterface
     public function omnichannelTransactionsForOmnichannelSubscription(string $id, array $params = [], array $headers = []): OmnichannelTransactionsForOmnichannelSubscriptionOmnichannelSubscriptionResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions?lang=php#list_omnichannel_subscriptions
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
-    *     source?: array{
+    *     omnichannel_subscription_item?: array{
+    *     status?: array{
+    *         is?: string,
+    *             is_not?: string,
+    *             in?: string,
+    *             not_in?: string,
+    *             },
+    *     item_id_at_source?: array{
+    *         is?: string,
+    *             is_not?: string,
+    *             starts_with?: string,
+    *             },
+    *     },
+    * source?: array{
     *     is?: mixed,
     *     is_not?: mixed,
     *     in?: mixed,

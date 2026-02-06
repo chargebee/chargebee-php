@@ -19,7 +19,7 @@ Interface FeatureActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#list_features
+    *   @see https://apidocs.chargebee.com/docs/api/features/list-features?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -62,7 +62,7 @@ Interface FeatureActionsInterface
     public function all(array $params = [], array $headers = []): ListFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#create_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/create-a-feature?lang=php-v4
     *   @param array{
     *     levels?: array<array{
     *     name?: string,
@@ -88,7 +88,7 @@ Interface FeatureActionsInterface
     public function create(array $params, array $headers = []): CreateFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#delete_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/delete-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -102,7 +102,7 @@ Interface FeatureActionsInterface
     public function delete(string $id, array $headers = []): DeleteFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#retrieve_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/retrieve-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -116,7 +116,7 @@ Interface FeatureActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#update_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/update-a-feature?lang=php-v4
     *   @param array{
     *     levels?: array<array{
     *     name?: string,
@@ -140,7 +140,7 @@ Interface FeatureActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#archive_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/archive-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -154,7 +154,7 @@ Interface FeatureActionsInterface
     public function archive(string $id, array $headers = []): ArchiveFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#activate_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/activate-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -168,7 +168,7 @@ Interface FeatureActionsInterface
     public function activate(string $id, array $headers = []): ActivateFeatureResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#reactivate_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/reactivate-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

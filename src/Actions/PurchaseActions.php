@@ -25,7 +25,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/purchases?lang=php#create_a_purchase
+    *   @see https://apidocs.chargebee.com/docs/api/purchases/create-a-purchase?lang=php-v4
     *   @param array{
     *     invoice_info?: array{
     *     po_number?: string,
@@ -137,7 +137,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/purchases?lang=php#estimates_for_purchase
+    *   @see https://apidocs.chargebee.com/docs/api/purchases/estimates-for-purchase?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     vat_number?: string,

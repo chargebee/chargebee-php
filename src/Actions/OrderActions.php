@@ -36,7 +36,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#list_orders
+    *   @see https://apidocs.chargebee.com/docs/api/orders/list-orders?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -157,7 +157,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#create_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/create-an-order?lang=php-v4
     *   @param array{
     *     id?: string,
     *     invoice_id?: string,
@@ -199,7 +199,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#import_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/import-an-order?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -286,7 +286,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#assign_order_number
+    *   @see https://apidocs.chargebee.com/docs/api/orders/assign-order-number?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -317,7 +317,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#resend_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/resend-an-order?lang=php-v4
     *   @param array{
     *     order_line_items?: array<array{
     *     id?: string,
@@ -356,7 +356,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#reopen_a_cancelled_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/reopen-a-cancelled-order?lang=php-v4
     *   @param array{
     *     void_cancellation_credit_notes?: bool,
     *     } $params Description of the parameters
@@ -390,7 +390,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#list_orders_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/orders/list-orders-for-an-invoice?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -425,7 +425,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#cancel_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/cancel-an-order?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     total?: int,
@@ -465,7 +465,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#retrieve_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/retrieve-an-order?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -495,7 +495,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#update_an_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/update-an-order?lang=php-v4
     *   @param array{
     *     shipping_address?: array{
     *     first_name?: string,
@@ -563,7 +563,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#delete_an_imported_order
+    *   @see https://apidocs.chargebee.com/docs/api/orders/delete-an-imported-order?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -594,7 +594,7 @@ final class OrderActions implements OrderActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/orders?lang=php#create_a_refundable_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/orders/create-a-refundable-credit-note?lang=php-v4
     *   @param array{
     *     credit_note?: array{
     *     reason_code?: string,

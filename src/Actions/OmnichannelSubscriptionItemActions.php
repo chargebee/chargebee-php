@@ -25,7 +25,7 @@ final class OmnichannelSubscriptionItemActions implements OmnichannelSubscriptio
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscription_items?lang=php#list_scheduled_changes_for_omnichannel_subscription_item
+    *   @see https://apidocs.chargebee.com/docs/api/omnichannel_subscription_items/list-scheduled-changes-for-omnichannel-subscription-item?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

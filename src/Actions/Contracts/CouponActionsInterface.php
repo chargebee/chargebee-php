@@ -20,7 +20,7 @@ Interface CouponActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#list_coupons
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/list-coupons?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -102,7 +102,7 @@ Interface CouponActionsInterface
     public function all(array $params = [], array $headers = []): ListCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#create_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/create-a-coupon?lang=php-v4
     *   @param array{
     *     id?: string,
     *     name?: string,
@@ -140,7 +140,7 @@ Interface CouponActionsInterface
     public function create(array $params, array $headers = []): CreateCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#update_a_coupon_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/update-a-coupon-for-items?lang=php-v4
     *   @param array{
     *     item_constraints?: array<array{
     *     constraint?: string,
@@ -189,7 +189,7 @@ Interface CouponActionsInterface
     public function updateForItems(string $id, array $params, array $headers = []): UpdateForItemsCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#unarchive_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/unarchive-a-coupon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -203,7 +203,7 @@ Interface CouponActionsInterface
     public function unarchive(string $id, array $headers = []): UnarchiveCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#delete_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/delete-a-coupon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -217,7 +217,7 @@ Interface CouponActionsInterface
     public function delete(string $id, array $headers = []): DeleteCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#copy_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/copy-a-coupon?lang=php-v4
     *   @param array{
     *     from_site?: string,
     *     id_at_from_site?: string,
@@ -236,7 +236,7 @@ Interface CouponActionsInterface
     public function copy(array $params, array $headers = []): CopyCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#retrieve_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/retrieve-a-coupon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -250,7 +250,7 @@ Interface CouponActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#update_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/update-a-coupon?lang=php-v4
     *   @param array{
     *     name?: string,
     *     invoice_name?: string,
@@ -286,7 +286,7 @@ Interface CouponActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdateCouponResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupons?lang=php#create_a_coupon_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/coupons/create-a-coupon-for-items?lang=php-v4
     *   @param array{
     *     item_constraints?: array<array{
     *     constraint?: string,
