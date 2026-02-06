@@ -14,7 +14,7 @@ Interface PaymentIntentActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_intents?lang=php#retrieve_a_payment_intent
+    *   @see https://apidocs.chargebee.com/docs/api/payment_intents/retrieve-a-payment-intent?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -28,7 +28,7 @@ Interface PaymentIntentActionsInterface
     public function retrieve(string $id, array $headers = []): RetrievePaymentIntentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_intents?lang=php#update_a_payment_intent
+    *   @see https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent?lang=php-v4
     *   @param array{
     *     amount?: int,
     *     currency_code?: string,
@@ -49,7 +49,7 @@ Interface PaymentIntentActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdatePaymentIntentResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_intents?lang=php#create_a_payment_intent
+    *   @see https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent?lang=php-v4
     *   @param array{
     *     business_entity_id?: string,
     *     customer_id?: string,

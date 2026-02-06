@@ -27,7 +27,7 @@ Interface PaymentSourceActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_using_permanent_token
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-using-permanent-token?lang=php-v4
     *   @param array{
     *     card?: array{
     *     last4?: string,
@@ -75,7 +75,7 @@ Interface PaymentSourceActionsInterface
     public function createUsingPermanentToken(array $params, array $headers = []): CreateUsingPermanentTokenPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#delete_a_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/delete-a-payment-source?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -89,7 +89,7 @@ Interface PaymentSourceActionsInterface
     public function delete(string $id, array $headers = []): DeletePaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_a_card_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-a-card-payment-source?lang=php-v4
     *   @param array{
     *     card?: array{
     *     gateway_account_id?: string,
@@ -124,7 +124,7 @@ Interface PaymentSourceActionsInterface
     public function createCard(array $params, array $headers = []): CreateCardPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#verify_bank_account_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/verify-bank-account-payment-source?lang=php-v4
     *   @param array{
     *     amount1?: int,
     *     amount2?: int,
@@ -141,7 +141,7 @@ Interface PaymentSourceActionsInterface
     public function verifyBankAccount(string $id, array $params, array $headers = []): VerifyBankAccountPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#list_payment_sources
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/list-payment-sources?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -195,7 +195,7 @@ Interface PaymentSourceActionsInterface
     public function all(array $params = [], array $headers = []): ListPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#export_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/export-payment-source?lang=php-v4
     *   @param array{
     *     gateway_account_id?: string,
     *     } $params Description of the parameters
@@ -211,7 +211,7 @@ Interface PaymentSourceActionsInterface
     public function exportPaymentSource(string $id, array $params, array $headers = []): ExportPaymentSourcePaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_using_payment_intent
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-using-payment-intent?lang=php-v4
     *   @param array{
     *     payment_intent?: array{
     *     id?: string,
@@ -238,7 +238,7 @@ Interface PaymentSourceActionsInterface
     public function createUsingPaymentIntent(array $params, array $headers = []): CreateUsingPaymentIntentPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#retrieve_a_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/retrieve-a-payment-source?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -252,7 +252,7 @@ Interface PaymentSourceActionsInterface
     public function retrieve(string $id, array $headers = []): RetrievePaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_a_voucher_payment_method
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-a-voucher-payment-method?lang=php-v4
     *   @param array{
     *     voucher_payment_source?: array{
     *     voucher_type?: string,
@@ -274,7 +274,7 @@ Interface PaymentSourceActionsInterface
     public function createVoucherPaymentSource(array $params, array $headers = []): CreateVoucherPaymentSourcePaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_using_gateway_temporary_token
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-using-gateway-temporary-token?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     gateway_account_id?: string,
@@ -296,7 +296,7 @@ Interface PaymentSourceActionsInterface
     public function createUsingTempToken(array $params, array $headers = []): CreateUsingTempTokenPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#update_a_card_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/update-a-card-payment-source?lang=php-v4
     *   @param array{
     *     card?: array{
     *     first_name?: string,
@@ -327,7 +327,7 @@ Interface PaymentSourceActionsInterface
     public function updateCard(string $id, array $params = [], array $headers = []): UpdateCardPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#switch_gateway_account
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/switch-gateway-account?lang=php-v4
     *   @param array{
     *     gateway_account_id?: string,
     *     } $params Description of the parameters
@@ -343,7 +343,7 @@ Interface PaymentSourceActionsInterface
     public function switchGatewayAccount(string $id, array $params, array $headers = []): SwitchGatewayAccountPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_using_chargebee_token
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-using-chargebee-token?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     replace_primary_payment_source?: bool,
@@ -361,7 +361,7 @@ Interface PaymentSourceActionsInterface
     public function createUsingToken(array $params, array $headers = []): CreateUsingTokenPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#local_delete_a_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/local-delete-a-payment-source?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -375,7 +375,7 @@ Interface PaymentSourceActionsInterface
     public function deleteLocal(string $id, array $headers = []): DeleteLocalPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#create_a_bank_account_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-a-bank-account-payment-source?lang=php-v4
     *   @param array{
     *     bank_account?: array{
     *     gateway_account_id?: string,
@@ -411,7 +411,7 @@ Interface PaymentSourceActionsInterface
     public function createBankAccount(array $params, array $headers = []): CreateBankAccountPaymentSourceResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_sources?lang=php#update_a_bank_account_payment_source
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/update-a-bank-account-payment-source?lang=php-v4
     *   @param array{
     *     bank_account?: array{
     *     first_name?: string,

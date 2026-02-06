@@ -14,7 +14,7 @@ Interface TimeMachineActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/time_machines?lang=php#retrieve_a_time_machine
+    *   @see https://apidocs.chargebee.com/docs/api/time_machines/retrieve-a-time-machine?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -28,7 +28,7 @@ Interface TimeMachineActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveTimeMachineResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/time_machines?lang=php#travel_forward
+    *   @see https://apidocs.chargebee.com/docs/api/time_machines/travel-forward?lang=php-v4
     *   @param array{
     *     destination_time?: int,
     *     } $params Description of the parameters
@@ -44,7 +44,7 @@ Interface TimeMachineActionsInterface
     public function travelForward(string $id, array $params = [], array $headers = []): TravelForwardTimeMachineResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/time_machines?lang=php#start_afresh
+    *   @see https://apidocs.chargebee.com/docs/api/time_machines/start-afresh?lang=php-v4
     *   @param array{
     *     genesis_time?: int,
     *     } $params Description of the parameters

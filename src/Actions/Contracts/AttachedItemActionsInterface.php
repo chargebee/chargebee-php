@@ -16,7 +16,7 @@ Interface AttachedItemActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#retrieve_an_attached_item_
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/retrieve-an-attached-item-?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     } $params Description of the parameters
@@ -32,7 +32,7 @@ Interface AttachedItemActionsInterface
     public function retrieve(string $id, array $params, array $headers = []): RetrieveAttachedItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#update_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/update-an-attached-item?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     type?: string,
@@ -54,7 +54,7 @@ Interface AttachedItemActionsInterface
     public function update(string $id, array $params, array $headers = []): UpdateAttachedItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#list_attached_items
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/list-attached-items?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -109,7 +109,7 @@ Interface AttachedItemActionsInterface
     public function all(string $id, array $params = [], array $headers = []): ListAttachedItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#create_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/create-an-attached-item?lang=php-v4
     *   @param array{
     *     item_id?: string,
     *     type?: string,
@@ -132,7 +132,7 @@ Interface AttachedItemActionsInterface
     public function create(string $id, array $params, array $headers = []): CreateAttachedItemResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/attached_items?lang=php#delete_an_attached_item
+    *   @see https://apidocs.chargebee.com/docs/api/attached_items/delete-an-attached-item?lang=php-v4
     *   @param array{
     *     parent_item_id?: string,
     *     } $params Description of the parameters

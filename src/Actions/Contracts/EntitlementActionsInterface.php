@@ -13,7 +13,7 @@ Interface EntitlementActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/entitlements?lang=php#list_all_entitlements
+    *   @see https://apidocs.chargebee.com/docs/api/entitlements/list-all-entitlements?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -44,7 +44,7 @@ Interface EntitlementActionsInterface
     public function all(array $params = [], array $headers = []): ListEntitlementResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/entitlements?lang=php#upsert_or_remove_entitlements_for_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/entitlements/upsert-or-remove-entitlements-for-a-feature?lang=php-v4
     *   @param array{
     *     entitlements?: array<array{
     *     entity_id?: string,

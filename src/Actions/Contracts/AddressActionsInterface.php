@@ -13,7 +13,7 @@ Interface AddressActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addresses?lang=php#retrieve_an_address
+    *   @see https://apidocs.chargebee.com/docs/api/addresses/retrieve-an-address?lang=php-v4
     *   @param array{
     *     subscription_id?: string,
     *     label?: string,
@@ -30,7 +30,7 @@ Interface AddressActionsInterface
     public function retrieve(array $params, array $headers = []): RetrieveAddressResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addresses?lang=php#update_an_address
+    *   @see https://apidocs.chargebee.com/docs/api/addresses/update-an-address?lang=php-v4
     *   @param array{
     *     subscription_id?: string,
     *     label?: string,

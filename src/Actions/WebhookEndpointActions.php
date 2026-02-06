@@ -29,7 +29,7 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#delete_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/delete-a-webhook-endpoint?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -60,7 +60,7 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#retrieve_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/retrieve-a-webhook-endpoint?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -90,7 +90,7 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#update_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/update-a-webhook-endpoint?lang=php-v4
     *   @param array{
     *     name?: string,
     *     api_version?: string,
@@ -132,7 +132,7 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#list_webhook_endpoints
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/list-webhook-endpoints?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -166,7 +166,7 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints?lang=php#create_a_webhook_endpoint
+    *   @see https://apidocs.chargebee.com/docs/api/webhook_endpoints/create-a-webhook-endpoint?lang=php-v4
     *   @param array{
     *     name?: string,
     *     api_version?: string,

@@ -29,7 +29,7 @@ final class UsageActions implements UsageActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usages?lang=php#retrieve_usages_for_an_invoice_as_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/usages/retrieve-usages-for-an-invoice-as-pdf?lang=php-v4
     *   @param array{
     *     invoice?: array{
     *     id?: string,
@@ -66,7 +66,7 @@ final class UsageActions implements UsageActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usages?lang=php#retrieve_a_usage
+    *   @see https://apidocs.chargebee.com/docs/api/usages/retrieve-a-usage?lang=php-v4
     *   @param array{
     *     id?: string,
     *     } $params Description of the parameters
@@ -99,7 +99,7 @@ final class UsageActions implements UsageActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usages?lang=php#create_a_usage
+    *   @see https://apidocs.chargebee.com/docs/api/usages/create-a-usage?lang=php-v4
     *   @param array{
     *     id?: string,
     *     item_price_id?: string,
@@ -138,7 +138,7 @@ final class UsageActions implements UsageActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usages?lang=php#delete_a_usage
+    *   @see https://apidocs.chargebee.com/docs/api/usages/delete-a-usage?lang=php-v4
     *   @param array{
     *     id?: string,
     *     } $params Description of the parameters
@@ -172,7 +172,7 @@ final class UsageActions implements UsageActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usages?lang=php#list_usages
+    *   @see https://apidocs.chargebee.com/docs/api/usages/list-usages?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,

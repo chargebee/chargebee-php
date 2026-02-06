@@ -32,7 +32,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#list_features
+    *   @see https://apidocs.chargebee.com/docs/api/features/list-features?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -92,7 +92,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#create_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/create-a-feature?lang=php-v4
     *   @param array{
     *     levels?: array<array{
     *     name?: string,
@@ -136,7 +136,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#delete_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/delete-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -167,7 +167,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#retrieve_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/retrieve-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -197,7 +197,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#update_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/update-a-feature?lang=php-v4
     *   @param array{
     *     levels?: array<array{
     *     name?: string,
@@ -239,7 +239,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#archive_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/archive-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -270,7 +270,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#activate_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/activate-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -301,7 +301,7 @@ final class FeatureActions implements FeatureActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/features?lang=php#reactivate_a_feature
+    *   @see https://apidocs.chargebee.com/docs/api/features/reactivate-a-feature?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

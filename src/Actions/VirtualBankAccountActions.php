@@ -31,7 +31,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#local_delete_a_virtual_bank_account
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/local-delete-a-virtual-bank-account?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -62,7 +62,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#delete_a_virtual_bank_account
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/delete-a-virtual-bank-account?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -93,7 +93,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#list_virtual_bank_accounts
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/list-virtual-bank-accounts?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -146,7 +146,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#create_a_virtual_bank_account
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     email?: string,
@@ -182,7 +182,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#charge_virtual_bank_account
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/charge-virtual-bank-account?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -213,7 +213,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#retrieve_a_virtual_bank_account
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/retrieve-a-virtual-bank-account?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -243,7 +243,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts?lang=php#create_a_virtual_bank_account_using_permanent_token
+    *   @see https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account-using-permanent-token?lang=php-v4
     *   @param array{
     *     customer_id?: string,
     *     reference_id?: string,

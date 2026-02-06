@@ -31,7 +31,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#list_coupon_sets
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/list-coupon-sets?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -113,7 +113,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#create_a_coupon_set
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/create-a-coupon-set?lang=php-v4
     *   @param array{
     *     coupon_id?: string,
     *     name?: string,
@@ -151,7 +151,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#update_a_coupon_set
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/update-a-coupon-set?lang=php-v4
     *   @param array{
     *     name?: string,
     *     meta_data?: mixed,
@@ -187,7 +187,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#retrieve_a_coupon_set
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/retrieve-a-coupon-set?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -217,7 +217,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#add_coupon_codes_to_coupon_set
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/add-coupon-codes-to-coupon-set?lang=php-v4
     *   @param array{
     *     code?: array<string>,
     * } $params Description of the parameters
@@ -251,7 +251,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#delete_unused_coupon_codes
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/delete-unused-coupon-codes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -282,7 +282,7 @@ final class CouponSetActions implements CouponSetActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets?lang=php#delete_a_coupon_set
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_sets/delete-a-coupon-set?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

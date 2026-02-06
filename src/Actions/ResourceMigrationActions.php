@@ -24,7 +24,7 @@ final class ResourceMigrationActions implements ResourceMigrationActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/resource_migrations?lang=php#retrieve_latest_migration_details
+    *   @see https://apidocs.chargebee.com/docs/api/resource_migrations/retrieve-latest-migration-details?lang=php-v4
     *   @param array{
     *     from_site?: string,
     *     entity_type?: string,

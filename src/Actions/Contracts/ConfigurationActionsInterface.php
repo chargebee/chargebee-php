@@ -12,7 +12,7 @@ Interface ConfigurationActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/configurations?lang=php#list_site_configurations
+    *   @see https://apidocs.chargebee.com/docs/api/configurations/list-site-configurations?lang=php-v4
     *   
     *   
     *   @param array<string, string> $headers

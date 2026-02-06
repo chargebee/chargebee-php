@@ -18,7 +18,7 @@ Interface GiftActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#create_a_gift_subscription_for_items
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/create-a-gift-subscription-for-items?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -92,7 +92,7 @@ Interface GiftActionsInterface
     public function createForItems(array $params, array $headers = []): CreateForItemsGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#cancel_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/cancel-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -106,7 +106,7 @@ Interface GiftActionsInterface
     public function cancel(string $id, array $headers = []): CancelGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#update_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/update-a-gift?lang=php-v4
     *   @param array{
     *     scheduled_at?: int,
     *     comment?: string,
@@ -123,7 +123,7 @@ Interface GiftActionsInterface
     public function updateGift(string $id, array $params, array $headers = []): UpdateGiftGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#list_gifts
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/list-gifts?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -165,7 +165,7 @@ Interface GiftActionsInterface
     public function all(array $params = [], array $headers = []): ListGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#create_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/create-a-gift?lang=php-v4
     *   @param array{
     *     gifter?: array{
     *     customer_id?: string,
@@ -232,7 +232,7 @@ Interface GiftActionsInterface
     public function create(array $params, array $headers = []): CreateGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#retrieve_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/retrieve-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -246,7 +246,7 @@ Interface GiftActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveGiftResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/gifts?lang=php#claim_a_gift
+    *   @see https://apidocs.chargebee.com/docs/api/gifts/claim-a-gift?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

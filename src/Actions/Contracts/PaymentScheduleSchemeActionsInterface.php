@@ -14,7 +14,7 @@ Interface PaymentScheduleSchemeActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes?lang=php#retrieve_a_payment_schedule_scheme
+    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/retrieve-a-payment-schedule-scheme?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -28,7 +28,7 @@ Interface PaymentScheduleSchemeActionsInterface
     public function retrieve(string $id, array $headers = []): RetrievePaymentScheduleSchemeResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes?lang=php#create_a_payment_schedule_scheme
+    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/create-a-payment-schedule-scheme?lang=php-v4
     *   @param array{
     *     flexible_schedules?: array<array{
     *     period?: int,
@@ -51,7 +51,7 @@ Interface PaymentScheduleSchemeActionsInterface
     public function create(array $params, array $headers = []): CreatePaymentScheduleSchemeResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes?lang=php#delete_a_payment_schedule_scheme
+    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/delete-a-payment-schedule-scheme?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

@@ -38,7 +38,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#record_refund_for_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/record-refund-for-a-credit-note?lang=php-v4
     *   @param array{
     *     transaction?: array{
     *     id?: string,
@@ -81,7 +81,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#import_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/import-credit-note?lang=php-v4
     *   @param array{
     *     line_items?: array<array{
     *     reference_line_item_id?: string,
@@ -209,7 +209,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#delete_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/delete-a-credit-note?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -243,7 +243,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/list-credit-notes-for-a-customer?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -278,7 +278,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_credit_note_as_pdf
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/retrieve-credit-note-as-pdf?lang=php-v4
     *   @param array{
     *     disposition_type?: string,
     *     } $params Description of the parameters
@@ -312,7 +312,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#send_an_einvoice_for_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/send-an-einvoice-for-credit-notes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -343,7 +343,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#void_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/void-a-credit-note?lang=php-v4
     *   @param array{
     *     comment?: string,
     *     } $params Description of the parameters
@@ -377,7 +377,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#refund_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/refund-a-credit-note?lang=php-v4
     *   @param array{
     *     refund_amount?: int,
     *     customer_notes?: string,
@@ -413,7 +413,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#list_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/list-credit-notes?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -581,7 +581,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#create_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/create-credit-note?lang=php-v4
     *   @param array{
     *     line_items?: array<array{
     *     reference_line_item_id?: string,
@@ -637,7 +637,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#download_e-invoice_for_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/download-e-invoice-for-credit-note?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -667,7 +667,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#resend_failed_einvoice_in_credit_notes
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/resend-failed-einvoice-in-credit-notes?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -698,7 +698,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#remove_tax_withheld_refunds_from_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/remove-tax-withheld-refunds-from-a-credit-note?lang=php-v4
     *   @param array{
     *     tax_withheld?: array{
     *     id?: string,
@@ -734,7 +734,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/credit_notes?lang=php#retrieve_a_credit_note
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/retrieve-a-credit-note?lang=php-v4
     *   @param array{
     *     line_item?: array{
     *     subscription_id?: array{

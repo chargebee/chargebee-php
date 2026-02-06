@@ -29,7 +29,7 @@ final class DifferentialPriceActions implements DifferentialPriceActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/differential_prices?lang=php#delete_a_differential_price
+    *   @see https://apidocs.chargebee.com/docs/api/differential_prices/delete-a-differential-price?lang=php-v4
     *   @param array{
     *     item_price_id?: string,
     *     } $params Description of the parameters
@@ -63,7 +63,7 @@ final class DifferentialPriceActions implements DifferentialPriceActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/differential_prices?lang=php#create_a_differential_price
+    *   @see https://apidocs.chargebee.com/docs/api/differential_prices/create-a-differential-price?lang=php-v4
     *   @param array{
     *     parent_periods?: array<array{
     *     period_unit?: string,
@@ -115,7 +115,7 @@ final class DifferentialPriceActions implements DifferentialPriceActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/differential_prices?lang=php#list_differential_prices
+    *   @see https://apidocs.chargebee.com/docs/api/differential_prices/list-differential-prices?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -177,7 +177,7 @@ final class DifferentialPriceActions implements DifferentialPriceActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/differential_prices?lang=php#retrieve_a_differential_price
+    *   @see https://apidocs.chargebee.com/docs/api/differential_prices/retrieve-a-differential-price?lang=php-v4
     *   @param array{
     *     item_price_id?: string,
     *     } $params Description of the parameters
@@ -210,7 +210,7 @@ final class DifferentialPriceActions implements DifferentialPriceActionsInterfac
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/differential_prices?lang=php#update_a_differential_price
+    *   @see https://apidocs.chargebee.com/docs/api/differential_prices/update-a-differential-price?lang=php-v4
     *   @param array{
     *     parent_periods?: array<array{
     *     period_unit?: string,

@@ -13,7 +13,7 @@ Interface RecordedPurchaseActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/recorded_purchases?lang=php#retrieve_a_recorded_purchase
+    *   @see https://apidocs.chargebee.com/docs/api/recorded_purchases/retrieve-a-recorded-purchase?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -27,7 +27,7 @@ Interface RecordedPurchaseActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveRecordedPurchaseResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/recorded_purchases?lang=php#record_a_purchase
+    *   @see https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase?lang=php-v4
     *   @param array{
     *     customer?: array{
     *     id?: string,

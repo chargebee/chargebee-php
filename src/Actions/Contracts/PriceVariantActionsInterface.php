@@ -16,7 +16,7 @@ Interface PriceVariantActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/price_variants?lang=php#delete_a_price_variant
+    *   @see https://apidocs.chargebee.com/docs/api/price_variants/delete-a-price-variant?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -30,7 +30,7 @@ Interface PriceVariantActionsInterface
     public function delete(string $id, array $headers = []): DeletePriceVariantResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/price_variants?lang=php#list_price_variants
+    *   @see https://apidocs.chargebee.com/docs/api/price_variants/list-price-variants?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -90,7 +90,7 @@ Interface PriceVariantActionsInterface
     public function all(array $params = [], array $headers = []): ListPriceVariantResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/price_variants?lang=php#create_a_price_variant
+    *   @see https://apidocs.chargebee.com/docs/api/price_variants/create-a-price-variant?lang=php-v4
     *   @param array{
     *     attributes?: array<array{
     *     name?: string,
@@ -115,7 +115,7 @@ Interface PriceVariantActionsInterface
     public function create(array $params, array $headers = []): CreatePriceVariantResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/price_variants?lang=php#retrieve_a_price_variant
+    *   @see https://apidocs.chargebee.com/docs/api/price_variants/retrieve-a-price-variant?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -129,7 +129,7 @@ Interface PriceVariantActionsInterface
     public function retrieve(string $id, array $headers = []): RetrievePriceVariantResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/price_variants?lang=php#update_a_price_variant
+    *   @see https://apidocs.chargebee.com/docs/api/price_variants/update-a-price-variant?lang=php-v4
     *   @param array{
     *     attributes?: array<array{
     *     name?: string,

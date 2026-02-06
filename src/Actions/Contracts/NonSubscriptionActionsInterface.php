@@ -12,7 +12,7 @@ Interface NonSubscriptionActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/non_subscriptions?lang=php#one_time_purchase
+    *   @see https://apidocs.chargebee.com/docs/api/non_subscriptions/one-time-purchase?lang=php-v4
     *   @param array{
     *     product?: array{
     *     id?: string,

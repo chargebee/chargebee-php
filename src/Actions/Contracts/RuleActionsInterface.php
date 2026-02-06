@@ -12,7 +12,7 @@ Interface RuleActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/rules?lang=php#retrieve_rule_data
+    *   @see https://apidocs.chargebee.com/docs/api/rules/retrieve-rule-data?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

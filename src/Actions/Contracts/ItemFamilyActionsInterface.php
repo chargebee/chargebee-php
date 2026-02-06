@@ -16,7 +16,7 @@ Interface ItemFamilyActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families?lang=php#delete_an_item_family
+    *   @see https://apidocs.chargebee.com/docs/api/item_families/delete-an-item-family?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -30,7 +30,7 @@ Interface ItemFamilyActionsInterface
     public function delete(string $id, array $headers = []): DeleteItemFamilyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families?lang=php#list_item_families
+    *   @see https://apidocs.chargebee.com/docs/api/item_families/list-item-families?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -72,7 +72,7 @@ Interface ItemFamilyActionsInterface
     public function all(array $params = [], array $headers = []): ListItemFamilyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families?lang=php#create_an_item_family
+    *   @see https://apidocs.chargebee.com/docs/api/item_families/create-an-item-family?lang=php-v4
     *   @param array{
     *     id?: string,
     *     name?: string,
@@ -91,7 +91,7 @@ Interface ItemFamilyActionsInterface
     public function create(array $params, array $headers = []): CreateItemFamilyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families?lang=php#retrieve_an_item_family
+    *   @see https://apidocs.chargebee.com/docs/api/item_families/retrieve-an-item-family?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -105,7 +105,7 @@ Interface ItemFamilyActionsInterface
     public function retrieve(string $id, array $headers = []): RetrieveItemFamilyResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families?lang=php#update_an_item_family
+    *   @see https://apidocs.chargebee.com/docs/api/item_families/update-an-item-family?lang=php-v4
     *   @param array{
     *     name?: string,
     *     description?: string,

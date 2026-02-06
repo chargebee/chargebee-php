@@ -26,7 +26,7 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/business_entities?lang=php#list_the_business_entity_transfers
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/list-the-business-entity-transfers?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -79,7 +79,7 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/business_entities?lang=php#transfer_resources_to_another_business_entity
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/transfer-resources-to-another-business-entity?lang=php-v4
     *   @param array{
     *     active_resource_ids?: array<string>,
     * destination_business_entity_ids?: array<string>,

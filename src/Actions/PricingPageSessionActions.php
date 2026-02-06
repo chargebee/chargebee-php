@@ -25,7 +25,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/pricing_page_sessions?lang=php#create_pricing_page_for_existing_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription?lang=php-v4
     *   @param array{
     *     pricing_page?: array{
     *     id?: string,
@@ -79,7 +79,7 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/pricing_page_sessions?lang=php#create_pricing_page_for_new_subscription
+    *   @see https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-new-subscription?lang=php-v4
     *   @param array{
     *     pricing_page?: array{
     *     id?: string,

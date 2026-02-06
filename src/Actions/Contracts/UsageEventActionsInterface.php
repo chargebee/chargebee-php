@@ -13,7 +13,7 @@ Interface UsageEventActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usage_events?lang=php#create_a_usage_event
+    *   @see https://apidocs.chargebee.com/docs/api/usage_events/create-a-usage-event?lang=php-v4
     *   @param array{
     *     deduplication_id?: string,
     *     subscription_id?: string,
@@ -32,7 +32,7 @@ Interface UsageEventActionsInterface
     public function create(array $params, array $headers = []): CreateUsageEventResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usage_events?lang=php#ingest_usages_in_batch
+    *   @see https://apidocs.chargebee.com/docs/api/usage_events/ingest-usages-in-batch?lang=php-v4
     *   @param array{
     *     events?: array<array{
     *     deduplication_id?: string,

@@ -28,7 +28,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers?lang=php#list_vouchers_for_a_customer
+    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers/list-vouchers-for-a-customer?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -72,7 +72,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers?lang=php#list_vouchers_for_an_invoice
+    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers/list-vouchers-for-an-invoice?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -116,7 +116,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers?lang=php#retrieve_voucher_data
+    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers/retrieve-voucher-data?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -146,7 +146,7 @@ final class PaymentVoucherActions implements PaymentVoucherActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers?lang=php#create_a_voucher_for_the_customer_to_initiate_payment
+    *   @see https://apidocs.chargebee.com/docs/api/payment_vouchers/create-a-voucher-for-the-customer-to-initiate-payment?lang=php-v4
     *   @param array{
     *     voucher_payment_source?: array{
     *     voucher_type?: string,

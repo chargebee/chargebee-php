@@ -26,7 +26,7 @@ final class EventActions implements EventActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/events?lang=php#list_events
+    *   @see https://apidocs.chargebee.com/docs/api/events/list-events?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -97,7 +97,7 @@ final class EventActions implements EventActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/events?lang=php#retrieve_an_event
+    *   @see https://apidocs.chargebee.com/docs/api/events/retrieve-an-event?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

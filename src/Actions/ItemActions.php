@@ -29,7 +29,7 @@ final class ItemActions implements ItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#list_items
+    *   @see https://apidocs.chargebee.com/docs/api/items/list-items?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -149,7 +149,7 @@ final class ItemActions implements ItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#create_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/create-an-item?lang=php-v4
     *   @param array{
     *     bundle_configuration?: array{
     *     type?: string,
@@ -213,7 +213,7 @@ final class ItemActions implements ItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#delete_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/delete-an-item?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -244,7 +244,7 @@ final class ItemActions implements ItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#retrieve_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/retrieve-an-item?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -274,7 +274,7 @@ final class ItemActions implements ItemActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/items?lang=php#update_an_item
+    *   @see https://apidocs.chargebee.com/docs/api/items/update-an-item?lang=php-v4
     *   @param array{
     *     bundle_configuration?: array{
     *     type?: string,

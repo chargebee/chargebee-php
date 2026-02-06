@@ -28,7 +28,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes?lang=php#list_coupon_codes
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes/list-coupon-codes?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -87,7 +87,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes?lang=php#create_a_coupon_code_for_a_coupon
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes/create-a-coupon-code-for-a-coupon?lang=php-v4
     *   @param array{
     *     coupon_id?: string,
     *     coupon_set_name?: string,
@@ -124,7 +124,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes?lang=php#retrieve_a_coupon_code
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes/retrieve-a-coupon-code?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -154,7 +154,7 @@ final class CouponCodeActions implements CouponCodeActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes?lang=php#archive_a_coupon_code
+    *   @see https://apidocs.chargebee.com/docs/api/coupon_codes/archive-a-coupon-code?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers

@@ -25,7 +25,7 @@ final class OfferEventActions implements OfferEventActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/offer_events?lang=php#create_an_offer_event
+    *   @see https://apidocs.chargebee.com/docs/api/offer_events/create-an-offer-event?lang=php-v4
     *   @param array{
     *     personalized_offer_id?: string,
     *     type?: string,

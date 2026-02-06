@@ -31,7 +31,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#copy_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/copy-an-addon?lang=php-v4
     *   @param array{
     *     from_site?: string,
     *     id_at_from_site?: string,
@@ -68,7 +68,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#unarchive_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/unarchive-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -99,7 +99,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#retrieve_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/retrieve-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -129,7 +129,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#update_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/update-an-addon?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,
@@ -212,7 +212,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#list_addons
+    *   @see https://apidocs.chargebee.com/docs/api/addons/list-addons?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -328,7 +328,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#create_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/create-an-addon?lang=php-v4
     *   @param array{
     *     tiers?: array<array{
     *     starting_unit?: int,
@@ -413,7 +413,7 @@ final class AddonActions implements AddonActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/addons?lang=php#delete_an_addon
+    *   @see https://apidocs.chargebee.com/docs/api/addons/delete-an-addon?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
