@@ -129,6 +129,10 @@ use Chargebee\Actions\WebhookEndpointActions;
 
 use Chargebee\HttpClient\GuzzleFactory;
 use Chargebee\HttpClient\HttpClientFactory;
+use Chargebee\HttpClient\PsrClientAdapter;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 class ChargebeeClient {
     private HttpClientFactory $httpClientFactory;
@@ -145,10 +149,18 @@ class ChargebeeClient {
      *      retryConfig?: RetryConfig,
      *      enableDebugLogs?: bool
      * } $options
-     * @param HttpClientFactory|null $httpClient
+     * @param HttpClientFactory|ClientInterface|null $httpClient Pass an HttpClientFactory for full control,
+     *        or a PSR-18 ClientInterface for a simpler injection path. When omitted, GuzzleFactory is used.
+     * @param RequestFactoryInterface|null $requestFactory PSR-17 request factory (used only when $httpClient is a ClientInterface)
+     * @param StreamFactoryInterface|null $streamFactory PSR-17 stream factory (used only when $httpClient is a ClientInterface)
      * @throws \Exception
      */
-    public function __construct($options, ?HttpClientFactory $httpClient=null)
+    public function __construct(
+        $options,
+        HttpClientFactory|ClientInterface|null $httpClient = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null,
+    )
     {
         if (!is_array($options)) {
             throw new \Exception('$options must be of type array!');
@@ -179,7 +191,13 @@ class ChargebeeClient {
             $env->setEnableDebugLogs($options['enableDebugLogs']);
         }
         $this->env = $env;
-        $this->httpClientFactory = $httpClient ?? new GuzzleFactory($env->requestTimeoutInSecs, $env->connectTimeoutInSecs);
+        if ($httpClient instanceof ClientInterface) {
+            $this->httpClientFactory = new PsrClientAdapter($httpClient, $requestFactory, $streamFactory);
+        } elseif ($httpClient instanceof HttpClientFactory) {
+            $this->httpClientFactory = $httpClient;
+        } else {
+            $this->httpClientFactory = new GuzzleFactory($env->requestTimeoutInSecs, $env->connectTimeoutInSecs);
+        }
     }
 
 

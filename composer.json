@@ -13,7 +13,13 @@
     "require": {
         "php": ">=8.1.0",
         "guzzlehttp/guzzle": ">=7",
-        "psr/http-client": "^1.0"
+        "php-http/discovery": "^1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0"
+    },
+    "suggest": {
+        "psr/http-client-implementation": "Any PSR-18 HTTP client (e.g. symfony/http-client) — in a future major version Guzzle will become optional.",
+        "psr/http-factory-implementation": "Any PSR-17 factory (e.g. nyholm/psr7) — required if you inject a PSR-18 client without PSR-17 factories and Guzzle is not installed."
     },
     "autoload": {
         "psr-4": {
@@ -31,5 +37,10 @@
     "require-dev": {
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
