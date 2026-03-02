@@ -118,10 +118,14 @@ use Chargebee\Actions\Contracts\UnbilledChargeActionsInterface;
 use Chargebee\Actions\UnbilledChargeActions;
 use Chargebee\Actions\Contracts\UsageActionsInterface;
 use Chargebee\Actions\UsageActions;
+use Chargebee\Actions\Contracts\UsageChargeActionsInterface;
+use Chargebee\Actions\UsageChargeActions;
 use Chargebee\Actions\Contracts\UsageEventActionsInterface;
 use Chargebee\Actions\UsageEventActions;
 use Chargebee\Actions\Contracts\UsageFileActionsInterface;
 use Chargebee\Actions\UsageFileActions;
+use Chargebee\Actions\Contracts\UsageSummaryActionsInterface;
+use Chargebee\Actions\UsageSummaryActions;
 use Chargebee\Actions\Contracts\VirtualBankAccountActionsInterface;
 use Chargebee\Actions\VirtualBankAccountActions;
 use Chargebee\Actions\Contracts\WebhookEndpointActionsInterface;
@@ -419,12 +423,20 @@ class ChargebeeClient {
         return new UsageActions($this->httpClientFactory, $this->env);
     }
 
+    public function usageCharge() :UsageChargeActionsInterface {
+        return new UsageChargeActions($this->httpClientFactory, $this->env);
+    }
+
     public function usageEvent() :UsageEventActionsInterface {
         return new UsageEventActions($this->httpClientFactory, $this->env);
     }
 
     public function usageFile() :UsageFileActionsInterface {
         return new UsageFileActions($this->httpClientFactory, $this->env);
+    }
+
+    public function usageSummary() :UsageSummaryActionsInterface {
+        return new UsageSummaryActions($this->httpClientFactory, $this->env);
     }
 
     public function virtualBankAccount() :VirtualBankAccountActionsInterface {

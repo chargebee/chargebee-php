@@ -99,8 +99,8 @@ final class CouponActions implements CouponActionsInterface
     *     not_in?: mixed,
     *     },
     * applicable_item_price_ids?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   
