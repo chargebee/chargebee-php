@@ -8,37 +8,36 @@ use Chargebee\ValueObjects\ResponseBase;
 class UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponse extends ResponseBase { 
     /**
     *
-    * @var ?ItemEntitlement $item_entitlement
+    * @var array<UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponseListObject> $list
     */
-    public ?ItemEntitlement $item_entitlement;
+    public array $list;
     
 
     private function __construct(
-        ?ItemEntitlement $item_entitlement,
+        array $list,
         array $responseHeaders=[],
         array $rawResponse=[]
     )
     {
         parent::__construct($responseHeaders, $rawResponse);
-        $this->item_entitlement = $item_entitlement;
+        $this->list = $list;
         
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
-        return new self(
-            isset($resourceAttributes['item_entitlement']) ? ItemEntitlement::from($resourceAttributes['item_entitlement']) : null,
-             $headers, $resourceAttributes);
+            $list = array_map(function (array $result): UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponseListObject {
+                return new UpsertOrRemoveItemEntitlementsForItemItemEntitlementResponseListObject(
+                    isset($result['item_entitlement']) ? ItemEntitlement::from($result['item_entitlement']) : null,
+                );}, $resourceAttributes['list'] ?? []);
+        
+        return new self($list, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([ 
+        $data = array_filter([
+            'list' => $this->list,
         ]);
-         
-        if($this->item_entitlement instanceof ItemEntitlement){
-            $data['item_entitlement'] = $this->item_entitlement->toArray();
-        } 
-
         return $data;
     }
 }

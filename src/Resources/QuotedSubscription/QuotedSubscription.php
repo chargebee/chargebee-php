@@ -83,6 +83,12 @@ class QuotedSubscription  {
     
     /**
     *
+    * @var ?int $free_period
+    */
+    public ?int $free_period;
+    
+    /**
+    *
     * @var ?int $contract_term_billing_cycle_on_renewal
     */
     public ?int $contract_term_billing_cycle_on_renewal;
@@ -131,6 +137,12 @@ class QuotedSubscription  {
     
     /**
     *
+    * @var ?\Chargebee\Enums\FreePeriodUnit $free_period_unit
+    */
+    public ?\Chargebee\Enums\FreePeriodUnit $free_period_unit;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\QuotedSubscription\Enums\BillingPeriodUnit $billing_period_unit
     */
     public ?\Chargebee\Resources\QuotedSubscription\Enums\BillingPeriodUnit $billing_period_unit;
@@ -144,7 +156,7 @@ class QuotedSubscription  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "plan_id" , "plan_quantity" , "plan_unit_price" , "setup_fee" , "billing_period" , "start_date" , "trial_end" , "remaining_billing_cycles" , "po_number" , "plan_quantity_in_decimal" , "plan_unit_price_in_decimal" , "changes_scheduled_at" , "contract_term_billing_cycle_on_renewal" , "addons" , "event_based_addons" , "coupons" , "subscription_items" , "item_tiers" , "quoted_contract_term"  ];
+    protected static array $knownFields = [ "id" , "plan_id" , "plan_quantity" , "plan_unit_price" , "setup_fee" , "billing_period" , "start_date" , "trial_end" , "remaining_billing_cycles" , "po_number" , "plan_quantity_in_decimal" , "plan_unit_price_in_decimal" , "changes_scheduled_at" , "free_period" , "contract_term_billing_cycle_on_renewal" , "addons" , "event_based_addons" , "coupons" , "subscription_items" , "item_tiers" , "quoted_contract_term"  ];
 
     /**
     * dynamic properties for resources
@@ -166,6 +178,7 @@ class QuotedSubscription  {
         ?string $plan_quantity_in_decimal,
         ?string $plan_unit_price_in_decimal,
         ?int $changes_scheduled_at,
+        ?int $free_period,
         ?int $contract_term_billing_cycle_on_renewal,
         ?array $addons,
         ?array $event_based_addons,
@@ -174,6 +187,7 @@ class QuotedSubscription  {
         ?array $item_tiers,
         ?QuotedContractTerm $quoted_contract_term,
         ?\Chargebee\Enums\AutoCollection $auto_collection,
+        ?\Chargebee\Enums\FreePeriodUnit $free_period_unit,
         ?\Chargebee\Resources\QuotedSubscription\Enums\BillingPeriodUnit $billing_period_unit,
         ?\Chargebee\Resources\QuotedSubscription\Enums\ChangeOption $change_option,
     )
@@ -191,6 +205,7 @@ class QuotedSubscription  {
         $this->plan_quantity_in_decimal = $plan_quantity_in_decimal;
         $this->plan_unit_price_in_decimal = $plan_unit_price_in_decimal;
         $this->changes_scheduled_at = $changes_scheduled_at;
+        $this->free_period = $free_period;
         $this->contract_term_billing_cycle_on_renewal = $contract_term_billing_cycle_on_renewal;
         $this->addons = $addons;
         $this->event_based_addons = $event_based_addons;
@@ -198,7 +213,8 @@ class QuotedSubscription  {
         $this->subscription_items = $subscription_items;
         $this->item_tiers = $item_tiers;
         $this->quoted_contract_term = $quoted_contract_term; 
-        $this->auto_collection = $auto_collection; 
+        $this->auto_collection = $auto_collection;
+        $this->free_period_unit = $free_period_unit; 
         $this->billing_period_unit = $billing_period_unit;
         $this->change_option = $change_option; 
     }
@@ -238,6 +254,7 @@ class QuotedSubscription  {
         $resourceAttributes['plan_quantity_in_decimal'] ?? null,
         $resourceAttributes['plan_unit_price_in_decimal'] ?? null,
         $resourceAttributes['changes_scheduled_at'] ?? null,
+        $resourceAttributes['free_period'] ?? null,
         $resourceAttributes['contract_term_billing_cycle_on_renewal'] ?? null,
         $addons,
         $event_based_addons,
@@ -248,6 +265,8 @@ class QuotedSubscription  {
         
         
         isset($resourceAttributes['auto_collection']) ? \Chargebee\Enums\AutoCollection::tryFromValue($resourceAttributes['auto_collection']) : null,
+        
+        isset($resourceAttributes['free_period_unit']) ? \Chargebee\Enums\FreePeriodUnit::tryFromValue($resourceAttributes['free_period_unit']) : null,
          
         isset($resourceAttributes['billing_period_unit']) ? \Chargebee\Resources\QuotedSubscription\Enums\BillingPeriodUnit::tryFromValue($resourceAttributes['billing_period_unit']) : null,
         
@@ -274,6 +293,7 @@ class QuotedSubscription  {
         'plan_quantity_in_decimal' => $this->plan_quantity_in_decimal,
         'plan_unit_price_in_decimal' => $this->plan_unit_price_in_decimal,
         'changes_scheduled_at' => $this->changes_scheduled_at,
+        'free_period' => $this->free_period,
         'contract_term_billing_cycle_on_renewal' => $this->contract_term_billing_cycle_on_renewal,
         
         
@@ -283,6 +303,8 @@ class QuotedSubscription  {
         
         
         'auto_collection' => $this->auto_collection?->value,
+        
+        'free_period_unit' => $this->free_period_unit?->value,
         
         'billing_period_unit' => $this->billing_period_unit?->value,
         
