@@ -1,3 +1,16 @@
+### v4.18.0 (2025-03-03)
+* * *
+### PSR-18 / PSR-17 HTTP client injection (backward compatible):
+- **Direct PSR-18 injection:** You can now inject a `Psr\Http\Client\ClientInterface` (PSR-18) directly into `ChargebeeClient` without implementing the Chargebee-specific `HttpClientFactory` interface.
+- **Optional PSR-17 factories:** When using a PSR-18 client, you may optionally pass `RequestFactoryInterface` and `StreamFactoryInterface` (PSR-17). When omitted, [php-http/discovery](https://github.com/php-http/discovery) auto-discovers any installed PSR-17 implementation.
+- **New adapter:** `Chargebee\HttpClient\PsrClientAdapter` wraps a PSR-18 client and builds PSR-7 requests using the injected or discovered PSR-17 request/stream factories.
+- **Backward compatibility:** The existing `HttpClientFactory` injection path and the default `GuzzleFactory` are unchanged.
+
+### New dependencies (require):
+- `php-http/discovery` ^1.0
+- `psr/http-factory` ^1.0
+
+
 ### v4.17.0 (2026-03-02)
 * * *
 ### New Resources:
