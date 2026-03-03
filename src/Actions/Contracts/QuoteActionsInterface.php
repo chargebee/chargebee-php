@@ -41,6 +41,8 @@ Interface QuoteActionsInterface
     *     start_date?: int,
     *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
+    *     free_period?: int,
+    *     free_period_unit?: string,
     *     },
     * shipping_address?: array{
     *     first_name?: string,
@@ -172,6 +174,8 @@ Interface QuoteActionsInterface
     *     start_date?: int,
     *     offline_payment_method?: string,
     *     contract_term_billing_cycle_on_renewal?: int,
+    *     free_period?: int,
+    *     free_period_unit?: string,
     *     },
     * shipping_address?: array{
     *     first_name?: string,

@@ -21,6 +21,10 @@ Interface PricingPageSessionActionsInterface
     * subscription?: array{
     *     id?: string,
     *     },
+    * contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     },
     * discounts?: array<array{
     *     apply_on?: string,
     *     duration_type?: string,
@@ -96,6 +100,10 @@ Interface PricingPageSessionActionsInterface
     *     zip?: string,
     *     country?: string,
     *     validation_status?: string,
+    *     },
+    * contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
     *     },
     * discounts?: array<array{
     *     apply_on?: string,

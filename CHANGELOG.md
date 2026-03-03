@@ -1,3 +1,32 @@
+### v4.17.0 (2026-03-02)
+* * *
+### New Resources:
+- [`UsageCharge`](https://apidocs.chargebee.com/docs/api/usage_charges) has been added.
+- [`UsageSummary`](https://apidocs.chargebee.com/docs/api/usage_summaries) has been added.
+
+
+### New Attributes:
+- [`free_period`](https://apidocs.chargebee.com/docs/api/quoted_subscriptions/quoted-subscription-object#free_period) has been added to [`QuotedSubscription`](https://apidocs.chargebee.com/docs/api/quoted_subscriptions).
+- [`free_period_unit`](https://apidocs.chargebee.com/docs/api/quoted_subscriptions/quoted-subscription-object#free_period_unit) has been added to [`QuotedSubscription`](https://apidocs.chargebee.com/docs/api/quoted_subscriptions).
+
+
+### New Parameters:
+- [`net_term_days`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges#net_term_days) has been added as request body parameter to [`create_invoice_for_items_and_one-time_charges`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`contract_term`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription#contract_term) has been added as request body parameter to [`create_pricing_page_for_existing_subscription`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription) in [`PricingPageSession`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions).
+- [`contract_term`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-new-subscription#contract_term) has been added as request body parameter to [`create_pricing_page_for_new_subscription`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-new-subscription) in [`PricingPageSession`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions).
+- [`subscription.free_period`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items#subscription_free_period) has been added as request body parameter to [`create_a_quote_for_a_new_subscription_items`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription.free_period_unit`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items#subscription_free_period_unit) has been added as request body parameter to [`create_a_quote_for_a_new_subscription_items`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription.free_period`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items#subscription_free_period) has been added as request body parameter to [`edit_create_subscription_quote_for_items`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription.free_period_unit`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items#subscription_free_period_unit) has been added as request body parameter to [`edit_create_subscription_quote_for_items`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+
+
+### New Enums:
+- `month`, `week`, `day`, `hour`, and `minute` have been added as new values enum `WindowSize`.
+- `cancel`, `renew_once`, `renew`, and `evergreen` have been added as new values to enum request body parameter `contract_term.action_at_term_end` in [`create_pricing_page_for_existing_subscription`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-existing-subscription) of [`PricingPageSession`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions).
+- `cancel`, `renew_once`, `renew`, and `evergreen` have been added as new values to enum request body parameter `contract_term.action_at_term_end` in [`create_pricing_page_for_new_subscription`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions/create-pricing-page-for-new-subscription) of [`PricingPageSession`](https://apidocs.chargebee.com/docs/api/pricing_page_sessions).
+
+
+
 ### v4.16.0 (2026-02-06)
 * * *
 ### New Attributes:
