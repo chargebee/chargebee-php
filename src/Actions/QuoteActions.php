@@ -2,27 +2,33 @@
 namespace Chargebee\Actions;
 
 use Chargebee\Responses\QuoteResponse\EditUpdateSubscriptionQuoteForItemsQuoteResponse;
-use Chargebee\Responses\QuoteResponse\EditCreateSubForCustomerQuoteQuoteResponse;
-use Chargebee\Responses\QuoteResponse\EditCreateSubCustomerQuoteForItemsQuoteResponse;
 use Chargebee\Responses\QuoteResponse\ConvertQuoteResponse;
+use Chargebee\Responses\QuoteResponse\EditCreateSubCustomerQuoteForItemsQuoteResponse;
 use Chargebee\Responses\QuoteResponse\CreateSubForCustomerQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\ListQuoteResponse;
 use Chargebee\Responses\QuoteResponse\PdfQuoteResponse;
 use Chargebee\Actions\Contracts\QuoteActionsInterface;
-use Chargebee\Responses\QuoteResponse\CreateSubItemsForCustomerQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\RetrieveQuoteResponse;
+use Chargebee\Responses\QuoteResponse\RetrieveSignedPdfQuoteResponse;
+use Chargebee\Responses\QuoteResponse\DeleteQuoteResponse;
+use Chargebee\Responses\QuoteResponse\CreateForOnetimeChargesQuoteResponse;
+use Chargebee\Responses\QuoteResponse\QuoteLineGroupsForQuoteQuoteResponse;
+use Chargebee\Responses\QuoteResponse\UpdateSignatureStatusQuoteResponse;
+use Chargebee\Responses\QuoteResponse\ExtendExpiryDateQuoteResponse;
+use Chargebee\Responses\QuoteResponse\EditCreateSubForCustomerQuoteQuoteResponse;
+use Chargebee\Responses\QuoteResponse\RefreshSignatureLinkQuoteResponse;
+use Chargebee\Responses\QuoteResponse\CreateSubItemsForCustomerQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\UpdateStatusQuoteResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\QuoteResponse\EditForChargeItemsAndChargesQuoteResponse;
-use Chargebee\Responses\QuoteResponse\DeleteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\UpdateSubscriptionQuoteQuoteResponse;
-use Chargebee\Responses\QuoteResponse\CreateForOnetimeChargesQuoteResponse;
 use Chargebee\Responses\QuoteResponse\EditOneTimeQuoteQuoteResponse;
 use Chargebee\Responses\QuoteResponse\CreateForChargeItemsAndChargesQuoteResponse;
 use Chargebee\Responses\QuoteResponse\UpdateSubscriptionQuoteForItemsQuoteResponse;
-use Chargebee\Responses\QuoteResponse\QuoteLineGroupsForQuoteQuoteResponse;
+use Chargebee\Responses\QuoteResponse\UpdateSignatureQuoteResponse;
+use Chargebee\Responses\QuoteResponse\RetrieveSignatureQuoteResponse;
 use Chargebee\Responses\QuoteResponse\EditUpdateSubscriptionQuoteQuoteResponse;
-use Chargebee\Responses\QuoteResponse\ExtendExpiryDateQuoteResponse;
+use Chargebee\Responses\QuoteResponse\CreateSignatureQuoteResponse;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
@@ -211,129 +217,30 @@ final class QuoteActions implements QuoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items?lang=php-v4
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature-status?lang=php-v4
     *   @param array{
-    *     subscription?: array{
-    *     id?: string,
-    *     po_number?: string,
-    *     trial_end?: int,
-    *     setup_fee?: int,
-    *     start_date?: int,
-    *     offline_payment_method?: string,
-    *     contract_term_billing_cycle_on_renewal?: int,
-    *     free_period?: int,
-    *     free_period_unit?: string,
+    *     cpq_quote_signature?: array{
+    *     status?: string,
     *     },
-    * shipping_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * contract_term?: array{
-    *     action_at_term_end?: string,
-    *     cancellation_cutoff_period?: int,
-    *     },
-    * billing_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * subscription_items?: array<array{
-    *     item_price_id?: string,
-    *     quantity?: int,
-    *     quantity_in_decimal?: string,
-    *     unit_price?: int,
-    *     unit_price_in_decimal?: string,
-    *     billing_cycles?: int,
-    *     trial_end?: int,
-    *     service_period_days?: int,
-    *     charge_on_event?: string,
-    *     charge_once?: bool,
-    *     item_type?: string,
-    *     charge_on_option?: string,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     ramp_tier_id?: string,
-    *     }>,
-    *     discounts?: array<array{
-    *     apply_on?: string,
-    *     duration_type?: string,
-    *     percentage?: float,
-    *     amount?: int,
-    *     period?: int,
-    *     period_unit?: string,
-    *     included_in_mrr?: bool,
-    *     item_price_id?: string,
-    *     quantity?: int,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     }>,
-    *     item_tiers?: array<array{
-    *     item_price_id?: string,
-    *     starting_unit?: int,
-    *     ending_unit?: int,
-    *     price?: int,
-    *     starting_unit_in_decimal?: string,
-    *     ending_unit_in_decimal?: string,
-    *     price_in_decimal?: string,
-    *     pricing_type?: string,
-    *     package_size?: int,
-    *     ramp_tier_id?: string,
-    *     }>,
-    *     coupons?: array<array{
-    *     id?: string,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     }>,
-    *     notes?: string,
-    *     expires_at?: int,
-    *     billing_cycles?: int,
-    *     mandatory_items_to_remove?: array<string>,
-    * terms_to_charge?: int,
-    *     billing_alignment_mode?: string,
-    *     coupon_ids?: array<string>,
-    * billing_start_option?: string,
-    *     net_term_days?: int,
-    *     } $params Description of the parameters
+    * } $params Description of the parameters
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
-    *   @return EditCreateSubCustomerQuoteForItemsQuoteResponse
+    *   @return UpdateSignatureStatusQuoteResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function editCreateSubCustomerQuoteForItems(string $id, array $params, array $headers = []): EditCreateSubCustomerQuoteForItemsQuoteResponse
+    public function updateSignatureStatus(string $id, array $params = [], array $headers = []): UpdateSignatureStatusQuoteResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
         ->withHttpMethod("post")
-        ->withUriPaths(["quotes",$id,"edit_create_subscription_quote_for_items"])
+        ->withUriPaths(["quotes",$id,"update_signature_status"])
         ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
@@ -343,7 +250,39 @@ final class QuoteActions implements QuoteActionsInterface
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return EditCreateSubCustomerQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
+        return UpdateSignatureStatusQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
+    *   @param array<string, string> $headers
+    *   @return UpdateSignatureQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function updateSignature(string $id, array $headers = []): UpdateSignatureQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"update_signature"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateSignatureQuoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -382,189 +321,6 @@ final class QuoteActions implements QuoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-update-subscription-items?lang=php-v4
-    *   @param array{
-    *     subscription?: array{
-    *     id?: string,
-    *     setup_fee?: int,
-    *     start_date?: int,
-    *     trial_end?: int,
-    *     coupon?: string,
-    *     auto_collection?: string,
-    *     offline_payment_method?: string,
-    *     contract_term_billing_cycle_on_renewal?: int,
-    *     },
-    * billing_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * shipping_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * customer?: array{
-    *     vat_number?: string,
-    *     vat_number_prefix?: string,
-    *     registered_for_gst?: bool,
-    *     },
-    * contract_term?: array{
-    *     action_at_term_end?: string,
-    *     cancellation_cutoff_period?: int,
-    *     },
-    * subscription_items?: array<array{
-    *     item_price_id?: string,
-    *     quantity?: int,
-    *     quantity_in_decimal?: string,
-    *     unit_price?: int,
-    *     unit_price_in_decimal?: string,
-    *     billing_cycles?: int,
-    *     trial_end?: int,
-    *     service_period_days?: int,
-    *     charge_on_event?: string,
-    *     charge_once?: bool,
-    *     charge_on_option?: string,
-    *     item_type?: string,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     ramp_tier_id?: string,
-    *     }>,
-    *     discounts?: array<array{
-    *     apply_on?: string,
-    *     duration_type?: string,
-    *     percentage?: float,
-    *     amount?: int,
-    *     period?: int,
-    *     period_unit?: string,
-    *     included_in_mrr?: bool,
-    *     item_price_id?: string,
-    *     quantity?: int,
-    *     operation_type?: string,
-    *     id?: string,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     }>,
-    *     item_tiers?: array<array{
-    *     item_price_id?: string,
-    *     starting_unit?: int,
-    *     ending_unit?: int,
-    *     price?: int,
-    *     starting_unit_in_decimal?: string,
-    *     ending_unit_in_decimal?: string,
-    *     price_in_decimal?: string,
-    *     pricing_type?: string,
-    *     package_size?: int,
-    *     ramp_tier_id?: string,
-    *     }>,
-    *     coupons?: array<array{
-    *     id?: string,
-    *     start_date?: int,
-    *     end_date?: int,
-    *     }>,
-    *     name?: string,
-    *     notes?: string,
-    *     expires_at?: int,
-    *     mandatory_items_to_remove?: array<string>,
-    * replace_items_list?: bool,
-    *     billing_cycles?: int,
-    *     terms_to_charge?: int,
-    *     reactivate_from?: int,
-    *     billing_alignment_mode?: string,
-    *     coupon_ids?: array<string>,
-    * replace_coupon_list?: bool,
-    *     change_option?: string,
-    *     changes_scheduled_at?: int,
-    *     force_term_reset?: bool,
-    *     reactivate?: bool,
-    *     net_term_days?: int,
-    *     } $params Description of the parameters
-    *   
-    *   @param array<string, string> $headers
-    *   @return UpdateSubscriptionQuoteForItemsQuoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function updateSubscriptionQuoteForItems(array $params, array $headers = []): UpdateSubscriptionQuoteForItemsQuoteResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["quotes","update_subscription_quote_for_items"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return UpdateSubscriptionQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/list-quote-line-groups?lang=php-v4
-    *   @param array{
-    *     limit?: int,
-    *     offset?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return QuoteLineGroupsForQuoteQuoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function quoteLineGroupsForQuote(string $id, array $params = [], array $headers = []): QuoteLineGroupsForQuoteQuoteResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["quotes",$id,"quote_line_groups"])
-        ->withParamEncoder(new ListParamEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return QuoteLineGroupsForQuoteQuoteResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/quotes/extend-expiry-date?lang=php-v4
     *   @param array{
     *     valid_till?: int,
@@ -599,114 +355,35 @@ final class QuoteActions implements QuoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-charge-items-and-charges?lang=php-v4
-    *   @param array{
-    *     billing_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * shipping_address?: array{
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     company?: string,
-    *     phone?: string,
-    *     line1?: string,
-    *     line2?: string,
-    *     line3?: string,
-    *     city?: string,
-    *     state_code?: string,
-    *     state?: string,
-    *     zip?: string,
-    *     country?: string,
-    *     validation_status?: string,
-    *     },
-    * item_prices?: array<array{
-    *     item_price_id?: string,
-    *     quantity?: int,
-    *     quantity_in_decimal?: string,
-    *     unit_price?: int,
-    *     unit_price_in_decimal?: string,
-    *     service_period_days?: int,
-    *     }>,
-    *     item_tiers?: array<array{
-    *     item_price_id?: string,
-    *     starting_unit?: int,
-    *     ending_unit?: int,
-    *     price?: int,
-    *     starting_unit_in_decimal?: string,
-    *     ending_unit_in_decimal?: string,
-    *     price_in_decimal?: string,
-    *     pricing_type?: string,
-    *     package_size?: int,
-    *     }>,
-    *     charges?: array<array{
-    *     amount?: int,
-    *     amount_in_decimal?: string,
-    *     description?: string,
-    *     avalara_sale_type?: string,
-    *     avalara_transaction_type?: int,
-    *     avalara_service_type?: int,
-    *     service_period?: int,
-    *     }>,
-    *     discounts?: array<array{
-    *     percentage?: float,
-    *     quantity?: int,
-    *     amount?: int,
-    *     apply_on?: string,
-    *     item_price_id?: string,
-    *     }>,
-    *     tax_providers_fields?: array<array{
-    *     provider_name?: string,
-    *     field_id?: string,
-    *     field_value?: string,
-    *     }>,
-    *     po_number?: string,
-    *     notes?: string,
-    *     expires_at?: int,
-    *     currency_code?: string,
-    *     coupon?: string,
-    *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-a-quote-signature-signed-pdf?lang=php-v4
+    *   
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
-    *   @return EditForChargeItemsAndChargesQuoteResponse
+    *   @return RetrieveSignedPdfQuoteResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function editForChargeItemsAndCharges(string $id, array $params, array $headers = []): EditForChargeItemsAndChargesQuoteResponse
+    public function retrieveSignedPdf(string $id, array $headers = []): RetrieveSignedPdfQuoteResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
         ->withHttpMethod("post")
-        ->withUriPaths(["quotes",$id,"edit_for_charge_items_and_charges"])
+        ->withUriPaths(["quotes",$id,"retrieve_signed_pdf"])
         ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
-        ->withParams($params)
         ->withIdempotent(true)
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return EditForChargeItemsAndChargesQuoteResponse::from($respObject->data, $respObject->headers);
+        return RetrieveSignedPdfQuoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -936,38 +613,34 @@ final class QuoteActions implements QuoteActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-quote-as-pdf?lang=php-v4
-    *   @param array{
-    *     consolidated_view?: bool,
-    *     disposition_type?: string,
-    *     } $params Description of the parameters
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-a-quote-signature?lang=php-v4
+    *   
     *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
-    *   @return PdfQuoteResponse
+    *   @return RetrieveSignatureQuoteResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function pdf(string $id, array $params = [], array $headers = []): PdfQuoteResponse
+    public function retrieveSignature(string $id, array $headers = []): RetrieveSignatureQuoteResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["quotes",$id,"pdf"])
+        ->withHttpMethod("get")
+        ->withUriPaths(["quotes",$id,"retrieve_signature"])
         ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return PdfQuoteResponse::from($respObject->data, $respObject->headers);
+        return RetrieveSignatureQuoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1011,6 +684,569 @@ final class QuoteActions implements QuoteActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ConvertQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/delete-a-quote?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return DeleteQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function delete(string $id, array $params = [], array $headers = []): DeleteQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"delete"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return DeleteQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items?lang=php-v4
+    *   @param array{
+    *     subscription?: array{
+    *     id?: string,
+    *     po_number?: string,
+    *     trial_end?: int,
+    *     setup_fee?: int,
+    *     start_date?: int,
+    *     offline_payment_method?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     free_period?: int,
+    *     free_period_unit?: string,
+    *     },
+    * shipping_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     },
+    * billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * subscription_items?: array<array{
+    *     item_price_id?: string,
+    *     quantity?: int,
+    *     quantity_in_decimal?: string,
+    *     unit_price?: int,
+    *     unit_price_in_decimal?: string,
+    *     billing_cycles?: int,
+    *     trial_end?: int,
+    *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     item_type?: string,
+    *     charge_on_option?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     ramp_tier_id?: string,
+    *     }>,
+    *     discounts?: array<array{
+    *     apply_on?: string,
+    *     duration_type?: string,
+    *     percentage?: float,
+    *     amount?: int,
+    *     period?: int,
+    *     period_unit?: string,
+    *     included_in_mrr?: bool,
+    *     item_price_id?: string,
+    *     quantity?: int,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
+    *     item_tiers?: array<array{
+    *     item_price_id?: string,
+    *     starting_unit?: int,
+    *     ending_unit?: int,
+    *     price?: int,
+    *     starting_unit_in_decimal?: string,
+    *     ending_unit_in_decimal?: string,
+    *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
+    *     ramp_tier_id?: string,
+    *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
+    *     notes?: string,
+    *     expires_at?: int,
+    *     billing_cycles?: int,
+    *     mandatory_items_to_remove?: array<string>,
+    * terms_to_charge?: int,
+    *     billing_alignment_mode?: string,
+    *     coupon_ids?: array<string>,
+    * billing_start_option?: string,
+    *     net_term_days?: int,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return EditCreateSubCustomerQuoteForItemsQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function editCreateSubCustomerQuoteForItems(string $id, array $params, array $headers = []): EditCreateSubCustomerQuoteForItemsQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"edit_create_subscription_quote_for_items"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return EditCreateSubCustomerQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-update-subscription-items?lang=php-v4
+    *   @param array{
+    *     subscription?: array{
+    *     id?: string,
+    *     setup_fee?: int,
+    *     start_date?: int,
+    *     trial_end?: int,
+    *     coupon?: string,
+    *     auto_collection?: string,
+    *     offline_payment_method?: string,
+    *     contract_term_billing_cycle_on_renewal?: int,
+    *     },
+    * billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * shipping_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * customer?: array{
+    *     vat_number?: string,
+    *     vat_number_prefix?: string,
+    *     registered_for_gst?: bool,
+    *     },
+    * contract_term?: array{
+    *     action_at_term_end?: string,
+    *     cancellation_cutoff_period?: int,
+    *     },
+    * subscription_items?: array<array{
+    *     item_price_id?: string,
+    *     quantity?: int,
+    *     quantity_in_decimal?: string,
+    *     unit_price?: int,
+    *     unit_price_in_decimal?: string,
+    *     billing_cycles?: int,
+    *     trial_end?: int,
+    *     service_period_days?: int,
+    *     charge_on_event?: string,
+    *     charge_once?: bool,
+    *     charge_on_option?: string,
+    *     item_type?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     ramp_tier_id?: string,
+    *     }>,
+    *     discounts?: array<array{
+    *     apply_on?: string,
+    *     duration_type?: string,
+    *     percentage?: float,
+    *     amount?: int,
+    *     period?: int,
+    *     period_unit?: string,
+    *     included_in_mrr?: bool,
+    *     item_price_id?: string,
+    *     quantity?: int,
+    *     operation_type?: string,
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
+    *     item_tiers?: array<array{
+    *     item_price_id?: string,
+    *     starting_unit?: int,
+    *     ending_unit?: int,
+    *     price?: int,
+    *     starting_unit_in_decimal?: string,
+    *     ending_unit_in_decimal?: string,
+    *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
+    *     ramp_tier_id?: string,
+    *     }>,
+    *     coupons?: array<array{
+    *     id?: string,
+    *     start_date?: int,
+    *     end_date?: int,
+    *     }>,
+    *     name?: string,
+    *     notes?: string,
+    *     expires_at?: int,
+    *     mandatory_items_to_remove?: array<string>,
+    * replace_items_list?: bool,
+    *     billing_cycles?: int,
+    *     terms_to_charge?: int,
+    *     reactivate_from?: int,
+    *     billing_alignment_mode?: string,
+    *     coupon_ids?: array<string>,
+    * replace_coupon_list?: bool,
+    *     change_option?: string,
+    *     changes_scheduled_at?: int,
+    *     force_term_reset?: bool,
+    *     reactivate?: bool,
+    *     net_term_days?: int,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return UpdateSubscriptionQuoteForItemsQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function updateSubscriptionQuoteForItems(array $params, array $headers = []): UpdateSubscriptionQuoteForItemsQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes","update_subscription_quote_for_items"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateSubscriptionQuoteForItemsQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/list-quote-line-groups?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return QuoteLineGroupsForQuoteQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function quoteLineGroupsForQuote(string $id, array $params = [], array $headers = []): QuoteLineGroupsForQuoteQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["quotes",$id,"quote_line_groups"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return QuoteLineGroupsForQuoteQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-charge-items-and-charges?lang=php-v4
+    *   @param array{
+    *     billing_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * shipping_address?: array{
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     company?: string,
+    *     phone?: string,
+    *     line1?: string,
+    *     line2?: string,
+    *     line3?: string,
+    *     city?: string,
+    *     state_code?: string,
+    *     state?: string,
+    *     zip?: string,
+    *     country?: string,
+    *     validation_status?: string,
+    *     },
+    * item_prices?: array<array{
+    *     item_price_id?: string,
+    *     quantity?: int,
+    *     quantity_in_decimal?: string,
+    *     unit_price?: int,
+    *     unit_price_in_decimal?: string,
+    *     service_period_days?: int,
+    *     }>,
+    *     item_tiers?: array<array{
+    *     item_price_id?: string,
+    *     starting_unit?: int,
+    *     ending_unit?: int,
+    *     price?: int,
+    *     starting_unit_in_decimal?: string,
+    *     ending_unit_in_decimal?: string,
+    *     price_in_decimal?: string,
+    *     pricing_type?: string,
+    *     package_size?: int,
+    *     }>,
+    *     charges?: array<array{
+    *     amount?: int,
+    *     amount_in_decimal?: string,
+    *     description?: string,
+    *     avalara_sale_type?: string,
+    *     avalara_transaction_type?: int,
+    *     avalara_service_type?: int,
+    *     service_period?: int,
+    *     }>,
+    *     discounts?: array<array{
+    *     percentage?: float,
+    *     quantity?: int,
+    *     amount?: int,
+    *     apply_on?: string,
+    *     item_price_id?: string,
+    *     }>,
+    *     tax_providers_fields?: array<array{
+    *     provider_name?: string,
+    *     field_id?: string,
+    *     field_value?: string,
+    *     }>,
+    *     po_number?: string,
+    *     notes?: string,
+    *     expires_at?: int,
+    *     currency_code?: string,
+    *     coupon?: string,
+    *     coupon_ids?: array<string>,
+    * } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return EditForChargeItemsAndChargesQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function editForChargeItemsAndCharges(string $id, array $params, array $headers = []): EditForChargeItemsAndChargesQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"edit_for_charge_items_and_charges"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return EditForChargeItemsAndChargesQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-signature?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
+    *   @param array<string, string> $headers
+    *   @return CreateSignatureQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function createSignature(string $id, array $headers = []): CreateSignatureQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"create_signature"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return CreateSignatureQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/refresh-a-quote-signature-link?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
+    *   @param array<string, string> $headers
+    *   @return RefreshSignatureLinkQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function refreshSignatureLink(string $id, array $headers = []): RefreshSignatureLinkQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"refresh_signature_link"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return RefreshSignatureLinkQuoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/quotes/retrieve-quote-as-pdf?lang=php-v4
+    *   @param array{
+    *     consolidated_view?: bool,
+    *     disposition_type?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return PdfQuoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function pdf(string $id, array $params = [], array $headers = []): PdfQuoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["quotes",$id,"pdf"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return PdfQuoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1124,40 +1360,6 @@ final class QuoteActions implements QuoteActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateForChargeItemsAndChargesQuoteResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/quotes/delete-a-quote?lang=php-v4
-    *   @param array{
-    *     comment?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteQuoteResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function delete(string $id, array $params = [], array $headers = []): DeleteQuoteResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["quotes",$id,"delete"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeleteQuoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

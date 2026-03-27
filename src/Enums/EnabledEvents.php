@@ -2,7 +2,7 @@
 
 namespace Chargebee\Enums;
 
-enum EventType : string { 
+enum EnabledEvents : string { 
     case COUPON_CREATED = "coupon_created";
     case COUPON_UPDATED = "coupon_updated";
     case COUPON_DELETED = "coupon_deleted";
@@ -77,6 +77,7 @@ enum EventType : string {
     case PAYMENT_REFUNDED = "payment_refunded";
     case PAYMENT_INITIATED = "payment_initiated";
     case REFUND_INITIATED = "refund_initiated";
+    case NETD_PAYMENT_DUE_REMINDER = "netd_payment_due_reminder";
     case AUTHORIZATION_SUCCEEDED = "authorization_succeeded";
     case AUTHORIZATION_VOIDED = "authorization_voided";
     case CARD_ADDED = "card_added";
@@ -167,6 +168,12 @@ enum EventType : string {
     case VOUCHER_CREATED = "voucher_created";
     case VOUCHER_EXPIRED = "voucher_expired";
     case VOUCHER_CREATE_FAILED = "voucher_create_failed";
+    case PRODUCT_CREATED = "product_created";
+    case PRODUCT_UPDATED = "product_updated";
+    case PRODUCT_DELETED = "product_deleted";
+    case VARIANT_CREATED = "variant_created";
+    case VARIANT_UPDATED = "variant_updated";
+    case VARIANT_DELETED = "variant_deleted";
     case ITEM_PRICE_ENTITLEMENTS_UPDATED = "item_price_entitlements_updated";
     case ITEM_PRICE_ENTITLEMENTS_REMOVED = "item_price_entitlements_removed";
     case SUBSCRIPTION_RAMP_CREATED = "subscription_ramp_created";
@@ -183,6 +190,8 @@ enum EventType : string {
     case SUBSCRIPTION_MOVEMENT_FAILED = "subscription_movement_failed";
     case OMNICHANNEL_SUBSCRIPTION_CREATED = "omnichannel_subscription_created";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_RENEWED = "omnichannel_subscription_item_renewed";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADE_SCHEDULED = "omnichannel_subscription_item_downgrade_scheduled";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_DOWNGRADE_REMOVED = "omnichannel_subscription_item_scheduled_downgrade_removed";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADED = "omnichannel_subscription_item_downgraded";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_EXPIRED = "omnichannel_subscription_item_expired";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_CANCELLATION_SCHEDULED = "omnichannel_subscription_item_cancellation_scheduled";
@@ -220,42 +229,6 @@ enum EventType : string {
     case ADDON_CREATED = "addon_created";
     case ADDON_UPDATED = "addon_updated";
     case ADDON_DELETED = "addon_deleted";
-    /*
-    * @depcreated
-    */
-    case NETD_PAYMENT_DUE_REMINDER = "netd_payment_due_reminder";
-    /*
-    * @depcreated
-    */
-    case PRODUCT_CREATED = "product_created";
-    /*
-    * @depcreated
-    */
-    case PRODUCT_UPDATED = "product_updated";
-    /*
-    * @depcreated
-    */
-    case PRODUCT_DELETED = "product_deleted";
-    /*
-    * @depcreated
-    */
-    case VARIANT_CREATED = "variant_created";
-    /*
-    * @depcreated
-    */
-    case VARIANT_UPDATED = "variant_updated";
-    /*
-    * @depcreated
-    */
-    case VARIANT_DELETED = "variant_deleted";
-    /*
-    * @depcreated
-    */
-    case OMNICHANNEL_SUBSCRIPTION_ITEM_DOWNGRADE_SCHEDULED = "omnichannel_subscription_item_downgrade_scheduled";
-    /*
-    * @depcreated
-    */
-    case OMNICHANNEL_SUBSCRIPTION_ITEM_SCHEDULED_DOWNGRADE_REMOVED = "omnichannel_subscription_item_scheduled_downgrade_removed";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

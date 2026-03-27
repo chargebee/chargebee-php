@@ -4,6 +4,8 @@ namespace Chargebee\Resources\Content;
 use Chargebee\Resources\Addon\Addon;
 use Chargebee\Resources\Address\Address;
 use Chargebee\Resources\AdvanceInvoiceSchedule\AdvanceInvoiceSchedule;
+use Chargebee\Resources\Alert\Alert;
+use Chargebee\Resources\AlertStatus\AlertStatus;
 use Chargebee\Resources\AttachedItem\AttachedItem;
 use Chargebee\Resources\Attribute\Attribute;
 use Chargebee\Resources\BillingConfiguration\BillingConfiguration;
@@ -18,6 +20,7 @@ use Chargebee\Resources\ContractTerm\ContractTerm;
 use Chargebee\Resources\Coupon\Coupon;
 use Chargebee\Resources\CouponCode\CouponCode;
 use Chargebee\Resources\CouponSet\CouponSet;
+use Chargebee\Resources\CpqQuoteSignature\CpqQuoteSignature;
 use Chargebee\Resources\CreditNote\CreditNote;
 use Chargebee\Resources\CreditNoteEstimate\CreditNoteEstimate;
 use Chargebee\Resources\Currency\Currency;
@@ -125,6 +128,18 @@ class Content  {
     
     /**
     *
+    * @var ?Alert $alert
+    */
+    public ?Alert $alert;
+    
+    /**
+    *
+    * @var ?AlertStatus $alertstatus
+    */
+    public ?AlertStatus $alertstatus;
+    
+    /**
+    *
     * @var ?AttachedItem $attacheditem
     */
     public ?AttachedItem $attacheditem;
@@ -206,6 +221,12 @@ class Content  {
     * @var ?CouponSet $couponset
     */
     public ?CouponSet $couponset;
+    
+    /**
+    *
+    * @var ?CpqQuoteSignature $cpqquotesignature
+    */
+    public ?CpqQuoteSignature $cpqquotesignature;
     
     /**
     *
@@ -720,7 +741,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -732,6 +753,8 @@ class Content  {
         ?Addon $addon,
         ?Address $address,
         ?AdvanceInvoiceSchedule $advanceinvoiceschedule,
+        ?Alert $alert,
+        ?AlertStatus $alertstatus,
         ?AttachedItem $attacheditem,
         ?Attribute $attribute,
         ?BillingConfiguration $billingconfiguration,
@@ -746,6 +769,7 @@ class Content  {
         ?Coupon $coupon,
         ?CouponCode $couponcode,
         ?CouponSet $couponset,
+        ?CpqQuoteSignature $cpqquotesignature,
         ?CreditNote $creditnote,
         ?CreditNoteEstimate $creditnoteestimate,
         ?Currency $currency,
@@ -836,6 +860,8 @@ class Content  {
         $this->addon = $addon;
         $this->address = $address;
         $this->advanceinvoiceschedule = $advanceinvoiceschedule;
+        $this->alert = $alert;
+        $this->alertstatus = $alertstatus;
         $this->attacheditem = $attacheditem;
         $this->attribute = $attribute;
         $this->billingconfiguration = $billingconfiguration;
@@ -850,6 +876,7 @@ class Content  {
         $this->coupon = $coupon;
         $this->couponcode = $couponcode;
         $this->couponset = $couponset;
+        $this->cpqquotesignature = $cpqquotesignature;
         $this->creditnote = $creditnote;
         $this->creditnoteestimate = $creditnoteestimate;
         $this->currency = $currency;
@@ -942,6 +969,8 @@ class Content  {
         $returnData = new self( isset($resourceAttributes['addon']) ? Addon::from($resourceAttributes['addon']) : null,
         isset($resourceAttributes['address']) ? Address::from($resourceAttributes['address']) : null,
         isset($resourceAttributes['advance_invoice_schedule']) ? AdvanceInvoiceSchedule::from($resourceAttributes['advance_invoice_schedule']) : null,
+        isset($resourceAttributes['alert']) ? Alert::from($resourceAttributes['alert']) : null,
+        isset($resourceAttributes['alert_status']) ? AlertStatus::from($resourceAttributes['alert_status']) : null,
         isset($resourceAttributes['attached_item']) ? AttachedItem::from($resourceAttributes['attached_item']) : null,
         isset($resourceAttributes['attribute']) ? Attribute::from($resourceAttributes['attribute']) : null,
         isset($resourceAttributes['billing_configuration']) ? BillingConfiguration::from($resourceAttributes['billing_configuration']) : null,
@@ -956,6 +985,7 @@ class Content  {
         isset($resourceAttributes['coupon']) ? Coupon::from($resourceAttributes['coupon']) : null,
         isset($resourceAttributes['coupon_code']) ? CouponCode::from($resourceAttributes['coupon_code']) : null,
         isset($resourceAttributes['coupon_set']) ? CouponSet::from($resourceAttributes['coupon_set']) : null,
+        isset($resourceAttributes['cpq_quote_signature']) ? CpqQuoteSignature::from($resourceAttributes['cpq_quote_signature']) : null,
         isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
         isset($resourceAttributes['credit_note_estimate']) ? CreditNoteEstimate::from($resourceAttributes['credit_note_estimate']) : null,
         isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
@@ -1154,6 +1184,9 @@ class Content  {
         
         
         
+        
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -1167,6 +1200,12 @@ class Content  {
         }
         if($this->advanceinvoiceschedule instanceof AdvanceInvoiceSchedule){
             $data['advance_invoice_schedule'] = $this->advanceinvoiceschedule->toArray();
+        }
+        if($this->alert instanceof Alert){
+            $data['alert'] = $this->alert->toArray();
+        }
+        if($this->alertstatus instanceof AlertStatus){
+            $data['alert_status'] = $this->alertstatus->toArray();
         }
         if($this->attacheditem instanceof AttachedItem){
             $data['attached_item'] = $this->attacheditem->toArray();
@@ -1209,6 +1248,9 @@ class Content  {
         }
         if($this->couponset instanceof CouponSet){
             $data['coupon_set'] = $this->couponset->toArray();
+        }
+        if($this->cpqquotesignature instanceof CpqQuoteSignature){
+            $data['cpq_quote_signature'] = $this->cpqquotesignature->toArray();
         }
         if($this->creditnote instanceof CreditNote){
             $data['credit_note'] = $this->creditnote->toArray();

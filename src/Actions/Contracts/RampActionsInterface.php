@@ -110,12 +110,12 @@ Interface RampActionsInterface
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * subscription_id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,

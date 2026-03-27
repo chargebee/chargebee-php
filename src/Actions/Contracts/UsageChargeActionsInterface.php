@@ -12,7 +12,7 @@ Interface UsageChargeActionsInterface
 {
 
     /**
-    *   
+    *   @see https://apidocs.chargebee.com/docs/api/usage_charges/retrieve-usage-charges-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -21,7 +21,6 @@ Interface UsageChargeActionsInterface
     *     },
     * } $params Description of the parameters
     *   @param string $id  
-    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return RetrieveUsageChargesForSubscriptionUsageChargeResponse
     *   @throws PaymentException

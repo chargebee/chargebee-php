@@ -35,6 +35,7 @@ enum PaymentMethodType : string {
     case CASH_APP_PAY = "cash_app_pay";
     case WECHAT_PAY = "wechat_pay";
     case ALIPAY = "alipay";
+    case PIX = "pix";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

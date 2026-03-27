@@ -688,7 +688,9 @@ final class EstimateActions implements EstimateActionsInterface
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/estimates/upcoming-invoices-estimate?lang=php-v4
-    *   
+    *   @param array{
+    *     include_usage_charges?: bool,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpcomingInvoicesEstimateEstimateResponse
@@ -698,7 +700,7 @@ final class EstimateActions implements EstimateActionsInterface
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function upcomingInvoicesEstimate(string $id, array $headers = []): UpcomingInvoicesEstimateEstimateResponse
+    public function upcomingInvoicesEstimate(string $id, array $params = [], array $headers = []): UpcomingInvoicesEstimateEstimateResponse
     {
         $jsonKeys = [
         ];
@@ -710,6 +712,7 @@ final class EstimateActions implements EstimateActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withParams($params)
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
