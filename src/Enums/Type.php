@@ -37,9 +37,11 @@ enum Type : string {
     case NAVER_PAY = "naver_pay";
     case REVOLUT_PAY = "revolut_pay";
     case CASH_APP_PAY = "cash_app_pay";
+    case PIX = "pix";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";
+    case USAGE_EXCEEDED = "usage_exceeded";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

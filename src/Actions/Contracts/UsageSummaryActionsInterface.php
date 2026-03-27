@@ -12,7 +12,7 @@ Interface UsageSummaryActionsInterface
 {
 
     /**
-    *   
+    *   @see https://apidocs.chargebee.com/docs/api/usage_summaries/retrieve-usage-summary-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
@@ -22,7 +22,6 @@ Interface UsageSummaryActionsInterface
     *     timeframe_end?: int,
     *     } $params Description of the parameters
     *   @param string $id  
-    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return RetrieveUsageSummaryForSubscriptionUsageSummaryResponse
     *   @throws PaymentException

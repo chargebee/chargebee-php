@@ -1,3 +1,57 @@
+### v4.19.0 (2026-03-27)
+* * *
+### New Resources:
+- [`Alert`](https://apidocs.chargebee.com/docs/api/alerts) has been added.
+- [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses) has been added.
+- [`CpqQuoteSignature`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures) has been added.
+
+
+### New Actions:
+- [`update_a_quote_signature_status`](https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature-status) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`update_a_quote_signature`](https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`retrieve_a_quote_signature_signed_pdf`](https://apidocs.chargebee.com/docs/api/quotes/retrieve-a-quote-signature-signed-pdf) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`retrieve_a_quote_signature`](https://apidocs.chargebee.com/docs/api/quotes/retrieve-a-quote-signature) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`create_a_quote_signature`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-signature) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`refresh_a_quote_signature_link`](https://apidocs.chargebee.com/docs/api/quotes/refresh-a-quote-signature-link) has been added to [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+
+
+### New Attributes:
+- [`reference_id`](https://apidocs.chargebee.com/docs/api/einvoices/einvoice-object#reference_id) has been added to [`Einvoice`](https://apidocs.chargebee.com/docs/api/einvoices).
+- [`provider_references`](https://apidocs.chargebee.com/docs/api/einvoices/einvoice-object#provider_references) has been added to [`Einvoice`](https://apidocs.chargebee.com/docs/api/einvoices).
+- [`created_at`](https://apidocs.chargebee.com/docs/api/unbilled_charges/unbilled-charge-object#created_at) has been added to [`UnbilledCharge`](https://apidocs.chargebee.com/docs/api/unbilled_charges).
+
+
+### New Parameters:
+- [`include_usage_charges`](https://apidocs.chargebee.com/docs/api/estimates/upcoming-invoices-estimate#include_usage_charges) has been added as query parameter to [`upcoming_invoices_estimate`](https://apidocs.chargebee.com/docs/api/estimates/upcoming-invoices-estimate) in [`Estimate`](https://apidocs.chargebee.com/docs/api/estimates).
+- [`business_entity_id`](https://apidocs.chargebee.com/docs/api/hosted_pages/manage-payment-sources#business_entity_id) has been added as request body parameter to [`manage_payment_sources`](https://apidocs.chargebee.com/docs/api/hosted_pages/manage-payment-sources) in [`HostedPage`](https://apidocs.chargebee.com/docs/api/hosted_pages).
+- [`cpq_quote_signature`](https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature-status#cpq_quote_signature) has been added as request body parameter to [`update_a_quote_signature_status`](https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature-status) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`gateway_account_id`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account#gateway_account_id) has been added as request body parameter to [`create_a_virtual_bank_account`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account) in [`VirtualBankAccount`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts).
+- [`gateway_account_id`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account-using-permanent-token#gateway_account_id) has been added as request body parameter to [`create_a_virtual_bank_account_using_permanent_token`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts/create-a-virtual-bank-account-using-permanent-token) in [`VirtualBankAccount`](https://apidocs.chargebee.com/docs/api/virtual_bank_accounts).
+
+
+### New Events:
+- [`alert_status_changed`](https://apidocs.chargebee.com/docs/api/events/webhook/alert_status_changed) has been added.
+
+
+### New Enums:
+- `alert_status` has been added as a new value enum `EntityType`.
+- `alert_status_changed` has been added as a new value enum `EventType`.
+- `pix` has been added as a new value enum `PaymentMethod`.
+- `pix` has been added as a new value enum `PaymentMethodType`.
+- `pix` and `usage_exceeded` have been added as new values enum `Type`.
+- `enabled` and `disabled` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#status) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `global` and `subscription` have been added as new values to enum attribute [`scope`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#scope) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `draft`, `active`, `signed`, `expired`, `cancelled`, and `declined` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures/cpq-quote-signature-object#status) in [`CpqQuoteSignature`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures).
+- `esign_and_pay`, `esign`, and `pay` have been added as new values to enum attribute [`customer_acceptance_method`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures/cpq-quote-signature-object#customer_acceptance_method) in [`CpqQuoteSignature`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures).
+- `consolidated` and `detailed` have been added as new values to enum attribute [`quote_type`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures/cpq-quote-signature-object#quote_type) in [`CpqQuoteSignature`](https://apidocs.chargebee.com/docs/api/cpq_quote_signatures).
+- `pix` has been added as a new value to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `pix` has been added as a new value to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `pix` has been added as a new value to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `pix` has been added as a new value to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `expired`, `declined`, `draft`, `active`, `signed`, and `cancelled` have been added as new values to enum request body parameter `cpq_quote_signature.status` in [`update_a_quote_signature_status`](https://apidocs.chargebee.com/docs/api/quotes/update-a-quote-signature-status) of [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+
+
+
 ### v4.18.0 (2025-03-03)
 * * *
 ### PSR-18 / PSR-17 HTTP client injection (backward compatible):

@@ -107,6 +107,12 @@ class UnbilledCharge  {
     
     /**
     *
+    * @var ?int $created_at
+    */
+    public ?int $created_at;
+    
+    /**
+    *
     * @var ?int $updated_at
     */
     public ?int $updated_at;
@@ -150,7 +156,7 @@ class UnbilledCharge  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "currency_code" , "discount_amount" , "description" , "entity_id" , "is_voided" , "voided_at" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "updated_at" , "tiers" , "is_advance_charge" , "business_entity_id" , "deleted"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "currency_code" , "discount_amount" , "description" , "entity_id" , "is_voided" , "voided_at" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "created_at" , "updated_at" , "tiers" , "is_advance_charge" , "business_entity_id" , "deleted"  ];
 
     /**
     * dynamic properties for resources
@@ -176,6 +182,7 @@ class UnbilledCharge  {
         ?string $unit_amount_in_decimal,
         ?string $quantity_in_decimal,
         ?string $amount_in_decimal,
+        ?int $created_at,
         ?int $updated_at,
         ?array $tiers,
         ?bool $is_advance_charge,
@@ -202,6 +209,7 @@ class UnbilledCharge  {
         $this->unit_amount_in_decimal = $unit_amount_in_decimal;
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->amount_in_decimal = $amount_in_decimal;
+        $this->created_at = $created_at;
         $this->updated_at = $updated_at;
         $this->tiers = $tiers;
         $this->is_advance_charge = $is_advance_charge;
@@ -234,6 +242,7 @@ class UnbilledCharge  {
         $resourceAttributes['unit_amount_in_decimal'] ?? null,
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['amount_in_decimal'] ?? null,
+        $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $tiers,
         $resourceAttributes['is_advance_charge'] ?? null,
@@ -270,6 +279,7 @@ class UnbilledCharge  {
         'unit_amount_in_decimal' => $this->unit_amount_in_decimal,
         'quantity_in_decimal' => $this->quantity_in_decimal,
         'amount_in_decimal' => $this->amount_in_decimal,
+        'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,
         
         'is_advance_charge' => $this->is_advance_charge,

@@ -531,7 +531,9 @@ Interface EstimateActionsInterface
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/estimates/upcoming-invoices-estimate?lang=php-v4
-    *   
+    *   @param array{
+    *     include_usage_charges?: bool,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return UpcomingInvoicesEstimateEstimateResponse
@@ -541,7 +543,7 @@ Interface EstimateActionsInterface
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function upcomingInvoicesEstimate(string $id, array $headers = []): UpcomingInvoicesEstimateEstimateResponse;
+    public function upcomingInvoicesEstimate(string $id, array $params = [], array $headers = []): UpcomingInvoicesEstimateEstimateResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/estimates/regenerate-invoice-estimate?lang=php-v4

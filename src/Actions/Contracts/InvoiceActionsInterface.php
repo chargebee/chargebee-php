@@ -1238,13 +1238,13 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         in?: string,
-    *             is?: string,
+    *         is?: string,
+    *             in?: string,
     *             },
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

@@ -45,6 +45,7 @@ enum PaymentMethod : string {
     case NAVER_PAY = "naver_pay";
     case REVOLUT_PAY = "revolut_pay";
     case CASH_APP_PAY = "cash_app_pay";
+    case PIX = "pix";
     /*
     * @depcreated
     */

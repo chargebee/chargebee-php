@@ -742,7 +742,8 @@ Interface HostedPageActionsInterface
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },
-    * redirect_url?: string,
+    * business_entity_id?: string,
+    *     redirect_url?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
