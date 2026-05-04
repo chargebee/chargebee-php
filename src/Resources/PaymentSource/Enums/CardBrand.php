@@ -24,6 +24,7 @@ enum CardBrand : string {
     case MAESTRO = "maestro";
     case DANKORT = "dankort";
     case CARTES_BANCAIRES = "cartes_bancaires";
+    case MADA = "mada";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";
 

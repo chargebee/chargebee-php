@@ -150,6 +150,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array{
     *     customer_id?: string,
     *     email?: string,
+    *     gateway_account_id?: string,
     *     scheme?: string,
     *     } $params Description of the parameters
     *   
@@ -247,6 +248,7 @@ final class VirtualBankAccountActions implements VirtualBankAccountActionsInterf
     *   @param array{
     *     customer_id?: string,
     *     reference_id?: string,
+    *     gateway_account_id?: string,
     *     scheme?: string,
     *     } $params Description of the parameters
     *   

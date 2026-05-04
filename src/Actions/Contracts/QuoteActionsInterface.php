@@ -845,7 +845,8 @@ Interface QuoteActionsInterface
     *     currency_code?: string,
     *     coupon?: string,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * net_term_days?: int,
+    *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return EditForChargeItemsAndChargesQuoteResponse
@@ -987,7 +988,8 @@ Interface QuoteActionsInterface
     *     currency_code?: string,
     *     coupon?: string,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * net_term_days?: int,
+    *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return CreateForChargeItemsAndChargesQuoteResponse

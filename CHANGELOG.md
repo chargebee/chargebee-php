@@ -1,3 +1,92 @@
+### v4.20.0 (2026-05-04)
+* * *
+### New Resources:
+- [`QuoteEntitlement`](https://apidocs.chargebee.com/docs/api/quote_entitlements) has been added.
+
+
+### New Actions:
+- [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`retrieve_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/retrieve-an-alert) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`update_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`delete_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/delete-an-alert) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`list_alert_statuses_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription) has been added to [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`list_alert_statuses_for_an_alert`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert) has been added to [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+
+
+### New Attributes:
+- [`alarm_status`](https://apidocs.chargebee.com/docs/api/alert_statuses/alert-status-object#alarm_status) has been added to [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+
+
+### New Parameters:
+- [`limit`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription#limit) has been added as query parameter to [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`offset`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription#offset) has been added as query parameter to [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`status`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription#status) has been added as query parameter to [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`type`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription#type) has been added as query parameter to [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`limit`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#limit) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`offset`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#offset) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`id`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#id) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`type`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#type) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`subscription_id`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#subscription_id) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`status`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts#status) has been added as query parameter to [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`limit`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription#limit) has been added as query parameter to [`list_alert_statuses_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`offset`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription#offset) has been added as query parameter to [`list_alert_statuses_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`alarm_status`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription#alarm_status) has been added as query parameter to [`list_alert_statuses_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`alert_id`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription#alert_id) has been added as query parameter to [`list_alert_statuses_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-a-subscription) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`limit`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert#limit) has been added as query parameter to [`list_alert_statuses_for_an_alert`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`offset`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert#offset) has been added as query parameter to [`list_alert_statuses_for_an_alert`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`alarm_status`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert#alarm_status) has been added as query parameter to [`list_alert_statuses_for_an_alert`](https://apidocs.chargebee.com/docs/api/alert_statuses/list-alert-statuses-for-an-alert) in [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+- [`exclude`](https://apidocs.chargebee.com/docs/api/invoices/list-invoices#exclude) has been added as query parameter to [`list_invoices`](https://apidocs.chargebee.com/docs/api/invoices/list-invoices) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`threshold`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert#threshold) has been added as request body parameter to [`update_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`status`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert#status) has been added as request body parameter to [`update_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`threshold`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#threshold) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`filter_conditions`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#filter_conditions) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`type`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#type) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`name`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#name) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`description`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#description) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`metered_feature_id`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#metered_feature_id) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`subscription_id`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#subscription_id) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`meta`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#meta) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`defer_payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent#defer_payment_method_type) has been added as request body parameter to [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- [`net_term_days`](https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-charge-items-and-charges#net_term_days) has been added as request body parameter to [`edit_quote_for_charge_items_and_charges`](https://apidocs.chargebee.com/docs/api/quotes/edit-quote-for-charge-items-and-charges) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`net_term_days`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-charge-and-charge-items#net_term_days) has been added as request body parameter to [`create_a_quote_for_charge_and_charge_items`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-charge-and-charge-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+
+
+### Deleted Attributes:
+- `alarm_triggered_at` has been removed from [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `scope` has been removed from [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `alert_status` has been removed from [`AlertStatus`](https://apidocs.chargebee.com/docs/api/alert_statuses).
+
+
+### New Enums:
+- `within_limit` and `in_alarm` have been added as new values enum `AlarmStatus`.
+- `moyasar` and `payway` have been added as new values enum `Gateway`.
+- `absolute` and `percentage` have been added as new values enum `Mode`.
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values enum `PaymentMethod`.
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values enum `PaymentMethodType`.
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values enum `Type`.
+- `mada` has been added as a new value to enum attribute [`card_type`](https://apidocs.chargebee.com/docs/api/cards/card-object#card_type) in [`Card`](https://apidocs.chargebee.com/docs/api/cards).
+- `rate_limited` has been added as a new value to enum attribute [`webhook_status`](https://apidocs.chargebee.com/docs/api/events/event-object#webhook_status) in [`Event`](https://apidocs.chargebee.com/docs/api/events).
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `mada` has been added as a new value to enum attribute [`card.brand`](https://apidocs.chargebee.com/docs/api/payment_sources/payment-source-object#card_brand) in [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+- `plan_price`, `addon_price`, `charge_price`, and `charge` have been added as new values to enum attribute [`entity_type`](https://apidocs.chargebee.com/docs/api/quote_entitlements/quote-entitlement-object#entity_type) in [`QuoteEntitlement`](https://apidocs.chargebee.com/docs/api/quote_entitlements).
+- `disabled` and `enabled` have been added as new values to enum query parameter `status.is` in [`list_applicable_alerts_for_a_subscription`](https://apidocs.chargebee.com/docs/api/alerts/list-applicable-alerts-for-a-subscription) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `enabled` and `disabled` have been added as new values to enum request body parameter `status` in [`update_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/update-an-alert) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `disabled` and `enabled` have been added as new values to enum query parameter `status.is` in [`list_alerts`](https://apidocs.chargebee.com/docs/api/alerts/list-alerts) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `plan_price_id` has been added as a new value to enum request body parameter `filter_conditions.field` in [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `not_equals` and `equals` have been added as new values to enum request body parameter `filter_conditions.operator` in [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- `rate_limited` has been added as a new value to enum query parameter `webhook_status.is` in [`list_events`](https://apidocs.chargebee.com/docs/api/events/list-events) of [`Event`](https://apidocs.chargebee.com/docs/api/events).
+- `rate_limited` has been added as a new value to enum query parameter `webhook_status.is_not` in [`list_events`](https://apidocs.chargebee.com/docs/api/events/list-events) of [`Event`](https://apidocs.chargebee.com/docs/api/events).
+- `rate_limited` has been added as a new value to enum query parameter `webhook_status.in` in [`list_events`](https://apidocs.chargebee.com/docs/api/events/list-events) of [`Event`](https://apidocs.chargebee.com/docs/api/events).
+- `rate_limited` has been added as a new value to enum query parameter `webhook_status.not_in` in [`list_events`](https://apidocs.chargebee.com/docs/api/events/list-events) of [`Event`](https://apidocs.chargebee.com/docs/api/events).
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `twint`, `go_pay`, `grab_pay`, `pay_co`, `after_pay`, `swish`, and `payme` have been added as new values to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `mada` has been added as a new value to enum request body parameter `card.brand` in [`create_using_permanent_token`](https://apidocs.chargebee.com/docs/api/payment_sources/create-using-permanent-token) of [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+
+
+
 ### v4.19.0 (2026-03-27)
 * * *
 ### New Resources:

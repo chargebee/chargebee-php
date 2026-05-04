@@ -36,6 +36,7 @@ use Chargebee\Resources\Estimate\Estimate;
 use Chargebee\Resources\Event\Event;
 use Chargebee\Resources\Export\Export;
 use Chargebee\Resources\Feature\Feature;
+use Chargebee\Resources\FilterCondition\FilterCondition;
 use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
 use Chargebee\Resources\Gift\Gift;
 use Chargebee\Resources\Hierarchy\Hierarchy;
@@ -78,6 +79,7 @@ use Chargebee\Resources\PricingPageSession\PricingPageSession;
 use Chargebee\Resources\PromotionalCredit\PromotionalCredit;
 use Chargebee\Resources\Purchase\Purchase;
 use Chargebee\Resources\Quote\Quote;
+use Chargebee\Resources\QuoteEntitlement\QuoteEntitlement;
 use Chargebee\Resources\QuoteLineGroup\QuoteLineGroup;
 use Chargebee\Resources\QuotedCharge\QuotedCharge;
 use Chargebee\Resources\QuotedDeltaRamp\QuotedDeltaRamp;
@@ -317,6 +319,12 @@ class Content  {
     * @var ?Feature $feature
     */
     public ?Feature $feature;
+    
+    /**
+    *
+    * @var ?FilterCondition $filtercondition
+    */
+    public ?FilterCondition $filtercondition;
     
     /**
     *
@@ -572,6 +580,12 @@ class Content  {
     
     /**
     *
+    * @var ?QuoteEntitlement $quoteentitlement
+    */
+    public ?QuoteEntitlement $quoteentitlement;
+    
+    /**
+    *
     * @var ?QuoteLineGroup $quotelinegroup
     */
     public ?QuoteLineGroup $quotelinegroup;
@@ -741,7 +755,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -785,6 +799,7 @@ class Content  {
         ?Event $event,
         ?Export $export,
         ?Feature $feature,
+        ?FilterCondition $filtercondition,
         ?GatewayErrorDetail $gatewayerrordetail,
         ?Gift $gift,
         ?Hierarchy $hierarchy,
@@ -827,6 +842,7 @@ class Content  {
         ?PromotionalCredit $promotionalcredit,
         ?Purchase $purchase,
         ?Quote $quote,
+        ?QuoteEntitlement $quoteentitlement,
         ?QuoteLineGroup $quotelinegroup,
         ?QuotedCharge $quotedcharge,
         ?QuotedDeltaRamp $quoteddeltaramp,
@@ -892,6 +908,7 @@ class Content  {
         $this->event = $event;
         $this->export = $export;
         $this->feature = $feature;
+        $this->filtercondition = $filtercondition;
         $this->gatewayerrordetail = $gatewayerrordetail;
         $this->gift = $gift;
         $this->hierarchy = $hierarchy;
@@ -934,6 +951,7 @@ class Content  {
         $this->promotionalcredit = $promotionalcredit;
         $this->purchase = $purchase;
         $this->quote = $quote;
+        $this->quoteentitlement = $quoteentitlement;
         $this->quotelinegroup = $quotelinegroup;
         $this->quotedcharge = $quotedcharge;
         $this->quoteddeltaramp = $quoteddeltaramp;
@@ -1001,6 +1019,7 @@ class Content  {
         isset($resourceAttributes['event']) ? Event::from($resourceAttributes['event']) : null,
         isset($resourceAttributes['export']) ? Export::from($resourceAttributes['export']) : null,
         isset($resourceAttributes['feature']) ? Feature::from($resourceAttributes['feature']) : null,
+        isset($resourceAttributes['filter_condition']) ? FilterCondition::from($resourceAttributes['filter_condition']) : null,
         isset($resourceAttributes['gateway_error_detail']) ? GatewayErrorDetail::from($resourceAttributes['gateway_error_detail']) : null,
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
         isset($resourceAttributes['hierarchy']) ? Hierarchy::from($resourceAttributes['hierarchy']) : null,
@@ -1043,6 +1062,7 @@ class Content  {
         isset($resourceAttributes['promotional_credit']) ? PromotionalCredit::from($resourceAttributes['promotional_credit']) : null,
         isset($resourceAttributes['purchase']) ? Purchase::from($resourceAttributes['purchase']) : null,
         isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
+        isset($resourceAttributes['quote_entitlement']) ? QuoteEntitlement::from($resourceAttributes['quote_entitlement']) : null,
         isset($resourceAttributes['quote_line_group']) ? QuoteLineGroup::from($resourceAttributes['quote_line_group']) : null,
         isset($resourceAttributes['quoted_charge']) ? QuotedCharge::from($resourceAttributes['quoted_charge']) : null,
         isset($resourceAttributes['quoted_delta_ramp']) ? QuotedDeltaRamp::from($resourceAttributes['quoted_delta_ramp']) : null,
@@ -1082,6 +1102,8 @@ class Content  {
     {
         
         $data = array_filter([
+        
+        
         
         
         
@@ -1297,6 +1319,9 @@ class Content  {
         if($this->feature instanceof Feature){
             $data['feature'] = $this->feature->toArray();
         }
+        if($this->filtercondition instanceof FilterCondition){
+            $data['filter_condition'] = $this->filtercondition->toArray();
+        }
         if($this->gatewayerrordetail instanceof GatewayErrorDetail){
             $data['gateway_error_detail'] = $this->gatewayerrordetail->toArray();
         }
@@ -1422,6 +1447,9 @@ class Content  {
         }
         if($this->quote instanceof Quote){
             $data['quote'] = $this->quote->toArray();
+        }
+        if($this->quoteentitlement instanceof QuoteEntitlement){
+            $data['quote_entitlement'] = $this->quoteentitlement->toArray();
         }
         if($this->quotelinegroup instanceof QuoteLineGroup){
             $data['quote_line_group'] = $this->quotelinegroup->toArray();

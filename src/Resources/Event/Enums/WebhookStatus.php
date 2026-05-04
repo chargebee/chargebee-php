@@ -11,6 +11,7 @@ enum WebhookStatus : string {
     case SKIPPED = "skipped";
     case NOT_APPLICABLE = "not_applicable";
     case DISABLED = "disabled";
+    case RATE_LIMITED = "rate_limited";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {
