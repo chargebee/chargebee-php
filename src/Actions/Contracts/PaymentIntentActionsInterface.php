@@ -57,6 +57,7 @@ Interface PaymentIntentActionsInterface
     *     currency_code?: string,
     *     gateway_account_id?: string,
     *     reference_id?: string,
+    *     defer_payment_method_type?: bool,
     *     payment_method_type?: string,
     *     success_url?: string,
     *     failure_url?: string,

@@ -4,6 +4,10 @@ use Chargebee\Actions\Contracts\AddonActionsInterface;
 use Chargebee\Actions\AddonActions;
 use Chargebee\Actions\Contracts\AddressActionsInterface;
 use Chargebee\Actions\AddressActions;
+use Chargebee\Actions\Contracts\AlertActionsInterface;
+use Chargebee\Actions\AlertActions;
+use Chargebee\Actions\Contracts\AlertStatusActionsInterface;
+use Chargebee\Actions\AlertStatusActions;
 use Chargebee\Actions\Contracts\AttachedItemActionsInterface;
 use Chargebee\Actions\AttachedItemActions;
 use Chargebee\Actions\Contracts\BusinessEntityActionsInterface;
@@ -211,6 +215,14 @@ class ChargebeeClient {
 
     public function address() :AddressActionsInterface {
         return new AddressActions($this->httpClientFactory, $this->env);
+    }
+
+    public function alert() :AlertActionsInterface {
+        return new AlertActions($this->httpClientFactory, $this->env);
+    }
+
+    public function alertStatus() :AlertStatusActionsInterface {
+        return new AlertStatusActions($this->httpClientFactory, $this->env);
     }
 
     public function attachedItem() :AttachedItemActionsInterface {

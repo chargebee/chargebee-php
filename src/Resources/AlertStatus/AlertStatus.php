@@ -23,9 +23,9 @@ class AlertStatus  {
     
     /**
     *
-    * @var ?\Chargebee\Enums\AlertStatus $alert_status
+    * @var ?\Chargebee\Enums\AlarmStatus $alarm_status
     */
-    public ?\Chargebee\Enums\AlertStatus $alert_status;
+    public ?\Chargebee\Enums\AlarmStatus $alarm_status;
     
     /**
     * @var array<string> $knownFields
@@ -42,13 +42,13 @@ class AlertStatus  {
         ?string $alert_id,
         ?string $subscription_id,
         ?int $alarm_triggered_at,
-        ?\Chargebee\Enums\AlertStatus $alert_status,
+        ?\Chargebee\Enums\AlarmStatus $alarm_status,
     )
     { 
         $this->alert_id = $alert_id;
         $this->subscription_id = $subscription_id;
         $this->alarm_triggered_at = $alarm_triggered_at; 
-        $this->alert_status = $alert_status;  
+        $this->alarm_status = $alarm_status;  
     }
 
     public static function from(array $resourceAttributes): self
@@ -58,7 +58,7 @@ class AlertStatus  {
         $resourceAttributes['alarm_triggered_at'] ?? null,
         
         
-        isset($resourceAttributes['alert_status']) ? \Chargebee\Enums\AlertStatus::tryFromValue($resourceAttributes['alert_status']) : null,
+        isset($resourceAttributes['alarm_status']) ? \Chargebee\Enums\AlarmStatus::tryFromValue($resourceAttributes['alarm_status']) : null,
           
         );
        
@@ -72,7 +72,7 @@ class AlertStatus  {
         'subscription_id' => $this->subscription_id,
         'alarm_triggered_at' => $this->alarm_triggered_at,
         
-        'alert_status' => $this->alert_status?->value,
+        'alarm_status' => $this->alarm_status?->value,
         
         ], function ($value) {
             return $value !== null;

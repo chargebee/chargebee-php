@@ -38,6 +38,13 @@ enum Type : string {
     case REVOLUT_PAY = "revolut_pay";
     case CASH_APP_PAY = "cash_app_pay";
     case PIX = "pix";
+    case TWINT = "twint";
+    case GO_PAY = "go_pay";
+    case GRAB_PAY = "grab_pay";
+    case PAY_CO = "pay_co";
+    case AFTER_PAY = "after_pay";
+    case SWISH = "swish";
+    case PAYME = "payme";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";

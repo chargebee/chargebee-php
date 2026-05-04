@@ -46,6 +46,13 @@ enum PaymentMethod : string {
     case REVOLUT_PAY = "revolut_pay";
     case CASH_APP_PAY = "cash_app_pay";
     case PIX = "pix";
+    case TWINT = "twint";
+    case GO_PAY = "go_pay";
+    case GRAB_PAY = "grab_pay";
+    case PAY_CO = "pay_co";
+    case AFTER_PAY = "after_pay";
+    case SWISH = "swish";
+    case PAYME = "payme";
     /*
     * @depcreated
     */

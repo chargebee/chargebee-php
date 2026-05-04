@@ -35,12 +35,6 @@ class Alert  {
     
     /**
     *
-    * @var ?int $alarm_triggered_at
-    */
-    public ?int $alarm_triggered_at;
-    
-    /**
-    *
     * @var ?string $meta
     */
     public ?string $meta;
@@ -70,15 +64,9 @@ class Alert  {
     public ?\Chargebee\Resources\Alert\Enums\Status $status;
     
     /**
-    *
-    * @var ?\Chargebee\Resources\Alert\Enums\Scope $scope
-    */
-    public ?\Chargebee\Resources\Alert\Enums\Scope $scope;
-    
-    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "subscription_id" , "alarm_triggered_at" , "meta" , "created_at" , "updated_at"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "subscription_id" , "meta" , "created_at" , "updated_at"  ];
 
     /**
     * dynamic properties for resources
@@ -92,13 +80,11 @@ class Alert  {
         ?string $description,
         ?string $metered_feature_id,
         ?string $subscription_id,
-        ?int $alarm_triggered_at,
         ?string $meta,
         ?int $created_at,
         ?int $updated_at,
         ?\Chargebee\Enums\Type $type,
         ?\Chargebee\Resources\Alert\Enums\Status $status,
-        ?\Chargebee\Resources\Alert\Enums\Scope $scope,
     )
     { 
         $this->id = $id;
@@ -106,13 +92,11 @@ class Alert  {
         $this->description = $description;
         $this->metered_feature_id = $metered_feature_id;
         $this->subscription_id = $subscription_id;
-        $this->alarm_triggered_at = $alarm_triggered_at;
         $this->meta = $meta;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at; 
         $this->type = $type; 
-        $this->status = $status;
-        $this->scope = $scope; 
+        $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -122,7 +106,6 @@ class Alert  {
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['metered_feature_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
-        $resourceAttributes['alarm_triggered_at'] ?? null,
         $resourceAttributes['meta'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
@@ -131,8 +114,6 @@ class Alert  {
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Alert\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
-        
-        isset($resourceAttributes['scope']) ? \Chargebee\Resources\Alert\Enums\Scope::tryFromValue($resourceAttributes['scope']) : null,
          
         );
        
@@ -147,7 +128,6 @@ class Alert  {
         'description' => $this->description,
         'metered_feature_id' => $this->metered_feature_id,
         'subscription_id' => $this->subscription_id,
-        'alarm_triggered_at' => $this->alarm_triggered_at,
         'meta' => $this->meta,
         'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,
@@ -155,8 +135,6 @@ class Alert  {
         'type' => $this->type?->value,
         
         'status' => $this->status?->value,
-        
-        'scope' => $this->scope?->value,
         
         ], function ($value) {
             return $value !== null;
