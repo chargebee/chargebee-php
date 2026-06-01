@@ -1,3 +1,8 @@
+## 4.20.1 (2026-06-01)
+
+### Fixed
+- Corrected Usage Summary API documentation URLs to use `/usage_summary/` instead of `/usage_summaries/`.
+
 ### v4.20.0 (2026-05-04)
 * * *
 ### New Resources:
