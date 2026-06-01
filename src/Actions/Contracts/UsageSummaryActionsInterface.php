@@ -12,7 +12,7 @@ Interface UsageSummaryActionsInterface
 {
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/usage_summaries/retrieve-usage-summary-for-a-subscription?lang=php-v4
+    *   @see https://apidocs.chargebee.com/docs/api/usage_summary/retrieve-usage-summary-for-a-subscription?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
