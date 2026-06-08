@@ -158,7 +158,12 @@ final class GiftActions implements GiftActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/gifts/update-a-gift?lang=php-v4
     *   @param array{
-    *     scheduled_at?: int,
+    *     gift_receiver?: array{
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     },
+    * scheduled_at?: int,
     *     comment?: string,
     *     } $params Description of the parameters
     *   @param string $id  
@@ -170,7 +175,7 @@ final class GiftActions implements GiftActionsInterface
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function updateGift(string $id, array $params, array $headers = []): UpdateGiftGiftResponse
+    public function updateGift(string $id, array $params = [], array $headers = []): UpdateGiftGiftResponse
     {
         $jsonKeys = [
         ];

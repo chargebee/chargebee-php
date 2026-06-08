@@ -89,6 +89,30 @@ Interface OmnichannelSubscriptionActionsInterface
     *     is?: mixed,
     *     is_not?: mixed,
     *     starts_with?: mixed,
+    *     in?: mixed,
+    *     not_in?: mixed,
+    *     },
+    * id?: array{
+    *     is?: mixed,
+    *     is_not?: mixed,
+    *     starts_with?: mixed,
+    *     in?: mixed,
+    *     not_in?: mixed,
+    *     },
+    * id_at_source?: array{
+    *     is?: mixed,
+    *     is_not?: mixed,
+    *     starts_with?: mixed,
+    *     in?: mixed,
+    *     not_in?: mixed,
+    *     },
+    * updated_at?: array{
+    *     before?: mixed,
+    *     after?: mixed,
+    *     },
+    * purchased_at?: array{
+    *     before?: mixed,
+    *     after?: mixed,
     *     },
     * } $params Description of the parameters
     *   

@@ -35,6 +35,18 @@ class OmnichannelSubscription  {
     
     /**
     *
+    * @var ?int $purchased_at
+    */
+    public ?int $purchased_at;
+    
+    /**
+    *
+    * @var ?int $updated_at
+    */
+    public ?int $updated_at;
+    
+    /**
+    *
     * @var ?int $resource_version
     */
     public ?int $resource_version;
@@ -60,7 +72,7 @@ class OmnichannelSubscription  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "customer_id" , "created_at" , "resource_version" , "omnichannel_subscription_items" , "initial_purchase_transaction"  ];
+    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "customer_id" , "created_at" , "purchased_at" , "updated_at" , "resource_version" , "omnichannel_subscription_items" , "initial_purchase_transaction"  ];
 
     /**
     * dynamic properties for resources
@@ -74,6 +86,8 @@ class OmnichannelSubscription  {
         ?string $app_id,
         ?string $customer_id,
         ?int $created_at,
+        ?int $purchased_at,
+        ?int $updated_at,
         ?int $resource_version,
         ?array $omnichannel_subscription_items,
         ?\Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction $initial_purchase_transaction,
@@ -85,6 +99,8 @@ class OmnichannelSubscription  {
         $this->app_id = $app_id;
         $this->customer_id = $customer_id;
         $this->created_at = $created_at;
+        $this->purchased_at = $purchased_at;
+        $this->updated_at = $updated_at;
         $this->resource_version = $resource_version;
         $this->omnichannel_subscription_items = $omnichannel_subscription_items;
         $this->initial_purchase_transaction = $initial_purchase_transaction;  
@@ -102,6 +118,8 @@ class OmnichannelSubscription  {
         $resourceAttributes['app_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['purchased_at'] ?? null,
+        $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $omnichannel_subscription_items,
         isset($resourceAttributes['initial_purchase_transaction']) ? \Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction::from($resourceAttributes['initial_purchase_transaction']) : null,
@@ -122,6 +140,8 @@ class OmnichannelSubscription  {
         'app_id' => $this->app_id,
         'customer_id' => $this->customer_id,
         'created_at' => $this->created_at,
+        'purchased_at' => $this->purchased_at,
+        'updated_at' => $this->updated_at,
         'resource_version' => $this->resource_version,
         
         

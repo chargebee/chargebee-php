@@ -65,6 +65,12 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?int $updated_at
+    */
+    public ?int $updated_at;
+    
+    /**
+    *
     * @var ?int $resource_version
     */
     public ?int $resource_version;
@@ -114,7 +120,7 @@ class OmnichannelSubscriptionItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "resource_version" , "omnichannel_subscription_item_offers" , "upcoming_renewal" , "linked_item"  ];
+    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "updated_at" , "resource_version" , "omnichannel_subscription_item_offers" , "upcoming_renewal" , "linked_item"  ];
 
     /**
     * dynamic properties for resources
@@ -133,6 +139,7 @@ class OmnichannelSubscriptionItem  {
         ?int $grace_period_expires_at,
         ?int $resumes_at,
         ?bool $has_scheduled_changes,
+        ?int $updated_at,
         ?int $resource_version,
         ?array $omnichannel_subscription_item_offers,
         ?UpcomingRenewal $upcoming_renewal,
@@ -153,6 +160,7 @@ class OmnichannelSubscriptionItem  {
         $this->grace_period_expires_at = $grace_period_expires_at;
         $this->resumes_at = $resumes_at;
         $this->has_scheduled_changes = $has_scheduled_changes;
+        $this->updated_at = $updated_at;
         $this->resource_version = $resource_version;
         $this->omnichannel_subscription_item_offers = $omnichannel_subscription_item_offers;
         $this->upcoming_renewal = $upcoming_renewal;
@@ -179,6 +187,7 @@ class OmnichannelSubscriptionItem  {
         $resourceAttributes['grace_period_expires_at'] ?? null,
         $resourceAttributes['resumes_at'] ?? null,
         $resourceAttributes['has_scheduled_changes'] ?? null,
+        $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $omnichannel_subscription_item_offers,
         isset($resourceAttributes['upcoming_renewal']) ? UpcomingRenewal::from($resourceAttributes['upcoming_renewal']) : null,
@@ -211,6 +220,7 @@ class OmnichannelSubscriptionItem  {
         'grace_period_expires_at' => $this->grace_period_expires_at,
         'resumes_at' => $this->resumes_at,
         'has_scheduled_changes' => $this->has_scheduled_changes,
+        'updated_at' => $this->updated_at,
         'resource_version' => $this->resource_version,
         
         

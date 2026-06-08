@@ -214,6 +214,8 @@ enum EventType : string {
     case OMNICHANNEL_SUBSCRIPTION_MOVED_IN = "omnichannel_subscription_moved_in";
     case OMNICHANNEL_TRANSACTION_CREATED = "omnichannel_transaction_created";
     case ALERT_STATUS_CHANGED = "alert_status_changed";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_UPDATED = "omnichannel_subscription_item_updated";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_RECOVERED = "omnichannel_subscription_item_recovered";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";

@@ -109,8 +109,8 @@ final class ItemActions implements ItemActionsInterface
     *     not_in?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
