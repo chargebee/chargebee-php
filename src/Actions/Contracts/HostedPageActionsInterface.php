@@ -280,6 +280,7 @@ Interface HostedPageActionsInterface
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
     *     }>,
+    *     layout?: string,
     *     business_entity_id?: string,
     *     redirect_url?: string,
     *     coupon_ids?: array<string>,

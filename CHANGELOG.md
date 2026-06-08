@@ -1,3 +1,63 @@
+### v4.21.0 (2026-06-08)
+* * *
+### New Attributes:
+- [`purchased_at`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/omnichannel-subscription-object#purchased_at) has been added to [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`updated_at`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/omnichannel-subscription-object#updated_at) has been added to [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`updated_at`](https://apidocs.chargebee.com/docs/api/omnichannel_subscription_items/omnichannel-subscription-item-object#updated_at) has been added to [`OmnichannelSubscriptionItem`](https://apidocs.chargebee.com/docs/api/omnichannel_subscription_items).
+
+
+### New Parameters:
+- [`customer_id.in`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#customer_id_in) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`customer_id.not_in`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#customer_id_not_in) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`id`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#id) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`id_at_source`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#id_at_source) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`updated_at`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#updated_at) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`purchased_at`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#purchased_at) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`gift_receiver`](https://apidocs.chargebee.com/docs/api/gifts/update-a-gift#gift_receiver) has been added as request body parameter to [`update_a_gift`](https://apidocs.chargebee.com/docs/api/gifts/update-a-gift) in [`Gift`](https://apidocs.chargebee.com/docs/api/gifts).
+- [`layout`](https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-gift-subscription-for-items#layout) has been added as request body parameter to [`checkout_gift_subscription_for_items`](https://apidocs.chargebee.com/docs/api/hosted_pages/checkout-gift-subscription-for-items) in [`HostedPage`](https://apidocs.chargebee.com/docs/api/hosted_pages).
+
+
+### Parameter Updates:
+- [`scheduled_at`](https://apidocs.chargebee.com/docs/api/gifts/update-a-gift#scheduled_at) has been changed from required to optional in [`update_a_gift`](https://apidocs.chargebee.com/docs/api/gifts/update-a-gift) of [`Gift`](https://apidocs.chargebee.com/docs/api/gifts).
+
+
+### New Events:
+- [`omnichannel_subscription_item_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/omnichannel_subscription_item_updated) has been added.
+- [`omnichannel_subscription_item_recovered`](https://apidocs.chargebee.com/docs/api/events/webhook/omnichannel_subscription_item_recovered) has been added.
+
+
+### Deleted Resources:
+- QuoteEntitlement has been removed.
+
+
+### Deleted Attributes:
+- `entity_id` has been removed from `QuoteEntitlement`.
+- `entity_type` has been removed from `QuoteEntitlement`.
+- `feature_id` has been removed from `QuoteEntitlement`.
+- `value` has been removed from `QuoteEntitlement`.
+- `is_enabled` has been removed from `QuoteEntitlement`.
+- `start_date` has been removed from `QuoteEntitlement`.
+- `end_date` has been removed from `QuoteEntitlement`.
+- `created_at` has been removed from `QuoteEntitlement`.
+- `modified_at` has been removed from `QuoteEntitlement`.
+
+
+### Deleted Parameters:
+- `exclude` has been removed as query parameter from [`list_invoices`](https://apidocs.chargebee.com/docs/api/invoices/list-invoices) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+
+
+### New Enums:
+- `omnichannel_subscription_item_updated` and `omnichannel_subscription_item_recovered` have been added as new values enum `EventType`.
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values enum `PaymentMethod`.
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values enum `PaymentMethodType`.
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values enum `Type`.
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `klarna`, `alipay_hk`, `paypay`, `gcash`, and `south_korean_cards` have been added as new values to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+
+
+
 ## 4.20.1 (2026-06-01)
 
 ### Fixed

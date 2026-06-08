@@ -53,6 +53,11 @@ enum PaymentMethod : string {
     case AFTER_PAY = "after_pay";
     case SWISH = "swish";
     case PAYME = "payme";
+    case KLARNA = "klarna";
+    case ALIPAY_HK = "alipay_hk";
+    case PAYPAY = "paypay";
+    case GCASH = "gcash";
+    case SOUTH_KOREAN_CARDS = "south_korean_cards";
     /*
     * @depcreated
     */

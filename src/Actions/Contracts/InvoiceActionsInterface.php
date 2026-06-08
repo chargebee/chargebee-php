@@ -452,9 +452,6 @@ Interface InvoiceActionsInterface
     *     asc?: string,
     *     desc?: string,
     *     },
-    * exclude?: array{
-    *     in?: mixed,
-    *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

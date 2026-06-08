@@ -37,7 +37,6 @@ enum Type : string {
     case NAVER_PAY = "naver_pay";
     case REVOLUT_PAY = "revolut_pay";
     case CASH_APP_PAY = "cash_app_pay";
-    case PIX = "pix";
     case TWINT = "twint";
     case GO_PAY = "go_pay";
     case GRAB_PAY = "grab_pay";
@@ -45,6 +44,12 @@ enum Type : string {
     case AFTER_PAY = "after_pay";
     case SWISH = "swish";
     case PAYME = "payme";
+    case PIX = "pix";
+    case KLARNA = "klarna";
+    case ALIPAY_HK = "alipay_hk";
+    case PAYPAY = "paypay";
+    case GCASH = "gcash";
+    case SOUTH_KOREAN_CARDS = "south_korean_cards";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";
