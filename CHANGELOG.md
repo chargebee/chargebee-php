@@ -1,3 +1,40 @@
+### v4.22.0 (2026-06-12)
+* * *
+### New Resources:
+- [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks) has been added.
+- [`LedgerAccountBalance`](https://apidocs.chargebee.com/docs/api/ledger_account_balances) has been added.
+- [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations) has been added.
+- [`PromotionalGrant`](https://apidocs.chargebee.com/docs/api/promotional_grants) has been added.
+
+
+### New Attributes:
+- [`notes`](https://apidocs.chargebee.com/docs/api/credit_notes/credit-note-object#notes) has been added to [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- [`layout`](https://apidocs.chargebee.com/docs/api/hosted_pages/hosted-page-object#layout) has been added to [`HostedPage`](https://apidocs.chargebee.com/docs/api/hosted_pages).
+
+
+### New Parameters:
+- [`sort_by`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#sort_by) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+
+
+### New Enums:
+- `available`, `exhausted`, `scheduled`, and `in_grace_period` have been added as new values enum `Status`.
+- `subscription_created`, `subscription_changed`, `top_up`, `promotional_grants`, and `rollover` have been added as new values to enum attribute [`grant_source`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#grant_source) in [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `provisioned` and `overdraft` have been added as new values to enum attribute [`account_type`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#account_type) in [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `credit_unit` has been added as a new value to enum attribute [`unit_type`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#unit_type) in [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `credit_unit` has been added as a new value to enum attribute [`unit_type`](https://apidocs.chargebee.com/docs/api/ledger_account_balances/ledger-account-balance-object#unit_type) in [`LedgerAccountBalance`](https://apidocs.chargebee.com/docs/api/ledger_account_balances).
+- `allocation`, `capture`, `authorize`, `release_authorization`, `capture_authorization`, `expiry`, `void`, `rollover`, and `adjustment` have been added as new values to enum attribute [`type`](https://apidocs.chargebee.com/docs/api/ledger_operations/ledger-operation-object#type) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `credit_unit` has been added as a new value to enum attribute [`unit_type`](https://apidocs.chargebee.com/docs/api/ledger_operations/ledger-operation-object#unit_type) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `expires_at`, `created_at`, and `effective_from` have been added as new values to enum query parameter `sort_by.asc` in [`list_grant_blocks`](https://apidocs.chargebee.com/docs/api/grant_blocks/list-grant-blocks) of [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `expires_at`, `created_at`, and `effective_from` have been added as new values to enum query parameter `sort_by.desc` in [`list_grant_blocks`](https://apidocs.chargebee.com/docs/api/grant_blocks/list-grant-blocks) of [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `allocation`, `release_authorization`, `void`, `capture`, `rollover`, `adjustment`, `expiry`, `authorize`, and `capture_authorization` have been added as new values to enum query parameter `type.is` in [`list_ledger_operations`](https://apidocs.chargebee.com/docs/api/ledger_operations/list-ledger-operations) of [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `allocation`, `release_authorization`, `void`, `capture`, `rollover`, `adjustment`, `expiry`, `authorize`, and `capture_authorization` have been added as new values to enum query parameter `type.in` in [`list_ledger_operations`](https://apidocs.chargebee.com/docs/api/ledger_operations/list-ledger-operations) of [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `created_at` has been added as a new value to enum query parameter `sort_by.asc` in [`list_ledger_operations`](https://apidocs.chargebee.com/docs/api/ledger_operations/list-ledger-operations) of [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `created_at` has been added as a new value to enum query parameter `sort_by.desc` in [`list_ledger_operations`](https://apidocs.chargebee.com/docs/api/ledger_operations/list-ledger-operations) of [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `updated_at` and `created_at` have been added as new values to enum query parameter `sort_by.asc` in [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) of [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- `updated_at` and `created_at` have been added as new values to enum query parameter `sort_by.desc` in [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) of [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+
+
+
 ### v4.21.0 (2026-06-08)
 * * *
 ### New Attributes:

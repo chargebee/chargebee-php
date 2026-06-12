@@ -162,7 +162,7 @@ Interface HostedPageActionsInterface
     public function checkoutOneTimeForItems(array $params, array $headers = []): CheckoutOneTimeForItemsHostedPageResponse;
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/hosted_pages/update-payment-method?lang=php-v4
+    *   
     *   @param array{
     *     customer?: array{
     *     id?: string,
@@ -180,6 +180,7 @@ Interface HostedPageActionsInterface
     *     iframe_messaging?: bool,
     *     } $params Description of the parameters
     *   
+    *   @deprecated This method is deprecated and will be removed in a future version.
     *   @param array<string, string> $headers
     *   @return UpdatePaymentMethodHostedPageResponse
     *   @throws PaymentException

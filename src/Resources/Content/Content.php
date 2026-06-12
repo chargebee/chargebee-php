@@ -39,6 +39,7 @@ use Chargebee\Resources\Feature\Feature;
 use Chargebee\Resources\FilterCondition\FilterCondition;
 use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
 use Chargebee\Resources\Gift\Gift;
+use Chargebee\Resources\GrantBlock\GrantBlock;
 use Chargebee\Resources\Hierarchy\Hierarchy;
 use Chargebee\Resources\HostedPage\HostedPage;
 use Chargebee\Resources\ImpactedCustomer\ImpactedCustomer;
@@ -52,6 +53,8 @@ use Chargebee\Resources\Item\Item;
 use Chargebee\Resources\ItemEntitlement\ItemEntitlement;
 use Chargebee\Resources\ItemFamily\ItemFamily;
 use Chargebee\Resources\ItemPrice\ItemPrice;
+use Chargebee\Resources\LedgerAccountBalance\LedgerAccountBalance;
+use Chargebee\Resources\LedgerOperation\LedgerOperation;
 use Chargebee\Resources\Metadata\Metadata;
 use Chargebee\Resources\NonSubscription\NonSubscription;
 use Chargebee\Resources\OfferEvent\OfferEvent;
@@ -77,6 +80,7 @@ use Chargebee\Resources\PortalSession\PortalSession;
 use Chargebee\Resources\PriceVariant\PriceVariant;
 use Chargebee\Resources\PricingPageSession\PricingPageSession;
 use Chargebee\Resources\PromotionalCredit\PromotionalCredit;
+use Chargebee\Resources\PromotionalGrant\PromotionalGrant;
 use Chargebee\Resources\Purchase\Purchase;
 use Chargebee\Resources\Quote\Quote;
 use Chargebee\Resources\QuoteLineGroup\QuoteLineGroup;
@@ -339,6 +343,12 @@ class Content  {
     
     /**
     *
+    * @var ?GrantBlock $grantblock
+    */
+    public ?GrantBlock $grantblock;
+    
+    /**
+    *
     * @var ?Hierarchy $hierarchy
     */
     public ?Hierarchy $hierarchy;
@@ -414,6 +424,18 @@ class Content  {
     * @var ?ItemPrice $itemprice
     */
     public ?ItemPrice $itemprice;
+    
+    /**
+    *
+    * @var ?LedgerAccountBalance $ledgeraccountbalance
+    */
+    public ?LedgerAccountBalance $ledgeraccountbalance;
+    
+    /**
+    *
+    * @var ?LedgerOperation $ledgeroperation
+    */
+    public ?LedgerOperation $ledgeroperation;
     
     /**
     *
@@ -564,6 +586,12 @@ class Content  {
     * @var ?PromotionalCredit $promotionalcredit
     */
     public ?PromotionalCredit $promotionalcredit;
+    
+    /**
+    *
+    * @var ?PromotionalGrant $promotionalgrant
+    */
+    public ?PromotionalGrant $promotionalgrant;
     
     /**
     *
@@ -748,7 +776,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_operation" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -795,6 +823,7 @@ class Content  {
         ?FilterCondition $filtercondition,
         ?GatewayErrorDetail $gatewayerrordetail,
         ?Gift $gift,
+        ?GrantBlock $grantblock,
         ?Hierarchy $hierarchy,
         ?HostedPage $hostedpage,
         ?ImpactedCustomer $impactedcustomer,
@@ -808,6 +837,8 @@ class Content  {
         ?ItemEntitlement $itementitlement,
         ?ItemFamily $itemfamily,
         ?ItemPrice $itemprice,
+        ?LedgerAccountBalance $ledgeraccountbalance,
+        ?LedgerOperation $ledgeroperation,
         ?Metadata $metadata,
         ?NonSubscription $nonsubscription,
         ?OfferEvent $offerevent,
@@ -833,6 +864,7 @@ class Content  {
         ?PriceVariant $pricevariant,
         ?PricingPageSession $pricingpagesession,
         ?PromotionalCredit $promotionalcredit,
+        ?PromotionalGrant $promotionalgrant,
         ?Purchase $purchase,
         ?Quote $quote,
         ?QuoteLineGroup $quotelinegroup,
@@ -903,6 +935,7 @@ class Content  {
         $this->filtercondition = $filtercondition;
         $this->gatewayerrordetail = $gatewayerrordetail;
         $this->gift = $gift;
+        $this->grantblock = $grantblock;
         $this->hierarchy = $hierarchy;
         $this->hostedpage = $hostedpage;
         $this->impactedcustomer = $impactedcustomer;
@@ -916,6 +949,8 @@ class Content  {
         $this->itementitlement = $itementitlement;
         $this->itemfamily = $itemfamily;
         $this->itemprice = $itemprice;
+        $this->ledgeraccountbalance = $ledgeraccountbalance;
+        $this->ledgeroperation = $ledgeroperation;
         $this->metadata = $metadata;
         $this->nonsubscription = $nonsubscription;
         $this->offerevent = $offerevent;
@@ -941,6 +976,7 @@ class Content  {
         $this->pricevariant = $pricevariant;
         $this->pricingpagesession = $pricingpagesession;
         $this->promotionalcredit = $promotionalcredit;
+        $this->promotionalgrant = $promotionalgrant;
         $this->purchase = $purchase;
         $this->quote = $quote;
         $this->quotelinegroup = $quotelinegroup;
@@ -1013,6 +1049,7 @@ class Content  {
         isset($resourceAttributes['filter_condition']) ? FilterCondition::from($resourceAttributes['filter_condition']) : null,
         isset($resourceAttributes['gateway_error_detail']) ? GatewayErrorDetail::from($resourceAttributes['gateway_error_detail']) : null,
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
+        isset($resourceAttributes['grant_block']) ? GrantBlock::from($resourceAttributes['grant_block']) : null,
         isset($resourceAttributes['hierarchy']) ? Hierarchy::from($resourceAttributes['hierarchy']) : null,
         isset($resourceAttributes['hosted_page']) ? HostedPage::from($resourceAttributes['hosted_page']) : null,
         isset($resourceAttributes['impacted_customer']) ? ImpactedCustomer::from($resourceAttributes['impacted_customer']) : null,
@@ -1026,6 +1063,8 @@ class Content  {
         isset($resourceAttributes['item_entitlement']) ? ItemEntitlement::from($resourceAttributes['item_entitlement']) : null,
         isset($resourceAttributes['item_family']) ? ItemFamily::from($resourceAttributes['item_family']) : null,
         isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
+        isset($resourceAttributes['ledger_account_balance']) ? LedgerAccountBalance::from($resourceAttributes['ledger_account_balance']) : null,
+        isset($resourceAttributes['ledger_operation']) ? LedgerOperation::from($resourceAttributes['ledger_operation']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
         isset($resourceAttributes['non_subscription']) ? NonSubscription::from($resourceAttributes['non_subscription']) : null,
         isset($resourceAttributes['offer_event']) ? OfferEvent::from($resourceAttributes['offer_event']) : null,
@@ -1051,6 +1090,7 @@ class Content  {
         isset($resourceAttributes['price_variant']) ? PriceVariant::from($resourceAttributes['price_variant']) : null,
         isset($resourceAttributes['pricing_page_session']) ? PricingPageSession::from($resourceAttributes['pricing_page_session']) : null,
         isset($resourceAttributes['promotional_credit']) ? PromotionalCredit::from($resourceAttributes['promotional_credit']) : null,
+        isset($resourceAttributes['promotional_grant']) ? PromotionalGrant::from($resourceAttributes['promotional_grant']) : null,
         isset($resourceAttributes['purchase']) ? Purchase::from($resourceAttributes['purchase']) : null,
         isset($resourceAttributes['quote']) ? Quote::from($resourceAttributes['quote']) : null,
         isset($resourceAttributes['quote_line_group']) ? QuoteLineGroup::from($resourceAttributes['quote_line_group']) : null,
@@ -1092,6 +1132,10 @@ class Content  {
     {
         
         $data = array_filter([
+        
+        
+        
+        
         
         
         
@@ -1317,6 +1361,9 @@ class Content  {
         if($this->gift instanceof Gift){
             $data['gift'] = $this->gift->toArray();
         }
+        if($this->grantblock instanceof GrantBlock){
+            $data['grant_block'] = $this->grantblock->toArray();
+        }
         if($this->hierarchy instanceof Hierarchy){
             $data['hierarchy'] = $this->hierarchy->toArray();
         }
@@ -1355,6 +1402,12 @@ class Content  {
         }
         if($this->itemprice instanceof ItemPrice){
             $data['item_price'] = $this->itemprice->toArray();
+        }
+        if($this->ledgeraccountbalance instanceof LedgerAccountBalance){
+            $data['ledger_account_balance'] = $this->ledgeraccountbalance->toArray();
+        }
+        if($this->ledgeroperation instanceof LedgerOperation){
+            $data['ledger_operation'] = $this->ledgeroperation->toArray();
         }
         if($this->metadata instanceof Metadata){
             $data['metadata'] = $this->metadata->toArray();
@@ -1430,6 +1483,9 @@ class Content  {
         }
         if($this->promotionalcredit instanceof PromotionalCredit){
             $data['promotional_credit'] = $this->promotionalcredit->toArray();
+        }
+        if($this->promotionalgrant instanceof PromotionalGrant){
+            $data['promotional_grant'] = $this->promotionalgrant->toArray();
         }
         if($this->purchase instanceof Purchase){
             $data['purchase'] = $this->purchase->toArray();
