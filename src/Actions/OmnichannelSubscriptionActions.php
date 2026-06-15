@@ -178,6 +178,10 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
     *     before?: mixed,
     *     after?: mixed,
     *     },
+    * sort_by?: array{
+    *     asc?: string,
+    *     desc?: string,
+    *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

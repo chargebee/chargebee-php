@@ -5,7 +5,6 @@ namespace Chargebee\Resources\HostedPage\Enums;
 enum Type : string { 
     case CHECKOUT_NEW = "checkout_new";
     case CHECKOUT_EXISTING = "checkout_existing";
-    case UPDATE_PAYMENT_METHOD = "update_payment_method";
     case MANAGE_PAYMENT_SOURCES = "manage_payment_sources";
     case COLLECT_NOW = "collect_now";
     case EXTEND_SUBSCRIPTION = "extend_subscription";
@@ -19,6 +18,10 @@ enum Type : string {
     * @depcreated
     */
     case UPDATE_CARD = "update_card";
+    /*
+    * @depcreated
+    */
+    case UPDATE_PAYMENT_METHOD = "update_payment_method";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

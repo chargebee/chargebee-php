@@ -48,6 +48,8 @@ use Chargebee\Actions\Contracts\FeatureActionsInterface;
 use Chargebee\Actions\FeatureActions;
 use Chargebee\Actions\Contracts\GiftActionsInterface;
 use Chargebee\Actions\GiftActions;
+use Chargebee\Actions\Contracts\GrantBlockActionsInterface;
+use Chargebee\Actions\GrantBlockActions;
 use Chargebee\Actions\Contracts\HostedPageActionsInterface;
 use Chargebee\Actions\HostedPageActions;
 use Chargebee\Actions\Contracts\InAppSubscriptionActionsInterface;
@@ -62,6 +64,10 @@ use Chargebee\Actions\Contracts\ItemFamilyActionsInterface;
 use Chargebee\Actions\ItemFamilyActions;
 use Chargebee\Actions\Contracts\ItemPriceActionsInterface;
 use Chargebee\Actions\ItemPriceActions;
+use Chargebee\Actions\Contracts\LedgerAccountBalanceActionsInterface;
+use Chargebee\Actions\LedgerAccountBalanceActions;
+use Chargebee\Actions\Contracts\LedgerOperationActionsInterface;
+use Chargebee\Actions\LedgerOperationActions;
 use Chargebee\Actions\Contracts\NonSubscriptionActionsInterface;
 use Chargebee\Actions\NonSubscriptionActions;
 use Chargebee\Actions\Contracts\OfferEventActionsInterface;
@@ -96,6 +102,8 @@ use Chargebee\Actions\Contracts\PricingPageSessionActionsInterface;
 use Chargebee\Actions\PricingPageSessionActions;
 use Chargebee\Actions\Contracts\PromotionalCreditActionsInterface;
 use Chargebee\Actions\PromotionalCreditActions;
+use Chargebee\Actions\Contracts\PromotionalGrantActionsInterface;
+use Chargebee\Actions\PromotionalGrantActions;
 use Chargebee\Actions\Contracts\PurchaseActionsInterface;
 use Chargebee\Actions\PurchaseActions;
 use Chargebee\Actions\Contracts\QuoteActionsInterface;
@@ -305,6 +313,10 @@ class ChargebeeClient {
         return new GiftActions($this->httpClientFactory, $this->env);
     }
 
+    public function grantBlock() :GrantBlockActionsInterface {
+        return new GrantBlockActions($this->httpClientFactory, $this->env);
+    }
+
     public function hostedPage() :HostedPageActionsInterface {
         return new HostedPageActions($this->httpClientFactory, $this->env);
     }
@@ -331,6 +343,14 @@ class ChargebeeClient {
 
     public function itemPrice() :ItemPriceActionsInterface {
         return new ItemPriceActions($this->httpClientFactory, $this->env);
+    }
+
+    public function ledgerAccountBalance() :LedgerAccountBalanceActionsInterface {
+        return new LedgerAccountBalanceActions($this->httpClientFactory, $this->env);
+    }
+
+    public function ledgerOperation() :LedgerOperationActionsInterface {
+        return new LedgerOperationActions($this->httpClientFactory, $this->env);
     }
 
     public function nonSubscription() :NonSubscriptionActionsInterface {
@@ -399,6 +419,10 @@ class ChargebeeClient {
 
     public function promotionalCredit() :PromotionalCreditActionsInterface {
         return new PromotionalCreditActions($this->httpClientFactory, $this->env);
+    }
+
+    public function promotionalGrant() :PromotionalGrantActionsInterface {
+        return new PromotionalGrantActions($this->httpClientFactory, $this->env);
     }
 
     public function purchase() :PurchaseActionsInterface {

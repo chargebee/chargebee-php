@@ -72,6 +72,12 @@ class HostedPage  {
     
     /**
     *
+    * @var ?\Chargebee\Enums\Layout $layout
+    */
+    public ?\Chargebee\Enums\Layout $layout;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\HostedPage\Enums\Type $type
     */
     public ?\Chargebee\Resources\HostedPage\Enums\Type $type;
@@ -111,6 +117,7 @@ class HostedPage  {
         ?int $resource_version,
         mixed $checkout_info,
         ?string $business_entity_id,
+        ?\Chargebee\Enums\Layout $layout,
         ?\Chargebee\Resources\HostedPage\Enums\Type $type,
         ?\Chargebee\Resources\HostedPage\Enums\State $state,
         ?\Chargebee\Resources\HostedPage\Enums\FailureReason $failure_reason,
@@ -126,7 +133,8 @@ class HostedPage  {
         $this->updated_at = $updated_at;
         $this->resource_version = $resource_version;
         $this->checkout_info = $checkout_info;
-        $this->business_entity_id = $business_entity_id;  
+        $this->business_entity_id = $business_entity_id; 
+        $this->layout = $layout; 
         $this->type = $type;
         $this->state = $state;
         $this->failure_reason = $failure_reason; 
@@ -146,6 +154,8 @@ class HostedPage  {
         $resourceAttributes['checkout_info'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         
+        
+        isset($resourceAttributes['layout']) ? \Chargebee\Enums\Layout::tryFromValue($resourceAttributes['layout']) : null,
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\HostedPage\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
         
@@ -172,6 +182,8 @@ class HostedPage  {
         'resource_version' => $this->resource_version,
         'checkout_info' => $this->checkout_info,
         'business_entity_id' => $this->business_entity_id,
+        
+        'layout' => $this->layout?->value,
         
         'type' => $this->type?->value,
         
