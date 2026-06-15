@@ -3,7 +3,6 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\LedgerAccountBalanceResponse\ListLedgerAccountBalancesLedgerAccountBalanceResponse;
 use Chargebee\Actions\Contracts\LedgerAccountBalanceActionsInterface;
-use Chargebee\ValueObjects\Encoders\JsonParamEncoder;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
@@ -57,7 +56,6 @@ final class LedgerAccountBalanceActions implements LedgerAccountBalanceActionsIn
         ->withParamEncoder(new ListParamEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
-        ->withHeaderOverride("Content-Type", "application/json")
         ->withHeaders($headers)
         ->withParams($params)
         ->build();

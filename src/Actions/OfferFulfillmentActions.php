@@ -82,10 +82,9 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
         ->withEnvironment($this->env)
         ->withHttpMethod("get")
         ->withUriPaths(["offer_fulfillments",$id])
-        ->withParamEncoder( new JsonParamEncoder())
+        ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain("grow")
         ->withJsonKeys($jsonKeys)
-        ->withHeaderOverride("Content-Type", "application/json")
         ->withHeaders($headers)
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);

@@ -198,7 +198,6 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withParamEncoder(new ListParamEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
-        ->withHeaderOverride("Content-Type", "application/json")
         ->withHeaders($headers)
         ->withParams($params)
         ->build();
