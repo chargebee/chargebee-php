@@ -21,6 +21,8 @@ class ChargebeePayloadBuilder
     private ?bool $isIdempotent = false;
     private array $jsonKeys = [];
     private ?ParamEncoderInterface $paramEncoder = null;
+    private ?string $telemetryResource = null;
+    private ?string $telemetryOperation = null;
 
     public function withUriPaths(array $uriPaths): self
     {
@@ -88,6 +90,18 @@ class ChargebeePayloadBuilder
         return $this;
     }
 
+    public function withTelemetryResource(string $telemetryResource): self
+    {
+        $this->telemetryResource = $telemetryResource;
+        return $this;
+    }
+
+    public function withTelemetryOperation(string $telemetryOperation): self
+    {
+        $this->telemetryOperation = $telemetryOperation;
+        return $this;
+    }
+
     private function constructHeaders(): array
     {
         if (!$this->env) {
@@ -136,6 +150,8 @@ class ChargebeePayloadBuilder
             $serializedParameters,
             $headers,
             $this->env,
+            $this->telemetryResource,
+            $this->telemetryOperation,
         );
     }
 }

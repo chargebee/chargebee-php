@@ -15,6 +15,8 @@ class ResponseObject
 
     public array $headers;
 
+    public int $httpStatusCode;
+
      /**
      * @param $response
      * @param $httpCode
@@ -41,6 +43,12 @@ class ResponseObject
         }
         $this->data = $respJson;
         $this->headers = $responseHeaders;
+        $this->httpStatusCode = $httpCode;
+    }
+
+    public function getStatusCode(): int
+    {
+        return $this->httpStatusCode;
     }
 
         /**
