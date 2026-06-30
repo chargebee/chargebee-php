@@ -74,6 +74,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("recordRefund")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -202,6 +204,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("importCreditNote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -236,6 +240,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -271,6 +277,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("creditNotesForCustomer")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -305,6 +313,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("pdf")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -336,6 +346,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("sendEinvoice")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -370,6 +382,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("voidCreditNote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -406,6 +420,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("refund")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -574,6 +590,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -630,6 +648,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -660,6 +680,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("downloadEinvoice")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -691,6 +713,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("resendEinvoice")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -727,6 +751,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("removeTaxWithheldRefund")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -769,6 +795,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

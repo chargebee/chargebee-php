@@ -118,6 +118,8 @@ final class GiftActions implements GiftActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("createForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -149,6 +151,8 @@ final class GiftActions implements GiftActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("cancel")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -189,6 +193,8 @@ final class GiftActions implements GiftActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("updateGift")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -248,6 +254,8 @@ final class GiftActions implements GiftActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -334,6 +342,8 @@ final class GiftActions implements GiftActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -364,6 +374,8 @@ final class GiftActions implements GiftActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -395,6 +407,8 @@ final class GiftActions implements GiftActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("gift")
+        ->withTelemetryOperation("claim")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

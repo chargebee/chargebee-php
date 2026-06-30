@@ -58,6 +58,8 @@ final class PromotionalGrantActions implements PromotionalGrantActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("promotionalGrant")
+        ->withTelemetryOperation("promotionalGrants")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

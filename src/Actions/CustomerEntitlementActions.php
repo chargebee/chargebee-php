@@ -53,6 +53,8 @@ final class CustomerEntitlementActions implements CustomerEntitlementActionsInte
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("customerEntitlement")
+        ->withTelemetryOperation("entitlementsForCustomer")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

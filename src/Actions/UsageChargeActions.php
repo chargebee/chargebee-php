@@ -55,6 +55,8 @@ final class UsageChargeActions implements UsageChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("usageCharge")
+        ->withTelemetryOperation("retrieveUsageChargesForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

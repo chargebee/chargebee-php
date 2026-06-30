@@ -53,6 +53,8 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("webhookEndpoint")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -83,6 +85,8 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("webhookEndpoint")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -125,6 +129,8 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("webhookEndpoint")
+        ->withTelemetryOperation("update")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -159,6 +165,8 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("webhookEndpoint")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -202,6 +210,8 @@ final class WebhookEndpointActions implements WebhookEndpointActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("webhookEndpoint")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

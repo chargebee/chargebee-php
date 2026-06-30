@@ -57,7 +57,7 @@ final class TelemetryExecutor
         array &$headers,
     ): mixed {
         try {
-            $context = self::buildContext($env, $payload);
+            $context = self::buildContext($env, $payload, $headers);
             return $adapter->onRequestStart($context, $headers);
         } catch (\Throwable $err) {
             if ($env->getEnableDebugLogs()) {
@@ -109,9 +109,13 @@ final class TelemetryExecutor
         }
     }
 
+    /**
+     * @param array<string, string> $requestHeaders
+     */
     private static function buildContext(
         Environment $env,
         ChargebeePayload $payload,
+        array $requestHeaders,
     ): RequestTelemetryContext {
         $parsed = parse_url($payload->getUrl());
         $scheme = $parsed['scheme'] ?? 'https';
@@ -129,6 +133,7 @@ final class TelemetryExecutor
             $env->getSite(),
             TelemetrySupport::resolveChargebeeApiVersion($apiPath),
             Version::VERSION,
+            $requestHeaders,
         );
     }
 }

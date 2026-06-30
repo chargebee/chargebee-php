@@ -180,6 +180,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("createSubItemsForCustomerQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -210,6 +212,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -247,6 +251,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("updateSignatureStatus")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -279,6 +285,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("updateSignature")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -314,6 +322,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("updateStatus")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -348,6 +358,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("extendExpiryDate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -380,6 +392,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("retrieveSignedPdf")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -527,6 +541,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editUpdateSubscriptionQuoteForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -606,6 +622,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -637,6 +655,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("retrieveSignature")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -680,6 +700,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("convert")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -714,6 +736,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -850,6 +874,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editCreateSubCustomerQuoteForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -999,6 +1025,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("updateSubscriptionQuoteForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1033,6 +1061,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("quoteLineGroupsForQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1145,6 +1175,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editForChargeItemsAndCharges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1177,6 +1209,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("createSignature")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1209,6 +1243,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("refreshSignatureLink")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1244,6 +1280,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("pdf")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1358,6 +1396,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("createForChargeItemsAndCharges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1435,6 +1475,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editOneTimeQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1559,6 +1601,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("updateSubscriptionQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1638,6 +1682,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("createForOnetimeCharges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1733,6 +1779,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("createSubForCustomerQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1855,6 +1903,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editUpdateSubscriptionQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1949,6 +1999,8 @@ final class QuoteActions implements QuoteActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("quote")
+        ->withTelemetryOperation("editCreateSubForCustomerQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

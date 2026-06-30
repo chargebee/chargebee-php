@@ -63,6 +63,8 @@ final class AlertActions implements AlertActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("applicationAlertsForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -93,6 +95,8 @@ final class AlertActions implements AlertActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -131,6 +135,8 @@ final class AlertActions implements AlertActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("update")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -162,6 +168,8 @@ final class AlertActions implements AlertActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -208,6 +216,8 @@ final class AlertActions implements AlertActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -256,6 +266,8 @@ final class AlertActions implements AlertActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("alert")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

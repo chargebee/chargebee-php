@@ -65,6 +65,8 @@ final class NonSubscriptionActions implements NonSubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("nonSubscription")
+        ->withTelemetryOperation("processReceipt")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

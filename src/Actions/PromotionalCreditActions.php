@@ -52,6 +52,8 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("promotionalCredit")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -108,6 +110,8 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("promotionalCredit")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -148,6 +152,8 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("promotionalCredit")
+        ->withTelemetryOperation("deduct")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -188,6 +194,8 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("promotionalCredit")
+        ->withTelemetryOperation("set")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -228,6 +236,8 @@ final class PromotionalCreditActions implements PromotionalCreditActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("promotionalCredit")
+        ->withTelemetryOperation("add")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

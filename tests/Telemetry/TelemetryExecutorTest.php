@@ -122,6 +122,37 @@ final class TelemetryExecutorTest extends TestCase
         self::assertSame(200, $result->getStatusCode());
     }
 
+    #[TestDox('promotes chargebee-* request headers and excludes chargebee-request-origin-* PII headers')]
+    public function testPromotesChargebeeRequestHeaders(): void
+    {
+        $adapter = new RecordingAdapter();
+        $env = $this->makeEnvironment($adapter);
+        $payload = ChargebeePayload::builder()
+            ->withEnvironment($env)
+            ->withHttpMethod('get')
+            ->withUriPaths(['/customers'])
+            ->withParamEncoder(new URLFormEncoder())
+            ->withTelemetryResource('customer')
+            ->withTelemetryOperation('list')
+            ->withHeaders([
+                'chargebee-foo' => 'bar',
+                'Authorization' => 'Basic secret',
+                'chargebee-request-origin-ip' => '202.170.207.70',
+            ])
+            ->build();
+
+        TelemetryExecutor::execute(
+            $env,
+            $payload,
+            fn (ChargebeePayload $p) => new ResponseObject('{}', 200, []),
+        );
+
+        $attrs = $adapter->startContext?->startAttributes ?? [];
+        self::assertSame('bar', $attrs['http.request.header.chargebee-foo'] ?? null);
+        self::assertArrayNotHasKey('http.request.header.authorization', $attrs);
+        self::assertArrayNotHasKey('http.request.header.chargebee-request-origin-ip', $attrs);
+    }
+
     #[TestDox('records failure details from APIError')]
     public function testRecordsFailureFromApiError(): void
     {

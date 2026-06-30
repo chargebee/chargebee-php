@@ -54,6 +54,8 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("inAppSubscription")
+        ->withTelemetryOperation("retrieveStoreSubs")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -95,6 +97,8 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("inAppSubscription")
+        ->withTelemetryOperation("importReceipt")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -142,6 +146,8 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("inAppSubscription")
+        ->withTelemetryOperation("importSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -191,6 +197,8 @@ final class InAppSubscriptionActions implements InAppSubscriptionActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("inAppSubscription")
+        ->withTelemetryOperation("processReceipt")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

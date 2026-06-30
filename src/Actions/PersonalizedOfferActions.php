@@ -68,6 +68,8 @@ final class PersonalizedOfferActions implements PersonalizedOfferActionsInterfac
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("personalizedOffer")
+        ->withTelemetryOperation("personalizedOffers")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

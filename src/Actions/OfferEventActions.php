@@ -54,6 +54,8 @@ final class OfferEventActions implements OfferEventActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("offerEvent")
+        ->withTelemetryOperation("offerEvents")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

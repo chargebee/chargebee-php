@@ -58,6 +58,8 @@ final class UsageEventActions implements UsageEventActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("usageEvent")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -99,6 +101,8 @@ final class UsageEventActions implements UsageEventActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("usageEvent")
+        ->withTelemetryOperation("batchIngest")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

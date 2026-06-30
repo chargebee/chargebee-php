@@ -186,6 +186,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutOneTimeForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -234,6 +236,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("updatePaymentMethod")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -282,6 +286,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("updateCard")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -320,6 +326,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("extendSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -357,6 +365,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("events")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -413,6 +423,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutGiftForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -472,6 +484,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -511,6 +525,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("viewVoucher")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -554,6 +570,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("collectNow")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -592,6 +610,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("acceptQuote")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -747,6 +767,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutNewForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -787,6 +809,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("claimGift")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -910,6 +934,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutExistingForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -949,6 +975,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("preCancel")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -980,6 +1008,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("acknowledge")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1014,6 +1044,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("retrieveAgreementPdf")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1044,6 +1076,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1086,6 +1120,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("managePaymentSources")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1204,6 +1240,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutOneTime")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1337,6 +1375,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutNew")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1386,6 +1426,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutGift")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1483,6 +1525,8 @@ final class HostedPageActions implements HostedPageActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("hostedPage")
+        ->withTelemetryOperation("checkoutExisting")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

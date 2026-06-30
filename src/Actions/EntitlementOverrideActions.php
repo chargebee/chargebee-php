@@ -56,6 +56,8 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("entitlementOverride")
+        ->withTelemetryOperation("listEntitlementOverrideForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -99,6 +101,8 @@ final class EntitlementOverrideActions implements EntitlementOverrideActionsInte
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("entitlementOverride")
+        ->withTelemetryOperation("addEntitlementOverrideForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

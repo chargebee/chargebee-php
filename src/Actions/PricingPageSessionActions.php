@@ -76,6 +76,8 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("pricingPageSession")
+        ->withTelemetryOperation("createForExistingSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -177,6 +179,8 @@ final class PricingPageSessionActions implements PricingPageSessionActionsInterf
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("pricingPageSession")
+        ->withTelemetryOperation("createForNewSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

@@ -54,6 +54,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -89,6 +91,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("invoiceNowEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -124,6 +128,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("invoiceUnbilledCharges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -176,6 +182,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -251,6 +259,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -315,6 +325,8 @@ final class UnbilledChargeActions implements UnbilledChargeActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("unbilledCharge")
+        ->withTelemetryOperation("createUnbilledCharge")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

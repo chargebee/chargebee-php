@@ -56,6 +56,8 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("itemEntitlement")
+        ->withTelemetryOperation("itemEntitlementsForFeature")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -95,6 +97,8 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("itemEntitlement")
+        ->withTelemetryOperation("addItemEntitlements")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -131,6 +135,8 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("itemEntitlement")
+        ->withTelemetryOperation("itemEntitlementsForItem")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -169,6 +175,8 @@ final class ItemEntitlementActions implements ItemEntitlementActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("itemEntitlement")
+        ->withTelemetryOperation("upsertOrRemoveItemEntitlementsForItem")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

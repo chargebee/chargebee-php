@@ -59,6 +59,8 @@ final class AlertStatusActions implements AlertStatusActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("alertStatus")
+        ->withTelemetryOperation("alertStatusesForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -96,6 +98,8 @@ final class AlertStatusActions implements AlertStatusActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("alertStatus")
+        ->withTelemetryOperation("alertStatusesForAlert")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

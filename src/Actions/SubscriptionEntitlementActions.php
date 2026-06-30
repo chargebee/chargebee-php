@@ -56,6 +56,8 @@ final class SubscriptionEntitlementActions implements SubscriptionEntitlementAct
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscriptionEntitlement")
+        ->withTelemetryOperation("setSubscriptionEntitlementAvailability")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -93,6 +95,8 @@ final class SubscriptionEntitlementActions implements SubscriptionEntitlementAct
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("subscriptionEntitlement")
+        ->withTelemetryOperation("subscriptionEntitlementsForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

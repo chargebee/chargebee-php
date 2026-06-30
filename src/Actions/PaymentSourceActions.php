@@ -100,6 +100,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createUsingPermanentToken")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -131,6 +133,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -185,6 +189,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createCard")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -220,6 +226,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("verifyBankAccount")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -291,6 +299,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -325,6 +335,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("exportPaymentSource")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -372,6 +384,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createUsingPaymentIntent")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -402,6 +416,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -443,6 +459,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createVoucherPaymentSource")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -484,6 +502,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createUsingTempToken")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -535,6 +555,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("updateCard")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -569,6 +591,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("switchGatewayAccount")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -605,6 +629,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createUsingToken")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -636,6 +662,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("deleteLocal")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -691,6 +719,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("createBankAccount")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -729,6 +759,8 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("updateBankAccount")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

@@ -63,6 +63,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("releaseAuthorization")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -104,6 +106,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("capture")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -146,6 +150,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("authorize")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -200,6 +206,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("listLedgerOperations")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -240,6 +248,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("captureAuthorization")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -270,6 +280,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("retrieveLedgerOperation")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
