@@ -34,10 +34,10 @@ final class TelemetryExecutor
 
         try {
             $response = $action($requestPayload);
-            self::endTelemetrySuccess($adapter, $handle, $startMs, $response->getStatusCode());
+            self::endTelemetrySuccess($env, $adapter, $handle, $startMs, $response->getStatusCode());
             return $response;
         } catch (\Throwable $err) {
-            self::endTelemetryFailure($adapter, $handle, $startMs, $err);
+            self::endTelemetryFailure($env, $adapter, $handle, $startMs, $err);
             throw $err;
         }
     }
@@ -60,14 +60,13 @@ final class TelemetryExecutor
             $context = self::buildContext($env, $payload, $headers);
             return $adapter->onRequestStart($context, $headers);
         } catch (\Throwable $err) {
-            if ($env->getEnableDebugLogs()) {
-                echo '[ERROR] Telemetry adapter onRequestStart failed: ' . $err->getMessage() . "\n";
-            }
+            self::logTelemetryAdapterError($env, 'onRequestStart', $err);
             return null;
         }
     }
 
     private static function endTelemetrySuccess(
+        Environment $env,
         TelemetryAdapter $adapter,
         mixed $handle,
         int $startMs,
@@ -83,11 +82,12 @@ final class TelemetryExecutor
                 ),
             );
         } catch (\Throwable $err) {
-            error_log('Telemetry adapter onRequestEnd failed: ' . $err->getMessage());
+            self::logTelemetryAdapterError($env, 'onRequestEnd', $err);
         }
     }
 
     private static function endTelemetryFailure(
+        Environment $env,
         TelemetryAdapter $adapter,
         mixed $handle,
         int $startMs,
@@ -105,8 +105,20 @@ final class TelemetryExecutor
                 ),
             );
         } catch (\Throwable $telemetryErr) {
-            error_log('Telemetry adapter onRequestEnd failed: ' . $telemetryErr->getMessage());
+            self::logTelemetryAdapterError($env, 'onRequestEnd', $telemetryErr);
         }
+    }
+
+    private static function logTelemetryAdapterError(
+        Environment $env,
+        string $hook,
+        \Throwable $err,
+    ): void {
+        if (!$env->getEnableDebugLogs()) {
+            return;
+        }
+
+        echo '[ERROR] Telemetry adapter ' . $hook . ' failed: ' . $err->getMessage() . "\n";
     }
 
     /**
