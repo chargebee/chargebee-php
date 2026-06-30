@@ -93,13 +93,13 @@ final class TelemetrySupport
         ];
 
         if ($error !== null) {
-            $attributes[TelemetryAttributeKeys::ERROR_TYPE] = (string) $httpStatusCode;
+            if ($error->chargebeeApiErrorType !== null) {
+                $attributes[TelemetryAttributeKeys::ERROR_TYPE] = $error->chargebeeApiErrorType;
+                $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_TYPE] = $error->chargebeeApiErrorType;
+            }
 
             if ($error->chargebeeErrorCode !== null) {
                 $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_CODE] = $error->chargebeeErrorCode;
-            }
-            if ($error->chargebeeApiErrorType !== null) {
-                $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_TYPE] = $error->chargebeeApiErrorType;
             }
             if ($error->chargebeeErrorParam !== null) {
                 $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_PARAM] = $error->chargebeeErrorParam;

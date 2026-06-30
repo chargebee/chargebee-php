@@ -112,7 +112,7 @@ final class TelemetrySupportTest extends TestCase
         $attributes = TelemetrySupport::buildRequestEndSpanAttributes(400, $error);
 
         self::assertSame(400, $attributes[TelemetryAttributeKeys::HTTP_RESPONSE_STATUS_CODE]);
-        self::assertSame('400', $attributes[TelemetryAttributeKeys::ERROR_TYPE]);
+        self::assertSame('invalid_request', $attributes[TelemetryAttributeKeys::ERROR_TYPE]);
         self::assertSame('invalid_request', $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_CODE]);
         self::assertSame('invalid_request', $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_TYPE]);
         self::assertSame('email', $attributes[TelemetryAttributeKeys::CHARGEBEE_ERROR_PARAM]);
