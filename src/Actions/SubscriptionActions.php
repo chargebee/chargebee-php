@@ -90,6 +90,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeAdvanceInvoiceSchedule")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -298,6 +300,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("updateForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -332,6 +336,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeCoupons")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -380,6 +386,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("resume")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -432,6 +440,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("cancelForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -469,6 +479,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("regenerateInvoice")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -628,6 +640,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -856,6 +870,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -891,6 +907,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("move")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -926,6 +944,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("subscriptionsForCustomer")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1047,6 +1067,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("createForCustomer")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1183,6 +1205,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("importForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1213,6 +1237,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("retrieveAdvanceInvoiceSchedule")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1252,6 +1278,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeScheduledCancellation")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1282,6 +1310,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("retrieveWithScheduledChanges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1342,6 +1372,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("reactivate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1388,6 +1420,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("chargeFutureRenewals")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1429,6 +1463,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("addChargeAtTermEnd")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1460,6 +1496,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeScheduledChanges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1496,6 +1534,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("changeTermEnd")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1527,6 +1567,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("delete")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1670,6 +1712,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("createWithItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1738,6 +1782,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("importUnbilledCharges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1769,6 +1815,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeScheduledResumption")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1799,6 +1847,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1983,6 +2033,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("update")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2031,6 +2083,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("importContractTerm")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2066,6 +2120,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("overrideBillingProfile")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2097,6 +2153,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("removeScheduledPause")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2143,6 +2201,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("editAdvanceInvoiceSchedule")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2177,6 +2237,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("listDiscounts")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2215,6 +2277,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("contractTermsForSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2254,6 +2318,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("pause")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2373,6 +2439,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("importForCustomer")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2557,6 +2625,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("importSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2606,6 +2676,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("cancel")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -2646,6 +2718,8 @@ final class SubscriptionActions implements SubscriptionActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("subscription")
+        ->withTelemetryOperation("chargeAddonAtTermEnd")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

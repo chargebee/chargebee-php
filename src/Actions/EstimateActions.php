@@ -73,6 +73,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("renewalEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -203,6 +205,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createSubItemEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -240,6 +244,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("paymentSchedules")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -291,6 +297,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("cancelSubscriptionForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -329,6 +337,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("resumeSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -453,6 +463,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createInvoiceForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -547,6 +559,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("giftSubscriptionForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -680,6 +694,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("updateSubscriptionForItems")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -713,6 +729,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("upcomingInvoicesEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -750,6 +768,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("regenerateInvoiceEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -867,6 +887,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createSubItemForCustomerEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -903,6 +925,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("changeTermEnd")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -943,6 +967,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("pauseSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -989,6 +1015,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("advanceInvoiceEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1104,6 +1132,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("updateSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1192,6 +1222,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("giftSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1282,6 +1314,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createSubForCustomerEstimate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1400,6 +1434,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1496,6 +1532,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("createInvoice")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -1545,6 +1583,8 @@ final class EstimateActions implements EstimateActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("estimate")
+        ->withTelemetryOperation("cancelSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

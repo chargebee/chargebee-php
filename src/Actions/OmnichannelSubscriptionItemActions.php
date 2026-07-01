@@ -52,6 +52,8 @@ final class OmnichannelSubscriptionItemActions implements OmnichannelSubscriptio
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("omnichannelSubscriptionItem")
+        ->withTelemetryOperation("listOmniSubItemScheduleChanges")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

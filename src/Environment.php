@@ -2,6 +2,8 @@
 
 namespace Chargebee;
 
+use Chargebee\Telemetry\TelemetryAdapter;
+
 class Environment
 {
     private string $apiKey;
@@ -23,6 +25,8 @@ class Environment
     private RetryConfig $retryConfig;
 
     private bool $enableDebugLogs = false;
+
+    private ?TelemetryAdapter $telemetryAdapter = null;
 
     public function __construct(string $site, string $apiKey)
     {
@@ -105,5 +109,15 @@ class Environment
     public function setEnableDebugLogs(bool $enableDebugLogs): void
     {
         $this->enableDebugLogs = $enableDebugLogs;
+    }
+
+    public function setTelemetryAdapter(?TelemetryAdapter $telemetryAdapter): void
+    {
+        $this->telemetryAdapter = $telemetryAdapter;
+    }
+
+    public function getTelemetryAdapter(): ?TelemetryAdapter
+    {
+        return $this->telemetryAdapter;
     }
 }

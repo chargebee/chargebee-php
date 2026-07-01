@@ -58,6 +58,8 @@ final class LedgerAccountBalanceActions implements LedgerAccountBalanceActionsIn
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("ledgerAccountBalance")
+        ->withTelemetryOperation("listLedgerAccountBalances")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

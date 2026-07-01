@@ -163,7 +163,8 @@ class ChargebeeClient {
      *      requestTimeoutInMillis?: float,
      *      userAgentSuffix?: string,
      *      retryConfig?: RetryConfig,
-     *      enableDebugLogs?: bool
+     *      enableDebugLogs?: bool,
+     *      telemetryAdapter?: \Chargebee\Telemetry\TelemetryAdapter
      * } $options
      * @param HttpClientFactory|ClientInterface|null $httpClient Pass an HttpClientFactory for full control,
      *        or a PSR-18 ClientInterface for a simpler injection path. When omitted, GuzzleFactory is used.
@@ -205,6 +206,9 @@ class ChargebeeClient {
         }
         if (isset($options['enableDebugLogs']) && is_bool($options['enableDebugLogs'])) {
             $env->setEnableDebugLogs($options['enableDebugLogs']);
+        }
+        if (isset($options['telemetryAdapter']) && $options['telemetryAdapter'] instanceof \Chargebee\Telemetry\TelemetryAdapter) {
+            $env->setTelemetryAdapter($options['telemetryAdapter']);
         }
         $this->env = $env;
         if ($httpClient instanceof ClientInterface) {

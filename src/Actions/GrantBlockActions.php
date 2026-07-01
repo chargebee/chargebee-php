@@ -80,6 +80,8 @@ final class GrantBlockActions implements GrantBlockActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("grantBlock")
+        ->withTelemetryOperation("listGrantBlocks")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

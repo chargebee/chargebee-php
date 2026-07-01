@@ -55,6 +55,8 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("omnichannelSubscription")
+        ->withTelemetryOperation("move")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -85,6 +87,8 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("omnichannelSubscription")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -119,6 +123,8 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("omnichannelSubscription")
+        ->withTelemetryOperation("omnichannelTransactionsForOmnichannelSubscription")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -205,6 +211,8 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("omnichannelSubscription")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

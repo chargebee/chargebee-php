@@ -48,6 +48,8 @@ final class UsageFileActions implements UsageFileActionsInterface
         ->withSubDomain("file-ingest")
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("usageFile")
+        ->withTelemetryOperation("processingStatus")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -83,6 +85,8 @@ final class UsageFileActions implements UsageFileActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("usageFile")
+        ->withTelemetryOperation("uploadUrl")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

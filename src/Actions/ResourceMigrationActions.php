@@ -52,6 +52,8 @@ final class ResourceMigrationActions implements ResourceMigrationActionsInterfac
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("resourceMigration")
+        ->withTelemetryOperation("retrieveLatest")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

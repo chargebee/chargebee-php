@@ -8,6 +8,7 @@ use Chargebee\Exceptions\InvalidRequestException;
 use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\RetryConfig;
+use Chargebee\Telemetry\TelemetryExecutor;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\HttpClient\HttpClientFactory;
 use Exception;
@@ -40,10 +41,12 @@ class APIRequester
      */
     public function makeRequest(ChargebeePayload $payload): ResponseObject
     {
-        $retryConfig = $this->env->getRetryConfig() ?? new RetryConfig();
-        return $this->withRetry(function ($retryCount) use ($payload) {
-            return $this->sendRequest($payload, $retryCount);
-        }, $retryConfig);
+        return TelemetryExecutor::execute($this->env, $payload, function (ChargebeePayload $requestPayload) {
+            $retryConfig = $this->env->getRetryConfig() ?? new RetryConfig();
+            return $this->withRetry(function ($retryCount) use ($requestPayload) {
+                return $this->sendRequest($requestPayload, $retryCount);
+            }, $retryConfig);
+        });
     }
 
     /**

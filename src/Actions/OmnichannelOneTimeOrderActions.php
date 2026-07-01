@@ -64,6 +64,8 @@ final class OmnichannelOneTimeOrderActions implements OmnichannelOneTimeOrderAct
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("omnichannelOneTimeOrder")
+        ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -94,6 +96,8 @@ final class OmnichannelOneTimeOrderActions implements OmnichannelOneTimeOrderAct
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("omnichannelOneTimeOrder")
+        ->withTelemetryOperation("retrieve")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

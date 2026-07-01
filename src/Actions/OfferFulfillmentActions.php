@@ -56,6 +56,8 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("offerFulfillment")
+        ->withTelemetryOperation("offerFulfillments")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -86,6 +88,8 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
         ->withSubDomain("grow")
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
+        ->withTelemetryResource("offerFulfillment")
+        ->withTelemetryOperation("offerFulfillmentsGet")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -123,6 +127,8 @@ final class OfferFulfillmentActions implements OfferFulfillmentActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(false)
+        ->withTelemetryResource("offerFulfillment")
+        ->withTelemetryOperation("offerFulfillmentsUpdate")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

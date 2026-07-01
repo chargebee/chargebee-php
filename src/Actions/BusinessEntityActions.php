@@ -72,6 +72,8 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("getTransfers")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
@@ -110,6 +112,8 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("createTransfers")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);

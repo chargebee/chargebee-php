@@ -153,6 +153,103 @@ $chargebee = new ChargebeeClient(options: [
 
 ```
 
+### Telemetry (OpenTelemetry)
+
+Optional. Pass a `telemetryAdapter` when you want Chargebee API calls traced in your observability stack (Datadog, Splunk, Honeycomb, Jaeger, etc.). OpenTelemetry is not bundled with `chargebee/chargebee-php` — install and configure it in your app, implement `TelemetryAdapter`, and wire it on the client.
+
+The SDK builds standardized span attributes (`startAttributes`, `endAttributes`) following the stable [OpenTelemetry HTTP semantic conventions](https://opentelemetry.io/docs/specs/semconv/http/http-spans/) (`url.full`, `http.request.method`, `http.response.status_code`, `server.address`, `error.type`) plus Chargebee-specific `chargebee.*` attributes — use them as-is so spans render correctly in your APM and stay consistent across SDKs.
+
+> **Note:** `url.full` intentionally omits the query string (it carries only scheme, host, and path) to avoid leaking potentially sensitive query parameters into traces. This is a deliberate, cross-SDK PII-safety choice.
+
+Spans are named `chargebee.{resource}.{operation}` (e.g. `chargebee.subscription.create`).
+
+When no adapter is configured, the SDK skips all telemetry work — zero overhead for existing integrations.
+
+#### Trace shape
+
+The SDK emits **one `CLIENT` span per API call**, covering the full lifecycle. Retries reuse the same span — `onRequestStart` runs once before the retry loop and `onRequestEnd` runs once after the final outcome.
+
+```
+inbound request span
+└── chargebee.subscription.create   ← parented to caller, propagates to Chargebee
+        └── (Chargebee-side spans)
+```
+
+> If you separately enable HTTP auto-instrumentation (e.g. an OpenTelemetry PHP agent on Guzzle), it will create an **additional transport-level HTTP span as a sibling** of the Chargebee span. For the cleanest trace where `chargebee.{resource}.{operation}` is the single propagating span, leave HTTP auto-instrumentation off for Chargebee calls.
+
+#### OpenTelemetry setup
+
+OpenTelemetry is not bundled — install it in your app:
+
+```sh
+composer require open-telemetry/sdk open-telemetry/exporter-otlp
+```
+
+Configure OpenTelemetry at app startup (tracer provider, exporter, propagator), then pass your adapter:
+
+```php
+use Chargebee\ChargebeeClient;
+use Chargebee\Telemetry\RequestTelemetryContext;
+use Chargebee\Telemetry\RequestTelemetryResult;
+use Chargebee\Telemetry\TelemetryAdapter;
+use OpenTelemetry\API\Trace\Propagation\TraceContextPropagator;
+use OpenTelemetry\API\Trace\SpanInterface;
+use OpenTelemetry\API\Trace\SpanKind;
+use OpenTelemetry\API\Trace\StatusCode;
+use OpenTelemetry\API\Trace\TracerInterface;
+
+class OtelTelemetryAdapter implements TelemetryAdapter
+{
+    public function __construct(private readonly TracerInterface $tracer) {}
+
+    public function onRequestStart(RequestTelemetryContext $context, array &$requestHeaders): mixed
+    {
+        $span = $this->tracer
+            ->spanBuilder($context->spanName)
+            ->setSpanKind(SpanKind::KIND_CLIENT)
+            ->setAttributes($context->startAttributes)
+            ->startSpan();
+
+        $scope = $span->activate();
+        TraceContextPropagator::getInstance()->inject($requestHeaders);
+        $scope->detach();
+
+        return $span;
+    }
+
+    public function onRequestEnd(mixed $handle, RequestTelemetryResult $result): void
+    {
+        if (!$handle instanceof SpanInterface) {
+            return;
+        }
+
+        $span = $handle;
+        $span->setAttributes($result->endAttributes);
+
+        if ($result->error !== null) {
+            $span->setStatus(StatusCode::STATUS_ERROR, $result->error->message);
+        } else {
+            $span->setStatus(StatusCode::STATUS_OK);
+        }
+
+        $span->end();
+    }
+}
+
+$tracer = \OpenTelemetry\API\Globals::tracerProvider()->getTracer('your-app');
+$chargebee = new ChargebeeClient([
+    'site' => '{your_site}',
+    'apiKey' => '{your_apiKey}',
+    'telemetryAdapter' => new OtelTelemetryAdapter($tracer),
+]);
+```
+
+`RequestTelemetryResult` also exposes `durationMs` if you want to record request duration on the span (e.g. `$span->setAttribute('chargebee.request.duration_ms', $result->durationMs)`).
+
+To add custom span attributes (tenant ID, correlation ID, etc.), set them in your adapter's `onRequestStart` / `onRequestEnd` — use your own namespace (e.g. `app.tenant_id`), not `chargebee.*`.
+
+Spans are exported by your own OpenTelemetry setup, so they flow to whatever backend you've configured. The Chargebee config above stays the same regardless of backend.
+
 ## License
 
 See the LICENSE file.
