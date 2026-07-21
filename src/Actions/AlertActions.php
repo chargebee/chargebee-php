@@ -240,6 +240,7 @@ final class AlertActions implements AlertActionsInterface
     *     name?: string,
     *     description?: string,
     *     metered_feature_id?: string,
+    *     currency_code?: string,
     *     subscription_id?: string,
     *     meta?: string,
     *     } $params Description of the parameters

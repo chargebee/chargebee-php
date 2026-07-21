@@ -48,6 +48,12 @@ class Feature  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?bool $metered
+    */
+    public ?bool $metered;
+    
+    /**
+    *
     * @var ?array<Level> $levels
     */
     public ?array $levels;
@@ -67,7 +73,7 @@ class Feature  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "unit" , "resource_version" , "updated_at" , "created_at" , "levels"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "unit" , "resource_version" , "updated_at" , "created_at" , "metered" , "levels"  ];
 
     /**
     * dynamic properties for resources
@@ -83,6 +89,7 @@ class Feature  extends SupportsCustomFields  {
         ?int $resource_version,
         ?int $updated_at,
         ?int $created_at,
+        ?bool $metered,
         ?array $levels,
         ?\Chargebee\Resources\Feature\Enums\Status $status,
         ?\Chargebee\Resources\Feature\Enums\Type $type,
@@ -95,6 +102,7 @@ class Feature  extends SupportsCustomFields  {
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
         $this->created_at = $created_at;
+        $this->metered = $metered;
         $this->levels = $levels;  
         $this->status = $status;
         $this->type = $type; 
@@ -113,6 +121,7 @@ class Feature  extends SupportsCustomFields  {
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['created_at'] ?? null,
+        $resourceAttributes['metered'] ?? null,
         $levels,
         
          
@@ -139,6 +148,7 @@ class Feature  extends SupportsCustomFields  {
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,
         'created_at' => $this->created_at,
+        'metered' => $this->metered,
         
         
         'status' => $this->status?->value,

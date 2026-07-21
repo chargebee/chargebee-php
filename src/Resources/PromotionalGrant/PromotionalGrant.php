@@ -29,9 +29,9 @@ class PromotionalGrant  {
     
     /**
     *
-    * @var ?string $metadata
+    * @var mixed $metadata
     */
-    public ?string $metadata;
+    public mixed $metadata;
     
     /**
     * @var array<string> $knownFields
@@ -49,7 +49,7 @@ class PromotionalGrant  {
         ?string $unit_id,
         ?string $amount,
         ?int $expires_at,
-        ?string $metadata,
+        mixed $metadata,
     )
     { 
         $this->subscription_id = $subscription_id;

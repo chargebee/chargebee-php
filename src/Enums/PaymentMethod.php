@@ -58,6 +58,9 @@ enum PaymentMethod : string {
     case PAYPAY = "paypay";
     case GCASH = "gcash";
     case SOUTH_KOREAN_CARDS = "south_korean_cards";
+    case PAYNOW = "paynow";
+    case BIZUM = "bizum";
+    case PROMPTPAY = "promptpay";
     /*
     * @depcreated
     */

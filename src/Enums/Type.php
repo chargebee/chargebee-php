@@ -50,10 +50,16 @@ enum Type : string {
     case PAYPAY = "paypay";
     case GCASH = "gcash";
     case SOUTH_KOREAN_CARDS = "south_korean_cards";
+    case PAYNOW = "paynow";
+    case BIZUM = "bizum";
+    case PROMPTPAY = "promptpay";
     case FREE_TRIAL = "free_trial";
     case PAY_UP_FRONT = "pay_up_front";
     case PAY_AS_YOU_GO = "pay_as_you_go";
+    case SIMPLE = "simple";
+    case COMPOUND = "compound";
     case USAGE_EXCEEDED = "usage_exceeded";
+    case SPEND_EXCEEDED = "spend_exceeded";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

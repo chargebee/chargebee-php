@@ -35,6 +35,12 @@ class DiscountsToAdd  {
     
     /**
     *
+    * @var ?int $quantity
+    */
+    public ?int $quantity;
+    
+    /**
+    *
     * @var ?string $duration_type
     */
     public ?string $duration_type;
@@ -78,7 +84,7 @@ class DiscountsToAdd  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "quantity" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at"  ];
 
     /**
     * dynamic properties for resources
@@ -92,6 +98,7 @@ class DiscountsToAdd  {
         ?string $type,
         ?float $percentage,
         ?int $amount,
+        ?int $quantity,
         ?string $duration_type,
         ?int $period,
         ?string $period_unit,
@@ -106,6 +113,7 @@ class DiscountsToAdd  {
         $this->type = $type;
         $this->percentage = $percentage;
         $this->amount = $amount;
+        $this->quantity = $quantity;
         $this->duration_type = $duration_type;
         $this->period = $period;
         $this->period_unit = $period_unit;
@@ -122,6 +130,7 @@ class DiscountsToAdd  {
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['quantity'] ?? null,
         $resourceAttributes['duration_type'] ?? null,
         $resourceAttributes['period'] ?? null,
         $resourceAttributes['period_unit'] ?? null,
@@ -144,6 +153,7 @@ class DiscountsToAdd  {
         'type' => $this->type,
         'percentage' => $this->percentage,
         'amount' => $this->amount,
+        'quantity' => $this->quantity,
         'duration_type' => $this->duration_type,
         'period' => $this->period,
         'period_unit' => $this->period_unit,

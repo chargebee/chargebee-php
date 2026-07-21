@@ -35,6 +35,18 @@ class InvoiceItem  {
     
     /**
     *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
+    *
+    * @var ?string $entity_description
+    */
+    public ?string $entity_description;
+    
+    /**
+    *
     * @var ?int $service_period_days
     */
     public ?int $service_period_days;
@@ -42,7 +54,7 @@ class InvoiceItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "service_period_days"  ];
+    protected static array $knownFields = [ "item_price_id" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "description" , "entity_description" , "service_period_days"  ];
 
     /**
     * dynamic properties for resources
@@ -56,6 +68,8 @@ class InvoiceItem  {
         ?string $quantity_in_decimal,
         ?int $unit_price,
         ?string $unit_price_in_decimal,
+        ?string $description,
+        ?string $entity_description,
         ?int $service_period_days,
     )
     { 
@@ -64,6 +78,8 @@ class InvoiceItem  {
         $this->quantity_in_decimal = $quantity_in_decimal;
         $this->unit_price = $unit_price;
         $this->unit_price_in_decimal = $unit_price_in_decimal;
+        $this->description = $description;
+        $this->entity_description = $entity_description;
         $this->service_period_days = $service_period_days;   
     }
 
@@ -74,6 +90,8 @@ class InvoiceItem  {
         $resourceAttributes['quantity_in_decimal'] ?? null,
         $resourceAttributes['unit_price'] ?? null,
         $resourceAttributes['unit_price_in_decimal'] ?? null,
+        $resourceAttributes['description'] ?? null,
+        $resourceAttributes['entity_description'] ?? null,
         $resourceAttributes['service_period_days'] ?? null,
         
           
@@ -90,6 +108,8 @@ class InvoiceItem  {
         'quantity_in_decimal' => $this->quantity_in_decimal,
         'unit_price' => $this->unit_price,
         'unit_price_in_decimal' => $this->unit_price_in_decimal,
+        'description' => $this->description,
+        'entity_description' => $this->entity_description,
         'service_period_days' => $this->service_period_days,
         
         ], function ($value) {

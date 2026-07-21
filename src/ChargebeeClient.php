@@ -68,6 +68,10 @@ use Chargebee\Actions\Contracts\LedgerAccountBalanceActionsInterface;
 use Chargebee\Actions\LedgerAccountBalanceActions;
 use Chargebee\Actions\Contracts\LedgerOperationActionsInterface;
 use Chargebee\Actions\LedgerOperationActions;
+use Chargebee\Actions\Contracts\MeterActionsInterface;
+use Chargebee\Actions\MeterActions;
+use Chargebee\Actions\Contracts\MeteredFeatureActionsInterface;
+use Chargebee\Actions\MeteredFeatureActions;
 use Chargebee\Actions\Contracts\NonSubscriptionActionsInterface;
 use Chargebee\Actions\NonSubscriptionActions;
 use Chargebee\Actions\Contracts\OfferEventActionsInterface;
@@ -355,6 +359,14 @@ class ChargebeeClient {
 
     public function ledgerOperation() :LedgerOperationActionsInterface {
         return new LedgerOperationActions($this->httpClientFactory, $this->env);
+    }
+
+    public function meter() :MeterActionsInterface {
+        return new MeterActions($this->httpClientFactory, $this->env);
+    }
+
+    public function meteredFeature() :MeteredFeatureActionsInterface {
+        return new MeteredFeatureActions($this->httpClientFactory, $this->env);
     }
 
     public function nonSubscription() :NonSubscriptionActionsInterface {

@@ -275,6 +275,8 @@ Interface EstimateActionsInterface
     *     unit_price_in_decimal?: string,
     *     date_from?: int,
     *     date_to?: int,
+    *     description?: string,
+    *     entity_description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -301,6 +303,7 @@ Interface EstimateActionsInterface
     *     avalara_service_type?: int,
     *     date_from?: int,
     *     date_to?: int,
+    *     entity_description?: string,
     *     }>,
     *     notes_to_remove?: array<array{
     *     entity_type?: string,

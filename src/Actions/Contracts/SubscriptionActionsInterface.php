@@ -481,6 +481,9 @@ Interface SubscriptionActionsInterface
     *     in?: mixed,
     *     not_in?: mixed,
     *     },
+    * decommissioned?: array{
+    *     is?: mixed,
+    *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

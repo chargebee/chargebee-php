@@ -1,3 +1,85 @@
+### v4.24.0 (2026-07-21)
+* * *
+### New Resources:
+- [`AsyncResponse`](https://apidocs.chargebee.com/docs/api/async_responses) has been added.
+- [`AsyncResponseList`](https://apidocs.chargebee.com/docs/api/async_response_lists) has been added.
+- [`ColumnDefinition`](https://apidocs.chargebee.com/docs/api/column_definitions) has been added.
+- [`Meter`](https://apidocs.chargebee.com/docs/api/meters) has been added.
+- [`MeteredFeature`](https://apidocs.chargebee.com/docs/api/metered_features) has been added.
+
+
+### New Attributes:
+- [`currency_code`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#currency_code) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`threshold`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#threshold) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`filter_conditions`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#filter_conditions) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`exchange_rates`](https://apidocs.chargebee.com/docs/api/credit_notes/credit-note-object#exchange_rates) has been added to [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- [`metered`](https://apidocs.chargebee.com/docs/api/features/feature-object#metered) has been added to [`Feature`](https://apidocs.chargebee.com/docs/api/features).
+- [`exchange_rates`](https://apidocs.chargebee.com/docs/api/invoices/invoice-object#exchange_rates) has been added to [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`payment_intent_metadata`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_intent_metadata) has been added to [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+
+
+### New Parameters:
+- [`metered`](https://apidocs.chargebee.com/docs/api/features/list-features#metered) has been added as query parameter to [`list_features`](https://apidocs.chargebee.com/docs/api/features/list-features) in [`Feature`](https://apidocs.chargebee.com/docs/api/features).
+- [`decommissioned`](https://apidocs.chargebee.com/docs/api/subscriptions/list-subscriptions#decommissioned) has been added as query parameter to [`list_subscriptions`](https://apidocs.chargebee.com/docs/api/subscriptions/list-subscriptions) in [`Subscription`](https://apidocs.chargebee.com/docs/api/subscriptions).
+- [`currency_code`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#currency_code) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`line_items.proration_mode`](https://apidocs.chargebee.com/docs/api/credit_notes/import-credit-note#line_items_proration_mode) has been added as request body parameter to [`import_credit_note`](https://apidocs.chargebee.com/docs/api/credit_notes/import-credit-note) in [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- [`item_prices.description`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate#item_prices_description) has been added as request body parameter to [`create_invoice_for_items_estimate`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate) in [`Estimate`](https://apidocs.chargebee.com/docs/api/estimates).
+- [`item_prices.entity_description`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate#item_prices_entity_description) has been added as request body parameter to [`create_invoice_for_items_estimate`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate) in [`Estimate`](https://apidocs.chargebee.com/docs/api/estimates).
+- [`charges.entity_description`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate#charges_entity_description) has been added as request body parameter to [`create_invoice_for_items_estimate`](https://apidocs.chargebee.com/docs/api/estimates/create-invoice-for-items-estimate) in [`Estimate`](https://apidocs.chargebee.com/docs/api/estimates).
+- [`subscription.decommissioned`](https://apidocs.chargebee.com/docs/api/exports/export-subscriptions#subscription_decommissioned) has been added as request body parameter to [`export_subscriptions`](https://apidocs.chargebee.com/docs/api/exports/export-subscriptions) in [`Export`](https://apidocs.chargebee.com/docs/api/exports).
+- [`item_prices.description`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges#item_prices_description) has been added as request body parameter to [`create_invoice_for_items_and_one-time_charges`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`item_prices.entity_description`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges#item_prices_entity_description) has been added as request body parameter to [`create_invoice_for_items_and_one-time_charges`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`charges.entity_description`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges#charges_entity_description) has been added as request body parameter to [`create_invoice_for_items_and_one-time_charges`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`create_pending_invoice`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges#create_pending_invoice) has been added as request body parameter to [`create_invoice_for_items_and_one-time_charges`](https://apidocs.chargebee.com/docs/api/invoices/create-invoice-for-items-and-one-time-charges) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`line_items.proration_mode`](https://apidocs.chargebee.com/docs/api/invoices/import-invoice#line_items_proration_mode) has been added as request body parameter to [`import_invoice`](https://apidocs.chargebee.com/docs/api/invoices/import-invoice) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`paid_at`](https://apidocs.chargebee.com/docs/api/invoices/import-invoice#paid_at) has been added as request body parameter to [`import_invoice`](https://apidocs.chargebee.com/docs/api/invoices/import-invoice) in [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- [`discounts_to_add.quantity`](https://apidocs.chargebee.com/docs/api/ramps/create-a-ramp#discounts_to_add_quantity) has been added as request body parameter to [`create_a_ramp`](https://apidocs.chargebee.com/docs/api/ramps/create-a-ramp) in [`Ramp`](https://apidocs.chargebee.com/docs/api/ramps).
+- [`discounts_to_add.quantity`](https://apidocs.chargebee.com/docs/api/ramps/update-a-subscription-ramp#discounts_to_add_quantity) has been added as request body parameter to [`update_a_subscription_ramp`](https://apidocs.chargebee.com/docs/api/ramps/update-a-subscription-ramp) in [`Ramp`](https://apidocs.chargebee.com/docs/api/ramps).
+- [`customer.email`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase#customer_email) has been added as request body parameter to [`record_a_purchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase) in [`RecordedPurchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases).
+- [`customer.first_name`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase#customer_first_name) has been added as request body parameter to [`record_a_purchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase) in [`RecordedPurchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases).
+- [`customer.last_name`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase#customer_last_name) has been added as request body parameter to [`record_a_purchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases/record-a-purchase) in [`RecordedPurchase`](https://apidocs.chargebee.com/docs/api/recorded_purchases).
+
+
+### Parameter Updates:
+- [`metered_feature_id`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#metered_feature_id) has been changed from required to optional in [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) of [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+
+
+### New Events:
+- [`payment_source_business_entity_changed`](https://apidocs.chargebee.com/docs/api/events/webhook/payment_source_business_entity_changed) has been added.
+
+
+### Deleted Attributes:
+- `start_balance` has been removed from [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- `end_balance` has been removed from [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+
+
+### New Enums:
+- `real_time_payments` has been added as a new value enum `DunningType`.
+- `payment_source_business_entity_changed` has been added as a new value enum `EventType`.
+- `paynow`, `bizum`, and `promptpay` have been added as new values enum `PaymentMethod`.
+- `paynow`, `bizum`, and `promptpay` have been added as new values enum `PaymentMethodType`.
+- `active`, `archived`, and `deleted` have been added as new values enum `Status`.
+- `zero_rated`, `region_non_taxable`, `product_exempt`, `high_value_physical_goods`, `zero_value_item`, and `tax_not_configured_external_provider` have been added as new values enum `TaxOverrideReason`.
+- `paynow`, `bizum`, `promptpay`, `simple`, `compound`, and `spend_exceeded` have been added as new values enum `Type`.
+- `success` and `failed` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/async_responses/async-response-object#status) in [`AsyncResponse`](https://apidocs.chargebee.com/docs/api/async_responses).
+- `number` and `string` have been added as new values to enum attribute [`data_type`](https://apidocs.chargebee.com/docs/api/column_definitions/column-definition-object#data_type) in [`ColumnDefinition`](https://apidocs.chargebee.com/docs/api/column_definitions).
+- `simple` and `compound` have been added as new values to enum attribute [`type`](https://apidocs.chargebee.com/docs/api/meters/meter-object#type) in [`Meter`](https://apidocs.chargebee.com/docs/api/meters).
+- `active`, `archived`, and `deleted` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/meters/meter-object#status) in [`Meter`](https://apidocs.chargebee.com/docs/api/meters).
+- `paynow`, `bizum`, and `promptpay` have been added as new values to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `paynow`, `bizum`, and `promptpay` have been added as new values to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `cb_js`, `components_fields`, `checkout_v3`, `paynow_v3`, `portal_v3`, `gift_v3`, `checkout_v4`, `payment_component`, `pc_inapp_v4`, and `pc_fpc_v4` have been added as new values to enum attribute [`payment_intent_metadata.source`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_intent_metadata_source) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `adjusted_term`, `service_period_revision`, `delta`, and `reset` have been added as new values to enum request body parameter `line_items.proration_mode` in [`import_credit_note`](https://apidocs.chargebee.com/docs/api/credit_notes/import-credit-note) of [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- `true` and `false` have been added as new values to enum query parameter `metered.is` in [`list_features`](https://apidocs.chargebee.com/docs/api/features/list-features) of [`Feature`](https://apidocs.chargebee.com/docs/api/features).
+- `adjusted_term`, `service_period_revision`, `delta`, and `reset` have been added as new values to enum request body parameter `line_items.proration_mode` in [`import_invoice`](https://apidocs.chargebee.com/docs/api/invoices/import-invoice) of [`Invoice`](https://apidocs.chargebee.com/docs/api/invoices).
+- `updated_at`, `name`, `created_at`, and `id` have been added as new values to enum query parameter `sort_by.asc` in [`list_all_available_meters`](https://apidocs.chargebee.com/docs/api/meters/list-all-available-meters) of [`Meter`](https://apidocs.chargebee.com/docs/api/meters).
+- `updated_at`, `name`, `created_at`, and `id` have been added as new values to enum query parameter `sort_by.desc` in [`list_all_available_meters`](https://apidocs.chargebee.com/docs/api/meters/list-all-available-meters) of [`Meter`](https://apidocs.chargebee.com/docs/api/meters).
+- `number` and `string` have been added as new values to enum request body parameter `column_definitions.data_type` in [`create_a_metered_feature`](https://apidocs.chargebee.com/docs/api/metered_features/create-a-metered-feature) of [`MeteredFeature`](https://apidocs.chargebee.com/docs/api/metered_features).
+- `paynow`, `bizum`, and `promptpay` have been added as new values to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `paynow`, `bizum`, and `promptpay` have been added as new values to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `true` and `false` have been added as new values to enum query parameter `decommissioned.is` in [`list_subscriptions`](https://apidocs.chargebee.com/docs/api/subscriptions/list-subscriptions) of [`Subscription`](https://apidocs.chargebee.com/docs/api/subscriptions).
+
+
+
 ### v4.23.0 (2026-06-30)
 * * *
 

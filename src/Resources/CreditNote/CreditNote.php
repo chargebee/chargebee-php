@@ -228,6 +228,12 @@ class CreditNote  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?array<ExchangeRate> $exchange_rates
+    */
+    public ?array $exchange_rates;
+    
+    /**
+    *
     * @var ?string $create_reason_code
     */
     public ?string $create_reason_code;
@@ -301,7 +307,7 @@ class CreditNote  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "notes" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "einvoice" , "site_details_at_creation"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "reference_invoice_id" , "vat_number" , "date" , "currency_code" , "total" , "amount_allocated" , "amount_refunded" , "amount_available" , "refunded_at" , "voided_at" , "generated_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "sub_total" , "sub_total_in_local_currency" , "total_in_local_currency" , "local_currency_code" , "round_off_amount" , "fractional_correction" , "notes" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_refunds" , "allocations" , "deleted" , "tax_category" , "local_currency_exchange_rate" , "exchange_rates" , "create_reason_code" , "vat_number_prefix" , "business_entity_id" , "shipping_address" , "billing_address" , "einvoice" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -347,6 +353,7 @@ class CreditNote  extends SupportsCustomFields  {
         ?bool $deleted,
         ?string $tax_category,
         ?float $local_currency_exchange_rate,
+        ?array $exchange_rates,
         ?string $create_reason_code,
         ?string $vat_number_prefix,
         ?string $business_entity_id,
@@ -398,6 +405,7 @@ class CreditNote  extends SupportsCustomFields  {
         $this->deleted = $deleted;
         $this->tax_category = $tax_category;
         $this->local_currency_exchange_rate = $local_currency_exchange_rate;
+        $this->exchange_rates = $exchange_rates;
         $this->create_reason_code = $create_reason_code;
         $this->vat_number_prefix = $vat_number_prefix;
         $this->business_entity_id = $business_entity_id;
@@ -450,6 +458,10 @@ class CreditNote  extends SupportsCustomFields  {
             $result
         ), $resourceAttributes['allocations'] ?? []);
         
+        $exchange_rates = array_map(fn (array $result): ExchangeRate =>  ExchangeRate::from(
+            $result
+        ), $resourceAttributes['exchange_rates'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
@@ -487,6 +499,7 @@ class CreditNote  extends SupportsCustomFields  {
         $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['tax_category'] ?? null,
         $resourceAttributes['local_currency_exchange_rate'] ?? null,
+        $exchange_rates,
         $resourceAttributes['create_reason_code'] ?? null,
         $resourceAttributes['vat_number_prefix'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
@@ -555,6 +568,7 @@ class CreditNote  extends SupportsCustomFields  {
         'deleted' => $this->deleted,
         'tax_category' => $this->tax_category,
         'local_currency_exchange_rate' => $this->local_currency_exchange_rate,
+        
         'create_reason_code' => $this->create_reason_code,
         'vat_number_prefix' => $this->vat_number_prefix,
         'business_entity_id' => $this->business_entity_id,
@@ -646,6 +660,12 @@ class CreditNote  extends SupportsCustomFields  {
             $data['allocations'] = array_map(
                 fn (Allocation $allocations): array => $allocations->toArray(),
                 $this->allocations
+            );
+        }
+        if($this->exchange_rates !== []){
+            $data['exchange_rates'] = array_map(
+                fn (ExchangeRate $exchange_rates): array => $exchange_rates->toArray(),
+                $this->exchange_rates
             );
         }
 

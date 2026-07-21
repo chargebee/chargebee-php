@@ -62,6 +62,9 @@ final class FeatureActions implements FeatureActionsInterface
     *     in?: mixed,
     *     not_in?: mixed,
     *     },
+    * metered?: array{
+    *     is?: mixed,
+    *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

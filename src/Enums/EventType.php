@@ -163,6 +163,7 @@ enum EventType : string {
     case BUSINESS_ENTITY_DELETED = "business_entity_deleted";
     case CUSTOMER_BUSINESS_ENTITY_CHANGED = "customer_business_entity_changed";
     case SUBSCRIPTION_BUSINESS_ENTITY_CHANGED = "subscription_business_entity_changed";
+    case PAYMENT_SOURCE_BUSINESS_ENTITY_CHANGED = "payment_source_business_entity_changed";
     case PURCHASE_CREATED = "purchase_created";
     case VOUCHER_CREATED = "voucher_created";
     case VOUCHER_EXPIRED = "voucher_expired";

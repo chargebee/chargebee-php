@@ -1192,6 +1192,8 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     unit_price_in_decimal?: string,
     *     date_from?: int,
     *     date_to?: int,
+    *     description?: string,
+    *     entity_description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -1205,6 +1207,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     package_size?: int,
     *     }>,
     *     charges?: array<array{
+    *     entity_description?: string,
     *     amount?: int,
     *     amount_in_decimal?: string,
     *     description?: string,
@@ -1248,6 +1251,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     auto_collection?: string,
     *     net_term_days?: int,
     *     invoice_date?: int,
+    *     create_pending_invoice?: bool,
     *     token_id?: string,
     *     replace_primary_payment_source?: bool,
     *     retain_payment_source?: bool,
@@ -1556,6 +1560,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     proration_mode?: string,
     *     created_at?: int,
     *     }>,
     *     payment_reference_numbers?: array<array{
@@ -1641,6 +1646,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     net_term_days?: int,
     *     has_advance_charges?: bool,
     *     use_for_proration?: bool,
+    *     paid_at?: int,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

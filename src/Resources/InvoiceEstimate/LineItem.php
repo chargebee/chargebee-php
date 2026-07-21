@@ -154,9 +154,15 @@ class LineItem  {
     public ?string $customer_id;
     
     /**
+    *
+    * @var ?string $proration_mode
+    */
+    public ?string $proration_mode;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "pricing_model" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "metered" , "is_percentage_pricing" , "reference_line_item_id" , "description" , "entity_description" , "entity_type" , "tax_exempt_reason" , "entity_id" , "customer_id"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "date_from" , "date_to" , "unit_amount" , "quantity" , "amount" , "pricing_model" , "is_taxed" , "tax_amount" , "tax_rate" , "unit_amount_in_decimal" , "quantity_in_decimal" , "amount_in_decimal" , "discount_amount" , "item_level_discount_amount" , "metered" , "is_percentage_pricing" , "reference_line_item_id" , "description" , "entity_description" , "entity_type" , "tax_exempt_reason" , "entity_id" , "customer_id" , "proration_mode"  ];
 
     /**
     * dynamic properties for resources
@@ -190,6 +196,7 @@ class LineItem  {
         ?string $tax_exempt_reason,
         ?string $entity_id,
         ?string $customer_id,
+        ?string $proration_mode,
     )
     { 
         $this->id = $id;
@@ -216,7 +223,8 @@ class LineItem  {
         $this->entity_type = $entity_type;
         $this->tax_exempt_reason = $tax_exempt_reason;
         $this->entity_id = $entity_id;
-        $this->customer_id = $customer_id;   
+        $this->customer_id = $customer_id;
+        $this->proration_mode = $proration_mode;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -246,6 +254,7 @@ class LineItem  {
         $resourceAttributes['tax_exempt_reason'] ?? null,
         $resourceAttributes['entity_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['proration_mode'] ?? null,
         
           
         );
@@ -281,6 +290,7 @@ class LineItem  {
         'tax_exempt_reason' => $this->tax_exempt_reason,
         'entity_id' => $this->entity_id,
         'customer_id' => $this->customer_id,
+        'proration_mode' => $this->proration_mode,
         
         ], function ($value) {
             return $value !== null;

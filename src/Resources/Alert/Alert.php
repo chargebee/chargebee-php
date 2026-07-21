@@ -29,6 +29,12 @@ class Alert  {
     
     /**
     *
+    * @var ?string $currency_code
+    */
+    public ?string $currency_code;
+    
+    /**
+    *
     * @var ?string $subscription_id
     */
     public ?string $subscription_id;
@@ -53,6 +59,18 @@ class Alert  {
     
     /**
     *
+    * @var ?array<Threshold> $threshold
+    */
+    public ?array $threshold;
+    
+    /**
+    *
+    * @var ?array<FilterCondition> $filter_conditions
+    */
+    public ?array $filter_conditions;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\Type $type
     */
     public ?\Chargebee\Enums\Type $type;
@@ -66,7 +84,7 @@ class Alert  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "subscription_id" , "meta" , "created_at" , "updated_at"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "currency_code" , "subscription_id" , "meta" , "created_at" , "updated_at" , "threshold" , "filter_conditions"  ];
 
     /**
     * dynamic properties for resources
@@ -79,10 +97,13 @@ class Alert  {
         ?string $name,
         ?string $description,
         ?string $metered_feature_id,
+        ?string $currency_code,
         ?string $subscription_id,
         ?string $meta,
         ?int $created_at,
         ?int $updated_at,
+        ?array $threshold,
+        ?array $filter_conditions,
         ?\Chargebee\Enums\Type $type,
         ?\Chargebee\Resources\Alert\Enums\Status $status,
     )
@@ -91,24 +112,38 @@ class Alert  {
         $this->name = $name;
         $this->description = $description;
         $this->metered_feature_id = $metered_feature_id;
+        $this->currency_code = $currency_code;
         $this->subscription_id = $subscription_id;
         $this->meta = $meta;
         $this->created_at = $created_at;
-        $this->updated_at = $updated_at; 
+        $this->updated_at = $updated_at;
+        $this->threshold = $threshold;
+        $this->filter_conditions = $filter_conditions; 
         $this->type = $type; 
         $this->status = $status; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
+        $threshold = array_map(fn (array $result): Threshold =>  Threshold::from(
+            $result
+        ), $resourceAttributes['threshold'] ?? []);
+        
+        $filter_conditions = array_map(fn (array $result): FilterCondition =>  FilterCondition::from(
+            $result
+        ), $resourceAttributes['filter_conditions'] ?? []);
+        
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['name'] ?? null,
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['metered_feature_id'] ?? null,
+        $resourceAttributes['currency_code'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['meta'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
+        $threshold,
+        $filter_conditions,
         
         
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
@@ -127,10 +162,13 @@ class Alert  {
         'name' => $this->name,
         'description' => $this->description,
         'metered_feature_id' => $this->metered_feature_id,
+        'currency_code' => $this->currency_code,
         'subscription_id' => $this->subscription_id,
         'meta' => $this->meta,
         'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,
+        
+        
         
         'type' => $this->type?->value,
         
@@ -142,6 +180,18 @@ class Alert  {
 
         
         
+        if($this->threshold !== []){
+            $data['threshold'] = array_map(
+                fn (Threshold $threshold): array => $threshold->toArray(),
+                $this->threshold
+            );
+        }
+        if($this->filter_conditions !== []){
+            $data['filter_conditions'] = array_map(
+                fn (FilterCondition $filter_conditions): array => $filter_conditions->toArray(),
+                $this->filter_conditions
+            );
+        }
 
         
         return $data;

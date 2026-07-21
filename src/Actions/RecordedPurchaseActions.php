@@ -61,6 +61,9 @@ final class RecordedPurchaseActions implements RecordedPurchaseActionsInterface
     *   @param array{
     *     customer?: array{
     *     id?: string,
+    *     email?: string,
+    *     first_name?: string,
+    *     last_name?: string,
     *     },
     * apple_app_store?: array{
     *     transaction_id?: string,
