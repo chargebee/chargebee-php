@@ -6,6 +6,8 @@ use Chargebee\Resources\Address\Address;
 use Chargebee\Resources\AdvanceInvoiceSchedule\AdvanceInvoiceSchedule;
 use Chargebee\Resources\Alert\Alert;
 use Chargebee\Resources\AlertStatus\AlertStatus;
+use Chargebee\Resources\AsyncResponse\AsyncResponse;
+use Chargebee\Resources\AsyncResponseList\AsyncResponseList;
 use Chargebee\Resources\AttachedItem\AttachedItem;
 use Chargebee\Resources\Attribute\Attribute;
 use Chargebee\Resources\BillingConfiguration\BillingConfiguration;
@@ -13,6 +15,7 @@ use Chargebee\Resources\Brand\Brand;
 use Chargebee\Resources\BusinessEntity\BusinessEntity;
 use Chargebee\Resources\BusinessEntityTransfer\BusinessEntityTransfer;
 use Chargebee\Resources\Card\Card;
+use Chargebee\Resources\ColumnDefinition\ColumnDefinition;
 use Chargebee\Resources\Comment\Comment;
 use Chargebee\Resources\Configuration\Configuration;
 use Chargebee\Resources\Contact\Contact;
@@ -56,6 +59,8 @@ use Chargebee\Resources\ItemPrice\ItemPrice;
 use Chargebee\Resources\LedgerAccountBalance\LedgerAccountBalance;
 use Chargebee\Resources\LedgerOperation\LedgerOperation;
 use Chargebee\Resources\Metadata\Metadata;
+use Chargebee\Resources\Meter\Meter;
+use Chargebee\Resources\MeteredFeature\MeteredFeature;
 use Chargebee\Resources\NonSubscription\NonSubscription;
 use Chargebee\Resources\OfferEvent\OfferEvent;
 use Chargebee\Resources\OfferFulfillment\OfferFulfillment;
@@ -145,6 +150,18 @@ class Content  {
     
     /**
     *
+    * @var ?AsyncResponse $asyncresponse
+    */
+    public ?AsyncResponse $asyncresponse;
+    
+    /**
+    *
+    * @var ?AsyncResponseList $asyncresponselist
+    */
+    public ?AsyncResponseList $asyncresponselist;
+    
+    /**
+    *
     * @var ?AttachedItem $attacheditem
     */
     public ?AttachedItem $attacheditem;
@@ -184,6 +201,12 @@ class Content  {
     * @var ?Card $card
     */
     public ?Card $card;
+    
+    /**
+    *
+    * @var ?ColumnDefinition $columndefinition
+    */
+    public ?ColumnDefinition $columndefinition;
     
     /**
     *
@@ -442,6 +465,18 @@ class Content  {
     * @var ?Metadata $metadata
     */
     public ?Metadata $metadata;
+    
+    /**
+    *
+    * @var ?Meter $meter
+    */
+    public ?Meter $meter;
+    
+    /**
+    *
+    * @var ?MeteredFeature $meteredfeature
+    */
+    public ?MeteredFeature $meteredfeature;
     
     /**
     *
@@ -776,7 +811,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_operation" , "metadata" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -790,6 +825,8 @@ class Content  {
         ?AdvanceInvoiceSchedule $advanceinvoiceschedule,
         ?Alert $alert,
         ?AlertStatus $alertstatus,
+        ?AsyncResponse $asyncresponse,
+        ?AsyncResponseList $asyncresponselist,
         ?AttachedItem $attacheditem,
         ?Attribute $attribute,
         ?BillingConfiguration $billingconfiguration,
@@ -797,6 +834,7 @@ class Content  {
         ?BusinessEntity $businessentity,
         ?BusinessEntityTransfer $businessentitytransfer,
         ?Card $card,
+        ?ColumnDefinition $columndefinition,
         ?Comment $comment,
         ?Configuration $configuration,
         ?Contact $contact,
@@ -840,6 +878,8 @@ class Content  {
         ?LedgerAccountBalance $ledgeraccountbalance,
         ?LedgerOperation $ledgeroperation,
         ?Metadata $metadata,
+        ?Meter $meter,
+        ?MeteredFeature $meteredfeature,
         ?NonSubscription $nonsubscription,
         ?OfferEvent $offerevent,
         ?OfferFulfillment $offerfulfillment,
@@ -902,6 +942,8 @@ class Content  {
         $this->advanceinvoiceschedule = $advanceinvoiceschedule;
         $this->alert = $alert;
         $this->alertstatus = $alertstatus;
+        $this->asyncresponse = $asyncresponse;
+        $this->asyncresponselist = $asyncresponselist;
         $this->attacheditem = $attacheditem;
         $this->attribute = $attribute;
         $this->billingconfiguration = $billingconfiguration;
@@ -909,6 +951,7 @@ class Content  {
         $this->businessentity = $businessentity;
         $this->businessentitytransfer = $businessentitytransfer;
         $this->card = $card;
+        $this->columndefinition = $columndefinition;
         $this->comment = $comment;
         $this->configuration = $configuration;
         $this->contact = $contact;
@@ -952,6 +995,8 @@ class Content  {
         $this->ledgeraccountbalance = $ledgeraccountbalance;
         $this->ledgeroperation = $ledgeroperation;
         $this->metadata = $metadata;
+        $this->meter = $meter;
+        $this->meteredfeature = $meteredfeature;
         $this->nonsubscription = $nonsubscription;
         $this->offerevent = $offerevent;
         $this->offerfulfillment = $offerfulfillment;
@@ -1016,6 +1061,8 @@ class Content  {
         isset($resourceAttributes['advance_invoice_schedule']) ? AdvanceInvoiceSchedule::from($resourceAttributes['advance_invoice_schedule']) : null,
         isset($resourceAttributes['alert']) ? Alert::from($resourceAttributes['alert']) : null,
         isset($resourceAttributes['alert_status']) ? AlertStatus::from($resourceAttributes['alert_status']) : null,
+        isset($resourceAttributes['async_response']) ? AsyncResponse::from($resourceAttributes['async_response']) : null,
+        isset($resourceAttributes['async_response_list']) ? AsyncResponseList::from($resourceAttributes['async_response_list']) : null,
         isset($resourceAttributes['attached_item']) ? AttachedItem::from($resourceAttributes['attached_item']) : null,
         isset($resourceAttributes['attribute']) ? Attribute::from($resourceAttributes['attribute']) : null,
         isset($resourceAttributes['billing_configuration']) ? BillingConfiguration::from($resourceAttributes['billing_configuration']) : null,
@@ -1023,6 +1070,7 @@ class Content  {
         isset($resourceAttributes['business_entity']) ? BusinessEntity::from($resourceAttributes['business_entity']) : null,
         isset($resourceAttributes['business_entity_transfer']) ? BusinessEntityTransfer::from($resourceAttributes['business_entity_transfer']) : null,
         isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
+        isset($resourceAttributes['column_definition']) ? ColumnDefinition::from($resourceAttributes['column_definition']) : null,
         isset($resourceAttributes['comment']) ? Comment::from($resourceAttributes['comment']) : null,
         isset($resourceAttributes['configuration']) ? Configuration::from($resourceAttributes['configuration']) : null,
         isset($resourceAttributes['contact']) ? Contact::from($resourceAttributes['contact']) : null,
@@ -1066,6 +1114,8 @@ class Content  {
         isset($resourceAttributes['ledger_account_balance']) ? LedgerAccountBalance::from($resourceAttributes['ledger_account_balance']) : null,
         isset($resourceAttributes['ledger_operation']) ? LedgerOperation::from($resourceAttributes['ledger_operation']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
+        isset($resourceAttributes['meter']) ? Meter::from($resourceAttributes['meter']) : null,
+        isset($resourceAttributes['metered_feature']) ? MeteredFeature::from($resourceAttributes['metered_feature']) : null,
         isset($resourceAttributes['non_subscription']) ? NonSubscription::from($resourceAttributes['non_subscription']) : null,
         isset($resourceAttributes['offer_event']) ? OfferEvent::from($resourceAttributes['offer_event']) : null,
         isset($resourceAttributes['offer_fulfillment']) ? OfferFulfillment::from($resourceAttributes['offer_fulfillment']) : null,
@@ -1242,6 +1292,11 @@ class Content  {
         
         
         
+        
+        
+        
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -1261,6 +1316,12 @@ class Content  {
         }
         if($this->alertstatus instanceof AlertStatus){
             $data['alert_status'] = $this->alertstatus->toArray();
+        }
+        if($this->asyncresponse instanceof AsyncResponse){
+            $data['async_response'] = $this->asyncresponse->toArray();
+        }
+        if($this->asyncresponselist instanceof AsyncResponseList){
+            $data['async_response_list'] = $this->asyncresponselist->toArray();
         }
         if($this->attacheditem instanceof AttachedItem){
             $data['attached_item'] = $this->attacheditem->toArray();
@@ -1282,6 +1343,9 @@ class Content  {
         }
         if($this->card instanceof Card){
             $data['card'] = $this->card->toArray();
+        }
+        if($this->columndefinition instanceof ColumnDefinition){
+            $data['column_definition'] = $this->columndefinition->toArray();
         }
         if($this->comment instanceof Comment){
             $data['comment'] = $this->comment->toArray();
@@ -1411,6 +1475,12 @@ class Content  {
         }
         if($this->metadata instanceof Metadata){
             $data['metadata'] = $this->metadata->toArray();
+        }
+        if($this->meter instanceof Meter){
+            $data['meter'] = $this->meter->toArray();
+        }
+        if($this->meteredfeature instanceof MeteredFeature){
+            $data['metered_feature'] = $this->meteredfeature->toArray();
         }
         if($this->nonsubscription instanceof NonSubscription){
             $data['non_subscription'] = $this->nonsubscription->toArray();

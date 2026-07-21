@@ -23,6 +23,12 @@ class Charge  {
     
     /**
     *
+    * @var ?string $entity_description
+    */
+    public ?string $entity_description;
+    
+    /**
+    *
     * @var ?int $service_period_in_days
     */
     public ?int $service_period_in_days;
@@ -48,7 +54,7 @@ class Charge  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "amount" , "amount_in_decimal" , "description" , "service_period_in_days" , "avalara_sale_type" , "avalara_transaction_type" , "avalara_service_type"  ];
+    protected static array $knownFields = [ "amount" , "amount_in_decimal" , "description" , "entity_description" , "service_period_in_days" , "avalara_sale_type" , "avalara_transaction_type" , "avalara_service_type"  ];
 
     /**
     * dynamic properties for resources
@@ -60,6 +66,7 @@ class Charge  {
         ?int $amount,
         ?string $amount_in_decimal,
         ?string $description,
+        ?string $entity_description,
         ?int $service_period_in_days,
         ?string $avalara_sale_type,
         ?int $avalara_transaction_type,
@@ -69,6 +76,7 @@ class Charge  {
         $this->amount = $amount;
         $this->amount_in_decimal = $amount_in_decimal;
         $this->description = $description;
+        $this->entity_description = $entity_description;
         $this->service_period_in_days = $service_period_in_days;
         $this->avalara_sale_type = $avalara_sale_type;
         $this->avalara_transaction_type = $avalara_transaction_type;
@@ -80,6 +88,7 @@ class Charge  {
         $returnData = new self( $resourceAttributes['amount'] ?? null,
         $resourceAttributes['amount_in_decimal'] ?? null,
         $resourceAttributes['description'] ?? null,
+        $resourceAttributes['entity_description'] ?? null,
         $resourceAttributes['service_period_in_days'] ?? null,
         $resourceAttributes['avalara_sale_type'] ?? null,
         $resourceAttributes['avalara_transaction_type'] ?? null,
@@ -97,6 +106,7 @@ class Charge  {
         $data = array_filter(['amount' => $this->amount,
         'amount_in_decimal' => $this->amount_in_decimal,
         'description' => $this->description,
+        'entity_description' => $this->entity_description,
         'service_period_in_days' => $this->service_period_in_days,
         'avalara_sale_type' => $this->avalara_sale_type,
         'avalara_transaction_type' => $this->avalara_transaction_type,

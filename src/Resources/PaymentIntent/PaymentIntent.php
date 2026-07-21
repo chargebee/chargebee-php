@@ -101,6 +101,12 @@ class PaymentIntent  {
     
     /**
     *
+    * @var ?PaymentIntentMetadata $payment_intent_metadata
+    */
+    public ?PaymentIntentMetadata $payment_intent_metadata;
+    
+    /**
+    *
     * @var ?string $business_entity_id
     */
     public ?string $business_entity_id;
@@ -120,7 +126,7 @@ class PaymentIntent  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "payment_intent_metadata" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -145,6 +151,7 @@ class PaymentIntent  {
         ?string $gateway,
         ?PaymentAttempt $active_payment_attempt,
         ?array $payment_attempts,
+        ?PaymentIntentMetadata $payment_intent_metadata,
         ?string $business_entity_id,
         ?\Chargebee\Resources\PaymentIntent\Enums\Status $status,
         ?\Chargebee\Resources\PaymentIntent\Enums\PaymentMethodType $payment_method_type,
@@ -166,6 +173,7 @@ class PaymentIntent  {
         $this->gateway = $gateway;
         $this->active_payment_attempt = $active_payment_attempt;
         $this->payment_attempts = $payment_attempts;
+        $this->payment_intent_metadata = $payment_intent_metadata;
         $this->business_entity_id = $business_entity_id;  
         $this->status = $status;
         $this->payment_method_type = $payment_method_type; 
@@ -193,6 +201,7 @@ class PaymentIntent  {
         $resourceAttributes['gateway'] ?? null,
         isset($resourceAttributes['active_payment_attempt']) ? PaymentAttempt::from($resourceAttributes['active_payment_attempt']) : null,
         $payment_attempts,
+        isset($resourceAttributes['payment_intent_metadata']) ? PaymentIntentMetadata::from($resourceAttributes['payment_intent_metadata']) : null,
         $resourceAttributes['business_entity_id'] ?? null,
         
          
@@ -224,6 +233,7 @@ class PaymentIntent  {
         'gateway' => $this->gateway,
         
         
+        
         'business_entity_id' => $this->business_entity_id,
         
         'status' => $this->status?->value,
@@ -237,6 +247,9 @@ class PaymentIntent  {
         
         if($this->active_payment_attempt instanceof PaymentAttempt){
             $data['active_payment_attempt'] = $this->active_payment_attempt->toArray();
+        }
+        if($this->payment_intent_metadata instanceof PaymentIntentMetadata){
+            $data['payment_intent_metadata'] = $this->payment_intent_metadata->toArray();
         }
         
         if($this->payment_attempts !== []){

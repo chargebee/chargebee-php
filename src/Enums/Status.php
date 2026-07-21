@@ -3,6 +3,9 @@
 namespace Chargebee\Enums;
 
 enum Status : string { 
+    case ACTIVE = "active";
+    case ARCHIVED = "archived";
+    case DELETED = "deleted";
     case AVAILABLE = "available";
     case EXHAUSTED = "exhausted";
     case SCHEDULED = "scheduled";

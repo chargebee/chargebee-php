@@ -71,12 +71,6 @@ class GrantBlock  {
     
     /**
     *
-    * @var ?string $metadata
-    */
-    public ?string $metadata;
-    
-    /**
-    *
     * @var ?int $created_at
     */
     public ?int $created_at;
@@ -86,6 +80,12 @@ class GrantBlock  {
     * @var ?string $unit_id
     */
     public ?string $unit_id;
+    
+    /**
+    *
+    * @var mixed $metadata
+    */
+    public mixed $metadata;
     
     /**
     *
@@ -114,7 +114,7 @@ class GrantBlock  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "metadata" , "created_at" , "unit_id"  ];
+    protected static array $knownFields = [ "id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "unit_id" , "metadata"  ];
 
     /**
     * dynamic properties for resources
@@ -134,9 +134,9 @@ class GrantBlock  {
         ?string $rolled_over_amount,
         ?string $voided_amount,
         ?string $origin_grant_block_id,
-        ?string $metadata,
         ?int $created_at,
         ?string $unit_id,
+        mixed $metadata,
         ?\Chargebee\Enums\Status $status,
         ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source,
         ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type,
@@ -154,9 +154,9 @@ class GrantBlock  {
         $this->rolled_over_amount = $rolled_over_amount;
         $this->voided_amount = $voided_amount;
         $this->origin_grant_block_id = $origin_grant_block_id;
-        $this->metadata = $metadata;
         $this->created_at = $created_at;
-        $this->unit_id = $unit_id; 
+        $this->unit_id = $unit_id;
+        $this->metadata = $metadata; 
         $this->status = $status; 
         $this->grant_source = $grant_source;
         $this->account_type = $account_type;
@@ -176,9 +176,9 @@ class GrantBlock  {
         $resourceAttributes['rolled_over_amount'] ?? null,
         $resourceAttributes['voided_amount'] ?? null,
         $resourceAttributes['origin_grant_block_id'] ?? null,
-        $resourceAttributes['metadata'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['unit_id'] ?? null,
+        $resourceAttributes['metadata'] ?? null,
         
         
         isset($resourceAttributes['status']) ? \Chargebee\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
@@ -208,9 +208,9 @@ class GrantBlock  {
         'rolled_over_amount' => $this->rolled_over_amount,
         'voided_amount' => $this->voided_amount,
         'origin_grant_block_id' => $this->origin_grant_block_id,
-        'metadata' => $this->metadata,
         'created_at' => $this->created_at,
         'unit_id' => $this->unit_id,
+        'metadata' => $this->metadata,
         
         'status' => $this->status?->value,
         

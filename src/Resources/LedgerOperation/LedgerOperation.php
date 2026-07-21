@@ -17,18 +17,6 @@ class LedgerOperation  {
     
     /**
     *
-    * @var ?string $start_balance
-    */
-    public ?string $start_balance;
-    
-    /**
-    *
-    * @var ?string $end_balance
-    */
-    public ?string $end_balance;
-    
-    /**
-    *
     * @var ?string $provisioned_start_balance
     */
     public ?string $provisioned_start_balance;
@@ -71,12 +59,6 @@ class LedgerOperation  {
     
     /**
     *
-    * @var ?string $metadata
-    */
-    public ?string $metadata;
-    
-    /**
-    *
     * @var ?int $created_at
     */
     public ?int $created_at;
@@ -101,6 +83,12 @@ class LedgerOperation  {
     
     /**
     *
+    * @var mixed $metadata
+    */
+    public mixed $metadata;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\LedgerOperation\Enums\Type $type
     */
     public ?\Chargebee\Resources\LedgerOperation\Enums\Type $type;
@@ -114,7 +102,7 @@ class LedgerOperation  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "amount" , "start_balance" , "end_balance" , "provisioned_start_balance" , "provisioned_end_balance" , "overdraft_start_balance" , "overdraft_end_balance" , "parent_ledger_operation_id" , "ledger_operation_timestamp" , "auto_release_timestamp" , "metadata" , "created_at" , "modified_at" , "subscription_id" , "unit_id"  ];
+    protected static array $knownFields = [ "id" , "amount" , "provisioned_start_balance" , "provisioned_end_balance" , "overdraft_start_balance" , "overdraft_end_balance" , "parent_ledger_operation_id" , "ledger_operation_timestamp" , "auto_release_timestamp" , "created_at" , "modified_at" , "subscription_id" , "unit_id" , "metadata"  ];
 
     /**
     * dynamic properties for resources
@@ -125,8 +113,6 @@ class LedgerOperation  {
     private function __construct(
         ?string $id,
         ?string $amount,
-        ?string $start_balance,
-        ?string $end_balance,
         ?string $provisioned_start_balance,
         ?string $provisioned_end_balance,
         ?string $overdraft_start_balance,
@@ -134,19 +120,17 @@ class LedgerOperation  {
         ?string $parent_ledger_operation_id,
         ?int $ledger_operation_timestamp,
         ?int $auto_release_timestamp,
-        ?string $metadata,
         ?int $created_at,
         ?int $modified_at,
         ?string $subscription_id,
         ?string $unit_id,
+        mixed $metadata,
         ?\Chargebee\Resources\LedgerOperation\Enums\Type $type,
         ?\Chargebee\Resources\LedgerOperation\Enums\UnitType $unit_type,
     )
     { 
         $this->id = $id;
         $this->amount = $amount;
-        $this->start_balance = $start_balance;
-        $this->end_balance = $end_balance;
         $this->provisioned_start_balance = $provisioned_start_balance;
         $this->provisioned_end_balance = $provisioned_end_balance;
         $this->overdraft_start_balance = $overdraft_start_balance;
@@ -154,11 +138,11 @@ class LedgerOperation  {
         $this->parent_ledger_operation_id = $parent_ledger_operation_id;
         $this->ledger_operation_timestamp = $ledger_operation_timestamp;
         $this->auto_release_timestamp = $auto_release_timestamp;
-        $this->metadata = $metadata;
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
         $this->subscription_id = $subscription_id;
-        $this->unit_id = $unit_id;  
+        $this->unit_id = $unit_id;
+        $this->metadata = $metadata;  
         $this->type = $type;
         $this->unit_type = $unit_type; 
     }
@@ -167,8 +151,6 @@ class LedgerOperation  {
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['amount'] ?? null,
-        $resourceAttributes['start_balance'] ?? null,
-        $resourceAttributes['end_balance'] ?? null,
         $resourceAttributes['provisioned_start_balance'] ?? null,
         $resourceAttributes['provisioned_end_balance'] ?? null,
         $resourceAttributes['overdraft_start_balance'] ?? null,
@@ -176,11 +158,11 @@ class LedgerOperation  {
         $resourceAttributes['parent_ledger_operation_id'] ?? null,
         $resourceAttributes['ledger_operation_timestamp'] ?? null,
         $resourceAttributes['auto_release_timestamp'] ?? null,
-        $resourceAttributes['metadata'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['unit_id'] ?? null,
+        $resourceAttributes['metadata'] ?? null,
         
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\LedgerOperation\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
@@ -197,8 +179,6 @@ class LedgerOperation  {
         
         $data = array_filter(['id' => $this->id,
         'amount' => $this->amount,
-        'start_balance' => $this->start_balance,
-        'end_balance' => $this->end_balance,
         'provisioned_start_balance' => $this->provisioned_start_balance,
         'provisioned_end_balance' => $this->provisioned_end_balance,
         'overdraft_start_balance' => $this->overdraft_start_balance,
@@ -206,11 +186,11 @@ class LedgerOperation  {
         'parent_ledger_operation_id' => $this->parent_ledger_operation_id,
         'ledger_operation_timestamp' => $this->ledger_operation_timestamp,
         'auto_release_timestamp' => $this->auto_release_timestamp,
-        'metadata' => $this->metadata,
         'created_at' => $this->created_at,
         'modified_at' => $this->modified_at,
         'subscription_id' => $this->subscription_id,
         'unit_id' => $this->unit_id,
+        'metadata' => $this->metadata,
         
         'type' => $this->type?->value,
         

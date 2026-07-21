@@ -63,7 +63,7 @@ class APIRequester
         $client = $this->httpClientFactory->create();
         $request = $this->httpClientFactory->createRequest($payload);
         if($retryCount > 0) {
-            $request->withAddedHeader('X-CB-Retry-Attempt', $retryCount);
+            $request = $request->withAddedHeader('X-CB-Retry-Attempt', (string)$retryCount);
         }
         $response = $client->sendRequest($request);
         return new ResponseObject(

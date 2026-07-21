@@ -124,6 +124,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     proration_mode?: string,
     *     }>,
     *     line_item_tiers?: array<array{
     *     line_item_id?: string,

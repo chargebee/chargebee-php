@@ -5,6 +5,7 @@ namespace Chargebee\Resources\Ramp\Enums;
 enum DiscountsToAddType : string { 
     case FIXED_AMOUNT = "fixed_amount";
     case PERCENTAGE = "percentage";
+    case OFFER_QUANTITY = "offer_quantity";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {
