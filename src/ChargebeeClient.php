@@ -26,6 +26,8 @@ use Chargebee\Actions\Contracts\CouponSetActionsInterface;
 use Chargebee\Actions\CouponSetActions;
 use Chargebee\Actions\Contracts\CreditNoteActionsInterface;
 use Chargebee\Actions\CreditNoteActions;
+use Chargebee\Actions\Contracts\CreditUnitActionsInterface;
+use Chargebee\Actions\CreditUnitActions;
 use Chargebee\Actions\Contracts\CurrencyActionsInterface;
 use Chargebee\Actions\CurrencyActions;
 use Chargebee\Actions\Contracts\CustomerActionsInterface;
@@ -275,6 +277,10 @@ class ChargebeeClient {
 
     public function creditNote() :CreditNoteActionsInterface {
         return new CreditNoteActions($this->httpClientFactory, $this->env);
+    }
+
+    public function creditUnit() :CreditUnitActionsInterface {
+        return new CreditUnitActions($this->httpClientFactory, $this->env);
     }
 
     public function currency() :CurrencyActionsInterface {

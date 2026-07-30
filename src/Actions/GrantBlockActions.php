@@ -35,6 +35,9 @@ final class GrantBlockActions implements GrantBlockActionsInterface
     * unit_id?: array{
     *     is?: mixed,
     *     },
+    * account_type?: array{
+    *     is?: mixed,
+    *     },
     * effective_from?: array{
     *     after?: mixed,
     *     before?: mixed,

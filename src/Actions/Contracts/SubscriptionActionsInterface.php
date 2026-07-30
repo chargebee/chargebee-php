@@ -318,6 +318,7 @@ Interface SubscriptionActionsInterface
     *     unit_price_in_decimal?: string,
     *     service_period_days?: int,
     *     }>,
+    *     include_cancellation_day_in_billing?: bool,
     *     cancel_reason_code?: string,
     *     decommissioned?: bool,
     *     } $params Description of the parameters

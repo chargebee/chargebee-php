@@ -11,6 +11,18 @@ class GrantBlock  {
     
     /**
     *
+    * @var ?string $subscription_id
+    */
+    public ?string $subscription_id;
+    
+    /**
+    *
+    * @var ?string $unit_id
+    */
+    public ?string $unit_id;
+    
+    /**
+    *
     * @var ?string $granted_amount
     */
     public ?string $granted_amount;
@@ -77,9 +89,15 @@ class GrantBlock  {
     
     /**
     *
-    * @var ?string $unit_id
+    * @var ?int $modified_at
     */
-    public ?string $unit_id;
+    public ?int $modified_at;
+    
+    /**
+    *
+    * @var ?int $resource_version
+    */
+    public ?int $resource_version;
     
     /**
     *
@@ -95,12 +113,6 @@ class GrantBlock  {
     
     /**
     *
-    * @var ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source
-    */
-    public ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source;
-    
-    /**
-    *
     * @var ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type
     */
     public ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type;
@@ -112,9 +124,15 @@ class GrantBlock  {
     public ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source
+    */
+    public ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "unit_id" , "metadata"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "unit_id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "modified_at" , "resource_version" , "metadata"  ];
 
     /**
     * dynamic properties for resources
@@ -124,6 +142,8 @@ class GrantBlock  {
 
     private function __construct(
         ?string $id,
+        ?string $subscription_id,
+        ?string $unit_id,
         ?string $granted_amount,
         ?int $effective_from,
         ?int $expires_at,
@@ -135,15 +155,18 @@ class GrantBlock  {
         ?string $voided_amount,
         ?string $origin_grant_block_id,
         ?int $created_at,
-        ?string $unit_id,
+        ?int $modified_at,
+        ?int $resource_version,
         mixed $metadata,
         ?\Chargebee\Enums\Status $status,
-        ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source,
         ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type,
         ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type,
+        ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source,
     )
     { 
         $this->id = $id;
+        $this->subscription_id = $subscription_id;
+        $this->unit_id = $unit_id;
         $this->granted_amount = $granted_amount;
         $this->effective_from = $effective_from;
         $this->expires_at = $expires_at;
@@ -155,17 +178,20 @@ class GrantBlock  {
         $this->voided_amount = $voided_amount;
         $this->origin_grant_block_id = $origin_grant_block_id;
         $this->created_at = $created_at;
-        $this->unit_id = $unit_id;
+        $this->modified_at = $modified_at;
+        $this->resource_version = $resource_version;
         $this->metadata = $metadata; 
         $this->status = $status; 
-        $this->grant_source = $grant_source;
         $this->account_type = $account_type;
-        $this->unit_type = $unit_type; 
+        $this->unit_type = $unit_type;
+        $this->grant_source = $grant_source; 
     }
 
     public static function from(array $resourceAttributes): self
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
+        $resourceAttributes['subscription_id'] ?? null,
+        $resourceAttributes['unit_id'] ?? null,
         $resourceAttributes['granted_amount'] ?? null,
         $resourceAttributes['effective_from'] ?? null,
         $resourceAttributes['expires_at'] ?? null,
@@ -177,17 +203,18 @@ class GrantBlock  {
         $resourceAttributes['voided_amount'] ?? null,
         $resourceAttributes['origin_grant_block_id'] ?? null,
         $resourceAttributes['created_at'] ?? null,
-        $resourceAttributes['unit_id'] ?? null,
+        $resourceAttributes['modified_at'] ?? null,
+        $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['metadata'] ?? null,
         
         
         isset($resourceAttributes['status']) ? \Chargebee\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
          
-        isset($resourceAttributes['grant_source']) ? \Chargebee\Resources\GrantBlock\Enums\GrantSource::tryFromValue($resourceAttributes['grant_source']) : null,
-        
         isset($resourceAttributes['account_type']) ? \Chargebee\Resources\GrantBlock\Enums\AccountType::tryFromValue($resourceAttributes['account_type']) : null,
         
         isset($resourceAttributes['unit_type']) ? \Chargebee\Resources\GrantBlock\Enums\UnitType::tryFromValue($resourceAttributes['unit_type']) : null,
+        
+        isset($resourceAttributes['grant_source']) ? \Chargebee\Resources\GrantBlock\Enums\GrantSource::tryFromValue($resourceAttributes['grant_source']) : null,
          
         );
        
@@ -198,6 +225,8 @@ class GrantBlock  {
     {
         
         $data = array_filter(['id' => $this->id,
+        'subscription_id' => $this->subscription_id,
+        'unit_id' => $this->unit_id,
         'granted_amount' => $this->granted_amount,
         'effective_from' => $this->effective_from,
         'expires_at' => $this->expires_at,
@@ -209,16 +238,17 @@ class GrantBlock  {
         'voided_amount' => $this->voided_amount,
         'origin_grant_block_id' => $this->origin_grant_block_id,
         'created_at' => $this->created_at,
-        'unit_id' => $this->unit_id,
+        'modified_at' => $this->modified_at,
+        'resource_version' => $this->resource_version,
         'metadata' => $this->metadata,
         
         'status' => $this->status?->value,
         
-        'grant_source' => $this->grant_source?->value,
-        
         'account_type' => $this->account_type?->value,
         
         'unit_type' => $this->unit_type?->value,
+        
+        'grant_source' => $this->grant_source?->value,
         
         ], function ($value) {
             return $value !== null;

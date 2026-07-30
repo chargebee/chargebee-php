@@ -4,6 +4,7 @@ namespace Chargebee\Actions;
 use Chargebee\Responses\LedgerOperationResponse\CaptureLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\CaptureAuthorizationLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\RetrieveLedgerOperationLedgerOperationResponse;
+use Chargebee\Responses\LedgerOperationResponse\AllocateLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\ReleaseAuthorizationLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\ListLedgerOperationsLedgerOperationResponse;
 use Chargebee\Actions\Contracts\LedgerOperationActionsInterface;
@@ -115,6 +116,48 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
     }
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/ledger_operations/allocate?lang=php-v4
+    *   @param array{
+    *     subscription_id?: string,
+    *     unit_id?: string,
+    *     amount?: string,
+    *     expires_at?: int,
+    *     metadata?: mixed,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return AllocateLedgerOperationResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function allocate(array $params, array $headers = []): AllocateLedgerOperationResponse
+    {
+        $jsonKeys = [
+            "metadata" => 0,
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["ledger_operations","allocate"])
+        ->withParamEncoder( new JsonParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaderOverride("Content-Type", "application/json")
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(false)
+        ->withTelemetryResource("ledgerOperation")
+        ->withTelemetryOperation("allocate")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return AllocateLedgerOperationResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/ledger_operations/authorize?lang=php-v4
     *   @param array{
     *     id?: string,
@@ -176,8 +219,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
     *     between?: mixed,
     *     },
     * type?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

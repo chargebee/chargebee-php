@@ -35,6 +35,12 @@ class Alert  {
     
     /**
     *
+    * @var ?string $unit_id
+    */
+    public ?string $unit_id;
+    
+    /**
+    *
     * @var ?string $subscription_id
     */
     public ?string $subscription_id;
@@ -59,9 +65,9 @@ class Alert  {
     
     /**
     *
-    * @var ?array<Threshold> $threshold
+    * @var ?Threshold $threshold
     */
-    public ?array $threshold;
+    public ?Threshold $threshold;
     
     /**
     *
@@ -84,7 +90,7 @@ class Alert  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "currency_code" , "subscription_id" , "meta" , "created_at" , "updated_at" , "threshold" , "filter_conditions"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "metered_feature_id" , "currency_code" , "unit_id" , "subscription_id" , "meta" , "created_at" , "updated_at" , "threshold" , "filter_conditions"  ];
 
     /**
     * dynamic properties for resources
@@ -98,11 +104,12 @@ class Alert  {
         ?string $description,
         ?string $metered_feature_id,
         ?string $currency_code,
+        ?string $unit_id,
         ?string $subscription_id,
         ?string $meta,
         ?int $created_at,
         ?int $updated_at,
-        ?array $threshold,
+        ?Threshold $threshold,
         ?array $filter_conditions,
         ?\Chargebee\Enums\Type $type,
         ?\Chargebee\Resources\Alert\Enums\Status $status,
@@ -113,6 +120,7 @@ class Alert  {
         $this->description = $description;
         $this->metered_feature_id = $metered_feature_id;
         $this->currency_code = $currency_code;
+        $this->unit_id = $unit_id;
         $this->subscription_id = $subscription_id;
         $this->meta = $meta;
         $this->created_at = $created_at;
@@ -125,10 +133,6 @@ class Alert  {
 
     public static function from(array $resourceAttributes): self
     { 
-        $threshold = array_map(fn (array $result): Threshold =>  Threshold::from(
-            $result
-        ), $resourceAttributes['threshold'] ?? []);
-        
         $filter_conditions = array_map(fn (array $result): FilterCondition =>  FilterCondition::from(
             $result
         ), $resourceAttributes['filter_conditions'] ?? []);
@@ -138,11 +142,12 @@ class Alert  {
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['metered_feature_id'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
+        $resourceAttributes['unit_id'] ?? null,
         $resourceAttributes['subscription_id'] ?? null,
         $resourceAttributes['meta'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
-        $threshold,
+        isset($resourceAttributes['threshold']) ? Threshold::from($resourceAttributes['threshold']) : null,
         $filter_conditions,
         
         
@@ -163,6 +168,7 @@ class Alert  {
         'description' => $this->description,
         'metered_feature_id' => $this->metered_feature_id,
         'currency_code' => $this->currency_code,
+        'unit_id' => $this->unit_id,
         'subscription_id' => $this->subscription_id,
         'meta' => $this->meta,
         'created_at' => $this->created_at,
@@ -179,13 +185,10 @@ class Alert  {
         });
 
         
-        
-        if($this->threshold !== []){
-            $data['threshold'] = array_map(
-                fn (Threshold $threshold): array => $threshold->toArray(),
-                $this->threshold
-            );
+        if($this->threshold instanceof Threshold){
+            $data['threshold'] = $this->threshold->toArray();
         }
+        
         if($this->filter_conditions !== []){
             $data['filter_conditions'] = array_map(
                 fn (FilterCondition $filter_conditions): array => $filter_conditions->toArray(),

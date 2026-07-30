@@ -1,3 +1,61 @@
+### v4.25.0 (2026-07-30)
+* * *
+### New Resources:
+- [`CreditUnit`](https://apidocs.chargebee.com/docs/api/credit_units) has been added.
+- [`LedgerEntry`](https://apidocs.chargebee.com/docs/api/ledger_entries) has been added.
+
+
+### New Actions:
+- [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) has been added to [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+
+
+### New Attributes:
+- [`unit_id`](https://apidocs.chargebee.com/docs/api/alerts/alert-object#unit_id) has been added to [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`subscription_id`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#subscription_id) has been added to [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- [`modified_at`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#modified_at) has been added to [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- [`resource_version`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#resource_version) has been added to [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- [`created_at`](https://apidocs.chargebee.com/docs/api/ledger_account_balances/ledger-account-balance-object#created_at) has been added to [`LedgerAccountBalance`](https://apidocs.chargebee.com/docs/api/ledger_account_balances).
+- [`resource_version`](https://apidocs.chargebee.com/docs/api/ledger_account_balances/ledger-account-balance-object#resource_version) has been added to [`LedgerAccountBalance`](https://apidocs.chargebee.com/docs/api/ledger_account_balances).
+
+
+### New Parameters:
+- [`account_type`](https://apidocs.chargebee.com/docs/api/grant_blocks/list-grant-blocks#account_type) has been added as query parameter to [`list_grant_blocks`](https://apidocs.chargebee.com/docs/api/grant_blocks/list-grant-blocks) in [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- [`unit_id`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert#unit_id) has been added as request body parameter to [`create_an_alert`](https://apidocs.chargebee.com/docs/api/alerts/create-an-alert) in [`Alert`](https://apidocs.chargebee.com/docs/api/alerts).
+- [`include_cancellation_day_in_billing`](https://apidocs.chargebee.com/docs/api/estimates/cancel-subscription-for-items-estimate#include_cancellation_day_in_billing) has been added as request body parameter to [`cancel_subscription_for_items_estimate`](https://apidocs.chargebee.com/docs/api/estimates/cancel-subscription-for-items-estimate) in [`Estimate`](https://apidocs.chargebee.com/docs/api/estimates).
+- [`subscription_id`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate#subscription_id) has been added as request body parameter to [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- [`unit_id`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate#unit_id) has been added as request body parameter to [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- [`amount`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate#amount) has been added as request body parameter to [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- [`expires_at`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate#expires_at) has been added as request body parameter to [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- [`metadata`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate#metadata) has been added as request body parameter to [`allocate`](https://apidocs.chargebee.com/docs/api/ledger_operations/allocate) in [`LedgerOperation`](https://apidocs.chargebee.com/docs/api/ledger_operations).
+- [`include_cancellation_day_in_billing`](https://apidocs.chargebee.com/docs/api/subscriptions/cancel-subscription-for-items#include_cancellation_day_in_billing) has been added as request body parameter to [`cancel_subscription_for_items`](https://apidocs.chargebee.com/docs/api/subscriptions/cancel-subscription-for-items) in [`Subscription`](https://apidocs.chargebee.com/docs/api/subscriptions).
+
+
+### New Events:
+- [`grant_blocks_created`](https://apidocs.chargebee.com/docs/api/events/webhook/grant_blocks_created) has been added.
+- [`ledger_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/ledger_updated) has been added.
+- [`ledger_account_balance_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/ledger_account_balance_updated) has been added.
+- [`grant_blocks_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/grant_blocks_updated) has been added.
+
+
+### New Enums:
+- `ledger_account_balance_updated`, `grant_blocks_created`, `grant_blocks_updated`, and `ledger_updated` have been added as new values enum `EventType`.
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values enum `PaymentMethod`.
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values enum `PaymentMethodType`.
+- `dana`, `touch_n_go`, `tamara`, `qpay`, `credit_balance_dropped`, `credit`, `debit`, `hold`, and `unhold` have been added as new values enum `Type`.
+- `active` and `archived` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/credit_units/credit-unit-object#status) in [`CreditUnit`](https://apidocs.chargebee.com/docs/api/credit_units).
+- `grant_renewal` and `subscription_renewed` have been added as new values to enum attribute [`grant_source`](https://apidocs.chargebee.com/docs/api/grant_blocks/grant-block-object#grant_source) in [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `provisioned` and `overdraft` have been added as new values to enum attribute [`account_type`](https://apidocs.chargebee.com/docs/api/ledger_entries/ledger-entry-object#account_type) in [`LedgerEntry`](https://apidocs.chargebee.com/docs/api/ledger_entries).
+- `credit_unit` has been added as a new value to enum attribute [`unit_type`](https://apidocs.chargebee.com/docs/api/ledger_entries/ledger-entry-object#unit_type) in [`LedgerEntry`](https://apidocs.chargebee.com/docs/api/ledger_entries).
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values to enum attribute [`payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values to enum attribute [`active_payment_attempt.payment_method_type`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#active_payment_attempt_payment_method_type) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `archived` and `active` have been added as new values to enum query parameter `status.in` in [`list_credit_units`](https://apidocs.chargebee.com/docs/api/credit_units/list-credit-units) of [`CreditUnit`](https://apidocs.chargebee.com/docs/api/credit_units).
+- `archived` and `active` have been added as new values to enum query parameter `status.is` in [`list_credit_units`](https://apidocs.chargebee.com/docs/api/credit_units/list-credit-units) of [`CreditUnit`](https://apidocs.chargebee.com/docs/api/credit_units).
+- `provisioned` and `overdraft` have been added as new values to enum query parameter `account_type.is` in [`list_grant_blocks`](https://apidocs.chargebee.com/docs/api/grant_blocks/list-grant-blocks) of [`GrantBlock`](https://apidocs.chargebee.com/docs/api/grant_blocks).
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values to enum request body parameter `payment_method_type` in [`update_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/update-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+- `dana`, `touch_n_go`, `tamara`, and `qpay` have been added as new values to enum request body parameter `payment_method_type` in [`create_a_payment_intent`](https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent) of [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+
+
+
 ### v4.24.0 (2026-07-21)
 * * *
 ### New Resources:

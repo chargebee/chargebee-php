@@ -26,6 +26,7 @@ use Chargebee\Resources\CouponSet\CouponSet;
 use Chargebee\Resources\CpqQuoteSignature\CpqQuoteSignature;
 use Chargebee\Resources\CreditNote\CreditNote;
 use Chargebee\Resources\CreditNoteEstimate\CreditNoteEstimate;
+use Chargebee\Resources\CreditUnit\CreditUnit;
 use Chargebee\Resources\Currency\Currency;
 use Chargebee\Resources\Customer\Customer;
 use Chargebee\Resources\CustomerEntitlement\CustomerEntitlement;
@@ -57,6 +58,7 @@ use Chargebee\Resources\ItemEntitlement\ItemEntitlement;
 use Chargebee\Resources\ItemFamily\ItemFamily;
 use Chargebee\Resources\ItemPrice\ItemPrice;
 use Chargebee\Resources\LedgerAccountBalance\LedgerAccountBalance;
+use Chargebee\Resources\LedgerEntry\LedgerEntry;
 use Chargebee\Resources\LedgerOperation\LedgerOperation;
 use Chargebee\Resources\Metadata\Metadata;
 use Chargebee\Resources\Meter\Meter;
@@ -270,6 +272,12 @@ class Content  {
     
     /**
     *
+    * @var ?CreditUnit $creditunit
+    */
+    public ?CreditUnit $creditunit;
+    
+    /**
+    *
     * @var ?Currency $currency
     */
     public ?Currency $currency;
@@ -453,6 +461,12 @@ class Content  {
     * @var ?LedgerAccountBalance $ledgeraccountbalance
     */
     public ?LedgerAccountBalance $ledgeraccountbalance;
+    
+    /**
+    *
+    * @var ?LedgerEntry $ledgerentry
+    */
+    public ?LedgerEntry $ledgerentry;
     
     /**
     *
@@ -811,7 +825,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -845,6 +859,7 @@ class Content  {
         ?CpqQuoteSignature $cpqquotesignature,
         ?CreditNote $creditnote,
         ?CreditNoteEstimate $creditnoteestimate,
+        ?CreditUnit $creditunit,
         ?Currency $currency,
         ?Customer $customer,
         ?CustomerEntitlement $customerentitlement,
@@ -876,6 +891,7 @@ class Content  {
         ?ItemFamily $itemfamily,
         ?ItemPrice $itemprice,
         ?LedgerAccountBalance $ledgeraccountbalance,
+        ?LedgerEntry $ledgerentry,
         ?LedgerOperation $ledgeroperation,
         ?Metadata $metadata,
         ?Meter $meter,
@@ -962,6 +978,7 @@ class Content  {
         $this->cpqquotesignature = $cpqquotesignature;
         $this->creditnote = $creditnote;
         $this->creditnoteestimate = $creditnoteestimate;
+        $this->creditunit = $creditunit;
         $this->currency = $currency;
         $this->customer = $customer;
         $this->customerentitlement = $customerentitlement;
@@ -993,6 +1010,7 @@ class Content  {
         $this->itemfamily = $itemfamily;
         $this->itemprice = $itemprice;
         $this->ledgeraccountbalance = $ledgeraccountbalance;
+        $this->ledgerentry = $ledgerentry;
         $this->ledgeroperation = $ledgeroperation;
         $this->metadata = $metadata;
         $this->meter = $meter;
@@ -1081,6 +1099,7 @@ class Content  {
         isset($resourceAttributes['cpq_quote_signature']) ? CpqQuoteSignature::from($resourceAttributes['cpq_quote_signature']) : null,
         isset($resourceAttributes['credit_note']) ? CreditNote::from($resourceAttributes['credit_note']) : null,
         isset($resourceAttributes['credit_note_estimate']) ? CreditNoteEstimate::from($resourceAttributes['credit_note_estimate']) : null,
+        isset($resourceAttributes['credit_unit']) ? CreditUnit::from($resourceAttributes['credit_unit']) : null,
         isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
         isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
         isset($resourceAttributes['customer_entitlement']) ? CustomerEntitlement::from($resourceAttributes['customer_entitlement']) : null,
@@ -1112,6 +1131,7 @@ class Content  {
         isset($resourceAttributes['item_family']) ? ItemFamily::from($resourceAttributes['item_family']) : null,
         isset($resourceAttributes['item_price']) ? ItemPrice::from($resourceAttributes['item_price']) : null,
         isset($resourceAttributes['ledger_account_balance']) ? LedgerAccountBalance::from($resourceAttributes['ledger_account_balance']) : null,
+        isset($resourceAttributes['ledger_entry']) ? LedgerEntry::from($resourceAttributes['ledger_entry']) : null,
         isset($resourceAttributes['ledger_operation']) ? LedgerOperation::from($resourceAttributes['ledger_operation']) : null,
         isset($resourceAttributes['metadata']) ? Metadata::from($resourceAttributes['metadata']) : null,
         isset($resourceAttributes['meter']) ? Meter::from($resourceAttributes['meter']) : null,
@@ -1182,6 +1202,8 @@ class Content  {
     {
         
         $data = array_filter([
+        
+        
         
         
         
@@ -1377,6 +1399,9 @@ class Content  {
         if($this->creditnoteestimate instanceof CreditNoteEstimate){
             $data['credit_note_estimate'] = $this->creditnoteestimate->toArray();
         }
+        if($this->creditunit instanceof CreditUnit){
+            $data['credit_unit'] = $this->creditunit->toArray();
+        }
         if($this->currency instanceof Currency){
             $data['currency'] = $this->currency->toArray();
         }
@@ -1469,6 +1494,9 @@ class Content  {
         }
         if($this->ledgeraccountbalance instanceof LedgerAccountBalance){
             $data['ledger_account_balance'] = $this->ledgeraccountbalance->toArray();
+        }
+        if($this->ledgerentry instanceof LedgerEntry){
+            $data['ledger_entry'] = $this->ledgerentry->toArray();
         }
         if($this->ledgeroperation instanceof LedgerOperation){
             $data['ledger_operation'] = $this->ledgeroperation->toArray();

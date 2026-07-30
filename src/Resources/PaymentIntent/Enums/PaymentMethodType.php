@@ -51,6 +51,10 @@ enum PaymentMethodType : string {
     case PAYNOW = "paynow";
     case BIZUM = "bizum";
     case PROMPTPAY = "promptpay";
+    case DANA = "dana";
+    case TOUCH_N_GO = "touch_n_go";
+    case TAMARA = "tamara";
+    case QPAY = "qpay";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

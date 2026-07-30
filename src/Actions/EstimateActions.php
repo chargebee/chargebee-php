@@ -272,6 +272,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     unit_price_in_decimal?: string,
     *     service_period_days?: int,
     *     }>,
+    *     include_cancellation_day_in_billing?: bool,
     *     cancel_reason_code?: string,
     *     } $params Description of the parameters
     *   @param string $id  
