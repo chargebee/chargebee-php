@@ -1244,13 +1244,13 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         is?: string,
-    *             in?: string,
+    *         in?: string,
+    *             is?: string,
     *             },
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   

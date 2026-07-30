@@ -1,13 +1,13 @@
 <?php
 namespace Chargebee\Actions;
 
-use Chargebee\Responses\ItemFamilyResponse\RetrieveItemFamilyResponse;
-use Chargebee\Responses\ItemFamilyResponse\ListItemFamilyResponse;
-use Chargebee\Responses\ItemFamilyResponse\CreateItemFamilyResponse;
-use Chargebee\Responses\ItemFamilyResponse\DeleteItemFamilyResponse;
-use Chargebee\Actions\Contracts\ItemFamilyActionsInterface;
-use Chargebee\Responses\ItemFamilyResponse\UpdateItemFamilyResponse;
+use Chargebee\Responses\CreditUnitResponse\CreateCreditUnitResponse;
+use Chargebee\Responses\CreditUnitResponse\ReactivateCreditUnitResponse;
+use Chargebee\Responses\CreditUnitResponse\ListCreditUnitResponse;
+use Chargebee\Responses\CreditUnitResponse\UpdateCreditUnitResponse;
+use Chargebee\Responses\CreditUnitResponse\ArchiveCreditUnitResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
+use Chargebee\Actions\Contracts\CreditUnitActionsInterface;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
@@ -19,7 +19,7 @@ use Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Exceptions\APIError;
 use Chargebee\Exceptions\InvalidRequestException;
 
-final class ItemFamilyActions implements ItemFamilyActionsInterface
+final class CreditUnitActions implements CreditUnitActionsInterface
 {
     private HttpClientFactory $httpClientFactory;
     private Environment $env;
@@ -29,205 +29,190 @@ final class ItemFamilyActions implements ItemFamilyActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families/delete-an-item-family?lang=php-v4
-    *   
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteItemFamilyResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function delete(string $id, array $headers = []): DeleteItemFamilyResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["item_families",$id,"delete"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withIdempotent(true)
-        ->withTelemetryResource("itemFamily")
-        ->withTelemetryOperation("delete")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeleteItemFamilyResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families/list-item-families?lang=php-v4
+    *   @see https://apidocs.chargebee.com/docs/api/credit_units/list-credit-units?lang=php-v4
     *   @param array{
     *     limit?: int,
     *     offset?: string,
-    *     id?: array{
-    *     is?: mixed,
-    *     is_not?: mixed,
-    *     starts_with?: mixed,
+    *     status?: array{
     *     in?: mixed,
-    *     not_in?: mixed,
-    *     },
-    * name?: array{
     *     is?: mixed,
-    *     is_not?: mixed,
-    *     starts_with?: mixed,
     *     },
-    * updated_at?: array{
-    *     after?: mixed,
-    *     before?: mixed,
-    *     on?: mixed,
-    *     between?: mixed,
-    *     },
-    * business_entity_id?: array{
-    *     is?: mixed,
-    *     is_present?: mixed,
-    *     },
-    * include_site_level_resources?: array{
+    * id?: array{
+    *     in?: mixed,
     *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
-    *   @return ListItemFamilyResponse
+    *   @return ListCreditUnitResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function all(array $params = [], array $headers = []): ListItemFamilyResponse
+    public function all(array $params = [], array $headers = []): ListCreditUnitResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
         ->withHttpMethod("get")
-        ->withUriPaths(["item_families"])
+        ->withUriPaths(["credit_units"])
         ->withParamEncoder(new ListParamEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
-        ->withTelemetryResource("itemFamily")
+        ->withTelemetryResource("creditUnit")
         ->withTelemetryOperation("list")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return ListItemFamilyResponse::from($respObject->data, $respObject->headers);
+        return ListCreditUnitResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families/create-an-item-family?lang=php-v4
+    *   @see https://apidocs.chargebee.com/docs/api/credit_units/create-a-credit-unit?lang=php-v4
     *   @param array{
     *     id?: string,
     *     name?: string,
-    *     description?: string,
-    *     business_entity_id?: string,
+    *     is_unlimited?: bool,
+    *     overdraft_amount?: string,
+    *     external_name?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
-    *   @return CreateItemFamilyResponse
+    *   @return CreateCreditUnitResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function create(array $params, array $headers = []): CreateItemFamilyResponse
+    public function create(array $params, array $headers = []): CreateCreditUnitResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
         ->withHttpMethod("post")
-        ->withUriPaths(["item_families"])
+        ->withUriPaths(["credit_units"])
         ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
-        ->withTelemetryResource("itemFamily")
+        ->withTelemetryResource("creditUnit")
         ->withTelemetryOperation("create")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return CreateItemFamilyResponse::from($respObject->data, $respObject->headers);
+        return CreateCreditUnitResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families/retrieve-an-item-family?lang=php-v4
+    *   @see https://apidocs.chargebee.com/docs/api/credit_units/archive-a-credit-unit?lang=php-v4
     *   
     *   @param string $id  
     *   @param array<string, string> $headers
-    *   @return RetrieveItemFamilyResponse
+    *   @return ArchiveCreditUnitResponse
     *   @throws PaymentException
     *   @throws OperationFailedException
     *   @throws APIError
     *   @throws InvalidRequestException
     *   @throws Exception
     */
-    public function retrieve(string $id, array $headers = []): RetrieveItemFamilyResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["item_families",$id])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withTelemetryResource("itemFamily")
-        ->withTelemetryOperation("retrieve")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return RetrieveItemFamilyResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/item_families/update-an-item-family?lang=php-v4
-    *   @param array{
-    *     name?: string,
-    *     description?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return UpdateItemFamilyResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function update(string $id, array $params = [], array $headers = []): UpdateItemFamilyResponse
+    public function archive(string $id, array $headers = []): ArchiveCreditUnitResponse
     {
         $jsonKeys = [
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
         ->withHttpMethod("post")
-        ->withUriPaths(["item_families",$id])
+        ->withUriPaths(["credit_units",$id,"archive_command"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->withTelemetryResource("creditUnit")
+        ->withTelemetryOperation("archive")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ArchiveCreditUnitResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_units/update-a-credit-unit?lang=php-v4
+    *   @param array{
+    *     name?: string,
+    *     external_name?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateCreditUnitResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function update(string $id, array $params = [], array $headers = []): UpdateCreditUnitResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["credit_units",$id])
         ->withParamEncoder( new URLFormEncoder())
         ->withSubDomain(null)
         ->withJsonKeys($jsonKeys)
         ->withHeaders($headers)
         ->withParams($params)
         ->withIdempotent(true)
-        ->withTelemetryResource("itemFamily")
+        ->withTelemetryResource("creditUnit")
         ->withTelemetryOperation("update")
         ->build();
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
-        return UpdateItemFamilyResponse::from($respObject->data, $respObject->headers);
+        return UpdateCreditUnitResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_units/reactivate-a-credit-unit?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ReactivateCreditUnitResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function reactivate(string $id, array $headers = []): ReactivateCreditUnitResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["credit_units",$id,"reactivate_command"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->withTelemetryResource("creditUnit")
+        ->withTelemetryOperation("reactivate")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ReactivateCreditUnitResponse::from($respObject->data, $respObject->headers);
     }
 
 }

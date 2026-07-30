@@ -4,6 +4,7 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\LedgerOperationResponse\CaptureLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\CaptureAuthorizationLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\RetrieveLedgerOperationLedgerOperationResponse;
+use Chargebee\Responses\LedgerOperationResponse\AllocateLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\ReleaseAuthorizationLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\ListLedgerOperationsLedgerOperationResponse;
 use Chargebee\Responses\LedgerOperationResponse\AuthorizeLedgerOperationResponse;
@@ -57,6 +58,26 @@ Interface LedgerOperationActionsInterface
     public function capture(array $params, array $headers = []): CaptureLedgerOperationResponse;
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/ledger_operations/allocate?lang=php-v4
+    *   @param array{
+    *     subscription_id?: string,
+    *     unit_id?: string,
+    *     amount?: string,
+    *     expires_at?: int,
+    *     metadata?: mixed,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return AllocateLedgerOperationResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function allocate(array $params, array $headers = []): AllocateLedgerOperationResponse;
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/ledger_operations/authorize?lang=php-v4
     *   @param array{
     *     id?: string,
@@ -96,8 +117,8 @@ Interface LedgerOperationActionsInterface
     *     between?: mixed,
     *     },
     * type?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

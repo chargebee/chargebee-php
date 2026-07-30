@@ -8,6 +8,10 @@ enum PaymentMethod : string {
     case BANK_TRANSFER = "bank_transfer";
     case OTHER = "other";
     case CUSTOM = "custom";
+    case DANA = "dana";
+    case TOUCH_N_GO = "touch_n_go";
+    case TAMARA = "tamara";
+    case QPAY = "qpay";
     case CHARGEBACK = "chargeback";
     case CARD = "card";
     case AMAZON_PAYMENTS = "amazon_payments";
