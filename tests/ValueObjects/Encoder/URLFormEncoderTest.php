@@ -217,4 +217,56 @@ final class URLFormEncoderTest extends TestCase
         $this->assertIsString($encoded);
         $this->assertSame("id=foo&name=foo&discount_percentage=10&apply_on=each_specified_item&item_constraints%5Bconstraint%5D%5B0%5D=specific&item_constraints%5Bitem_type%5D%5B0%5D=plan&item_constraints%5Bitem_price_ids%5D%5B0%5D=%5B%22some_price_id%22%5D", $encoded);
     }
+
+    /** Filter operators carry the whole array in one field, at any nesting depth. */
+    /** ramp[effective_from][between]=[1704067200,1717199999]&ramp[status][in]=["scheduled","draft"] */
+    public function testEncodeParamsWithFilterArrayOperators(): void
+    {
+        $params = [
+            'export_type' => 'import_friendly_data',
+            'ramp' => [
+                'effective_from' => [
+                    'between' => [1704067200, 1717199999],
+                ],
+                'status' => [
+                    'in' => ['scheduled', 'draft'],
+                ],
+            ],
+        ];
+        $encoded = URLFormEncoder::encode($params);
+        $this->assertIsString($encoded);
+        $this->assertSame(
+            "export_type=import_friendly_data&ramp%5Beffective_from%5D%5Bbetween%5D=%5B1704067200%2C1717199999%5D&ramp%5Bstatus%5D%5Bin%5D=%5B%22scheduled%22%2C%22draft%22%5D",
+            $encoded
+        );
+    }
+
+    /** Top-level filters on non-list requests get the same treatment. */
+    /** updated_at[between]=[1704067200,1717199999] */
+    public function testEncodeParamsWithTopLevelFilterArrayOperator(): void
+    {
+        $params = [
+            'updated_at' => [
+                'between' => [1704067200, 1717199999],
+            ],
+        ];
+        $encoded = URLFormEncoder::encode($params);
+        $this->assertIsString($encoded);
+        $this->assertSame("updated_at%5Bbetween%5D=%5B1704067200%2C1717199999%5D", $encoded);
+    }
+
+    /** An empty filter operator is left out of the request entirely. */
+    /** limit=5 */
+    public function testEncodeParamsWithEmptyFilterArrayOperator(): void
+    {
+        $params = [
+            'limit' => 5,
+            'updated_at' => [
+                'between' => [],
+            ],
+        ];
+        $encoded = URLFormEncoder::encode($params);
+        $this->assertIsString($encoded);
+        $this->assertSame("limit=5", $encoded);
+    }
 }

@@ -7,6 +7,12 @@ use Exception;
 class URLFormEncoder implements ParamEncoderInterface
 {
     /**
+     * Filter operators whose value is the whole array, sent as a single field
+     * (e.g. updated_at[between]=[1704067200,1717199999]).
+     */
+    private const ARRAY_OPERATORS = ['in', 'not_in', 'between'];
+
+    /**
      * @param array $params.
      * @param array $jsonKeys.
      * @return string raw request body
@@ -33,6 +39,12 @@ class URLFormEncoder implements ParamEncoderInterface
                     (!is_null($prefix) ? '[' . $usK . ']' : $usK) .
                     (!is_null($idx) ? '[' . $idx . ']' : '');
                 $serialized[$key] = is_string($v) ? $v : json_encode((is_array($v) && $v === []) ? (object)[] : $v);
+            } else if (is_array($v) && $v !== [] && !is_int($k) && in_array(Util::toUnderscoreFromCamelCase($k), self::ARRAY_OPERATORS, true)) {
+                // An empty filter is not a filter, so it falls through to the
+                // recursion below and leaves nothing in the request.
+                $usK = Util::toUnderscoreFromCamelCase($k);
+                $key = (!is_null($prefix) ? $prefix . '[' . $usK . ']' : $usK) . (!is_null($idx) ? '[' . $idx . ']' : '');
+                $serialized[$key] = json_encode($v);
             } else if (is_array($v) && !is_int($k)) {
                 $tempPrefix = (!is_null($prefix)) ? $prefix . '[' . Util::toUnderscoreFromCamelCase($k) . ']' : Util::toUnderscoreFromCamelCase($k);
                 $serialized = array_merge($serialized, self::serialize($v, $tempPrefix, null, $jsonKeys, $level + 1));
