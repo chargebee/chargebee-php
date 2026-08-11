@@ -39,7 +39,9 @@ class URLFormEncoder implements ParamEncoderInterface
                     (!is_null($prefix) ? '[' . $usK . ']' : $usK) .
                     (!is_null($idx) ? '[' . $idx . ']' : '');
                 $serialized[$key] = is_string($v) ? $v : json_encode((is_array($v) && $v === []) ? (object)[] : $v);
-            } else if (is_array($v) && !is_int($k) && in_array(Util::toUnderscoreFromCamelCase($k), self::ARRAY_OPERATORS, true)) {
+            } else if (is_array($v) && $v !== [] && !is_int($k) && in_array(Util::toUnderscoreFromCamelCase($k), self::ARRAY_OPERATORS, true)) {
+                // An empty filter is not a filter, so it falls through to the
+                // recursion below and leaves nothing in the request.
                 $usK = Util::toUnderscoreFromCamelCase($k);
                 $key = (!is_null($prefix) ? $prefix . '[' . $usK . ']' : $usK) . (!is_null($idx) ? '[' . $idx . ']' : '');
                 $serialized[$key] = json_encode($v);

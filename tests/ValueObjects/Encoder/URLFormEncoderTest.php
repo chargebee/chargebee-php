@@ -254,4 +254,19 @@ final class URLFormEncoderTest extends TestCase
         $this->assertIsString($encoded);
         $this->assertSame("updated_at%5Bbetween%5D=%5B1704067200%2C1717199999%5D", $encoded);
     }
+
+    /** An empty filter operator is left out of the request entirely. */
+    /** limit=5 */
+    public function testEncodeParamsWithEmptyFilterArrayOperator(): void
+    {
+        $params = [
+            'limit' => 5,
+            'updated_at' => [
+                'between' => [],
+            ],
+        ];
+        $encoded = URLFormEncoder::encode($params);
+        $this->assertIsString($encoded);
+        $this->assertSame("limit=5", $encoded);
+    }
 }
