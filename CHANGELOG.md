@@ -1,3 +1,8 @@
+### v4.25.1 (2026-08-11)
+* * *
+### Bug Fixes: 
+- Filter operators `in`, `not_in` and `between` are now sent as a single form field by `URLFormEncoder`, at any nesting depth. Filters on export operations, such as `ramp[effective_from][between]`, were index-encoded and therefore ignored by the API.
+
 ### v4.25.0 (2026-07-30)
 * * *
 ### New Resources:
