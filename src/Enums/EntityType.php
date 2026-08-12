@@ -45,6 +45,7 @@ enum EntityType : string {
     case BUSINESS_RULE = "business_rule";
     case RULESET = "ruleset";
     case ALERT_STATUS = "alert_status";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_METRIC = "omnichannel_subscription_item_metric";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

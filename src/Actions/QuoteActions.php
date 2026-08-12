@@ -114,6 +114,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     charge_on_option?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -468,6 +469,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     item_type?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -809,6 +811,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     charge_on_option?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -951,6 +954,7 @@ final class QuoteActions implements QuoteActionsInterface
     *     item_type?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{

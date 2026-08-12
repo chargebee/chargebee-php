@@ -101,6 +101,7 @@ Interface QuoteActionsInterface
     *     charge_on_option?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -319,6 +320,7 @@ Interface QuoteActionsInterface
     *     item_type?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -563,6 +565,7 @@ Interface QuoteActionsInterface
     *     charge_on_option?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{
@@ -685,6 +688,7 @@ Interface QuoteActionsInterface
     *     item_type?: string,
     *     start_date?: int,
     *     end_date?: int,
+    *     description?: string,
     *     ramp_tier_id?: string,
     *     }>,
     *     discounts?: array<array{

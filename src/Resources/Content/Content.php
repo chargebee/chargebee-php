@@ -42,6 +42,7 @@ use Chargebee\Resources\Export\Export;
 use Chargebee\Resources\Feature\Feature;
 use Chargebee\Resources\FilterCondition\FilterCondition;
 use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
+use Chargebee\Resources\GatewayPaymentMethodToken\GatewayPaymentMethodToken;
 use Chargebee\Resources\Gift\Gift;
 use Chargebee\Resources\GrantBlock\GrantBlock;
 use Chargebee\Resources\Hierarchy\Hierarchy;
@@ -70,6 +71,7 @@ use Chargebee\Resources\OmnichannelOneTimeOrder\OmnichannelOneTimeOrder;
 use Chargebee\Resources\OmnichannelOneTimeOrderItem\OmnichannelOneTimeOrderItem;
 use Chargebee\Resources\OmnichannelSubscription\OmnichannelSubscription;
 use Chargebee\Resources\OmnichannelSubscriptionItem\OmnichannelSubscriptionItem;
+use Chargebee\Resources\OmnichannelSubscriptionItemMetric\OmnichannelSubscriptionItemMetric;
 use Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscriptionItemOffer;
 use Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\OmnichannelSubscriptionItemScheduledChange;
 use Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction;
@@ -116,6 +118,7 @@ use Chargebee\Resources\UsageCharge\UsageCharge;
 use Chargebee\Resources\UsageEvent\UsageEvent;
 use Chargebee\Resources\UsageFile\UsageFile;
 use Chargebee\Resources\UsageSummary\UsageSummary;
+use Chargebee\Resources\VaultedPaymentMethod\VaultedPaymentMethod;
 use Chargebee\Resources\VirtualBankAccount\VirtualBankAccount;
 use Chargebee\Resources\WebhookEndpoint\WebhookEndpoint;
 
@@ -368,6 +371,12 @@ class Content  {
     
     /**
     *
+    * @var ?GatewayPaymentMethodToken $gatewaypaymentmethodtoken
+    */
+    public ?GatewayPaymentMethodToken $gatewaypaymentmethodtoken;
+    
+    /**
+    *
     * @var ?Gift $gift
     */
     public ?Gift $gift;
@@ -533,6 +542,12 @@ class Content  {
     * @var ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem
     */
     public ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem;
+    
+    /**
+    *
+    * @var ?OmnichannelSubscriptionItemMetric $omnichannelsubscriptionitemmetric
+    */
+    public ?OmnichannelSubscriptionItemMetric $omnichannelsubscriptionitemmetric;
     
     /**
     *
@@ -812,6 +827,12 @@ class Content  {
     
     /**
     *
+    * @var ?VaultedPaymentMethod $vaultedpaymentmethod
+    */
+    public ?VaultedPaymentMethod $vaultedpaymentmethod;
+    
+    /**
+    *
     * @var ?VirtualBankAccount $virtualbankaccount
     */
     public ?VirtualBankAccount $virtualbankaccount;
@@ -825,7 +846,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -875,6 +896,7 @@ class Content  {
         ?Feature $feature,
         ?FilterCondition $filtercondition,
         ?GatewayErrorDetail $gatewayerrordetail,
+        ?GatewayPaymentMethodToken $gatewaypaymentmethodtoken,
         ?Gift $gift,
         ?GrantBlock $grantblock,
         ?Hierarchy $hierarchy,
@@ -903,6 +925,7 @@ class Content  {
         ?OmnichannelOneTimeOrderItem $omnichannelonetimeorderitem,
         ?OmnichannelSubscription $omnichannelsubscription,
         ?OmnichannelSubscriptionItem $omnichannelsubscriptionitem,
+        ?OmnichannelSubscriptionItemMetric $omnichannelsubscriptionitemmetric,
         ?OmnichannelSubscriptionItemOffer $omnichannelsubscriptionitemoffer,
         ?OmnichannelSubscriptionItemScheduledChange $omnichannelsubscriptionitemscheduledchange,
         ?OmnichannelTransaction $omnichanneltransaction,
@@ -949,6 +972,7 @@ class Content  {
         ?UsageEvent $usageevent,
         ?UsageFile $usagefile,
         ?UsageSummary $usagesummary,
+        ?VaultedPaymentMethod $vaultedpaymentmethod,
         ?VirtualBankAccount $virtualbankaccount,
         ?WebhookEndpoint $webhookendpoint,
     )
@@ -994,6 +1018,7 @@ class Content  {
         $this->feature = $feature;
         $this->filtercondition = $filtercondition;
         $this->gatewayerrordetail = $gatewayerrordetail;
+        $this->gatewaypaymentmethodtoken = $gatewaypaymentmethodtoken;
         $this->gift = $gift;
         $this->grantblock = $grantblock;
         $this->hierarchy = $hierarchy;
@@ -1022,6 +1047,7 @@ class Content  {
         $this->omnichannelonetimeorderitem = $omnichannelonetimeorderitem;
         $this->omnichannelsubscription = $omnichannelsubscription;
         $this->omnichannelsubscriptionitem = $omnichannelsubscriptionitem;
+        $this->omnichannelsubscriptionitemmetric = $omnichannelsubscriptionitemmetric;
         $this->omnichannelsubscriptionitemoffer = $omnichannelsubscriptionitemoffer;
         $this->omnichannelsubscriptionitemscheduledchange = $omnichannelsubscriptionitemscheduledchange;
         $this->omnichanneltransaction = $omnichanneltransaction;
@@ -1068,6 +1094,7 @@ class Content  {
         $this->usageevent = $usageevent;
         $this->usagefile = $usagefile;
         $this->usagesummary = $usagesummary;
+        $this->vaultedpaymentmethod = $vaultedpaymentmethod;
         $this->virtualbankaccount = $virtualbankaccount;
         $this->webhookendpoint = $webhookendpoint;   
     }
@@ -1115,6 +1142,7 @@ class Content  {
         isset($resourceAttributes['feature']) ? Feature::from($resourceAttributes['feature']) : null,
         isset($resourceAttributes['filter_condition']) ? FilterCondition::from($resourceAttributes['filter_condition']) : null,
         isset($resourceAttributes['gateway_error_detail']) ? GatewayErrorDetail::from($resourceAttributes['gateway_error_detail']) : null,
+        isset($resourceAttributes['gateway_payment_method_token']) ? GatewayPaymentMethodToken::from($resourceAttributes['gateway_payment_method_token']) : null,
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
         isset($resourceAttributes['grant_block']) ? GrantBlock::from($resourceAttributes['grant_block']) : null,
         isset($resourceAttributes['hierarchy']) ? Hierarchy::from($resourceAttributes['hierarchy']) : null,
@@ -1143,6 +1171,7 @@ class Content  {
         isset($resourceAttributes['omnichannel_one_time_order_item']) ? OmnichannelOneTimeOrderItem::from($resourceAttributes['omnichannel_one_time_order_item']) : null,
         isset($resourceAttributes['omnichannel_subscription']) ? OmnichannelSubscription::from($resourceAttributes['omnichannel_subscription']) : null,
         isset($resourceAttributes['omnichannel_subscription_item']) ? OmnichannelSubscriptionItem::from($resourceAttributes['omnichannel_subscription_item']) : null,
+        isset($resourceAttributes['omnichannel_subscription_item_metric']) ? OmnichannelSubscriptionItemMetric::from($resourceAttributes['omnichannel_subscription_item_metric']) : null,
         isset($resourceAttributes['omnichannel_subscription_item_offer']) ? OmnichannelSubscriptionItemOffer::from($resourceAttributes['omnichannel_subscription_item_offer']) : null,
         isset($resourceAttributes['omnichannel_subscription_item_scheduled_change']) ? OmnichannelSubscriptionItemScheduledChange::from($resourceAttributes['omnichannel_subscription_item_scheduled_change']) : null,
         isset($resourceAttributes['omnichannel_transaction']) ? OmnichannelTransaction::from($resourceAttributes['omnichannel_transaction']) : null,
@@ -1189,6 +1218,7 @@ class Content  {
         isset($resourceAttributes['usage_event']) ? UsageEvent::from($resourceAttributes['usage_event']) : null,
         isset($resourceAttributes['usage_file']) ? UsageFile::from($resourceAttributes['usage_file']) : null,
         isset($resourceAttributes['usage_summary']) ? UsageSummary::from($resourceAttributes['usage_summary']) : null,
+        isset($resourceAttributes['vaulted_payment_method']) ? VaultedPaymentMethod::from($resourceAttributes['vaulted_payment_method']) : null,
         isset($resourceAttributes['virtual_bank_account']) ? VirtualBankAccount::from($resourceAttributes['virtual_bank_account']) : null,
         isset($resourceAttributes['webhook_endpoint']) ? WebhookEndpoint::from($resourceAttributes['webhook_endpoint']) : null,
         
@@ -1202,6 +1232,9 @@ class Content  {
     {
         
         $data = array_filter([
+        
+        
+        
         
         
         
@@ -1447,6 +1480,9 @@ class Content  {
         if($this->gatewayerrordetail instanceof GatewayErrorDetail){
             $data['gateway_error_detail'] = $this->gatewayerrordetail->toArray();
         }
+        if($this->gatewaypaymentmethodtoken instanceof GatewayPaymentMethodToken){
+            $data['gateway_payment_method_token'] = $this->gatewaypaymentmethodtoken->toArray();
+        }
         if($this->gift instanceof Gift){
             $data['gift'] = $this->gift->toArray();
         }
@@ -1530,6 +1566,9 @@ class Content  {
         }
         if($this->omnichannelsubscriptionitem instanceof OmnichannelSubscriptionItem){
             $data['omnichannel_subscription_item'] = $this->omnichannelsubscriptionitem->toArray();
+        }
+        if($this->omnichannelsubscriptionitemmetric instanceof OmnichannelSubscriptionItemMetric){
+            $data['omnichannel_subscription_item_metric'] = $this->omnichannelsubscriptionitemmetric->toArray();
         }
         if($this->omnichannelsubscriptionitemoffer instanceof OmnichannelSubscriptionItemOffer){
             $data['omnichannel_subscription_item_offer'] = $this->omnichannelsubscriptionitemoffer->toArray();
@@ -1668,6 +1707,9 @@ class Content  {
         }
         if($this->usagesummary instanceof UsageSummary){
             $data['usage_summary'] = $this->usagesummary->toArray();
+        }
+        if($this->vaultedpaymentmethod instanceof VaultedPaymentMethod){
+            $data['vaulted_payment_method'] = $this->vaultedpaymentmethod->toArray();
         }
         if($this->virtualbankaccount instanceof VirtualBankAccount){
             $data['virtual_bank_account'] = $this->virtualbankaccount->toArray();

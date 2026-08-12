@@ -178,9 +178,15 @@ class LineItem  {
     public ?string $net_amount_per_billing_cycle_in_decimal;
     
     /**
+    *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "start_date" , "end_date" , "ramp_tier_id" , "discount_per_billing_cycle" , "discount_per_billing_cycle_in_decimal" , "item_level_discount_per_billing_cycle" , "item_level_discount_per_billing_cycle_in_decimal" , "amount_per_billing_cycle" , "amount_per_billing_cycle_in_decimal" , "net_amount_per_billing_cycle" , "net_amount_per_billing_cycle_in_decimal"  ];
+    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "start_date" , "end_date" , "ramp_tier_id" , "discount_per_billing_cycle" , "discount_per_billing_cycle_in_decimal" , "item_level_discount_per_billing_cycle" , "item_level_discount_per_billing_cycle_in_decimal" , "amount_per_billing_cycle" , "amount_per_billing_cycle_in_decimal" , "net_amount_per_billing_cycle" , "net_amount_per_billing_cycle_in_decimal" , "description"  ];
 
     /**
     * dynamic properties for resources
@@ -218,6 +224,7 @@ class LineItem  {
         ?string $amount_per_billing_cycle_in_decimal,
         ?int $net_amount_per_billing_cycle,
         ?string $net_amount_per_billing_cycle_in_decimal,
+        ?string $description,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -248,7 +255,8 @@ class LineItem  {
         $this->amount_per_billing_cycle = $amount_per_billing_cycle;
         $this->amount_per_billing_cycle_in_decimal = $amount_per_billing_cycle_in_decimal;
         $this->net_amount_per_billing_cycle = $net_amount_per_billing_cycle;
-        $this->net_amount_per_billing_cycle_in_decimal = $net_amount_per_billing_cycle_in_decimal;   
+        $this->net_amount_per_billing_cycle_in_decimal = $net_amount_per_billing_cycle_in_decimal;
+        $this->description = $description;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -282,6 +290,7 @@ class LineItem  {
         $resourceAttributes['amount_per_billing_cycle_in_decimal'] ?? null,
         $resourceAttributes['net_amount_per_billing_cycle'] ?? null,
         $resourceAttributes['net_amount_per_billing_cycle_in_decimal'] ?? null,
+        $resourceAttributes['description'] ?? null,
         
           
         );
@@ -321,6 +330,7 @@ class LineItem  {
         'amount_per_billing_cycle_in_decimal' => $this->amount_per_billing_cycle_in_decimal,
         'net_amount_per_billing_cycle' => $this->net_amount_per_billing_cycle,
         'net_amount_per_billing_cycle_in_decimal' => $this->net_amount_per_billing_cycle_in_decimal,
+        'description' => $this->description,
         
         ], function ($value) {
             return $value !== null;

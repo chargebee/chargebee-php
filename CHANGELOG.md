@@ -1,3 +1,54 @@
+### v4.26.0 (2026-08-12)
+* * *
+### New Resources:
+- [`GatewayPaymentMethodToken`](https://apidocs.chargebee.com/docs/api/gateway_payment_method_tokens) has been added.
+- [`OmnichannelSubscriptionItemMetric`](https://apidocs.chargebee.com/docs/api/omnichannel_subscription_item_metrics) has been added.
+- [`VaultedPaymentMethod`](https://apidocs.chargebee.com/docs/api/vaulted_payment_methods) has been added.
+
+
+### New Actions:
+- [`update_credit_note_details`](https://apidocs.chargebee.com/docs/api/credit_notes/update-credit-note-details) has been added to [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- [`export_subscription_ramps`](https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps) has been added to [`Export`](https://apidocs.chargebee.com/docs/api/exports).
+- [`list_gateway_payment_method_tokens_for_a_payment_source`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source) has been added to [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+
+
+### New Attributes:
+- [`vault_token`](https://apidocs.chargebee.com/docs/api/payment_sources/payment-source-object#vault_token) has been added to [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+
+
+### New Parameters:
+- [`updated_at.between`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#updated_at_between) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`updated_at.on`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#updated_at_on) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`purchased_at.between`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#purchased_at_between) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`purchased_at.on`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions#purchased_at_on) has been added as query parameter to [`list_omnichannel_subscriptions`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions/list-omnichannel-subscriptions) in [`OmnichannelSubscription`](https://apidocs.chargebee.com/docs/api/omnichannel_subscriptions).
+- [`limit`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source#limit) has been added as query parameter to [`list_gateway_payment_method_tokens_for_a_payment_source`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source) in [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+- [`offset`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source#offset) has been added as query parameter to [`list_gateway_payment_method_tokens_for_a_payment_source`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source) in [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+- [`include_deleted`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source#include_deleted) has been added as query parameter to [`list_gateway_payment_method_tokens_for_a_payment_source`](https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source) in [`PaymentSource`](https://apidocs.chargebee.com/docs/api/payment_sources).
+- [`comment`](https://apidocs.chargebee.com/docs/api/credit_notes/update-credit-note-details#comment) has been added as request body parameter to [`update_credit_note_details`](https://apidocs.chargebee.com/docs/api/credit_notes/update-credit-note-details) in [`CreditNote`](https://apidocs.chargebee.com/docs/api/credit_notes).
+- [`ramp`](https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps#ramp) has been added as request body parameter to [`export_subscription_ramps`](https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps) in [`Export`](https://apidocs.chargebee.com/docs/api/exports).
+- [`export_type`](https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps#export_type) has been added as request body parameter to [`export_subscription_ramps`](https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps) in [`Export`](https://apidocs.chargebee.com/docs/api/exports).
+- [`subscription_items.description`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items#subscription_items_description) has been added as request body parameter to [`create_a_quote_for_a_new_subscription_items`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-a-new-subscription-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription_items.description`](https://apidocs.chargebee.com/docs/api/quotes/edit-update-subscription-quote-for-items#subscription_items_description) has been added as request body parameter to [`edit_update_subscription_quote_for_items`](https://apidocs.chargebee.com/docs/api/quotes/edit-update-subscription-quote-for-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription_items.description`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items#subscription_items_description) has been added as request body parameter to [`edit_create_subscription_quote_for_items`](https://apidocs.chargebee.com/docs/api/quotes/edit-create-subscription-quote-for-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+- [`subscription_items.description`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-update-subscription-items#subscription_items_description) has been added as request body parameter to [`create_a_quote_for_update_subscription_items`](https://apidocs.chargebee.com/docs/api/quotes/create-a-quote-for-update-subscription-items) in [`Quote`](https://apidocs.chargebee.com/docs/api/quotes).
+
+
+### New Events:
+- [`vault_token_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/vault_token_updated) has been added.
+- [`vault_token_deleted`](https://apidocs.chargebee.com/docs/api/events/webhook/vault_token_deleted) has been added.
+- [`omnichannel_subscription_item_mrr_updated`](https://apidocs.chargebee.com/docs/api/events/webhook/omnichannel_subscription_item_mrr_updated) has been added.
+- [`vault_token_created`](https://apidocs.chargebee.com/docs/api/events/webhook/vault_token_created) has been added.
+
+
+### New Enums:
+- `omnichannel_subscription_item_metric` has been added as a new value enum `EntityType`.
+- `omnichannel_subscription_item_mrr_updated`, `vault_token_created`, `vault_token_updated`, and `vault_token_deleted` have been added as new values enum `EventType`.
+- `chargebee`, `chargebee_payments`, `adyen`, `stripe`, `wepay`, `braintree`, `authorize_net`, `paypal_pro`, `pin`, `eway`, `eway_rapid`, `worldpay`, `balanced_payments`, `beanstream`, `bluepay`, `elavon`, `first_data_global`, `hdfc`, `migs`, `nmi`, `ogone`, `paymill`, `paypal_payflow_pro`, `sage_pay`, `tco`, `wirecard`, `amazon_payments`, `paypal_express_checkout`, `gocardless`, `orbital`, `moneris_us`, `moneris`, `bluesnap`, `cybersource`, `vantiv`, `checkout_com`, `paypal`, `ingenico_direct`, `exact`, `mollie`, `quickbooks`, `razorpay`, `global_payments`, `bank_of_america`, `ecentric`, `metrics_global`, `windcave`, `pay_com`, `ebanx`, `dlocal`, `nuvei`, `solidgate`, `paystack`, `jp_morgan`, `deutsche_bank`, `ezidebit`, `twikey`, `tempus`, `moyasar`, `payway`, and `not_applicable` have been added as new values enum `GatewayName`.
+- `active`, `inactive`, and `pending_verification` have been added as new values to enum attribute [`status`](https://apidocs.chargebee.com/docs/api/gateway_payment_method_tokens/gateway-payment-method-token-object#status) in [`GatewayPaymentMethodToken`](https://apidocs.chargebee.com/docs/api/gateway_payment_method_tokens).
+- `payment_method_helper`, `card_components`, `checkout`, `collect_now`, `portal`, and `payment_components` have been added as new values to enum attribute [`payment_intent_metadata.source`](https://apidocs.chargebee.com/docs/api/payment_intents/payment-intent-object#payment_intent_metadata_source) in [`PaymentIntent`](https://apidocs.chargebee.com/docs/api/payment_intents).
+
+
+
 ### v4.25.1 (2026-08-11)
 * * *
 ### Bug Fixes: 

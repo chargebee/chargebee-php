@@ -144,6 +144,8 @@ use Chargebee\Actions\Contracts\UsageFileActionsInterface;
 use Chargebee\Actions\UsageFileActions;
 use Chargebee\Actions\Contracts\UsageSummaryActionsInterface;
 use Chargebee\Actions\UsageSummaryActions;
+use Chargebee\Actions\Contracts\VaultedPaymentMethodActionsInterface;
+use Chargebee\Actions\VaultedPaymentMethodActions;
 use Chargebee\Actions\Contracts\VirtualBankAccountActionsInterface;
 use Chargebee\Actions\VirtualBankAccountActions;
 use Chargebee\Actions\Contracts\WebhookEndpointActionsInterface;
@@ -513,6 +515,10 @@ class ChargebeeClient {
 
     public function usageSummary() :UsageSummaryActionsInterface {
         return new UsageSummaryActions($this->httpClientFactory, $this->env);
+    }
+
+    public function vaultedPaymentMethod() :VaultedPaymentMethodActionsInterface {
+        return new VaultedPaymentMethodActions($this->httpClientFactory, $this->env);
     }
 
     public function virtualBankAccount() :VirtualBankAccountActionsInterface {
