@@ -24,7 +24,7 @@ class PsrClientAdapter implements HttpClientFactory
 
     public function createRequest(ChargebeePayload $payload): RequestInterface
     {
-        $httpMethod = $payload->getHttpMethod();
+        $httpMethod = strtolower($payload->getHttpMethod());
         $params     = $payload->getSerializedParameters();
         $headers    = $payload->getHeaders();
 

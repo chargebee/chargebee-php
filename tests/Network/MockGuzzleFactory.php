@@ -132,7 +132,7 @@ class MockGuzzleFactory implements HttpClientFactory
 
     public function createRequest(ChargebeePayload $chargebeePayload): RequestInterface
     {
-        $httpMethod = $chargebeePayload->getHttpMethod();
+        $httpMethod = strtolower($chargebeePayload->getHttpMethod());
         $params = $chargebeePayload->getSerializedParameters();
         $headers = $chargebeePayload->getHeaders();
 
@@ -152,7 +152,7 @@ class MockGuzzleFactory implements HttpClientFactory
             $body = $params;
         }
 
-        return new Request($httpMethod, $uri, $headers, $body);
+        return new Request(strtoupper($httpMethod), $uri, $headers, $body);
     }
 
     /**

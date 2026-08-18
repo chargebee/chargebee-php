@@ -4,7 +4,7 @@ namespace Chargebee;
 
 final class Version
 {
-	const VERSION = '4.25.1';
+	const VERSION = '4.25.2';
 }
 
 ?>

@@ -1,3 +1,8 @@
+### v4.25.2 (2026-08-18)
+* * *
+### Bug Fixes: 
+- HTTP methods are now uppercased before a request is constructed, so the SDK no longer emits deprecation notices from `guzzlehttp/psr7` 2.11+ (`Passing a non-uppercase HTTP method is deprecated`) or `guzzlehttp/guzzle` 7.11+. Both libraries preserve method casing in their next major versions, where a lowercase method would have been sent on the wire as-is.
+
 ### v4.25.1 (2026-08-11)
 * * *
 ### Bug Fixes: 
