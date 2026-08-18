@@ -42,7 +42,7 @@ class GuzzleFactory implements HttpClientFactory
 
     public function createRequest(ChargebeePayload $chargebeePayload): \Psr\Http\Message\RequestInterface
     {
-        $httpMethod = $chargebeePayload->getHttpMethod();
+        $httpMethod = strtolower($chargebeePayload->getHttpMethod());
         $params = $chargebeePayload->getSerializedParameters();
         $headers = $chargebeePayload->getHeaders();
 
@@ -54,7 +54,7 @@ class GuzzleFactory implements HttpClientFactory
         $uri = new Uri($url);
         $body = null;
 
-        if ($chargebeePayload->getHttpMethod() == "get") {
+        if ($httpMethod == "get") {
             if (!empty($params)) {
                 $uri = $uri->withQuery($params);
             }
@@ -63,7 +63,7 @@ class GuzzleFactory implements HttpClientFactory
         if ($httpMethod == "post") {
             $body = $params;
         }
-        return new \GuzzleHttp\Psr7\Request($httpMethod, $uri, $headers, $body);
+        return new \GuzzleHttp\Psr7\Request(strtoupper($httpMethod), $uri, $headers, $body);
     }
 
     public static function utf8($value)
