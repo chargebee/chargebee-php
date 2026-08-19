@@ -21,12 +21,12 @@ Interface CreditUnitActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     status?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

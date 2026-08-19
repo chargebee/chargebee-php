@@ -12,7 +12,6 @@ enum EntityType : string {
     case PLAN_PRICE = "plan_price";
     case ADDON_PRICE = "addon_price";
     case CHARGE_PRICE = "charge_price";
-    case CHARGE = "charge";
     case INVOICE = "invoice";
     case QUOTE = "quote";
     case CREDIT_NOTE = "credit_note";
@@ -45,6 +44,11 @@ enum EntityType : string {
     case BUSINESS_RULE = "business_rule";
     case RULESET = "ruleset";
     case ALERT_STATUS = "alert_status";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_METRIC = "omnichannel_subscription_item_metric";
+    /*
+    * @depcreated
+    */
+    case CHARGE = "charge";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

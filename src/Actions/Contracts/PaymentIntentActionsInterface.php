@@ -36,6 +36,7 @@ Interface PaymentIntentActionsInterface
     *     payment_method_type?: string,
     *     success_url?: string,
     *     failure_url?: string,
+    *     payment_method_options?: mixed,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -61,6 +62,7 @@ Interface PaymentIntentActionsInterface
     *     payment_method_type?: string,
     *     success_url?: string,
     *     failure_url?: string,
+    *     payment_method_options?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

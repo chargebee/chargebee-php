@@ -77,6 +77,12 @@ class PaymentIntent  {
     
     /**
     *
+    * @var mixed $payment_method_options
+    */
+    public mixed $payment_method_options;
+    
+    /**
+    *
     * @var ?string $customer_id
     */
     public ?string $customer_id;
@@ -126,7 +132,7 @@ class PaymentIntent  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "payment_intent_metadata" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "payment_method_options" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "payment_intent_metadata" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -147,6 +153,7 @@ class PaymentIntent  {
         ?int $modified_at,
         ?int $resource_version,
         ?int $updated_at,
+        mixed $payment_method_options,
         ?string $customer_id,
         ?string $gateway,
         ?PaymentAttempt $active_payment_attempt,
@@ -169,6 +176,7 @@ class PaymentIntent  {
         $this->modified_at = $modified_at;
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
+        $this->payment_method_options = $payment_method_options;
         $this->customer_id = $customer_id;
         $this->gateway = $gateway;
         $this->active_payment_attempt = $active_payment_attempt;
@@ -197,6 +205,7 @@ class PaymentIntent  {
         $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
+        $resourceAttributes['payment_method_options'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
         $resourceAttributes['gateway'] ?? null,
         isset($resourceAttributes['active_payment_attempt']) ? PaymentAttempt::from($resourceAttributes['active_payment_attempt']) : null,
@@ -229,6 +238,7 @@ class PaymentIntent  {
         'modified_at' => $this->modified_at,
         'resource_version' => $this->resource_version,
         'updated_at' => $this->updated_at,
+        'payment_method_options' => $this->payment_method_options,
         'customer_id' => $this->customer_id,
         'gateway' => $this->gateway,
         

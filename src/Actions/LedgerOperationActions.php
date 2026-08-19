@@ -219,8 +219,8 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
     *     between?: mixed,
     *     },
     * type?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

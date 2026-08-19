@@ -9,6 +9,7 @@ use Chargebee\Responses\ExportResponse\DifferentialPricesExportResponse;
 use Chargebee\Responses\ExportResponse\CreditNotesExportResponse;
 use Chargebee\Responses\ExportResponse\CouponsExportResponse;
 use Chargebee\Responses\ExportResponse\SubscriptionsExportResponse;
+use Chargebee\Responses\ExportResponse\RampsExportResponse;
 use Chargebee\Responses\ExportResponse\OrdersExportResponse;
 use Chargebee\Responses\ExportResponse\PlansExportResponse;
 use Chargebee\Responses\ExportResponse\AttachedItemsExportResponse;
@@ -396,6 +397,64 @@ final class ExportActions implements ExportActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return TransactionsExportResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps?lang=php-v4
+    *   @param array{
+    *     ramp?: array{
+    *     status?: array{
+    *         is?: string,
+    *             in?: string,
+    *             },
+    *     subscription_id?: array{
+    *         is?: string,
+    *             in?: string,
+    *             },
+    *     effective_from?: array{
+    *         after?: string,
+    *             before?: string,
+    *             on?: string,
+    *             between?: string,
+    *             },
+    *     updated_at?: array{
+    *         after?: string,
+    *             before?: string,
+    *             on?: string,
+    *             between?: string,
+    *             },
+    *     },
+    * export_type?: string,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return RampsExportResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function ramps(array $params = [], array $headers = []): RampsExportResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["exports","ramps"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("export")
+        ->withTelemetryOperation("ramps")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return RampsExportResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1852,8 +1911,8 @@ final class ExportActions implements ExportActionsInterface
     *     not_in?: mixed,
     *     },
     * applicable_item_price_ids?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

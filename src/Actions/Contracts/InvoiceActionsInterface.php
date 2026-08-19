@@ -6,6 +6,7 @@ use Chargebee\Responses\InvoiceResponse\AddChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddChargeItemInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DeleteInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ApplyPaymentsInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\VoidBeforeCaptureInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\WriteOffInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordTaxWithheldInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CollectPaymentInvoiceResponse;
@@ -604,6 +605,24 @@ Interface InvoiceActionsInterface
     *   @throws Exception
     */
     public function create(array $params = [], array $headers = []): CreateInvoiceResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/void-authorizations-before-capture?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     void_reason_code?: string,
+    *     invoice_action?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return VoidBeforeCaptureInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function voidBeforeCapture(string $id, array $params = [], array $headers = []): VoidBeforeCaptureInvoiceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices/close-a-pending-invoice?lang=php-v4
@@ -1244,13 +1263,13 @@ Interface InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         in?: string,
-    *             is?: string,
+    *         is?: string,
+    *             in?: string,
     *             },
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

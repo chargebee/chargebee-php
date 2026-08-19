@@ -64,9 +64,21 @@ class PaymentAttempt  {
     public ?\Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail $error_detail;
     
     /**
+    *
+    * @var ?string $routing_rule_id
+    */
+    public ?string $routing_rule_id;
+    
+    /**
+    *
+    * @var ?string $payment_method_display_rule_id
+    */
+    public ?string $payment_method_display_rule_id;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "status" , "payment_method_type" , "id_at_gateway" , "error_code" , "error_text" , "checkout_details" , "created_at" , "modified_at" , "error_detail"  ];
+    protected static array $knownFields = [ "id" , "status" , "payment_method_type" , "id_at_gateway" , "error_code" , "error_text" , "checkout_details" , "created_at" , "modified_at" , "error_detail" , "routing_rule_id" , "payment_method_display_rule_id"  ];
 
     /**
     * dynamic properties for resources
@@ -85,6 +97,8 @@ class PaymentAttempt  {
         ?int $created_at,
         ?int $modified_at,
         ?\Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail $error_detail,
+        ?string $routing_rule_id,
+        ?string $payment_method_display_rule_id,
     )
     { 
         $this->id = $id;
@@ -96,7 +110,9 @@ class PaymentAttempt  {
         $this->checkout_details = $checkout_details;
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
-        $this->error_detail = $error_detail;   
+        $this->error_detail = $error_detail;
+        $this->routing_rule_id = $routing_rule_id;
+        $this->payment_method_display_rule_id = $payment_method_display_rule_id;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -111,6 +127,8 @@ class PaymentAttempt  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
         isset($resourceAttributes['error_detail']) ? \Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
+        $resourceAttributes['routing_rule_id'] ?? null,
+        $resourceAttributes['payment_method_display_rule_id'] ?? null,
         
           
         );
@@ -131,6 +149,8 @@ class PaymentAttempt  {
         'created_at' => $this->created_at,
         'modified_at' => $this->modified_at,
         
+        'routing_rule_id' => $this->routing_rule_id,
+        'payment_method_display_rule_id' => $this->payment_method_display_rule_id,
         
         ], function ($value) {
             return $value !== null;

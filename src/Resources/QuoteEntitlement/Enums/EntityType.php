@@ -6,6 +6,9 @@ enum EntityType : string {
     case PLAN_PRICE = "plan_price";
     case ADDON_PRICE = "addon_price";
     case CHARGE_PRICE = "charge_price";
+    /*
+    * @depcreated
+    */
     case CHARGE = "charge";
     case UNKNOWN = "unknown";
 
