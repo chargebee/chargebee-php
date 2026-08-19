@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Responses\PaymentSourceResponse\ListGatewayTokensForPaymentSourcePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\DeletePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\RetrievePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\UpdateBankAccountPaymentSourceResponse;
@@ -195,6 +196,43 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateCardPaymentSourceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     include_deleted?: bool,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ListGatewayTokensForPaymentSourcePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function listGatewayTokensForPaymentSource(string $id, array $params = [], array $headers = []): ListGatewayTokensForPaymentSourcePaymentSourceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["payment_sources",$id,"gateway_payment_method_tokens"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withTelemetryResource("paymentSource")
+        ->withTelemetryOperation("listGatewayTokensForPaymentSource")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ListGatewayTokensForPaymentSourcePaymentSourceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

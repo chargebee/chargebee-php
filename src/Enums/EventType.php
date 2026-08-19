@@ -217,10 +217,14 @@ enum EventType : string {
     case ALERT_STATUS_CHANGED = "alert_status_changed";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_UPDATED = "omnichannel_subscription_item_updated";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_RECOVERED = "omnichannel_subscription_item_recovered";
+    case OMNICHANNEL_SUBSCRIPTION_ITEM_MRR_UPDATED = "omnichannel_subscription_item_mrr_updated";
     case LEDGER_ACCOUNT_BALANCE_UPDATED = "ledger_account_balance_updated";
     case GRANT_BLOCKS_CREATED = "grant_blocks_created";
     case GRANT_BLOCKS_UPDATED = "grant_blocks_updated";
     case LEDGER_UPDATED = "ledger_updated";
+    case VAULT_TOKEN_CREATED = "vault_token_created";
+    case VAULT_TOKEN_UPDATED = "vault_token_updated";
+    case VAULT_TOKEN_DELETED = "vault_token_deleted";
     case PLAN_CREATED = "plan_created";
     case PLAN_UPDATED = "plan_updated";
     case PLAN_DELETED = "plan_deleted";

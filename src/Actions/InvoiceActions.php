@@ -6,6 +6,7 @@ use Chargebee\Responses\InvoiceResponse\AddChargeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddChargeItemInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\DeleteInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ApplyPaymentsInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\VoidBeforeCaptureInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\WriteOffInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordTaxWithheldInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CollectPaymentInvoiceResponse;
@@ -914,6 +915,44 @@ final class InvoiceActions implements InvoiceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateInvoiceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/void-authorizations-before-capture?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     void_reason_code?: string,
+    *     invoice_action?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return VoidBeforeCaptureInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function voidBeforeCapture(string $id, array $params = [], array $headers = []): VoidBeforeCaptureInvoiceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["invoices",$id,"void_before_capture"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("invoice")
+        ->withTelemetryOperation("voidBeforeCapture")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return VoidBeforeCaptureInvoiceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1834,13 +1873,13 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         in?: string,
-    *             is?: string,
+    *         is?: string,
+    *             in?: string,
     *             },
     *     },
     * id?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

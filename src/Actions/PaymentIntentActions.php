@@ -66,6 +66,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
     *     payment_method_type?: string,
     *     success_url?: string,
     *     failure_url?: string,
+    *     payment_method_options?: mixed,
     *     } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
@@ -79,6 +80,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
     public function update(string $id, array $params = [], array $headers = []): UpdatePaymentIntentResponse
     {
         $jsonKeys = [
+            "paymentMethodOptions" => 0,
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)
@@ -111,6 +113,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
     *     payment_method_type?: string,
     *     success_url?: string,
     *     failure_url?: string,
+    *     payment_method_options?: mixed,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -124,6 +127,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
     public function create(array $params, array $headers = []): CreatePaymentIntentResponse
     {
         $jsonKeys = [
+            "paymentMethodOptions" => 0,
         ];
         $payload = ChargebeePayload::builder()
         ->withEnvironment($this->env)

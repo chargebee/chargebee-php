@@ -8,6 +8,7 @@ use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\VoidCreditNoteCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\CreateCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\DownloadEinvoiceCreditNoteResponse;
+use Chargebee\Responses\CreditNoteResponse\UpdateCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\RemoveTaxWithheldRefundCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\CreditNotesForCustomerCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\RetrieveCreditNoteResponse;
@@ -446,6 +447,22 @@ Interface CreditNoteActionsInterface
     *   @throws Exception
     */
     public function create(array $params, array $headers = []): CreateCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/update-credit-note-details?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function update(string $id, array $params = [], array $headers = []): UpdateCreditNoteResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/credit_notes/download-e-invoice-for-credit-note?lang=php-v4

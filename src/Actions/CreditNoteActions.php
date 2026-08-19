@@ -10,6 +10,7 @@ use Chargebee\Responses\CreditNoteResponse\VoidCreditNoteCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\CreateCreditNoteResponse;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\CreditNoteResponse\DownloadEinvoiceCreditNoteResponse;
+use Chargebee\Responses\CreditNoteResponse\UpdateCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\RemoveTaxWithheldRefundCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\CreditNotesForCustomerCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\RetrieveCreditNoteResponse;
@@ -655,6 +656,42 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return CreateCreditNoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/update-credit-note-details?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function update(string $id, array $params = [], array $headers = []): UpdateCreditNoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["credit_notes",$id,"update"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("update")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

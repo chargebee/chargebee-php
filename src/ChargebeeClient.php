@@ -114,6 +114,8 @@ use Chargebee\Actions\Contracts\PurchaseActionsInterface;
 use Chargebee\Actions\PurchaseActions;
 use Chargebee\Actions\Contracts\QuoteActionsInterface;
 use Chargebee\Actions\QuoteActions;
+use Chargebee\Actions\Contracts\QuoteEntitlementActionsInterface;
+use Chargebee\Actions\QuoteEntitlementActions;
 use Chargebee\Actions\Contracts\RampActionsInterface;
 use Chargebee\Actions\RampActions;
 use Chargebee\Actions\Contracts\RecordedPurchaseActionsInterface;
@@ -144,6 +146,8 @@ use Chargebee\Actions\Contracts\UsageFileActionsInterface;
 use Chargebee\Actions\UsageFileActions;
 use Chargebee\Actions\Contracts\UsageSummaryActionsInterface;
 use Chargebee\Actions\UsageSummaryActions;
+use Chargebee\Actions\Contracts\VaultedPaymentMethodActionsInterface;
+use Chargebee\Actions\VaultedPaymentMethodActions;
 use Chargebee\Actions\Contracts\VirtualBankAccountActionsInterface;
 use Chargebee\Actions\VirtualBankAccountActions;
 use Chargebee\Actions\Contracts\WebhookEndpointActionsInterface;
@@ -455,6 +459,10 @@ class ChargebeeClient {
         return new QuoteActions($this->httpClientFactory, $this->env);
     }
 
+    public function quoteEntitlement() :QuoteEntitlementActionsInterface {
+        return new QuoteEntitlementActions($this->httpClientFactory, $this->env);
+    }
+
     public function ramp() :RampActionsInterface {
         return new RampActions($this->httpClientFactory, $this->env);
     }
@@ -513,6 +521,10 @@ class ChargebeeClient {
 
     public function usageSummary() :UsageSummaryActionsInterface {
         return new UsageSummaryActions($this->httpClientFactory, $this->env);
+    }
+
+    public function vaultedPaymentMethod() :VaultedPaymentMethodActionsInterface {
+        return new VaultedPaymentMethodActions($this->httpClientFactory, $this->env);
     }
 
     public function virtualBankAccount() :VirtualBankAccountActionsInterface {

@@ -9,6 +9,7 @@ use Chargebee\Responses\ExportResponse\DifferentialPricesExportResponse;
 use Chargebee\Responses\ExportResponse\CreditNotesExportResponse;
 use Chargebee\Responses\ExportResponse\CouponsExportResponse;
 use Chargebee\Responses\ExportResponse\SubscriptionsExportResponse;
+use Chargebee\Responses\ExportResponse\RampsExportResponse;
 use Chargebee\Responses\ExportResponse\OrdersExportResponse;
 use Chargebee\Responses\ExportResponse\PlansExportResponse;
 use Chargebee\Responses\ExportResponse\AttachedItemsExportResponse;
@@ -325,6 +326,44 @@ Interface ExportActionsInterface
     *   @throws Exception
     */
     public function transactions(array $params = [], array $headers = []): TransactionsExportResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/exports/export-subscription-ramps?lang=php-v4
+    *   @param array{
+    *     ramp?: array{
+    *     status?: array{
+    *         is?: string,
+    *             in?: string,
+    *             },
+    *     subscription_id?: array{
+    *         is?: string,
+    *             in?: string,
+    *             },
+    *     effective_from?: array{
+    *         after?: string,
+    *             before?: string,
+    *             on?: string,
+    *             between?: string,
+    *             },
+    *     updated_at?: array{
+    *         after?: string,
+    *             before?: string,
+    *             on?: string,
+    *             between?: string,
+    *             },
+    *     },
+    * export_type?: string,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return RampsExportResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function ramps(array $params = [], array $headers = []): RampsExportResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/exports/export-differential-price?lang=php-v4
@@ -1602,8 +1641,8 @@ Interface ExportActionsInterface
     *     not_in?: mixed,
     *     },
     * applicable_item_price_ids?: array{
-    *     in?: mixed,
     *     is?: mixed,
+    *     in?: mixed,
     *     },
     * } $params Description of the parameters
     *   

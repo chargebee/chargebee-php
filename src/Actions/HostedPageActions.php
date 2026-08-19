@@ -951,6 +951,7 @@ final class HostedPageActions implements HostedPageActionsInterface
     * pass_thru_content?: string,
     *     cancel_url?: string,
     *     redirect_url?: string,
+    *     locale?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

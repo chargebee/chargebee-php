@@ -107,12 +107,16 @@ Interface OmnichannelSubscriptionActionsInterface
     *     not_in?: mixed,
     *     },
     * updated_at?: array{
-    *     before?: mixed,
     *     after?: mixed,
+    *     on?: mixed,
+    *     before?: mixed,
+    *     between?: mixed,
     *     },
     * purchased_at?: array{
-    *     before?: mixed,
     *     after?: mixed,
+    *     on?: mixed,
+    *     before?: mixed,
+    *     between?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

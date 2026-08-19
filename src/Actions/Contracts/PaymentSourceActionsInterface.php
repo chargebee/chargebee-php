@@ -1,6 +1,7 @@
 <?php
 namespace Chargebee\Actions\Contracts;
     
+use Chargebee\Responses\PaymentSourceResponse\ListGatewayTokensForPaymentSourcePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\DeletePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\RetrievePaymentSourceResponse;
 use Chargebee\Responses\PaymentSourceResponse\UpdateBankAccountPaymentSourceResponse;
@@ -122,6 +123,24 @@ Interface PaymentSourceActionsInterface
     *   @throws Exception
     */
     public function createCard(array $params, array $headers = []): CreateCardPaymentSourceResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/payment_sources/list-gateway-payment-method-tokens-for-a-payment-source?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     include_deleted?: bool,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ListGatewayTokensForPaymentSourcePaymentSourceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function listGatewayTokensForPaymentSource(string $id, array $params = [], array $headers = []): ListGatewayTokensForPaymentSourcePaymentSourceResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/payment_sources/verify-bank-account-payment-source?lang=php-v4

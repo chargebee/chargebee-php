@@ -234,6 +234,12 @@ class Quote  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?bool $has_entitlements
+    */
+    public ?bool $has_entitlements;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\PriceType $price_type
     */
     public ?\Chargebee\Enums\PriceType $price_type;
@@ -253,7 +259,7 @@ class Quote  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "po_number" , "customer_id" , "subscription_id" , "invoice_id" , "vat_number" , "valid_till" , "date" , "total_payable" , "charge_on_acceptance" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "version" , "resource_version" , "updated_at" , "vat_number_prefix" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "discounts" , "taxes" , "tax_category" , "currency_code" , "notes" , "shipping_address" , "billing_address" , "contract_term_start" , "contract_term_end" , "contract_term_termination_fee" , "business_entity_id" , "deleted" , "total_contract_value" , "total_discount"  ];
+    protected static array $knownFields = [ "id" , "name" , "po_number" , "customer_id" , "subscription_id" , "invoice_id" , "vat_number" , "valid_till" , "date" , "total_payable" , "charge_on_acceptance" , "sub_total" , "total" , "credits_applied" , "amount_paid" , "amount_due" , "version" , "resource_version" , "updated_at" , "vat_number_prefix" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "discounts" , "taxes" , "tax_category" , "currency_code" , "notes" , "shipping_address" , "billing_address" , "contract_term_start" , "contract_term_end" , "contract_term_termination_fee" , "business_entity_id" , "deleted" , "total_contract_value" , "total_discount" , "has_entitlements"  ];
 
     /**
     * dynamic properties for resources
@@ -300,6 +306,7 @@ class Quote  extends SupportsCustomFields  {
         ?bool $deleted,
         ?int $total_contract_value,
         ?int $total_discount,
+        ?bool $has_entitlements,
         ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Resources\Quote\Enums\Status $status,
         ?\Chargebee\Resources\Quote\Enums\OperationType $operation_type,
@@ -342,7 +349,8 @@ class Quote  extends SupportsCustomFields  {
         $this->business_entity_id = $business_entity_id;
         $this->deleted = $deleted;
         $this->total_contract_value = $total_contract_value;
-        $this->total_discount = $total_discount; 
+        $this->total_discount = $total_discount;
+        $this->has_entitlements = $has_entitlements; 
         $this->price_type = $price_type; 
         $this->status = $status;
         $this->operation_type = $operation_type; 
@@ -412,6 +420,7 @@ class Quote  extends SupportsCustomFields  {
         $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['total_contract_value'] ?? null,
         $resourceAttributes['total_discount'] ?? null,
+        $resourceAttributes['has_entitlements'] ?? null,
         
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
@@ -470,6 +479,7 @@ class Quote  extends SupportsCustomFields  {
         'deleted' => $this->deleted,
         'total_contract_value' => $this->total_contract_value,
         'total_discount' => $this->total_discount,
+        'has_entitlements' => $this->has_entitlements,
         
         'price_type' => $this->price_type?->value,
         

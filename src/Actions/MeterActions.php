@@ -30,8 +30,8 @@ final class MeterActions implements MeterActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     name?: array{
-    *     starts_with?: mixed,
     *     is?: mixed,
+    *     starts_with?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

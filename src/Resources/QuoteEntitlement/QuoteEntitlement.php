@@ -53,14 +53,56 @@ class QuoteEntitlement  {
     
     /**
     *
+    * @var ?bool $is_overridden
+    */
+    public ?bool $is_overridden;
+    
+    /**
+    *
+    * @var ?string $feature_name
+    */
+    public ?string $feature_name;
+    
+    /**
+    *
+    * @var ?string $feature_unit
+    */
+    public ?string $feature_unit;
+    
+    /**
+    *
+    * @var ?string $feature_type
+    */
+    public ?string $feature_type;
+    
+    /**
+    *
+    * @var ?string $name
+    */
+    public ?string $name;
+    
+    /**
+    *
+    * @var ?bool $metered
+    */
+    public ?bool $metered;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\QuoteEntitlement\Enums\EntityType $entity_type
     */
     public ?\Chargebee\Resources\QuoteEntitlement\Enums\EntityType $entity_type;
     
     /**
+    *
+    * @var ?\Chargebee\Resources\QuoteEntitlement\Enums\ActionType $action_type
+    */
+    public ?\Chargebee\Resources\QuoteEntitlement\Enums\ActionType $action_type;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "entity_id" , "feature_id" , "value" , "is_enabled" , "start_date" , "end_date" , "created_at" , "modified_at"  ];
+    protected static array $knownFields = [ "entity_id" , "feature_id" , "value" , "is_enabled" , "start_date" , "end_date" , "created_at" , "modified_at" , "is_overridden" , "feature_name" , "feature_unit" , "feature_type" , "name" , "metered"  ];
 
     /**
     * dynamic properties for resources
@@ -77,7 +119,14 @@ class QuoteEntitlement  {
         ?int $end_date,
         ?int $created_at,
         ?int $modified_at,
+        ?bool $is_overridden,
+        ?string $feature_name,
+        ?string $feature_unit,
+        ?string $feature_type,
+        ?string $name,
+        ?bool $metered,
         ?\Chargebee\Resources\QuoteEntitlement\Enums\EntityType $entity_type,
+        ?\Chargebee\Resources\QuoteEntitlement\Enums\ActionType $action_type,
     )
     { 
         $this->entity_id = $entity_id;
@@ -87,8 +136,15 @@ class QuoteEntitlement  {
         $this->start_date = $start_date;
         $this->end_date = $end_date;
         $this->created_at = $created_at;
-        $this->modified_at = $modified_at;  
-        $this->entity_type = $entity_type; 
+        $this->modified_at = $modified_at;
+        $this->is_overridden = $is_overridden;
+        $this->feature_name = $feature_name;
+        $this->feature_unit = $feature_unit;
+        $this->feature_type = $feature_type;
+        $this->name = $name;
+        $this->metered = $metered;  
+        $this->entity_type = $entity_type;
+        $this->action_type = $action_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -101,9 +157,17 @@ class QuoteEntitlement  {
         $resourceAttributes['end_date'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
+        $resourceAttributes['is_overridden'] ?? null,
+        $resourceAttributes['feature_name'] ?? null,
+        $resourceAttributes['feature_unit'] ?? null,
+        $resourceAttributes['feature_type'] ?? null,
+        $resourceAttributes['name'] ?? null,
+        $resourceAttributes['metered'] ?? null,
         
          
         isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\QuoteEntitlement\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
+        
+        isset($resourceAttributes['action_type']) ? \Chargebee\Resources\QuoteEntitlement\Enums\ActionType::tryFromValue($resourceAttributes['action_type']) : null,
          
         );
        
@@ -121,8 +185,16 @@ class QuoteEntitlement  {
         'end_date' => $this->end_date,
         'created_at' => $this->created_at,
         'modified_at' => $this->modified_at,
+        'is_overridden' => $this->is_overridden,
+        'feature_name' => $this->feature_name,
+        'feature_unit' => $this->feature_unit,
+        'feature_type' => $this->feature_type,
+        'name' => $this->name,
+        'metered' => $this->metered,
         
         'entity_type' => $this->entity_type?->value,
+        
+        'action_type' => $this->action_type?->value,
         
         ], function ($value) {
             return $value !== null;

@@ -119,6 +119,12 @@ class PaymentSource  {
     
     /**
     *
+    * @var mixed $vault_token
+    */
+    public mixed $vault_token;
+    
+    /**
+    *
     * @var ?bool $deleted
     */
     public ?bool $deleted;
@@ -150,7 +156,7 @@ class PaymentSource  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "resource_version" , "updated_at" , "created_at" , "customer_id" , "reference_id" , "gateway_account_id" , "ip_address" , "issuing_country" , "card" , "bank_account" , "boleto" , "billing_address" , "amazon_payment" , "upi" , "paypal" , "venmo" , "klarna_pay_now" , "mandates" , "deleted" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "resource_version" , "updated_at" , "created_at" , "customer_id" , "reference_id" , "gateway_account_id" , "ip_address" , "issuing_country" , "card" , "bank_account" , "boleto" , "billing_address" , "amazon_payment" , "upi" , "paypal" , "venmo" , "klarna_pay_now" , "mandates" , "vault_token" , "deleted" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -178,6 +184,7 @@ class PaymentSource  {
         ?Venmo $venmo,
         ?KlarnaPayNow $klarna_pay_now,
         ?array $mandates,
+        mixed $vault_token,
         ?bool $deleted,
         ?string $business_entity_id,
         ?\Chargebee\Enums\Type $type,
@@ -204,6 +211,7 @@ class PaymentSource  {
         $this->venmo = $venmo;
         $this->klarna_pay_now = $klarna_pay_now;
         $this->mandates = $mandates;
+        $this->vault_token = $vault_token;
         $this->deleted = $deleted;
         $this->business_entity_id = $business_entity_id; 
         $this->type = $type;
@@ -236,6 +244,7 @@ class PaymentSource  {
         isset($resourceAttributes['venmo']) ? Venmo::from($resourceAttributes['venmo']) : null,
         isset($resourceAttributes['klarna_pay_now']) ? KlarnaPayNow::from($resourceAttributes['klarna_pay_now']) : null,
         $mandates,
+        $resourceAttributes['vault_token'] ?? null,
         $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         
@@ -273,6 +282,7 @@ class PaymentSource  {
         
         
         
+        'vault_token' => $this->vault_token,
         'deleted' => $this->deleted,
         'business_entity_id' => $this->business_entity_id,
         
