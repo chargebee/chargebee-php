@@ -125,6 +125,12 @@ class PaymentSource  {
     
     /**
     *
+    * @var ?NetworkTransactionReference $network_transaction_reference
+    */
+    public ?NetworkTransactionReference $network_transaction_reference;
+    
+    /**
+    *
     * @var ?bool $deleted
     */
     public ?bool $deleted;
@@ -134,6 +140,12 @@ class PaymentSource  {
     * @var ?string $business_entity_id
     */
     public ?string $business_entity_id;
+    
+    /**
+    *
+    * @var ?string $brand_id
+    */
+    public ?string $brand_id;
     
     /**
     *
@@ -156,7 +168,7 @@ class PaymentSource  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "resource_version" , "updated_at" , "created_at" , "customer_id" , "reference_id" , "gateway_account_id" , "ip_address" , "issuing_country" , "card" , "bank_account" , "boleto" , "billing_address" , "amazon_payment" , "upi" , "paypal" , "venmo" , "klarna_pay_now" , "mandates" , "vault_token" , "deleted" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "resource_version" , "updated_at" , "created_at" , "customer_id" , "reference_id" , "gateway_account_id" , "ip_address" , "issuing_country" , "card" , "bank_account" , "boleto" , "billing_address" , "amazon_payment" , "upi" , "paypal" , "venmo" , "klarna_pay_now" , "mandates" , "vault_token" , "network_transaction_reference" , "deleted" , "business_entity_id" , "brand_id"  ];
 
     /**
     * dynamic properties for resources
@@ -185,8 +197,10 @@ class PaymentSource  {
         ?KlarnaPayNow $klarna_pay_now,
         ?array $mandates,
         mixed $vault_token,
+        ?NetworkTransactionReference $network_transaction_reference,
         ?bool $deleted,
         ?string $business_entity_id,
+        ?string $brand_id,
         ?\Chargebee\Enums\Type $type,
         ?\Chargebee\Enums\Gateway $gateway,
         ?\Chargebee\Resources\PaymentSource\Enums\Status $status,
@@ -212,8 +226,10 @@ class PaymentSource  {
         $this->klarna_pay_now = $klarna_pay_now;
         $this->mandates = $mandates;
         $this->vault_token = $vault_token;
+        $this->network_transaction_reference = $network_transaction_reference;
         $this->deleted = $deleted;
-        $this->business_entity_id = $business_entity_id; 
+        $this->business_entity_id = $business_entity_id;
+        $this->brand_id = $brand_id; 
         $this->type = $type;
         $this->gateway = $gateway; 
         $this->status = $status; 
@@ -245,8 +261,10 @@ class PaymentSource  {
         isset($resourceAttributes['klarna_pay_now']) ? KlarnaPayNow::from($resourceAttributes['klarna_pay_now']) : null,
         $mandates,
         $resourceAttributes['vault_token'] ?? null,
+        isset($resourceAttributes['network_transaction_reference']) ? NetworkTransactionReference::from($resourceAttributes['network_transaction_reference']) : null,
         $resourceAttributes['deleted'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
+        $resourceAttributes['brand_id'] ?? null,
         
         
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
@@ -283,8 +301,10 @@ class PaymentSource  {
         
         
         'vault_token' => $this->vault_token,
+        
         'deleted' => $this->deleted,
         'business_entity_id' => $this->business_entity_id,
+        'brand_id' => $this->brand_id,
         
         'type' => $this->type?->value,
         
@@ -323,6 +343,9 @@ class PaymentSource  {
         }
         if($this->klarna_pay_now instanceof KlarnaPayNow){
             $data['klarna_pay_now'] = $this->klarna_pay_now->toArray();
+        }
+        if($this->network_transaction_reference instanceof NetworkTransactionReference){
+            $data['network_transaction_reference'] = $this->network_transaction_reference->toArray();
         }
         
         if($this->mandates !== []){

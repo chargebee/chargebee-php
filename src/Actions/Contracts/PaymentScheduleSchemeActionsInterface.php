@@ -4,6 +4,7 @@ namespace Chargebee\Actions\Contracts;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\DeletePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\RetrievePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\CreatePaymentScheduleSchemeResponse;
+use Chargebee\Responses\PaymentScheduleSchemeResponse\ListPaymentScheduleSchemeResponse;
 use Exception;
 use Chargebee\Exceptions\PaymentException;
 use Chargebee\Exceptions\OperationFailedException;
@@ -26,6 +27,36 @@ Interface PaymentScheduleSchemeActionsInterface
     *   @throws Exception
     */
     public function retrieve(string $id, array $headers = []): RetrievePaymentScheduleSchemeResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/list-payment-schedule-schemes?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     id?: array{
+    *     is?: mixed,
+    *     is_not?: mixed,
+    *     starts_with?: mixed,
+    *     in?: mixed,
+    *     not_in?: mixed,
+    *     },
+    * updated_at?: array{
+    *     after?: mixed,
+    *     before?: mixed,
+    *     on?: mixed,
+    *     between?: mixed,
+    *     },
+    * } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return ListPaymentScheduleSchemeResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function all(array $params = [], array $headers = []): ListPaymentScheduleSchemeResponse;
 
     /**
     *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/create-a-payment-schedule-scheme?lang=php-v4

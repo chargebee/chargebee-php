@@ -12,6 +12,7 @@ enum Type : string {
     case VOID = "void";
     case ROLLOVER = "rollover";
     case ADJUSTMENT = "adjustment";
+    case OVERDRAFT_SETTLEMENT = "overdraft_settlement";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

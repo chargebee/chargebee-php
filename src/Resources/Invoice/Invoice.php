@@ -402,6 +402,12 @@ class Invoice  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?string $brand_id
+    */
+    public ?string $brand_id;
+    
+    /**
+    *
     * @var ?SiteDetailsAtCreation $site_details_at_creation
     */
     public ?SiteDetailsAtCreation $site_details_at_creation;
@@ -433,7 +439,7 @@ class Invoice  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "exchange_rates" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "reference_transactions" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "site_details_at_creation"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "exchange_rates" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "reference_transactions" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "brand_id" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -508,6 +514,7 @@ class Invoice  extends SupportsCustomFields  {
         ?string $tax_category,
         ?string $vat_number_prefix,
         ?string $business_entity_id,
+        ?string $brand_id,
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?\Chargebee\Enums\PriceType $price_type,
         ?\Chargebee\Enums\Channel $channel,
@@ -581,6 +588,7 @@ class Invoice  extends SupportsCustomFields  {
         $this->tax_category = $tax_category;
         $this->vat_number_prefix = $vat_number_prefix;
         $this->business_entity_id = $business_entity_id;
+        $this->brand_id = $brand_id;
         $this->site_details_at_creation = $site_details_at_creation; 
         $this->price_type = $price_type;
         $this->channel = $channel; 
@@ -724,6 +732,7 @@ class Invoice  extends SupportsCustomFields  {
         $resourceAttributes['tax_category'] ?? null,
         $resourceAttributes['vat_number_prefix'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
+        $resourceAttributes['brand_id'] ?? null,
         isset($resourceAttributes['site_details_at_creation']) ? SiteDetailsAtCreation::from($resourceAttributes['site_details_at_creation']) : null,
         
         
@@ -813,6 +822,7 @@ class Invoice  extends SupportsCustomFields  {
         'tax_category' => $this->tax_category,
         'vat_number_prefix' => $this->vat_number_prefix,
         'business_entity_id' => $this->business_entity_id,
+        'brand_id' => $this->brand_id,
         
         
         'price_type' => $this->price_type?->value,

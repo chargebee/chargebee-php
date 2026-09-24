@@ -42,9 +42,10 @@ enum EntityType : string {
     case OMNICHANNEL_ONE_TIME_ORDER_ITEM = "omnichannel_one_time_order_item";
     case USAGE_FILE = "usage_file";
     case BUSINESS_RULE = "business_rule";
-    case RULESET = "ruleset";
+    case BUSINESS_RULESET = "business_ruleset";
     case ALERT_STATUS = "alert_status";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_METRIC = "omnichannel_subscription_item_metric";
+    case PRICE_RAMP = "price_ramp";
     /*
     * @depcreated
     */

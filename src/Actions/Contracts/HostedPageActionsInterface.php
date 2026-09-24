@@ -141,6 +141,7 @@ Interface HostedPageActionsInterface
     *     standard?: string,
     *     }>,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     layout?: string,
     *     invoice_note?: string,
     *     coupon?: string,
@@ -227,7 +228,8 @@ Interface HostedPageActionsInterface
     *     subscription?: array{
     *     id?: string,
     *     },
-    * expiry?: int,
+    * brand_id?: string,
+    *     expiry?: int,
     *     billing_cycle?: int,
     *     } $params Description of the parameters
     *   
@@ -283,6 +285,7 @@ Interface HostedPageActionsInterface
     *     }>,
     *     layout?: string,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     redirect_url?: string,
     *     coupon_ids?: array<string>,
     * } $params Description of the parameters
@@ -370,7 +373,8 @@ Interface HostedPageActionsInterface
     *     gateway?: string,
     *     gateway_account_id?: string,
     *     },
-    * redirect_url?: string,
+    * brand_id?: string,
+    *     redirect_url?: string,
     *     currency_code?: string,
     *     payment_method_save_policy?: string,
     *     } $params Description of the parameters
@@ -391,7 +395,8 @@ Interface HostedPageActionsInterface
     *     quote?: array{
     *     id?: string,
     *     },
-    * redirect_url?: string,
+    * brand_id?: string,
+    *     redirect_url?: string,
     *     layout?: string,
     *     } $params Description of the parameters
     *   
@@ -521,6 +526,7 @@ Interface HostedPageActionsInterface
     *     }>,
     *     layout?: string,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     billing_cycles?: int,
     *     mandatory_items_to_remove?: array<string>,
     * terms_to_charge?: int,
@@ -551,7 +557,8 @@ Interface HostedPageActionsInterface
     * customer?: array{
     *     locale?: string,
     *     },
-    * redirect_url?: string,
+    * brand_id?: string,
+    *     redirect_url?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -639,6 +646,7 @@ Interface HostedPageActionsInterface
     *     standard?: string,
     *     }>,
     *     layout?: string,
+    *     brand_id?: string,
     *     mandatory_items_to_remove?: array<string>,
     * replace_items_list?: bool,
     *     invoice_date?: int,
@@ -675,7 +683,8 @@ Interface HostedPageActionsInterface
     *     subscription?: array{
     *     id?: string,
     *     },
-    * pass_thru_content?: string,
+    * brand_id?: string,
+    *     pass_thru_content?: string,
     *     cancel_url?: string,
     *     redirect_url?: string,
     *     locale?: string,
@@ -746,6 +755,7 @@ Interface HostedPageActionsInterface
     *     gateway_account_id?: string,
     *     },
     * business_entity_id?: string,
+    *     brand_id?: string,
     *     redirect_url?: string,
     *     } $params Description of the parameters
     *   

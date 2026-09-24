@@ -23,6 +23,12 @@ class ScheduleEntry  {
     
     /**
     *
+    * @var ?int $scheduled_amount
+    */
+    public ?int $scheduled_amount;
+    
+    /**
+    *
     * @var ?string $status
     */
     public ?string $status;
@@ -30,7 +36,7 @@ class ScheduleEntry  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "date" , "amount" , "status"  ];
+    protected static array $knownFields = [ "id" , "date" , "amount" , "scheduled_amount" , "status"  ];
 
     /**
     * dynamic properties for resources
@@ -42,12 +48,14 @@ class ScheduleEntry  {
         ?string $id,
         ?int $date,
         ?int $amount,
+        ?int $scheduled_amount,
         ?string $status,
     )
     { 
         $this->id = $id;
         $this->date = $date;
         $this->amount = $amount;
+        $this->scheduled_amount = $scheduled_amount;
         $this->status = $status;   
     }
 
@@ -56,6 +64,7 @@ class ScheduleEntry  {
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['date'] ?? null,
         $resourceAttributes['amount'] ?? null,
+        $resourceAttributes['scheduled_amount'] ?? null,
         $resourceAttributes['status'] ?? null,
         
           
@@ -70,6 +79,7 @@ class ScheduleEntry  {
         $data = array_filter(['id' => $this->id,
         'date' => $this->date,
         'amount' => $this->amount,
+        'scheduled_amount' => $this->scheduled_amount,
         'status' => $this->status,
         
         ], function ($value) {

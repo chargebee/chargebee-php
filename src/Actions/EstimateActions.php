@@ -143,6 +143,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     item_type?: string,
+    *     description?: string,
     *     charge_on_option?: string,
     *     }>,
     *     discounts?: array<array{
@@ -629,6 +630,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     charge_once?: bool,
     *     charge_on_option?: string,
     *     item_type?: string,
+    *     description?: string,
     *     proration_type?: string,
     *     }>,
     *     discounts?: array<array{
@@ -835,6 +837,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     item_type?: string,
+    *     description?: string,
     *     charge_on_option?: string,
     *     }>,
     *     discounts?: array<array{

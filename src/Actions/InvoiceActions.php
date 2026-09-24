@@ -18,6 +18,7 @@ use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ListInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\SendEmailInvoiceResponse;
 use Chargebee\Actions\Contracts\InvoiceActionsInterface;
 use Chargebee\Responses\InvoiceResponse\RecordPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ResumeDunningInvoiceResponse;
@@ -1038,6 +1039,39 @@ final class InvoiceActions implements InvoiceActionsInterface
     }
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/send-invoice-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendEmailInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendEmail(string $id, array $headers = []): SendEmailInvoiceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["invoices",$id,"send_email"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->withTelemetryResource("invoice")
+        ->withTelemetryOperation("sendEmail")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return SendEmailInvoiceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices/retrieve-an-invoice?lang=php-v4
     *   @param array{
     *     line_item?: array{
@@ -1599,6 +1633,8 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     is_partial_tax_applied?: bool,
+    *     taxable_amount?: int,
     *     proration_mode?: string,
     *     created_at?: int,
     *     }>,

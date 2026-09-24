@@ -6,6 +6,9 @@ use Chargebee\Resources\Address\Address;
 use Chargebee\Resources\AdvanceInvoiceSchedule\AdvanceInvoiceSchedule;
 use Chargebee\Resources\Alert\Alert;
 use Chargebee\Resources\AlertStatus\AlertStatus;
+use Chargebee\Resources\AppliedBusinessRule\AppliedBusinessRule;
+use Chargebee\Resources\AppliedRule\AppliedRule;
+use Chargebee\Resources\ApplyRule\ApplyRule;
 use Chargebee\Resources\AsyncResponse\AsyncResponse;
 use Chargebee\Resources\AsyncResponseList\AsyncResponseList;
 use Chargebee\Resources\AttachedItem\AttachedItem;
@@ -14,6 +17,9 @@ use Chargebee\Resources\BillingConfiguration\BillingConfiguration;
 use Chargebee\Resources\Brand\Brand;
 use Chargebee\Resources\BusinessEntity\BusinessEntity;
 use Chargebee\Resources\BusinessEntityTransfer\BusinessEntityTransfer;
+use Chargebee\Resources\BusinessRule\BusinessRule;
+use Chargebee\Resources\BusinessRuleset\BusinessRuleset;
+use Chargebee\Resources\BusinessRulesetRule\BusinessRulesetRule;
 use Chargebee\Resources\Card\Card;
 use Chargebee\Resources\ColumnDefinition\ColumnDefinition;
 use Chargebee\Resources\Comment\Comment;
@@ -28,12 +34,15 @@ use Chargebee\Resources\CreditNote\CreditNote;
 use Chargebee\Resources\CreditNoteEstimate\CreditNoteEstimate;
 use Chargebee\Resources\CreditUnit\CreditUnit;
 use Chargebee\Resources\Currency\Currency;
+use Chargebee\Resources\CustomDataSchema\CustomDataSchema;
 use Chargebee\Resources\Customer\Customer;
 use Chargebee\Resources\CustomerEntitlement\CustomerEntitlement;
 use Chargebee\Resources\DifferentialPrice\DifferentialPrice;
 use Chargebee\Resources\Discount\Discount;
+use Chargebee\Resources\Dispute\Dispute;
 use Chargebee\Resources\Download\Download;
 use Chargebee\Resources\Einvoice\Einvoice;
+use Chargebee\Resources\EmailLog\EmailLog;
 use Chargebee\Resources\Entitlement\Entitlement;
 use Chargebee\Resources\EntitlementOverride\EntitlementOverride;
 use Chargebee\Resources\Estimate\Estimate;
@@ -156,6 +165,24 @@ class Content  {
     
     /**
     *
+    * @var ?AppliedBusinessRule $appliedbusinessrule
+    */
+    public ?AppliedBusinessRule $appliedbusinessrule;
+    
+    /**
+    *
+    * @var ?AppliedRule $appliedrule
+    */
+    public ?AppliedRule $appliedrule;
+    
+    /**
+    *
+    * @var ?ApplyRule $applyrule
+    */
+    public ?ApplyRule $applyrule;
+    
+    /**
+    *
     * @var ?AsyncResponse $asyncresponse
     */
     public ?AsyncResponse $asyncresponse;
@@ -201,6 +228,24 @@ class Content  {
     * @var ?BusinessEntityTransfer $businessentitytransfer
     */
     public ?BusinessEntityTransfer $businessentitytransfer;
+    
+    /**
+    *
+    * @var ?BusinessRule $businessrule
+    */
+    public ?BusinessRule $businessrule;
+    
+    /**
+    *
+    * @var ?BusinessRuleset $businessruleset
+    */
+    public ?BusinessRuleset $businessruleset;
+    
+    /**
+    *
+    * @var ?BusinessRulesetRule $businessrulesetrule
+    */
+    public ?BusinessRulesetRule $businessrulesetrule;
     
     /**
     *
@@ -288,6 +333,12 @@ class Content  {
     
     /**
     *
+    * @var ?CustomDataSchema $customdataschema
+    */
+    public ?CustomDataSchema $customdataschema;
+    
+    /**
+    *
     * @var ?Customer $customer
     */
     public ?Customer $customer;
@@ -312,6 +363,12 @@ class Content  {
     
     /**
     *
+    * @var ?Dispute $dispute
+    */
+    public ?Dispute $dispute;
+    
+    /**
+    *
     * @var ?Download $download
     */
     public ?Download $download;
@@ -321,6 +378,12 @@ class Content  {
     * @var ?Einvoice $einvoice
     */
     public ?Einvoice $einvoice;
+    
+    /**
+    *
+    * @var ?EmailLog $emaillog
+    */
+    public ?EmailLog $emaillog;
     
     /**
     *
@@ -853,7 +916,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "download" , "einvoice" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "applied_business_rule" , "applied_rule" , "apply_rule" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "business_rule" , "business_ruleset" , "business_ruleset_rule" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "custom_data_schema" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "dispute" , "download" , "einvoice" , "email_log" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -867,6 +930,9 @@ class Content  {
         ?AdvanceInvoiceSchedule $advanceinvoiceschedule,
         ?Alert $alert,
         ?AlertStatus $alertstatus,
+        ?AppliedBusinessRule $appliedbusinessrule,
+        ?AppliedRule $appliedrule,
+        ?ApplyRule $applyrule,
         ?AsyncResponse $asyncresponse,
         ?AsyncResponseList $asyncresponselist,
         ?AttachedItem $attacheditem,
@@ -875,6 +941,9 @@ class Content  {
         ?Brand $brand,
         ?BusinessEntity $businessentity,
         ?BusinessEntityTransfer $businessentitytransfer,
+        ?BusinessRule $businessrule,
+        ?BusinessRuleset $businessruleset,
+        ?BusinessRulesetRule $businessrulesetrule,
         ?Card $card,
         ?ColumnDefinition $columndefinition,
         ?Comment $comment,
@@ -889,12 +958,15 @@ class Content  {
         ?CreditNoteEstimate $creditnoteestimate,
         ?CreditUnit $creditunit,
         ?Currency $currency,
+        ?CustomDataSchema $customdataschema,
         ?Customer $customer,
         ?CustomerEntitlement $customerentitlement,
         ?DifferentialPrice $differentialprice,
         ?Discount $discount,
+        ?Dispute $dispute,
         ?Download $download,
         ?Einvoice $einvoice,
+        ?EmailLog $emaillog,
         ?Entitlement $entitlement,
         ?EntitlementOverride $entitlementoverride,
         ?Estimate $estimate,
@@ -990,6 +1062,9 @@ class Content  {
         $this->advanceinvoiceschedule = $advanceinvoiceschedule;
         $this->alert = $alert;
         $this->alertstatus = $alertstatus;
+        $this->appliedbusinessrule = $appliedbusinessrule;
+        $this->appliedrule = $appliedrule;
+        $this->applyrule = $applyrule;
         $this->asyncresponse = $asyncresponse;
         $this->asyncresponselist = $asyncresponselist;
         $this->attacheditem = $attacheditem;
@@ -998,6 +1073,9 @@ class Content  {
         $this->brand = $brand;
         $this->businessentity = $businessentity;
         $this->businessentitytransfer = $businessentitytransfer;
+        $this->businessrule = $businessrule;
+        $this->businessruleset = $businessruleset;
+        $this->businessrulesetrule = $businessrulesetrule;
         $this->card = $card;
         $this->columndefinition = $columndefinition;
         $this->comment = $comment;
@@ -1012,12 +1090,15 @@ class Content  {
         $this->creditnoteestimate = $creditnoteestimate;
         $this->creditunit = $creditunit;
         $this->currency = $currency;
+        $this->customdataschema = $customdataschema;
         $this->customer = $customer;
         $this->customerentitlement = $customerentitlement;
         $this->differentialprice = $differentialprice;
         $this->discount = $discount;
+        $this->dispute = $dispute;
         $this->download = $download;
         $this->einvoice = $einvoice;
+        $this->emaillog = $emaillog;
         $this->entitlement = $entitlement;
         $this->entitlementoverride = $entitlementoverride;
         $this->estimate = $estimate;
@@ -1115,6 +1196,9 @@ class Content  {
         isset($resourceAttributes['advance_invoice_schedule']) ? AdvanceInvoiceSchedule::from($resourceAttributes['advance_invoice_schedule']) : null,
         isset($resourceAttributes['alert']) ? Alert::from($resourceAttributes['alert']) : null,
         isset($resourceAttributes['alert_status']) ? AlertStatus::from($resourceAttributes['alert_status']) : null,
+        isset($resourceAttributes['applied_business_rule']) ? AppliedBusinessRule::from($resourceAttributes['applied_business_rule']) : null,
+        isset($resourceAttributes['applied_rule']) ? AppliedRule::from($resourceAttributes['applied_rule']) : null,
+        isset($resourceAttributes['apply_rule']) ? ApplyRule::from($resourceAttributes['apply_rule']) : null,
         isset($resourceAttributes['async_response']) ? AsyncResponse::from($resourceAttributes['async_response']) : null,
         isset($resourceAttributes['async_response_list']) ? AsyncResponseList::from($resourceAttributes['async_response_list']) : null,
         isset($resourceAttributes['attached_item']) ? AttachedItem::from($resourceAttributes['attached_item']) : null,
@@ -1123,6 +1207,9 @@ class Content  {
         isset($resourceAttributes['brand']) ? Brand::from($resourceAttributes['brand']) : null,
         isset($resourceAttributes['business_entity']) ? BusinessEntity::from($resourceAttributes['business_entity']) : null,
         isset($resourceAttributes['business_entity_transfer']) ? BusinessEntityTransfer::from($resourceAttributes['business_entity_transfer']) : null,
+        isset($resourceAttributes['business_rule']) ? BusinessRule::from($resourceAttributes['business_rule']) : null,
+        isset($resourceAttributes['business_ruleset']) ? BusinessRuleset::from($resourceAttributes['business_ruleset']) : null,
+        isset($resourceAttributes['business_ruleset_rule']) ? BusinessRulesetRule::from($resourceAttributes['business_ruleset_rule']) : null,
         isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
         isset($resourceAttributes['column_definition']) ? ColumnDefinition::from($resourceAttributes['column_definition']) : null,
         isset($resourceAttributes['comment']) ? Comment::from($resourceAttributes['comment']) : null,
@@ -1137,12 +1224,15 @@ class Content  {
         isset($resourceAttributes['credit_note_estimate']) ? CreditNoteEstimate::from($resourceAttributes['credit_note_estimate']) : null,
         isset($resourceAttributes['credit_unit']) ? CreditUnit::from($resourceAttributes['credit_unit']) : null,
         isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
+        isset($resourceAttributes['custom_data_schema']) ? CustomDataSchema::from($resourceAttributes['custom_data_schema']) : null,
         isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
         isset($resourceAttributes['customer_entitlement']) ? CustomerEntitlement::from($resourceAttributes['customer_entitlement']) : null,
         isset($resourceAttributes['differential_price']) ? DifferentialPrice::from($resourceAttributes['differential_price']) : null,
         isset($resourceAttributes['discount']) ? Discount::from($resourceAttributes['discount']) : null,
+        isset($resourceAttributes['dispute']) ? Dispute::from($resourceAttributes['dispute']) : null,
         isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
         isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
+        isset($resourceAttributes['email_log']) ? EmailLog::from($resourceAttributes['email_log']) : null,
         isset($resourceAttributes['entitlement']) ? Entitlement::from($resourceAttributes['entitlement']) : null,
         isset($resourceAttributes['entitlement_override']) ? EntitlementOverride::from($resourceAttributes['entitlement_override']) : null,
         isset($resourceAttributes['estimate']) ? Estimate::from($resourceAttributes['estimate']) : null,
@@ -1363,6 +1453,15 @@ class Content  {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -1382,6 +1481,15 @@ class Content  {
         }
         if($this->alertstatus instanceof AlertStatus){
             $data['alert_status'] = $this->alertstatus->toArray();
+        }
+        if($this->appliedbusinessrule instanceof AppliedBusinessRule){
+            $data['applied_business_rule'] = $this->appliedbusinessrule->toArray();
+        }
+        if($this->appliedrule instanceof AppliedRule){
+            $data['applied_rule'] = $this->appliedrule->toArray();
+        }
+        if($this->applyrule instanceof ApplyRule){
+            $data['apply_rule'] = $this->applyrule->toArray();
         }
         if($this->asyncresponse instanceof AsyncResponse){
             $data['async_response'] = $this->asyncresponse->toArray();
@@ -1406,6 +1514,15 @@ class Content  {
         }
         if($this->businessentitytransfer instanceof BusinessEntityTransfer){
             $data['business_entity_transfer'] = $this->businessentitytransfer->toArray();
+        }
+        if($this->businessrule instanceof BusinessRule){
+            $data['business_rule'] = $this->businessrule->toArray();
+        }
+        if($this->businessruleset instanceof BusinessRuleset){
+            $data['business_ruleset'] = $this->businessruleset->toArray();
+        }
+        if($this->businessrulesetrule instanceof BusinessRulesetRule){
+            $data['business_ruleset_rule'] = $this->businessrulesetrule->toArray();
         }
         if($this->card instanceof Card){
             $data['card'] = $this->card->toArray();
@@ -1449,6 +1566,9 @@ class Content  {
         if($this->currency instanceof Currency){
             $data['currency'] = $this->currency->toArray();
         }
+        if($this->customdataschema instanceof CustomDataSchema){
+            $data['custom_data_schema'] = $this->customdataschema->toArray();
+        }
         if($this->customer instanceof Customer){
             $data['customer'] = $this->customer->toArray();
         }
@@ -1461,11 +1581,17 @@ class Content  {
         if($this->discount instanceof Discount){
             $data['discount'] = $this->discount->toArray();
         }
+        if($this->dispute instanceof Dispute){
+            $data['dispute'] = $this->dispute->toArray();
+        }
         if($this->download instanceof Download){
             $data['download'] = $this->download->toArray();
         }
         if($this->einvoice instanceof Einvoice){
             $data['einvoice'] = $this->einvoice->toArray();
+        }
+        if($this->emaillog instanceof EmailLog){
+            $data['email_log'] = $this->emaillog->toArray();
         }
         if($this->entitlement instanceof Entitlement){
             $data['entitlement'] = $this->entitlement->toArray();

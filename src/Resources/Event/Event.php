@@ -36,6 +36,12 @@ class Event  {
     
     /**
     *
+    * @var ?string $site_id
+    */
+    public ?string $site_id;
+    
+    /**
+    *
     * @var ?Content $content
     */
     public ?Content $content;
@@ -73,7 +79,7 @@ class Event  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "occurred_at" , "user" , "webhook_failure_reason" , "webhooks" , "content" , "origin_user"  ];
+    protected static array $knownFields = [ "id" , "occurred_at" , "user" , "webhook_failure_reason" , "webhooks" , "site_id" , "content" , "origin_user"  ];
 
     /**
     * dynamic properties for resources
@@ -87,6 +93,7 @@ class Event  {
         ?string $user,
         ?string $webhook_failure_reason,
         ?array $webhooks,
+        ?string $site_id,
         ?Content $content,
         ?string $origin_user,
         ?\Chargebee\Enums\Source $source,
@@ -100,6 +107,7 @@ class Event  {
         $this->user = $user;
         $this->webhook_failure_reason = $webhook_failure_reason;
         $this->webhooks = $webhooks;
+        $this->site_id = $site_id;
         $this->content = $content;
         $this->origin_user = $origin_user; 
         $this->source = $source;
@@ -119,6 +127,7 @@ class Event  {
         $resourceAttributes['user'] ?? null,
         $resourceAttributes['webhook_failure_reason'] ?? null,
         $webhooks,
+        $resourceAttributes['site_id'] ?? null,
         isset($resourceAttributes['content']) ? Content::from($resourceAttributes['content']) : null,
         $resourceAttributes['origin_user'] ?? null,
         
@@ -144,6 +153,7 @@ class Event  {
         'user' => $this->user,
         'webhook_failure_reason' => $this->webhook_failure_reason,
         
+        'site_id' => $this->site_id,
         
         'origin_user' => $this->origin_user,
         

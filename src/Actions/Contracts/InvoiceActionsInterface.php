@@ -18,6 +18,7 @@ use Chargebee\Responses\InvoiceResponse\PaymentSchedulesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemsAndChargesInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ListInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ChargeInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\SendEmailInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RecordPaymentInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ResumeDunningInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\AddAddonChargeInvoiceResponse;
@@ -667,6 +668,20 @@ Interface InvoiceActionsInterface
     public function applyCredits(string $id, array $params = [], array $headers = []): ApplyCreditsInvoiceResponse;
 
     /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/send-invoice-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendEmailInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendEmail(string $id, array $headers = []): SendEmailInvoiceResponse;
+
+    /**
     *   @see https://apidocs.chargebee.com/docs/api/invoices/retrieve-an-invoice?lang=php-v4
     *   @param array{
     *     line_item?: array{
@@ -1088,6 +1103,8 @@ Interface InvoiceActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     is_partial_tax_applied?: bool,
+    *     taxable_amount?: int,
     *     proration_mode?: string,
     *     created_at?: int,
     *     }>,

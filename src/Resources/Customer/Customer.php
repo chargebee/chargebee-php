@@ -318,6 +318,12 @@ class Customer  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?string $brand_id
+    */
+    public ?string $brand_id;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\AutoCollection $auto_collection
     */
     public ?\Chargebee\Enums\AutoCollection $auto_collection;
@@ -403,7 +409,7 @@ class Customer  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "first_name" , "last_name" , "email" , "phone" , "company" , "vat_number" , "net_term_days" , "vat_number_validated_time" , "allow_direct_debit" , "is_location_valid" , "created_at" , "created_from_ip" , "exemption_details" , "exempt_number" , "resource_version" , "updated_at" , "locale" , "billing_date" , "billing_month" , "auto_close_invoices" , "active_id" , "primary_payment_source_id" , "backup_payment_source_id" , "billing_address" , "referral_urls" , "contacts" , "payment_method" , "invoice_notes" , "business_entity_id" , "preferred_currency_code" , "promotional_credits" , "unbilled_charges" , "refundable_credits" , "excess_payments" , "balances" , "entity_identifiers" , "tax_providers_fields" , "is_einvoice_enabled" , "meta_data" , "deleted" , "registered_for_gst" , "consolidated_invoicing" , "business_customer_without_vat_number" , "client_profile_id" , "relationship" , "use_default_hierarchy_settings" , "parent_account_access" , "child_account_access" , "vat_number_prefix" , "entity_identifier_scheme" , "entity_identifier_standard"  ];
+    protected static array $knownFields = [ "id" , "first_name" , "last_name" , "email" , "phone" , "company" , "vat_number" , "net_term_days" , "vat_number_validated_time" , "allow_direct_debit" , "is_location_valid" , "created_at" , "created_from_ip" , "exemption_details" , "exempt_number" , "resource_version" , "updated_at" , "locale" , "billing_date" , "billing_month" , "auto_close_invoices" , "active_id" , "primary_payment_source_id" , "backup_payment_source_id" , "billing_address" , "referral_urls" , "contacts" , "payment_method" , "invoice_notes" , "business_entity_id" , "preferred_currency_code" , "promotional_credits" , "unbilled_charges" , "refundable_credits" , "excess_payments" , "balances" , "entity_identifiers" , "tax_providers_fields" , "is_einvoice_enabled" , "meta_data" , "deleted" , "registered_for_gst" , "consolidated_invoicing" , "business_customer_without_vat_number" , "client_profile_id" , "relationship" , "use_default_hierarchy_settings" , "parent_account_access" , "child_account_access" , "vat_number_prefix" , "entity_identifier_scheme" , "entity_identifier_standard" , "brand_id"  ];
 
     /**
     * dynamic properties for resources
@@ -464,6 +470,7 @@ class Customer  extends SupportsCustomFields  {
         ?string $vat_number_prefix,
         ?string $entity_identifier_scheme,
         ?string $entity_identifier_standard,
+        ?string $brand_id,
         ?\Chargebee\Enums\AutoCollection $auto_collection,
         ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method,
         ?\Chargebee\Enums\Taxability $taxability,
@@ -531,7 +538,8 @@ class Customer  extends SupportsCustomFields  {
         $this->child_account_access = $child_account_access;
         $this->vat_number_prefix = $vat_number_prefix;
         $this->entity_identifier_scheme = $entity_identifier_scheme;
-        $this->entity_identifier_standard = $entity_identifier_standard; 
+        $this->entity_identifier_standard = $entity_identifier_standard;
+        $this->brand_id = $brand_id; 
         $this->auto_collection = $auto_collection;
         $this->offline_payment_method = $offline_payment_method;
         $this->taxability = $taxability;
@@ -622,6 +630,7 @@ class Customer  extends SupportsCustomFields  {
         $resourceAttributes['vat_number_prefix'] ?? null,
         $resourceAttributes['entity_identifier_scheme'] ?? null,
         $resourceAttributes['entity_identifier_standard'] ?? null,
+        $resourceAttributes['brand_id'] ?? null,
         
         
         isset($resourceAttributes['auto_collection']) ? \Chargebee\Enums\AutoCollection::tryFromValue($resourceAttributes['auto_collection']) : null,
@@ -716,6 +725,7 @@ class Customer  extends SupportsCustomFields  {
         'vat_number_prefix' => $this->vat_number_prefix,
         'entity_identifier_scheme' => $this->entity_identifier_scheme,
         'entity_identifier_standard' => $this->entity_identifier_standard,
+        'brand_id' => $this->brand_id,
         
         'auto_collection' => $this->auto_collection?->value,
         

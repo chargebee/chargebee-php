@@ -3,6 +3,7 @@ namespace Chargebee\Actions;
 
 use Chargebee\Responses\CreditNoteResponse\ResendEinvoiceCreditNoteResponse;
 use Chargebee\Actions\Contracts\CreditNoteActionsInterface;
+use Chargebee\Responses\CreditNoteResponse\SendEmailCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\SendEinvoiceCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ImportCreditNoteCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
@@ -125,6 +126,8 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     is_partial_tax_applied?: bool,
+    *     taxable_amount?: int,
     *     proration_mode?: string,
     *     }>,
     *     line_item_tiers?: array<array{
@@ -839,6 +842,39 @@ final class CreditNoteActions implements CreditNoteActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrieveCreditNoteResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/send-credit-note-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendEmailCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendEmail(string $id, array $headers = []): SendEmailCreditNoteResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["credit_notes",$id,"send_email"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->withTelemetryResource("creditNote")
+        ->withTelemetryOperation("sendEmail")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return SendEmailCreditNoteResponse::from($respObject->data, $respObject->headers);
     }
 
 }

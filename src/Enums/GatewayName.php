@@ -63,6 +63,7 @@ enum GatewayName : string {
     case TEMPUS = "tempus";
     case MOYASAR = "moyasar";
     case PAYWAY = "payway";
+    case PAYU = "payu";
     case NOT_APPLICABLE = "not_applicable";
     case UNKNOWN = "unknown";
 

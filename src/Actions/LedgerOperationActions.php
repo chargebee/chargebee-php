@@ -120,7 +120,9 @@ final class LedgerOperationActions implements LedgerOperationActionsInterface
     *   @param array{
     *     subscription_id?: string,
     *     unit_id?: string,
+    *     id?: string,
     *     amount?: string,
+    *     effective_from?: int,
     *     expires_at?: int,
     *     metadata?: mixed,
     *     } $params Description of the parameters

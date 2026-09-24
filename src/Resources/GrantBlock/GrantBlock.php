@@ -22,7 +22,7 @@ class GrantBlock  {
     public ?string $unit_id;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $granted_amount
     */
     public ?string $granted_amount;
@@ -40,37 +40,37 @@ class GrantBlock  {
     public ?int $expires_at;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $balance
     */
     public ?string $balance;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $hold_amount
     */
     public ?string $hold_amount;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $used_amount
     */
     public ?string $used_amount;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $expired_amount
     */
     public ?string $expired_amount;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $rolled_over_amount
     */
     public ?string $rolled_over_amount;
     
     /**
-    *
+    *@deprecated This attribute is deprecated and will be removed in future version.
     * @var ?string $voided_amount
     */
     public ?string $voided_amount;
@@ -101,6 +101,18 @@ class GrantBlock  {
     
     /**
     *
+    * @var ?ProvisionedBlockBalance $provisioned_block_balance
+    */
+    public ?ProvisionedBlockBalance $provisioned_block_balance;
+    
+    /**
+    *
+    * @var ?OverdraftBlockBalance $overdraft_block_balance
+    */
+    public ?OverdraftBlockBalance $overdraft_block_balance;
+    
+    /**
+    *
     * @var mixed $metadata
     */
     public mixed $metadata;
@@ -113,15 +125,15 @@ class GrantBlock  {
     
     /**
     *
-    * @var ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type
-    */
-    public ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type;
-    
-    /**
-    *
     * @var ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type
     */
     public ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type
+    */
+    public ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type;
     
     /**
     *
@@ -132,7 +144,7 @@ class GrantBlock  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "subscription_id" , "unit_id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "modified_at" , "resource_version" , "metadata"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "unit_id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "modified_at" , "resource_version" , "provisioned_block_balance" , "overdraft_block_balance" , "metadata"  ];
 
     /**
     * dynamic properties for resources
@@ -157,10 +169,12 @@ class GrantBlock  {
         ?int $created_at,
         ?int $modified_at,
         ?int $resource_version,
+        ?ProvisionedBlockBalance $provisioned_block_balance,
+        ?OverdraftBlockBalance $overdraft_block_balance,
         mixed $metadata,
         ?\Chargebee\Enums\Status $status,
-        ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type,
         ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type,
+        ?\Chargebee\Resources\GrantBlock\Enums\AccountType $account_type,
         ?\Chargebee\Resources\GrantBlock\Enums\GrantSource $grant_source,
     )
     { 
@@ -180,10 +194,12 @@ class GrantBlock  {
         $this->created_at = $created_at;
         $this->modified_at = $modified_at;
         $this->resource_version = $resource_version;
+        $this->provisioned_block_balance = $provisioned_block_balance;
+        $this->overdraft_block_balance = $overdraft_block_balance;
         $this->metadata = $metadata; 
         $this->status = $status; 
-        $this->account_type = $account_type;
         $this->unit_type = $unit_type;
+        $this->account_type = $account_type;
         $this->grant_source = $grant_source; 
     }
 
@@ -205,14 +221,16 @@ class GrantBlock  {
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['modified_at'] ?? null,
         $resourceAttributes['resource_version'] ?? null,
+        isset($resourceAttributes['provisioned_block_balance']) ? ProvisionedBlockBalance::from($resourceAttributes['provisioned_block_balance']) : null,
+        isset($resourceAttributes['overdraft_block_balance']) ? OverdraftBlockBalance::from($resourceAttributes['overdraft_block_balance']) : null,
         $resourceAttributes['metadata'] ?? null,
         
         
         isset($resourceAttributes['status']) ? \Chargebee\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
          
-        isset($resourceAttributes['account_type']) ? \Chargebee\Resources\GrantBlock\Enums\AccountType::tryFromValue($resourceAttributes['account_type']) : null,
-        
         isset($resourceAttributes['unit_type']) ? \Chargebee\Resources\GrantBlock\Enums\UnitType::tryFromValue($resourceAttributes['unit_type']) : null,
+        
+        isset($resourceAttributes['account_type']) ? \Chargebee\Resources\GrantBlock\Enums\AccountType::tryFromValue($resourceAttributes['account_type']) : null,
         
         isset($resourceAttributes['grant_source']) ? \Chargebee\Resources\GrantBlock\Enums\GrantSource::tryFromValue($resourceAttributes['grant_source']) : null,
          
@@ -240,13 +258,15 @@ class GrantBlock  {
         'created_at' => $this->created_at,
         'modified_at' => $this->modified_at,
         'resource_version' => $this->resource_version,
+        
+        
         'metadata' => $this->metadata,
         
         'status' => $this->status?->value,
         
-        'account_type' => $this->account_type?->value,
-        
         'unit_type' => $this->unit_type?->value,
+        
+        'account_type' => $this->account_type?->value,
         
         'grant_source' => $this->grant_source?->value,
         
@@ -255,6 +275,12 @@ class GrantBlock  {
         });
 
         
+        if($this->provisioned_block_balance instanceof ProvisionedBlockBalance){
+            $data['provisioned_block_balance'] = $this->provisioned_block_balance->toArray();
+        }
+        if($this->overdraft_block_balance instanceof OverdraftBlockBalance){
+            $data['overdraft_block_balance'] = $this->overdraft_block_balance->toArray();
+        }
         
 
         

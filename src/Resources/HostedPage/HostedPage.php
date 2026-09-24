@@ -72,6 +72,12 @@ class HostedPage  {
     
     /**
     *
+    * @var ?string $brand_id
+    */
+    public ?string $brand_id;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\Layout $layout
     */
     public ?\Chargebee\Enums\Layout $layout;
@@ -97,7 +103,7 @@ class HostedPage  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "url" , "pass_thru_content" , "embed" , "created_at" , "expires_at" , "content" , "updated_at" , "resource_version" , "checkout_info" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "url" , "pass_thru_content" , "embed" , "created_at" , "expires_at" , "content" , "updated_at" , "resource_version" , "checkout_info" , "business_entity_id" , "brand_id"  ];
 
     /**
     * dynamic properties for resources
@@ -117,6 +123,7 @@ class HostedPage  {
         ?int $resource_version,
         mixed $checkout_info,
         ?string $business_entity_id,
+        ?string $brand_id,
         ?\Chargebee\Enums\Layout $layout,
         ?\Chargebee\Resources\HostedPage\Enums\Type $type,
         ?\Chargebee\Resources\HostedPage\Enums\State $state,
@@ -133,7 +140,8 @@ class HostedPage  {
         $this->updated_at = $updated_at;
         $this->resource_version = $resource_version;
         $this->checkout_info = $checkout_info;
-        $this->business_entity_id = $business_entity_id; 
+        $this->business_entity_id = $business_entity_id;
+        $this->brand_id = $brand_id; 
         $this->layout = $layout; 
         $this->type = $type;
         $this->state = $state;
@@ -153,6 +161,7 @@ class HostedPage  {
         $resourceAttributes['resource_version'] ?? null,
         $resourceAttributes['checkout_info'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
+        $resourceAttributes['brand_id'] ?? null,
         
         
         isset($resourceAttributes['layout']) ? \Chargebee\Enums\Layout::tryFromValue($resourceAttributes['layout']) : null,
@@ -182,6 +191,7 @@ class HostedPage  {
         'resource_version' => $this->resource_version,
         'checkout_info' => $this->checkout_info,
         'business_entity_id' => $this->business_entity_id,
+        'brand_id' => $this->brand_id,
         
         'layout' => $this->layout?->value,
         

@@ -59,6 +59,12 @@ class PaymentSchedule  {
     
     /**
     *
+    * @var ?array<ReferenceTransaction> $reference_transactions
+    */
+    public ?array $reference_transactions;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type
     */
     public ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type;
@@ -66,7 +72,7 @@ class PaymentSchedule  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "scheme_id" , "entity_id" , "amount" , "created_at" , "resource_version" , "updated_at" , "currency_code" , "schedule_entries"  ];
+    protected static array $knownFields = [ "id" , "scheme_id" , "entity_id" , "amount" , "created_at" , "resource_version" , "updated_at" , "currency_code" , "schedule_entries" , "reference_transactions"  ];
 
     /**
     * dynamic properties for resources
@@ -84,6 +90,7 @@ class PaymentSchedule  {
         ?int $updated_at,
         ?string $currency_code,
         ?array $schedule_entries,
+        ?array $reference_transactions,
         ?\Chargebee\Resources\PaymentSchedule\Enums\EntityType $entity_type,
     )
     { 
@@ -95,7 +102,8 @@ class PaymentSchedule  {
         $this->resource_version = $resource_version;
         $this->updated_at = $updated_at;
         $this->currency_code = $currency_code;
-        $this->schedule_entries = $schedule_entries;  
+        $this->schedule_entries = $schedule_entries;
+        $this->reference_transactions = $reference_transactions;  
         $this->entity_type = $entity_type; 
     }
 
@@ -104,6 +112,10 @@ class PaymentSchedule  {
         $schedule_entries = array_map(fn (array $result): ScheduleEntry =>  ScheduleEntry::from(
             $result
         ), $resourceAttributes['schedule_entries'] ?? []);
+        
+        $reference_transactions = array_map(fn (array $result): ReferenceTransaction =>  ReferenceTransaction::from(
+            $result
+        ), $resourceAttributes['reference_transactions'] ?? []);
         
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['scheme_id'] ?? null,
@@ -114,6 +126,7 @@ class PaymentSchedule  {
         $resourceAttributes['updated_at'] ?? null,
         $resourceAttributes['currency_code'] ?? null,
         $schedule_entries,
+        $reference_transactions,
         
          
         isset($resourceAttributes['entity_type']) ? \Chargebee\Resources\PaymentSchedule\Enums\EntityType::tryFromValue($resourceAttributes['entity_type']) : null,
@@ -136,6 +149,7 @@ class PaymentSchedule  {
         'currency_code' => $this->currency_code,
         
         
+        
         'entity_type' => $this->entity_type?->value,
         
         ], function ($value) {
@@ -148,6 +162,12 @@ class PaymentSchedule  {
             $data['schedule_entries'] = array_map(
                 fn (ScheduleEntry $schedule_entries): array => $schedule_entries->toArray(),
                 $this->schedule_entries
+            );
+        }
+        if($this->reference_transactions !== []){
+            $data['reference_transactions'] = array_map(
+                fn (ReferenceTransaction $reference_transactions): array => $reference_transactions->toArray(),
+                $this->reference_transactions
             );
         }
 

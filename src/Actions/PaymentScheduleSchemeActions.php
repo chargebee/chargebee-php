@@ -5,6 +5,8 @@ use Chargebee\Actions\Contracts\PaymentScheduleSchemeActionsInterface;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\DeletePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\RetrievePaymentScheduleSchemeResponse;
 use Chargebee\Responses\PaymentScheduleSchemeResponse\CreatePaymentScheduleSchemeResponse;
+use Chargebee\Responses\PaymentScheduleSchemeResponse\ListPaymentScheduleSchemeResponse;
+use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\ValueObjects\Encoders\URLFormEncoder;
 use Chargebee\ValueObjects\Transporters\ChargebeePayload;
 use Chargebee\ValueObjects\APIRequester;
@@ -55,6 +57,55 @@ final class PaymentScheduleSchemeActions implements PaymentScheduleSchemeActions
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RetrievePaymentScheduleSchemeResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/payment_schedule_schemes/list-payment-schedule-schemes?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     id?: array{
+    *     is?: mixed,
+    *     is_not?: mixed,
+    *     starts_with?: mixed,
+    *     in?: mixed,
+    *     not_in?: mixed,
+    *     },
+    * updated_at?: array{
+    *     after?: mixed,
+    *     before?: mixed,
+    *     on?: mixed,
+    *     between?: mixed,
+    *     },
+    * } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return ListPaymentScheduleSchemeResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function all(array $params = [], array $headers = []): ListPaymentScheduleSchemeResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["payment_schedule_schemes"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withTelemetryResource("paymentScheduleScheme")
+        ->withTelemetryOperation("list")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ListPaymentScheduleSchemeResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
