@@ -83,15 +83,15 @@ class LedgerEntry  {
     
     /**
     *
-    * @var ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type
-    */
-    public ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type;
-    
-    /**
-    *
     * @var ?\Chargebee\Resources\LedgerEntry\Enums\UnitType $unit_type
     */
     public ?\Chargebee\Resources\LedgerEntry\Enums\UnitType $unit_type;
+    
+    /**
+    *
+    * @var ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type
+    */
+    public ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type;
     
     /**
     * @var array<string> $knownFields
@@ -118,8 +118,8 @@ class LedgerEntry  {
         ?int $created_at,
         ?int $modified_at,
         ?\Chargebee\Enums\Type $type,
-        ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type,
         ?\Chargebee\Resources\LedgerEntry\Enums\UnitType $unit_type,
+        ?\Chargebee\Resources\LedgerEntry\Enums\AccountType $account_type,
     )
     { 
         $this->id = $id;
@@ -135,8 +135,8 @@ class LedgerEntry  {
         $this->created_at = $created_at;
         $this->modified_at = $modified_at; 
         $this->type = $type; 
-        $this->account_type = $account_type;
-        $this->unit_type = $unit_type; 
+        $this->unit_type = $unit_type;
+        $this->account_type = $account_type; 
     }
 
     public static function from(array $resourceAttributes): self
@@ -157,9 +157,9 @@ class LedgerEntry  {
         
         isset($resourceAttributes['type']) ? \Chargebee\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
          
-        isset($resourceAttributes['account_type']) ? \Chargebee\Resources\LedgerEntry\Enums\AccountType::tryFromValue($resourceAttributes['account_type']) : null,
-        
         isset($resourceAttributes['unit_type']) ? \Chargebee\Resources\LedgerEntry\Enums\UnitType::tryFromValue($resourceAttributes['unit_type']) : null,
+        
+        isset($resourceAttributes['account_type']) ? \Chargebee\Resources\LedgerEntry\Enums\AccountType::tryFromValue($resourceAttributes['account_type']) : null,
          
         );
        
@@ -184,9 +184,9 @@ class LedgerEntry  {
         
         'type' => $this->type?->value,
         
-        'account_type' => $this->account_type?->value,
-        
         'unit_type' => $this->unit_type?->value,
+        
+        'account_type' => $this->account_type?->value,
         
         ], function ($value) {
             return $value !== null;

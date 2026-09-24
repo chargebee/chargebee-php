@@ -2,6 +2,7 @@
 namespace Chargebee\Actions\Contracts;
     
 use Chargebee\Responses\CreditNoteResponse\ResendEinvoiceCreditNoteResponse;
+use Chargebee\Responses\CreditNoteResponse\SendEmailCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\SendEinvoiceCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ImportCreditNoteCreditNoteResponse;
 use Chargebee\Responses\CreditNoteResponse\ListCreditNoteResponse;
@@ -92,6 +93,8 @@ Interface CreditNoteActionsInterface
     *     tax9_amount?: int,
     *     tax10_name?: string,
     *     tax10_amount?: int,
+    *     is_partial_tax_applied?: bool,
+    *     taxable_amount?: int,
     *     proration_mode?: string,
     *     }>,
     *     line_item_tiers?: array<array{
@@ -534,6 +537,20 @@ Interface CreditNoteActionsInterface
     *   @throws Exception
     */
     public function retrieve(string $id, array $params = [], array $headers = []): RetrieveCreditNoteResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/credit_notes/send-credit-note-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendEmailCreditNoteResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendEmail(string $id, array $headers = []): SendEmailCreditNoteResponse;
 
 }
 ?>

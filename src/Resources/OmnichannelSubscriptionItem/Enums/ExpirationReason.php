@@ -6,6 +6,7 @@ enum ExpirationReason : string {
     case BILLING_ERROR = "billing_error";
     case PRODUCT_NOT_AVAILABLE = "product_not_available";
     case OTHER = "other";
+    case SUBSCRIPTION_NOT_FOUND_IN_SOURCE = "subscription_not_found_in_source";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

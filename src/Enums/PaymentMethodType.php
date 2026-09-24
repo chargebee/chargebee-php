@@ -57,6 +57,19 @@ enum PaymentMethodType : string {
     case TOUCH_N_GO = "touch_n_go";
     case TAMARA = "tamara";
     case QPAY = "qpay";
+    case OVO = "ovo";
+    case MOMO = "momo";
+    case MERCADO_PAGO = "mercado_pago";
+    case NEQUI = "nequi";
+    case NUPAY = "nupay";
+    case PICPAY = "picpay";
+    case THAI_QR = "thai_qr";
+    case BLIK = "blik";
+    case FPX = "fpx";
+    case WERO = "wero";
+    case P24 = "p24";
+    case AFFIRM_PAY = "affirm_pay";
+    case RAKUTEN_PAY = "rakuten_pay";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

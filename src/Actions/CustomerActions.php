@@ -9,6 +9,7 @@ use Chargebee\Responses\CustomerResponse\UpdatePaymentMethodCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ContactsForCustomerCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteContactCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ListCustomerResponse;
+use Chargebee\Responses\CustomerResponse\SendPaymentRequestCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteCustomerResponse;
 use Chargebee\Responses\CustomerResponse\MergeCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteRelationshipCustomerResponse;
@@ -835,6 +836,7 @@ final class CustomerActions implements CustomerActionsInterface
     *     consolidated_invoicing?: bool,
     *     token_id?: string,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     created_from_ip?: string,
     *     invoice_notes?: string,
     *     } $params Description of the parameters
@@ -1189,6 +1191,39 @@ final class CustomerActions implements CustomerActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return RecordExcessPaymentCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/send-payment-request-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendPaymentRequestCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendPaymentRequest(string $id, array $headers = []): SendPaymentRequestCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"send_payment_request"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("sendPaymentRequest")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return SendPaymentRequestCustomerResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

@@ -104,6 +104,7 @@ final class PaymentIntentActions implements PaymentIntentActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/payment_intents/create-a-payment-intent?lang=php-v4
     *   @param array{
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     customer_id?: string,
     *     amount?: int,
     *     currency_code?: string,

@@ -12,6 +12,10 @@ use Chargebee\Actions\Contracts\AttachedItemActionsInterface;
 use Chargebee\Actions\AttachedItemActions;
 use Chargebee\Actions\Contracts\BusinessEntityActionsInterface;
 use Chargebee\Actions\BusinessEntityActions;
+use Chargebee\Actions\Contracts\BusinessRuleActionsInterface;
+use Chargebee\Actions\BusinessRuleActions;
+use Chargebee\Actions\Contracts\BusinessRulesetActionsInterface;
+use Chargebee\Actions\BusinessRulesetActions;
 use Chargebee\Actions\Contracts\CardActionsInterface;
 use Chargebee\Actions\CardActions;
 use Chargebee\Actions\Contracts\CommentActionsInterface;
@@ -36,6 +40,12 @@ use Chargebee\Actions\Contracts\CustomerEntitlementActionsInterface;
 use Chargebee\Actions\CustomerEntitlementActions;
 use Chargebee\Actions\Contracts\DifferentialPriceActionsInterface;
 use Chargebee\Actions\DifferentialPriceActions;
+use Chargebee\Actions\Contracts\DisputeActionsInterface;
+use Chargebee\Actions\DisputeActions;
+use Chargebee\Actions\Contracts\EinvoiceActionsInterface;
+use Chargebee\Actions\EinvoiceActions;
+use Chargebee\Actions\Contracts\EmailLogActionsInterface;
+use Chargebee\Actions\EmailLogActions;
 use Chargebee\Actions\Contracts\EntitlementActionsInterface;
 use Chargebee\Actions\EntitlementActions;
 use Chargebee\Actions\Contracts\EntitlementOverrideActionsInterface;
@@ -90,6 +100,8 @@ use Chargebee\Actions\Contracts\OrderActionsInterface;
 use Chargebee\Actions\OrderActions;
 use Chargebee\Actions\Contracts\PaymentIntentActionsInterface;
 use Chargebee\Actions\PaymentIntentActions;
+use Chargebee\Actions\Contracts\PaymentScheduleActionsInterface;
+use Chargebee\Actions\PaymentScheduleActions;
 use Chargebee\Actions\Contracts\PaymentScheduleSchemeActionsInterface;
 use Chargebee\Actions\PaymentScheduleSchemeActions;
 use Chargebee\Actions\Contracts\PaymentSourceActionsInterface;
@@ -255,6 +267,14 @@ class ChargebeeClient {
         return new BusinessEntityActions($this->httpClientFactory, $this->env);
     }
 
+    public function businessRule() :BusinessRuleActionsInterface {
+        return new BusinessRuleActions($this->httpClientFactory, $this->env);
+    }
+
+    public function businessRuleset() :BusinessRulesetActionsInterface {
+        return new BusinessRulesetActions($this->httpClientFactory, $this->env);
+    }
+
     public function card() :CardActionsInterface {
         return new CardActions($this->httpClientFactory, $this->env);
     }
@@ -301,6 +321,18 @@ class ChargebeeClient {
 
     public function differentialPrice() :DifferentialPriceActionsInterface {
         return new DifferentialPriceActions($this->httpClientFactory, $this->env);
+    }
+
+    public function dispute() :DisputeActionsInterface {
+        return new DisputeActions($this->httpClientFactory, $this->env);
+    }
+
+    public function einvoice() :EinvoiceActionsInterface {
+        return new EinvoiceActions($this->httpClientFactory, $this->env);
+    }
+
+    public function emailLog() :EmailLogActionsInterface {
+        return new EmailLogActions($this->httpClientFactory, $this->env);
     }
 
     public function entitlement() :EntitlementActionsInterface {
@@ -409,6 +441,10 @@ class ChargebeeClient {
 
     public function paymentIntent() :PaymentIntentActionsInterface {
         return new PaymentIntentActions($this->httpClientFactory, $this->env);
+    }
+
+    public function paymentSchedule() :PaymentScheduleActionsInterface {
+        return new PaymentScheduleActions($this->httpClientFactory, $this->env);
     }
 
     public function paymentScheduleScheme() :PaymentScheduleSchemeActionsInterface {

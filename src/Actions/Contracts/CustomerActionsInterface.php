@@ -9,6 +9,7 @@ use Chargebee\Responses\CustomerResponse\UpdatePaymentMethodCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ContactsForCustomerCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteContactCustomerResponse;
 use Chargebee\Responses\CustomerResponse\ListCustomerResponse;
+use Chargebee\Responses\CustomerResponse\SendPaymentRequestCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteCustomerResponse;
 use Chargebee\Responses\CustomerResponse\MergeCustomerResponse;
 use Chargebee\Responses\CustomerResponse\DeleteRelationshipCustomerResponse;
@@ -545,6 +546,7 @@ Interface CustomerActionsInterface
     *     consolidated_invoicing?: bool,
     *     token_id?: string,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     created_from_ip?: string,
     *     invoice_notes?: string,
     *     } $params Description of the parameters
@@ -737,6 +739,20 @@ Interface CustomerActionsInterface
     *   @throws Exception
     */
     public function recordExcessPayment(string $id, array $params, array $headers = []): RecordExcessPaymentCustomerResponse;
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/send-payment-request-email?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return SendPaymentRequestCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function sendPaymentRequest(string $id, array $headers = []): SendPaymentRequestCustomerResponse;
 
     /**
     *   

@@ -17,6 +17,12 @@ class AuthorizeLedgerOperationResponse extends ResponseBase {
     
     /**
     *
+    * @var ?array<LedgerOperation> $ledger_operations
+    */
+    public ?array $ledger_operations;
+    
+    /**
+    *
     * @var ?LedgerAccountBalance $ledger_account_balance
     */
     public ?LedgerAccountBalance $ledger_account_balance;
@@ -36,6 +42,7 @@ class AuthorizeLedgerOperationResponse extends ResponseBase {
 
     private function __construct(
         ?LedgerOperation $ledger_operation,
+        ?array $ledger_operations,
         ?LedgerAccountBalance $ledger_account_balance,
         ?array $grant_blocks,
         ?array $ledger_entries,
@@ -45,6 +52,7 @@ class AuthorizeLedgerOperationResponse extends ResponseBase {
     {
         parent::__construct($responseHeaders, $rawResponse);
         $this->ledger_operation = $ledger_operation;
+        $this->ledger_operations = $ledger_operations;
         $this->ledger_account_balance = $ledger_account_balance;
         $this->grant_blocks = $grant_blocks;
         $this->ledger_entries = $ledger_entries;
@@ -52,6 +60,10 @@ class AuthorizeLedgerOperationResponse extends ResponseBase {
     }
     public static function from(array $resourceAttributes, array $headers = []): self
     {
+        $ledger_operations = array_map(fn (array $result): LedgerOperation =>  LedgerOperation::from(
+            $result
+        ), $resourceAttributes['ledger_operations'] ?? []);
+        
         $grant_blocks = array_map(fn (array $result): GrantBlock =>  GrantBlock::from(
             $result
         ), $resourceAttributes['grant_blocks'] ?? []);
@@ -62,23 +74,29 @@ class AuthorizeLedgerOperationResponse extends ResponseBase {
         
         return new self(
             isset($resourceAttributes['ledger_operation']) ? LedgerOperation::from($resourceAttributes['ledger_operation']) : null,
-            
+            $ledger_operations,
             isset($resourceAttributes['ledger_account_balance']) ? LedgerAccountBalance::from($resourceAttributes['ledger_account_balance']) : null,
             $grant_blocks,$ledger_entries, $headers, $resourceAttributes);
     }
 
     public function toArray(): array
     {
-        $data = array_filter([    
+        $data = array_filter([     
         ]);
          
         if($this->ledger_operation instanceof LedgerOperation){
             $data['ledger_operation'] = $this->ledger_operation->toArray();
-        }  
+        }    
         if($this->ledger_account_balance instanceof LedgerAccountBalance){
             $data['ledger_account_balance'] = $this->ledger_account_balance->toArray();
         }     
 
+        if($this->ledger_operations !== []) {
+            $data['ledger_operations'] = array_map(
+                fn (LedgerOperation $ledger_operations): array => $ledger_operations->toArray(),
+                $this->ledger_operations
+            );
+        }
         if($this->grant_blocks !== []) {
             $data['grant_blocks'] = array_map(
                 fn (GrantBlock $grant_blocks): array => $grant_blocks->toArray(),

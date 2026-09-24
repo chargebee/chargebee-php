@@ -65,6 +65,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     country?: string,
     *     },
     * customer_id?: string,
+    *     brand_id?: string,
     *     type?: string,
     *     gateway_account_id?: string,
     *     reference_id?: string,
@@ -164,6 +165,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     additional_information?: mixed,
     *     },
     * customer_id?: string,
+    *     brand_id?: string,
     *     replace_primary_payment_source?: bool,
     *     } $params Description of the parameters
     *   
@@ -395,6 +397,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     additional_information?: mixed,
     *     },
     * customer_id?: string,
+    *     brand_id?: string,
     *     replace_primary_payment_source?: bool,
     *     } $params Description of the parameters
     *   
@@ -472,6 +475,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     billing_address?: mixed,
     *     },
     * customer_id?: string,
+    *     brand_id?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
@@ -513,6 +517,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     type?: string,
     *     tmp_token?: string,
     *     issuing_country?: string,
+    *     brand_id?: string,
     *     replace_primary_payment_source?: bool,
     *     additional_information?: mixed,
     *     } $params Description of the parameters
@@ -564,6 +569,9 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     billing_state?: string,
     *     billing_country?: string,
     *     additional_information?: mixed,
+    *     },
+    * network_transaction_reference?: array{
+    *     original_network_transaction_id?: string,
     *     },
     * gateway_meta_data?: mixed,
     *     reference_transaction?: string,
@@ -641,6 +649,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *   @see https://apidocs.chargebee.com/docs/api/payment_sources/create-using-chargebee-token?lang=php-v4
     *   @param array{
     *     customer_id?: string,
+    *     brand_id?: string,
     *     replace_primary_payment_source?: bool,
     *     token_id?: string,
     *     } $params Description of the parameters
@@ -730,6 +739,7 @@ final class PaymentSourceActions implements PaymentSourceActionsInterface
     *     billing_address?: mixed,
     *     },
     * customer_id?: string,
+    *     brand_id?: string,
     *     issuing_country?: string,
     *     replace_primary_payment_source?: bool,
     *     } $params Description of the parameters

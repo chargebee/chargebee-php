@@ -63,7 +63,10 @@ final class RampActions implements RampActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/ramps/create-a-ramp?lang=php-v4
     *   @param array{
-    *     contract_term?: array{
+    *     billing_configuration?: array{
+    *     po_number?: string,
+    *     },
+    * contract_term?: array{
     *     action_at_term_end?: string,
     *     cancellation_cutoff_period?: int,
     *     renewal_billing_cycles?: int,
@@ -219,7 +222,10 @@ final class RampActions implements RampActionsInterface
     /**
     *   @see https://apidocs.chargebee.com/docs/api/ramps/update-a-subscription-ramp?lang=php-v4
     *   @param array{
-    *     contract_term?: array{
+    *     billing_configuration?: array{
+    *     po_number?: string,
+    *     },
+    * contract_term?: array{
     *     action_at_term_end?: string,
     *     cancellation_cutoff_period?: int,
     *     renewal_billing_cycles?: int,

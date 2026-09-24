@@ -119,6 +119,12 @@ class PaymentIntent  {
     
     /**
     *
+    * @var ?string $brand_id
+    */
+    public ?string $brand_id;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\PaymentIntent\Enums\Status $status
     */
     public ?\Chargebee\Resources\PaymentIntent\Enums\Status $status;
@@ -132,7 +138,7 @@ class PaymentIntent  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "payment_method_options" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "payment_intent_metadata" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "currency_code" , "amount" , "gateway_account_id" , "expires_at" , "reference_id" , "success_url" , "failure_url" , "created_at" , "modified_at" , "resource_version" , "updated_at" , "payment_method_options" , "customer_id" , "gateway" , "active_payment_attempt" , "payment_attempts" , "payment_intent_metadata" , "business_entity_id" , "brand_id"  ];
 
     /**
     * dynamic properties for resources
@@ -160,6 +166,7 @@ class PaymentIntent  {
         ?array $payment_attempts,
         ?PaymentIntentMetadata $payment_intent_metadata,
         ?string $business_entity_id,
+        ?string $brand_id,
         ?\Chargebee\Resources\PaymentIntent\Enums\Status $status,
         ?\Chargebee\Resources\PaymentIntent\Enums\PaymentMethodType $payment_method_type,
     )
@@ -182,7 +189,8 @@ class PaymentIntent  {
         $this->active_payment_attempt = $active_payment_attempt;
         $this->payment_attempts = $payment_attempts;
         $this->payment_intent_metadata = $payment_intent_metadata;
-        $this->business_entity_id = $business_entity_id;  
+        $this->business_entity_id = $business_entity_id;
+        $this->brand_id = $brand_id;  
         $this->status = $status;
         $this->payment_method_type = $payment_method_type; 
     }
@@ -212,6 +220,7 @@ class PaymentIntent  {
         $payment_attempts,
         isset($resourceAttributes['payment_intent_metadata']) ? PaymentIntentMetadata::from($resourceAttributes['payment_intent_metadata']) : null,
         $resourceAttributes['business_entity_id'] ?? null,
+        $resourceAttributes['brand_id'] ?? null,
         
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\PaymentIntent\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
@@ -245,6 +254,7 @@ class PaymentIntent  {
         
         
         'business_entity_id' => $this->business_entity_id,
+        'brand_id' => $this->brand_id,
         
         'status' => $this->status?->value,
         

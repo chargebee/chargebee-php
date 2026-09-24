@@ -154,9 +154,15 @@ class SubscriptionItem  {
     public ?string $usage_accumulation_reset_frequency;
     
     /**
+    *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "last_calculated_at" , "unit_price" , "unit_price_in_decimal" , "amount" , "current_term_start" , "current_term_end" , "next_billing_at" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "trial_end" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "proration_type" , "usage_accumulation_reset_frequency"  ];
+    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "metered_quantity" , "last_calculated_at" , "unit_price" , "unit_price_in_decimal" , "amount" , "current_term_start" , "current_term_end" , "next_billing_at" , "amount_in_decimal" , "billing_period" , "billing_period_unit" , "free_quantity" , "free_quantity_in_decimal" , "trial_end" , "billing_cycles" , "service_period_days" , "charge_on_event" , "charge_once" , "charge_on_option" , "proration_type" , "usage_accumulation_reset_frequency" , "description"  ];
 
     /**
     * dynamic properties for resources
@@ -190,6 +196,7 @@ class SubscriptionItem  {
         ?string $charge_on_option,
         ?string $proration_type,
         ?string $usage_accumulation_reset_frequency,
+        ?string $description,
     )
     { 
         $this->item_price_id = $item_price_id;
@@ -216,7 +223,8 @@ class SubscriptionItem  {
         $this->charge_once = $charge_once;
         $this->charge_on_option = $charge_on_option;
         $this->proration_type = $proration_type;
-        $this->usage_accumulation_reset_frequency = $usage_accumulation_reset_frequency;   
+        $this->usage_accumulation_reset_frequency = $usage_accumulation_reset_frequency;
+        $this->description = $description;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -246,6 +254,7 @@ class SubscriptionItem  {
         $resourceAttributes['charge_on_option'] ?? null,
         $resourceAttributes['proration_type'] ?? null,
         $resourceAttributes['usage_accumulation_reset_frequency'] ?? null,
+        $resourceAttributes['description'] ?? null,
         
           
         );
@@ -281,6 +290,7 @@ class SubscriptionItem  {
         'charge_on_option' => $this->charge_on_option,
         'proration_type' => $this->proration_type,
         'usage_accumulation_reset_frequency' => $this->usage_accumulation_reset_frequency,
+        'description' => $this->description,
         
         ], function ($value) {
             return $value !== null;

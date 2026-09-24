@@ -119,6 +119,7 @@ Interface PricingPageSessionActionsInterface
     *     }>,
     *     redirect_url?: string,
     *     business_entity_id?: string,
+    *     brand_id?: string,
     *     auto_select_local_currency?: bool,
     *     custom?: mixed,
     *     } $params Description of the parameters

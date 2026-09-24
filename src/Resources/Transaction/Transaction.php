@@ -239,6 +239,12 @@ class Transaction  {
     
     /**
     *
+    * @var ?NetworkTransactionDetail $network_transaction_details
+    */
+    public ?NetworkTransactionDetail $network_transaction_details;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\PaymentMethod $payment_method
     */
     public ?\Chargebee\Enums\PaymentMethod $payment_method;
@@ -282,7 +288,7 @@ class Transaction  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "gateway_account_id" , "payment_source_id" , "reference_number" , "date" , "settled_at" , "exchange_rate" , "currency_code" , "amount" , "id_at_gateway" , "three_d_secure" , "error_code" , "error_text" , "voided_at" , "resource_version" , "updated_at" , "fraud_reason" , "custom_payment_method_id" , "amount_unused" , "masked_card_number" , "reference_transaction_id" , "refunded_txn_id" , "reference_authorization_id" , "amount_capturable" , "reversal_transaction_id" , "linked_invoices" , "linked_credit_notes" , "linked_refunds" , "linked_payments" , "deleted" , "iin" , "last4" , "merchant_reference_id" , "business_entity_id" , "payment_method_details" , "error_detail" , "custom_payment_method_name"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "gateway_account_id" , "payment_source_id" , "reference_number" , "date" , "settled_at" , "exchange_rate" , "currency_code" , "amount" , "id_at_gateway" , "three_d_secure" , "error_code" , "error_text" , "voided_at" , "resource_version" , "updated_at" , "fraud_reason" , "custom_payment_method_id" , "amount_unused" , "masked_card_number" , "reference_transaction_id" , "refunded_txn_id" , "reference_authorization_id" , "amount_capturable" , "reversal_transaction_id" , "linked_invoices" , "linked_credit_notes" , "linked_refunds" , "linked_payments" , "deleted" , "iin" , "last4" , "merchant_reference_id" , "business_entity_id" , "payment_method_details" , "error_detail" , "custom_payment_method_name" , "network_transaction_details"  ];
 
     /**
     * dynamic properties for resources
@@ -330,6 +336,7 @@ class Transaction  {
         ?string $payment_method_details,
         ?GatewayErrorDetail $error_detail,
         ?string $custom_payment_method_name,
+        ?NetworkTransactionDetail $network_transaction_details,
         ?\Chargebee\Enums\PaymentMethod $payment_method,
         ?\Chargebee\Enums\Gateway $gateway,
         ?\Chargebee\Resources\Transaction\Enums\Type $type,
@@ -377,7 +384,8 @@ class Transaction  {
         $this->business_entity_id = $business_entity_id;
         $this->payment_method_details = $payment_method_details;
         $this->error_detail = $error_detail;
-        $this->custom_payment_method_name = $custom_payment_method_name; 
+        $this->custom_payment_method_name = $custom_payment_method_name;
+        $this->network_transaction_details = $network_transaction_details; 
         $this->payment_method = $payment_method;
         $this->gateway = $gateway; 
         $this->type = $type;
@@ -444,6 +452,7 @@ class Transaction  {
         $resourceAttributes['payment_method_details'] ?? null,
         isset($resourceAttributes['error_detail']) ? GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
         $resourceAttributes['custom_payment_method_name'] ?? null,
+        isset($resourceAttributes['network_transaction_details']) ? NetworkTransactionDetail::from($resourceAttributes['network_transaction_details']) : null,
         
         
         isset($resourceAttributes['payment_method']) ? \Chargebee\Enums\PaymentMethod::tryFromValue($resourceAttributes['payment_method']) : null,
@@ -508,6 +517,7 @@ class Transaction  {
         
         'custom_payment_method_name' => $this->custom_payment_method_name,
         
+        
         'payment_method' => $this->payment_method?->value,
         
         'gateway' => $this->gateway?->value,
@@ -529,6 +539,9 @@ class Transaction  {
         
         if($this->error_detail instanceof GatewayErrorDetail){
             $data['error_detail'] = $this->error_detail->toArray();
+        }
+        if($this->network_transaction_details instanceof NetworkTransactionDetail){
+            $data['network_transaction_details'] = $this->network_transaction_details->toArray();
         }
         
         if($this->linked_invoices !== []){
