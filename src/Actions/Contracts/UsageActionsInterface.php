@@ -21,7 +21,11 @@ Interface UsageActionsInterface
     *     invoice?: array{
     *     id?: string,
     *     },
-    * disposition_type?: string,
+    * group_by?: array<array{
+    *     feature_id?: string,
+    *     attributes?: mixed,
+    *     }>,
+    *     disposition_type?: string,
     *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers

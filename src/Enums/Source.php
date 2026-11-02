@@ -14,6 +14,9 @@ enum Source : string {
     case JS_API = "js_api";
     case MIGRATION = "migration";
     case EXTERNAL_SERVICE = "external_service";
+    case MCP = "mcp";
+    case COPILOT = "copilot";
+    case AGENT = "agent";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

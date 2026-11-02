@@ -8,6 +8,7 @@ enum CancellationReason : string {
     case REFUNDED_DUE_TO_APP_ISSUE = "refunded_due_to_app_issue";
     case REFUNDED_FOR_OTHER_REASON = "refunded_for_other_reason";
     case MERCHANT_REVOKED = "merchant_revoked";
+    case OTHER = "other";
     case UNKNOWN = "unknown";
 
     public static function tryFromValue(string $value): self {

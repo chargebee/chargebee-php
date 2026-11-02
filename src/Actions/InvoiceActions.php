@@ -42,6 +42,7 @@ use Chargebee\Responses\InvoiceResponse\ApplyPaymentScheduleSchemeInvoiceRespons
 use Chargebee\Responses\InvoiceResponse\ListPaymentReferenceNumbersInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RemoveTaxWithheldInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\CreateForChargeItemInvoiceResponse;
+use Chargebee\Responses\InvoiceResponse\RemovePaymentScheduleSchemeInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RemoveCreditNoteInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\ImportInvoiceInvoiceResponse;
 use Chargebee\Responses\InvoiceResponse\RefundInvoiceResponse;
@@ -1635,6 +1636,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     tax10_amount?: int,
     *     is_partial_tax_applied?: bool,
     *     taxable_amount?: int,
+    *     tax_exempt_reason?: string,
     *     proration_mode?: string,
     *     created_at?: int,
     *     }>,
@@ -1909,13 +1911,13 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     offset?: string,
     *     payment_reference_number?: array{
     *     number?: array{
-    *         is?: string,
-    *             in?: string,
+    *         in?: string,
+    *             is?: string,
     *             },
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   
@@ -1946,6 +1948,42 @@ final class InvoiceActions implements InvoiceActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ListPaymentReferenceNumbersInvoiceResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/invoices/remove-payment-schedule-scheme-from-an-invoice?lang=php-v4
+    *   @param array{
+    *     comment?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return RemovePaymentScheduleSchemeInvoiceResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function removePaymentScheduleScheme(string $id, array $params = [], array $headers = []): RemovePaymentScheduleSchemeInvoiceResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["invoices",$id,"remove_payment_schedule_scheme"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("invoice")
+        ->withTelemetryOperation("removePaymentScheduleScheme")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return RemovePaymentScheduleSchemeInvoiceResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

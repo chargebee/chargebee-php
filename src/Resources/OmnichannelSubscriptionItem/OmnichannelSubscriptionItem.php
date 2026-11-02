@@ -41,9 +41,21 @@ class OmnichannelSubscriptionItem  {
     
     /**
     *
+    * @var ?string $expiration_reason_at_source
+    */
+    public ?string $expiration_reason_at_source;
+    
+    /**
+    *
     * @var ?int $cancelled_at
     */
     public ?int $cancelled_at;
+    
+    /**
+    *
+    * @var ?string $cancellation_reason_at_source
+    */
+    public ?string $cancellation_reason_at_source;
     
     /**
     *
@@ -120,7 +132,7 @@ class OmnichannelSubscriptionItem  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "cancelled_at" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "updated_at" , "resource_version" , "omnichannel_subscription_item_offers" , "upcoming_renewal" , "linked_item"  ];
+    protected static array $knownFields = [ "id" , "item_id_at_source" , "item_parent_id_at_source" , "current_term_start" , "current_term_end" , "expired_at" , "expiration_reason_at_source" , "cancelled_at" , "cancellation_reason_at_source" , "grace_period_expires_at" , "resumes_at" , "has_scheduled_changes" , "updated_at" , "resource_version" , "omnichannel_subscription_item_offers" , "upcoming_renewal" , "linked_item"  ];
 
     /**
     * dynamic properties for resources
@@ -135,7 +147,9 @@ class OmnichannelSubscriptionItem  {
         ?int $current_term_start,
         ?int $current_term_end,
         ?int $expired_at,
+        ?string $expiration_reason_at_source,
         ?int $cancelled_at,
+        ?string $cancellation_reason_at_source,
         ?int $grace_period_expires_at,
         ?int $resumes_at,
         ?bool $has_scheduled_changes,
@@ -156,7 +170,9 @@ class OmnichannelSubscriptionItem  {
         $this->current_term_start = $current_term_start;
         $this->current_term_end = $current_term_end;
         $this->expired_at = $expired_at;
+        $this->expiration_reason_at_source = $expiration_reason_at_source;
         $this->cancelled_at = $cancelled_at;
+        $this->cancellation_reason_at_source = $cancellation_reason_at_source;
         $this->grace_period_expires_at = $grace_period_expires_at;
         $this->resumes_at = $resumes_at;
         $this->has_scheduled_changes = $has_scheduled_changes;
@@ -183,7 +199,9 @@ class OmnichannelSubscriptionItem  {
         $resourceAttributes['current_term_start'] ?? null,
         $resourceAttributes['current_term_end'] ?? null,
         $resourceAttributes['expired_at'] ?? null,
+        $resourceAttributes['expiration_reason_at_source'] ?? null,
         $resourceAttributes['cancelled_at'] ?? null,
+        $resourceAttributes['cancellation_reason_at_source'] ?? null,
         $resourceAttributes['grace_period_expires_at'] ?? null,
         $resourceAttributes['resumes_at'] ?? null,
         $resourceAttributes['has_scheduled_changes'] ?? null,
@@ -216,7 +234,9 @@ class OmnichannelSubscriptionItem  {
         'current_term_start' => $this->current_term_start,
         'current_term_end' => $this->current_term_end,
         'expired_at' => $this->expired_at,
+        'expiration_reason_at_source' => $this->expiration_reason_at_source,
         'cancelled_at' => $this->cancelled_at,
+        'cancellation_reason_at_source' => $this->cancellation_reason_at_source,
         'grace_period_expires_at' => $this->grace_period_expires_at,
         'resumes_at' => $this->resumes_at,
         'has_scheduled_changes' => $this->has_scheduled_changes,

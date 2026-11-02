@@ -177,6 +177,7 @@ final class CreditNoteActions implements CreditNoteActionsInterface
     *     currency_code?: string,
     *     create_reason_code?: string,
     *     date?: int,
+    *     customer_notes?: string,
     *     status?: string,
     *     total?: int,
     *     refunded_at?: int,

@@ -48,6 +48,12 @@ class ItemPrice  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?string $price_ramp_id
+    */
+    public ?string $price_ramp_id;
+    
+    /**
+    *
     * @var ?int $price
     */
     public ?int $price;
@@ -265,7 +271,7 @@ class ItemPrice  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "item_family_id" , "item_id" , "description" , "external_name" , "price_variant_id" , "price" , "price_in_decimal" , "period" , "currency_code" , "trial_period" , "shipping_period" , "billing_cycles" , "free_quantity" , "free_quantity_in_decimal" , "resource_version" , "updated_at" , "created_at" , "archived_at" , "invoice_notes" , "tiers" , "is_taxable" , "tax_detail" , "tax_providers_fields" , "accounting_detail" , "metadata" , "archivable" , "parent_item_id" , "show_description_in_invoices" , "show_description_in_quotes" , "deleted" , "business_entity_id"  ];
+    protected static array $knownFields = [ "id" , "name" , "item_family_id" , "item_id" , "description" , "external_name" , "price_variant_id" , "price_ramp_id" , "price" , "price_in_decimal" , "period" , "currency_code" , "trial_period" , "shipping_period" , "billing_cycles" , "free_quantity" , "free_quantity_in_decimal" , "resource_version" , "updated_at" , "created_at" , "archived_at" , "invoice_notes" , "tiers" , "is_taxable" , "tax_detail" , "tax_providers_fields" , "accounting_detail" , "metadata" , "archivable" , "parent_item_id" , "show_description_in_invoices" , "show_description_in_quotes" , "deleted" , "business_entity_id"  ];
 
     /**
     * dynamic properties for resources
@@ -281,6 +287,7 @@ class ItemPrice  extends SupportsCustomFields  {
         ?string $description,
         ?string $external_name,
         ?string $price_variant_id,
+        ?string $price_ramp_id,
         ?int $price,
         ?string $price_in_decimal,
         ?int $period,
@@ -326,6 +333,7 @@ class ItemPrice  extends SupportsCustomFields  {
         $this->description = $description;
         $this->external_name = $external_name;
         $this->price_variant_id = $price_variant_id;
+        $this->price_ramp_id = $price_ramp_id;
         $this->price = $price;
         $this->price_in_decimal = $price_in_decimal;
         $this->period = $period;
@@ -381,6 +389,7 @@ class ItemPrice  extends SupportsCustomFields  {
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['external_name'] ?? null,
         $resourceAttributes['price_variant_id'] ?? null,
+        $resourceAttributes['price_ramp_id'] ?? null,
         $resourceAttributes['price'] ?? null,
         $resourceAttributes['price_in_decimal'] ?? null,
         $resourceAttributes['period'] ?? null,
@@ -448,6 +457,7 @@ class ItemPrice  extends SupportsCustomFields  {
         'description' => $this->description,
         'external_name' => $this->external_name,
         'price_variant_id' => $this->price_variant_id,
+        'price_ramp_id' => $this->price_ramp_id,
         'price' => $this->price,
         'price_in_decimal' => $this->price_in_decimal,
         'period' => $this->period,

@@ -51,42 +51,6 @@ final class CustomerActions implements CustomerActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/delete-a-customer?lang=php-v4
-    *   @param array{
-    *     delete_payment_method?: bool,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return DeleteCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function delete(string $id, array $params = [], array $headers = []): DeleteCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"delete"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("delete")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeleteCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers/add-promotional-credits-to-a-customer?lang=php-v4
     *   @param array{
     *     amount?: int,
@@ -326,41 +290,6 @@ final class CustomerActions implements CustomerActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/get-hierarchy?lang=php-v4
-    *   @param array{
-    *     hierarchy_operation_type?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return HierarchyCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function hierarchy(string $id, array $params, array $headers = []): HierarchyCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["customers",$id,"hierarchy"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("hierarchy")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return HierarchyCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers/update-payment-method-for-a-customer?lang=php-v4
     *   @param array{
     *     payment_method?: array{
@@ -403,180 +332,6 @@ final class CustomerActions implements CustomerActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdatePaymentMethodCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/retrieve-a-customer?lang=php-v4
-    *   
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return RetrieveCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function retrieve(string $id, array $headers = []): RetrieveCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["customers",$id])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("retrieve")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return RetrieveCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/update-a-customer?lang=php-v4
-    *   @param array{
-    *     tax_providers_fields?: array<array{
-    *     provider_name?: string,
-    *     field_id?: string,
-    *     field_value?: string,
-    *     }>,
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     preferred_currency_code?: string,
-    *     phone?: string,
-    *     company?: string,
-    *     auto_collection?: string,
-    *     allow_direct_debit?: bool,
-    *     net_term_days?: int,
-    *     taxability?: string,
-    *     exemption_details?: array<mixed>,
-    * customer_type?: string,
-    *     client_profile_id?: string,
-    *     taxjar_exemption_category?: string,
-    *     locale?: string,
-    *     entity_code?: string,
-    *     exempt_number?: string,
-    *     offline_payment_method?: string,
-    *     invoice_notes?: string,
-    *     auto_close_invoices?: bool,
-    *     meta_data?: mixed,
-    *     fraud_flag?: string,
-    *     consolidated_invoicing?: bool,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return UpdateCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function update(string $id, array $params = [], array $headers = []): UpdateCustomerResponse
-    {
-        $jsonKeys = [
-            "exemptionDetails" => 0,
-            "metaData" => 0,
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("update")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return UpdateCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/list-hierarchy-details?lang=php-v4
-    *   @param array{
-    *     limit?: int,
-    *     offset?: string,
-    *     hierarchy_operation_type?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return ListHierarchyDetailCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function listHierarchyDetail(string $id, array $params, array $headers = []): ListHierarchyDetailCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("get")
-        ->withUriPaths(["customers",$id,"hierarchy_detail"])
-        ->withParamEncoder(new ListParamEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("listHierarchyDetail")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return ListHierarchyDetailCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/change-billing-date?lang=php-v4
-    *   @param array{
-    *     billing_date?: int,
-    *     billing_month?: int,
-    *     billing_date_mode?: string,
-    *     billing_day_of_week?: string,
-    *     billing_day_of_week_mode?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return ChangeBillingDateCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function changeBillingDate(string $id, array $params = [], array $headers = []): ChangeBillingDateCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"change_billing_date"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("changeBillingDate")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return ChangeBillingDateCustomerResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -876,52 +631,6 @@ final class CustomerActions implements CustomerActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/add-contacts-to-a-customer?lang=php-v4
-    *   @param array{
-    *     contact?: array{
-    *     id?: string,
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     phone?: string,
-    *     label?: string,
-    *     enabled?: bool,
-    *     send_billing_email?: bool,
-    *     send_account_email?: bool,
-    *     },
-    * } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return AddContactCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function addContact(string $id, array $params, array $headers = []): AddContactCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"add_contact"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("addContact")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return AddContactCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers/list-of-contacts-for-a-customer?lang=php-v4
     *   @param array{
     *     limit?: int,
@@ -958,47 +667,6 @@ final class CustomerActions implements CustomerActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/deduct-promotional-credits-for-a-customer?lang=php-v4
-    *   @param array{
-    *     amount?: int,
-    *     currency_code?: string,
-    *     description?: string,
-    *     credit_type?: string,
-    *     reference?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @deprecated This method is deprecated and will be removed in a future version.
-    *   @param array<string, string> $headers
-    *   @return DeductPromotionalCreditsCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function deductPromotionalCredits(string $id, array $params, array $headers = []): DeductPromotionalCreditsCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"deduct_promotional_credits"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("deductPromotionalCredits")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return DeductPromotionalCreditsCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers/clear-personal-data-of-a-customer?lang=php-v4
     *   
     *   @param string $id  
@@ -1029,123 +697,6 @@ final class CustomerActions implements CustomerActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return ClearPersonalDataCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/merge-customers?lang=php-v4
-    *   @param array{
-    *     from_customer_id?: string,
-    *     to_customer_id?: string,
-    *     } $params Description of the parameters
-    *   
-    *   @param array<string, string> $headers
-    *   @return MergeCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function merge(array $params, array $headers = []): MergeCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers","merge"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("merge")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return MergeCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/collect-payment-for-customer?lang=php-v4
-    *   @param array{
-    *     payment_method?: array{
-    *     type?: string,
-    *     gateway_account_id?: string,
-    *     reference_id?: string,
-    *     tmp_token?: string,
-    *     additional_information?: mixed,
-    *     },
-    * card?: array{
-    *     gateway_account_id?: string,
-    *     first_name?: string,
-    *     last_name?: string,
-    *     number?: string,
-    *     expiry_month?: int,
-    *     expiry_year?: int,
-    *     cvv?: string,
-    *     preferred_scheme?: string,
-    *     billing_addr1?: string,
-    *     billing_addr2?: string,
-    *     billing_city?: string,
-    *     billing_state_code?: string,
-    *     billing_state?: string,
-    *     billing_zip?: string,
-    *     billing_country?: string,
-    *     additional_information?: mixed,
-    *     },
-    * payment_intent?: array{
-    *     id?: string,
-    *     gateway_account_id?: string,
-    *     gw_token?: string,
-    *     payment_method_type?: string,
-    *     gw_payment_method_id?: string,
-    *     reference_id?: string,
-    *     additional_information?: mixed,
-    *     },
-    * invoice_allocations?: array<array{
-    *     invoice_id?: string,
-    *     allocation_amount?: int,
-    *     }>,
-    *     amount?: int,
-    *     payment_source_id?: string,
-    *     token_id?: string,
-    *     replace_primary_payment_source?: bool,
-    *     retain_payment_source?: bool,
-    *     payment_initiator?: string,
-    *     } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return CollectPaymentCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function collectPayment(string $id, array $params, array $headers = []): CollectPaymentCustomerResponse
-    {
-        $jsonKeys = [
-            "additionalInformation" => 1,
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"collect_payment"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("collectPayment")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return CollectPaymentCustomerResponse::from($respObject->data, $respObject->headers);
     }
 
     /**
@@ -1268,52 +819,6 @@ final class CustomerActions implements CustomerActionsInterface
     }
 
     /**
-    *   @see https://apidocs.chargebee.com/docs/api/customers/update-contacts-for-a-customer?lang=php-v4
-    *   @param array{
-    *     contact?: array{
-    *     id?: string,
-    *     first_name?: string,
-    *     last_name?: string,
-    *     email?: string,
-    *     phone?: string,
-    *     label?: string,
-    *     enabled?: bool,
-    *     send_billing_email?: bool,
-    *     send_account_email?: bool,
-    *     },
-    * } $params Description of the parameters
-    *   @param string $id  
-    *   @param array<string, string> $headers
-    *   @return UpdateContactCustomerResponse
-    *   @throws PaymentException
-    *   @throws OperationFailedException
-    *   @throws APIError
-    *   @throws InvalidRequestException
-    *   @throws Exception
-    */
-    public function updateContact(string $id, array $params, array $headers = []): UpdateContactCustomerResponse
-    {
-        $jsonKeys = [
-        ];
-        $payload = ChargebeePayload::builder()
-        ->withEnvironment($this->env)
-        ->withHttpMethod("post")
-        ->withUriPaths(["customers",$id,"update_contact"])
-        ->withParamEncoder( new URLFormEncoder())
-        ->withSubDomain(null)
-        ->withJsonKeys($jsonKeys)
-        ->withHeaders($headers)
-        ->withParams($params)
-        ->withIdempotent(true)
-        ->withTelemetryResource("customer")
-        ->withTelemetryOperation("updateContact")
-        ->build();
-        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
-        $respObject = $apiRequester->makeRequest($payload);
-        return UpdateContactCustomerResponse::from($respObject->data, $respObject->headers);
-    }
-
-    /**
     *   @see https://apidocs.chargebee.com/docs/api/customers/update-hierarchy-access-settings-for-a-customer?lang=php-v4
     *   @param array{
     *     parent_account_access?: array{
@@ -1432,6 +937,501 @@ final class CustomerActions implements CustomerActionsInterface
         $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
         $respObject = $apiRequester->makeRequest($payload);
         return UpdateBillingInfoCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/delete-a-customer?lang=php-v4
+    *   @param array{
+    *     delete_payment_method?: bool,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return DeleteCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function delete(string $id, array $params = [], array $headers = []): DeleteCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"delete"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("delete")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return DeleteCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/get-hierarchy?lang=php-v4
+    *   @param array{
+    *     hierarchy_operation_type?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return HierarchyCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function hierarchy(string $id, array $params, array $headers = []): HierarchyCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["customers",$id,"hierarchy"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("hierarchy")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return HierarchyCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/retrieve-a-customer?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return RetrieveCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function retrieve(string $id, array $headers = []): RetrieveCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["customers",$id])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("retrieve")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return RetrieveCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-a-customer?lang=php-v4
+    *   @param array{
+    *     tax_providers_fields?: array<array{
+    *     provider_name?: string,
+    *     field_id?: string,
+    *     field_value?: string,
+    *     }>,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     preferred_currency_code?: string,
+    *     phone?: string,
+    *     company?: string,
+    *     auto_collection?: string,
+    *     allow_direct_debit?: bool,
+    *     net_term_days?: int,
+    *     taxability?: string,
+    *     exemption_details?: array<mixed>,
+    * customer_type?: string,
+    *     client_profile_id?: string,
+    *     taxjar_exemption_category?: string,
+    *     locale?: string,
+    *     entity_code?: string,
+    *     exempt_number?: string,
+    *     offline_payment_method?: string,
+    *     invoice_notes?: string,
+    *     auto_close_invoices?: bool,
+    *     meta_data?: mixed,
+    *     fraud_flag?: string,
+    *     consolidated_invoicing?: bool,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function update(string $id, array $params = [], array $headers = []): UpdateCustomerResponse
+    {
+        $jsonKeys = [
+            "exemptionDetails" => 0,
+            "metaData" => 0,
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("update")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/list-hierarchy-details?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     hierarchy_operation_type?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ListHierarchyDetailCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function listHierarchyDetail(string $id, array $params, array $headers = []): ListHierarchyDetailCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["customers",$id,"hierarchy_detail"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("listHierarchyDetail")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ListHierarchyDetailCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/change-billing-date?lang=php-v4
+    *   @param array{
+    *     billing_date?: int,
+    *     billing_month?: int,
+    *     billing_date_mode?: string,
+    *     billing_day_of_week?: string,
+    *     billing_day_of_week_mode?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return ChangeBillingDateCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function changeBillingDate(string $id, array $params = [], array $headers = []): ChangeBillingDateCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"change_billing_date"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("changeBillingDate")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ChangeBillingDateCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/add-contacts-to-a-customer?lang=php-v4
+    *   @param array{
+    *     contact?: array{
+    *     id?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     phone?: string,
+    *     label?: string,
+    *     enabled?: bool,
+    *     send_billing_email?: bool,
+    *     send_account_email?: bool,
+    *     },
+    * } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return AddContactCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function addContact(string $id, array $params, array $headers = []): AddContactCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"add_contact"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("addContact")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return AddContactCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/deduct-promotional-credits-for-a-customer?lang=php-v4
+    *   @param array{
+    *     amount?: int,
+    *     currency_code?: string,
+    *     description?: string,
+    *     credit_type?: string,
+    *     reference?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @deprecated This method is deprecated and will be removed in a future version.
+    *   @param array<string, string> $headers
+    *   @return DeductPromotionalCreditsCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function deductPromotionalCredits(string $id, array $params, array $headers = []): DeductPromotionalCreditsCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"deduct_promotional_credits"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("deductPromotionalCredits")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return DeductPromotionalCreditsCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/merge-customers?lang=php-v4
+    *   @param array{
+    *     from_customer_id?: string,
+    *     to_customer_id?: string,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return MergeCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function merge(array $params, array $headers = []): MergeCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers","merge"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("merge")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return MergeCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/collect-payment-for-customer?lang=php-v4
+    *   @param array{
+    *     payment_method?: array{
+    *     type?: string,
+    *     gateway_account_id?: string,
+    *     reference_id?: string,
+    *     tmp_token?: string,
+    *     additional_information?: mixed,
+    *     },
+    * card?: array{
+    *     gateway_account_id?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     number?: string,
+    *     expiry_month?: int,
+    *     expiry_year?: int,
+    *     cvv?: string,
+    *     preferred_scheme?: string,
+    *     billing_addr1?: string,
+    *     billing_addr2?: string,
+    *     billing_city?: string,
+    *     billing_state_code?: string,
+    *     billing_state?: string,
+    *     billing_zip?: string,
+    *     billing_country?: string,
+    *     additional_information?: mixed,
+    *     },
+    * payment_intent?: array{
+    *     id?: string,
+    *     gateway_account_id?: string,
+    *     gw_token?: string,
+    *     payment_method_type?: string,
+    *     gw_payment_method_id?: string,
+    *     reference_id?: string,
+    *     additional_information?: mixed,
+    *     },
+    * invoice_allocations?: array<array{
+    *     invoice_id?: string,
+    *     allocation_amount?: int,
+    *     }>,
+    *     amount?: int,
+    *     payment_source_id?: string,
+    *     token_id?: string,
+    *     replace_primary_payment_source?: bool,
+    *     retain_payment_source?: bool,
+    *     payment_initiator?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return CollectPaymentCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function collectPayment(string $id, array $params, array $headers = []): CollectPaymentCustomerResponse
+    {
+        $jsonKeys = [
+            "additionalInformation" => 1,
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"collect_payment"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("collectPayment")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return CollectPaymentCustomerResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/customers/update-contacts-for-a-customer?lang=php-v4
+    *   @param array{
+    *     contact?: array{
+    *     id?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     email?: string,
+    *     phone?: string,
+    *     label?: string,
+    *     enabled?: bool,
+    *     send_billing_email?: bool,
+    *     send_account_email?: bool,
+    *     },
+    * } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateContactCustomerResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function updateContact(string $id, array $params, array $headers = []): UpdateContactCustomerResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["customers",$id,"update_contact"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("customer")
+        ->withTelemetryOperation("updateContact")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateContactCustomerResponse::from($respObject->data, $respObject->headers);
     }
 
 }

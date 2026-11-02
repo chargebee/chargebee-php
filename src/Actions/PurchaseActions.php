@@ -54,6 +54,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     unit_amount?: int,
     *     unit_amount_in_decimal?: string,
     *     quantity_in_decimal?: string,
+    *     trial_end?: int,
     *     }>,
     *     item_tiers?: array<array{
     *     index?: int,
@@ -94,6 +95,8 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     subscription_id?: string,
     *     billing_cycles?: int,
     *     contract_term_billing_cycle_on_renewal?: int,
+    *     trial_end?: int,
+    *     start_date?: int,
     *     meta_data?: mixed,
     *     }>,
     *     contract_terms?: array<array{
@@ -168,6 +171,7 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     unit_amount?: int,
     *     unit_amount_in_decimal?: string,
     *     quantity_in_decimal?: string,
+    *     trial_end?: int,
     *     }>,
     *     item_tiers?: array<array{
     *     index?: int,
@@ -208,6 +212,8 @@ final class PurchaseActions implements PurchaseActionsInterface
     *     subscription_id?: string,
     *     billing_cycles?: int,
     *     contract_term_billing_cycle_on_renewal?: int,
+    *     trial_end?: int,
+    *     start_date?: int,
     *     }>,
     *     contract_terms?: array<array{
     *     index?: int,

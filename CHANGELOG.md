@@ -1,3 +1,175 @@
+### v4.28.0 (2026-11-02)
+* * *
+### New Resources:
+- `Citation` has been added.
+- `CollectionsDispute` has been added.
+- `CollectionsPaymentPromise` has been added.
+- `CollectionsReminderSequence` has been added.
+- `CustomData` has been added.
+- `DraftEstimate` has been added.
+- `DraftRequest` has been added.
+- `EmailAttachment` has been added.
+- `EmailConversation` has been added.
+- `EmailMessage` has been added.
+- `Execution` has been added.
+- `GroupByAttribute` has been added.
+- `GroupByRecommendation` has been added.
+- `PreferenceVariant` has been added.
+- `PriceRamp` has been added.
+- `PrivateNote` has been added.
+- `RampInterval` has been added.
+- `RetrySegment` has been added.
+
+
+### New Actions:
+- `retrieve_a_business_entity` has been added to `BusinessEntity`.
+- `update_business_entity` has been added to `BusinessEntity`.
+- `list_business_entities` has been added to `BusinessEntity`.
+- `create_a_business_entity` has been added to `BusinessEntity`.
+- `remove_payment_schedule_scheme_from_an_invoice` has been added to `Invoice`.
+- `update_overdraft_limit` has been added to `LedgerAccountBalance`.
+
+
+### New Attributes:
+- `email_conversation_id` has been added to `EmailLog`.
+- `gateway` has been added to `GatewayPaymentMethodToken`.
+- `retry_segment_id` has been added to `Invoice`.
+- `price_ramp_id` has been added to `ItemPrice`.
+- `group_by` has been added to `Meter`.
+- `group_by` has been added to `MeteredFeature`.
+- `origin` has been added to `OmnichannelSubscription`.
+- `expiration_reason_at_source` has been added to `OmnichannelSubscriptionItem`.
+- `cancellation_reason_at_source` has been added to `OmnichannelSubscriptionItem`.
+- `gateway_metadata` has been added to `Transaction`.
+- `attributes` has been added to `UsageSummary`.
+
+
+### New Parameters:
+- `limit` has been added as query parameter to `list_business_entities` in `BusinessEntity`.
+- `offset` has been added as query parameter to `list_business_entities` in `BusinessEntity`.
+- `include_deleted` has been added as query parameter to `list_business_entities` in `BusinessEntity`.
+- `name` has been added as query parameter to `list_business_entities` in `BusinessEntity`.
+- `group_by` has been added as query parameter to `retrieve_usage_summary_for_a_subscription` in `UsageSummary`.
+- `name` has been added as request body parameter to `update_business_entity` in `BusinessEntity`.
+- `status` has been added as request body parameter to `update_business_entity` in `BusinessEntity`.
+- `name` has been added as request body parameter to `create_a_business_entity` in `BusinessEntity`.
+- `status` has been added as request body parameter to `create_a_business_entity` in `BusinessEntity`.
+- `customer_notes` has been added as request body parameter to `import_credit_note` in `CreditNote`.
+- `line_items.tax_exempt_reason` has been added as request body parameter to `import_invoice` in `Invoice`.
+- `comment` has been added as request body parameter to `remove_payment_schedule_scheme_from_an_invoice` in `Invoice`.
+- `subscription_id` has been added as request body parameter to `update_overdraft_limit` in `LedgerAccountBalance`.
+- `unit_id` has been added as request body parameter to `update_overdraft_limit` in `LedgerAccountBalance`.
+- `is_unlimited` has been added as request body parameter to `update_overdraft_limit` in `LedgerAccountBalance`.
+- `limit` has been added as request body parameter to `update_overdraft_limit` in `LedgerAccountBalance`.
+- `change_reason` has been added as request body parameter to `update_overdraft_limit` in `LedgerAccountBalance`.
+- `bank_account` has been added as request body parameter to `create_using_permanent_token` in `PaymentSource`.
+- `purchase_items.trial_end` has been added as request body parameter to `create_a_purchase` in `Purchase`.
+- `subscription_info.trial_end` has been added as request body parameter to `create_a_purchase` in `Purchase`.
+- `subscription_info.start_date` has been added as request body parameter to `create_a_purchase` in `Purchase`.
+- `purchase_items.trial_end` has been added as request body parameter to `estimates_for_purchase` in `Purchase`.
+- `subscription_info.trial_end` has been added as request body parameter to `estimates_for_purchase` in `Purchase`.
+- `subscription_info.start_date` has been added as request body parameter to `estimates_for_purchase` in `Purchase`.
+- `items_to_add.description` has been added as request body parameter to `create_a_ramp` in `Ramp`.
+- `items_to_update.description` has been added as request body parameter to `create_a_ramp` in `Ramp`.
+- `items_to_add.description` has been added as request body parameter to `update_a_subscription_ramp` in `Ramp`.
+- `items_to_update.description` has been added as request body parameter to `update_a_subscription_ramp` in `Ramp`.
+- `group_by` has been added as request body parameter to `retrieve_usages_for_an_invoice_as_pdf` in `Usage`.
+
+
+### New Events:
+- `chargeback_lost` has been added.
+- `price_ramp_updated` has been added.
+- `refund_failed` has been added.
+- `chargeback_initiated` has been added.
+- `collections_payment_promise_fulfilled` has been added.
+- `collections_dispute_resolved` has been added.
+- `collections_dispute_updated` has been added.
+- `collections_payment_promise_updated` has been added.
+- `chargeback_won` has been added.
+- `price_ramp_created` has been added.
+- `collections_reminder_sequence_created` has been added.
+- `email_message_received` has been added.
+- `collections_payment_promise_broken` has been added.
+- `price_ramp_deleted` has been added.
+- `collections_payment_promise_created` has been added.
+- `private_note_added` has been added.
+- `collections_dispute_created` has been added.
+- `collections_payment_promise_cancelled` has been added.
+- `collections_dispute_withdrawn` has been added.
+- `collections_reminder_sequence_paused` has been added.
+- `collections_reminder_sequence_resumed` has been added.
+- `payment_schedules_cancelled` has been added.
+- `collections_reminder_sequence_completed` has been added.
+
+
+### Deleted Resources:
+- AppliedBusinessRule has been removed.
+
+
+### Deleted Attributes:
+- `handle` has been removed from `AppliedBusinessRule`.
+- `entity_type` has been removed from `AppliedBusinessRule`.
+- `entity_id` has been removed from `AppliedBusinessRule`.
+- `entity_version` has been removed from `AppliedBusinessRule`.
+- `rule_id` has been removed from `AppliedBusinessRule`.
+- `version` has been removed from `AppliedBusinessRule`.
+- `created_at` has been removed from `AppliedBusinessRule`.
+- `modified_at` has been removed from `AppliedBusinessRule`.
+- `gateway_name` has been removed from `GatewayPaymentMethodToken`.
+
+
+### Deleted Events:
+- `business_rules_applied` has been removed.
+
+
+### New Enums:
+- `task` has been added as a new value enum `EntityType`.
+- `payment_schedules_cancelled`, `refund_failed`, `price_ramp_created`, `price_ramp_updated`, `price_ramp_deleted`, `chargeback_initiated`, `chargeback_won`, `chargeback_lost`, `collections_reminder_sequence_created`, `collections_reminder_sequence_paused`, `collections_reminder_sequence_resumed`, `collections_reminder_sequence_completed`, `collections_payment_promise_created`, `collections_payment_promise_updated`, `collections_payment_promise_fulfilled`, `collections_payment_promise_cancelled`, `collections_payment_promise_broken`, `collections_dispute_created`, `collections_dispute_updated`, `collections_dispute_resolved`, `collections_dispute_withdrawn`, `email_message_received`, and `private_note_added` have been added as new values enum `EventType`.
+- `mcp`, `copilot`, and `agent` have been added as new values enum `Source`.
+- `low`, `medium`, `high`, and `not_provided` have been added as new values to enum attribute `confidence_level` in `Citation`.
+- `open`, `resolved`, and `withdrawn` have been added as new values to enum attribute `status` in `CollectionsDispute`.
+- `active`, `fulfilled`, `broken`, and `cancelled` have been added as new values to enum attribute `status` in `CollectionsPaymentPromise`.
+- `active`, `completed`, `paused`, and `failed` have been added as new values to enum attribute `status` in `CollectionsReminderSequence`.
+- `success` and `failed` have been added as new values to enum attribute `status` in `DraftEstimate`.
+- `open` and `executed` have been added as new values to enum attribute `status` in `DraftRequest`.
+- `contact`, `site_user`, `agent`, and `other` have been added as new values to enum attribute `author_type` in `EmailMessage`.
+- `pending`, `sent`, and `failed` have been added as new values to enum attribute `send_status` in `EmailMessage`.
+- `success` and `failed` have been added as new values to enum attribute `status` in `Execution`.
+- `valid` and `invalid` have been added as new values to enum attribute `status` in `GatewayPaymentMethodToken`.
+- `low_coverage` and `high_cardinality` have been added as new values to enum attribute `warning_reasons` in `GroupByAttribute`.
+- `roku` and `amazon_app_store` have been added as new values to enum attribute `source` in `OmnichannelOneTimeOrder`.
+- `roku` and `amazon_app_store` have been added as new values to enum attribute `source` in `OmnichannelSubscription`.
+- `other` has been added as a new value to enum attribute `cancellation_reason` in `OmnichannelSubscriptionItem`.
+- `active`, `archived`, and `deleted` have been added as new values to enum attribute `status` in `PriceRamp`.
+- `site_user`, `agent`, and `other` have been added as new values to enum attribute `author_type` in `PrivateNote`.
+- `roku` and `amazon_app_store` have been added as new values to enum attribute `source` in `RecordedPurchase`.
+- `and` and `or` have been added as new values to enum attribute `condition_logic` in `RetrySegment`.
+- `true` and `false` have been added as new values to enum query parameter `name.is_present` in `list_business_entities` of `BusinessEntity`.
+- `broken`, `fulfilled`, `active`, and `cancelled` have been added as new values to enum query parameter `status.is` in `list_collections_payment_promises` of `CollectionsPaymentPromise`.
+- `not_provided`, `high`, `low`, and `medium` have been added as new values to enum request body parameter `citations.confidence_level` in `add_citations_to_a_draft_request` of `DraftRequest`.
+- `not_provided`, `high`, `low`, and `medium` have been added as new values to enum request body parameter `citations.confidence_level` in `update_a_draft_request` of `DraftRequest`.
+- `not_provided`, `high`, `low`, and `medium` have been added as new values to enum request body parameter `citations.confidence_level` in `create_a_draft_request` of `DraftRequest`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.is` in `list_omnichannel_one_time_orders` of `OmnichannelOneTimeOrder`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.is_not` in `list_omnichannel_one_time_orders` of `OmnichannelOneTimeOrder`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.in` in `list_omnichannel_one_time_orders` of `OmnichannelOneTimeOrder`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.not_in` in `list_omnichannel_one_time_orders` of `OmnichannelOneTimeOrder`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.is` in `list_omnichannel_subscriptions` of `OmnichannelSubscription`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.is_not` in `list_omnichannel_subscriptions` of `OmnichannelSubscription`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.in` in `list_omnichannel_subscriptions` of `OmnichannelSubscription`.
+- `roku` and `amazon_app_store` have been added as new values to enum query parameter `source.not_in` in `list_omnichannel_subscriptions` of `OmnichannelSubscription`.
+- `bacs`, `pad`, `sepa_core`, `ach`, `autogiro`, `becs_nz`, and `becs` have been added as new values to enum request body parameter `bank_account.scheme` in `create_using_permanent_token` of `PaymentSource`.
+- `archived` and `active` have been added as new values to enum query parameter `status.is` in `list_price_ramps` of `PriceRamp`.
+- `archived` and `active` have been added as new values to enum query parameter `status.is_not` in `list_price_ramps` of `PriceRamp`.
+- `archived` and `active` have been added as new values to enum query parameter `status.in` in `list_price_ramps` of `PriceRamp`.
+- `archived` and `active` have been added as new values to enum query parameter `status.not_in` in `list_price_ramps` of `PriceRamp`.
+- `true` and `false` have been added as new values to enum query parameter `business_entity_id.is_present` in `list_price_ramps` of `PriceRamp`.
+- `true` and `false` have been added as new values to enum query parameter `include_site_level_resources.is` in `list_price_ramps` of `PriceRamp`.
+- `updated_at`, `id`, and `status` have been added as new values to enum query parameter `sort_by.asc` in `list_price_ramps` of `PriceRamp`.
+- `updated_at`, `id`, and `status` have been added as new values to enum query parameter `sort_by.desc` in `list_price_ramps` of `PriceRamp`.
+- `active` and `archived` have been added as new values to enum request body parameter `status` in `update_a_price_ramp` of `PriceRamp`.
+
+
+
 ### v4.27.0 (2026-09-24)
 * * *
 ### New Resources:

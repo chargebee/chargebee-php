@@ -95,6 +95,12 @@ class ItemsToUpdate  {
     
     /**
     *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
+    *
     * @var ?string $charge_on_event
     */
     public ?string $charge_on_event;
@@ -102,7 +108,7 @@ class ItemsToUpdate  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity" , "charge_once" , "charge_on_option" , "charge_on_event"  ];
+    protected static array $knownFields = [ "item_price_id" , "item_type" , "quantity" , "quantity_in_decimal" , "unit_price" , "unit_price_in_decimal" , "amount" , "amount_in_decimal" , "free_quantity" , "free_quantity_in_decimal" , "billing_cycles" , "service_period_days" , "metered_quantity" , "charge_once" , "charge_on_option" , "description" , "charge_on_event"  ];
 
     /**
     * dynamic properties for resources
@@ -126,6 +132,7 @@ class ItemsToUpdate  {
         ?string $metered_quantity,
         ?bool $charge_once,
         ?string $charge_on_option,
+        ?string $description,
         ?string $charge_on_event,
     )
     { 
@@ -144,6 +151,7 @@ class ItemsToUpdate  {
         $this->metered_quantity = $metered_quantity;
         $this->charge_once = $charge_once;
         $this->charge_on_option = $charge_on_option;
+        $this->description = $description;
         $this->charge_on_event = $charge_on_event;   
     }
 
@@ -164,6 +172,7 @@ class ItemsToUpdate  {
         $resourceAttributes['metered_quantity'] ?? null,
         $resourceAttributes['charge_once'] ?? null,
         $resourceAttributes['charge_on_option'] ?? null,
+        $resourceAttributes['description'] ?? null,
         $resourceAttributes['charge_on_event'] ?? null,
         
           
@@ -190,6 +199,7 @@ class ItemsToUpdate  {
         'metered_quantity' => $this->metered_quantity,
         'charge_once' => $this->charge_once,
         'charge_on_option' => $this->charge_on_option,
+        'description' => $this->description,
         'charge_on_event' => $this->charge_on_event,
         
         ], function ($value) {

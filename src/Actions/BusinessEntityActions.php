@@ -1,7 +1,11 @@
 <?php
 namespace Chargebee\Actions;
 
+use Chargebee\Responses\BusinessEntityResponse\CreateBusinessEntityResponse;
+use Chargebee\Responses\BusinessEntityResponse\UpdateBusinessEntityResponse;
+use Chargebee\Responses\BusinessEntityResponse\ListBusinessEntityResponse;
 use Chargebee\Responses\BusinessEntityResponse\GetTransfersBusinessEntityResponse;
+use Chargebee\Responses\BusinessEntityResponse\RetrieveBusinessEntityResponse;
 use Chargebee\Actions\Contracts\BusinessEntityActionsInterface;
 use Chargebee\ValueObjects\Encoders\ListParamEncoder;
 use Chargebee\Responses\BusinessEntityResponse\CreateTransfersBusinessEntityResponse;
@@ -23,6 +27,155 @@ final class BusinessEntityActions implements BusinessEntityActionsInterface
     public function __construct(HttpClientFactory $httpClientFactory, Environment $env){
        $this->httpClientFactory = $httpClientFactory;
        $this->env = $env;
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/retrieve-a-business-entity?lang=php-v4
+    *   
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return RetrieveBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function retrieve(string $id, array $headers = []): RetrieveBusinessEntityResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["business_entities",$id])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("retrieve")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return RetrieveBusinessEntityResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/update-business-entity?lang=php-v4
+    *   @param array{
+    *     name?: string,
+    *     status?: string,
+    *     } $params Description of the parameters
+    *   @param string $id  
+    *   @param array<string, string> $headers
+    *   @return UpdateBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function update(string $id, array $params = [], array $headers = []): UpdateBusinessEntityResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["business_entities",$id])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("update")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return UpdateBusinessEntityResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/list-business-entities?lang=php-v4
+    *   @param array{
+    *     limit?: int,
+    *     offset?: string,
+    *     include_deleted?: bool,
+    *     name?: array{
+    *     is?: mixed,
+    *     is_not?: mixed,
+    *     starts_with?: mixed,
+    *     is_present?: mixed,
+    *     },
+    * } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return ListBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function all(array $params = [], array $headers = []): ListBusinessEntityResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("get")
+        ->withUriPaths(["business_entities"])
+        ->withParamEncoder(new ListParamEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("list")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return ListBusinessEntityResponse::from($respObject->data, $respObject->headers);
+    }
+
+    /**
+    *   @see https://apidocs.chargebee.com/docs/api/business_entities/create-a-business-entity?lang=php-v4
+    *   @param array{
+    *     name?: string,
+    *     status?: string,
+    *     } $params Description of the parameters
+    *   
+    *   @param array<string, string> $headers
+    *   @return CreateBusinessEntityResponse
+    *   @throws PaymentException
+    *   @throws OperationFailedException
+    *   @throws APIError
+    *   @throws InvalidRequestException
+    *   @throws Exception
+    */
+    public function create(array $params, array $headers = []): CreateBusinessEntityResponse
+    {
+        $jsonKeys = [
+        ];
+        $payload = ChargebeePayload::builder()
+        ->withEnvironment($this->env)
+        ->withHttpMethod("post")
+        ->withUriPaths(["business_entities"])
+        ->withParamEncoder( new URLFormEncoder())
+        ->withSubDomain(null)
+        ->withJsonKeys($jsonKeys)
+        ->withHeaders($headers)
+        ->withParams($params)
+        ->withIdempotent(true)
+        ->withTelemetryResource("businessEntity")
+        ->withTelemetryOperation("create")
+        ->build();
+        $apiRequester = new APIRequester($this->httpClientFactory, $this->env);
+        $respObject = $apiRequester->makeRequest($payload);
+        return CreateBusinessEntityResponse::from($respObject->data, $respObject->headers);
     }
 
     /**

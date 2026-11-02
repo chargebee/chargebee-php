@@ -177,16 +177,16 @@ final class OmnichannelSubscriptionActions implements OmnichannelSubscriptionAct
     *     not_in?: mixed,
     *     },
     * updated_at?: array{
-    *     after?: mixed,
-    *     on?: mixed,
-    *     before?: mixed,
     *     between?: mixed,
+    *     before?: mixed,
+    *     on?: mixed,
+    *     after?: mixed,
     *     },
     * purchased_at?: array{
-    *     after?: mixed,
-    *     on?: mixed,
-    *     before?: mixed,
     *     between?: mixed,
+    *     before?: mixed,
+    *     on?: mixed,
+    *     after?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,
