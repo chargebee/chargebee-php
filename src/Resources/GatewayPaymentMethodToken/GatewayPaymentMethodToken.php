@@ -41,9 +41,9 @@ class GatewayPaymentMethodToken  {
     
     /**
     *
-    * @var ?\Chargebee\Enums\GatewayName $gateway_name
+    * @var ?\Chargebee\Enums\Gateway $gateway
     */
-    public ?\Chargebee\Enums\GatewayName $gateway_name;
+    public ?\Chargebee\Enums\Gateway $gateway;
     
     /**
     *
@@ -69,7 +69,7 @@ class GatewayPaymentMethodToken  {
         ?string $gateway_token,
         ?int $created_at,
         ?int $updated_at,
-        ?\Chargebee\Enums\GatewayName $gateway_name,
+        ?\Chargebee\Enums\Gateway $gateway,
         ?\Chargebee\Resources\GatewayPaymentMethodToken\Enums\Status $status,
     )
     { 
@@ -79,7 +79,7 @@ class GatewayPaymentMethodToken  {
         $this->gateway_token = $gateway_token;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at; 
-        $this->gateway_name = $gateway_name; 
+        $this->gateway = $gateway; 
         $this->status = $status; 
     }
 
@@ -93,7 +93,7 @@ class GatewayPaymentMethodToken  {
         $resourceAttributes['updated_at'] ?? null,
         
         
-        isset($resourceAttributes['gateway_name']) ? \Chargebee\Enums\GatewayName::tryFromValue($resourceAttributes['gateway_name']) : null,
+        isset($resourceAttributes['gateway']) ? \Chargebee\Enums\Gateway::tryFromValue($resourceAttributes['gateway']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\GatewayPaymentMethodToken\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
          
@@ -112,7 +112,7 @@ class GatewayPaymentMethodToken  {
         'created_at' => $this->created_at,
         'updated_at' => $this->updated_at,
         
-        'gateway_name' => $this->gateway_name?->value,
+        'gateway' => $this->gateway?->value,
         
         'status' => $this->status?->value,
         

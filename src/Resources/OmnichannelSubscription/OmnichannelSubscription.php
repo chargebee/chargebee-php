@@ -29,6 +29,12 @@ class OmnichannelSubscription  {
     
     /**
     *
+    * @var ?string $origin
+    */
+    public ?string $origin;
+    
+    /**
+    *
     * @var ?int $created_at
     */
     public ?int $created_at;
@@ -72,7 +78,7 @@ class OmnichannelSubscription  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "customer_id" , "created_at" , "purchased_at" , "updated_at" , "resource_version" , "omnichannel_subscription_items" , "initial_purchase_transaction"  ];
+    protected static array $knownFields = [ "id" , "id_at_source" , "app_id" , "customer_id" , "origin" , "created_at" , "purchased_at" , "updated_at" , "resource_version" , "omnichannel_subscription_items" , "initial_purchase_transaction"  ];
 
     /**
     * dynamic properties for resources
@@ -85,6 +91,7 @@ class OmnichannelSubscription  {
         ?string $id_at_source,
         ?string $app_id,
         ?string $customer_id,
+        ?string $origin,
         ?int $created_at,
         ?int $purchased_at,
         ?int $updated_at,
@@ -98,6 +105,7 @@ class OmnichannelSubscription  {
         $this->id_at_source = $id_at_source;
         $this->app_id = $app_id;
         $this->customer_id = $customer_id;
+        $this->origin = $origin;
         $this->created_at = $created_at;
         $this->purchased_at = $purchased_at;
         $this->updated_at = $updated_at;
@@ -117,6 +125,7 @@ class OmnichannelSubscription  {
         $resourceAttributes['id_at_source'] ?? null,
         $resourceAttributes['app_id'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['origin'] ?? null,
         $resourceAttributes['created_at'] ?? null,
         $resourceAttributes['purchased_at'] ?? null,
         $resourceAttributes['updated_at'] ?? null,
@@ -139,6 +148,7 @@ class OmnichannelSubscription  {
         'id_at_source' => $this->id_at_source,
         'app_id' => $this->app_id,
         'customer_id' => $this->customer_id,
+        'origin' => $this->origin,
         'created_at' => $this->created_at,
         'purchased_at' => $this->purchased_at,
         'updated_at' => $this->updated_at,

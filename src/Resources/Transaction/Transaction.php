@@ -227,6 +227,12 @@ class Transaction  {
     
     /**
     *
+    * @var ?GatewayMetadata $gateway_metadata
+    */
+    public ?GatewayMetadata $gateway_metadata;
+    
+    /**
+    *
     * @var ?GatewayErrorDetail $error_detail
     */
     public ?GatewayErrorDetail $error_detail;
@@ -288,7 +294,7 @@ class Transaction  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "gateway_account_id" , "payment_source_id" , "reference_number" , "date" , "settled_at" , "exchange_rate" , "currency_code" , "amount" , "id_at_gateway" , "three_d_secure" , "error_code" , "error_text" , "voided_at" , "resource_version" , "updated_at" , "fraud_reason" , "custom_payment_method_id" , "amount_unused" , "masked_card_number" , "reference_transaction_id" , "refunded_txn_id" , "reference_authorization_id" , "amount_capturable" , "reversal_transaction_id" , "linked_invoices" , "linked_credit_notes" , "linked_refunds" , "linked_payments" , "deleted" , "iin" , "last4" , "merchant_reference_id" , "business_entity_id" , "payment_method_details" , "error_detail" , "custom_payment_method_name" , "network_transaction_details"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "subscription_id" , "gateway_account_id" , "payment_source_id" , "reference_number" , "date" , "settled_at" , "exchange_rate" , "currency_code" , "amount" , "id_at_gateway" , "three_d_secure" , "error_code" , "error_text" , "voided_at" , "resource_version" , "updated_at" , "fraud_reason" , "custom_payment_method_id" , "amount_unused" , "masked_card_number" , "reference_transaction_id" , "refunded_txn_id" , "reference_authorization_id" , "amount_capturable" , "reversal_transaction_id" , "linked_invoices" , "linked_credit_notes" , "linked_refunds" , "linked_payments" , "deleted" , "iin" , "last4" , "merchant_reference_id" , "business_entity_id" , "payment_method_details" , "gateway_metadata" , "error_detail" , "custom_payment_method_name" , "network_transaction_details"  ];
 
     /**
     * dynamic properties for resources
@@ -334,6 +340,7 @@ class Transaction  {
         ?string $merchant_reference_id,
         ?string $business_entity_id,
         ?string $payment_method_details,
+        ?GatewayMetadata $gateway_metadata,
         ?GatewayErrorDetail $error_detail,
         ?string $custom_payment_method_name,
         ?NetworkTransactionDetail $network_transaction_details,
@@ -383,6 +390,7 @@ class Transaction  {
         $this->merchant_reference_id = $merchant_reference_id;
         $this->business_entity_id = $business_entity_id;
         $this->payment_method_details = $payment_method_details;
+        $this->gateway_metadata = $gateway_metadata;
         $this->error_detail = $error_detail;
         $this->custom_payment_method_name = $custom_payment_method_name;
         $this->network_transaction_details = $network_transaction_details; 
@@ -450,6 +458,7 @@ class Transaction  {
         $resourceAttributes['merchant_reference_id'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         $resourceAttributes['payment_method_details'] ?? null,
+        isset($resourceAttributes['gateway_metadata']) ? GatewayMetadata::from($resourceAttributes['gateway_metadata']) : null,
         isset($resourceAttributes['error_detail']) ? GatewayErrorDetail::from($resourceAttributes['error_detail']) : null,
         $resourceAttributes['custom_payment_method_name'] ?? null,
         isset($resourceAttributes['network_transaction_details']) ? NetworkTransactionDetail::from($resourceAttributes['network_transaction_details']) : null,
@@ -515,6 +524,7 @@ class Transaction  {
         'business_entity_id' => $this->business_entity_id,
         'payment_method_details' => $this->payment_method_details,
         
+        
         'custom_payment_method_name' => $this->custom_payment_method_name,
         
         
@@ -537,6 +547,9 @@ class Transaction  {
         });
 
         
+        if($this->gateway_metadata instanceof GatewayMetadata){
+            $data['gateway_metadata'] = $this->gateway_metadata->toArray();
+        }
         if($this->error_detail instanceof GatewayErrorDetail){
             $data['error_detail'] = $this->error_detail->toArray();
         }

@@ -47,6 +47,12 @@ class EmailLog  {
     
     /**
     *
+    * @var ?string $email_conversation_id
+    */
+    public ?string $email_conversation_id;
+    
+    /**
+    *
     * @var ?string $site_id
     */
     public ?string $site_id;
@@ -78,7 +84,7 @@ class EmailLog  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "template_name" , "from_address" , "to_address" , "subject" , "sent_on" , "customer_id" , "site_id" , "business_entity_id" , "brand_id" , "error_message"  ];
+    protected static array $knownFields = [ "id" , "template_name" , "from_address" , "to_address" , "subject" , "sent_on" , "customer_id" , "email_conversation_id" , "site_id" , "business_entity_id" , "brand_id" , "error_message"  ];
 
     /**
     * dynamic properties for resources
@@ -94,6 +100,7 @@ class EmailLog  {
         ?string $subject,
         ?int $sent_on,
         ?string $customer_id,
+        ?string $email_conversation_id,
         ?string $site_id,
         ?string $business_entity_id,
         ?string $brand_id,
@@ -108,6 +115,7 @@ class EmailLog  {
         $this->subject = $subject;
         $this->sent_on = $sent_on;
         $this->customer_id = $customer_id;
+        $this->email_conversation_id = $email_conversation_id;
         $this->site_id = $site_id;
         $this->business_entity_id = $business_entity_id;
         $this->brand_id = $brand_id;
@@ -124,6 +132,7 @@ class EmailLog  {
         $resourceAttributes['subject'] ?? null,
         $resourceAttributes['sent_on'] ?? null,
         $resourceAttributes['customer_id'] ?? null,
+        $resourceAttributes['email_conversation_id'] ?? null,
         $resourceAttributes['site_id'] ?? null,
         $resourceAttributes['business_entity_id'] ?? null,
         $resourceAttributes['brand_id'] ?? null,
@@ -147,6 +156,7 @@ class EmailLog  {
         'subject' => $this->subject,
         'sent_on' => $this->sent_on,
         'customer_id' => $this->customer_id,
+        'email_conversation_id' => $this->email_conversation_id,
         'site_id' => $this->site_id,
         'business_entity_id' => $this->business_entity_id,
         'brand_id' => $this->brand_id,

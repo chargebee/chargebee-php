@@ -51,6 +51,7 @@ Interface RampActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     charge_on_option?: string,
+    *     description?: string,
     *     }>,
     *     items_to_update?: array<array{
     *     item_price_id?: string,
@@ -63,6 +64,7 @@ Interface RampActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     charge_on_option?: string,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -114,12 +116,12 @@ Interface RampActionsInterface
     *     offset?: string,
     *     include_deleted?: bool,
     *     status?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * subscription_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * effective_from?: array{
     *     after?: mixed,
@@ -171,6 +173,7 @@ Interface RampActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     charge_on_option?: string,
+    *     description?: string,
     *     }>,
     *     items_to_update?: array<array{
     *     item_price_id?: string,
@@ -183,6 +186,7 @@ Interface RampActionsInterface
     *     charge_on_event?: string,
     *     charge_once?: bool,
     *     charge_on_option?: string,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,

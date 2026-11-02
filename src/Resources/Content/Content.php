@@ -6,7 +6,6 @@ use Chargebee\Resources\Address\Address;
 use Chargebee\Resources\AdvanceInvoiceSchedule\AdvanceInvoiceSchedule;
 use Chargebee\Resources\Alert\Alert;
 use Chargebee\Resources\AlertStatus\AlertStatus;
-use Chargebee\Resources\AppliedBusinessRule\AppliedBusinessRule;
 use Chargebee\Resources\AppliedRule\AppliedRule;
 use Chargebee\Resources\ApplyRule\ApplyRule;
 use Chargebee\Resources\AsyncResponse\AsyncResponse;
@@ -21,6 +20,10 @@ use Chargebee\Resources\BusinessRule\BusinessRule;
 use Chargebee\Resources\BusinessRuleset\BusinessRuleset;
 use Chargebee\Resources\BusinessRulesetRule\BusinessRulesetRule;
 use Chargebee\Resources\Card\Card;
+use Chargebee\Resources\Citation\Citation;
+use Chargebee\Resources\CollectionsDispute\CollectionsDispute;
+use Chargebee\Resources\CollectionsPaymentPromise\CollectionsPaymentPromise;
+use Chargebee\Resources\CollectionsReminderSequence\CollectionsReminderSequence;
 use Chargebee\Resources\ColumnDefinition\ColumnDefinition;
 use Chargebee\Resources\Comment\Comment;
 use Chargebee\Resources\Configuration\Configuration;
@@ -34,6 +37,7 @@ use Chargebee\Resources\CreditNote\CreditNote;
 use Chargebee\Resources\CreditNoteEstimate\CreditNoteEstimate;
 use Chargebee\Resources\CreditUnit\CreditUnit;
 use Chargebee\Resources\Currency\Currency;
+use Chargebee\Resources\CustomData\CustomData;
 use Chargebee\Resources\CustomDataSchema\CustomDataSchema;
 use Chargebee\Resources\Customer\Customer;
 use Chargebee\Resources\CustomerEntitlement\CustomerEntitlement;
@@ -41,12 +45,18 @@ use Chargebee\Resources\DifferentialPrice\DifferentialPrice;
 use Chargebee\Resources\Discount\Discount;
 use Chargebee\Resources\Dispute\Dispute;
 use Chargebee\Resources\Download\Download;
+use Chargebee\Resources\DraftEstimate\DraftEstimate;
+use Chargebee\Resources\DraftRequest\DraftRequest;
 use Chargebee\Resources\Einvoice\Einvoice;
+use Chargebee\Resources\EmailAttachment\EmailAttachment;
+use Chargebee\Resources\EmailConversation\EmailConversation;
 use Chargebee\Resources\EmailLog\EmailLog;
+use Chargebee\Resources\EmailMessage\EmailMessage;
 use Chargebee\Resources\Entitlement\Entitlement;
 use Chargebee\Resources\EntitlementOverride\EntitlementOverride;
 use Chargebee\Resources\Estimate\Estimate;
 use Chargebee\Resources\Event\Event;
+use Chargebee\Resources\Execution\Execution;
 use Chargebee\Resources\Export\Export;
 use Chargebee\Resources\Feature\Feature;
 use Chargebee\Resources\FilterCondition\FilterCondition;
@@ -54,6 +64,8 @@ use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
 use Chargebee\Resources\GatewayPaymentMethodToken\GatewayPaymentMethodToken;
 use Chargebee\Resources\Gift\Gift;
 use Chargebee\Resources\GrantBlock\GrantBlock;
+use Chargebee\Resources\GroupByAttribute\GroupByAttribute;
+use Chargebee\Resources\GroupByRecommendation\GroupByRecommendation;
 use Chargebee\Resources\Hierarchy\Hierarchy;
 use Chargebee\Resources\HostedPage\HostedPage;
 use Chargebee\Resources\ImpactedCustomer\ImpactedCustomer;
@@ -95,8 +107,11 @@ use Chargebee\Resources\PaymentVoucher\PaymentVoucher;
 use Chargebee\Resources\PersonalizedOffer\PersonalizedOffer;
 use Chargebee\Resources\Plan\Plan;
 use Chargebee\Resources\PortalSession\PortalSession;
+use Chargebee\Resources\PreferenceVariant\PreferenceVariant;
+use Chargebee\Resources\PriceRamp\PriceRamp;
 use Chargebee\Resources\PriceVariant\PriceVariant;
 use Chargebee\Resources\PricingPageSession\PricingPageSession;
+use Chargebee\Resources\PrivateNote\PrivateNote;
 use Chargebee\Resources\PromotionalCredit\PromotionalCredit;
 use Chargebee\Resources\PromotionalGrant\PromotionalGrant;
 use Chargebee\Resources\Purchase\Purchase;
@@ -108,8 +123,10 @@ use Chargebee\Resources\QuotedDeltaRamp\QuotedDeltaRamp;
 use Chargebee\Resources\QuotedRamp\QuotedRamp;
 use Chargebee\Resources\QuotedSubscription\QuotedSubscription;
 use Chargebee\Resources\Ramp\Ramp;
+use Chargebee\Resources\RampInterval\RampInterval;
 use Chargebee\Resources\RecordedPurchase\RecordedPurchase;
 use Chargebee\Resources\ResourceMigration\ResourceMigration;
+use Chargebee\Resources\RetrySegment\RetrySegment;
 use Chargebee\Resources\Rule\Rule;
 use Chargebee\Resources\SiteMigrationDetail\SiteMigrationDetail;
 use Chargebee\Resources\Subscription\Subscription;
@@ -162,12 +179,6 @@ class Content  {
     * @var ?AlertStatus $alertstatus
     */
     public ?AlertStatus $alertstatus;
-    
-    /**
-    *
-    * @var ?AppliedBusinessRule $appliedbusinessrule
-    */
-    public ?AppliedBusinessRule $appliedbusinessrule;
     
     /**
     *
@@ -255,6 +266,30 @@ class Content  {
     
     /**
     *
+    * @var ?Citation $citation
+    */
+    public ?Citation $citation;
+    
+    /**
+    *
+    * @var ?CollectionsDispute $collectionsdispute
+    */
+    public ?CollectionsDispute $collectionsdispute;
+    
+    /**
+    *
+    * @var ?CollectionsPaymentPromise $collectionspaymentpromise
+    */
+    public ?CollectionsPaymentPromise $collectionspaymentpromise;
+    
+    /**
+    *
+    * @var ?CollectionsReminderSequence $collectionsremindersequence
+    */
+    public ?CollectionsReminderSequence $collectionsremindersequence;
+    
+    /**
+    *
     * @var ?ColumnDefinition $columndefinition
     */
     public ?ColumnDefinition $columndefinition;
@@ -333,6 +368,12 @@ class Content  {
     
     /**
     *
+    * @var ?CustomData $customdata
+    */
+    public ?CustomData $customdata;
+    
+    /**
+    *
     * @var ?CustomDataSchema $customdataschema
     */
     public ?CustomDataSchema $customdataschema;
@@ -375,15 +416,45 @@ class Content  {
     
     /**
     *
+    * @var ?DraftEstimate $draftestimate
+    */
+    public ?DraftEstimate $draftestimate;
+    
+    /**
+    *
+    * @var ?DraftRequest $draftrequest
+    */
+    public ?DraftRequest $draftrequest;
+    
+    /**
+    *
     * @var ?Einvoice $einvoice
     */
     public ?Einvoice $einvoice;
     
     /**
     *
+    * @var ?EmailAttachment $emailattachment
+    */
+    public ?EmailAttachment $emailattachment;
+    
+    /**
+    *
+    * @var ?EmailConversation $emailconversation
+    */
+    public ?EmailConversation $emailconversation;
+    
+    /**
+    *
     * @var ?EmailLog $emaillog
     */
     public ?EmailLog $emaillog;
+    
+    /**
+    *
+    * @var ?EmailMessage $emailmessage
+    */
+    public ?EmailMessage $emailmessage;
     
     /**
     *
@@ -408,6 +479,12 @@ class Content  {
     * @var ?Event $event
     */
     public ?Event $event;
+    
+    /**
+    *
+    * @var ?Execution $execution
+    */
+    public ?Execution $execution;
     
     /**
     *
@@ -450,6 +527,18 @@ class Content  {
     * @var ?GrantBlock $grantblock
     */
     public ?GrantBlock $grantblock;
+    
+    /**
+    *
+    * @var ?GroupByAttribute $groupbyattribute
+    */
+    public ?GroupByAttribute $groupbyattribute;
+    
+    /**
+    *
+    * @var ?GroupByRecommendation $groupbyrecommendation
+    */
+    public ?GroupByRecommendation $groupbyrecommendation;
     
     /**
     *
@@ -699,6 +788,18 @@ class Content  {
     
     /**
     *
+    * @var ?PreferenceVariant $preferencevariant
+    */
+    public ?PreferenceVariant $preferencevariant;
+    
+    /**
+    *
+    * @var ?PriceRamp $priceramp
+    */
+    public ?PriceRamp $priceramp;
+    
+    /**
+    *
     * @var ?PriceVariant $pricevariant
     */
     public ?PriceVariant $pricevariant;
@@ -708,6 +809,12 @@ class Content  {
     * @var ?PricingPageSession $pricingpagesession
     */
     public ?PricingPageSession $pricingpagesession;
+    
+    /**
+    *
+    * @var ?PrivateNote $privatenote
+    */
+    public ?PrivateNote $privatenote;
     
     /**
     *
@@ -777,6 +884,12 @@ class Content  {
     
     /**
     *
+    * @var ?RampInterval $rampinterval
+    */
+    public ?RampInterval $rampinterval;
+    
+    /**
+    *
     * @var ?RecordedPurchase $recordedpurchase
     */
     public ?RecordedPurchase $recordedpurchase;
@@ -786,6 +899,12 @@ class Content  {
     * @var ?ResourceMigration $resourcemigration
     */
     public ?ResourceMigration $resourcemigration;
+    
+    /**
+    *
+    * @var ?RetrySegment $retrysegment
+    */
+    public ?RetrySegment $retrysegment;
     
     /**
     *
@@ -916,7 +1035,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "applied_business_rule" , "applied_rule" , "apply_rule" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "business_rule" , "business_ruleset" , "business_ruleset_rule" , "card" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "custom_data_schema" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "dispute" , "download" , "einvoice" , "email_log" , "entitlement" , "entitlement_override" , "estimate" , "event" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "price_variant" , "pricing_page_session" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "recorded_purchase" , "resource_migration" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "applied_rule" , "apply_rule" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "business_rule" , "business_ruleset" , "business_ruleset_rule" , "card" , "citation" , "collections_dispute" , "collections_payment_promise" , "collections_reminder_sequence" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "custom_data" , "custom_data_schema" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "dispute" , "download" , "draft_estimate" , "draft_request" , "einvoice" , "email_attachment" , "email_conversation" , "email_log" , "email_message" , "entitlement" , "entitlement_override" , "estimate" , "event" , "execution" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "group_by_attribute" , "group_by_recommendation" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "preference_variant" , "price_ramp" , "price_variant" , "pricing_page_session" , "private_note" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "ramp_interval" , "recorded_purchase" , "resource_migration" , "retry_segment" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -930,7 +1049,6 @@ class Content  {
         ?AdvanceInvoiceSchedule $advanceinvoiceschedule,
         ?Alert $alert,
         ?AlertStatus $alertstatus,
-        ?AppliedBusinessRule $appliedbusinessrule,
         ?AppliedRule $appliedrule,
         ?ApplyRule $applyrule,
         ?AsyncResponse $asyncresponse,
@@ -945,6 +1063,10 @@ class Content  {
         ?BusinessRuleset $businessruleset,
         ?BusinessRulesetRule $businessrulesetrule,
         ?Card $card,
+        ?Citation $citation,
+        ?CollectionsDispute $collectionsdispute,
+        ?CollectionsPaymentPromise $collectionspaymentpromise,
+        ?CollectionsReminderSequence $collectionsremindersequence,
         ?ColumnDefinition $columndefinition,
         ?Comment $comment,
         ?Configuration $configuration,
@@ -958,6 +1080,7 @@ class Content  {
         ?CreditNoteEstimate $creditnoteestimate,
         ?CreditUnit $creditunit,
         ?Currency $currency,
+        ?CustomData $customdata,
         ?CustomDataSchema $customdataschema,
         ?Customer $customer,
         ?CustomerEntitlement $customerentitlement,
@@ -965,12 +1088,18 @@ class Content  {
         ?Discount $discount,
         ?Dispute $dispute,
         ?Download $download,
+        ?DraftEstimate $draftestimate,
+        ?DraftRequest $draftrequest,
         ?Einvoice $einvoice,
+        ?EmailAttachment $emailattachment,
+        ?EmailConversation $emailconversation,
         ?EmailLog $emaillog,
+        ?EmailMessage $emailmessage,
         ?Entitlement $entitlement,
         ?EntitlementOverride $entitlementoverride,
         ?Estimate $estimate,
         ?Event $event,
+        ?Execution $execution,
         ?Export $export,
         ?Feature $feature,
         ?FilterCondition $filtercondition,
@@ -978,6 +1107,8 @@ class Content  {
         ?GatewayPaymentMethodToken $gatewaypaymentmethodtoken,
         ?Gift $gift,
         ?GrantBlock $grantblock,
+        ?GroupByAttribute $groupbyattribute,
+        ?GroupByRecommendation $groupbyrecommendation,
         ?Hierarchy $hierarchy,
         ?HostedPage $hostedpage,
         ?ImpactedCustomer $impactedcustomer,
@@ -1019,8 +1150,11 @@ class Content  {
         ?PersonalizedOffer $personalizedoffer,
         ?Plan $plan,
         ?PortalSession $portalsession,
+        ?PreferenceVariant $preferencevariant,
+        ?PriceRamp $priceramp,
         ?PriceVariant $pricevariant,
         ?PricingPageSession $pricingpagesession,
+        ?PrivateNote $privatenote,
         ?PromotionalCredit $promotionalcredit,
         ?PromotionalGrant $promotionalgrant,
         ?Purchase $purchase,
@@ -1032,8 +1166,10 @@ class Content  {
         ?QuotedRamp $quotedramp,
         ?QuotedSubscription $quotedsubscription,
         ?Ramp $ramp,
+        ?RampInterval $rampinterval,
         ?RecordedPurchase $recordedpurchase,
         ?ResourceMigration $resourcemigration,
+        ?RetrySegment $retrysegment,
         ?Rule $rule,
         ?SiteMigrationDetail $sitemigrationdetail,
         ?Subscription $subscription,
@@ -1062,7 +1198,6 @@ class Content  {
         $this->advanceinvoiceschedule = $advanceinvoiceschedule;
         $this->alert = $alert;
         $this->alertstatus = $alertstatus;
-        $this->appliedbusinessrule = $appliedbusinessrule;
         $this->appliedrule = $appliedrule;
         $this->applyrule = $applyrule;
         $this->asyncresponse = $asyncresponse;
@@ -1077,6 +1212,10 @@ class Content  {
         $this->businessruleset = $businessruleset;
         $this->businessrulesetrule = $businessrulesetrule;
         $this->card = $card;
+        $this->citation = $citation;
+        $this->collectionsdispute = $collectionsdispute;
+        $this->collectionspaymentpromise = $collectionspaymentpromise;
+        $this->collectionsremindersequence = $collectionsremindersequence;
         $this->columndefinition = $columndefinition;
         $this->comment = $comment;
         $this->configuration = $configuration;
@@ -1090,6 +1229,7 @@ class Content  {
         $this->creditnoteestimate = $creditnoteestimate;
         $this->creditunit = $creditunit;
         $this->currency = $currency;
+        $this->customdata = $customdata;
         $this->customdataschema = $customdataschema;
         $this->customer = $customer;
         $this->customerentitlement = $customerentitlement;
@@ -1097,12 +1237,18 @@ class Content  {
         $this->discount = $discount;
         $this->dispute = $dispute;
         $this->download = $download;
+        $this->draftestimate = $draftestimate;
+        $this->draftrequest = $draftrequest;
         $this->einvoice = $einvoice;
+        $this->emailattachment = $emailattachment;
+        $this->emailconversation = $emailconversation;
         $this->emaillog = $emaillog;
+        $this->emailmessage = $emailmessage;
         $this->entitlement = $entitlement;
         $this->entitlementoverride = $entitlementoverride;
         $this->estimate = $estimate;
         $this->event = $event;
+        $this->execution = $execution;
         $this->export = $export;
         $this->feature = $feature;
         $this->filtercondition = $filtercondition;
@@ -1110,6 +1256,8 @@ class Content  {
         $this->gatewaypaymentmethodtoken = $gatewaypaymentmethodtoken;
         $this->gift = $gift;
         $this->grantblock = $grantblock;
+        $this->groupbyattribute = $groupbyattribute;
+        $this->groupbyrecommendation = $groupbyrecommendation;
         $this->hierarchy = $hierarchy;
         $this->hostedpage = $hostedpage;
         $this->impactedcustomer = $impactedcustomer;
@@ -1151,8 +1299,11 @@ class Content  {
         $this->personalizedoffer = $personalizedoffer;
         $this->plan = $plan;
         $this->portalsession = $portalsession;
+        $this->preferencevariant = $preferencevariant;
+        $this->priceramp = $priceramp;
         $this->pricevariant = $pricevariant;
         $this->pricingpagesession = $pricingpagesession;
+        $this->privatenote = $privatenote;
         $this->promotionalcredit = $promotionalcredit;
         $this->promotionalgrant = $promotionalgrant;
         $this->purchase = $purchase;
@@ -1164,8 +1315,10 @@ class Content  {
         $this->quotedramp = $quotedramp;
         $this->quotedsubscription = $quotedsubscription;
         $this->ramp = $ramp;
+        $this->rampinterval = $rampinterval;
         $this->recordedpurchase = $recordedpurchase;
         $this->resourcemigration = $resourcemigration;
+        $this->retrysegment = $retrysegment;
         $this->rule = $rule;
         $this->sitemigrationdetail = $sitemigrationdetail;
         $this->subscription = $subscription;
@@ -1196,7 +1349,6 @@ class Content  {
         isset($resourceAttributes['advance_invoice_schedule']) ? AdvanceInvoiceSchedule::from($resourceAttributes['advance_invoice_schedule']) : null,
         isset($resourceAttributes['alert']) ? Alert::from($resourceAttributes['alert']) : null,
         isset($resourceAttributes['alert_status']) ? AlertStatus::from($resourceAttributes['alert_status']) : null,
-        isset($resourceAttributes['applied_business_rule']) ? AppliedBusinessRule::from($resourceAttributes['applied_business_rule']) : null,
         isset($resourceAttributes['applied_rule']) ? AppliedRule::from($resourceAttributes['applied_rule']) : null,
         isset($resourceAttributes['apply_rule']) ? ApplyRule::from($resourceAttributes['apply_rule']) : null,
         isset($resourceAttributes['async_response']) ? AsyncResponse::from($resourceAttributes['async_response']) : null,
@@ -1211,6 +1363,10 @@ class Content  {
         isset($resourceAttributes['business_ruleset']) ? BusinessRuleset::from($resourceAttributes['business_ruleset']) : null,
         isset($resourceAttributes['business_ruleset_rule']) ? BusinessRulesetRule::from($resourceAttributes['business_ruleset_rule']) : null,
         isset($resourceAttributes['card']) ? Card::from($resourceAttributes['card']) : null,
+        isset($resourceAttributes['citation']) ? Citation::from($resourceAttributes['citation']) : null,
+        isset($resourceAttributes['collections_dispute']) ? CollectionsDispute::from($resourceAttributes['collections_dispute']) : null,
+        isset($resourceAttributes['collections_payment_promise']) ? CollectionsPaymentPromise::from($resourceAttributes['collections_payment_promise']) : null,
+        isset($resourceAttributes['collections_reminder_sequence']) ? CollectionsReminderSequence::from($resourceAttributes['collections_reminder_sequence']) : null,
         isset($resourceAttributes['column_definition']) ? ColumnDefinition::from($resourceAttributes['column_definition']) : null,
         isset($resourceAttributes['comment']) ? Comment::from($resourceAttributes['comment']) : null,
         isset($resourceAttributes['configuration']) ? Configuration::from($resourceAttributes['configuration']) : null,
@@ -1224,6 +1380,7 @@ class Content  {
         isset($resourceAttributes['credit_note_estimate']) ? CreditNoteEstimate::from($resourceAttributes['credit_note_estimate']) : null,
         isset($resourceAttributes['credit_unit']) ? CreditUnit::from($resourceAttributes['credit_unit']) : null,
         isset($resourceAttributes['currency']) ? Currency::from($resourceAttributes['currency']) : null,
+        isset($resourceAttributes['custom_data']) ? CustomData::from($resourceAttributes['custom_data']) : null,
         isset($resourceAttributes['custom_data_schema']) ? CustomDataSchema::from($resourceAttributes['custom_data_schema']) : null,
         isset($resourceAttributes['customer']) ? Customer::from($resourceAttributes['customer']) : null,
         isset($resourceAttributes['customer_entitlement']) ? CustomerEntitlement::from($resourceAttributes['customer_entitlement']) : null,
@@ -1231,12 +1388,18 @@ class Content  {
         isset($resourceAttributes['discount']) ? Discount::from($resourceAttributes['discount']) : null,
         isset($resourceAttributes['dispute']) ? Dispute::from($resourceAttributes['dispute']) : null,
         isset($resourceAttributes['download']) ? Download::from($resourceAttributes['download']) : null,
+        isset($resourceAttributes['draft_estimate']) ? DraftEstimate::from($resourceAttributes['draft_estimate']) : null,
+        isset($resourceAttributes['draft_request']) ? DraftRequest::from($resourceAttributes['draft_request']) : null,
         isset($resourceAttributes['einvoice']) ? Einvoice::from($resourceAttributes['einvoice']) : null,
+        isset($resourceAttributes['email_attachment']) ? EmailAttachment::from($resourceAttributes['email_attachment']) : null,
+        isset($resourceAttributes['email_conversation']) ? EmailConversation::from($resourceAttributes['email_conversation']) : null,
         isset($resourceAttributes['email_log']) ? EmailLog::from($resourceAttributes['email_log']) : null,
+        isset($resourceAttributes['email_message']) ? EmailMessage::from($resourceAttributes['email_message']) : null,
         isset($resourceAttributes['entitlement']) ? Entitlement::from($resourceAttributes['entitlement']) : null,
         isset($resourceAttributes['entitlement_override']) ? EntitlementOverride::from($resourceAttributes['entitlement_override']) : null,
         isset($resourceAttributes['estimate']) ? Estimate::from($resourceAttributes['estimate']) : null,
         isset($resourceAttributes['event']) ? Event::from($resourceAttributes['event']) : null,
+        isset($resourceAttributes['execution']) ? Execution::from($resourceAttributes['execution']) : null,
         isset($resourceAttributes['export']) ? Export::from($resourceAttributes['export']) : null,
         isset($resourceAttributes['feature']) ? Feature::from($resourceAttributes['feature']) : null,
         isset($resourceAttributes['filter_condition']) ? FilterCondition::from($resourceAttributes['filter_condition']) : null,
@@ -1244,6 +1407,8 @@ class Content  {
         isset($resourceAttributes['gateway_payment_method_token']) ? GatewayPaymentMethodToken::from($resourceAttributes['gateway_payment_method_token']) : null,
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
         isset($resourceAttributes['grant_block']) ? GrantBlock::from($resourceAttributes['grant_block']) : null,
+        isset($resourceAttributes['group_by_attribute']) ? GroupByAttribute::from($resourceAttributes['group_by_attribute']) : null,
+        isset($resourceAttributes['group_by_recommendation']) ? GroupByRecommendation::from($resourceAttributes['group_by_recommendation']) : null,
         isset($resourceAttributes['hierarchy']) ? Hierarchy::from($resourceAttributes['hierarchy']) : null,
         isset($resourceAttributes['hosted_page']) ? HostedPage::from($resourceAttributes['hosted_page']) : null,
         isset($resourceAttributes['impacted_customer']) ? ImpactedCustomer::from($resourceAttributes['impacted_customer']) : null,
@@ -1285,8 +1450,11 @@ class Content  {
         isset($resourceAttributes['personalized_offer']) ? PersonalizedOffer::from($resourceAttributes['personalized_offer']) : null,
         isset($resourceAttributes['plan']) ? Plan::from($resourceAttributes['plan']) : null,
         isset($resourceAttributes['portal_session']) ? PortalSession::from($resourceAttributes['portal_session']) : null,
+        isset($resourceAttributes['preference_variant']) ? PreferenceVariant::from($resourceAttributes['preference_variant']) : null,
+        isset($resourceAttributes['price_ramp']) ? PriceRamp::from($resourceAttributes['price_ramp']) : null,
         isset($resourceAttributes['price_variant']) ? PriceVariant::from($resourceAttributes['price_variant']) : null,
         isset($resourceAttributes['pricing_page_session']) ? PricingPageSession::from($resourceAttributes['pricing_page_session']) : null,
+        isset($resourceAttributes['private_note']) ? PrivateNote::from($resourceAttributes['private_note']) : null,
         isset($resourceAttributes['promotional_credit']) ? PromotionalCredit::from($resourceAttributes['promotional_credit']) : null,
         isset($resourceAttributes['promotional_grant']) ? PromotionalGrant::from($resourceAttributes['promotional_grant']) : null,
         isset($resourceAttributes['purchase']) ? Purchase::from($resourceAttributes['purchase']) : null,
@@ -1298,8 +1466,10 @@ class Content  {
         isset($resourceAttributes['quoted_ramp']) ? QuotedRamp::from($resourceAttributes['quoted_ramp']) : null,
         isset($resourceAttributes['quoted_subscription']) ? QuotedSubscription::from($resourceAttributes['quoted_subscription']) : null,
         isset($resourceAttributes['ramp']) ? Ramp::from($resourceAttributes['ramp']) : null,
+        isset($resourceAttributes['ramp_interval']) ? RampInterval::from($resourceAttributes['ramp_interval']) : null,
         isset($resourceAttributes['recorded_purchase']) ? RecordedPurchase::from($resourceAttributes['recorded_purchase']) : null,
         isset($resourceAttributes['resource_migration']) ? ResourceMigration::from($resourceAttributes['resource_migration']) : null,
+        isset($resourceAttributes['retry_segment']) ? RetrySegment::from($resourceAttributes['retry_segment']) : null,
         isset($resourceAttributes['rule']) ? Rule::from($resourceAttributes['rule']) : null,
         isset($resourceAttributes['site_migration_detail']) ? SiteMigrationDetail::from($resourceAttributes['site_migration_detail']) : null,
         isset($resourceAttributes['subscription']) ? Subscription::from($resourceAttributes['subscription']) : null,
@@ -1462,6 +1632,23 @@ class Content  {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -1481,9 +1668,6 @@ class Content  {
         }
         if($this->alertstatus instanceof AlertStatus){
             $data['alert_status'] = $this->alertstatus->toArray();
-        }
-        if($this->appliedbusinessrule instanceof AppliedBusinessRule){
-            $data['applied_business_rule'] = $this->appliedbusinessrule->toArray();
         }
         if($this->appliedrule instanceof AppliedRule){
             $data['applied_rule'] = $this->appliedrule->toArray();
@@ -1527,6 +1711,18 @@ class Content  {
         if($this->card instanceof Card){
             $data['card'] = $this->card->toArray();
         }
+        if($this->citation instanceof Citation){
+            $data['citation'] = $this->citation->toArray();
+        }
+        if($this->collectionsdispute instanceof CollectionsDispute){
+            $data['collections_dispute'] = $this->collectionsdispute->toArray();
+        }
+        if($this->collectionspaymentpromise instanceof CollectionsPaymentPromise){
+            $data['collections_payment_promise'] = $this->collectionspaymentpromise->toArray();
+        }
+        if($this->collectionsremindersequence instanceof CollectionsReminderSequence){
+            $data['collections_reminder_sequence'] = $this->collectionsremindersequence->toArray();
+        }
         if($this->columndefinition instanceof ColumnDefinition){
             $data['column_definition'] = $this->columndefinition->toArray();
         }
@@ -1566,6 +1762,9 @@ class Content  {
         if($this->currency instanceof Currency){
             $data['currency'] = $this->currency->toArray();
         }
+        if($this->customdata instanceof CustomData){
+            $data['custom_data'] = $this->customdata->toArray();
+        }
         if($this->customdataschema instanceof CustomDataSchema){
             $data['custom_data_schema'] = $this->customdataschema->toArray();
         }
@@ -1587,11 +1786,26 @@ class Content  {
         if($this->download instanceof Download){
             $data['download'] = $this->download->toArray();
         }
+        if($this->draftestimate instanceof DraftEstimate){
+            $data['draft_estimate'] = $this->draftestimate->toArray();
+        }
+        if($this->draftrequest instanceof DraftRequest){
+            $data['draft_request'] = $this->draftrequest->toArray();
+        }
         if($this->einvoice instanceof Einvoice){
             $data['einvoice'] = $this->einvoice->toArray();
         }
+        if($this->emailattachment instanceof EmailAttachment){
+            $data['email_attachment'] = $this->emailattachment->toArray();
+        }
+        if($this->emailconversation instanceof EmailConversation){
+            $data['email_conversation'] = $this->emailconversation->toArray();
+        }
         if($this->emaillog instanceof EmailLog){
             $data['email_log'] = $this->emaillog->toArray();
+        }
+        if($this->emailmessage instanceof EmailMessage){
+            $data['email_message'] = $this->emailmessage->toArray();
         }
         if($this->entitlement instanceof Entitlement){
             $data['entitlement'] = $this->entitlement->toArray();
@@ -1604,6 +1818,9 @@ class Content  {
         }
         if($this->event instanceof Event){
             $data['event'] = $this->event->toArray();
+        }
+        if($this->execution instanceof Execution){
+            $data['execution'] = $this->execution->toArray();
         }
         if($this->export instanceof Export){
             $data['export'] = $this->export->toArray();
@@ -1625,6 +1842,12 @@ class Content  {
         }
         if($this->grantblock instanceof GrantBlock){
             $data['grant_block'] = $this->grantblock->toArray();
+        }
+        if($this->groupbyattribute instanceof GroupByAttribute){
+            $data['group_by_attribute'] = $this->groupbyattribute->toArray();
+        }
+        if($this->groupbyrecommendation instanceof GroupByRecommendation){
+            $data['group_by_recommendation'] = $this->groupbyrecommendation->toArray();
         }
         if($this->hierarchy instanceof Hierarchy){
             $data['hierarchy'] = $this->hierarchy->toArray();
@@ -1749,11 +1972,20 @@ class Content  {
         if($this->portalsession instanceof PortalSession){
             $data['portal_session'] = $this->portalsession->toArray();
         }
+        if($this->preferencevariant instanceof PreferenceVariant){
+            $data['preference_variant'] = $this->preferencevariant->toArray();
+        }
+        if($this->priceramp instanceof PriceRamp){
+            $data['price_ramp'] = $this->priceramp->toArray();
+        }
         if($this->pricevariant instanceof PriceVariant){
             $data['price_variant'] = $this->pricevariant->toArray();
         }
         if($this->pricingpagesession instanceof PricingPageSession){
             $data['pricing_page_session'] = $this->pricingpagesession->toArray();
+        }
+        if($this->privatenote instanceof PrivateNote){
+            $data['private_note'] = $this->privatenote->toArray();
         }
         if($this->promotionalcredit instanceof PromotionalCredit){
             $data['promotional_credit'] = $this->promotionalcredit->toArray();
@@ -1788,11 +2020,17 @@ class Content  {
         if($this->ramp instanceof Ramp){
             $data['ramp'] = $this->ramp->toArray();
         }
+        if($this->rampinterval instanceof RampInterval){
+            $data['ramp_interval'] = $this->rampinterval->toArray();
+        }
         if($this->recordedpurchase instanceof RecordedPurchase){
             $data['recorded_purchase'] = $this->recordedpurchase->toArray();
         }
         if($this->resourcemigration instanceof ResourceMigration){
             $data['resource_migration'] = $this->resourcemigration->toArray();
+        }
+        if($this->retrysegment instanceof RetrySegment){
+            $data['retry_segment'] = $this->retrysegment->toArray();
         }
         if($this->rule instanceof Rule){
             $data['rule'] = $this->rule->toArray();

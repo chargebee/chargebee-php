@@ -34,9 +34,15 @@ class UsageSummary  {
     public ?int $aggregated_to;
     
     /**
+    *
+    * @var mixed $attributes
+    */
+    public mixed $attributes;
+    
+    /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "subscription_id" , "feature_id" , "aggregated_value" , "aggregated_from" , "aggregated_to"  ];
+    protected static array $knownFields = [ "subscription_id" , "feature_id" , "aggregated_value" , "aggregated_from" , "aggregated_to" , "attributes"  ];
 
     /**
     * dynamic properties for resources
@@ -50,13 +56,15 @@ class UsageSummary  {
         ?string $aggregated_value,
         ?int $aggregated_from,
         ?int $aggregated_to,
+        mixed $attributes,
     )
     { 
         $this->subscription_id = $subscription_id;
         $this->feature_id = $feature_id;
         $this->aggregated_value = $aggregated_value;
         $this->aggregated_from = $aggregated_from;
-        $this->aggregated_to = $aggregated_to;   
+        $this->aggregated_to = $aggregated_to;
+        $this->attributes = $attributes;   
     }
 
     public static function from(array $resourceAttributes): self
@@ -66,6 +74,7 @@ class UsageSummary  {
         $resourceAttributes['aggregated_value'] ?? null,
         $resourceAttributes['aggregated_from'] ?? null,
         $resourceAttributes['aggregated_to'] ?? null,
+        $resourceAttributes['attributes'] ?? null,
         
           
         );
@@ -81,6 +90,7 @@ class UsageSummary  {
         'aggregated_value' => $this->aggregated_value,
         'aggregated_from' => $this->aggregated_from,
         'aggregated_to' => $this->aggregated_to,
+        'attributes' => $this->attributes,
         
         ], function ($value) {
             return $value !== null;

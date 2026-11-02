@@ -31,12 +31,12 @@ final class EinvoiceActions implements EinvoiceActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * reference_id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * updated_at?: array{
     *     after?: mixed,

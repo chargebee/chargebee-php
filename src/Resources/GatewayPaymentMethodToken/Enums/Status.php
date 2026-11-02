@@ -3,8 +3,8 @@
 namespace Chargebee\Resources\GatewayPaymentMethodToken\Enums;
 
 enum Status : string { 
-    case ACTIVE = "active";
-    case INACTIVE = "inactive";
+    case VALID = "valid";
+    case INVALID = "invalid";
     case PENDING_VERIFICATION = "pending_verification";
     case UNKNOWN = "unknown";
 

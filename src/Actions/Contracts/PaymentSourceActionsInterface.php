@@ -38,6 +38,16 @@ Interface PaymentSourceActionsInterface
     *     brand?: string,
     *     funding_type?: string,
     *     },
+    * bank_account?: array{
+    *     account_type?: string,
+    *     account_holder_type?: string,
+    *     first_name?: string,
+    *     last_name?: string,
+    *     company?: string,
+    *     scheme?: string,
+    *     last4?: string,
+    *     echeck_type?: string,
+    *     },
     * billing_address?: array{
     *     first_name?: string,
     *     last_name?: string,

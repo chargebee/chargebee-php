@@ -18,6 +18,8 @@ use Chargebee\Actions\Contracts\BusinessRulesetActionsInterface;
 use Chargebee\Actions\BusinessRulesetActions;
 use Chargebee\Actions\Contracts\CardActionsInterface;
 use Chargebee\Actions\CardActions;
+use Chargebee\Actions\Contracts\CollectionsPaymentPromiseActionsInterface;
+use Chargebee\Actions\CollectionsPaymentPromiseActions;
 use Chargebee\Actions\Contracts\CommentActionsInterface;
 use Chargebee\Actions\CommentActions;
 use Chargebee\Actions\Contracts\ConfigurationActionsInterface;
@@ -42,6 +44,8 @@ use Chargebee\Actions\Contracts\DifferentialPriceActionsInterface;
 use Chargebee\Actions\DifferentialPriceActions;
 use Chargebee\Actions\Contracts\DisputeActionsInterface;
 use Chargebee\Actions\DisputeActions;
+use Chargebee\Actions\Contracts\DraftRequestActionsInterface;
+use Chargebee\Actions\DraftRequestActions;
 use Chargebee\Actions\Contracts\EinvoiceActionsInterface;
 use Chargebee\Actions\EinvoiceActions;
 use Chargebee\Actions\Contracts\EmailLogActionsInterface;
@@ -114,6 +118,8 @@ use Chargebee\Actions\Contracts\PlanActionsInterface;
 use Chargebee\Actions\PlanActions;
 use Chargebee\Actions\Contracts\PortalSessionActionsInterface;
 use Chargebee\Actions\PortalSessionActions;
+use Chargebee\Actions\Contracts\PriceRampActionsInterface;
+use Chargebee\Actions\PriceRampActions;
 use Chargebee\Actions\Contracts\PriceVariantActionsInterface;
 use Chargebee\Actions\PriceVariantActions;
 use Chargebee\Actions\Contracts\PricingPageSessionActionsInterface;
@@ -134,6 +140,8 @@ use Chargebee\Actions\Contracts\RecordedPurchaseActionsInterface;
 use Chargebee\Actions\RecordedPurchaseActions;
 use Chargebee\Actions\Contracts\ResourceMigrationActionsInterface;
 use Chargebee\Actions\ResourceMigrationActions;
+use Chargebee\Actions\Contracts\RetrySegmentActionsInterface;
+use Chargebee\Actions\RetrySegmentActions;
 use Chargebee\Actions\Contracts\RuleActionsInterface;
 use Chargebee\Actions\RuleActions;
 use Chargebee\Actions\Contracts\SiteMigrationDetailActionsInterface;
@@ -279,6 +287,10 @@ class ChargebeeClient {
         return new CardActions($this->httpClientFactory, $this->env);
     }
 
+    public function collectionsPaymentPromise() :CollectionsPaymentPromiseActionsInterface {
+        return new CollectionsPaymentPromiseActions($this->httpClientFactory, $this->env);
+    }
+
     public function comment() :CommentActionsInterface {
         return new CommentActions($this->httpClientFactory, $this->env);
     }
@@ -325,6 +337,10 @@ class ChargebeeClient {
 
     public function dispute() :DisputeActionsInterface {
         return new DisputeActions($this->httpClientFactory, $this->env);
+    }
+
+    public function draftRequest() :DraftRequestActionsInterface {
+        return new DraftRequestActions($this->httpClientFactory, $this->env);
     }
 
     public function einvoice() :EinvoiceActionsInterface {
@@ -471,6 +487,10 @@ class ChargebeeClient {
         return new PortalSessionActions($this->httpClientFactory, $this->env);
     }
 
+    public function priceRamp() :PriceRampActionsInterface {
+        return new PriceRampActions($this->httpClientFactory, $this->env);
+    }
+
     public function priceVariant() :PriceVariantActionsInterface {
         return new PriceVariantActions($this->httpClientFactory, $this->env);
     }
@@ -509,6 +529,10 @@ class ChargebeeClient {
 
     public function resourceMigration() :ResourceMigrationActionsInterface {
         return new ResourceMigrationActions($this->httpClientFactory, $this->env);
+    }
+
+    public function retrySegment() :RetrySegmentActionsInterface {
+        return new RetrySegmentActions($this->httpClientFactory, $this->env);
     }
 
     public function rule() :RuleActionsInterface {

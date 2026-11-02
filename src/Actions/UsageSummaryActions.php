@@ -33,7 +33,8 @@ final class UsageSummaryActions implements UsageSummaryActionsInterface
     *     window_size?: string,
     *     timeframe_start?: int,
     *     timeframe_end?: int,
-    *     } $params Description of the parameters
+    *     group_by?: array<string>,
+    * } $params Description of the parameters
     *   @param string $id  
     *   @param array<string, string> $headers
     *   @return RetrieveUsageSummaryForSubscriptionUsageSummaryResponse

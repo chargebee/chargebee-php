@@ -312,6 +312,12 @@ class Invoice  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?string $retry_segment_id
+    */
+    public ?string $retry_segment_id;
+    
+    /**
+    *
     * @var ?array<DunningAttempt> $dunning_attempts
     */
     public ?array $dunning_attempts;
@@ -439,7 +445,7 @@ class Invoice  extends SupportsCustomFields  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "exchange_rates" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "reference_transactions" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "brand_id" , "site_details_at_creation"  ];
+    protected static array $knownFields = [ "id" , "customer_id" , "payment_owner" , "subscription_id" , "recurring" , "date" , "due_date" , "net_term_days" , "po_number" , "vat_number" , "exchange_rate" , "local_currency_exchange_rate" , "currency_code" , "local_currency_code" , "tax" , "sub_total" , "sub_total_in_local_currency" , "total" , "total_in_local_currency" , "amount_due" , "amount_adjusted" , "amount_paid" , "paid_at" , "write_off_amount" , "credits_applied" , "next_retry_at" , "voided_at" , "resource_version" , "updated_at" , "line_items_next_offset" , "exchange_rates" , "first_invoice" , "new_sales_amount" , "has_advance_charges" , "term_finalized" , "is_gifted" , "generated_at" , "expected_payment_date" , "amount_to_collect" , "round_off_amount" , "line_items" , "line_item_tiers" , "line_item_discounts" , "line_item_taxes" , "line_item_credits" , "line_item_addresses" , "discounts" , "taxes" , "tax_origin" , "linked_payments" , "reference_transactions" , "retry_segment_id" , "dunning_attempts" , "applied_credits" , "adjustment_credit_notes" , "issued_credit_notes" , "linked_orders" , "notes" , "shipping_address" , "billing_address" , "statement_descriptor" , "einvoice" , "void_reason_code" , "deleted" , "tax_category" , "vat_number_prefix" , "business_entity_id" , "brand_id" , "site_details_at_creation"  ];
 
     /**
     * dynamic properties for resources
@@ -499,6 +505,7 @@ class Invoice  extends SupportsCustomFields  {
         ?TaxOrigin $tax_origin,
         ?array $linked_payments,
         ?array $reference_transactions,
+        ?string $retry_segment_id,
         ?array $dunning_attempts,
         ?array $applied_credits,
         ?array $adjustment_credit_notes,
@@ -573,6 +580,7 @@ class Invoice  extends SupportsCustomFields  {
         $this->tax_origin = $tax_origin;
         $this->linked_payments = $linked_payments;
         $this->reference_transactions = $reference_transactions;
+        $this->retry_segment_id = $retry_segment_id;
         $this->dunning_attempts = $dunning_attempts;
         $this->applied_credits = $applied_credits;
         $this->adjustment_credit_notes = $adjustment_credit_notes;
@@ -717,6 +725,7 @@ class Invoice  extends SupportsCustomFields  {
         isset($resourceAttributes['tax_origin']) ? TaxOrigin::from($resourceAttributes['tax_origin']) : null,
         $linked_payments,
         $reference_transactions,
+        $resourceAttributes['retry_segment_id'] ?? null,
         $dunning_attempts,
         $applied_credits,
         $adjustment_credit_notes,
@@ -807,6 +816,7 @@ class Invoice  extends SupportsCustomFields  {
         
         
         
+        'retry_segment_id' => $this->retry_segment_id,
         
         
         

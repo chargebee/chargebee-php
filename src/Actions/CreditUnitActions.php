@@ -34,12 +34,12 @@ final class CreditUnitActions implements CreditUnitActionsInterface
     *     limit?: int,
     *     offset?: string,
     *     status?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * id?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * } $params Description of the parameters
     *   

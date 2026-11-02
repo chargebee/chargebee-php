@@ -119,8 +119,8 @@ Interface LedgerOperationActionsInterface
     *     between?: mixed,
     *     },
     * type?: array{
-    *     is?: mixed,
     *     in?: mixed,
+    *     is?: mixed,
     *     },
     * sort_by?: array{
     *     asc?: string,

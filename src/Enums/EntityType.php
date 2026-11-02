@@ -12,12 +12,12 @@ enum EntityType : string {
     case PLAN_PRICE = "plan_price";
     case ADDON_PRICE = "addon_price";
     case CHARGE_PRICE = "charge_price";
+    case ADDON = "addon";
     case INVOICE = "invoice";
     case QUOTE = "quote";
     case CREDIT_NOTE = "credit_note";
     case TRANSACTION = "transaction";
     case PLAN = "plan";
-    case ADDON = "addon";
     case ORDER = "order";
     case ITEM_FAMILY = "item_family";
     case ITEM = "item";
@@ -46,6 +46,7 @@ enum EntityType : string {
     case ALERT_STATUS = "alert_status";
     case OMNICHANNEL_SUBSCRIPTION_ITEM_METRIC = "omnichannel_subscription_item_metric";
     case PRICE_RAMP = "price_ramp";
+    case TASK = "task";
     /*
     * @depcreated
     */

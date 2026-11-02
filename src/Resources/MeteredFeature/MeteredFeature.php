@@ -35,6 +35,12 @@ class MeteredFeature  {
     
     /**
     *
+    * @var ?array<string> $group_by
+    */
+    public ?array $group_by;
+    
+    /**
+    *
     * @var ?array<\Chargebee\Resources\Feature\Feature> $features
     */
     public ?array $features;
@@ -54,7 +60,7 @@ class MeteredFeature  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "query" , "column_definitions" , "features"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "query" , "column_definitions" , "group_by" , "features"  ];
 
     /**
     * dynamic properties for resources
@@ -68,6 +74,7 @@ class MeteredFeature  {
         ?string $description,
         ?string $query,
         ?array $column_definitions,
+        ?array $group_by,
         ?array $features,
         ?\Chargebee\Enums\Type $type,
         ?\Chargebee\Enums\Status $status,
@@ -78,6 +85,7 @@ class MeteredFeature  {
         $this->description = $description;
         $this->query = $query;
         $this->column_definitions = $column_definitions;
+        $this->group_by = $group_by;
         $this->features = $features; 
         $this->type = $type;
         $this->status = $status;  
@@ -98,6 +106,7 @@ class MeteredFeature  {
         $resourceAttributes['description'] ?? null,
         $resourceAttributes['query'] ?? null,
         $column_definitions,
+        $resourceAttributes['group_by'] ?? null,
         $features,
         
         
@@ -118,6 +127,7 @@ class MeteredFeature  {
         'description' => $this->description,
         'query' => $this->query,
         
+        'group_by' => $this->group_by,
         
         
         'type' => $this->type?->value,

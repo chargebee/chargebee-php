@@ -53,6 +53,12 @@ class Meter  {
     
     /**
     *
+    * @var ?array<string> $group_by
+    */
+    public ?array $group_by;
+    
+    /**
+    *
     * @var ?\Chargebee\Resources\Meter\Enums\Type $type
     */
     public ?\Chargebee\Resources\Meter\Enums\Type $type;
@@ -66,7 +72,7 @@ class Meter  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "name" , "description" , "query" , "created_at" , "updated_at" , "column_definitions" , "features"  ];
+    protected static array $knownFields = [ "id" , "name" , "description" , "query" , "created_at" , "updated_at" , "column_definitions" , "features" , "group_by"  ];
 
     /**
     * dynamic properties for resources
@@ -83,6 +89,7 @@ class Meter  {
         ?int $updated_at,
         ?array $column_definitions,
         ?array $features,
+        ?array $group_by,
         ?\Chargebee\Resources\Meter\Enums\Type $type,
         ?\Chargebee\Resources\Meter\Enums\Status $status,
     )
@@ -94,7 +101,8 @@ class Meter  {
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
         $this->column_definitions = $column_definitions;
-        $this->features = $features;  
+        $this->features = $features;
+        $this->group_by = $group_by;  
         $this->type = $type;
         $this->status = $status; 
     }
@@ -117,6 +125,7 @@ class Meter  {
         $resourceAttributes['updated_at'] ?? null,
         $column_definitions,
         $features,
+        $resourceAttributes['group_by'] ?? null,
         
          
         isset($resourceAttributes['type']) ? \Chargebee\Resources\Meter\Enums\Type::tryFromValue($resourceAttributes['type']) : null,
@@ -139,6 +148,7 @@ class Meter  {
         'updated_at' => $this->updated_at,
         
         
+        'group_by' => $this->group_by,
         
         'type' => $this->type?->value,
         
