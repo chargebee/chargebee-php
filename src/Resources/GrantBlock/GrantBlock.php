@@ -113,6 +113,12 @@ class GrantBlock  {
     
     /**
     *
+    * @var ?BillingMetadata $billing_metadata
+    */
+    public ?BillingMetadata $billing_metadata;
+    
+    /**
+    *
     * @var mixed $metadata
     */
     public mixed $metadata;
@@ -144,7 +150,7 @@ class GrantBlock  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "subscription_id" , "unit_id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "modified_at" , "resource_version" , "provisioned_block_balance" , "overdraft_block_balance" , "metadata"  ];
+    protected static array $knownFields = [ "id" , "subscription_id" , "unit_id" , "granted_amount" , "effective_from" , "expires_at" , "balance" , "hold_amount" , "used_amount" , "expired_amount" , "rolled_over_amount" , "voided_amount" , "origin_grant_block_id" , "created_at" , "modified_at" , "resource_version" , "provisioned_block_balance" , "overdraft_block_balance" , "billing_metadata" , "metadata"  ];
 
     /**
     * dynamic properties for resources
@@ -171,6 +177,7 @@ class GrantBlock  {
         ?int $resource_version,
         ?ProvisionedBlockBalance $provisioned_block_balance,
         ?OverdraftBlockBalance $overdraft_block_balance,
+        ?BillingMetadata $billing_metadata,
         mixed $metadata,
         ?\Chargebee\Enums\Status $status,
         ?\Chargebee\Resources\GrantBlock\Enums\UnitType $unit_type,
@@ -196,6 +203,7 @@ class GrantBlock  {
         $this->resource_version = $resource_version;
         $this->provisioned_block_balance = $provisioned_block_balance;
         $this->overdraft_block_balance = $overdraft_block_balance;
+        $this->billing_metadata = $billing_metadata;
         $this->metadata = $metadata; 
         $this->status = $status; 
         $this->unit_type = $unit_type;
@@ -223,6 +231,7 @@ class GrantBlock  {
         $resourceAttributes['resource_version'] ?? null,
         isset($resourceAttributes['provisioned_block_balance']) ? ProvisionedBlockBalance::from($resourceAttributes['provisioned_block_balance']) : null,
         isset($resourceAttributes['overdraft_block_balance']) ? OverdraftBlockBalance::from($resourceAttributes['overdraft_block_balance']) : null,
+        isset($resourceAttributes['billing_metadata']) ? BillingMetadata::from($resourceAttributes['billing_metadata']) : null,
         $resourceAttributes['metadata'] ?? null,
         
         
@@ -260,6 +269,7 @@ class GrantBlock  {
         'resource_version' => $this->resource_version,
         
         
+        
         'metadata' => $this->metadata,
         
         'status' => $this->status?->value,
@@ -280,6 +290,9 @@ class GrantBlock  {
         }
         if($this->overdraft_block_balance instanceof OverdraftBlockBalance){
             $data['overdraft_block_balance'] = $this->overdraft_block_balance->toArray();
+        }
+        if($this->billing_metadata instanceof BillingMetadata){
+            $data['billing_metadata'] = $this->billing_metadata->toArray();
         }
         
 

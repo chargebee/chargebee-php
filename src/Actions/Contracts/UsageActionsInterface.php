@@ -24,6 +24,7 @@ Interface UsageActionsInterface
     * group_by?: array<array{
     *     feature_id?: string,
     *     attributes?: mixed,
+    *     window_size?: string,
     *     }>,
     *     disposition_type?: string,
     *     } $params Description of the parameters

@@ -426,6 +426,12 @@ class Invoice  extends SupportsCustomFields  {
     
     /**
     *
+    * @var ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method
+    */
+    public ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method;
+    
+    /**
+    *
     * @var ?\Chargebee\Enums\Channel $channel
     */
     public ?\Chargebee\Enums\Channel $channel;
@@ -524,6 +530,7 @@ class Invoice  extends SupportsCustomFields  {
         ?string $brand_id,
         ?SiteDetailsAtCreation $site_details_at_creation,
         ?\Chargebee\Enums\PriceType $price_type,
+        ?\Chargebee\Enums\OfflinePaymentMethod $offline_payment_method,
         ?\Chargebee\Enums\Channel $channel,
         ?\Chargebee\Resources\Invoice\Enums\Status $status,
         ?\Chargebee\Resources\Invoice\Enums\DunningStatus $dunning_status,
@@ -599,6 +606,7 @@ class Invoice  extends SupportsCustomFields  {
         $this->brand_id = $brand_id;
         $this->site_details_at_creation = $site_details_at_creation; 
         $this->price_type = $price_type;
+        $this->offline_payment_method = $offline_payment_method;
         $this->channel = $channel; 
         $this->status = $status;
         $this->dunning_status = $dunning_status; 
@@ -747,6 +755,8 @@ class Invoice  extends SupportsCustomFields  {
         
         isset($resourceAttributes['price_type']) ? \Chargebee\Enums\PriceType::tryFromValue($resourceAttributes['price_type']) : null,
         
+        isset($resourceAttributes['offline_payment_method']) ? \Chargebee\Enums\OfflinePaymentMethod::tryFromValue($resourceAttributes['offline_payment_method']) : null,
+        
         isset($resourceAttributes['channel']) ? \Chargebee\Enums\Channel::tryFromValue($resourceAttributes['channel']) : null,
          
         isset($resourceAttributes['status']) ? \Chargebee\Resources\Invoice\Enums\Status::tryFromValue($resourceAttributes['status']) : null,
@@ -836,6 +846,8 @@ class Invoice  extends SupportsCustomFields  {
         
         
         'price_type' => $this->price_type?->value,
+        
+        'offline_payment_method' => $this->offline_payment_method?->value,
         
         'channel' => $this->channel?->value,
         

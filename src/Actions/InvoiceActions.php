@@ -1005,6 +1005,8 @@ final class InvoiceActions implements InvoiceActionsInterface
     *   @param array{
     *     credit_notes?: array<array{
     *     id?: string,
+    *     amount?: int,
+    *     applied_at?: int,
     *     }>,
     *     comment?: string,
     *     } $params Description of the parameters
@@ -1324,6 +1326,7 @@ final class InvoiceActions implements InvoiceActionsInterface
     *     payment_source_id?: string,
     *     auto_collection?: string,
     *     net_term_days?: int,
+    *     offline_payment_method?: string,
     *     invoice_date?: int,
     *     create_pending_invoice?: bool,
     *     token_id?: string,

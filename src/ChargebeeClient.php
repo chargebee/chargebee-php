@@ -44,8 +44,6 @@ use Chargebee\Actions\Contracts\DifferentialPriceActionsInterface;
 use Chargebee\Actions\DifferentialPriceActions;
 use Chargebee\Actions\Contracts\DisputeActionsInterface;
 use Chargebee\Actions\DisputeActions;
-use Chargebee\Actions\Contracts\DraftRequestActionsInterface;
-use Chargebee\Actions\DraftRequestActions;
 use Chargebee\Actions\Contracts\EinvoiceActionsInterface;
 use Chargebee\Actions\EinvoiceActions;
 use Chargebee\Actions\Contracts\EmailLogActionsInterface;
@@ -62,6 +60,10 @@ use Chargebee\Actions\Contracts\ExportActionsInterface;
 use Chargebee\Actions\ExportActions;
 use Chargebee\Actions\Contracts\FeatureActionsInterface;
 use Chargebee\Actions\FeatureActions;
+use Chargebee\Actions\Contracts\GatewayRequestLogActionsInterface;
+use Chargebee\Actions\GatewayRequestLogActions;
+use Chargebee\Actions\Contracts\GatewayWebhookLogActionsInterface;
+use Chargebee\Actions\GatewayWebhookLogActions;
 use Chargebee\Actions\Contracts\GiftActionsInterface;
 use Chargebee\Actions\GiftActions;
 use Chargebee\Actions\Contracts\GrantBlockActionsInterface;
@@ -102,6 +104,8 @@ use Chargebee\Actions\Contracts\OmnichannelSubscriptionItemActionsInterface;
 use Chargebee\Actions\OmnichannelSubscriptionItemActions;
 use Chargebee\Actions\Contracts\OrderActionsInterface;
 use Chargebee\Actions\OrderActions;
+use Chargebee\Actions\Contracts\OrganizationDetailActionsInterface;
+use Chargebee\Actions\OrganizationDetailActions;
 use Chargebee\Actions\Contracts\PaymentIntentActionsInterface;
 use Chargebee\Actions\PaymentIntentActions;
 use Chargebee\Actions\Contracts\PaymentScheduleActionsInterface;
@@ -339,10 +343,6 @@ class ChargebeeClient {
         return new DisputeActions($this->httpClientFactory, $this->env);
     }
 
-    public function draftRequest() :DraftRequestActionsInterface {
-        return new DraftRequestActions($this->httpClientFactory, $this->env);
-    }
-
     public function einvoice() :EinvoiceActionsInterface {
         return new EinvoiceActions($this->httpClientFactory, $this->env);
     }
@@ -373,6 +373,14 @@ class ChargebeeClient {
 
     public function feature() :FeatureActionsInterface {
         return new FeatureActions($this->httpClientFactory, $this->env);
+    }
+
+    public function gatewayRequestLog() :GatewayRequestLogActionsInterface {
+        return new GatewayRequestLogActions($this->httpClientFactory, $this->env);
+    }
+
+    public function gatewayWebhookLog() :GatewayWebhookLogActionsInterface {
+        return new GatewayWebhookLogActions($this->httpClientFactory, $this->env);
     }
 
     public function gift() :GiftActionsInterface {
@@ -453,6 +461,10 @@ class ChargebeeClient {
 
     public function order() :OrderActionsInterface {
         return new OrderActions($this->httpClientFactory, $this->env);
+    }
+
+    public function organizationDetail() :OrganizationDetailActionsInterface {
+        return new OrganizationDetailActions($this->httpClientFactory, $this->env);
     }
 
     public function paymentIntent() :PaymentIntentActionsInterface {
