@@ -156,6 +156,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
     *     quantity?: int,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -645,6 +646,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     quantity?: int,
     *     operation_type?: string,
     *     id?: string,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -850,6 +852,7 @@ final class EstimateActions implements EstimateActionsInterface
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
     *     quantity?: int,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,

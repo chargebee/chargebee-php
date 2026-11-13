@@ -17,6 +17,12 @@ class Discount  {
     
     /**
     *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
+    *
     * @var ?float $percentage
     */
     public ?float $percentage;
@@ -114,7 +120,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "percentage" , "amount" , "quantity" , "currency_code" , "period" , "included_in_mrr" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "description" , "percentage" , "amount" , "quantity" , "currency_code" , "period" , "included_in_mrr" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
 
     /**
     * dynamic properties for resources
@@ -125,6 +131,7 @@ class Discount  {
     private function __construct(
         ?string $id,
         ?string $invoice_name,
+        ?string $description,
         ?float $percentage,
         ?int $amount,
         ?int $quantity,
@@ -145,6 +152,7 @@ class Discount  {
     { 
         $this->id = $id;
         $this->invoice_name = $invoice_name;
+        $this->description = $description;
         $this->percentage = $percentage;
         $this->amount = $amount;
         $this->quantity = $quantity;
@@ -167,6 +175,7 @@ class Discount  {
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
+        $resourceAttributes['description'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
         $resourceAttributes['quantity'] ?? null,
@@ -199,6 +208,7 @@ class Discount  {
         
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
+        'description' => $this->description,
         'percentage' => $this->percentage,
         'amount' => $this->amount,
         'quantity' => $this->quantity,

@@ -17,6 +17,12 @@ class Discount  {
     
     /**
     *
+    * @var ?string $description
+    */
+    public ?string $description;
+    
+    /**
+    *
     * @var ?string $type
     */
     public ?string $type;
@@ -114,7 +120,7 @@ class Discount  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "id" , "invoice_name" , "type" , "percentage" , "amount" , "quantity" , "currency_code" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
+    protected static array $knownFields = [ "id" , "invoice_name" , "description" , "type" , "percentage" , "amount" , "quantity" , "currency_code" , "duration_type" , "period" , "period_unit" , "included_in_mrr" , "apply_on" , "item_price_id" , "created_at" , "apply_till" , "applied_count" , "coupon_id" , "index"  ];
 
     /**
     * dynamic properties for resources
@@ -125,6 +131,7 @@ class Discount  {
     private function __construct(
         ?string $id,
         ?string $invoice_name,
+        ?string $description,
         ?string $type,
         ?float $percentage,
         ?int $amount,
@@ -145,6 +152,7 @@ class Discount  {
     { 
         $this->id = $id;
         $this->invoice_name = $invoice_name;
+        $this->description = $description;
         $this->type = $type;
         $this->percentage = $percentage;
         $this->amount = $amount;
@@ -167,6 +175,7 @@ class Discount  {
     { 
         $returnData = new self( $resourceAttributes['id'] ?? null,
         $resourceAttributes['invoice_name'] ?? null,
+        $resourceAttributes['description'] ?? null,
         $resourceAttributes['type'] ?? null,
         $resourceAttributes['percentage'] ?? null,
         $resourceAttributes['amount'] ?? null,
@@ -195,6 +204,7 @@ class Discount  {
         
         $data = array_filter(['id' => $this->id,
         'invoice_name' => $this->invoice_name,
+        'description' => $this->description,
         'type' => $this->type,
         'percentage' => $this->percentage,
         'amount' => $this->amount,

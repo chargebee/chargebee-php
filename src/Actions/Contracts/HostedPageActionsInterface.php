@@ -283,12 +283,17 @@ Interface HostedPageActionsInterface
     *     ending_unit_in_decimal?: string,
     *     price_in_decimal?: string,
     *     }>,
+    *     allowed_billing_frequencies?: array<array{
+    *     period?: int,
+    *     period_unit?: string,
+    *     }>,
     *     layout?: string,
     *     business_entity_id?: string,
     *     brand_id?: string,
     *     redirect_url?: string,
     *     coupon_ids?: array<string>,
-    * } $params Description of the parameters
+    * show_billing_frequency_selector?: bool,
+    *     } $params Description of the parameters
     *   
     *   @param array<string, string> $headers
     *   @return CheckoutGiftForItemsHostedPageResponse
@@ -524,6 +529,10 @@ Interface HostedPageActionsInterface
     *     operation?: string,
     *     standard?: string,
     *     }>,
+    *     allowed_billing_frequencies?: array<array{
+    *     period?: int,
+    *     period_unit?: string,
+    *     }>,
     *     layout?: string,
     *     business_entity_id?: string,
     *     brand_id?: string,
@@ -535,6 +544,7 @@ Interface HostedPageActionsInterface
     * redirect_url?: string,
     *     cancel_url?: string,
     *     pass_thru_content?: string,
+    *     show_billing_frequency_selector?: bool,
     *     allow_offline_payment_methods?: bool,
     *     } $params Description of the parameters
     *   
@@ -645,6 +655,10 @@ Interface HostedPageActionsInterface
     *     operation?: string,
     *     standard?: string,
     *     }>,
+    *     allowed_billing_frequencies?: array<array{
+    *     period?: int,
+    *     period_unit?: string,
+    *     }>,
     *     layout?: string,
     *     brand_id?: string,
     *     mandatory_items_to_remove?: array<string>,
@@ -664,6 +678,7 @@ Interface HostedPageActionsInterface
     *     redirect_url?: string,
     *     cancel_url?: string,
     *     pass_thru_content?: string,
+    *     show_billing_frequency_selector?: bool,
     *     allow_offline_payment_methods?: bool,
     *     } $params Description of the parameters
     *   

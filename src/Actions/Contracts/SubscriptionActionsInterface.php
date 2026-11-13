@@ -190,6 +190,7 @@ Interface SubscriptionActionsInterface
     *     quantity?: int,
     *     operation_type?: string,
     *     id?: string,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -1213,6 +1214,7 @@ Interface SubscriptionActionsInterface
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
     *     quantity?: int,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,

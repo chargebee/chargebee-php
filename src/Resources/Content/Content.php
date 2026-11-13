@@ -13,6 +13,8 @@ use Chargebee\Resources\AsyncResponseList\AsyncResponseList;
 use Chargebee\Resources\AttachedItem\AttachedItem;
 use Chargebee\Resources\Attribute\Attribute;
 use Chargebee\Resources\BillingConfiguration\BillingConfiguration;
+use Chargebee\Resources\BillingLineItem\BillingLineItem;
+use Chargebee\Resources\BillingMetadata\BillingMetadata;
 use Chargebee\Resources\Brand\Brand;
 use Chargebee\Resources\BusinessEntity\BusinessEntity;
 use Chargebee\Resources\BusinessEntityTransfer\BusinessEntityTransfer;
@@ -62,6 +64,8 @@ use Chargebee\Resources\Feature\Feature;
 use Chargebee\Resources\FilterCondition\FilterCondition;
 use Chargebee\Resources\GatewayErrorDetail\GatewayErrorDetail;
 use Chargebee\Resources\GatewayPaymentMethodToken\GatewayPaymentMethodToken;
+use Chargebee\Resources\GatewayRequestLog\GatewayRequestLog;
+use Chargebee\Resources\GatewayWebhookLog\GatewayWebhookLog;
 use Chargebee\Resources\Gift\Gift;
 use Chargebee\Resources\GrantBlock\GrantBlock;
 use Chargebee\Resources\GroupByAttribute\GroupByAttribute;
@@ -97,6 +101,7 @@ use Chargebee\Resources\OmnichannelSubscriptionItemOffer\OmnichannelSubscription
 use Chargebee\Resources\OmnichannelSubscriptionItemScheduledChange\OmnichannelSubscriptionItemScheduledChange;
 use Chargebee\Resources\OmnichannelTransaction\OmnichannelTransaction;
 use Chargebee\Resources\Order\Order;
+use Chargebee\Resources\OrganizationDetail\OrganizationDetail;
 use Chargebee\Resources\PaymentIntent\PaymentIntent;
 use Chargebee\Resources\PaymentReferenceNumber\PaymentReferenceNumber;
 use Chargebee\Resources\PaymentSchedule\PaymentSchedule;
@@ -221,6 +226,18 @@ class Content  {
     * @var ?BillingConfiguration $billingconfiguration
     */
     public ?BillingConfiguration $billingconfiguration;
+    
+    /**
+    *
+    * @var ?BillingLineItem $billinglineitem
+    */
+    public ?BillingLineItem $billinglineitem;
+    
+    /**
+    *
+    * @var ?BillingMetadata $billingmetadata
+    */
+    public ?BillingMetadata $billingmetadata;
     
     /**
     *
@@ -518,6 +535,18 @@ class Content  {
     
     /**
     *
+    * @var ?GatewayRequestLog $gatewayrequestlog
+    */
+    public ?GatewayRequestLog $gatewayrequestlog;
+    
+    /**
+    *
+    * @var ?GatewayWebhookLog $gatewaywebhooklog
+    */
+    public ?GatewayWebhookLog $gatewaywebhooklog;
+    
+    /**
+    *
     * @var ?Gift $gift
     */
     public ?Gift $gift;
@@ -725,6 +754,12 @@ class Content  {
     * @var ?Order $order
     */
     public ?Order $order;
+    
+    /**
+    *
+    * @var ?OrganizationDetail $organizationdetail
+    */
+    public ?OrganizationDetail $organizationdetail;
     
     /**
     *
@@ -1035,7 +1070,7 @@ class Content  {
     /**
     * @var array<string> $knownFields
     */
-    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "applied_rule" , "apply_rule" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "brand" , "business_entity" , "business_entity_transfer" , "business_rule" , "business_ruleset" , "business_ruleset_rule" , "card" , "citation" , "collections_dispute" , "collections_payment_promise" , "collections_reminder_sequence" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "custom_data" , "custom_data_schema" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "dispute" , "download" , "draft_estimate" , "draft_request" , "einvoice" , "email_attachment" , "email_conversation" , "email_log" , "email_message" , "entitlement" , "entitlement_override" , "estimate" , "event" , "execution" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gift" , "grant_block" , "group_by_attribute" , "group_by_recommendation" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "preference_variant" , "price_ramp" , "price_variant" , "pricing_page_session" , "private_note" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "ramp_interval" , "recorded_purchase" , "resource_migration" , "retry_segment" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
+    protected static array $knownFields = [ "addon" , "address" , "advance_invoice_schedule" , "alert" , "alert_status" , "applied_rule" , "apply_rule" , "async_response" , "async_response_list" , "attached_item" , "attribute" , "billing_configuration" , "billing_line_item" , "billing_metadata" , "brand" , "business_entity" , "business_entity_transfer" , "business_rule" , "business_ruleset" , "business_ruleset_rule" , "card" , "citation" , "collections_dispute" , "collections_payment_promise" , "collections_reminder_sequence" , "column_definition" , "comment" , "configuration" , "contact" , "contract_term" , "coupon" , "coupon_code" , "coupon_set" , "cpq_quote_signature" , "credit_note" , "credit_note_estimate" , "credit_unit" , "currency" , "custom_data" , "custom_data_schema" , "customer" , "customer_entitlement" , "differential_price" , "discount" , "dispute" , "download" , "draft_estimate" , "draft_request" , "einvoice" , "email_attachment" , "email_conversation" , "email_log" , "email_message" , "entitlement" , "entitlement_override" , "estimate" , "event" , "execution" , "export" , "feature" , "filter_condition" , "gateway_error_detail" , "gateway_payment_method_token" , "gateway_request_log" , "gateway_webhook_log" , "gift" , "grant_block" , "group_by_attribute" , "group_by_recommendation" , "hierarchy" , "hosted_page" , "impacted_customer" , "impacted_item" , "impacted_item_price" , "impacted_subscription" , "in_app_subscription" , "invoice" , "invoice_estimate" , "item" , "item_entitlement" , "item_family" , "item_price" , "ledger_account_balance" , "ledger_entry" , "ledger_operation" , "metadata" , "meter" , "metered_feature" , "non_subscription" , "offer_event" , "offer_fulfillment" , "omnichannel_one_time_order" , "omnichannel_one_time_order_item" , "omnichannel_subscription" , "omnichannel_subscription_item" , "omnichannel_subscription_item_metric" , "omnichannel_subscription_item_offer" , "omnichannel_subscription_item_scheduled_change" , "omnichannel_transaction" , "order" , "organization_detail" , "payment_intent" , "payment_reference_number" , "payment_schedule" , "payment_schedule_estimate" , "payment_schedule_scheme" , "payment_source" , "payment_voucher" , "personalized_offer" , "plan" , "portal_session" , "preference_variant" , "price_ramp" , "price_variant" , "pricing_page_session" , "private_note" , "promotional_credit" , "promotional_grant" , "purchase" , "quote" , "quote_entitlement" , "quote_line_group" , "quoted_charge" , "quoted_delta_ramp" , "quoted_ramp" , "quoted_subscription" , "ramp" , "ramp_interval" , "recorded_purchase" , "resource_migration" , "retry_segment" , "rule" , "site_migration_detail" , "subscription" , "subscription_entitlement" , "subscription_entitlements_created_detail" , "subscription_entitlements_updated_detail" , "subscription_estimate" , "tax_withheld" , "third_party_payment_method" , "time_machine" , "token" , "transaction" , "unbilled_charge" , "usage" , "usage_charge" , "usage_event" , "usage_file" , "usage_summary" , "vaulted_payment_method" , "virtual_bank_account" , "webhook_endpoint"  ];
 
     /**
     * dynamic properties for resources
@@ -1056,6 +1091,8 @@ class Content  {
         ?AttachedItem $attacheditem,
         ?Attribute $attribute,
         ?BillingConfiguration $billingconfiguration,
+        ?BillingLineItem $billinglineitem,
+        ?BillingMetadata $billingmetadata,
         ?Brand $brand,
         ?BusinessEntity $businessentity,
         ?BusinessEntityTransfer $businessentitytransfer,
@@ -1105,6 +1142,8 @@ class Content  {
         ?FilterCondition $filtercondition,
         ?GatewayErrorDetail $gatewayerrordetail,
         ?GatewayPaymentMethodToken $gatewaypaymentmethodtoken,
+        ?GatewayRequestLog $gatewayrequestlog,
+        ?GatewayWebhookLog $gatewaywebhooklog,
         ?Gift $gift,
         ?GrantBlock $grantblock,
         ?GroupByAttribute $groupbyattribute,
@@ -1140,6 +1179,7 @@ class Content  {
         ?OmnichannelSubscriptionItemScheduledChange $omnichannelsubscriptionitemscheduledchange,
         ?OmnichannelTransaction $omnichanneltransaction,
         ?Order $order,
+        ?OrganizationDetail $organizationdetail,
         ?PaymentIntent $paymentintent,
         ?PaymentReferenceNumber $paymentreferencenumber,
         ?PaymentSchedule $paymentschedule,
@@ -1205,6 +1245,8 @@ class Content  {
         $this->attacheditem = $attacheditem;
         $this->attribute = $attribute;
         $this->billingconfiguration = $billingconfiguration;
+        $this->billinglineitem = $billinglineitem;
+        $this->billingmetadata = $billingmetadata;
         $this->brand = $brand;
         $this->businessentity = $businessentity;
         $this->businessentitytransfer = $businessentitytransfer;
@@ -1254,6 +1296,8 @@ class Content  {
         $this->filtercondition = $filtercondition;
         $this->gatewayerrordetail = $gatewayerrordetail;
         $this->gatewaypaymentmethodtoken = $gatewaypaymentmethodtoken;
+        $this->gatewayrequestlog = $gatewayrequestlog;
+        $this->gatewaywebhooklog = $gatewaywebhooklog;
         $this->gift = $gift;
         $this->grantblock = $grantblock;
         $this->groupbyattribute = $groupbyattribute;
@@ -1289,6 +1333,7 @@ class Content  {
         $this->omnichannelsubscriptionitemscheduledchange = $omnichannelsubscriptionitemscheduledchange;
         $this->omnichanneltransaction = $omnichanneltransaction;
         $this->order = $order;
+        $this->organizationdetail = $organizationdetail;
         $this->paymentintent = $paymentintent;
         $this->paymentreferencenumber = $paymentreferencenumber;
         $this->paymentschedule = $paymentschedule;
@@ -1356,6 +1401,8 @@ class Content  {
         isset($resourceAttributes['attached_item']) ? AttachedItem::from($resourceAttributes['attached_item']) : null,
         isset($resourceAttributes['attribute']) ? Attribute::from($resourceAttributes['attribute']) : null,
         isset($resourceAttributes['billing_configuration']) ? BillingConfiguration::from($resourceAttributes['billing_configuration']) : null,
+        isset($resourceAttributes['billing_line_item']) ? BillingLineItem::from($resourceAttributes['billing_line_item']) : null,
+        isset($resourceAttributes['billing_metadata']) ? BillingMetadata::from($resourceAttributes['billing_metadata']) : null,
         isset($resourceAttributes['brand']) ? Brand::from($resourceAttributes['brand']) : null,
         isset($resourceAttributes['business_entity']) ? BusinessEntity::from($resourceAttributes['business_entity']) : null,
         isset($resourceAttributes['business_entity_transfer']) ? BusinessEntityTransfer::from($resourceAttributes['business_entity_transfer']) : null,
@@ -1405,6 +1452,8 @@ class Content  {
         isset($resourceAttributes['filter_condition']) ? FilterCondition::from($resourceAttributes['filter_condition']) : null,
         isset($resourceAttributes['gateway_error_detail']) ? GatewayErrorDetail::from($resourceAttributes['gateway_error_detail']) : null,
         isset($resourceAttributes['gateway_payment_method_token']) ? GatewayPaymentMethodToken::from($resourceAttributes['gateway_payment_method_token']) : null,
+        isset($resourceAttributes['gateway_request_log']) ? GatewayRequestLog::from($resourceAttributes['gateway_request_log']) : null,
+        isset($resourceAttributes['gateway_webhook_log']) ? GatewayWebhookLog::from($resourceAttributes['gateway_webhook_log']) : null,
         isset($resourceAttributes['gift']) ? Gift::from($resourceAttributes['gift']) : null,
         isset($resourceAttributes['grant_block']) ? GrantBlock::from($resourceAttributes['grant_block']) : null,
         isset($resourceAttributes['group_by_attribute']) ? GroupByAttribute::from($resourceAttributes['group_by_attribute']) : null,
@@ -1440,6 +1489,7 @@ class Content  {
         isset($resourceAttributes['omnichannel_subscription_item_scheduled_change']) ? OmnichannelSubscriptionItemScheduledChange::from($resourceAttributes['omnichannel_subscription_item_scheduled_change']) : null,
         isset($resourceAttributes['omnichannel_transaction']) ? OmnichannelTransaction::from($resourceAttributes['omnichannel_transaction']) : null,
         isset($resourceAttributes['order']) ? Order::from($resourceAttributes['order']) : null,
+        isset($resourceAttributes['organization_detail']) ? OrganizationDetail::from($resourceAttributes['organization_detail']) : null,
         isset($resourceAttributes['payment_intent']) ? PaymentIntent::from($resourceAttributes['payment_intent']) : null,
         isset($resourceAttributes['payment_reference_number']) ? PaymentReferenceNumber::from($resourceAttributes['payment_reference_number']) : null,
         isset($resourceAttributes['payment_schedule']) ? PaymentSchedule::from($resourceAttributes['payment_schedule']) : null,
@@ -1649,6 +1699,11 @@ class Content  {
         
         
         
+        
+        
+        
+        
+        
         ], function ($value) {
             return $value !== null;
         });
@@ -1689,6 +1744,12 @@ class Content  {
         }
         if($this->billingconfiguration instanceof BillingConfiguration){
             $data['billing_configuration'] = $this->billingconfiguration->toArray();
+        }
+        if($this->billinglineitem instanceof BillingLineItem){
+            $data['billing_line_item'] = $this->billinglineitem->toArray();
+        }
+        if($this->billingmetadata instanceof BillingMetadata){
+            $data['billing_metadata'] = $this->billingmetadata->toArray();
         }
         if($this->brand instanceof Brand){
             $data['brand'] = $this->brand->toArray();
@@ -1837,6 +1898,12 @@ class Content  {
         if($this->gatewaypaymentmethodtoken instanceof GatewayPaymentMethodToken){
             $data['gateway_payment_method_token'] = $this->gatewaypaymentmethodtoken->toArray();
         }
+        if($this->gatewayrequestlog instanceof GatewayRequestLog){
+            $data['gateway_request_log'] = $this->gatewayrequestlog->toArray();
+        }
+        if($this->gatewaywebhooklog instanceof GatewayWebhookLog){
+            $data['gateway_webhook_log'] = $this->gatewaywebhooklog->toArray();
+        }
         if($this->gift instanceof Gift){
             $data['gift'] = $this->gift->toArray();
         }
@@ -1941,6 +2008,9 @@ class Content  {
         }
         if($this->order instanceof Order){
             $data['order'] = $this->order->toArray();
+        }
+        if($this->organizationdetail instanceof OrganizationDetail){
+            $data['organization_detail'] = $this->organizationdetail->toArray();
         }
         if($this->paymentintent instanceof PaymentIntent){
             $data['payment_intent'] = $this->paymentintent->toArray();

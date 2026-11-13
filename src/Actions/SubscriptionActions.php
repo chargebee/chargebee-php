@@ -223,6 +223,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *     quantity?: int,
     *     operation_type?: string,
     *     id?: string,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,
@@ -1649,6 +1650,7 @@ final class SubscriptionActions implements SubscriptionActionsInterface
     *     included_in_mrr?: bool,
     *     item_price_id?: string,
     *     quantity?: int,
+    *     description?: string,
     *     }>,
     *     item_tiers?: array<array{
     *     item_price_id?: string,

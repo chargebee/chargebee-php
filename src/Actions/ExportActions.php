@@ -546,8 +546,8 @@ final class ExportActions implements ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -811,8 +811,8 @@ final class ExportActions implements ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -922,8 +922,8 @@ final class ExportActions implements ExportActionsInterface
     *             },
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,
@@ -2211,8 +2211,8 @@ final class ExportActions implements ExportActionsInterface
     *     not_in?: mixed,
     *     },
     * business_entity_id?: array{
-    *     is_present?: mixed,
     *     is?: mixed,
+    *     is_present?: mixed,
     *     },
     * include_site_level_resources?: array{
     *     is?: mixed,

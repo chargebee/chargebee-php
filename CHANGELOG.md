@@ -1,3 +1,64 @@
+### v4.29.0 (2026-11-13)
+* * *
+### New Resources:
+- `BillingLineItem` has been added.
+- `BillingMetadata` has been added.
+- `GatewayRequestLog` has been added.
+- `GatewayWebhookLog` has been added.
+- `OrganizationDetail` has been added.
+
+
+### New Attributes:
+- `description` has been added to `Discount`.
+- `billing_metadata` has been added to `GrantBlock`.
+- `offline_payment_method` has been added to `Invoice`.
+
+
+### New Parameters:
+- `discounts.description` has been added as request body parameter to `estimate_for_creating_a_customer_and_subscription` in `Estimate`.
+- `discounts.description` has been added as request body parameter to `estimate_for_updating_a_subscription` in `Estimate`.
+- `discounts.description` has been added as request body parameter to `estimate_for_creating_a_subscription` in `Estimate`.
+- `allowed_billing_frequencies` has been added as request body parameter to `checkout_gift_subscription_for_items` in `HostedPage`.
+- `show_billing_frequency_selector` has been added as request body parameter to `checkout_gift_subscription_for_items` in `HostedPage`.
+- `allowed_billing_frequencies` has been added as request body parameter to `create_checkout_for_a_new_subscription` in `HostedPage`.
+- `show_billing_frequency_selector` has been added as request body parameter to `create_checkout_for_a_new_subscription` in `HostedPage`.
+- `allowed_billing_frequencies` has been added as request body parameter to `create_checkout_to_update_a_subscription` in `HostedPage`.
+- `show_billing_frequency_selector` has been added as request body parameter to `create_checkout_to_update_a_subscription` in `HostedPage`.
+- `credit_notes.amount` has been added as request body parameter to `apply_credits_for_an_invoice` in `Invoice`.
+- `credit_notes.applied_at` has been added as request body parameter to `apply_credits_for_an_invoice` in `Invoice`.
+- `offline_payment_method` has been added as request body parameter to `create_invoice_for_items_and_one-time_charges` in `Invoice`.
+- `discounts.description` has been added as request body parameter to `update_subscription_for_items` in `Subscription`.
+- `discounts.description` has been added as request body parameter to `create_subscription_for_items` in `Subscription`.
+- `group_by.window_size` has been added as request body parameter to `retrieve_usages_for_an_invoice_as_pdf` in `Usage`.
+
+
+### New Events:
+- `organization_details_updated` has been added.
+- `organization_details_created` has been added.
+
+
+### Deleted Actions:
+- `list_citations_for_a_draft_request` has been removed from `DraftRequest`.
+- `add_citations_to_a_draft_request` has been removed from `DraftRequest`.
+- `execute_a_draft_request` has been removed from `DraftRequest`.
+- `estimate_a_draft_request` has been removed from `DraftRequest`.
+- `list_comments_for_a_draft_request` has been removed from `DraftRequest`.
+- `add_comments_to_a_draft_request` has been removed from `DraftRequest`.
+- `retrieve_a_draft_request` has been removed from `DraftRequest`.
+- `update_a_draft_request` has been removed from `DraftRequest`.
+- `create_a_draft_request` has been removed from `DraftRequest`.
+
+
+### New Enums:
+- `organization_details_created` and `organization_details_updated` have been added as new values enum `EventType`.
+- `invocation_time` has been added as a new value to enum query parameter `sort_by.asc` in `list_gateway_request_logs` of `GatewayRequestLog`.
+- `invocation_time` has been added as a new value to enum query parameter `sort_by.desc` in `list_gateway_request_logs` of `GatewayRequestLog`.
+- `received_at` has been added as a new value to enum query parameter `sort_by.asc` in `list_gateway_webhook_logs` of `GatewayWebhookLog`.
+- `received_at` has been added as a new value to enum query parameter `sort_by.desc` in `list_gateway_webhook_logs` of `GatewayWebhookLog`.
+- `none` and `day` have been added as new values to enum request body parameter `group_by.window_size` in `retrieve_usages_for_an_invoice_as_pdf` of `Usage`.
+
+
+
 ### v4.28.0 (2026-11-02)
 * * *
 ### New Resources:
